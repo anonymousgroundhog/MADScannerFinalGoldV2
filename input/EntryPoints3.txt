@@ -1,0 +1,24 @@
+com.google.android.gms.ads.AdListener
+: void onAdClicked() 
+: void onAdClosed() 
+: void onAdLoaded() 
+: void onAdImpression() 
+: void onAdOpened()
+com.google.android.gms.ads.admanager.AdManagerAdView
+: void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)
+com.google.android.gms.example.interstitialexample.MyActivity
+: void loadAd() 
+com.google.android.gms.ads.MobileAds
+: void initialize()
+androidx.appcompat.app.AppCompatActivity
+: void onCreate(android.os.Bundle)
+com.google.android.gms.ads.FullScreenContentCallback
+: void onAdImpression()
+: void onAdClicked()
+: void onAdImpression()
+: void onAdClicked()
+: void setFullScreenContentCallback(com.google.android.gms.ads.FullScreenContentCallback)
+androidx.appcompat.app.AppCompatActivity
+: void onCreate(android.os.Bundle)
+android.util.Log:
+: int i(java.lang.String,java.lang.String)
