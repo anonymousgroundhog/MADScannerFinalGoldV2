@@ -10,6 +10,7 @@ class Android_App:
         self.app_name_only = apk_location.replace(".apk", "").split("/").pop()
         self.hash_value = self.Calculate_Hash_of_File(apk_location)
         self.apk_info = self.Get_APK_Info(apk_location)
+        print(self.apk_info)
         self.desired_capabilities = {
             "platformName": "Android",
             "deviceName": "7040018020065015",
@@ -72,8 +73,9 @@ class Android_App:
 
     def click_on_button_by_class(self, id):
         for elem in self.driver.find_elements(By.CLASS_NAME, id):
-            print(elem)
-            elem.click()
+            if len(self.driver.find_elements(By.CLASS_NAME, id)) > 0:
+                print(elem)
+                elem.click()
 
     def click_on_button_by_id(self, id):
         self.driver.find_element(By.ID, id).click()
@@ -114,7 +116,10 @@ class Android_App:
         #--------------------------------------Clicking Events Start HERE--------------------------------------
         time.sleep(2)
         self.click_on_button_by_class("android.widget.LinearLayout")
+        source_xml = self.driver.page_source
         self.click_on_button_by_class("android.widget.Button")
+#        source_xml = self.driver.page_source
+#        self.click_on_button_by_class("android.view.View")
 
     def Zip_Sign_And_Install_APK(self):
         directory = os.getcwd()
@@ -169,5 +174,4 @@ for apk in os.listdir(dir_to_test):
         this_apk.Instrument_Interface(this_apk.app_name_only)
         Clear_Process_By_Name()
         this_apk.Uninstall_App()
-#        os.chdir(directory)
 Run_System_Command("rm *.txt")

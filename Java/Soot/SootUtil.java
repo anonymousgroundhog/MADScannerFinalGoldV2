@@ -346,7 +346,7 @@ public class SootUtil
                     {
                         StaticInvokeExpression = (StaticInvokeExpr) SootValue;
                         MethodName = StaticInvokeExpression.getMethod().getName().toString();
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::"+"", StringArrayOfStaticInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName, true);
+                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfStaticInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName, true);
                     }
                     if(SootValueIsASpecialInvokeExpr)
                     {
@@ -354,7 +354,7 @@ public class SootUtil
                         MethodName = SpecialInvokeExpression.getMethod().getName().toString();
                         IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName+":", true);
                         IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName+":", false);
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::"+"", StringArrayOfSpecialInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
+                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
                     }
                 }
             }

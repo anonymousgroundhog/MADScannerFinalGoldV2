@@ -23,7 +23,8 @@ for apk in os.listdir(APK_Folder):
 print(os.getcwd())
 Soot_Output_Folder ='../sootOutput'
 keystore_location = '../../my-release-key.keystore'
-for folder in os.listdir(Soot_Output_Folder):
+#for folder in os.listdir(Soot_Output_Folder):
+for apk in os.listdir(Soot_Output_Folder):
   if "signed" not in str(apk):
     location = Soot_Output_Folder+"/"+apk
     location_signed = Soot_Output_Folder+"/"+"signed"+apk
@@ -35,5 +36,4 @@ for folder in os.listdir(Soot_Output_Folder):
     os.system(" ".join(cmd))
 
 os.chdir("../sootOutput")
-print(os.listdir())
 os.system("rm *.idsig")
