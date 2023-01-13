@@ -1,4 +1,4 @@
-import os, pandas as pd, json
+import os, pandas as pd, json, polars as pl, gc
 import time, re, hashlib, subprocess
 from appium import webdriver
 from selenium.webdriver.common.by import By
@@ -123,11 +123,11 @@ class Android_App:
 
     def Zip_Sign_And_Install_APK(self):
         directory = os.getcwd()
-        print("DIRECTORY:"+directory)
-        self.Run_System_Command('zipalign -f -v 4 '+self.apk_loc+' signed'+self.app_name_only+'.apk')
-        self.Run_System_Command('apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password signed'+self.app_name_only+'.apk')
-        self.Run_System_Command('mv *.apk ../Java/Classes/sootOutput/'+self.app_name_only)
-        self.Run_System_Command('adb install ../Java/Classes/sootOutput/'+self.app_name_only+'/signed'+self.app_name_only+'.apk')
+        print(''.join(["DIRECTORY:",directory]))
+        self.Run_System_Command(''.join(['zipalign -f -v 4 ',self.apk_loc,' signed',self.app_name_only,'.apk']))
+        self.Run_System_Command(''.join(['apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password signed',self.app_name_only,'.apk']))
+        self.Run_System_Command(''.join(['mv *.apk ../Java/Classes/sootOutput/',self.app_name_only]))
+        self.Run_System_Command(''.join(['adb install ../Java/Classes/sootOutput/',self.app_name_only,'/signed',self.app_name_only,'.apk']))
 
 class Logcat:
     def __init__(self, strdir):
@@ -194,7 +194,6 @@ class Logcat:
             return statesdict['addisplayed']
             #return("The app is running and the advertisement impression is made")
 
-
     def Run_Logcat_Analysis(self):
         dates = []
         apps = []
@@ -210,7 +209,7 @@ class Logcat:
                 count += 1
                 line_formatted = line.strip().split("FiniteState:")
                 date_time_stamp = self.Return_Nth_Element_List(line_formatted,0).split(" ")
-                date_time_stamp = date_time_stamp[0] + " " + date_time_stamp[1]
+                date_time_stamp = ''.join([date_time_stamp[0]," ", date_time_stamp[1]])
 
                 if '----' not in date_time_stamp:
                     line_details_method_specific = str(line_formatted[1::1]).replace("[","").replace("]","").replace("'","").replace("  ","")
@@ -238,3 +237,31 @@ class Logcat:
                     units.append(unit)
                     memory_locations.append(str(mem).replace("Memory Location of","").replace("is","="))
         self.dataframe = pd.DataFrame({'dates' : dates, 'apps' : apps, 'hashes': hashes, 'methods' : methods, 'units' :  units, 'memory_locations' : memory_locations})
+        del(dates, apps, hashes, methods, units, memory_locations)
+        gc.collect()
+
+    def Sliding_Window(self,arr, window_size):
+        result = []
+        for i in range(len(arr) - window_size + 1):
+            result.append(arr[i:i+window_size])
+        return result
+
+    def Generate_Model_From_Dataframe(self):
+        #print(self.dataframe)
+        items = []
+        for unit in self.dataframe['units']:
+            id = unit.split('>').pop().replace('(','').replace(')','')
+            #if id.__contains__("$") or id.__contains__("r") or id.__contains__("()") or id.__contains__("i"):
+            if id.isnumeric():
+                items.append(id)
+            else:
+                items.append('null')
+        self.dataframe['ids'] = items 
+        #print(self.dataframe)
+        
+        unique_apps = self.dataframe['apps'].unique()
+        unique_apps_choice = 0
+        print(unique_apps[unique_apps_choice])
+        filtered_dataframe = self.dataframe[self.dataframe['apps'] == unique_apps[unique_apps_choice]]
+        for index,row in filtered_dataframe.iterrows():
+            print('date:',row['dates'],' unit:',row['units'],' memory_locations:',row['memory_locations'],'ID:', row['ids'])
