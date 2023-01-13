@@ -30,60 +30,57 @@ def Return_Nth_Element_List(this_list, elem_num):
     return ((this_list[elem_num:elem_num+1]+[elem_num])[0])
 
 def Run_Framework_on_APKS():
-    Main_Project_Directory = "../"
-    Classes_Folder = Main_Project_Directory+"/Java/Classes"
+    #Classes_Folder = "../Java/Classes"
     Soot_Output_Folder ="../sootOutput/"
-    Java_Folder = Main_Project_Directory+"/Java"
-
-    cmd = ['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']
+    #Java_Folder = "../Java"
 
     os.chdir('../Java')
-    os.system(" ".join(cmd))
+    os.system(" ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
 
     param_format = 'dex'
     APK_Folder= "../../APK/"
-    apkfile=''
     os.chdir('Classes')
     for apk in os.listdir(APK_Folder):
-        apk_output = [Soot_Output_Folder,str(apkfile).replace(".apk","").replace("/content/APK","")]
-        cmd = ['java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",apk]),param_format,"".join(apk_output)]
-        os.system(" ".join(cmd))
+        apk_output = ''.join([Soot_Output_Folder,str(apk).replace(".apk","").replace("../","").replace("APK","")])
+        print(''.join(["APK_OUTPUT:",str(apk_output)]))
+        os.system(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",apk]),param_format,apk_output]))
 
-    print(os.getcwd())
     Soot_Output_Folder ='../sootOutput'
     keystore_location = '../../my-release-key.keystore'
-    #for folder in os.listdir(Soot_Output_Folder):
-    for apk in os.listdir(Soot_Output_Folder):
-      if "signed" not in str(apk):
-        location = Soot_Output_Folder+"/"+apk
-        location_signed = Soot_Output_Folder+"/"+"signed"+apk
-        print(location)
-        print(location_signed)
-        cmd = ['zipalign', '-f','-v', '4', location,location_signed]
-        os.system(" ".join(cmd))
-        cmd=['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]
-        os.system(" ".join(cmd))
+    for directory in os.listdir(Soot_Output_Folder):
+        for apk in os.listdir(''.join([Soot_Output_Folder,"/",directory])):
+          if "signed" not in str(apk):
+            location = ''.join([Soot_Output_Folder,"/",directory,'/',apk])
+            location_signed = ''.join([Soot_Output_Folder,"/",directory,"/signed",apk])
+            #cmd = ['zipalign', '-f','-v', '4', location,location_signed]
+            os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
+            #cmd=['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]
+            os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
+            os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
+            os.system(''.join(['rm ',location]))
 
     os.chdir("../sootOutput")
-    os.system("rm *.idsig")
     os.chdir("../../Python")
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-#Run_Framework_on_APKS()
+Run_Framework_on_APKS()
 #------------------------------------INSTUMRENT------------------------------------
-os.system("clear")
+print(os.getcwd())
 dir_to_test = '../Java/sootOutput'
-for apk in os.listdir(dir_to_test):
-    if apk.__contains__("signed"):
-        this_apk = Android_App(dir_to_test+"/"+apk) 
-        os.system("".join(['adb install ../Java/sootOutput/',apk]))
-        Clear_Log()
-        Log(this_apk.app_name_only)
-        time.sleep(1)
-        this_apk.Instrument_Interface(this_apk.app_name_only)
-        Clear_Process_By_Name()
-        this_apk.Uninstall_App()
+for directory in os.listdir(dir_to_test):
+    for apk in os.listdir(''.join([dir_to_test,"/",directory])):
+        if apk.__contains__("signed"):
+            apk_location = ''.join([dir_to_test,'/',directory,"/",apk])
+            print(apk_location)
+            this_apk = Android_App(apk_location) 
+            os.system("".join(['adb install ',apk_location]))
+            Clear_Log()
+            Log(this_apk.app_name_only)
+            time.sleep(1)
+            this_apk.Instrument_Interface(this_apk.app_name_only)
+            Clear_Process_By_Name()
+            this_apk.Uninstall_App()
 Run_System_Command("rm *.txt")
 
 print(os.getcwd())
