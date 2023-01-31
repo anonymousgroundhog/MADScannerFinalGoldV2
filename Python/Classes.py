@@ -73,9 +73,13 @@ class Android_App:
 
     def click_on_button_by_class(self, id):
         for elem in self.driver.find_elements(By.CLASS_NAME, id):
-            if len(self.driver.find_elements(By.CLASS_NAME, id)) > 0:
-                print(elem)
-                elem.click()
+            if len(self.driver.find_elements(By.CLASS_NAME, id)) > 0:  
+                try:
+                    print(elem)
+                    elem.click()
+                except:
+                    print(''.join(["elem doesn't exist:",str(id)]))
+                    continue
 
     def click_on_button_by_id(self, id):
         self.driver.find_element(By.ID, id).click()
@@ -108,18 +112,24 @@ class Android_App:
 #        file.write(source_xml)
 #        file.close()
         self.click_on_button_by_class_permission("android.widget.Button")
+        source_xml = self.driver.page_source
         time.sleep(2)
         time.sleep(2)
         self.click_on_button_by_class_permission("android.widget.Button")
         time.sleep(2)
         source_xml = self.driver.page_source
         #--------------------------------------Clicking Events Start HERE--------------------------------------
-        time.sleep(2)
         self.click_on_button_by_class("android.widget.LinearLayout")
         source_xml = self.driver.page_source
         self.click_on_button_by_class("android.widget.Button")
+        self.driver.swipe(150, 500, 250, 200, 1000)
+        #time.sleep(2)
+#        self.driver.back()
 #        source_xml = self.driver.page_source
 #        self.click_on_button_by_class("android.view.View")
+        #driver.press_keycode(4)
+
+        time.sleep(2)
 
     def Zip_Sign_And_Install_APK(self):
         directory = os.getcwd()
