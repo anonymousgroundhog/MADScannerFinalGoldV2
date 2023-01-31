@@ -66,7 +66,7 @@ def Run_Framework_on_APKS():
 os.system("clear")
 #Run_Framework_on_APKS()
 #------------------------------------INSTUMRENT------------------------------------
-print(os.getcwd())
+#print(os.getcwd())
 dir_to_test = '../Java/sootOutput'
 for directory in os.listdir(dir_to_test):
     for apk in os.listdir(''.join([dir_to_test,"/",directory])):
@@ -75,7 +75,8 @@ for directory in os.listdir(dir_to_test):
             print(apk_location)
             this_apk = Android_App(apk_location) 
             os.system("".join(['adb install ',apk_location]))
-            Clear_Log()
+            #Clear_Log()
+            time.sleep(1)
             Log(this_apk.app_name_only)
             time.sleep(1)
             this_apk.Instrument_Interface(this_apk.app_name_only)
@@ -83,7 +84,7 @@ for directory in os.listdir(dir_to_test):
             this_apk.Uninstall_App()
 Run_System_Command("rm *.txt")
 
-print(os.getcwd())
+#print(os.getcwd())
 
 #------------------------------------LOGGING------------------------------------
 Logcat_Folder = "../ADB_Logcat_Logs/"

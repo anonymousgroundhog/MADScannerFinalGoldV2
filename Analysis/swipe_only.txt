@@ -1,0 +1,96 @@
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: specialinvoke r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=17763246048 ID: null
+unit: specialinvoke r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=17678653808 ID: null
+unit: specialinvoke r0.<androidx.core.app.ComponentActivity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=19174747960 ID: null
+unit: specialinvoke r0.<androidx.activity.ComponentActivity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=19278767104 ID: null
+unit: specialinvoke r0.<androidx.fragment.app.FragmentActivity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=19287295176 ID: null
+unit: specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1)  memory_locations:  $r1=19139045768 ID: null
+unit: $r1 = virtualinvoke r0.<androidx.appcompat.widget.ActionBarContainer: android.view.View findViewById(int)>($i0)  memory_locations: $r1=19316363024 $i0=19316363048 ID: null
+unit: $r7 = virtualinvoke r6.<android.view.ViewGroup: android.view.View findViewById(int)>(i0)  memory_locations: $r7=19309553008 ID: null
+unit: $r2 = virtualinvoke r0.<androidx.appcompat.widget.ActionBarOverlayLayout: android.view.View findViewById(int)>($i0)  memory_locations: $r2=19164319240 $i0=19164319552 ID: null
+unit: $r7 = virtualinvoke r4.<android.view.Window: android.view.View findViewById(int)>(16908290)  memory_locations: $r7=19309553008 ID: 16908290
+unit: $r2 = virtualinvoke r1.<android.view.ViewGroup: android.view.View findViewById(int)>(16908290)  memory_locations: $r2=19309593528 ID: 16908290
+unit: $r2 = virtualinvoke r1.<android.view.ViewGroup: android.view.View findViewById(int)>(16908290)  memory_locations: $r2=19309514136 ID: 16908290
+unit: virtualinvoke $r1.<androidx.appcompat.app.AppCompatDelegate: void setContentView(int)>($i0)  memory_locations:  $i0=19287291840 ID: null
+unit: virtualinvoke r0.<com.google.android.gms.example.bannerrecyclerviewexample.MainActivity: void setContentView(int)>(2131361820)  memory_locations:  ID: 2131361820
+unit: $r1 = virtualinvoke $r2.<android.view.Window: android.view.View findViewById(int)>($i0)  memory_locations: $r1=19309535200 $i0=19309535224 ID: null
+unit: $r2 = virtualinvoke $r1.<androidx.appcompat.app.AppCompatDelegate: android.view.View findViewById(int)>($i0)  memory_locations: $r2=19287298984 $i0=19287299056 ID: null
+unit: $r2 = virtualinvoke r0.<com.google.android.gms.example.bannerrecyclerviewexample.MainActivity: android.view.View findViewById(int)>(2131165318)  memory_locations: $r2=19139046080 ID: 2131165318
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: specialinvoke r2.<com.google.android.gms.ads.AdView: void <init>(android.content.Context)>(r0)  memory_locations:  ID: null
+unit: virtualinvoke r2.<com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)>("ca-app-pub-3940256099942544/4177191030")  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: $r3 = virtualinvoke $r1.<android.view.View: android.view.View findViewById(int)>($i0)  memory_locations: $r3=17661426808 $i0=17661426784 ID: null
+unit: $r3 = virtualinvoke $r1.<android.view.View: android.view.View findViewById(int)>($i0)  memory_locations: $r3=17661426808 $i0=17661426784 ID: null
+unit: $r1 = virtualinvoke $r1.<android.view.View: android.view.View findViewById(int)>($i0)  memory_locations: $r1=17661426736 $i0=17661426784 ID: null
+unit: $r3 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(16908290)  memory_locations: $r3=17661066392 ID: 16908290
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: virtualinvoke r3.<com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)>($r6)  memory_locations:  $r6=19139019776 ID: null
+unit: specialinvoke r0.<com.google.android.gms.ads.AdListener: void onAdLoaded()>()  memory_locations:  ID: null
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165300)  memory_locations: $r3=17665334104 ID: 2131165300
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165301)  memory_locations: $r3=17665334104 ID: 2131165301
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165302)  memory_locations: $r3=17665334104 ID: 2131165302
+unit: $r3 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165298)  memory_locations: $r3=17665334104 ID: 2131165298
+unit: $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(2131165299)  memory_locations: $r2=17665334080 ID: 2131165299

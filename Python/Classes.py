@@ -121,8 +121,8 @@ class Android_App:
         #--------------------------------------Clicking Events Start HERE--------------------------------------
         self.click_on_button_by_class("android.widget.LinearLayout")
         source_xml = self.driver.page_source
-        self.click_on_button_by_class("android.widget.Button")
-        self.driver.swipe(150, 500, 250, 200, 1000)
+        #self.click_on_button_by_class("android.widget.Button")
+        self.driver.swipe(150, 800, 250, 200, 1000)
         #time.sleep(2)
 #        self.driver.back()
 #        source_xml = self.driver.page_source
@@ -270,7 +270,7 @@ class Logcat:
         #print(self.dataframe)
         
         unique_apps = self.dataframe['apps'].unique()
-        unique_apps_choice = 0
+        unique_apps_choice = 1
         print(unique_apps[unique_apps_choice])
         filtered_dataframe = self.dataframe[self.dataframe['apps'] == unique_apps[unique_apps_choice]]
         for index,row in filtered_dataframe.iterrows():
