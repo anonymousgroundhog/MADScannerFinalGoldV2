@@ -61,7 +61,7 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_APKS('dex')
+#Run_Framework_on_APKS('dex')
 #Run_Framework_on_APKS('J')
 #------------------------------------INSTUMRENT------------------------------------
 #print(os.getcwd())
@@ -73,7 +73,7 @@ Run_Framework_on_APKS('dex')
 #            print(apk_location)
 #            this_apk = Android_App(apk_location) 
 #            os.system("".join(['adb install ',apk_location]))
-#            #Clear_Log()
+#            Clear_Log()
 #            time.sleep(1)
 #            Log(this_apk.app_name_only)
 #            time.sleep(1)
@@ -85,7 +85,7 @@ Run_Framework_on_APKS('dex')
 #print(os.getcwd())
 
 #------------------------------------LOGGING------------------------------------
-#Logcat_Folder = "../ADB_Logcat_Logs/"
-#this_logcat = Logcat(Logcat_Folder) 
-#this_logcat.Run_Logcat_Analysis()
-#this_logcat.Generate_Model_From_Dataframe()
+Logcat_Folder = "../ADB_Logcat_Logs/"
+this_logcat = Logcat(Logcat_Folder) 
+this_logcat.Run_Logcat_Analysis()
+this_logcat.Generate_Model_From_Dataframe()

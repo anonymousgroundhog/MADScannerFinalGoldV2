@@ -126,6 +126,7 @@ class Android_App:
         #time.sleep(2)
 #        self.driver.back()
 #        source_xml = self.driver.page_source
+        self.click_on_button_by_class("android.widget.TextView")
 #        self.click_on_button_by_class("android.view.View")
         #driver.press_keycode(4)
 
@@ -274,4 +275,7 @@ class Logcat:
         print(unique_apps[unique_apps_choice])
         filtered_dataframe = self.dataframe[self.dataframe['apps'] == unique_apps[unique_apps_choice]]
         for index,row in filtered_dataframe.iterrows():
+            for item in row['units'].split(':'): 
+                if item.__contains__('('):
+                    print(''.join(['Test:',str(item.split('(')[0]).replace('void ','').replace('android.view.View ','')]))
             print('date:',row['dates'],' unit:',row['units'],' memory_locations:',row['memory_locations'],'ID:', row['ids'])
