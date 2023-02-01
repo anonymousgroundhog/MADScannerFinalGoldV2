@@ -29,15 +29,12 @@ def Run_Framework(param_format, apkfile, output_dir):
 def Return_Nth_Element_List(this_list, elem_num):
     return ((this_list[elem_num:elem_num+1]+[elem_num])[0])
 
-def Run_Framework_on_APKS():
-    #Classes_Folder = "../Java/Classes"
+def Run_Framework_on_APKS(param_format):
     Soot_Output_Folder ="../sootOutput/"
-    #Java_Folder = "../Java"
 
     os.chdir('../Java')
     os.system(" ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
 
-    param_format = 'J'
     APK_Folder= "../../APK/"
     os.chdir('Classes')
     for apk in os.listdir(APK_Folder):
@@ -64,7 +61,8 @@ def Run_Framework_on_APKS():
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_APKS()
+Run_Framework_on_APKS('dex')
+#Run_Framework_on_APKS('J')
 #------------------------------------INSTUMRENT------------------------------------
 #print(os.getcwd())
 #dir_to_test = '../Java/sootOutput'
