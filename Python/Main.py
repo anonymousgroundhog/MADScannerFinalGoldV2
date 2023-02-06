@@ -61,25 +61,25 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_APKS('dex')
+#Run_Framework_on_APKS('dex')
 #Run_Framework_on_APKS('J')
 #------------------------------------INSTUMRENT------------------------------------
-dir_to_test = '../Java/sootOutput'
-for directory in os.listdir(dir_to_test):
-    for apk in os.listdir(''.join([dir_to_test,"/",directory])):
-        if apk.__contains__("signed"):
-            apk_location = ''.join([dir_to_test,'/',directory,"/",apk])
-            print(apk_location)
-            this_apk = Android_App(apk_location) 
-            os.system("".join(['adb install ',apk_location]))
-            Clear_Log()
-            time.sleep(1)
-            Log(this_apk.app_name_only)
-            time.sleep(1)
-            this_apk.Instrument_Interface(this_apk.app_name_only)
-            Clear_Process_By_Name()
-            this_apk.Uninstall_App()
-Run_System_Command("rm *.txt")
+#dir_to_test = '../Java/sootOutput'
+#for directory in os.listdir(dir_to_test):
+#    for apk in os.listdir(''.join([dir_to_test,"/",directory])):
+#        if apk.__contains__("signed"):
+#            apk_location = ''.join([dir_to_test,'/',directory,"/",apk])
+#            print(apk_location)
+#            this_apk = Android_App(apk_location) 
+#            os.system("".join(['adb install ',apk_location]))
+#            Clear_Log()
+#            time.sleep(1)
+#            Log(this_apk.app_name_only)
+#            time.sleep(1)
+#            this_apk.Instrument_Interface(this_apk.app_name_only)
+#            Clear_Process_By_Name()
+#            this_apk.Uninstall_App()
+#Run_System_Command("rm *.txt")
 
 
 #------------------------------------LOGGING------------------------------------

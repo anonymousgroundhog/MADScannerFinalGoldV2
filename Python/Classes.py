@@ -277,5 +277,5 @@ class Logcat:
         for index,row in filtered_dataframe.iterrows():
             for item in row['units'].split(':'): 
                 if item.__contains__('('):
-                    print(''.join(['Test:',str(item.split('(')[0]).replace('void ','').replace('android.view.View ','')]))
+                    print(''.join(['Testing Method Extraction:',str(item.split('(')[0]).replace('void ','').replace('android.view.View ','')]))
             print('date:',row['dates'],' unit:',row['units'],' memory_locations:',row['memory_locations'],'ID:', row['ids'])
