@@ -31,7 +31,7 @@ import org.openjdk.jol.vm.VM;
 public class SootUtil
 {
     private static List<String> MethodsFoundArray = new ArrayList<String>();
-    private static String[] StringArrayOfVirtualInvokeMethodsToLookForAdSpecific = {"com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest", "performClick", "com.google.android.gms.ads.AdRequest build()", "com.google.android.gms.ads.interstitial.InterstitialAd: void show(android.app.Activity)", "com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)", "com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)"};
+    private static String[] StringArrayOfVirtualInvokeMethodsToLookForAdSpecific = {"com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest", "performClick", "com.google.android.gms.ads.AdRequest build()", "com.google.android.gms.ads.interstitial.InterstitialAd: void show(android.app.Activity)", "com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)", "com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)", "onAdClicked()"};
     private static String[] StringArrayOfVirtualInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor = {"android.widget.FrameLayout: void addView(android.view.View)"};
     private static String[] StringArrayOfSpecialInvokeMethodsToLookForAdSpecific = {"onAdClicked()", "onAdClosed()", "void onAdImpression()", "AdListener: void onAdLoaded()", "com.google.android.gms.ads.AdSize getAdSize()"};
     private static String[] StringArrayOfSpecialInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor = {"android.view.View findViewById(int)", "com.google.android.gms.ads.AdView: void <init>(android.content.Context)"};
@@ -122,6 +122,7 @@ public class SootUtil
         {
             if(LastKnownUnit.toString().contains(StringMethod) & !AdSpecific)
             {
+		System.out.println("Found ad Specific call:"+LastKnownUnit.toString());
                 String Message = MethodName + ":" + LastKnownUnit.toString();
 		String MSG = InputMsg + Message+"---";
 		Stmt stmt = (Stmt) LastKnownUnit;
@@ -133,41 +134,39 @@ public class SootUtil
 		}
 
                 if(local != null){
-                    //InsertLogMessageAfterUnit(InputMsg + Message +"---Memory Location of "+local.toString()+"="+ VM.current().addressOf(local), LastKnownUnit, units);
-			    MSG =InputMsg + Message+"---";
+			MSG =InputMsg + Message+"---";
 			MSG +=local.toString()+"="+ VM.current().addressOf(local);
-			    if(args != null){
-				 for (Value arg : args) {
-					 if(arg.toString().contains("$")){
-						 MSG +=  " " +arg.toString() + "=" + VM.current().addressOf(arg) + " ";
-					 }
-			    }
-			    } else{
+			if(args != null){
+				for (Value arg : args) {
+					if(arg.toString().contains("$")){
+						MSG +=  " " +arg.toString() + "=" + VM.current().addressOf(arg) + " ";
+					}
+				}
+			} else {
 				MSG +=" " +local.toString()+"="+ VM.current().addressOf(local)+ " ";
-			    }
+			}
                     InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
                     local = null;
                 }else{
-
-			    MSG =InputMsg + Message+"---";
-			    if(args != null){
-				 for (Value arg : args) {
-					 if(arg.toString().contains("$")){
-						 MSG += " " +arg.toString() + "=" + VM.current().addressOf(arg)+ " ";
-					 }
-				 }
-			    } else{
-			MSG += "---";
-			    }
+			MSG =InputMsg + Message+"---";
+			if(args != null){
+				for (Value arg : args) {
+					if(arg.toString().contains("$")){
+						MSG += " " +arg.toString() + "=" + VM.current().addressOf(arg)+ " ";
+					}
+				}
+			} else{
+				MSG += "---";
+			}
                         InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
-                }
+	       }
             }
 
             if(LastKnownUnit.toString().contains(StringMethod) & AdSpecific)
             {
                 String Message = MethodName + ":" + LastKnownUnit.toString();
 		String MSG = InputMsg + Message+"---";
-		System.out.println("ADSPECIFIC!!!");
+		//System.out.println("ADSPECIFIC!!!");
 		Stmt stmt = (Stmt) LastKnownUnit;
 		List<Value> args = null;
 		if (stmt.containsInvokeExpr()) {
@@ -206,7 +205,7 @@ public class SootUtil
                         InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
                     }
                 }
-            }
+	    }
         }
     }
     public static void Wait(int ms)
@@ -282,18 +281,14 @@ public class SootUtil
         {
             for (Local local : body.getLocals())
             {
-                // if (local.getName().equals(name)) {
                 if(local.getType().toString().contains("com.google.android.gms.ads.admanager.AdManagerAdView"))
                 {
-                    // Print("Locals:"+local.getType().toString());
-                    // Print("IterateOverUnitsandInjectAdSpecificCalls TESTING:"+body.getClass().toString());
                     hasAdListener = true;
                     runOnce = false;
                 }
             }
         }
 
-        // List<Local> localList = new ArrayList<Local>();
         for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();)
         {
             Unit LastKnownUnit = unit.next();
@@ -316,45 +311,85 @@ public class SootUtil
                     boolean SootValueIsASpecialInvokeExpr = sootconditionchecker.ValueIsASpecialInvokeExpr(SootValue);
                     boolean SootValueIsAStaticInvokeExpr = sootconditionchecker.ValueIsAStaticInvokeExpr(SootValue);
 
-                    // if(StringLastKnownUnit.contains("r0.<com.google.android.gms.example.bannerexample.MyActivity$2: com.google.android.gms.example.bannerexample.MyActivity this$0>"))
-                    // {
-                    //     // Print("DEFBOX UNIT:" + LastKnownUnit.getDefBoxes().get(0).getValue().getType().toString());
-                    //     Print("DEFBOX UNIT:" + LastKnownUnit.getDefBoxes().toString());
-                    //     // Print("UseBox UNIT:" + LastKnownUnit.getDefBoxes().toString());
-                    // }
                     if(SootValueIsAVirtualInvokeExpr)
                     {
                         VirtualInvokeExpression = (VirtualInvokeExpr) SootValue;
                         MethodName = VirtualInvokeExpression.getMethod().getName().toString();
 
-                        IterateOverListAndInsertLogMessage(""+App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName+":", false);
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName+":", true);
-                        //IterateOverListAndInsertLogMessage(StringArrayOfVirtualInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName, true);
+			String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+LastKnownUnit.toString()+"---";
+			Local local = localDef(LastKnownUnit);
+			Stmt stmt = (Stmt) LastKnownUnit;
+			InvokeExpr invocation = stmt.getInvokeExpr();
+			List<Value> args = invocation.getArgs();
+			if(args != null){
+				for (Value arg : args) {
+					if(arg.toString().contains("$")){
+						MSG +=  " " +arg.toString() + "=" + VM.current().addressOf(arg) + " ";
+					}
+				}
+			} else {
+				MSG +=" " +local.toString()+"="+ VM.current().addressOf(local)+ " ";
+			}
+			
+                        InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
 
-                        // Print("SootValueIsAVirtualInvokeExpr:" + VirtualInvokeExpression.toString());
+//                        IterateOverListAndInsertLogMessage(""+App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
+//                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName+":", false);
+//                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfVirtualInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName+":", true);
+
                         if(StringLastKnownUnit.contains("void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)") || StringLastKnownUnit.contains("void loadAd(com.google.android.gms.ads.AdRequest)"))
-                        // if(StringLastKnownUnit.contains("void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)"))
                         {
-                            // Print("FOUND LOADAD:" + MethodName);
                             StringMethodToInvestigate = body.getMethod().getSignature().toString();
                             StringClassToInvestigate = body.getMethod().getDeclaringClass().toString();                           
                         }
                     }
-                    //if(SootValueIsAStaticInvokeExpr & StringLastKnownUnit.contains("google")){
+
                     if(SootValueIsAStaticInvokeExpr)
                     {
                         StaticInvokeExpression = (StaticInvokeExpr) SootValue;
                         MethodName = StaticInvokeExpression.getMethod().getName().toString();
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfStaticInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName, true);
+			String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+LastKnownUnit.toString()+"---";
+			Local local = localDef(LastKnownUnit);
+			Stmt stmt = (Stmt) LastKnownUnit;
+			InvokeExpr invocation = stmt.getInvokeExpr();
+			List<Value> args = invocation.getArgs();
+			if(args != null){
+				for (Value arg : args) {
+					if(arg.toString().contains("$")){
+						MSG +=  " " +arg.toString() + "=" + VM.current().addressOf(arg) + " ";
+					}
+				}
+			} else {
+				MSG +=" " +local.toString()+"="+ VM.current().addressOf(local)+ " ";
+			}
+			
+                        InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
+                        //IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfStaticInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName, true);
                     }
+
                     if(SootValueIsASpecialInvokeExpr)
                     {
                         SpecialInvokeExpression = (SpecialInvokeExpr) SootValue;
                         MethodName = SpecialInvokeExpression.getMethod().getName().toString();
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName+":", true);
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName+":", false);
-                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
+			String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+LastKnownUnit.toString()+"---";
+			Local local = localDef(LastKnownUnit);
+			Stmt stmt = (Stmt) LastKnownUnit;
+			InvokeExpr invocation = stmt.getInvokeExpr();
+			List<Value> args = invocation.getArgs();
+			if(args != null){
+				for (Value arg : args) {
+					if(arg.toString().contains("$")){
+						MSG +=  " " +arg.toString() + "=" + VM.current().addressOf(arg) + " ";
+					}
+				}
+			} else {
+				MSG +=" " +local.toString()+"="+ VM.current().addressOf(local)+ " ";
+			}
+			
+                        InsertLogMessageAfterUnit(MSG, LastKnownUnit, units);
+//                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecific, LastKnownUnit, units, MethodName+":", true);
+//                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor, LastKnownUnit, units, MethodName+":", false);
+//                        IterateOverListAndInsertLogMessage(App_Name+"::"+Hash+"::", StringArrayOfSpecialInvokeMethodsToLookForNotAdSpecific, LastKnownUnit, units, MethodName+":", false);
                     }
                 }
             }
