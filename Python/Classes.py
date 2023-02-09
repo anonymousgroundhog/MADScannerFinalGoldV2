@@ -10,15 +10,18 @@ class Android_App:
         self.app_name_only = apk_location.replace(".apk", "").split("/").pop()
         self.hash_value = self.Calculate_Hash_of_File(apk_location)
         self.apk_info = self.Get_APK_Info(apk_location)
+        appActivity = self.apk_info[0]
+        if appActivity.startswith('.'):
+            print("App activity starts with a period")
         self.desired_capabilities = {
             "platformName": "Android",
             "deviceName": "7040018020065015",
-            "appPackage": self.apk_info[1] ,
+            "appPackage": self.apk_info[1],
             "noReset": True,
             "autoacceptalerts": True,
             "appium:wdaStartupRetries": 4,
             "autoGrantPermissions": True,
-            "appActivity": self.apk_info[0]
+            "appActivity": appActivity
         }
         self.dataframe = None
         self.driver = None
@@ -49,6 +52,7 @@ class Android_App:
         for item in result.split(" "):
             if "name=" in item:
                 thing_to_return.append(item.replace("name='","").replace("'",""))
+        print(''.join(['Activity and details gathered:',str(thing_to_return)]))
         return thing_to_return
 
     def Uninstall_App(self):
