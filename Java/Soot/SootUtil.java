@@ -99,6 +99,7 @@ public class SootUtil
         // Print("LastKnownUnit TEST:"+LastKnownUnit.toString()+"\nNew Unit:"+InvokeStatementLog.toString());
         int intStringAdUnitsInsertedSize= stringAdUnitsInserted.size()-1;
 
+        // if(intStringAdUnitsInsertedSize > 0 && !stringLastAdUnitInserted.equals(null)){
         if(intStringAdUnitsInsertedSize > 0){
             if(!stringLastAdUnitInserted.contains(stringAdUnitsInserted.get(stringAdUnitsInserted.size()-1))){
                 stringAdUnitsInserted.add(new String(Message));
