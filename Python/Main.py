@@ -7,17 +7,17 @@ def Run_System_Command(cmd):
     os.system(cmd)
 
 def Clear_Log():
-   os.system('adb logcat -c')
+    os.system('adb logcat -c')
 
 def Log(app_name):
-   cmd="".join(['nohup adb logcat FiniteState:V *:S > ../ADB_Logcat_Logs/',app_name,'.txt &'])
-   Run_System_Command(cmd)
-   cmd="".join(['cat nohup.out >',app_name,'.txt'])
-   os.system(cmd)
+    cmd="".join(['nohup adb logcat FiniteState:V *:S > ../ADB_Logcat_Logs/',app_name,'.txt &'])
+    Run_System_Command(cmd)
+    cmd="".join(['cat nohup.out >',app_name,'.txt'])
+    os.system(cmd)
 
 def Clear_Process_By_Name():
-   cmd='pkill -f adb'
-   os.system(cmd)
+    cmd='pkill -f adb'
+    os.system(cmd)
 
 # def Run_Framework(param_format, apkfile, output_dir):
 #     cmd = 'cd ../Java && javac -d Classes -cp "../Jar_Libs/*" *.java ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java'
@@ -84,7 +84,6 @@ def Run_Framework_on_APKS(param_format):
             os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
             os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
             os.system(''.join(['rm ',location]))
-
     os.chdir("../sootOutput")
     os.chdir("../../Python")
 

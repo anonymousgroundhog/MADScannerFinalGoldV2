@@ -61,7 +61,6 @@ class Android_App:
     def check_exists_by_id(self, driver,id):
         if (len(driver.find_elements(By.ID, id)) > 0):
             return True
-
         return False
 
     def check_if_button_is_displayed(self, id):
