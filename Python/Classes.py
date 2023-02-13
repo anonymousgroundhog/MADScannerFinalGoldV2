@@ -1,4 +1,4 @@
-import os, pandas as pd, json, polars as pl, gc
+import os, pandas as pd, json, polars as pl, gc, shlex
 import time, re, hashlib, subprocess
 from appium import webdriver
 from selenium.webdriver.common.by import By
@@ -107,14 +107,21 @@ class Android_App:
         time_date_now = time_date_now.replace(" ","--").replace(".","-").replace(":","-")
         self.Run_System_Command('adb exec-out screencap -p > "../Java/Classes/sootOutput/"'+filename+'---'+time_date_now+'.png')
 
+    def Replace_Name_With_Nothing_XML(self, data, thing_to_replace):
+        return data.replace(thing_to_replace, '').replace('"','')
+
     def Extract_Lines_From_SourceXML_And_Return_Dataframe(self, source_xml):
-        keys = ['Android', 'Index', 'Package']
+        keys = ['Android', 'Index', 'Package', 'Text', 'Resource_ID']
         df = pd.DataFrame(columns=keys)
         for line in str(source_xml).split('\n'):
             if line.__contains__('class=') and line.__contains__('android.widget'):
-                lst_row = line.strip().replace('<','').replace('/>','').split(' ')
+                lst_row = shlex.split(line.strip().replace('<','').replace('/>',''))#.split(' ')
                 print(lst_row)
-                row = {'Android': lst_row[0], 'Index': lst_row[1].replace('index=',''), 'Package': lst_row[2].replace('package=','')}
+                row = {'Android': lst_row[0], 'Index': self.Replace_Name_With_Nothing_XML(lst_row[1],'index='), 
+                    'Package': self.Replace_Name_With_Nothing_XML(lst_row[2],'package='), 
+                    'Class': self.Replace_Name_With_Nothing_XML(lst_row[3], 'class='),
+                    'Text': self.Replace_Name_With_Nothing_XML(lst_row[4], 'text='),
+                    'Resource_ID': self.Replace_Name_With_Nothing_XML(lst_row[5], 'resource-id=')}
                 df = pd.concat([df, pd.DataFrame([row])])
         print(df)
 
