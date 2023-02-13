@@ -39,6 +39,7 @@ def Run_Framework_on_Single_APK(str_apkName, param_format):
     os.chdir('Classes')
     apk_output = ''.join([Soot_Output_Folder,str(str_apkName).replace(".apk","").replace("../","").replace("APK","")])
     print(''.join(["APK_OUTPUT:",str(apk_output)]))
+    print(''.join(['current directory: ', os.getcwd()]))
     os.system(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
 
     Soot_Output_Folder ='../sootOutput'
@@ -89,26 +90,25 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-# Run_Framework_on_Single_APK('com.haken.qrcode_102_apksos.com.apk','dex')
+Run_Framework_on_Single_APK('calculator2.apk','dex')
 # Run_Framework_on_APKS('dex')
 # Run_Framework_on_APKS('J')
 #------------------------------------INSTUMRENT------------------------------------
-dir_to_test = '../Java/sootOutput'
-apk_location = ''.join([dir_to_test,'/com.haken.qrcode_102_apksos.com/signedcom.haken.qrcode_102_apksos.com.apk'])
-print(apk_location)
-this_apk = Android_App(apk_location) 
-os.system("".join(['adb install ',apk_location]))
-Clear_Log()
-time.sleep(1)
-Log(this_apk.app_name_only)
-time.sleep(1)
-# try:
-this_apk.Instrument_Interface(this_apk.app_name_only)
-# except:
-    # print(''.join(['Error instrument:',this_apk.app_name_only]))
-Clear_Process_By_Name()
-this_apk.Uninstall_App()
-Run_System_Command("rm *.txt")
+# dir_to_test = '../Java/sootOutput'
+# apk_location = ''.join([dir_to_test,'/com.haken.qrcode_102_apksos.com/signedcom.haken.qrcode_102_apksos.com.apk'])
+# print(apk_location)
+# this_apk = Android_App(apk_location) 
+# os.system("".join(['adb install ',apk_location]))
+# Clear_Log()
+# time.sleep(1)
+# Log(this_apk.app_name_only)
+# time.sleep(1)
+# this_apk.Instrument_Interface(this_apk.app_name_only)
+# Clear_Process_By_Name()
+# this_apk.Uninstall_App()
+# Run_System_Command("rm *.txt")
+
+# USE THE BELOW CODE FOR INSTRUMENTING ALL APKS
 #for directory in os.listdir(dir_to_test):
 #    for apk in os.listdir(''.join([dir_to_test,"/",directory])):
 #        if apk.__contains__("signed"):
