@@ -107,6 +107,17 @@ class Android_App:
         time_date_now = time_date_now.replace(" ","--").replace(".","-").replace(":","-")
         self.Run_System_Command('adb exec-out screencap -p > "../Java/Classes/sootOutput/"'+filename+'---'+time_date_now+'.png')
 
+    def Extract_Lines_From_SourceXML_And_Return_Dataframe(self, source_xml):
+        keys = ['Android', 'Index', 'Package']
+        df = pd.DataFrame(columns=keys)
+        for line in str(source_xml).split('\n'):
+            if line.__contains__('class=') and line.__contains__('android.widget'):
+                lst_row = line.strip().replace('<','').replace('/>','').split(' ')
+                print(lst_row)
+                row = {'Android': lst_row[0], 'Index': lst_row[1].replace('index=',''), 'Package': lst_row[2].replace('package=','')}
+                df = pd.concat([df, pd.DataFrame([row])])
+        print(df)
+
     def Instrument_Interface(self, app_name):
         self.set_driver()
         time.sleep(3)
@@ -114,6 +125,9 @@ class Android_App:
 #        file = open("current_app.xml", "w")
 #        file.write(source_xml)
 #        file.close()
+        # print(str(source_xml).split('\n'))
+        self.Extract_Lines_From_SourceXML_And_Return_Dataframe(source_xml)
+        time.sleep(2)
         self.click_on_button_by_class_permission("android.widget.Button")
         source_xml = self.driver.page_source
         time.sleep(2)
