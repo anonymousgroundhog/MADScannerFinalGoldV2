@@ -67,13 +67,14 @@ def Run_Framework_on_Single_APK(str_apkName, param_format):
 
     os.chdir('../Java')
     os.system(" ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
-
+    print(" ".join(['COMPILING: ', 'javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
     APK_Folder= "../../APK/"
     os.chdir('Classes')
     apk_output = ''.join([Soot_Output_Folder,str(str_apkName).replace(".apk","").replace("../","").replace("APK","")])
     print(''.join(["APK_OUTPUT:",str(apk_output)]))
     print(''.join(['current directory: ', os.getcwd()]))
     os.system(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
+    print(" ".join(['Running Framework: ','java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
 
     Soot_Output_Folder ='../sootOutput'
     keystore_location = '../../my-release-key.keystore'
@@ -123,11 +124,11 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-# Run_Framework_on_Single_APK('calculator.apk','dex')
+Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','J')
 # Run_Framework_on_APKS('dex')
 # Run_Framework_on_APKS('J')
 
-Log_And_Return_Dataframe('Test')
+# Log_And_Return_Dataframe('Test')
 #------------------------------------INSTUMRENT------------------------------------
 
 
