@@ -1,7 +1,9 @@
-import os, pandas as pd, json
+import os, pandas as pd, json, shlex
 import time, re, hashlib, subprocess
 from datetime import datetime 
 from Classes import Logcat, Android_App
+from logcat_monitor.logcat_monitor import LogcatMonitor
+from appium import webdriver
 
 def Run_System_Command(cmd):
     os.system(cmd)
@@ -15,6 +17,37 @@ def Log(app_name):
     cmd="".join(['cat nohup.out >',app_name,'.txt'])
     os.system(cmd)
 
+def Log_And_Return_Dataframe(app_name):
+    desired_capabilities = {
+            "platformName": "Android",
+            "deviceName": "7040018020065015",
+            # "appPackage": self.apk_info[1],
+            "noReset": True,
+            "autoacceptalerts": True,
+            "appium:wdaStartupRetries": 4,
+            "autoGrantPermissions": True
+            # "appActivity": appActivity
+        }
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities) 
+    log = driver.get_log('logcat')
+    logcat_string = json.dumps(log)
+    logcat_item = json.loads(logcat_string)
+    keys = ['Dates', 'Times', 'App_Names', 'App_Hashes', 'Units', 'Methods']
+    df = pd.DataFrame(columns=keys)
+    for log in logcat_item:
+        log_message = log['message']
+        if log_message.__contains__('FiniteState'):
+            lst_data = log_message.split(" ", 7)
+            app_specific_data = lst_data.pop().replace('FiniteState: ', '')
+            lst_app_specific_data = app_specific_data.split('---')
+            # print(lst_app_specific_data[3].split('(')[0].split(' ').pop())
+            method = lst_app_specific_data[3].split('(')[0].split(' ').pop()
+            row = {'Dates':lst_data[0], 'Times': lst_data[1], 'App_Names':lst_app_specific_data[0], 
+                'App_Hashes': lst_app_specific_data[1], 'Units':lst_app_specific_data[3], 'Methods':method}
+            # print(''.join([lst_data[0], ':', lst_data[1]]))
+            # print(lst_app_specific_data)
+            df = pd.concat([df, pd.DataFrame([row])])
+    print(df[['Units','Methods']])
 def Clear_Process_By_Name():
     cmd='pkill -f adb'
     os.system(cmd)
@@ -90,10 +123,14 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_Single_APK('calculator.apk','dex')
+# Run_Framework_on_Single_APK('calculator.apk','dex')
 # Run_Framework_on_APKS('dex')
 # Run_Framework_on_APKS('J')
+
+Log_And_Return_Dataframe('Test')
 #------------------------------------INSTUMRENT------------------------------------
+
+
 # dir_to_test = '../Java/sootOutput'
 # apk_location = ''.join([dir_to_test,'/com.haken.qrcode_102_apksos.com/signedcom.haken.qrcode_102_apksos.com.apk'])
 # print(apk_location)
