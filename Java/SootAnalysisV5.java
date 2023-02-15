@@ -237,33 +237,6 @@ public class SootAnalysisV5
         Print("Finished Injecting New Class");
     }
 
-    public static void retrieveAllClassNamesAndMethods() 
-    {
-        if (namesHaveBeenRetrieved)
-            return;
-        for (SootClass c : soot.Scene.v().getApplicationClasses()) {
-            if (c.getName().contains("com.google.android.gms.ads")){    
-                // nameList.add(c.getName());
-                for (SootMethod m : c.getMethods()) {
-                    String strThing_To_Append = c.getName()+":"+m.getName();
-                    if (!nameList.contains(strThing_To_Append))
-                    {
-                        nameList.add(strThing_To_Append);
-                    }
-                }
-                // for (SootField m : c.getFields()) {
-                //     nameList.add(m.getName());
-                // }
-            }
-        }
-        namesHaveBeenRetrieved = true;
-    }
-    public static void printAllClasses(){
-        // HashSet<String> hSetList = new HashSet(nameList);
-        for (String item : nameList){
-            Print(item);
-        }
-    }
     public static void main(String[] sootarguments)
     {
         Once runOnce = new Once();
@@ -298,10 +271,14 @@ public class SootAnalysisV5
             {
                 @Override
                 protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
-                {         
-                    retrieveAllClassNamesAndMethods();
-                    // printAllClassNamesAndMethods();
-                    // sootUtil.IterateOverUnitsandInjectAdSpecificCalls(body, app_name_only, hash);
+                {   
+                    SootMethod thisMethod = body.getMethod();
+                    SootClass thisClass = thisMethod.getDeclaringClass();
+                    String stringClassName =  thisClass.toString();
+                    if (stringClassName.contains("com.google.android.gms.ads")){
+                        Print(stringClassName + ":" + thisMethod.getName());
+                        // Print("Method Count:" + thisClass.getMethodCount());   
+                    }  
                 }
 
             }));
@@ -315,6 +292,5 @@ public class SootAnalysisV5
     		"-force-overwrite"
             };
             soot.Main.main(sootargs);
-           printAllClasses();     
         }
 }
