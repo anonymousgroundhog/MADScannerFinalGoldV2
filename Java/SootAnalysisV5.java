@@ -71,7 +71,6 @@ public class SootAnalysisV5
     protected StringNumberer subSigNumberer = new StringNumberer();
     protected Chain<SootClass> applicationClasses = new HashChain<SootClass>();
     protected final Map<String, RefType> nameToClass = new ConcurrentHashMap<String, RefType>();
-
     public static void Wait(int varMilliseconds)
     {
         try
@@ -292,9 +291,12 @@ public class SootAnalysisV5
                     SootClass thisClass = thisMethod.getDeclaringClass();
                     String stringClassName =  thisClass.toString();
                     if (stringClassName.contains("com.google.android.gms.ads")){
-                        Print(stringClassName + ":" + thisMethod.getName());
                         // Print("Method Count:" + thisClass.getMethodCount());
-                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName());   
+                        String thisMethodName = thisMethod.getName();
+                        Print(stringClassName + ":" + thisMethodName);
+                        if(thisMethodName.contains("loadAd")){                        
+                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName());   
+                        }
                     }  
                 }
 

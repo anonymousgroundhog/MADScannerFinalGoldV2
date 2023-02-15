@@ -139,11 +139,11 @@ def Run_Framework_on_APKS(param_format):
 
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
+Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','J')
 # Run_Framework_on_APKS('dex')
 # Run_Framework_on_APKS('J')
 
-Log_And_Return_Dataframe('Test')
+# Log_And_Return_Dataframe('Test')
 #------------------------------------INSTUMRENT------------------------------------
 
 
