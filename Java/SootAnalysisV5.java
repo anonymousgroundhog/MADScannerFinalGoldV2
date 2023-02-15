@@ -1,5 +1,8 @@
 import org.apache.commons.codec.digest.DigestUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Iterator;
 import java.util.*;
 import java.io.*;
@@ -26,14 +29,48 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import soot.jimple.parser.parser.ParserException;
 import soot.jimple.parser.lexer.LexerException;
 
+import soot.dexpler.DalvikThrowAnalysis;
+import soot.javaToJimple.DefaultLocalGenerator;
+import soot.jimple.spark.internal.ClientAccessibilityOracle;
+import soot.jimple.spark.internal.PublicAndProtectedAccessibility;
+import soot.jimple.spark.pag.SparkField;
+import soot.jimple.toolkits.callgraph.CallGraph;
+import soot.jimple.toolkits.callgraph.ContextSensitiveCallGraph;
+import soot.jimple.toolkits.callgraph.ReachableMethods;
+import soot.jimple.toolkits.pointer.DumbPointerAnalysis;
+import soot.jimple.toolkits.pointer.SideEffectAnalysis;
+import soot.jimple.toolkits.scalar.DefaultLocalCreation;
+import soot.jimple.toolkits.scalar.LocalCreation;
+import soot.options.CGOptions;
+import soot.options.Options;
+import soot.toolkits.exceptions.PedanticThrowAnalysis;
+import soot.toolkits.exceptions.ThrowAnalysis;
+import soot.toolkits.exceptions.UnitThrowAnalysis;
+import soot.util.ArrayNumberer;
+import soot.util.Chain;
+import soot.util.HashChain;
+import soot.util.IterableNumberer;
+import soot.util.MapNumberer;
+import soot.util.Numberer;
+import soot.util.StringNumberer;
+import soot.util.WeakMapNumberer;
+
 public class SootAnalysisV5
 {
     private static boolean publicVariableBooleanRunImplementationOnce = true;
     private static SootClass publicVariableSootClass;
+    private static final Logger logger = LoggerFactory.getLogger(Scene.class);
     public static String publicVariableStringClassToInjectAdlistener = null;
     public static String publicVariableStringClassToInject = null;
     public static String stringClassToInvestigate = null;
     public static String hash = null; 
+    public static List<String> nameList = new ArrayList<String>();
+    public static boolean namesHaveBeenRetrieved = false;
+    protected SootClass mainClass;
+    protected StringNumberer subSigNumberer = new StringNumberer();
+    protected Chain<SootClass> applicationClasses = new HashChain<SootClass>();
+    protected final Map<String, RefType> nameToClass = new ConcurrentHashMap<String, RefType>();
+
     public static void Wait(int varMilliseconds)
     {
         try
@@ -200,51 +237,80 @@ public class SootAnalysisV5
         Print("Finished Injecting New Class");
     }
 
+    public static void retrieveAllClassNamesAndMethods() 
+    {
+        if (namesHaveBeenRetrieved)
+            return;
+        for (SootClass c : soot.Scene.v().getApplicationClasses()) {
+            if (c.toString().contains("com.google.android.gms.ads") && !nameList.contains(c.getName())){    
+                nameList.add(c.getName());
+                // for (SootMethod m : c.getMethods()) {
+                //     nameList.add(m.getName());
+                // }
+                // for (SootField m : c.getFields()) {
+                //     nameList.add(m.getName());
+                // }
+            }
+        }
+        namesHaveBeenRetrieved = true;
+    }
+    public static void printAllClasses(){
+        HashSet<String> hSetList = new HashSet(nameList);
+        for (String item : hSetList){
+            Print(item);
+        }
+    }
     public static void main(String[] sootarguments)
     {
         Once runOnce = new Once();
         SootUtil sootUtil = new SootUtil();
         LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
-	String[] app_name =  sootarguments[0].split("/");
-	String app_name_only = app_name[app_name.length-1];
-	String command = "sha256sum " + sootarguments[0];
-	try {
-	    Process process = Runtime.getRuntime().exec(command);
-	 
-	    BufferedReader reader = new BufferedReader(
-		    new InputStreamReader(process.getInputStream()));
-	    String line;
-	    while ((line = reader.readLine()) != null) {
-		hash = String.valueOf(line).replace(sootarguments[0],"");
-		System.out.println("LINE:" + hash);
-	    }
-	 
-	    reader.close();
-	 
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-	//String hash = ;
-        
-        System.out.println("Running analysis on: " + sootarguments[0] + "\n");
+    	String[] app_name =  sootarguments[0].split("/");
+    	String app_name_only = app_name[app_name.length-1];
+    	String command = "sha256sum " + sootarguments[0];
+    	try {
+    	    Process process = Runtime.getRuntime().exec(command);
+    	 
+    	    BufferedReader reader = new BufferedReader(
+    		    new InputStreamReader(process.getInputStream()));
+    	    String line;
+    	    while ((line = reader.readLine()) != null) {
+    		hash = String.valueOf(line).replace(sootarguments[0],"");
+    		System.out.println("LINE:" + hash);
+    	    }
+    	 
+    	    reader.close();
+    	 
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
+    	//String hash = ;
+            
+            System.out.println("Running analysis on: " + sootarguments[0] + "\n");
+            // retrieveAllClassNamesAndMethods();
+            // printAllClassNamesAndMethods();
+            // setMainClassFromOptions();
+            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
+            {
+                @Override
+                protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+                {         
+                    retrieveAllClassNamesAndMethods();
+                    // printAllClassNamesAndMethods();
+                    // sootUtil.IterateOverUnitsandInjectAdSpecificCalls(body, app_name_only, hash);
+                }
 
-        PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
-        {
-            @Override
-            protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
-            {               
-                sootUtil.IterateOverUnitsandInjectAdSpecificCalls(body, app_name_only, hash);
-            }   
-        }));
-          String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
-                "android.support.", "-x", "android.annotation.",
-                "-process-dir", sootarguments[0],
-                "-output-dir", sootarguments[2],
-                "-android-jars", "../../Android/platforms",
-                "-src-prec", "apk",
-                "-no-bodies-for-excluded",
-		"-force-overwrite"
-        };
-        soot.Main.main(sootargs);
-    }
+            }));
+              String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
+                    "android.support.", "-x", "android.annotation.",
+                    "-process-dir", sootarguments[0],
+                    "-output-dir", sootarguments[2],
+                    "-android-jars", "../../Android/platforms",
+                    "-src-prec", "apk",
+                    "-no-bodies-for-excluded",
+    		"-force-overwrite"
+            };
+            soot.Main.main(sootargs);
+           printAllClasses();     
+        }
 }
