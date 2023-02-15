@@ -242,11 +242,15 @@ public class SootAnalysisV5
         if (namesHaveBeenRetrieved)
             return;
         for (SootClass c : soot.Scene.v().getApplicationClasses()) {
-            if (c.toString().contains("com.google.android.gms.ads") && !nameList.contains(c.getName())){    
-                nameList.add(c.getName());
-                // for (SootMethod m : c.getMethods()) {
-                //     nameList.add(m.getName());
-                // }
+            if (c.getName().contains("com.google.android.gms.ads")){    
+                // nameList.add(c.getName());
+                for (SootMethod m : c.getMethods()) {
+                    String strThing_To_Append = c.getName()+":"+m.getName();
+                    if (!nameList.contains(strThing_To_Append))
+                    {
+                        nameList.add(strThing_To_Append);
+                    }
+                }
                 // for (SootField m : c.getFields()) {
                 //     nameList.add(m.getName());
                 // }
@@ -255,8 +259,8 @@ public class SootAnalysisV5
         namesHaveBeenRetrieved = true;
     }
     public static void printAllClasses(){
-        HashSet<String> hSetList = new HashSet(nameList);
-        for (String item : hSetList){
+        // HashSet<String> hSetList = new HashSet(nameList);
+        for (String item : nameList){
             Print(item);
         }
     }
@@ -301,13 +305,13 @@ public class SootAnalysisV5
                 }
 
             }));
-              String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
-                    "android.support.", "-x", "android.annotation.",
-                    "-process-dir", sootarguments[0],
-                    "-output-dir", sootarguments[2],
-                    "-android-jars", "../../Android/platforms",
-                    "-src-prec", "apk",
-                    "-no-bodies-for-excluded",
+            String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
+            "android.support.", "-x", "android.annotation.",
+            "-process-dir", sootarguments[0],
+            "-output-dir", sootarguments[2],
+            "-android-jars", "../../Android/platforms",
+            "-src-prec", "apk",
+            "-no-bodies-for-excluded",
     		"-force-overwrite"
             };
             soot.Main.main(sootargs);
