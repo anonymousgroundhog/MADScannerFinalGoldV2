@@ -16,6 +16,7 @@ import Soot.SootUtil;
 import soot.*;
 import soot.Value;
 import soot.jimple.*;
+import soot.jimple.Constant;
 import soot.util.*;
 import soot.options.Options;
 import soot.jimple.internal.*;
@@ -237,6 +238,21 @@ public class SootAnalysisV5
         Print("Finished Injecting New Class");
     }
 
+    public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName){
+        UnitPatchingChain units = body.getUnits();
+        // CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+        String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName;
+        List<Value> listArgs = new ArrayList<Value>();
+        listArgs.add(StringConstant.v("FiniteState"));
+        listArgs.add(StringConstant.v(MSG));
+        StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+        InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+        String stringInvokeStatementLog = InvokeStatementLog.toString();
+        Print("Injecting"+InvokeStatementLog.toString());
+        units.addFirst(InvokeStatementLog);
+
+    }
+
     public static void main(String[] sootarguments)
     {
         Once runOnce = new Once();
@@ -277,7 +293,8 @@ public class SootAnalysisV5
                     String stringClassName =  thisClass.toString();
                     if (stringClassName.contains("com.google.android.gms.ads")){
                         Print(stringClassName + ":" + thisMethod.getName());
-                        // Print("Method Count:" + thisClass.getMethodCount());   
+                        // Print("Method Count:" + thisClass.getMethodCount());
+                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName());   
                     }  
                 }
 
