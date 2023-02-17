@@ -247,9 +247,18 @@ public class SootAnalysisV5
         StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
         InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
         String stringInvokeStatementLog = InvokeStatementLog.toString();
-        Print("Injecting"+InvokeStatementLog.toString());
-        units.addFirst(InvokeStatementLog);
-
+        // Print("Injecting"+InvokeStatementLog.toString());
+        // units.addFirst(InvokeStatementLog);
+        Unit unit_to_insert_after = null;
+        for (Unit unit : units) {
+            if(String.valueOf(unit).contains("virtualinvoke")) {
+                Print(unit.toString());
+                unit_to_insert_after = unit;
+            }
+        }
+        if(unit_to_insert_after != null){
+            units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+        }
     }
 
     public static void main(String[] sootarguments)
@@ -294,7 +303,8 @@ public class SootAnalysisV5
                         // Print("Method Count:" + thisClass.getMethodCount());
                         String thisMethodName = thisMethod.getName();
                         Print(stringClassName + ":" + thisMethodName);
-                        if(thisMethodName.contains("loadAd")){                        
+                        if(thisMethodName.contains("loadAd")){ 
+                            // Print("Injecting Log");                       
                             IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName());   
                         }
                     }  
