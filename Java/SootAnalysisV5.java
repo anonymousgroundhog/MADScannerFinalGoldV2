@@ -58,6 +58,8 @@ import soot.util.WeakMapNumberer;
 
 public class SootAnalysisV5
 {
+    private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
+        "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
     private static boolean publicVariableBooleanRunImplementationOnce = true;
     private static SootClass publicVariableSootClass;
     private static final Logger logger = LoggerFactory.getLogger(Scene.class);
@@ -237,10 +239,11 @@ public class SootAnalysisV5
         Print("Finished Injecting New Class");
     }
 
-    public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName){
+    public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters){
+        List<String> ThingstToCheck = Arrays.asList(new String[]{"virtualinvoke", "specialinvoke", "staticinvoke"});
         UnitPatchingChain units = body.getUnits();
         // CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-        String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName;
+        String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
         List<Value> listArgs = new ArrayList<Value>();
         listArgs.add(StringConstant.v("FiniteState"));
         listArgs.add(StringConstant.v(MSG));
@@ -250,14 +253,22 @@ public class SootAnalysisV5
         // Print("Injecting"+InvokeStatementLog.toString());
         // units.addFirst(InvokeStatementLog);
         Unit unit_to_insert_after = null;
-        for (Unit unit : units) {
-            if(String.valueOf(unit).contains("virtualinvoke")) {
-                Print(unit.toString());
-                unit_to_insert_after = unit;
+        int unitcounter = 0;
+        for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
+        // for (Unit unit : units) {
+            Unit LastKnownUnit = unit.next();
+            String StringLastKnownUnit = LastKnownUnit.toString();
+            unitcounter = unitcounter + 1;
+            // String unit_string = unit.toString();
+            if(unitcounter > 1) {
+                unit_to_insert_after = LastKnownUnit;
+                Print(StringLastKnownUnit);
+                // units.insertBefore(InvokeStatementLog, LastKnownUnit);
             }
         }
         if(unit_to_insert_after != null){
-            units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+            Print("Found Ad:"+MethodName);
+            units.insertBefore(InvokeStatementLog, unit_to_insert_after);
         }
     }
 
@@ -299,13 +310,18 @@ public class SootAnalysisV5
                     SootMethod thisMethod = body.getMethod();
                     SootClass thisClass = thisMethod.getDeclaringClass();
                     String stringClassName =  thisClass.toString();
+                    
                     if (stringClassName.contains("com.google.android.gms.ads")){
                         // Print("Method Count:" + thisClass.getMethodCount());
                         String thisMethodName = thisMethod.getName();
                         Print(stringClassName + ":" + thisMethodName);
-                        if(thisMethodName.contains("loadAd")){ 
+                        if(ThingstToCheck.contains(thisMethodName)){ 
+                            Print("Found " + thisMethodName + "!!!");
+                            // for (int param_count : thisMethod.getParameterCount()){
+                            // }
+                            // Print(String.valueOf(thisMethod.getParameterTypes()));
                             // Print("Injecting Log");                       
-                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName());   
+                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));   
                         }
                     }  
                 }
