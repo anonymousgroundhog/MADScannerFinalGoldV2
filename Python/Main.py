@@ -67,46 +67,35 @@ def Clear_Process_By_Name():
     cmd='pkill -f adb'
     os.system(cmd)
 
-# def Run_Framework(param_format, apkfile, output_dir):
-#     cmd = 'cd ../Java && javac -d Classes -cp "../Jar_Libs/*" *.java ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java'
-#     os.system(cmd)
-#     APKPATH = ""
-#     cmd = 'cd ../Java/Classes && java -cp ".:../../Jar_Libs/*" SootAnalysisV5 '+apkfile+' '+param_format+' '+output_dir
-#     os.system(cmd) 
-
-# def Return_Nth_Element_List(this_list, elem_num):
-#     return ((this_list[elem_num:elem_num+1]+[elem_num])[0])
-
 def Run_Framework_on_Single_APK(str_apkName, param_format):
     Soot_Output_Folder ="../sootOutput/"
-
     os.chdir('../Java')
     os.system(" ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
-    print(" ".join(['COMPILING: ', 'javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
+    # print(" ".join(['COMPILING: ', 'javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
     APK_Folder= "../../APK/"
     os.chdir('Classes')
     apk_output = ''.join([Soot_Output_Folder,str(str_apkName).replace(".apk","").replace("../","").replace("APK","")])
     print(''.join(["APK_OUTPUT:",str(apk_output)]))
     print(''.join(['current directory: ', os.getcwd()]))
-    os.system(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
-    print(" ".join(['Running Framework: ','java -cp .:../../Jar_Libs/* SootAnalysisV5',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
+    os.system(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysis',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
+    os.chdir('../../Python')
 
-    Soot_Output_Folder ='../sootOutput'
-    keystore_location = '../../my-release-key.keystore'
+def Sign_APKS():
+    Soot_Output_Folder ="../Java/sootOutput/"
+    keystore_location = '../my-release-key.keystore'
     for directory in os.listdir(Soot_Output_Folder):
         for apk in os.listdir(''.join([Soot_Output_Folder,"/",directory])):
           if "signed" not in str(apk) and not '.jimple' in str(apk):
-            location = ''.join([Soot_Output_Folder,"/",directory,'/',apk])
-            location_signed = ''.join([Soot_Output_Folder,"/",directory,"/signed",apk])
-            #cmd = ['zipalign', '-f','-v', '4', location,location_signed]
+            location = ''.join([Soot_Output_Folder, directory,'/',apk])
+            location_signed = ''.join([Soot_Output_Folder, directory,"/signed",apk])
             os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
-            #cmd=['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]
             os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
             os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
-            os.system(''.join(['rm ',location]))
-
-    os.chdir("../sootOutput")
-    os.chdir("../../Python")
+            os.system(''.join(['rm ',location])) 
+    # print(os.getcwd())
+    if "Python" not in os.getcwd():
+        os.chdir("../sootOutput")
+        os.chdir("../../Python")
 
 def Run_Framework_on_APKS(param_format):
     Soot_Output_Folder ="../sootOutput/"
@@ -128,9 +117,7 @@ def Run_Framework_on_APKS(param_format):
           if "signed" not in str(apk) and not '.jimple' in str(apk):
             location = ''.join([Soot_Output_Folder,"/",directory,'/',apk])
             location_signed = ''.join([Soot_Output_Folder,"/",directory,"/signed",apk])
-            #cmd = ['zipalign', '-f','-v', '4', location,location_signed]
             os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
-            #cmd=['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]
             os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
             os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
             os.system(''.join(['rm ',location]))
@@ -140,6 +127,7 @@ def Run_Framework_on_APKS(param_format):
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
 Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
+Sign_APKS()
 # Run_Framework_on_APKS('dex')
 # Run_Framework_on_APKS('J')
 
