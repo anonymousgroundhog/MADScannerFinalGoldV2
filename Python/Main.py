@@ -162,7 +162,7 @@ os.system("clear")
 #     Run_Framework_on_Single_APK(apk,'dex')
 
 # TO RUN SINGLE APK UNCOMMENT BELOW
-# Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
+Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','J')
 
 # TO SIGN APK UNCOMMENT BELOW
 # Sign_APKS()
@@ -171,8 +171,8 @@ os.system("clear")
 # Log_And_Return_Dataframe('Test', '7040018020065015')
 
 #TO RUN EMULATOR UNCOMMENT BELOW
-Start_Emulator_In_Background('Pixel_API_33', '/home/seansanders/Android/Sdk/emulator')
-Install_App_On_Emulator('BannerRecyclerViewExample', '/home/seansanders/Android/Sdk/platform-tools/adb')
+# Start_Emulator_In_Background('Pixel_API_33', '/home/seansanders/Android/Sdk/emulator')
+# Install_App_On_Emulator('BannerRecyclerViewExample', '/home/seansanders/Android/Sdk/platform-tools/adb')
 
 # TO STOP EMULATOR UNCOMMENT BELOW
 # time.sleep(30)

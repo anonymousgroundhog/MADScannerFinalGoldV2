@@ -296,7 +296,6 @@ public class SootAnalysis
     	} catch (IOException e) {
     	    e.printStackTrace();
     	}
-    	//String hash = ;
             
             System.out.println("Running analysis on: " + sootarguments[0] + "\n");
             // retrieveAllClassNamesAndMethods();
