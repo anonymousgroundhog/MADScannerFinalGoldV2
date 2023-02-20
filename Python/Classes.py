@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
 class Android_App:
-    def __init__(self, apk_location):
+    def __init__(self, apk_location, emulator_name):
         self.apk_loc = apk_location
         self.app_name_only = apk_location.replace(".apk", "").split("/").pop()
         self.hash_value = self.Calculate_Hash_of_File(apk_location)
@@ -15,7 +15,7 @@ class Android_App:
             print("App activity starts with a period")
         self.desired_capabilities = {
             "platformName": "Android",
-            "deviceName": "7040018020065015",
+            "deviceName": emulator_name,
             "appPackage": self.apk_info[1],
             "noReset": True,
             "autoacceptalerts": True,

@@ -1,9 +1,10 @@
-import os, pandas as pd, json, shlex
+import os, os.path, pandas as pd, json, shlex
 import time, re, hashlib, subprocess
 from datetime import datetime 
 from Classes import Logcat, Android_App
 from logcat_monitor.logcat_monitor import LogcatMonitor
 from appium import webdriver
+from ppadb.client import Client as AdbClient
 
 def Run_System_Command(cmd):
     os.system(cmd)
@@ -17,7 +18,7 @@ def Log(app_name):
     cmd="".join(['cat nohup.out >',app_name,'.txt'])
     os.system(cmd)
 
-def Log_And_Return_Dataframe(app_name):
+def Log_And_Return_Dataframe(app_name, device_name):
     desired_capabilities = {
             "platformName": "Android",
             "deviceName": "7040018020065015",
@@ -124,14 +125,58 @@ def Run_Framework_on_APKS(param_format):
     os.chdir("../sootOutput")
     os.chdir("../../Python")
 
+def Start_Emulator_In_Background(emulator_name, emulator_path):
+    os.environ['PATH'] += os.pathsep + emulator_path
+    command = ' '.join(['nohup emulator -avd', emulator_name, '&'])
+    print(command)
+    os.system(command)
+
+def Stop_Emulator_In_Background():
+    # os.environ['PATH'] += os.pathsep + emulator_path
+    cmd='pkill -f qemu-system-x86'
+    os.system(cmd)
+    cmd='pkill -f emulator64-cras'
+    os.system(cmd)
+
+def Install_App_On_Emulator(app_name_only, adb_path):
+    print(os.getcwd())
+    os.environ['PATH'] += os.pathsep + adb_path
+    print(os.environ['PATH'])
+    cmd=''.join(['adb install ../Java/sootOutput/',app_name_only,'/signed',app_name_only,'.apk'])
+    print(cmd)
+    # print(os.path.exists(app_path))
+    # stdout = subprocess.run(str(cmd), check=True, capture_output=True, text=True).stdout
+    # print(stdout)
+    apk_path = ''.join(['../Java/sootOutput/',app_name_only,'/signed',app_name_only,'.apk'])
+    print(apk_path)
+    client = AdbClient(host="127.0.0.1", port=5037)
+    devices = client.devices()
+    for device in devices:
+        device.install(apk_path)
+    
 #------------------------------------Running And Compiling Framework------------------------------------
 os.system("clear")
-Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
-Sign_APKS()
-# Run_Framework_on_APKS('dex')
-# Run_Framework_on_APKS('J')
+# TO RUN MULTIPLE APKS UNCOMMENT BELOW
+# for apk in os.listdir('../APK/'):
+#     print(apk)
+#     Run_Framework_on_Single_APK(apk,'dex')
 
-# Log_And_Return_Dataframe('Test')
+# TO RUN SINGLE APK UNCOMMENT BELOW
+# Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
+
+# TO SIGN APK UNCOMMENT BELOW
+# Sign_APKS()
+
+# TO LOG UNCOMMENT BELOW
+# Log_And_Return_Dataframe('Test', '7040018020065015')
+
+#TO RUN EMULATOR UNCOMMENT BELOW
+Start_Emulator_In_Background('Pixel_API_33', '/home/seansanders/Android/Sdk/emulator')
+Install_App_On_Emulator('BannerRecyclerViewExample', '/home/seansanders/Android/Sdk/platform-tools/adb')
+
+# TO STOP EMULATOR UNCOMMENT BELOW
+# time.sleep(30)
+# Stop_Emulator_In_Background()
 #------------------------------------INSTUMRENT------------------------------------
 
 
@@ -144,7 +189,7 @@ Sign_APKS()
 # time.sleep(1)
 # Log(this_apk.app_name_only)
 # time.sleep(1)
-# this_apk.Instrument_Interface(this_apk.app_name_only)
+# this_apk.Instrument_Interface(this_apk.app_name_only, 7040018020065015)
 # Clear_Process_By_Name()
 # this_apk.Uninstall_App()
 # Run_System_Command("rm *.txt")
