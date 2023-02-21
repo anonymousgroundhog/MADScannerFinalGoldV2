@@ -7,7 +7,10 @@ from appium import webdriver
 from ppadb.client import Client as AdbClient
 
 def Run_System_Command(cmd):
-    os.system(cmd)
+    subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE, shell=True).communicate()[0]
+# def Run_System_Command(cmd):
+#     os.system(cmd)
 
 def Clear_Log():
     os.system('adb logcat -c')
@@ -86,13 +89,17 @@ def Sign_APKS():
     keystore_location = '../my-release-key.keystore'
     for directory in os.listdir(Soot_Output_Folder):
         for apk in os.listdir(''.join([Soot_Output_Folder,"/",directory])):
-          if "signed" not in str(apk) and not '.jimple' in str(apk):
-            location = ''.join([Soot_Output_Folder, directory,'/',apk])
-            location_signed = ''.join([Soot_Output_Folder, directory,"/signed",apk])
-            os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
-            os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
-            os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
-            os.system(''.join(['rm ',location])) 
+            if "signed" not in str(apk) and not '.jimple' in str(apk):
+                print(''.join(['Signed ',apk,'!!!']))
+                location = ''.join([Soot_Output_Folder, directory,'/',apk])
+                location_signed = ''.join([Soot_Output_Folder, directory,"/signed",apk])
+                print(''.join (['Found:',location_signed]))
+                Run_System_Command(' '.join(['zipalign', '-f','-v', '4', location,location_signed]))
+                Run_System_Command(' '.join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
+                # os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
+                # os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
+                os.system(''.join(['rm ',''.join([Soot_Output_Folder,directory,'/*.idsig'])]))
+                os.system(''.join(['rm ',location])) 
     # print(os.getcwd())
     if "Python" not in os.getcwd():
         os.chdir("../sootOutput")
@@ -118,8 +125,12 @@ def Run_Framework_on_APKS(param_format):
           if "signed" not in str(apk) and not '.jimple' in str(apk):
             location = ''.join([Soot_Output_Folder,"/",directory,'/',apk])
             location_signed = ''.join([Soot_Output_Folder,"/",directory,"/signed",apk])
-            os.system(" ".join(['zipalign', '-f','-v', '4', location,location_signed]))
-            os.system(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]))
+            cmd = " ".join(['zipalign', '-f','-v', '4', location,location_signed])
+            cmd2 = " ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed])
+            subprocess.call(cmd, shell=True)
+            subprocess.call(cmd2, shell=True)
+            # subprocess.run(" ".join(['zipalign', '-f','-v', '4', location,location_signed]), check=True, capture_output=True, text=True)
+            # subprocess.run(" ".join(['apksigner','sign','--ks',keystore_location,'--ks-pass','pass:password',location_signed]), check=True, capture_output=True, text=True)
             os.system(''.join(['rm ',''.join([Soot_Output_Folder,"/",directory,'/*.idsig'])]))
             os.system(''.join(['rm ',location]))
     os.chdir("../sootOutput")
@@ -162,10 +173,10 @@ os.system("clear")
 #     Run_Framework_on_Single_APK(apk,'dex')
 
 # TO RUN SINGLE APK UNCOMMENT BELOW
-Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','J')
+Run_Framework_on_Single_APK('BannerRecyclerViewExample.apk','dex')
 
 # TO SIGN APK UNCOMMENT BELOW
-# Sign_APKS()
+Sign_APKS()
 
 # TO LOG UNCOMMENT BELOW
 # Log_And_Return_Dataframe('Test', '7040018020065015')
