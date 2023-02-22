@@ -54,6 +54,9 @@ public class SootUtil
         System.out.println(stringvalue);
     }
 
+    public AssignStmt NewAssignStmt(Value variable, Value rvalue) {
+        return new JAssignStmt(variable, rvalue);
+    }
     // the following setting should be changed to the local path
     public static Local NewLocal(String strlocal, Type valueref)
     {
@@ -64,6 +67,10 @@ public class SootUtil
     {
         return Jimple.v().newLocalBox(value);
     }
+
+    // public VirtualInvokeExpr newVirtualInvokeExpr(Local base, SootMethodRef method, Value arg) {
+    //     return newVirtualInvokeExpr(base, method, Collections.<Value>singletonList(arg));
+    // }
 
     public static IdentityStmt NewIdentityStmtParameterRef(String strClassToInjectAdListenerClass, int intVal, Local arg)
     {

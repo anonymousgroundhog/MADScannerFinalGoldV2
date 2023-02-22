@@ -55,6 +55,7 @@ import soot.util.MapNumberer;
 import soot.util.Numberer;
 import soot.util.StringNumberer;
 import soot.util.WeakMapNumberer;
+import soot.jimple.internal.JAssignStmt;
 
 public class SootAnalysis
 {
@@ -265,9 +266,31 @@ public class SootAnalysis
                 Print(StringLastKnownUnit);
                 // units.insertBefore(InvokeStatementLog, LastKnownUnit);
             }
+            if (StringLastKnownUnit.contains("$r5 = new java.lang.StringBuilder")){
+                Print("FOUND IT:"+LastKnownUnit.getUseBoxes().toString());
+            }
         }
         if(unit_to_insert_after != null){
             Print("Found Ad:"+MethodName);
+            SootUtil sootUtil = new SootUtil();
+            Local local_string_builder = sootUtil.NewLocal("$x1", RefType.v("java.lang.StringBuilder"));
+            Local local_string = sootUtil.NewLocal("$x2", RefType.v("java.lang.String"));
+            body.getLocals().add(local_string_builder);
+            body.getLocals().add(local_string);
+            // $r5 = new java.lang.StringBuilder;
+            // LinkedVariableBox leftBox = new LinkedVariableBox(local_string_builder);
+            // Print("leftBox:"+String.valueOf(leftBox));
+            // LinkedVariableBox rightBox = new LinkedRValueBox(local_string_builder);
+            AssignStmt this_java_assign_stmt = sootUtil.NewAssignStmt(local_string_builder, local_string_builder);
+            Print("this_java_assign_stmt" + String.valueOf(this_java_assign_stmt));
+            List<Value> emptylist = Collections.<Value>emptyList();
+            // StaticInvokeExpr timeInvoke = Jimple.v().newStaticInvokeExpr(currentTimeMillis.makeRef());      
+            // AssignStmt assign_stmt_this = Jimple.v().newAssignStmt(local_string_builder, special_invoke_this);
+            // units.insertBefore(assign_stmt_this,unit_to_insert_after);
+            // specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+            SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_string_builder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
+            Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+            units.insertBefore(unitToAdd,unit_to_insert_after);
             units.insertBefore(InvokeStatementLog, unit_to_insert_after);
         }
     }
@@ -309,19 +332,24 @@ public class SootAnalysis
                     SootMethod thisMethod = body.getMethod();
                     SootClass thisClass = thisMethod.getDeclaringClass();
                     String stringClassName =  thisClass.toString();
+                    String thisMethodName = thisMethod.getName();
                     
                     if (stringClassName.contains("com.google.android.gms.ads")){
                         // Print("Method Count:" + thisClass.getMethodCount());
-                        String thisMethodName = thisMethod.getName();
+                        // thisMethodName = thisMethod.getName();
                         Print(stringClassName + ":" + thisMethodName);
-                        if(ThingstToCheck.contains(thisMethodName)){ 
-                            Print("Found " + thisMethodName + "!!!");
+                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));   
+                        // if(ThingstToCheck.contains(thisMethodName)){ 
+                        //     Print("Found " + thisMethodName + "!!!");
                             // for (int param_count : thisMethod.getParameterCount()){
                             // }
                             // Print(String.valueOf(thisMethod.getParameterTypes()));
                             // Print("Injecting Log");                       
-                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));   
-                        }
+                        // }
+                    }
+                    else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
+                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
+
                     }  
                 }
 

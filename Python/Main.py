@@ -80,8 +80,10 @@ def Clear_Process_By_Name(name):
 
 def Compile_Framework_Code():
     os.chdir('../Java')
-    Run_System_Command(" ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 
-        'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java']))
+    cmd = " ".join(['javac','-d','Classes','-cp', '"../Jar_Libs/*"', '*.java', 'ClassHelper/*.java', 
+        'Conditions/*.java', 'Constants/*.java', 'FileHandler/*.java', 'FileParser/*.java', 'FileWriter/*.java', 'Logging/*.java', 'Soot/*.java', 'Utils/*.java'])
+    Run_System_Command(cmd)
+    print(cmd)
     os.chdir('../Python')
 
 def Run_Framework_on_Single_APK(str_apkName, param_format):
@@ -170,7 +172,7 @@ os.system("clear")
 #     print(apk)
 #     Run_Framework_on_Single_APK(apk,'dex')
 
-# Compile_Framework_Code()
+Compile_Framework_Code()
 # TO RUN SINGLE APK UNCOMMENT BELOW
 Run_Framework_on_Single_APK('BannerRecyclerViewExample3.apk','J')
 
