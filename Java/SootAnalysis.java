@@ -267,6 +267,7 @@ public class SootAnalysis
                 // units.insertBefore(InvokeStatementLog, LastKnownUnit);
             }
             if (StringLastKnownUnit.contains("$r5 = new java.lang.StringBuilder")){
+                Print("FOUND IT:"+LastKnownUnit.getClass().toString());
                 Print("FOUND IT:"+LastKnownUnit.getUseBoxes().toString());
             }
         }
@@ -281,17 +282,19 @@ public class SootAnalysis
             // LinkedVariableBox leftBox = new LinkedVariableBox(local_string_builder);
             // Print("leftBox:"+String.valueOf(leftBox));
             // LinkedVariableBox rightBox = new LinkedRValueBox(local_string_builder);
-            AssignStmt this_java_assign_stmt = sootUtil.NewAssignStmt(local_string_builder, local_string_builder);
+            // SootClass class_constant = scene.v().getSootClass("java.lang.StringBuilder");
+            AssignStmt this_java_assign_stmt = sootUtil.NewAssignStmt(local_string_builder, Jimple.v().newNewExpr(RefType.v("java.lang.StringBuilder")));
             Print("this_java_assign_stmt" + String.valueOf(this_java_assign_stmt));
             List<Value> emptylist = Collections.<Value>emptyList();
             // StaticInvokeExpr timeInvoke = Jimple.v().newStaticInvokeExpr(currentTimeMillis.makeRef());      
             // AssignStmt assign_stmt_this = Jimple.v().newAssignStmt(local_string_builder, special_invoke_this);
             // units.insertBefore(assign_stmt_this,unit_to_insert_after);
             // specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+            
             SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_string_builder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
-            Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
-            units.insertBefore(unitToAdd,unit_to_insert_after);
-            units.insertBefore(InvokeStatementLog, unit_to_insert_after);
+            // Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+            // units.insertBefore(unitToAdd,unit_to_insert_after);
+            // units.insertBefore(InvokeStatementLog, unit_to_insert_after);
         }
     }
 
