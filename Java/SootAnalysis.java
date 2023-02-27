@@ -241,7 +241,7 @@ public class SootAnalysis
     }
 
     public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters){
-        List<String> ThingstToCheck = Arrays.asList(new String[]{"virtualinvoke", "specialinvoke", "staticinvoke"});
+        List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
         UnitPatchingChain units = body.getUnits();
         // CONSTRUCT UNIT AND THEN USE units.addFirst(u);
         String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
@@ -341,19 +341,19 @@ public class SootAnalysis
                         // Print("Method Count:" + thisClass.getMethodCount());
                         // thisMethodName = thisMethod.getName();
                         Print(stringClassName + ":" + thisMethodName);
-                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));   
-                        // if(ThingstToCheck.contains(thisMethodName)){ 
-                        //     Print("Found " + thisMethodName + "!!!");
+                        if(ThingstToCheck.contains(thisMethodName)){ 
+                            Print("Found " + thisMethodName + "!!!");
+                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));   
                             // for (int param_count : thisMethod.getParameterCount()){
                             // }
                             // Print(String.valueOf(thisMethod.getParameterTypes()));
                             // Print("Injecting Log");                       
-                        // }
+                        }
                     }
-                    else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
-                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
+                    // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
+                    //     IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
 
-                    }  
+                    // }  
                 }
 
             }));

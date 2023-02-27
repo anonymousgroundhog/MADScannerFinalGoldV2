@@ -172,9 +172,9 @@ os.system("clear")
 #     print(apk)
 #     Run_Framework_on_Single_APK(apk,'dex')
 
-# Compile_Framework_Code()
+Compile_Framework_Code()
 # TO RUN SINGLE APK UNCOMMENT BELOW
-Run_Framework_on_Single_APK('BannerExampleAdViewOnlyWithLog.apk','J')
+Run_Framework_on_Single_APK('BannerExampleAdViewOnly.apk','J')
 
 # TO SIGN APK UNCOMMENT BELOW
 # Sign_APKS()
