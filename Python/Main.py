@@ -93,7 +93,10 @@ def Run_Framework_on_Single_APK(str_apkName, param_format):
     apk_output = ''.join([Soot_Output_Folder,str(str_apkName).replace(".apk","").replace("../","").replace("APK","")])
     # print(''.join(["APK_OUTPUT:",str(apk_output)]))
     # print(''.join(['current directory: ', os.getcwd()]))
-    Run_System_Command(" ".join(['java -cp .:../../Jar_Libs/* SootAnalysis',"".join([" ../../APK/",str_apkName]),param_format,apk_output]))
+    cmd = " ".join(['java -cp .:../../Jar_Libs/* SootAnalysis',"".join([" ../../APK/",str_apkName]),param_format,apk_output])
+    print(cmd)
+    Run_System_Command(cmd)
+
     os.chdir('../../Python')
 
 def Sign_APKS():
@@ -174,7 +177,7 @@ os.system("clear")
 
 Compile_Framework_Code()
 # TO RUN SINGLE APK UNCOMMENT BELOW
-Run_Framework_on_Single_APK('BannerExampleAdViewOnly.apk','J')
+Run_Framework_on_Single_APK('BannerExampleAdViewOnlyWithLog.apk','J')
 
 # TO SIGN APK UNCOMMENT BELOW
 # Sign_APKS()

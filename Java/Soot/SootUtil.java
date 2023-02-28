@@ -49,12 +49,22 @@ public class SootUtil
     public static String publicVariableStringClassToInject = null;
     private static SootClass publicVariableSootClass;
     
+
+    public Local getLocalUnsafe(Body b, String name) {
+        for (Local local : b.getLocals()) {
+            if (local.getName().equals(name)) {
+                return local;
+            }
+        }
+     return null;
+    }
     public static void Print(String stringvalue)
     {
         System.out.println(stringvalue);
     }
 
-    public AssignStmt NewAssignStmt(Value variable, Value rvalue) {
+    public AssignStmt NewAssignStmt(Value variable, Value rvalue) 
+    {
         return new JAssignStmt(variable, rvalue);
     }
     // the following setting should be changed to the local path
