@@ -284,17 +284,20 @@ public class SootAnalysis
             Local local_thisclass = Jimple.v().newLocal("$thisClass", RefType.v(Class));
             body.getLocals().add(local_thisclass);
             Local local_adview = Jimple.v().newLocal("$adview", RefType.v("com.google.android.gms.ads.AdView"));
-            sootUtil.AddFinalFieldToSootClass(thisClass, "adView", Class);
+            
+            // Must add private com.google.android.gms.ads.AdView adView to class
+            Print("FIELDS:"+thisClass.getFields().toString());
+            // sootUtil.AddFinalFieldToSootClass(thisClass, "adView", Class);
             // List<Value> emptylist = Collections.<Value>emptyList();
             // Value sootfieldref = Jimple.v().newInstanceFieldRef(thisStmt.getLeftOpBox().getValue(), publicVariableSootClass.getFieldByName("this$0").makeRef());
             // thisClass.addField(sootfieldref);
            
 
            // $adview = r0.<[CLASS NAME]: com.google.android.gms.ads.AdView adView>;
-            Value sootfieldref = sootUtil.AddFinalFieldToSootClass(thisClass, unit_to_insert_after.getDefBoxes().get(0).getValue().toString(),Class);
+            // Value sootfieldref = sootUtil.AddFinalFieldToSootClass(thisClass, unit_to_insert_after.getDefBoxes().get(0).getValue().toString(),Class);
             // SootField sootfieldref = Jimple.v().newInstanceFieldRef(unit_to_insert_after.getDefBoxes().get(0).getValue(), thisClass.getFieldByName("adview").makeRef());
             // thisClass.addField(sootfieldref);
-            Print("Test:"+sootfieldref.toString());
+            // Print("Test:"+sootfieldref.toString());
 
 
             // VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_thisclass, Scene.v().getMethod("<com.google.android.gms.example.bannerexample.MyActivity: android.view.View findViewById(int)>").makeRef(),arguments);
