@@ -279,7 +279,7 @@ public class SootAnalysis
             body.getLocals().add(local_string_builder);
             Local local_string = Jimple.v().newLocal("$string", RefType.v("java.lang.String"));
             body.getLocals().add(local_string);
-            Local local_androidView = Jimple.v().newLocal("$string", RefType.v("android.view.View"));
+            Local local_androidView = Jimple.v().newLocal("$view", RefType.v("android.view.View"));
             body.getLocals().add(local_androidView);
             Local local_thisclass = Jimple.v().newLocal("$thisClass", RefType.v(Class));
             body.getLocals().add(local_thisclass);
@@ -291,14 +291,21 @@ public class SootAnalysis
             Print("FIELDS:"+thisClass.getFields().toString());
             if (!thisClass.getFields().toString().contains("adView")){
                 sootfieldref = sootUtil.AddPrivateFieldToSootClass(thisClass, "adView", Class);
+            }else{
+                sootfieldref = thisClass.getFieldByName("adView");
             }
             // List<Value> emptylist = Collections.<Value>emptyList();
             // Value sootfieldref = Jimple.v().newInstanceFieldRef(thisStmt.getLeftOpBox().getValue(), publicVariableSootClass.getFieldByName("this$0").makeRef());
             // thisClass.addField(sootfieldref);
            
 
-           // $adview = r0.<[CLASS NAME]: com.google.android.gms.ads.AdView adView>;
-            // ddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
+           // $adview = $thisClass.<[CLASS NAME]: com.google.android.gms.ads.AdView adView>;
+            FieldRef fieldRef = soot.jimple.Jimple.v().newInstanceFieldRef(local_thisclass, sootfieldref.makeRef());
+            Print("fieldRef:"+fieldRef);
+            AssignStmt stmt = Jimple.v().newAssignStmt(local_adview, fieldRef);
+            Print("statement:"+stmt);
+            units.insertAfter(stmt,unit_to_insert_after);
+            // AddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
             // AssignStmt IdentityStmtNew = newAssignStmt(local_adview, Jimple.v().newAddExpr(local_thisclass,sootfieldref));
             // VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_thisclass, Scene.v().getMethod("<com.google.android.gms.example.bannerexample.MyActivity: android.view.View findViewById(int)>").makeRef(),arguments);
             // Print("VIRTUALINVOKE:"+virtualinvoke);
@@ -326,8 +333,18 @@ public class SootAnalysis
         }
     }
 
-    public static void IterateOverUnitsAndInvestigateBody(Body body, SootClass thisClass){
-        Print(thisClass.getFields().toString());
+    public static void IterateOverUnitsAndInvestigateBody(Body body, SootClass thisClass, String thisMethodName){
+        // Print(thisClass.getFields().toString());
+        if (thisMethodName.contains("Testing")){
+            UnitPatchingChain units = body.getUnits();
+            for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
+                Unit LastKnownUnit = unit.next();
+                String StringLastKnownUnit = LastKnownUnit.toString();
+                if(StringLastKnownUnit.contains("$r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>")){
+                    Print(LastKnownUnit.getUseBoxes().get(0).getValue().toString());
+                }
+            }
+        }
     }
     public static void main(String[] sootarguments)
     {
@@ -368,20 +385,13 @@ public class SootAnalysis
                     String stringClassName =  thisClass.toString();
                     String thisMethodName = thisMethod.getName();
                     if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
-                        IterateOverUnitsAndInvestigateBody(body,thisClass);
+                        // IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
                     }
 
                     if (stringClassName.contains("com.google.android.gms.ads")){
-                        // Print("Method Count:" + thisClass.getMethodCount());
-                        // thisMethodName = thisMethod.getName();
-                        // Print(stringClassName + ":" + thisMethodName);
                         if(ThingstToCheck.contains(thisMethodName)){ 
-                            Print("Found " + thisMethodName + "!!!");
-                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);   
-                            // for (int param_count : thisMethod.getParameterCount()){
-                            // }
-                            // Print(String.valueOf(thisMethod.getParameterTypes()));
-                            // Print("Injecting Log");                       
+                            // Print("Found " + thisMethodName + "!!!");
+                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
                         }
                     }
                     // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
