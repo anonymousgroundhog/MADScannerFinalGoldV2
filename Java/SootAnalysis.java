@@ -284,8 +284,10 @@ public class SootAnalysis
             Local local_thisclass = Jimple.v().newLocal("$thisClass", RefType.v(Class));
             body.getLocals().add(local_thisclass);
             Local local_adview = Jimple.v().newLocal("$adview", RefType.v("com.google.android.gms.ads.AdView"));
+            body.getLocals().add(local_adview);
+
             // Must add private com.google.android.gms.ads.AdView adView to class
-            Value sootfieldref = null;
+            SootField sootfieldref = null;
             Print("FIELDS:"+thisClass.getFields().toString());
             if (!thisClass.getFields().toString().contains("adView")){
                 sootfieldref = sootUtil.AddPrivateFieldToSootClass(thisClass, "adView", Class);
@@ -297,7 +299,7 @@ public class SootAnalysis
 
            // $adview = r0.<[CLASS NAME]: com.google.android.gms.ads.AdView adView>;
             // ddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
-            AssignStmt IdentityStmtNew = newAssignStmt(local_adview, Jimple.v().newAddExpr(local_thisclass,sootfieldref));
+            // AssignStmt IdentityStmtNew = newAssignStmt(local_adview, Jimple.v().newAddExpr(local_thisclass,sootfieldref));
             // VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_thisclass, Scene.v().getMethod("<com.google.android.gms.example.bannerexample.MyActivity: android.view.View findViewById(int)>").makeRef(),arguments);
             // Print("VIRTUALINVOKE:"+virtualinvoke);
             // Local local_string_builder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
