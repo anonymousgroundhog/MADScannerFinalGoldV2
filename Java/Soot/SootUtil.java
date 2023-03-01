@@ -100,6 +100,13 @@ public class SootUtil
         sClass.addField(field);
     }
 
+    public static SootField AddPrivateFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
+    {
+        SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.PRIVATE);
+        sClass.addField(field);
+        return field;
+    }
+
     public static void InsertLogMessageAfterUnit(String Message, Unit LastKnownUnit, UnitPatchingChain units)
     {
         List<Value> listArgs = new ArrayList<Value>();
