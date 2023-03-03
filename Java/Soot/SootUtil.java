@@ -61,12 +61,8 @@ public class SootUtil
         for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
             Unit LastKnownUnit = unit.next();
             String StringLastKnownUnit = LastKnownUnit.toString();
-            // unitcounter = unitcounter + 1;
-            // String unit_string = unit.toString();
             Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
-            // Print(String.valueOf(is_identity_statement));
-            
-            // if(unitcounter > 1) {
+
             if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
                 Print(StringLastKnownUnit);
                 // isUnitOfInterest = true;
