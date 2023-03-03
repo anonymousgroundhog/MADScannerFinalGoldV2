@@ -275,6 +275,8 @@ public class SootAnalysis
             Print("This Class:"+Class);
             SootUtil sootUtil = new SootUtil();
             
+            Local local_view_menu = Jimple.v().newLocal("$menu", RefType.v("android.view.Menu"));
+            body.getLocals().add(local_view_menu);
             Local local_string_builder = Jimple.v().newLocal("$stringBuilder", RefType.v("java.lang.StringBuilder"));
             body.getLocals().add(local_string_builder);
             Local local_string = Jimple.v().newLocal("$string", RefType.v("java.lang.String"));
@@ -305,10 +307,22 @@ public class SootAnalysis
             AssignStmt stmt = Jimple.v().newAssignStmt(local_adview, fieldRef);
             Print("statement:"+stmt);
             units.insertAfter(stmt,unit_to_insert_after);
+            
+            // Scene.v().forceResolve("com.google.android.gms.ads.AdView", SootClass.BODIES);
+            
+            //$view = virtualinvoke $adview.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
+            List<Value> arguments = Collections.<Value>emptyList();
+            // arguments.add(2131165243);
+            // SootMethodRef ref = Scene.v().getMethod("<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>").makeRef();
+            SootMethodRef ref = soot.Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "Test", Collections.singletonList((Type) RefType.v("int")), RefType.v("android.vew.View"), false);
+            Print("METHOD REF:"+ref.toString());
+            VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_adview, ref,IntConstant.v(2131165243));
+            Print("VIRTUALINVOKE:"+virtualinvoke);
+            AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_androidView, virtualinvoke);
+            Print("stmt UNIT:"+stmt_virtualinvoke);
+            units.insertAfter(stmt_virtualinvoke,stmt);
             // AddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
             // AssignStmt IdentityStmtNew = newAssignStmt(local_adview, Jimple.v().newAddExpr(local_thisclass,sootfieldref));
-            // VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_thisclass, Scene.v().getMethod("<com.google.android.gms.example.bannerexample.MyActivity: android.view.View findViewById(int)>").makeRef(),arguments);
-            // Print("VIRTUALINVOKE:"+virtualinvoke);
             // Local local_string_builder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
             // LinkedVariableBox leftBox = new LinkedVariableBox(local_string_builder);
             // Print("leftBox:"+String.valueOf(leftBox));
@@ -340,8 +354,8 @@ public class SootAnalysis
             for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
                 Unit LastKnownUnit = unit.next();
                 String StringLastKnownUnit = LastKnownUnit.toString();
-                if(StringLastKnownUnit.contains("$r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>")){
-                    Print(LastKnownUnit.getUseBoxes().get(0).getValue().toString());
+                if(StringLastKnownUnit.contains("$r3 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243)")){
+                    Print(LastKnownUnit.getUseBoxes().get(0).toString());
                 }
             }
         }
@@ -385,10 +399,16 @@ public class SootAnalysis
                     String stringClassName =  thisClass.toString();
                     String thisMethodName = thisMethod.getName();
                     if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
-                        // IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
+                        SootClass clz1 = Scene.v().getSootClass("android.view.View");
+                        if(clz1.isPhantom()){
+                            Print("Class is a Phantom class");
+                        }else{
+                            Print("Class is not a Phantom class");
+                        }
+                        IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
                     }
 
-                    if (stringClassName.contains("com.google.android.gms.ads")){
+                    if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
                         if(ThingstToCheck.contains(thisMethodName)){ 
                             // Print("Found " + thisMethodName + "!!!");
                             IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
