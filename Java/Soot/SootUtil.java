@@ -49,6 +49,53 @@ public class SootUtil
     public static String publicVariableStringClassToInject = null;
     private static SootClass publicVariableSootClass;
     
+    public SootClass ReturnSootClass(String thisstringclass){
+        return Scene.v().getSootClass(thisstringclass);
+    }
+
+    public AssignStmt GenerateAndReturnNewAssignmentStatementStringBuilder(Local local_java_lang_stringbuilder){
+        return NewAssignStmt(local_java_lang_stringbuilder, Jimple.v().newNewExpr(RefType.v("java.lang.StringBuilder")));
+    }
+    
+    public Unit ReturnUnitOfInterest(UnitPatchingChain thisunits){
+        for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+            Unit LastKnownUnit = unit.next();
+            String StringLastKnownUnit = LastKnownUnit.toString();
+            // unitcounter = unitcounter + 1;
+            // String unit_string = unit.toString();
+            Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
+            // Print(String.valueOf(is_identity_statement));
+            
+            // if(unitcounter > 1) {
+            if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
+                Print(StringLastKnownUnit);
+                // isUnitOfInterest = true;
+                return LastKnownUnit;
+            }
+        }
+        return null;
+    }
+
+    public Local CreateAndAddLocalToBody(Body body, String thislocalvar, String thislocalRef){
+        Local thislocal = Jimple.v().newLocal(thislocalvar, RefType.v(thislocalRef));
+        body.getLocals().add(thislocal);
+        return thislocal;
+    }
+    public VirtualInvokeExpr GenerateAndReturnNewVirtualInvokeExpression(Local thislocal, SootMethodRef thismethodref, Value thisarg){
+        return Jimple.v().newVirtualInvokeExpr(thislocal, thismethodref, thisarg);
+    }
+    public AssignStmt GenerateAndReturnNewAssignmentStatement(Local thislocal, FieldRef thisfieldref){
+        return Jimple.v().newAssignStmt(thislocal, thisfieldref);
+    }
+    public AssignStmt GenerateAndReturnNewAssignmentStatementVirtualInvoke(Local thislocal, VirtualInvokeExpr thisvirtualinvoke){
+        return Jimple.v().newAssignStmt(thislocal, thisvirtualinvoke);
+    }
+    // ReturnMethodFromClass
+    public SootMethodRef GenerateAndReturnMethodRefFromClass(soot.SootClass sootClass, String name, ArrayList paramTypes,
+    Type returnType, boolean isStatic) {
+        SootMethodRef ref = soot.Scene.v().makeMethodRef(sootClass, name, paramTypes, returnType, isStatic);
+        return ref;
+    }
 
     public Local getLocalUnsafe(Body b, String name) {
         for (Local local : b.getLocals()) {
@@ -100,11 +147,18 @@ public class SootUtil
         sClass.addField(field);
     }
 
-    public static SootField AddPrivateFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
+    public static SootField AddPrivateFieldToSootClassIfExistsAndReturn(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
     {
-        SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.PRIVATE);
-        sClass.addField(field);
-        return field;
+        if (!sClass.getFields().toString().contains(strVar)){
+            // sootfieldref = sootUtil.AddPrivateFieldToSootClass(thisClass, "adView", Class);
+            SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.PRIVATE);
+            sClass.addField(field);
+            return field;
+        }else{
+            SootField field = sClass.getFieldByName(strVar);
+            return field;
+        }
+
     }
 
     public static void InsertLogMessageAfterUnit(String Message, Unit LastKnownUnit, UnitPatchingChain units)
