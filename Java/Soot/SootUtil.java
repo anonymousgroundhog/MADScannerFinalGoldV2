@@ -49,6 +49,58 @@ public class SootUtil
     public static String publicVariableStringClassToInject = null;
     private static SootClass publicVariableSootClass;
     
+    public String[] setupSoot(String[] sootarguments) {
+        // G.reset();
+        // Options.v().set_allow_phantom_refs(true);
+        // Options.v().set_whole_program(true);
+        // Options.v().set_prepend_classpath(true);
+        // Options.v().set_validate(true);
+        // Options.v().set_src_prec(Options.src_prec_apk);
+        // Options.v().set_output_format(Options.output_format_dex);
+        // Options.v().set_android_jars(androidJar);
+        // Options.v().set_process_dir(Collections.singletonList(apkPath));
+        // Options.v().set_include_all(true);
+        // Options.v().set_process_multiple_dex(true);
+        // Options.v().set_output_dir(outputPath);
+        // Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
+        // Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
+        // Scene.v().loadNecessaryClasses();
+        // Print(Options.v().toString());
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
+            "android.support.", "-x", "android.annotation.",
+            "-process-dir", sootarguments[0],
+            "-output-dir", sootarguments[2],
+            "-android-jars", "../../Android/platforms",
+            "-src-prec", "apk",
+            "-no-bodies-for-excluded",
+            "-force-overwrite", "-include-all"
+            };
+            return sootargs;
+    }
+
+    public void SetSootOptions(String[] sootarguments){
+        // String[] ThingsToIgnore = {"android.support.", "android.annotation."};
+        List<String> ThingsToIgnore = Arrays.asList("android.support.", "android.annotation.");
+        String outputPath = "../sootOutput/BannerExampleAdViewOnlyWithLog";
+        List<String> Directory_To_Analyze = Arrays.asList(sootarguments[0]);
+        Options.v().set_allow_phantom_refs(true);
+        Options.v().set_whole_program(true);
+        Options.v().set_prepend_classpath(true);
+        // Read (APK Dex-to-Jimple) Options
+        Options.v().set_android_jars("../../Android/platforms"); // The path to Android Platforms
+        Options.v().set_src_prec(Options.src_prec_apk); // Determine the input is an APK
+        Options.v().set_process_dir(Collections.singletonList("../../APK/BannerExampleAdViewOnlyWithLog.apk")); // Provide paths to the APK
+        Options.v().set_process_multiple_dex(true);  // Inform Dexpler that the APK may have more than one .dex files
+        Options.v().set_include_all(true);
+        // Write (APK Generation) Options
+        Options.v().set_output_format(Options.output_format_jimple);
+        Options.v().set_output_dir(outputPath);
+        Options.v().set_validate(true); // Validate Jimple bodies in each transofrmation pack
+        Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
+        Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
+        Scene.v().loadNecessaryClasses();
+
+    }
     public SootClass ReturnSootClass(String thisstringclass){
         return Scene.v().getSootClass(thisstringclass);
     }
@@ -89,7 +141,7 @@ public class SootUtil
     // ReturnMethodFromClass
     public SootMethodRef GenerateAndReturnMethodRefFromClass(soot.SootClass sootClass, String name, ArrayList paramTypes,
     Type returnType, boolean isStatic) {
-        SootMethodRef ref = soot.Scene.v().makeMethodRef(sootClass, name, paramTypes, returnType, isStatic);
+        SootMethodRef ref = Scene.v().makeMethodRef(sootClass, name, paramTypes, returnType, isStatic);
         return ref;
     }
 
