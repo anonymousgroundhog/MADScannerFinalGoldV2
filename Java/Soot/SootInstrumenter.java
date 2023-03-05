@@ -59,6 +59,7 @@ import soot.util.WeakMapNumberer;
 import soot.jimple.internal.JAssignStmt;
 
 import java.util.*;
+
 public class SootInstrumenter
 {
 	private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
@@ -76,6 +77,92 @@ public class SootInstrumenter
     protected StringNumberer subSigNumberer = new StringNumberer();
     protected Chain<SootClass> applicationClasses = new HashChain<SootClass>();
     protected final Map<String, RefType> nameToClass = new ConcurrentHashMap<String, RefType>();
+
+    private static String[] setupSoot(String[] sootarguments) {
+        // G.reset();
+        // Options.v().set_allow_phantom_refs(true);
+        // Options.v().set_whole_program(true);
+        // Options.v().set_prepend_classpath(true);
+        // Options.v().set_validate(true);
+        // Options.v().set_src_prec(Options.src_prec_apk);
+        // Options.v().set_output_format(Options.output_format_dex);
+        // Options.v().set_android_jars(androidJar);
+        // Options.v().set_process_dir(Collections.singletonList(apkPath));
+        // Options.v().set_include_all(true);
+        // Options.v().set_process_multiple_dex(true);
+        // Options.v().set_output_dir(outputPath);
+        // Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
+        // Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
+        // Scene.v().loadNecessaryClasses();
+        // Print(Options.v().toString());
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
+            "android.support.", "-x", "android.annotation.",
+            "-process-dir", sootarguments[0],
+            "-output-dir", sootarguments[2],
+            "-android-jars", "../../Android/platforms",
+            "-src-prec", "apk",
+            "-no-bodies-for-excluded",
+            "-force-overwrite", "-include-all"
+            };
+            return sootargs;
+    }
+    public static void RunInstrumentationOnAPK(String[] sootarguments){
+        
+        LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
+        String[] app_name =  sootarguments[0].split("/");
+        String app_name_only = app_name[app_name.length-1];
+        String command = "sha256sum " + sootarguments[0];
+        // sootUtil.SetSootOptions(sootarguments);
+
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            BufferedReader reader = new BufferedReader(
+            new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                hash = String.valueOf(line).replace(sootarguments[0],"");
+                System.out.println("LINE:" + hash);
+            }        
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+            
+            System.out.println("Running analysis on: " + sootarguments[0] + "\n");
+            // retrieveAllClassNamesAndMethods();
+            // printAllClassNamesAndMethods();
+            // setMainClassFromOptions();
+            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
+            {
+                @Override
+                protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+                {   
+                    // SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
+                    SootMethod thisMethod = body.getMethod();
+                    SootClass thisClass = thisMethod.getDeclaringClass();
+                    String stringClassName =  thisClass.toString();
+                    String thisMethodName = thisMethod.getName();
+                    if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
+                        IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
+                    }
+
+                    if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+                        if(ThingstToCheck.contains(thisMethodName)){ 
+                            // Print("Found " + thisMethodName + "!!!");
+                            IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+                        }
+                    }
+                    // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
+                    //     IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
+
+                    // }  
+                }
+
+            }));
+            
+            // soot.Main.main(sootargs);
+            Main.main(setupSoot(sootarguments));
+    }
 
 	public static void Print(String stringvalue)
     {
