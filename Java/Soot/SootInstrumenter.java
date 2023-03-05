@@ -62,6 +62,7 @@ import java.util.*;
 
 public class SootInstrumenter
 {
+    public static String adUnitId = null;
     private Chain<SootClass> ret = null;
 	private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
         "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
@@ -112,6 +113,36 @@ public class SootInstrumenter
             "-force-overwrite", "-include-all"
             };
             return sootargs;
+    }
+    public static String ReturnAdviewID(String[] sootarguments){
+            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
+            {
+                @Override
+                protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+                {   
+                    UnitPatchingChain units = body.getUnits();
+                    for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
+                        Unit LastKnownUnit = unit.next();
+                        String StringLastKnownUnit = LastKnownUnit.toString();
+                        Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
+
+                        if(StringLastKnownUnit.contains("<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>") || 
+                            StringLastKnownUnit.contains("android.view.View findViewById(int)") && StringLastKnownUnit.contains("r0") && ! 
+                            StringLastKnownUnit.contains("androidx.appcompat") && ! StringLastKnownUnit.contains("<android") && 
+                            ! StringLastKnownUnit.contains("$i")){
+                            adUnitId=StringLastKnownUnit.split(">")[1].replace("(", "").replace(")","");
+                            // isUnitOfInterest = true;
+                            // return adUnitId;
+                        }
+                    }
+
+                }
+
+            }));
+            
+            // soot.Main.main(sootargs);
+            Main.main(setupSoot(sootarguments));
+            return adUnitId;
     }
     public static void RunInstrumentationOnAPK(String[] sootarguments){
         
