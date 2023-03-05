@@ -204,10 +204,10 @@ public class SootInstrumenter
             units.insertAfter(assignment_statement,unit_to_insert_after);
             
             //$view = virtualinvoke $adview.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
-            // issue on below methodref
             ArrayList<Type> list = new ArrayList<Type>();
             list.add(RefType.v("int"));
 
+            // issue with generating methodref
             SootMethodRef test_soot_method_ref = Scene.v().getMethod("<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>").makeRef();
             Print("test_soot_method_ref: " + test_soot_method_ref.toString());
            
