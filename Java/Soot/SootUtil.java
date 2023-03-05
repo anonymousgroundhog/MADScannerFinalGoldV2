@@ -31,14 +31,9 @@ import org.openjdk.jol.vm.VM;
 public class SootUtil
 {
     private static List<String> MethodsFoundArray = new ArrayList<String>();
-    private static String[] StringArrayOfVirtualInvokeMethodsToLookForAdSpecific = {"com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest", "performClick", "com.google.android.gms.ads.AdRequest build()", "com.google.android.gms.ads.interstitial.InterstitialAd: void show(android.app.Activity)", "com.google.android.gms.ads.AdView: void loadAd(com.google.android.gms.ads.AdRequest)", "com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)", "onAdClicked()"};
-    private static String[] StringArrayOfVirtualInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor = {"android.widget.FrameLayout: void addView(android.view.View)"};
-    private static String[] StringArrayOfSpecialInvokeMethodsToLookForAdSpecific = {"onAdClicked()", "onAdClosed()", "void onAdImpression()", "AdListener: void onAdLoaded()", "com.google.android.gms.ads.AdSize getAdSize()"};
-    private static String[] StringArrayOfSpecialInvokeMethodsToLookForAdSpecificMultipleTimesSearchFor = {"android.view.View findViewById(int)", "com.google.android.gms.ads.AdView: void <init>(android.content.Context)"};
-    private static String[] StringArrayOfStaticInvokeMethodsToLookForAdSpecific = {"void initialize(android.content.Context,com.google.android.gms.ads.initialization.OnInitializationCompleteListener)"};
     public static ArrayList<String> stringAdUnitsInserted = new ArrayList<>();
 
-    //NOT AD SPECIFIC
+    // //NOT AD SPECIFIC
     public static String[] StringArrayOfVirtualInvokeMethodsToLookForNotAdSpecific = {"void setContentView(int)", "android.view.View findViewById(int)"};
     public static String[] StringArrayOfSpecialInvokeMethodsToLookForNotAdSpecific = {"void onCreate(android.os.Bundle)>($r1)"};
     private static boolean runOnce = true;

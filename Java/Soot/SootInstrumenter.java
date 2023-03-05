@@ -62,6 +62,7 @@ import java.util.*;
 
 public class SootInstrumenter
 {
+    private Chain<SootClass> ret = null;
 	private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
         "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
     private static boolean publicVariableBooleanRunImplementationOnce = true;
@@ -78,7 +79,13 @@ public class SootInstrumenter
     protected Chain<SootClass> applicationClasses = new HashChain<SootClass>();
     protected final Map<String, RefType> nameToClass = new ConcurrentHashMap<String, RefType>();
 
+	public static void Print(String stringvalue)
+    {
+        System.out.println(stringvalue);
+    }
+
     private static String[] setupSoot(String[] sootarguments) {
+        // Scene.v().loadNecessaryClasses();
         // G.reset();
         // Options.v().set_allow_phantom_refs(true);
         // Options.v().set_whole_program(true);
@@ -164,10 +171,6 @@ public class SootInstrumenter
             Main.main(setupSoot(sootarguments));
     }
 
-	public static void Print(String stringvalue)
-    {
-        System.out.println(stringvalue);
-    }
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
         List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
         UnitPatchingChain units = body.getUnits();
@@ -264,6 +267,21 @@ public class SootInstrumenter
                 }
             }
         }
+    }
+    public Chain<SootClass> ReturnApplicationClasses(String[] sootarguments) {
+        PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
+            {
+
+                @Override
+            protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+            {   
+                // CallGraph appCallGraph = Scene.v().getCallGraph();
+                ret = Scene.v().getApplicationClasses();
+            }
+            
+        }));
+        Main.main(setupSoot(sootarguments));
+        return ret;
     }
 
     public static String GetClassesOfInterest(String stringMethodCallToSearchFor, String stringAdFlag, String stringInvokeType){
