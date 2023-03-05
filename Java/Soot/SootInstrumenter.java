@@ -102,10 +102,10 @@ public class SootInstrumenter
         // Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
         // Scene.v().loadNecessaryClasses();
         // Print(Options.v().toString());
-        String[] sootargs = {"-process-multiple-dex", "-w","-f", sootarguments[1], "-allow-phantom-refs", "-x",
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
-            "-output-dir", sootarguments[2],
+            "-output-dir", sootarguments[1],
             "-android-jars", "../../Android/platforms",
             "-src-prec", "apk",
             "-no-bodies-for-excluded",
