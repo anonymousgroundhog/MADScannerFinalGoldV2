@@ -103,9 +103,9 @@ public class SootInstrumenter
     }
 
     public static String GetMainClass(String[] sootarguments){
-        // Print(sootarguments[0]);
         return(sootarguments[2]);
     }
+
     public static String ReturnAdviewID(Body body){
                        UnitPatchingChain units = body.getUnits();
                        for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
@@ -180,16 +180,6 @@ public class SootInstrumenter
                 }
 
             }));
-            // String[] sootargs = {
-            //     "-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
-            // "android.support.", "-x", "android.annotation.",
-            // "-process-dir", sootarguments[0],
-            // "-output-dir", sootarguments[1],
-            // "-android-jars", "../../Android/platforms",
-            // "-src-prec", "apk",
-            // "-no-bodies-for-excluded",
-            // "-force-overwrite", "-include-all"
-            // };
             Main.main(setupSoot(sootarguments));
     }
 
@@ -207,20 +197,24 @@ public class SootInstrumenter
         Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 
         if(unit_to_insert_after != null){
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Found Ad:",MethodName)));
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("This Class:",Class)));
-            // Print("Found Ad:"+MethodName);
-            // Print("This Class:"+Class);
-            
-            Local local_java_lang_stringbuilder = sootUtil.CreateAndAddLocalToBody(body,"$stringBuilder", "java.lang.StringBuilder");
-            Local local_java_lang_string = sootUtil.CreateAndAddLocalToBody(body, "$string", "java.lang.String");
-            Local local_android_view_View = sootUtil.CreateAndAddLocalToBody(body,"$view", "android.view.View");
-            Local local_this_class = sootUtil.CreateAndAddLocalToBody(body,"$thisClass", Class);
-            Local local_google_ads_adview = sootUtil.CreateAndAddLocalToBody(body,"$adview", "com.google.android.gms.ads.AdView");
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("This Class:",Class)));            
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Found Ad:",MethodName)));
+            LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
+
+            Local local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
+            Local local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+            Local local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
+            Local local_this_class = localgenerator.generateLocal(RefType.v(Class));
+            Local local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
+            // Local local_java_lang_stringbuilder = sootUtil.CreateAndAddLocalToBody(body,"$stringBuilder", "java.lang.StringBuilder");
+            // Local local_java_lang_string = sootUtil.CreateAndAddLocalToBody(body, "$string", "java.lang.String");
+            // Local local_android_view_View = sootUtil.CreateAndAddLocalToBody(body,"$view", "android.view.View");
+            // Local local_this_class = sootUtil.CreateAndAddLocalToBody(body,"$thisClass", Class);
+            // Local local_google_ads_adview = sootUtil.CreateAndAddLocalToBody(body,"$adview", "com.google.android.gms.ads.AdView");
 
             // Must add private com.google.android.gms.ads.AdView adView to class
             SootField sootfieldref = null;
-            sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", Class);
+            sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
            
             // $adview = $thisClass.<[CLASS NAME]: com.google.android.gms.ads.AdView adView>;
             FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
@@ -229,40 +223,36 @@ public class SootInstrumenter
             
             //$view = virtualinvoke $adview.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
             ArrayList<Type> list = new ArrayList<Type>();
-            list.add(RefType.v("int"));
+            list.add(IntType.v());
 
-            // issue with generating methodref
-            SootMethodRef test_soot_method_ref = Scene.v().getMethod("<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>").makeRef();
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
+            // CURRENT ISSUE WITH GENERATING METHODREF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // SootMethodRef test_soot_method_ref = Scene.v().getMethod("<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>").makeRef();
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
            
            
             SootMethodRef soot_method_reference = sootUtil.GenerateAndReturnMethodRefFromClass(sootUtil.ReturnSootClass("com.google.android.gms.ads.AdView"), "findViewById", list, RefType.v("android.vew.View"), false);
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("METHOD REF:"+soot_method_reference.toString())));
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("METHOD REF:"+soot_method_reference.toString())));
             int intadviewid=Integer.parseInt(adUnitId); 
             VirtualInvokeExpr virtualinvoke = sootUtil.GenerateAndReturnNewVirtualInvokeExpression(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("VIRTUALINVOKE:"+virtualinvoke)));
-            // Print("VIRTUALINVOKE:"+virtualinvoke);
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("VIRTUALINVOKE:"+virtualinvoke)));
             AssignStmt stmt_virtualinvoke  = sootUtil.GenerateAndReturnNewAssignmentStatementVirtualInvoke(local_android_view_View, virtualinvoke);
-            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("stmt UNIT:"+stmt_virtualinvoke)));
-            // Print("stmt UNIT:"+stmt_virtualinvoke);
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("stmt UNIT:"+stmt_virtualinvoke)));
             units.insertAfter(stmt_virtualinvoke,assignment_statement);
-            // AddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
-            // AssignStmt IdentityStmtNew = newAssignStmt(local_google_ads_adview, Jimple.v().newAddExpr(local_this_class,sootfieldref));
-            // Local local_java_lang_stringbuilder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
-            // LinkedVariableBox leftBox = new LinkedVariableBox(local_java_lang_stringbuilder);
-            // Print("leftBox:"+String.valueOf(leftBox));
-            // LinkedVariableBox rightBox = new LinkedRValueBox(local_java_lang_stringbuilder);
-            // SootClass class_constant = scene.v().getSootClass("java.lang.StringBuilder");
+            
             
 
-            // $adview = (com.google.android.gms.ads.AdView) $view;
+            // $r2 = (com.google.android.gms.ads.AdView) $r3;
+            CastExpr castexpr = Jimple.v().newCastExpr(local_android_view_View, RefType.v("com.google.android.gms.ads.AdView")); 
+            AssignStmt stmt_castexpr  = Jimple.v().newAssignStmt(local_google_ads_adview, castexpr);
+            units.insertAfter(stmt_castexpr,stmt_virtualinvoke);
 
             // $thisClass.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView> = $adview;
-
-
+            fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());           
+            assignment_statement = Jimple.v().newAssignStmt(fieldRef, local_google_ads_adview);
+            units.insertAfter(assignment_statement,stmt_castexpr);
             // r2 = new java.lang.StringBuilder;
-            // AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
-            // Print("AssigStmt:"+this_java_assign_stmt);
+            AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
+            units.insertAfter(this_java_assign_stmt,assignment_statement);
             // AssignStmt this_java_assign_stmt = sootUtil.NewAssignStmt(local_java_lang_stringbuilder, Jimple.v().newNewExpr(RefType.v("java.lang.StringBuilder")));
             // Print("this_java_assign_stmt: " + String.valueOf(this_java_assign_stmt));
             
@@ -271,9 +261,11 @@ public class SootInstrumenter
             // units.insertBefore(assign_stmt_this,unit_to_insert_after);
             // specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
             
-            // List<Value> emptylist = Collections.<Value>emptyList();
-            // SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
-            // Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+            List<Value> emptylist = Collections.<Value>emptyList();
+            SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
+            Print(special_invoke_this.toString());
+            Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+            units.insertAfter(unitToAdd,this_java_assign_stmt);
             // units.insertBefore(unitToAdd,unit_to_insert_after);
             // units.insertBefore(InvokeStatementLog, unit_to_insert_after);
             Print("FINISHED!!!");
@@ -297,17 +289,6 @@ public class SootInstrumenter
         }
     }
     public Chain<SootClass> ReturnApplicationClasses(String[] sootarguments) {
-        // PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenterReturnApplicationClasses", new BodyTransformer()
-        //     {
-
-        //         @Override
-        //     protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
-        //     {   
-        //         // CallGraph appCallGraph = Scene.v().getCallGraph();
-        //         ret = Scene.v().getApplicationClasses();
-        //     }
-            
-        // }));
         return ret;
     }
 

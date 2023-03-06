@@ -66,7 +66,14 @@ public class SootUtil
         }
         return null;
     }
-
+    private Boolean LocalExists(Body b, String name) {
+        for (Local local : b.getLocals()) {
+          if (local.getName().equals(name)) {
+            return true;
+          }
+        }
+        return false;
+    }
     public Local CreateAndAddLocalToBody(Body body, String thislocalvar, String thislocalRef){
         Local thislocal = Jimple.v().newLocal(thislocalvar, RefType.v(thislocalRef));
         body.getLocals().add(thislocal);
