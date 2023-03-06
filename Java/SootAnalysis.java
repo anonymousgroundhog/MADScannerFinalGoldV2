@@ -12,15 +12,18 @@ import soot.*;
 
 public class SootAnalysis
 {
-    private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
-        "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
-    public static String hash = null; 
+    // private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
+    //     "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
+    // public static String hash = null; 
     
     public static void main(String[] sootarguments)
     {
         SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
-        thisSootInstrumenter.Print(thisSootInstrumenter.ReturnAdviewID(sootarguments));
-        // thisSootInstrumenter.RunInstrumentationOnAPK(sootarguments);
+        thisSootInstrumenter.setupSoot(sootarguments);
+        // thisSootInstrumenter.SetupSootFramework(sootarguments);
+        // thisSootInstrumenter.Print(thisSootInstrumenter.GetMainClass(sootarguments));
+        // thisSootInstrumenter.Print("ADVIEW ID:" + thisSootInstrumenter.ReturnAdviewID(sootarguments));
+        thisSootInstrumenter.RunInstrumentationOnAPK(sootarguments);
         // thisSootInstrumenter.Print(thisSootInstrumenter.ReturnApplicationClasses(sootarguments).toString());
-        }
+    }
 }

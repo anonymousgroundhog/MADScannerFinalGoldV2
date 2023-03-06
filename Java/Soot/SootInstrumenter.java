@@ -59,11 +59,12 @@ import soot.util.WeakMapNumberer;
 import soot.jimple.internal.JAssignStmt;
 
 import java.util.*;
+import JavaHelper.*;
 
 public class SootInstrumenter
 {
     public static String adUnitId = null;
-    private Chain<SootClass> ret = null;
+    private static Chain<SootClass> ret = null;
 	private static List<String> ThingstToCheck = Arrays.asList(new String[]{"loadAd", "setAdInfo", "setAdString", "onAdClicked", 
         "onAdLoaded", "onAdFailedToLoad", "onAdImpression", "onAdOpened"});
     private static boolean publicVariableBooleanRunImplementationOnce = true;
@@ -79,30 +80,16 @@ public class SootInstrumenter
     protected StringNumberer subSigNumberer = new StringNumberer();
     protected Chain<SootClass> applicationClasses = new HashChain<SootClass>();
     protected final Map<String, RefType> nameToClass = new ConcurrentHashMap<String, RefType>();
+    
+    private static JavaHelper thisJavaHelper = new JavaHelper();
+	
 
-	public static void Print(String stringvalue)
+    public static void Print(String stringvalue)
     {
         System.out.println(stringvalue);
     }
-
-    private static String[] setupSoot(String[] sootarguments) {
-        // Scene.v().loadNecessaryClasses();
-        // G.reset();
-        // Options.v().set_allow_phantom_refs(true);
-        // Options.v().set_whole_program(true);
-        // Options.v().set_prepend_classpath(true);
-        // Options.v().set_validate(true);
-        // Options.v().set_src_prec(Options.src_prec_apk);
-        // Options.v().set_output_format(Options.output_format_dex);
-        // Options.v().set_android_jars(androidJar);
-        // Options.v().set_process_dir(Collections.singletonList(apkPath));
-        // Options.v().set_include_all(true);
-        // Options.v().set_process_multiple_dex(true);
-        // Options.v().set_output_dir(outputPath);
-        // Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
-        // Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
-        // Scene.v().loadNecessaryClasses();
-        // Print(Options.v().toString());
+    
+    public static String[] setupSoot(String[] sootarguments) {
         String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
@@ -114,34 +101,25 @@ public class SootInstrumenter
             };
             return sootargs;
     }
-    public static String ReturnAdviewID(String[] sootarguments){
-            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
-            {
-                @Override
-                protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
-                {   
-                    UnitPatchingChain units = body.getUnits();
-                    for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
-                        Unit LastKnownUnit = unit.next();
-                        String StringLastKnownUnit = LastKnownUnit.toString();
-                        Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
 
-                        if(StringLastKnownUnit.contains("<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>") || 
-                            StringLastKnownUnit.contains("android.view.View findViewById(int)") && StringLastKnownUnit.contains("r0") && ! 
-                            StringLastKnownUnit.contains("androidx.appcompat") && ! StringLastKnownUnit.contains("<android") && 
-                            ! StringLastKnownUnit.contains("$i")){
-                            adUnitId=StringLastKnownUnit.split(">")[1].replace("(", "").replace(")","");
-                            // isUnitOfInterest = true;
-                            // return adUnitId;
+    public static String GetMainClass(String[] sootarguments){
+        // Print(sootarguments[0]);
+        return(sootarguments[2]);
+    }
+    public static String ReturnAdviewID(Body body){
+                       UnitPatchingChain units = body.getUnits();
+                       for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
+                            Unit LastKnownUnit = unit.next();
+                            String StringLastKnownUnit = LastKnownUnit.toString();
+                            Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
+
+                            if(StringLastKnownUnit.contains("<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>") || 
+                                StringLastKnownUnit.contains("android.view.View findViewById(int)") && StringLastKnownUnit.contains("r0") && ! 
+                                StringLastKnownUnit.contains("androidx.appcompat") && ! StringLastKnownUnit.contains("<android") && 
+                                ! StringLastKnownUnit.contains("$i")){
+                                adUnitId=StringLastKnownUnit.split(">")[1].replace("(", "").replace(")","");
+                            }
                         }
-                    }
-
-                }
-
-            }));
-            
-            // soot.Main.main(sootargs);
-            Main.main(setupSoot(sootarguments));
             return adUnitId;
     }
     public static void RunInstrumentationOnAPK(String[] sootarguments){
@@ -159,18 +137,19 @@ public class SootInstrumenter
             String line;
             while ((line = reader.readLine()) != null) {
                 hash = String.valueOf(line).replace(sootarguments[0],"");
-                System.out.println("LINE:" + hash);
+                //TESTING
+                Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Line::", hash)));
             }        
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-            
-            System.out.println("Running analysis on: " + sootarguments[0] + "\n");
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Running analysis on: ",sootarguments[0],"\n")));
+            // System.out.println("Running analysis on: " + sootarguments[0] + "\n");
             // retrieveAllClassNamesAndMethods();
             // printAllClassNamesAndMethods();
             // setMainClassFromOptions();
-            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
+            PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenterRunInstrumentationOnAPK", new BodyTransformer()
             {
                 @Override
                 protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
@@ -180,12 +159,16 @@ public class SootInstrumenter
                     SootClass thisClass = thisMethod.getDeclaringClass();
                     String stringClassName =  thisClass.toString();
                     String thisMethodName = thisMethod.getName();
+
+                    ReturnAdviewID(body);
                     if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
+                        // Print(stringClassName);
                         IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
                     }
 
                     if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
                         if(ThingstToCheck.contains(thisMethodName)){ 
+                            // Print(stringClassName);
                             // Print("Found " + thisMethodName + "!!!");
                             IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
                         }
@@ -197,8 +180,16 @@ public class SootInstrumenter
                 }
 
             }));
-            
-            // soot.Main.main(sootargs);
+            // String[] sootargs = {
+            //     "-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
+            // "android.support.", "-x", "android.annotation.",
+            // "-process-dir", sootarguments[0],
+            // "-output-dir", sootarguments[1],
+            // "-android-jars", "../../Android/platforms",
+            // "-src-prec", "apk",
+            // "-no-bodies-for-excluded",
+            // "-force-overwrite", "-include-all"
+            // };
             Main.main(setupSoot(sootarguments));
     }
 
@@ -216,8 +207,10 @@ public class SootInstrumenter
         Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 
         if(unit_to_insert_after != null){
-            Print("Found Ad:"+MethodName);
-            Print("This Class:"+Class);
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Found Ad:",MethodName)));
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("This Class:",Class)));
+            // Print("Found Ad:"+MethodName);
+            // Print("This Class:"+Class);
             
             Local local_java_lang_stringbuilder = sootUtil.CreateAndAddLocalToBody(body,"$stringBuilder", "java.lang.StringBuilder");
             Local local_java_lang_string = sootUtil.CreateAndAddLocalToBody(body, "$string", "java.lang.String");
@@ -240,14 +233,18 @@ public class SootInstrumenter
 
             // issue with generating methodref
             SootMethodRef test_soot_method_ref = Scene.v().getMethod("<androidx.appcompat.app.AppCompatActivity: android.view.View findViewById(int)>").makeRef();
-            Print("test_soot_method_ref: " + test_soot_method_ref.toString());
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
+           
            
             SootMethodRef soot_method_reference = sootUtil.GenerateAndReturnMethodRefFromClass(sootUtil.ReturnSootClass("com.google.android.gms.ads.AdView"), "findViewById", list, RefType.v("android.vew.View"), false);
-            Print("METHOD REF:"+soot_method_reference.toString());
-            VirtualInvokeExpr virtualinvoke = sootUtil.GenerateAndReturnNewVirtualInvokeExpression(local_google_ads_adview, soot_method_reference,IntConstant.v(2131165243));
-            Print("VIRTUALINVOKE:"+virtualinvoke);
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("METHOD REF:"+soot_method_reference.toString())));
+            int intadviewid=Integer.parseInt(adUnitId); 
+            VirtualInvokeExpr virtualinvoke = sootUtil.GenerateAndReturnNewVirtualInvokeExpression(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("VIRTUALINVOKE:"+virtualinvoke)));
+            // Print("VIRTUALINVOKE:"+virtualinvoke);
             AssignStmt stmt_virtualinvoke  = sootUtil.GenerateAndReturnNewAssignmentStatementVirtualInvoke(local_android_view_View, virtualinvoke);
-            Print("stmt UNIT:"+stmt_virtualinvoke);
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("stmt UNIT:"+stmt_virtualinvoke)));
+            // Print("stmt UNIT:"+stmt_virtualinvoke);
             units.insertAfter(stmt_virtualinvoke,assignment_statement);
             // AddExpr add = Jimple.v().newAddExpr(local, IntConstant.v(insn.incr));
             // AssignStmt IdentityStmtNew = newAssignStmt(local_google_ads_adview, Jimple.v().newAddExpr(local_this_class,sootfieldref));
@@ -300,18 +297,17 @@ public class SootInstrumenter
         }
     }
     public Chain<SootClass> ReturnApplicationClasses(String[] sootarguments) {
-        PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
-            {
+        // PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenterReturnApplicationClasses", new BodyTransformer()
+        //     {
 
-                @Override
-            protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
-            {   
-                // CallGraph appCallGraph = Scene.v().getCallGraph();
-                ret = Scene.v().getApplicationClasses();
-            }
+        //         @Override
+        //     protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+        //     {   
+        //         // CallGraph appCallGraph = Scene.v().getCallGraph();
+        //         ret = Scene.v().getApplicationClasses();
+        //     }
             
-        }));
-        Main.main(setupSoot(sootarguments));
+        // }));
         return ret;
     }
 
@@ -445,5 +441,4 @@ public class SootInstrumenter
         }
         Print("Finished Injecting New Class");
     }
-
 }
