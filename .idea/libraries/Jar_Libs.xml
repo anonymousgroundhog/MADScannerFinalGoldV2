@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Jar_Libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Jar_Libs/soot-4.3.0-20211111.165752-236-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Jar_Libs/jol-core-0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Jar_Libs/commons-codec-1.15.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
