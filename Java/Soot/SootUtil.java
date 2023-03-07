@@ -97,6 +97,14 @@ public class SootUtil
         return ref;
     }
 
+    public Local getLocalUnsafeClass(Body b, String name) {
+        for (Local local : b.getLocals()) {
+            if(local.getType().toString().equals(name)){
+                return local;
+            }
+        }
+     return null;
+    }
     public Local getLocalUnsafe(Body b, String name) {
         for (Local local : b.getLocals()) {
             if (local.getName().equals(name)) {
