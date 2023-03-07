@@ -90,7 +90,7 @@ public class SootInstrumenter
     }
     
     public static String[] setupSoot(String[] sootarguments) {
-        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
             "-output-dir", sootarguments[1],
@@ -247,7 +247,7 @@ public class SootInstrumenter
             
 	    // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Testing");
 	    listArgs = new ArrayList<Value>();
-	    listArgs.add(StringConstant.v("FiniteState"));
+	    listArgs.add(StringConstant.v("Testing"));
 	    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
 	    Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
             units.insertAfter(unitToAdd2 ,unitToAdd);
@@ -255,6 +255,34 @@ public class SootInstrumenter
 	    // $r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>;
             assignment_statement = sootUtil.GenerateAndReturnNewAssignmentStatement(local_google_ads_adview, fieldRef);
 	    units.insertAfter(assignment_statement,unitToAdd2);
+	    
+	    // $r5 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()>();
+            list = new ArrayList<Type>();
+            soot_method_reference = sootUtil.GenerateAndReturnMethodRefFromClass(sootUtil.ReturnSootClass("com.google.android.gms.ads.AdView"), "getAdUnitId", list, RefType.v("java.lang.String"), false);
+	    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference);
+            AssignStmt assignment_statement2 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+	    units.insertAfter(assignment_statement2, assignment_statement);
+	     
+	    // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+	    // $r5= java.lang.String , $r4= java.lang.StringBuilder 
+	    listArgs = new ArrayList<Value>();
+	    listArgs.add(local_java_lang_string);
+	    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
+	    Unit unitToAdd3 = Jimple.v().newInvokeStmt(virtualinvoke);
+	    units.insertAfter(unitToAdd3, assignment_statement2);
+
+	    // $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+	    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef());
+            AssignStmt assignment_statement3 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+	    units.insertAfter(assignment_statement3, unitToAdd3);
+
+	    // staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Testing", $r5);
+	    listArgs = new ArrayList<Value>();
+	    listArgs.add(StringConstant.v("Testing"));
+	    listArgs.add(local_java_lang_string);
+	    LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+	    InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+	    units.insertAfter(InvokeStatementLog,assignment_statement3);
         }
     }
 
