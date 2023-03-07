@@ -59,7 +59,7 @@ public class SootUtil
             Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
 
             if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
-                Print(StringLastKnownUnit);
+                //Print(StringLastKnownUnit);
                 // isUnitOfInterest = true;
                 return LastKnownUnit;
             }
