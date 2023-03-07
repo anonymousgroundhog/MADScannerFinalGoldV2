@@ -61,8 +61,10 @@ public class SootUtil
             if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
                 //Print(StringLastKnownUnit);
                 // isUnitOfInterest = true;
-                return LastKnownUnit;
-            }
+		    return LastKnownUnit;
+            }else{
+		    //return LastKnownUnit;
+	    } 
         }
         return null;
     }
@@ -90,7 +92,7 @@ public class SootUtil
     }
     // ReturnMethodFromClass
     public SootMethodRef GenerateAndReturnMethodRefFromClass(soot.SootClass sootClass, String name, ArrayList paramTypes,
-    Type returnType, boolean isStatic) {
+        Type returnType, boolean isStatic) {
         SootMethodRef ref = Scene.v().makeMethodRef(sootClass, name, paramTypes, returnType, isStatic);
         return ref;
     }
