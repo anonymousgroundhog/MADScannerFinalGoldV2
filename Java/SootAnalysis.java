@@ -21,6 +21,7 @@ public class SootAnalysis
         SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
         thisSootInstrumenter.setupSoot(sootarguments);
         // thisSootInstrumenter.SetupSootFramework(sootarguments);
+        thisSootInstrumenter.RunandExtractAdUnitId(sootarguments);
         thisSootInstrumenter.RunInstrumentationOnAPK(sootarguments);
         // thisSootInstrumenter.Print(thisSootInstrumenter.ReturnApplicationClasses(sootarguments).toString());
     }

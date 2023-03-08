@@ -90,7 +90,51 @@ public class SootInstrumenter
     }
     
     public static String[] setupSoot(String[] sootarguments) {
-        String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
+        final String androidJar = "../../Android/platforms";
+        final String apkFileLocation = sootarguments[0];
+        final String sootLocation = "../Jar_libs/";
+
+        // Clean up any old Soot instance we may have
+        // G.reset();
+
+        // Options.v().set_src_prec(Options.src_prec_apk);
+        // Options.v().set_process_dir(Collections.singletonList(apkFileLocation));
+        // Options.v().set_android_jars(androidJar);
+        // Options.v().set_allow_phantom_refs(true);
+        // Options.v().set_output_format(Options.output_format_jimple);
+        // Options.v().set_output_dir(sootarguments[1]);
+        // Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
+        // Scene.v().addBasicClass("java.lang.System",SootClass.SIGNATURES);
+        // Scene.v().addBasicClass("InstrumentHelper",SootClass.SIGNATURES);
+        // Scene.v().addBasicClass("InstrumentHelper$1",SootClass.SIGNATURES);
+        // Scene.v().loadNecessaryClasses();
+        // Scene.v().loadNecessaryClasses();
+        // PackManager.v().runPacks();
+        // PackManager.v().writeOutput();
+        // Options.v().set_process_dir(Collections.singletonList(apkFileLocation));
+        // Options.v().set_allow_phantom_refs(true);
+        // Options.v().set_prepend_classpath(true);
+        // Options.v().set_validate(true);
+        // Options.v().set_whole_program(true);
+        // Options.v().set_app(true);
+        // Options.v().set_src_prec(Options.src_prec_apk);
+        // Options.v().set_android_jars("../../Android/platforms");
+        // Options.v().set_output_format(Options.output_format_jimple);
+        // Scene.v().loadNecessaryClasses();
+
+        // // Set soot phase option if original names should be used
+        // // if (config.getEnableOriginalNames())
+        // Options.v().setPhaseOption("jb", "use-original-names:true");
+
+        // Set the Soot configuration options. Note that this will needs to be
+        // done before we compute the classpath.
+        // if (sootConfig != null)
+        //     sootConfig.setSootOptions(Options.v(), config);
+
+        // Options.v().set_soot_classpath("../Jar_Libs");
+        // Main.v().autoSetOptions();
+        // String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
             "-output-dir", sootarguments[1],
@@ -100,6 +144,9 @@ public class SootInstrumenter
             "-force-overwrite", "-include-all"
             };
             return sootargs;
+        // return Options.v().soot_classpath();
+        // PackManager.v().runPacks();
+        // thisMain.main(sootargs);
     }
 
     public static String GetMainClass(String[] sootarguments){
@@ -122,8 +169,49 @@ public class SootInstrumenter
                         }
             return adUnitId;
     }
-    public static void RunInstrumentationOnAPK(String[] sootarguments){
+    public static void RunandExtractAdUnitId(String[] sootarguments){
         
+        LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
+        String[] app_name =  sootarguments[0].split("/");
+        String app_name_only = app_name[app_name.length-1];
+        String command = "sha256sum " + sootarguments[0];
+        // sootUtil.SetSootOptions(sootarguments);
+
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            BufferedReader reader = new BufferedReader(
+            new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                hash = String.valueOf(line).replace(sootarguments[0],"");
+                //TESTING
+                Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Line::", hash)));
+            }        
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+            Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Running analysis on: ",sootarguments[0],"\n")));
+            // System.out.println("Running analysis on: " + sootarguments[0] + "\n");
+            // retrieveAllClassNamesAndMethods();
+            // printAllClassNamesAndMethods();
+            // setMainClassFromOptions();
+            PackManager.v().getPack("jtp").add(new Transform("jtp.myRunandExtractAdUnitId", new BodyTransformer()
+            {
+                @Override
+                protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
+                {   
+                    // G.v().out.println("Analyzing " + body.getMethod().getName());
+                    Print(ReturnAdviewID(body)); 
+                }
+
+            }));
+            // setupSoot(sootarguments, Main);
+            Main.main(setupSoot(sootarguments));
+
+    }
+    public static void RunInstrumentationOnAPK(String[] sootarguments){
+        Print("Running Instrumentation");
         LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
         String[] app_name =  sootarguments[0].split("/");
         String app_name_only = app_name[app_name.length-1];
@@ -154,24 +242,28 @@ public class SootInstrumenter
                 @Override
                 protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
                 {   
+                    G.v().out.println("Analyzing " + body.getMethod().getName());
                     // SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
                     SootMethod thisMethod = body.getMethod();
                     SootClass thisClass = thisMethod.getDeclaringClass();
                     String stringClassName =  thisClass.toString();
                     String thisMethodName = thisMethod.getName();
+                    Print("Method:"+thisMethodName);
 
-                    ReturnAdviewID(body);
+                    // Print(ReturnAdviewID(body));
                     if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
                         // Print(stringClassName);
                         //IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
                     }
 
-                    if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-                        if(ThingstToCheck.contains(thisMethodName)){ 
+                    // if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+                    // if (stringClassName.contains("com.google") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+                    if (stringClassName.contains("com.google")){
+                        // if(ThingstToCheck.contains(thisMethodName)){ 
                             // Print(stringClassName);
                             // Print("Found " + thisMethodName + "!!!");
                             IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
-                        }
+                        // }
                     }
                     // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
                     //     IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
@@ -180,11 +272,14 @@ public class SootInstrumenter
                 }
 
             }));
+            // setupSoot(sootarguments, Main);
+            // G.reset();
             Main.main(setupSoot(sootarguments));
     }
 
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
-		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
+		Print("Iterating and Running Insert Log Details");
+        List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
 		UnitPatchingChain units = body.getUnits();
 		// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
 		String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
@@ -254,7 +349,7 @@ public class SootInstrumenter
 		    // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Testing");
 		    // java.lang.StringBuilder=$r4;
 		    listArgs = new ArrayList<Value>();
-		    listArgs.add(StringConstant.v("Testing"));
+		    listArgs.add(StringConstant.v("FiniteState"));
 		    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
 		    Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
 		    units.insertAfter(unitToAdd2 ,unitToAdd);
@@ -288,7 +383,7 @@ public class SootInstrumenter
 
 		    // staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Testing", $r5);
 		    listArgs = new ArrayList<Value>();
-		    listArgs.add(StringConstant.v("Testing"));
+		    listArgs.add(StringConstant.v("FiniteState"));
 		    listArgs.add(local_java_lang_string);
 		    LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
 		    InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
