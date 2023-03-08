@@ -19,9 +19,8 @@ public class SootAnalysis
     public static void main(String[] sootarguments)
     {
         SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
-        thisSootInstrumenter.setupSoot(sootarguments);
-        // thisSootInstrumenter.SetupSootFramework(sootarguments);
-        thisSootInstrumenter.RunandExtractAdUnitId(sootarguments);
+        // thisSootInstrumenter.setupSoot(sootarguments);
+        // thisSootInstrumenter.GetClasses(sootarguments);
         thisSootInstrumenter.RunInstrumentationOnAPK(sootarguments);
         // thisSootInstrumenter.Print(thisSootInstrumenter.ReturnApplicationClasses(sootarguments).toString());
     }

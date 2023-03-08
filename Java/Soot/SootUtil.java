@@ -58,13 +58,14 @@ public class SootUtil
             String StringLastKnownUnit = LastKnownUnit.toString();
             Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
 
-            if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
+            // if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
+            // if(is_identity_statement && StringLastKnownUnit.contains("@parameter0")){
                 //Print(StringLastKnownUnit);
                 // isUnitOfInterest = true;
-		    return LastKnownUnit;
-            }else{
+		      return LastKnownUnit;
+            // }else{
 		    //return LastKnownUnit;
-	    } 
+	    // } 
         }
         return null;
     }
@@ -103,6 +104,7 @@ public class SootUtil
                 return local;
             }
         }
+        Print("null returned for: " + name + " (method " + b.getMethod().getName() + ")");
      return null;
     }
     public Local getLocalUnsafe(Body b, String name) {
