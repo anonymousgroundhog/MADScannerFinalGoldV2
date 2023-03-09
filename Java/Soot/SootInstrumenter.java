@@ -185,7 +185,7 @@ public class SootInstrumenter
                     // }
                 }
                 // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
-                //     IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
+                    // IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
 
                 // }  
             }
@@ -211,6 +211,7 @@ public class SootInstrumenter
         Print(unit_to_insert_after.toString());
 		
         if(unit_to_insert_after != null){
+            Print("INJECTING !!!");
             // units.insertAfter(InvokeStatementLog,unit_to_insert_after);
 		    LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
 		    Local local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
@@ -223,94 +224,181 @@ public class SootInstrumenter
             // sootUtil.getLocalUnsafeClass(body, Class);
 		    Local local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
 
-		    // Must add private com.google.android.gms.ads.AdView adView to class
-		    SootField sootfieldref = null;
-		    sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
-		   
-		    // $r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>;
-		    // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0; 
-		    FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
-		    AssignStmt assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
-		    units.insertAfter(assignment_statement,unit_to_insert_after);
-		    
-		    // $r3 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
-		    // com.google.android.gms.ads.AdView=$r2; android.view.View=$r3; 
-		    ArrayList<Type> list = new ArrayList<Type>();
-		    list.add(IntType.v());
-		    // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
-		    SootMethodRef soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "findViewById", list, RefType.v("android.vew.View"), false);
+            // Must add private com.google.android.gms.ads.AdView adView to class
+            SootField sootfieldref = null;
+            sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
+            
+            // ----------------_TESTING_----------------------
+
+            // $r1 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView>;
+            FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
+            AssignStmt assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
+            units.insertAfter(assignment_statement,unit_to_insert_after);
+            
+            // $r2 = virtualinvoke $r1.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
+            ArrayList<Type> listx = new ArrayList<Type>();
+            listx.add(IntType.v());
+            // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
+            SootMethodRef soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "findViewById", listx, RefType.v("android.view.View"), false);
             int intadviewid=Integer.parseInt(adUnitId);
             // int intadviewid=2131165243;
-		    VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
-		    AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_android_view_View, virtualinvoke);
-		    units.insertAfter(stmt_virtualinvoke,assignment_statement);
+            VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
+            AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_android_view_View, virtualinvoke);
+            units.insertAfter(stmt_virtualinvoke,assignment_statement);
 
-		    // $r2 = (com.google.android.gms.ads.AdView) $r3;
-		    // com.google.android.gms.ads.AdView=$r2; android.view.View=$r3; 
-		    CastExpr castexpr = Jimple.v().newCastExpr(local_android_view_View, RefType.v("com.google.android.gms.ads.AdView")); 
-		    AssignStmt stmt_castexpr  = Jimple.v().newAssignStmt(local_google_ads_adview, castexpr);
-		    units.insertAfter(stmt_castexpr,stmt_virtualinvoke);
+            // $r1 = (com.google.android.gms.ads.AdView) $r2;
+            CastExpr castexpr = Jimple.v().newCastExpr(local_android_view_View, RefType.v("com.google.android.gms.ads.AdView")); 
+            AssignStmt stmt_castexpr  = Jimple.v().newAssignStmt(local_google_ads_adview, castexpr);
+            units.insertAfter(stmt_castexpr,stmt_virtualinvoke);
 
-		    // r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView> = $r2;
-		    // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0; 
-		    fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());           
-		    assignment_statement = Jimple.v().newAssignStmt(fieldRef, local_google_ads_adview);
-		    units.insertAfter(assignment_statement,stmt_castexpr);
+            // r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView> = $r1;
+            fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());           
+            assignment_statement = Jimple.v().newAssignStmt(fieldRef, local_google_ads_adview);
+            units.insertAfter(assignment_statement,stmt_castexpr);
 
-		    // $r4 = new java.lang.StringBuilder;
-		    // java.lang.StringBuilder=$r4;
-		    AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
-		    units.insertAfter(this_java_assign_stmt,assignment_statement);
+            //  $r1 = new java.lang.StringBuilder;
+            AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
+            units.insertAfter(this_java_assign_stmt,assignment_statement);
+            
+            // specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+            SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef());
+            Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+            units.insertAfter(unitToAdd,this_java_assign_stmt);
+            
+            // virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Testing");
+            listArgs = new ArrayList<Value>();
+            listArgs.add(StringConstant.v("FiniteState---"));
+            virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
+            Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
+            units.insertAfter(unitToAdd2 ,unitToAdd);
+
+            // $r2 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView>;
+            fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());           
+            assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
+            units.insertAfter(assignment_statement,unitToAdd2);
+            
+            // $r3 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()>();
+            ArrayList<Type> list = new ArrayList<Type>();
+            soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "getAdUnitId", list, RefType.v("java.lang.String"), false);
+            virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference);
+            AssignStmt assignment_statement2 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+            units.insertAfter(assignment_statement2, assignment_statement);
+
+            // $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toString()>();
+            virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_string, Scene.v().getMethod("<java.lang.String: java.lang.String toString()>").makeRef());
+            AssignStmt assignment_statement3 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+            units.insertAfter(assignment_statement3, assignment_statement2);
+            
+            // virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+            listArgs = new ArrayList<Value>();
+            listArgs.add(local_java_lang_string);
+            virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
+            Unit unitToAdd3 = Jimple.v().newInvokeStmt(virtualinvoke);
+            units.insertAfter(unitToAdd3, assignment_statement3);
+            
+            // $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+            virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef());
+            AssignStmt assignment_statement4 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+            units.insertAfter(assignment_statement4, unitToAdd3);
+
+            // staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r3);
+            listArgs = new ArrayList<Value>();
+            listArgs.add(StringConstant.v("FiniteState"));
+            listArgs.add(local_java_lang_string);
+            LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+            InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+            units.insertAfter(InvokeStatementLog,assignment_statement4);
+            // ----------------_END TESTING_----------------------
+
+
+		    // // Must add private com.google.android.gms.ads.AdView adView to class
+		    // SootField sootfieldref = null;
+		    // sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
+		   
+		    // // $r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>;
+		    // // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0; 
+		    // FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
+		    // AssignStmt assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
+		    // units.insertAfter(assignment_statement,unit_to_insert_after);
 		    
-		    // specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
-		    // java.lang.StringBuilder=$r4;
-		    List<Value> emptylist = Collections.<Value>emptyList();
-		    SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
-		    Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
-		    units.insertAfter(unitToAdd,this_java_assign_stmt);
-		    
-		    // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Testing");
-		    // java.lang.StringBuilder=$r4;
-		    listArgs = new ArrayList<Value>();
-		    listArgs.add(StringConstant.v("FiniteState"));
-		    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
-		    Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
-		    units.insertAfter(unitToAdd2 ,unitToAdd);
+		    // // $r3 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
+		    // // com.google.android.gms.ads.AdView=$r2; android.view.View=$r3; 
+		    // ArrayList<Type> list = new ArrayList<Type>();
+		    // list.add(IntType.v());
+		    // // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
+		    // SootMethodRef soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "findViewById", list, RefType.v("android.vew.View"), false);
+            // int intadviewid=Integer.parseInt(adUnitId);
+            // // int intadviewid=2131165243;
+		    // VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
+		    // AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_android_view_View, virtualinvoke);
+		    // units.insertAfter(stmt_virtualinvoke,assignment_statement);
 
-		    // $r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>;
-		    // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0;
-		    assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
-		    units.insertAfter(assignment_statement,unitToAdd2);
+		    // // $r2 = (com.google.android.gms.ads.AdView) $r3;
+		    // // com.google.android.gms.ads.AdView=$r2; android.view.View=$r3; 
+		    // CastExpr castexpr = Jimple.v().newCastExpr(local_android_view_View, RefType.v("com.google.android.gms.ads.AdView")); 
+		    // AssignStmt stmt_castexpr  = Jimple.v().newAssignStmt(local_google_ads_adview, castexpr);
+		    // units.insertAfter(stmt_castexpr,stmt_virtualinvoke);
+
+		    // // r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView> = $r2;
+		    // // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0; 
+		    // fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());           
+		    // assignment_statement = Jimple.v().newAssignStmt(fieldRef, local_google_ads_adview);
+		    // units.insertAfter(assignment_statement,stmt_castexpr);
+
+		    // // $r4 = new java.lang.StringBuilder;
+		    // // java.lang.StringBuilder=$r4;
+		    // AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
+		    // units.insertAfter(this_java_assign_stmt,assignment_statement);
 		    
-		    // $r5 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()>();
-		    // com.google.android.gms.ads.AdView=$r2; java.lang.String=$r5;
-		    list = new ArrayList<Type>();
-		    soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "getAdUnitId", list, RefType.v("java.lang.String"), false);
-		    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference);
-		    AssignStmt assignment_statement2 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
-		    units.insertAfter(assignment_statement2, assignment_statement);
+		    // // specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+		    // // java.lang.StringBuilder=$r4;
+		    // List<Value> emptylist = Collections.<Value>emptyList();
+		    // SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef(),emptylist);
+		    // Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+		    // units.insertAfter(unitToAdd,this_java_assign_stmt);
+		    
+		    // // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Testing");
+		    // // java.lang.StringBuilder=$r4;
+		    // listArgs = new ArrayList<Value>();
+		    // listArgs.add(StringConstant.v("FiniteState"));
+		    // virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
+		    // Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
+		    // units.insertAfter(unitToAdd2 ,unitToAdd);
+
+		    // // $r2 = r0.<com.google.android.gms.example.bannerexample.Test: com.google.android.gms.ads.AdView adView>;
+		    // // com.google.android.gms.ads.AdView=$r2; com.google.android.gms.example.bannerexample.Test=r0;
+		    // assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
+		    // units.insertAfter(assignment_statement,unitToAdd2);
+		    
+		    // // $r5 = virtualinvoke $r2.<com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()>();
+		    // // com.google.android.gms.ads.AdView=$r2; java.lang.String=$r5;
+		    // list = new ArrayList<Type>();
+		    // soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "getAdUnitId", list, RefType.v("java.lang.String"), false);
+		    // virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference);
+		    // AssignStmt assignment_statement2 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+		    // units.insertAfter(assignment_statement2, assignment_statement);
 		     
-		    // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
-		    // java.lang.StringBuilder=$r4; java.lang.String=$r5;
-		    listArgs = new ArrayList<Value>();
-		    listArgs.add(local_java_lang_string);
-		    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
-		    Unit unitToAdd3 = Jimple.v().newInvokeStmt(virtualinvoke);
-		    units.insertAfter(unitToAdd3, assignment_statement2);
+		    // // virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+		    // // java.lang.StringBuilder=$r4; java.lang.String=$r5;
+		    // listArgs = new ArrayList<Value>();
+		    // listArgs.add(local_java_lang_string);
+		    // virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgs);
+		    // Unit unitToAdd3 = Jimple.v().newInvokeStmt(virtualinvoke);
+		    // units.insertAfter(unitToAdd3, assignment_statement2);
 
-		    // $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
-		    // java.lang.StringBuilder=$r4; java.lang.String=$r5;
-		    virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef());
-		    AssignStmt assignment_statement3 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
-		    units.insertAfter(assignment_statement3, unitToAdd3);
+		    // // $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+		    // // java.lang.StringBuilder=$r4; java.lang.String=$r5;
+		    // virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef());
+		    // AssignStmt assignment_statement3 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+		    // units.insertAfter(assignment_statement3, unitToAdd3);
 
-		    // staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Testing", $r5);
-		    listArgs = new ArrayList<Value>();
-		    listArgs.add(StringConstant.v("FiniteState"));
-		    listArgs.add(local_java_lang_string);
-		    LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-		    InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-		    units.insertAfter(InvokeStatementLog,assignment_statement3);
+		    // // staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Testing", $r5);
+		    // listArgs = new ArrayList<Value>();
+		    // listArgs.add(StringConstant.v("FiniteState"));
+		    // listArgs.add(local_java_lang_string);
+		    // LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+		    // InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+		    // units.insertAfter(InvokeStatementLog,assignment_statement3);
     		}
     }
 
