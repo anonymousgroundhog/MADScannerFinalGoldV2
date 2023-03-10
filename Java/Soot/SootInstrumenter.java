@@ -119,6 +119,24 @@ public class SootInstrumenter
             Unit LastKnownUnit = unit.next();
             String StringLastKnownUnit = LastKnownUnit.toString();
             Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
+            Boolean is_assignment_statement = (LastKnownUnit instanceof AssignStmt);
+	    if(is_assignment_statement){
+		    AssignStmt stmt = (AssignStmt) LastKnownUnit;
+		    Boolean is_virtualInvoke_statement = (stmt.getRightOp() instanceof VirtualInvokeExpr);
+		    if(is_virtualInvoke_statement){
+			    VirtualInvokeExpr virtualinvoke = (VirtualInvokeExpr) stmt.getRightOp();
+			    Boolean is_findViewById = virtualinvoke.getMethod().getName().contains("findViewById");
+			    if(is_findViewById){
+				    SootMethod method = virtualinvoke.getMethod(); 
+				    List<Type> types = method.getParameterTypes();
+				    Print("Args:"+stmt.getInvokeExpr().getArgs().get(0).toString());
+				    Print("VirtualInvokeExpr:"+method.toString());
+				    Print("Method Name:"+method.getName().toString());
+				    Print("Method Parameters:"+types.toString());
+				    Print("Method ReturnType:"+method.getReturnType().toString());
+			    }
+		    }
+	    }
 
             if(StringLastKnownUnit.contains("<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>") || 
                 StringLastKnownUnit.contains("android.view.View findViewById(int)") && StringLastKnownUnit.contains("r0") && ! 
@@ -211,7 +229,6 @@ public class SootInstrumenter
         Print(unit_to_insert_after.toString());
 		
         if(unit_to_insert_after != null){
-            Print("INJECTING !!!");
             // units.insertAfter(InvokeStatementLog,unit_to_insert_after);
 		    LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
 		    Local local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
@@ -220,7 +237,6 @@ public class SootInstrumenter
 		    // Local local_this_class = localgenerator.generateLocal(RefType.v(Class));
             Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class);
             Print(body.getMethod().toString());
-            Print("Local:"+local_this_class.getType().toString());
             // sootUtil.getLocalUnsafeClass(body, Class);
 		    Local local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
 
