@@ -1,0 +1,31 @@
+com.google.android.gms.ads.AdView $r1, $r4;
+android.view.View $r3;
+java.lang.StringBuilder $r0;
+java.lang.String $r2;
+com.google.android.gms.example.bannerexample.MyActivity r0;
+
+$r4 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView>;
+
+$r3 = virtualinvoke $r4.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
+
+$r4 = (com.google.android.gms.ads.AdView) $r3;
+
+r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView> = $r4;
+
+$r0 = new java.lang.StringBuilder;
+
+specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("FiniteState");
+
+$r4 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView>;
+
+$r2 = virtualinvoke $r4.<com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()>();
+
+$r2 = virtualinvoke $r2.<java.lang.String: java.lang.String toString()>();
+
+virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+$r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r2)

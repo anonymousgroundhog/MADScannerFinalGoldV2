@@ -1,24 +1,27 @@
-import os, pandas as pd, json, polars as pl, gc
+import os, pandas as pd, json, polars as pl, gc, shlex
 import time, re, hashlib, subprocess
 from appium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
 class Android_App:
-    def __init__(self, apk_location):
+    def __init__(self, apk_location, emulator_name):
         self.apk_loc = apk_location
         self.app_name_only = apk_location.replace(".apk", "").split("/").pop()
         self.hash_value = self.Calculate_Hash_of_File(apk_location)
         self.apk_info = self.Get_APK_Info(apk_location)
+        appActivity = self.apk_info[0]
+        if appActivity.startswith('.'):
+            print("App activity starts with a period")
         self.desired_capabilities = {
             "platformName": "Android",
-            "deviceName": "7040018020065015",
-            "appPackage": self.apk_info[1] ,
+            "deviceName": emulator_name,
+            "appPackage": self.apk_info[1],
             "noReset": True,
             "autoacceptalerts": True,
             "appium:wdaStartupRetries": 4,
             "autoGrantPermissions": True,
-            "appActivity": self.apk_info[0]
+            "appActivity": appActivity
         }
         self.dataframe = None
         self.driver = None
@@ -49,6 +52,7 @@ class Android_App:
         for item in result.split(" "):
             if "name=" in item:
                 thing_to_return.append(item.replace("name='","").replace("'",""))
+        print(''.join(['Activity and details gathered:',str(thing_to_return)]))
         return thing_to_return
 
     def Uninstall_App(self):
@@ -57,7 +61,6 @@ class Android_App:
     def check_exists_by_id(self, driver,id):
         if (len(driver.find_elements(By.ID, id)) > 0):
             return True
-
         return False
 
     def check_if_button_is_displayed(self, id):
@@ -104,6 +107,24 @@ class Android_App:
         time_date_now = time_date_now.replace(" ","--").replace(".","-").replace(":","-")
         self.Run_System_Command('adb exec-out screencap -p > "../Java/Classes/sootOutput/"'+filename+'---'+time_date_now+'.png')
 
+    def Replace_Name_With_Nothing_XML(self, data, thing_to_replace):
+        return data.replace(thing_to_replace, '').replace('"','')
+
+    def Extract_Lines_From_SourceXML_And_Return_Dataframe(self, source_xml):
+        keys = ['Android', 'Index', 'Package', 'Text', 'Resource_ID']
+        df = pd.DataFrame(columns=keys)
+        for line in str(source_xml).split('\n'):
+            if line.__contains__('class=') and line.__contains__('android.widget'):
+                lst_row = shlex.split(line.strip().replace('<','').replace('/>',''))#.split(' ')
+                print(lst_row)
+                row = {'Android': lst_row[0], 'Index': self.Replace_Name_With_Nothing_XML(lst_row[1],'index='), 
+                    'Package': self.Replace_Name_With_Nothing_XML(lst_row[2],'package='), 
+                    'Class': self.Replace_Name_With_Nothing_XML(lst_row[3], 'class='),
+                    'Text': self.Replace_Name_With_Nothing_XML(lst_row[4], 'text='),
+                    'Resource_ID': self.Replace_Name_With_Nothing_XML(lst_row[5], 'resource-id=')}
+                df = pd.concat([df, pd.DataFrame([row])])
+        print(df)
+
     def Instrument_Interface(self, app_name):
         self.set_driver()
         time.sleep(3)
@@ -111,6 +132,9 @@ class Android_App:
 #        file = open("current_app.xml", "w")
 #        file.write(source_xml)
 #        file.close()
+        # print(str(source_xml).split('\n'))
+        self.Extract_Lines_From_SourceXML_And_Return_Dataframe(source_xml)
+        time.sleep(2)
         self.click_on_button_by_class_permission("android.widget.Button")
         source_xml = self.driver.page_source
         time.sleep(2)
@@ -277,5 +301,5 @@ class Logcat:
         for index,row in filtered_dataframe.iterrows():
             for item in row['units'].split(':'): 
                 if item.__contains__('('):
-                    print(''.join(['Test:',str(item.split('(')[0]).replace('void ','').replace('android.view.View ','')]))
+                    print(''.join(['Testing Method Extraction:',str(item.split('(')[0]).replace('void ','').replace('android.view.View ','')]))
             print('date:',row['dates'],' unit:',row['units'],' memory_locations:',row['memory_locations'],'ID:', row['ids'])
