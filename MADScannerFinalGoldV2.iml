@@ -7,11 +7,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="android" level="project" />
-    <orderEntry type="library" name="android1" level="project" />
-    <orderEntry type="library" name="Jar_Libs" level="project" />
-    <orderEntry type="library" name="android4" level="project" />
-    <orderEntry type="library" name="android2" level="project" />
-    <orderEntry type="library" name="android3" level="project" />
+    <orderEntry type="library" exported="" name="android" level="project" />
+    <orderEntry type="library" exported="" name="android1" level="project" />
+    <orderEntry type="library" exported="" name="Jar_Libs" level="project" />
+    <orderEntry type="library" exported="" name="android4" level="project" />
+    <orderEntry type="library" exported="" name="android2" level="project" />
+    <orderEntry type="library" exported="" name="android3" level="project" />
+    <orderEntry type="library" exported="" name="Python 3.9 (tf) interpreter library" level="application" />
   </component>
 </module>
