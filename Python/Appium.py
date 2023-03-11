@@ -12,7 +12,7 @@ def click_on_button_by_class(driver, id):
                 elem.click()
             except:
                 print(''.join(["elem doesn't exist:",str(id)]))
-                continue
+                continue;
 
 
 def Run_Appium(app_name, device_name):
