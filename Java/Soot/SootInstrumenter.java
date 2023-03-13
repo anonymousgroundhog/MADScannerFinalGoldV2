@@ -234,8 +234,9 @@ public class SootInstrumenter
 		    Local local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
 		    Local local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
 		    Local local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
-		    // Local local_this_class = localgenerator.generateLocal(RefType.v(Class));
+		    //Local local_this_class = localgenerator.generateLocal(RefType.v(Class));
 		    Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class);
+		    Print("THIS CLASS LOCAL:"+local_this_class.getType().toString());
 		    Print(body.getMethod().toString());
 			    Local local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
 
