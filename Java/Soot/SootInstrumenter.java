@@ -1,5 +1,7 @@
 package Soot;
 
+import soot.jimple.toolkits.infoflow.FakeJimpleLocal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.concurrent.ConcurrentHashMap;
@@ -186,7 +188,7 @@ public class SootInstrumenter
                 String stringUnits = body.getUnits().toString();
                 // Print("Class:"+stringClassName);
                 // Print("Method:"+thisMethodName);
-                ReturnAdviewID(body);
+                //ReturnAdviewID(body);
                 if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
                     // Print(stringClassName);
                     //IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
@@ -198,10 +200,14 @@ public class SootInstrumenter
                 if (stringClassName.contains("com.google.android.gms.example.bannerexample.MyActivity") && thisMethodName.contains("onResume")){
                     // if(ThingstToCheck.contains(thisMethodName)){ 
                         // Print(stringClassName);
-                        Print("Found " + thisMethodName + "!!!");
-                        IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+                        //Print("Found " + thisMethodName + "!!!");
+                        IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
                     // }
                 }
+                if (stringClassName.contains("androidx.appcompat.app.AppCompatActivity") && thisMethodName.contains("findViewById")){
+			Print("FOUND CLASS:" + stringClassName);
+                        IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+		}
                 // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
                     // IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
 
@@ -214,6 +220,21 @@ public class SootInstrumenter
         Main.main(setupSoot(sootarguments));
     }
 
+	public static void IterateOverUnitsAndInsertLogMessage2(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
+		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
+		UnitPatchingChain units = body.getUnits();
+		// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+		String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
+		List<Value> listArgs = new ArrayList<Value>();
+		listArgs.add(StringConstant.v("FiniteState"));
+		listArgs.add(StringConstant.v(MSG));
+		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+		SootUtil sootUtil = new SootUtil();
+		Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+		Print(unit_to_insert_after.toString());
+		units.insertAfter(InvokeStatementLog ,unit_to_insert_after);
+	}
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
 		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
 		UnitPatchingChain units = body.getUnits();
@@ -229,16 +250,30 @@ public class SootInstrumenter
 		Print(unit_to_insert_after.toString());
 			
 		if(unit_to_insert_after != null){
-		    // units.insertAfter(InvokeStatementLog,unit_to_insert_after);
+		    //CHECK IF LOCALS EXIST OTHERWISE GENERATE LOCAL
+		    Local local_java_lang_stringbuilder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
+		    Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
+		    Local local_android_view_View = sootUtil.getLocalUnsafe(body, "android.view.View");
+		    Local local_google_ads_adview = sootUtil.getLocalUnsafe(body, "com.google.android.gms.ads.AdView");
+		    Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class); 
 		    LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
-		    Local local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
-		    Local local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
-		    Local local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
-		    //Local local_this_class = localgenerator.generateLocal(RefType.v(Class));
-		    Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class);
-		    Print("THIS CLASS LOCAL:"+local_this_class.getType().toString());
-		    Print(body.getMethod().toString());
-			    Local local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
+		    
+		    if (local_java_lang_stringbuilder == null){
+			local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
+		    }
+		    if (local_java_lang_string == null){
+			local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+		    }
+		    if (local_android_view_View == null){
+			local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
+		    }
+		    if (local_google_ads_adview == null){
+			    Print("LOCAL DOESN'T EXIST");
+			local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
+		    }
+		    if (local_this_class == null){
+			local_this_class = localgenerator.generateLocal(RefType.v(Class));
+		    }
 
 		    // Must add private com.google.android.gms.ads.AdView adView to class
 		    SootField sootfieldref = null;

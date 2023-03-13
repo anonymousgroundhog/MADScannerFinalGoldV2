@@ -53,21 +53,26 @@ public class SootUtil
     }
     
     public Unit ReturnUnitOfInterest(UnitPatchingChain thisunits){
+	    Unit LastKnownUnit = null;
         for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
-            Unit LastKnownUnit = unit.next();
+            LastKnownUnit = unit.next();
             String StringLastKnownUnit = LastKnownUnit.toString();
             Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
 
-            // if(is_identity_statement && StringLastKnownUnit.contains("r0 :=")){
-            // if(is_identity_statement && StringLastKnownUnit.contains("@parameter0")){
-                //Print(StringLastKnownUnit);
-                // isUnitOfInterest = true;
+             if(is_identity_statement  && ! (unit.next() instanceof IdentityStmt)){
 		      return LastKnownUnit;
-            // }else{
-		    //return LastKnownUnit;
-	    // } 
+             }else if (is_identity_statement && LastKnownUnit.toString().contains("parameter")){
+		     return LastKnownUnit;
+	     }else if (LastKnownUnit.toString().contains("parameter")){
+		     Print("UNIT IS:"+LastKnownUnit.toString());
+		     Boolean isId = LastKnownUnit instanceof IdentityStmt;
+		     Print(isId.toString());
+	     }
+	     else{
+		     Print(StringLastKnownUnit);
+	     }
         }
-        return null;
+        return LastKnownUnit;
     }
     private Boolean LocalExists(Body b, String name) {
         for (Local local : b.getLocals()) {
