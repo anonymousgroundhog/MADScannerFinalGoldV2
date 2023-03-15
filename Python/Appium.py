@@ -66,6 +66,6 @@ def Run_Appium(app_name, device_name):
     #Clear_Process_By_Name('adb')
 
 #Uninstall_App_On_Emulator("com.google.android.gms.example.bannerexample")
-#Install_App_On_Emulator("TestApp2")
+Install_App_On_Emulator("TestApp2")
 Run_Appium("TestApp2", "7040018020065015")
 Uninstall_App_On_Emulator("com.google.android.gms.example.bannerexample")

@@ -3,6 +3,7 @@
 clear
 parameter_APK_Name=$1
 parameter_output_format=$2
+Output_Format=$3
 
 APK_Location=../../APK/$1.apk
 Soot_output_Location=../sootOutput/$parameter_APK_Name/
@@ -14,7 +15,7 @@ array_output=(${ouput// / })
 Main_Class=$(echo ${array_output[1]} | sed s'/name=//' | sed s"/'//" | sed s"/'//")
 
 javac -d Classes -cp "../Jar_Libs/*" *.java JavaHelper/* ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java
-cd Classes && java -cp .:../../Jar_Libs/* SootAnalysis $APK_Location $Soot_output_Location $Main_Class
+cd Classes && java -cp .:../../Jar_Libs/* SootAnalysis $APK_Location $Soot_output_Location $Main_Class 
 
 cd ../
 pwd

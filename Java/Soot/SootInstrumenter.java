@@ -95,8 +95,8 @@ public class SootInstrumenter
         final String androidJar = "../../Android/platforms";
         final String apkFileLocation = sootarguments[0];
         final String sootLocation = "../Jar_libs/";
-        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
-        //String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
+//        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
+         String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
             "-output-dir", sootarguments[1],
@@ -151,7 +151,6 @@ public class SootInstrumenter
     }
     
     public static void RunInstrumentationOnAPK(String[] sootarguments){
-        Print("Running Instrumentation");
         LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
         String[] app_name =  sootarguments[0].split("/");
         String app_name_only = app_name[app_name.length-1];
@@ -166,62 +165,40 @@ public class SootInstrumenter
             while ((line = reader.readLine()) != null) {
                 hash = String.valueOf(line).replace(sootarguments[0],"");
                 //TESTING
-                Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Line::", hash)));
             }        
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Running analysis on: ",sootarguments[0],"\n")));
+//        Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Running analysis on: ",sootarguments[0],"\n")));
         PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenterRunInstrumentationOnAPK", new BodyTransformer()
         {
             @Override
             protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
             {   
-                // G.v().out.println("Analyzing " + body.getMethod().getName());
-                // SootInstrumenter thisSootInstrumenter = new SootInstrumenter();
                 SootMethod thisMethod = body.getMethod();
                 SootClass thisClass = thisMethod.getDeclaringClass();
                 String stringClassName =  thisClass.toString();
                 String thisMethodName = thisMethod.getName();
                 String stringUnits = body.getUnits().toString();
-                // Print("Class:"+stringClassName);
-                // Print("Method:"+thisMethodName);
                 //ReturnAdviewID(body);
-                if (stringClassName.contains("com.google.android.gms.example.bannerexample.Test")){
-                    // Print(stringClassName);
-                    //IterateOverUnitsAndInvestigateBody(body,thisClass, thisMethodName);
-                }
 
                 // if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-                // if (stringClassName.contains("com.google") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-                // if (stringClassName.contains("com.google")){
-                if (stringClassName.contains("com.google.android.gms.example.bannerexample.MyActivity") && thisMethodName.contains("onResume")){
-                    // if(ThingstToCheck.contains(thisMethodName)){ 
-                        // Print(stringClassName);
-                        //Print("Found " + thisMethodName + "!!!");
+                if (stringClassName.contains("MyActivity")){
+			Print("CONTAINS MyActivity");
                         IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
-                    // }
                 }
-                if (stringClassName.contains("androidx.appcompat.app.AppCompatActivity") && thisMethodName.contains("findViewById")){
-			Print("FOUND CLASS:" + stringClassName);
-                        IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+		else if (stringClassName.contains("androidx.appcompat.app.AppCompatActivity") && thisMethodName.contains("findViewById")){
+                        //IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
 		}
-                // else if (stringClassName.contains("MainActivity") && thisMethodName.contains("onResume")){
-                    // IterateOverUnitsAndInsertLogMessage(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()));
-
-                // }  
             }
-
         }));
-        // setupSoot(sootarguments, Main);
-        // G.reset();
         Main.main(setupSoot(sootarguments));
     }
 
 	public static void IterateOverUnitsAndInsertLogMessage2(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
-		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
+		//List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
 		UnitPatchingChain units = body.getUnits();
 		// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
 		String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
@@ -231,9 +208,17 @@ public class SootInstrumenter
 		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
 		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
 		SootUtil sootUtil = new SootUtil();
-		Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
-		Print(unit_to_insert_after.toString());
-		units.insertAfter(InvokeStatementLog ,unit_to_insert_after);
+		//Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+		if(MethodName.contains("findViewById")){
+			//Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+			Print("UNIQUE CASE:"+MethodName);
+
+		}else if(MethodName.contains("onResume")){
+			Print("TESTING");
+			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+			units.insertAfter(InvokeStatementLog ,unit_to_insert_after);
+
+		}
 	}
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
 		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});

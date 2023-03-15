@@ -54,24 +54,27 @@ public class SootUtil
     
     public Unit ReturnUnitOfInterest(UnitPatchingChain thisunits){
 	    Unit LastKnownUnit = null;
-        for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
-            LastKnownUnit = unit.next();
-            String StringLastKnownUnit = LastKnownUnit.toString();
-            Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
-
-             if(is_identity_statement  && ! (unit.next() instanceof IdentityStmt)){
-		      return LastKnownUnit;
-             }else if (is_identity_statement && LastKnownUnit.toString().contains("parameter")){
-		     return LastKnownUnit;
-	     }else if (LastKnownUnit.toString().contains("parameter")){
-		     Print("UNIT IS:"+LastKnownUnit.toString());
-		     Boolean isId = LastKnownUnit instanceof IdentityStmt;
-		     Print(isId.toString());
-	     }
-	     else{
-		     Print(StringLastKnownUnit);
-	     }
-        }
+	    Print(thisunits.toString());
+//	    if(thisunits.toString().contains("@parameter")){
+//		for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+//		    LastKnownUnit = unit.next();
+//		    String StringLastKnownUnit = LastKnownUnit.toString();
+//		    Boolean is_identity_statement = (LastKnownUnit instanceof IdentityStmt);
+//		    if(StringLastKnownUnit.contains("parameter")){
+//			    Print(StringLastKnownUnit);
+//			    return unit.next();
+//		    }
+//		}
+//	    }else{
+		for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+		    LastKnownUnit = unit.next();
+		    String StringLastKnownUnit = LastKnownUnit.toString();
+		    if(StringLastKnownUnit.contains("specialinvoke")){
+			    Print("Insert After:"+LastKnownUnit.toString());
+			    return LastKnownUnit;
+		    }
+		}
+//	    }
         return LastKnownUnit;
     }
     private Boolean LocalExists(Body b, String name) {
