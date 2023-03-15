@@ -95,8 +95,8 @@ public class SootInstrumenter
         final String androidJar = "../../Android/platforms";
         final String apkFileLocation = sootarguments[0];
         final String sootLocation = "../Jar_libs/";
-//        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
-         String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
+        String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
+        //String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
             "android.support.", "-x", "android.annotation.",
             "-process-dir", sootarguments[0],
             "-output-dir", sootarguments[1],
@@ -186,7 +186,6 @@ public class SootInstrumenter
 
                 // if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
                 if (stringClassName.contains("MyActivity")){
-			Print("CONTAINS MyActivity");
                         IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
                 }
 		else if (stringClassName.contains("androidx.appcompat.app.AppCompatActivity") && thisMethodName.contains("findViewById")){
@@ -218,6 +217,35 @@ public class SootInstrumenter
 			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 			units.insertAfter(InvokeStatementLog ,unit_to_insert_after);
 
+		}else if(MethodName.contains("TestInt")){
+		    Print("TestInt Found");
+		    Local local_java_lang_stringbuilder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
+		    Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
+		    Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class); 
+		    LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
+//			for (Local local : body.getLocals()) {
+//				Print("LOCAL:"+local.getType());
+//			}
+		    if (local_java_lang_stringbuilder == null){
+			local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
+		    }
+		    else if (local_java_lang_string == null){
+			local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+		    }
+		    else if (local_this_class == null){
+			local_this_class = localgenerator.generateLocal(RefType.v(Class));
+		    }
+//			$r2 = new java.lang.StringBuilder;
+//
+//			specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+//
+//			virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("int---");
+//
+//			virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+//
+//			$r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+//
+//			staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r1);
 		}
 	}
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){

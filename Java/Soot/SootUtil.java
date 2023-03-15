@@ -116,12 +116,15 @@ public class SootUtil
      return null;
     }
     public Local getLocalUnsafe(Body b, String name) {
+	    Print("LOCAL TO SEARCH FOR:" + name);
         for (Local local : b.getLocals()) {
-            if (local.getName().equals(name)) {
+	    Print("LOCAL TO Compare Against:" +local.getType());
+            if (local.getType().toString().contains(name)) {
+		Print("LOCAL TO SEARCH FOR:" + name + " FOUND");
                 return local;
             }
         }
-     return null;
+	return null;
     }
     public static void Print(String stringvalue)
     {
