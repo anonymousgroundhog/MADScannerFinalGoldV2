@@ -1,5 +1,5 @@
 package Soot;
-import java.util.*;
+
 import java.util.Iterator;
 import java.util.*;
 import Conditions.SootConditionChecker;
@@ -54,7 +54,6 @@ public class SootUtil
     
     public Unit ReturnUnitOfInterest(UnitPatchingChain thisunits){
 	    Unit LastKnownUnit = null;
-	    Print(thisunits.toString());
 //	    if(thisunits.toString().contains("@parameter")){
 //		for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
 //		    LastKnownUnit = unit.next();
@@ -106,25 +105,49 @@ public class SootUtil
         return ref;
     }
 
+    public List<Object> CheckIfRefTypeExists(Body b, String name){
+        int counter = -1;
+        for (Local local : b.getLocals()) {
+            counter = counter + 1;
+            Print("Local:"+local.getType().toString());
+            if(local.getType().toString().contains(name)){
+                return Arrays.asList(true,counter,local);
+            }
+        }
+        return Arrays.asList(false, null,null);
+
+    }
+    public Local getLocalAtLocation(Body b, int loc) {
+        int counter = -1;
+        for (Local local : b.getLocals()) {
+            counter = counter + 1;
+            if(counter == loc){
+                return local;
+            }
+        }
+        return null;
+    }
     public Local getLocalUnsafeClass(Body b, String name) {
         for (Local local : b.getLocals()) {
-            if(local.getType().toString().equals(name)){
+            Print("Local:"+local.getType().toString());
+            if(local.getType().toString().contains(name)){
                 return local;
             }
         }
-        Print("null returned for: " + name + " (method " + b.getMethod().getName() + ")");
-     return null;
+        // Print("null returned for: " + name + " (method " + b.getMethod().getName() + ")");
+        return null;
     }
     public Local getLocalUnsafe(Body b, String name) {
-	    Print("LOCAL TO SEARCH FOR:" + name);
+        List<String> listTypes = new ArrayList<String>();
+        Print("Local:"+name);
         for (Local local : b.getLocals()) {
-	    Print("LOCAL TO Compare Against:" +local.getType());
+            listTypes.add(local.getType().toString());
             if (local.getType().toString().contains(name)) {
-		Print("LOCAL TO SEARCH FOR:" + name + " FOUND");
+                Print("Found Local:"+name);
                 return local;
             }
         }
-	return null;
+    	return null;
     }
     public static void Print(String stringvalue)
     {

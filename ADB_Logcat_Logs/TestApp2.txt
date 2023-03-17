@@ -1,2 +1,3 @@
 --------- beginning of main
 --------- beginning of system
+03-17 11:47:11.627 10368 10368 D FiniteState: TestApp2.apk---8f12bc9ef86d5c25f1ad3f36028eb7ba592843b81df297a9e75540305e3eceb8---Testing---com.google.android.gms.example.bannerexample.MyActivity---onResume---[]
