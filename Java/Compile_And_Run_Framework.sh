@@ -20,5 +20,5 @@ cd Classes && java -cp .:../../Jar_Libs/* SootAnalysis $APK_Location $Soot_outpu
 
 cd ../
 pwd
-#zipalign -fv 4 sootOutput/$1/$1.apk sootOutput/$1/signed$1.apk
-#apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password sootOutput/$1/signed$1.apk
+zipalign -fv 4 sootOutput/$1/$1.apk sootOutput/$1/signed$1.apk
+apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password sootOutput/$1/signed$1.apk
