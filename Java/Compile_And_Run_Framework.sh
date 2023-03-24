@@ -3,22 +3,25 @@ Clear_Screen(){
 	clear
 }
 
+Get_Main_Class_From_APK(){
+	ouput=$(aapt dump badging ../APK/$1.apk | grep "launchable-activity")
+	array_output=(${ouput// / })
+	Main_Class=$(echo ${array_output[1]} | sed s'/name=//' | sed s"/'//" | sed s"/'//")
+	echo $Main_Class
+}
+
 Compile_Framework(){
 	javac -d Classes -cp "../Jar_Libs/*" *.java JavaHelper/* ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java
 }
 
 Run_Framework(){
-	parameter_APK_Name=$1
-	# parameter_output_format=$2
-	# Output_Format=$3
-
 	APK_Location=../../APK/$1.apk
-	Soot_output_Location=../sootOutput/$parameter_APK_Name/
+	Soot_output_Location=../sootOutput/$1/
 
-	ouput=$(aapt dump badging ../APK/$1.apk | grep "launchable-activity")
-	array_output=(${ouput// / })
-	Main_Class=$(echo ${array_output[1]} | sed s'/name=//' | sed s"/'//" | sed s"/'//")
-
+	# ouput=$(aapt dump badging ../APK/$1.apk | grep "launchable-activity")
+	# array_output=(${ouput// / })
+	# Main_Class=$(echo ${array_output[1]} | sed s'/name=//' | sed s"/'//" | sed s"/'//")
+	Main_Class=$(Get_Main_Class_From_APK $1)
 	cd Classes && java -cp .:../../Jar_Libs/* SootAnalysis $APK_Location $Soot_output_Location $Main_Class 
 	cd ../
 }
@@ -43,12 +46,16 @@ Stop_Logging(){
 	sleep 30s
 	pkill -f adb
 }
+
+# APK_Name=TestApp3
+APK_Name=com.haken.qrcode_102_apksos.com
 Clear_Screen
 Compile_Framework
-Run_Framework $1
+Run_Framework $APK_Name
 pwd
-Zip_And_Sign_APK_File $1
-Clear_Log
-Install_APK $1
-Log_APK $1
-Stop_Logging
+Zip_And_Sign_APK_File $APK_Name
+
+# Clear_Log
+Install_APK $APK_Name
+# Log_APK $APK_Name
+# Stop_Logging
