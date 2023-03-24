@@ -185,12 +185,12 @@ public class SootInstrumenter
 				String stringUnits = body.getUnits().toString();
 	                //ReturnAdviewID(body);
 
-	                // if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-				if (stringClassName.contains("MyActivity")){
+                if (stringClassName.contains("com.google.android.gms.ads") && !stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+				// if (stringClassName.contains("MyActivity")){
 					IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
 				}
 				else if (stringClassName.contains("androidx.appcompat.app.AppCompatActivity") && thisMethodName.contains("findViewById")){
-	                        //IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+	                        IterateOverUnitsAndInsertLogMessage2(body, app_name_only, hash, stringClassName, thisMethod.getName(), String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
 				}
 			}
 		}));
@@ -201,7 +201,7 @@ public class SootInstrumenter
 			//List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
 		UnitPatchingChain units = body.getUnits();
 			// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-		String MSG = ""+App_Name+"---"+Hash.trim()+"---Testing---"+Class+"---"+MethodName+"---"+Parameters;
+		String MSG = ""+App_Name+"---"+Hash.trim()+"---"+Class+"---"+MethodName+"---"+Parameters+"---null";
 		List<Value> listArgs = new ArrayList<Value>();
 		listArgs.add(StringConstant.v("FiniteState"));
 		listArgs.add(StringConstant.v(MSG));
@@ -210,22 +210,10 @@ public class SootInstrumenter
 		SootUtil sootUtil = new SootUtil();
 			//Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 		if(MethodName.contains("findViewById")){
-				//Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 			Print("UNIQUE CASE:"+MethodName);
-
-		}else if(MethodName.contains("onResume")){
-			Print("TESTING");
-			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
-			units.insertAfter(InvokeStatementLog ,unit_to_insert_after);
-
-		}else if(MethodName.contains("TestInt")){
-			Print("TestInt Found");
 			List<Object> object_java_lang_stringbuilder = sootUtil.CheckIfRefTypeExists(body, "java.lang.StringBuilder");
 			List<Object> object_java_lang_string = sootUtil.CheckIfRefTypeExists(body, "java.lang.String");
 			List<Object> object_this_class = sootUtil.CheckIfRefTypeExists(body, Class); 
-			// Boolean boolean_java_lang_string = sootUtil.createLocalGenerator(body, "java.lang.String");
-			// Boolean boolean_this_class = sootUtil.createLocalGenerator(body, Class); 
-			// Boolean bool_java_lang_stringbuilder = sootUtil.CheckIfRefTypeExists(body,"java.lang.StringBuilder");
 			LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
 			Local local_java_lang_stringbuilder = null;
 			Local local_java_lang_string = null;
@@ -266,7 +254,7 @@ public class SootInstrumenter
 
 			// $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test---");
 			List<Value> listArgsLog = new ArrayList<Value>();
-			listArgsLog.add(StringConstant.v("Test---"));
+			listArgsLog.add(StringConstant.v(MSG+"---"));
 			VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgsLog);
 			Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
 			units.insertAfter(unitToAdd2 ,unitToAdd);
@@ -293,7 +281,92 @@ public class SootInstrumenter
 			LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
 			InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
 			units.insertAfter(InvokeStatementLog,assignment_statement4);
+
 		}
+		// else if(MethodName.contains("onResume")){
+		// 	// Print("TESTING");
+		// 	Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+		// 	units.insertBefore(InvokeStatementLog ,unit_to_insert_after);
+
+		// }
+		else if (!Class.contains("androidx.appcompat.app.AppCompatActivity")){
+			// Print("TESTING");
+			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+			units.insertBefore(InvokeStatementLog ,unit_to_insert_after);
+		}
+		// else if(MethodName.contains("TestInt")){
+		// 	Print("TestInt Found");
+		// 	List<Object> object_java_lang_stringbuilder = sootUtil.CheckIfRefTypeExists(body, "java.lang.StringBuilder");
+		// 	List<Object> object_java_lang_string = sootUtil.CheckIfRefTypeExists(body, "java.lang.String");
+		// 	List<Object> object_this_class = sootUtil.CheckIfRefTypeExists(body, Class); 
+		// 	LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
+		// 	Local local_java_lang_stringbuilder = null;
+		// 	Local local_java_lang_string = null;
+		// 	Local local_this_class = null;
+
+		// 	if((Boolean) object_java_lang_string.get(0)){
+		// 		// local_java_lang_stringbuilder = sootUtil.getLocalAtLocation(body,(int) object_java_lang_string.get(1));
+		// 		local_java_lang_stringbuilder = (Local) object_java_lang_string.get(2);
+		// 	}else{
+		// 		local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
+		// 	}
+			
+		// 	if((Boolean) object_java_lang_string.get(0)){
+		// 		// local_java_lang_stringbuilder = sootUtil.getLocalAtLocation(body,(int) object_java_lang_string.get(1));
+		// 		local_java_lang_string = (Local) object_java_lang_string.get(2);
+		// 	}else{
+		// 		local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+		// 	}
+
+		// 	if((Boolean) object_this_class.get(0)){
+		// 		// local_java_lang_stringbuilder = sootUtil.getLocalAtLocation(body,(int) object_java_lang_string.get(1));
+		// 		local_this_class = (Local) object_this_class.get(2);
+		// 	}else{
+		// 		local_this_class = localgenerator.generateLocal(RefType.v("java.lang.String"));
+		// 	}
+			
+
+		// 	Unit unit_to_insert_after = units.getLast();
+		// 	// $r1 = new java.lang.StringBuilder;
+		// 	AssignStmt this_java_assign_stmt = sootUtil.GenerateAndReturnNewAssignmentStatementStringBuilder(local_java_lang_stringbuilder);
+		//     units.insertBefore(this_java_assign_stmt,unit_to_insert_after);
+		//      // units.addLast(this_java_assign_stmt);
+			
+		// 	// specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+		//     SpecialInvokeExpr special_invoke_this = Jimple.v().newSpecialInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: void <init>()>").makeRef());
+		// 	Unit unitToAdd = Jimple.v().newInvokeStmt(special_invoke_this);
+		// 	units.insertAfter(unitToAdd,this_java_assign_stmt);
+
+		// 	// $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test---");
+		// 	List<Value> listArgsLog = new ArrayList<Value>();
+		// 	listArgsLog.add(StringConstant.v(MSG+"---"));
+		// 	VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef(), listArgsLog);
+		// 	Unit unitToAdd2 = Jimple.v().newInvokeStmt(virtualinvoke);
+		// 	units.insertAfter(unitToAdd2 ,unitToAdd);
+			
+		// 	// $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+		// 	Local int_local = sootUtil.getLocalUnsafe(body, "int");
+		// 	listArgs = new ArrayList<Value>();
+		// 	listArgs.add(int_local);
+		// 	virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(int)>").makeRef(), listArgs);
+		// 	Unit unitToAdd3 = Jimple.v().newInvokeStmt(virtualinvoke);
+		// 	units.insertAfter(unitToAdd3, unitToAdd2);
+			
+
+		// 	// $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+		// 	virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_java_lang_stringbuilder, Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef());
+		// 	// Print("Test:"+virtualinvoke.toString());
+		// 	AssignStmt assignment_statement4 = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+		// 	units.insertAfter(assignment_statement4, unitToAdd3);
+			
+		// 	// staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r2);
+		// 	listArgs = new ArrayList<Value>();
+		// 	listArgs.add(StringConstant.v("FiniteState"));
+		// 	listArgs.add(local_java_lang_string);
+		// 	LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+		// 	InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+		// 	units.insertAfter(InvokeStatementLog,assignment_statement4);
+		// }
 	}
 	public static void IterateOverUnitsAndInsertLogMessage(Body body, String App_Name, String Hash, String Class, String MethodName, String Parameters, SootClass thisClass){
 		List<String> ThingstToCheck = Arrays.asList(new String[]{"onAdImpression"});
@@ -311,45 +384,45 @@ public class SootInstrumenter
 
 		if(unit_to_insert_after != null){
 			    //CHECK IF LOCALS EXIST OTHERWISE GENERATE LOCAL
-			Local local_java_lang_stringbuilder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
-			Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
-			Local local_android_view_View = sootUtil.getLocalUnsafe(body, "android.view.View");
-			Local local_google_ads_adview = sootUtil.getLocalUnsafe(body, "com.google.android.gms.ads.AdView");
-			Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class); 
-			LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
+				Local local_java_lang_stringbuilder = sootUtil.getLocalUnsafe(body, "java.lang.StringBuilder");
+				Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
+				Local local_android_view_View = sootUtil.getLocalUnsafe(body, "android.view.View");
+				Local local_google_ads_adview = sootUtil.getLocalUnsafe(body, "com.google.android.gms.ads.AdView");
+				Local local_this_class = sootUtil.getLocalUnsafeClass(body, Class); 
+				LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
 
-			if (local_java_lang_stringbuilder == null){
-				local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
-			}
-			if (local_java_lang_string == null){
-				local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
-			}
-			if (local_android_view_View == null){
-				local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
-			}
-			if (local_google_ads_adview == null){
-				Print("LOCAL DOESN'T EXIST");
-				local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
-			}
-			if (local_this_class == null){
-				local_this_class = localgenerator.generateLocal(RefType.v(Class));
-			}
+				if (local_java_lang_stringbuilder == null){
+					local_java_lang_stringbuilder = localgenerator.generateLocal(RefType.v("java.lang.StringBuilder"));
+				}
+				if (local_java_lang_string == null){
+					local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+				}
+				if (local_android_view_View == null){
+					local_android_view_View = localgenerator.generateLocal(RefType.v("android.view.View"));
+				}
+				if (local_google_ads_adview == null){
+					Print("LOCAL DOESN'T EXIST");
+					local_google_ads_adview = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.AdView"));
+				}
+				if (local_this_class == null){
+					local_this_class = localgenerator.generateLocal(RefType.v(Class));
+				}
 
 			    // Must add private com.google.android.gms.ads.AdView adView to class
-			SootField sootfieldref = null;
-			sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
+				SootField sootfieldref = null;
+				sootfieldref = sootUtil.AddPrivateFieldToSootClassIfExistsAndReturn(thisClass, "adView", "com.google.android.gms.ads.AdView");
 
 			    // $r1 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.AdView adView>;
-			FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
-			AssignStmt assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
-			units.insertAfter(assignment_statement,unit_to_insert_after);
+				FieldRef fieldRef = Jimple.v().newInstanceFieldRef(local_this_class, sootfieldref.makeRef());
+				AssignStmt assignment_statement = Jimple.v().newAssignStmt(local_google_ads_adview, fieldRef);
+				units.insertAfter(assignment_statement,unit_to_insert_after);
 
 			    // $r2 = virtualinvoke $r1.<com.google.android.gms.ads.AdView: android.view.View findViewById(int)>(2131165243);
-			ArrayList<Type> listx = new ArrayList<Type>();
-			listx.add(IntType.v());
+				ArrayList<Type> listx = new ArrayList<Type>();
+				listx.add(IntType.v());
 			    // Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("test_soot_method_ref:",test_soot_method_ref.toString())));
-			SootMethodRef soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "findViewById", listx, RefType.v("android.view.View"), false);
-			int intadviewid=Integer.parseInt(adUnitId);
+				SootMethodRef soot_method_reference = Scene.v().makeMethodRef(Scene.v().getSootClass("com.google.android.gms.ads.AdView"), "findViewById", listx, RefType.v("android.view.View"), false);
+				int intadviewid=Integer.parseInt(adUnitId);
 			    // int intadviewid=2131165243;
 			    VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_google_ads_adview, soot_method_reference,IntConstant.v(intadviewid));//IntConstant.v(2131165243));
 			    AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_android_view_View, virtualinvoke);
