@@ -76,30 +76,30 @@ rm -rf ../sootOutput/*
 # APK_Names=(TestApp3 com.haken.qrcode_102_apksos.com)
 # APK_Names=(com.haken.qrcode_102_apksos.com F4DA643B2B9A310FDC1CC7A3CBAEE83E106A0D654119FDDC608A4B587C5552A3)
 APK_Names=(TestApp3)
-# Compile_Framework
+Compile_Framework
 for APK_Name in "${APK_Names[@]}"
 	do : 
 	   Run_Framework $APK_Name
-	   Zip_And_Sign_APK_File $APK_Name
+	   # Zip_And_Sign_APK_File $APK_Name
 	done
 
 
-for Folder in $(ls sootOutput/)
-	do : 
-		Clear_Log
-		Install_APK $Folder
-		main_class=$(Get_Main_Class_From_APK $Folder)
-		package=$(Get_Package_From_APK $Folder)
-		echo $package
-		echo $main_class
+# for Folder in $(ls sootOutput/)
+# 	do : 
+# 		Clear_Log
+# 		Install_APK $Folder
+# 		main_class=$(Get_Main_Class_From_APK $Folder)
+# 		package=$(Get_Package_From_APK $Folder)
+# 		echo $package
+# 		echo $main_class
 
-		device_name=7040018020065015
-		cd ../Python
-		pwd
-		Log_APK $Folder
-		python3 Appium_Gold.py $device_name $package $main_class $Folder
-		cd ../Java
-		pwd
-		Uninstall_APK $Folder
-	   	Stop_Logging
-	done
+# 		device_name=7040018020065015
+# 		cd ../Python
+# 		pwd
+# 		Log_APK $Folder
+# 		python3 Appium_Gold.py $device_name $package $main_class $Folder
+# 		cd ../Java
+# 		pwd
+# 		Uninstall_APK $Folder
+# 	   	Stop_Logging
+# 	done

@@ -96,8 +96,8 @@ public class SootInstrumenter
 		final String androidJar = "../../Android/platforms";
 		final String apkFileLocation = sootarguments[0];
 		final String sootLocation = "../Jar_libs/";
-		// String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
-        String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
+		String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
+        // String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
 		"android.support.", "-x", "android.annotation.",
 		"-process-dir", sootarguments[0],
 		"-output-dir", sootarguments[1],
@@ -210,7 +210,7 @@ public class SootInstrumenter
 		SootUtil sootUtil = new SootUtil();
 			//Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 		if(MethodName.contains("findViewById")){
-			Print("UNIQUE CASE:"+MethodName);
+			// Print("UNIQUE CASE:"+MethodName);
 			List<Object> object_java_lang_stringbuilder = sootUtil.CheckIfRefTypeExists(body, "java.lang.StringBuilder");
 			List<Object> object_java_lang_string = sootUtil.CheckIfRefTypeExists(body, "java.lang.String");
 			List<Object> object_this_class = sootUtil.CheckIfRefTypeExists(body, Class); 
@@ -291,6 +291,17 @@ public class SootInstrumenter
 		// }
 		else if (!Class.contains("androidx.appcompat.app.AppCompatActivity")){
 			// Print("TESTING");
+			Print("Class: "+Class+ " ("+MethodName+")");
+			String keyword = "this";
+	        Optional<Unit> unit = sootUtil.ExtractUnitWithKeyword(body, keyword);
+	        if (unit.isPresent()) {
+	        	IdentityStmt identityStmt = (IdentityStmt) unit.get();
+                ValueBox refBox = identityStmt.getRightOpBox();
+	        	Print(refBox.toString());
+	        	// IdentityRefBox this_id_ref_box = (IdentityRefBox) unit.get().getUseBoxes().get(0);
+	            // System.out.println(this_id_ref_box.getValue().getClass().getType().toString());
+	        }
+			// Print(sootUtil.ExtractUnitWithKeyword(body,"this").toString());
 			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 			units.insertBefore(InvokeStatementLog ,unit_to_insert_after);
 		}

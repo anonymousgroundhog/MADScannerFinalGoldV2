@@ -51,7 +51,18 @@ public class SootUtil
     public AssignStmt GenerateAndReturnNewAssignmentStatementStringBuilder(Local local_java_lang_stringbuilder){
         return NewAssignStmt(local_java_lang_stringbuilder, Jimple.v().newNewExpr(RefType.v("java.lang.StringBuilder")));
     }
-    
+    public static Optional<Unit> ExtractUnitWithKeyword(Body body, String keyword) {
+        Chain<Unit> units = body.getUnits();
+        
+        for (Unit unit : units) {
+            if (unit.toString().contains(keyword)) {
+                return Optional.of(unit);
+            }
+        }
+
+        return Optional.empty();
+    }
+
     public Unit ReturnUnitOfInterest(UnitPatchingChain thisunits){
 	    Unit LastKnownUnit = null;
 //	    if(thisunits.toString().contains("@parameter")){
@@ -69,7 +80,7 @@ public class SootUtil
 		    LastKnownUnit = unit.next();
 		    String StringLastKnownUnit = LastKnownUnit.toString();
 		    if(StringLastKnownUnit.contains("specialinvoke")){
-			    Print("Insert After:"+LastKnownUnit.toString());
+			    // Print("Insert After:"+LastKnownUnit.toString());
 			    return LastKnownUnit;
 		    }
 		}
@@ -109,7 +120,7 @@ public class SootUtil
         int counter = -1;
         for (Local local : b.getLocals()) {
             counter = counter + 1;
-            Print("Local:"+local.getType().toString());
+            // Print("Local:"+local.getType().toString());
             if(local.getType().toString().contains(name)){
                 return Arrays.asList(true,counter,local);
             }
