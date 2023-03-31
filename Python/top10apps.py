@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 import progressbar, requests, sys
 from google_play_scraper import app, Sort, reviews_all, reviews, search
 
-def get_apkpure_download_url(app_id):
-    url = f"http://apkpure.com/store/apps/details?id={app_id}"
+def get_apkpure_download_url(url):
     response = requests.get(url)
 
     if response.status_code != 200:
@@ -63,13 +62,30 @@ def download_apk():
 
 
 os.system('clear')
-top_10_apps = get_top_10_apps('Games')
-print("Latest Apps from Google Play Store:")
+# top_10_apps = get_top_10_apps('Games')
+# print("Latest Apps from Google Play Store:")
 
-for idx, app_id in enumerate(top_10_apps, start=1):
-    app_info = app(app_id)
-    print(f"{idx}. {app_info['title']}")
-    print(search_app_id(app_info['title']))
-    # get_apkpure_download_url(app_info)
-        # Uncomment the line below to open the app pages in your default web browser
-    # open_app_in_browser(app_id)
+# for idx, app_id in enumerate(top_10_apps, start=1):
+#     app_info = app(app_id)
+#     print(f"{idx}. {app_info['title']}")
+#     # print(search_app_id(app_info['title']))
+#     # get_apkpure_download_url(app_info)
+#         # Uncomment the line below to open the app pages in your default web browser
+#     # open_app_in_browser(app_id)
+
+urls=[
+  "https://apkpure.com/candy-crush-saga/com.king.candycrushsaga",
+  "https://apkpure.com/my-talking-tom/com.outfit7.mytalkingtomfree",
+  "https://apkpure.com/temple-run-2/com.imangi.templerun2",
+  "https://apkpure.com/subway-surfers/com.kiloo.subwaysurf",
+  "https://apkpure.com/angry-birds-rio/com.rovio.angrybirdsrio",
+  "https://apkpure.com/cut-the-rope-2/com.zeptolab.ctr2.f2p.google",
+  "https://apkpure.com/8-ball-pool/com.miniclip.eightballpool",
+  "https://apkpure.com/fruit-ninja-free/com.halfbrick.fruitninjafree",
+  "https://apkpure.com/hill-climb-racing/com.fingersoft.hillclimb",
+  "https://apkpure.com/pou/me.pou.app"
+]
+
+
+for url in urls:
+    print(get_apkpure_download_url(url))
