@@ -140,7 +140,6 @@ public class SootUtil
     }
     public Local getLocalUnsafeClass(Body b, String name) {
         for (Local local : b.getLocals()) {
-            Print("Local:"+local.getType().toString());
             if(local.getType().toString().contains(name)){
                 return local;
             }
@@ -150,11 +149,9 @@ public class SootUtil
     }
     public Local getLocalUnsafe(Body b, String name) {
         List<String> listTypes = new ArrayList<String>();
-        Print("Local:"+name);
         for (Local local : b.getLocals()) {
             listTypes.add(local.getType().toString());
             if (local.getType().toString().contains(name)) {
-                Print("Found Local:"+name);
                 return local;
             }
         }

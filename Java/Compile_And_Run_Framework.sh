@@ -76,7 +76,7 @@ rm -rf ../sootOutput/*
 # APK_Names=(TestApp3 com.haken.qrcode_102_apksos.com)
 # APK_Names=(com.haken.qrcode_102_apksos.com F4DA643B2B9A310FDC1CC7A3CBAEE83E106A0D654119FDDC608A4B587C5552A3)
 APK_Names=(TestApp3)
-# Compile_Framework
+Compile_Framework
 for APK_Name in "${APK_Names[@]}"
 	do : 
 	   Run_Framework $APK_Name
