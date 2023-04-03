@@ -296,12 +296,12 @@ public class SootInstrumenter
 	        Optional<Unit> unit = sootUtil.ExtractUnitWithKeyword(body, keyword);
 	        if (unit.isPresent()) {
 	        	IdentityStmt identityStmt = (IdentityStmt) unit.get();
-                ValueBox refBox = identityStmt.getRightOpBox();
+                ValueBox refBox = identityStmt.getOpBox();
 	        	Print(refBox.toString());
 	        	// IdentityRefBox this_id_ref_box = (IdentityRefBox) unit.get().getUseBoxes().get(0);
 	            // System.out.println(this_id_ref_box.getValue().getClass().getType().toString());
 	        }
-			// Print(sootUtil.ExtractUnitWithKeyword(body,"this").toString());
+			Print(sootUtil.ExtractUnitWithKeyword(body,"this").toString());
 			Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
 			units.insertBefore(InvokeStatementLog ,unit_to_insert_after);
 		}

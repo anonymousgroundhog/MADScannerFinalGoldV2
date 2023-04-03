@@ -78,7 +78,7 @@ rm -rf ../sootOutput/*
 APK_Names=(TestApp3)
 # Compile_Framework
 for APK_Name in "${APK_Names[@]}"
-	do: 
+	do : 
 	   Run_Framework $APK_Name
 	   # Zip_And_Sign_APK_File $APK_Name
 	done
