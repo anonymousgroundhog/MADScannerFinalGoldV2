@@ -27,3 +27,11 @@ APK/E811F04491B9A7859602F8FAD9165D1DF7127696CC03418FFB5C8CA0914C64DA.apk filter=
 APK/eightballpool.apk filter=lfs diff=lfs merge=lfs -text
 APK/381620B5FC7C3A2D73E0135C6B4EBD91E117882F804A4794F3A583B3B0C19BC5.apk filter=lfs diff=lfs merge=lfs -text
 APK/BannerRecyclerViewExample3.apk filter=lfs diff=lfs merge=lfs -text
+APK/Clash_of_Clans_15.83.29_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Roblox_2.568.524_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Toca_Life_World_Build_a_Story_1.63_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Whiteout_Survival_1.7.9_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Zooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Angry_Birds_2_3.11.3_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/Call_of_Dragons_1.0.14.69_Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/candycrushsaga2.apk filter=lfs diff=lfs merge=lfs -text
