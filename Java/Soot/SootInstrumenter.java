@@ -181,25 +181,9 @@ public class SootInstrumenter
 					units.insertAfter(InvokeStatementLog, unit_to_insert_after);
 					// units.insertAfter(InvokeStatementLog, units.getFirst());
 				}
-				else if (thisMethodName.contains("onAdClicked") && stringClassName.contains("com.google.android.gms.internal")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
-					// units.insertAfter(InvokeStatementLog, unit_to_insert_after);
-					units.insertAfter(InvokeStatementLog, units.getFirst());
-				}
 				else if (body.getUnits().toString().contains("setContentView") && stringClassName.contains("androidx.appcompat.app.AppCompatActivity")){
 					SootUtil sootUtil = new SootUtil();
 					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					Print("FOUND setCONTENTView!!!");
 					UnitPatchingChain units = body.getUnits();
 					Unit unit_to_insert_after = null;
 					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
@@ -222,6 +206,36 @@ public class SootInstrumenter
 						units.insertAfter(InvokeStatementLog, unit_to_insert_after);
 					}
 					// units.insertAfter(InvokeStatementLog, units.getFirst());
+				}
+				else if (thisMethodName.contains("onAdClicked") && stringClassName.contains("com.google.android.gms.internal")){
+					SootUtil sootUtil = new SootUtil();
+					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+					UnitPatchingChain units = body.getUnits();
+					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+					List<Value> listArgs = new ArrayList<Value>();
+					listArgs.add(StringConstant.v("FiniteState"));
+					listArgs.add(StringConstant.v(MSG));
+					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+					Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+					// units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+					units.insertAfter(InvokeStatementLog, units.getFirst());
+				}
+				else if (thisMethodName.contains("initialize") && stringClassName.contains("com.google.android.gms.ads")){
+					SootUtil sootUtil = new SootUtil();
+					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+					UnitPatchingChain units = body.getUnits();
+					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+					List<Value> listArgs = new ArrayList<Value>();
+					listArgs.add(StringConstant.v("FiniteState"));
+					listArgs.add(StringConstant.v(MSG));
+					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+					// Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+					// units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+					units.insertBefore(InvokeStatementLog, units.getLast());
 				}
 			}
 		}));
