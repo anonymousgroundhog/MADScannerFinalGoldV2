@@ -5,6 +5,7 @@ import java.util.*;
 import Conditions.SootConditionChecker;
 import ClassHelper.ClassLiteralMethodSourceonAdClicked;
 
+// import soot.Hierarchy;
 import soot.*;
 import soot.Value;
 import soot.jimple.*;
@@ -44,6 +45,38 @@ public class SootUtil
     public static String publicVariableStringClassToInject = null;
     private static SootClass publicVariableSootClass;
     
+    public List<SootClass> getSubclassesOfIncluding(SootClass c) {
+        c.checkLevel(SootClass.HIERARCHY);
+        if (c.isInterface()) {
+           throw new RuntimeException("class needed!");
+        }
+        List<SootClass> l = new ArrayList<SootClass>();
+        l.addAll(Scene.v().getActiveHierarchy().getSubclassesOf(c));
+        l.add(c);
+        return Collections.unmodifiableList(l);
+    }
+
+    public static Set<SootClass> getAllChildClasses(SootClass sc, Hierarchy hierarchy) {
+        Print("Investigating class ("+sc.toString()+")");
+      List<SootClass> workList = new ArrayList<SootClass>();
+      workList.add(sc);
+      Set<SootClass> doneSet = new HashSet<SootClass>();
+      Set<SootClass> classes = new HashSet<>();
+      while (!workList.isEmpty()) {
+        SootClass curClass = workList.remove(0);
+        if (!doneSet.add(curClass))
+          continue;
+        if (curClass.isInterface()) {
+            workList.addAll(hierarchy.getDirectImplementersOf(curClass));
+            workList.addAll(hierarchy.getSubinterfacesOf(curClass));
+        } else {
+          // workList.addAll(hierarchy.getSubclassesOf(curClass));
+          classes.add(curClass);
+        }
+      }
+      return classes;
+    }
+
     public SootClass ReturnSootClass(String thisstringclass){
         return Scene.v().getSootClass(thisstringclass);
     }
@@ -193,11 +226,18 @@ public class SootUtil
         return Jimple.v().newIdentityStmt(arg, RefThis);
     }
 
-    public static void AddFinalFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
-    {
-        SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.FINAL);
-        sClass.addField(field);
-    }
+    // public static void AddFinalFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
+    // {
+    //     if (!sClass.getFields().toString().contains(strVar)){
+    //         // sootfieldref = sootUtil.AddPrivateFieldToSootClass(thisClass, "adView", Class);
+    //         SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.FINAL);
+    //         sClass.addField(field);
+    //         return field;
+    //     }else{
+    //         SootField field = sClass.getFieldByName(strVar);
+    //         return field;
+    //     }
+    // }
 
     public static SootField AddPrivateFieldToSootClassIfExistsAndReturn(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
     {
