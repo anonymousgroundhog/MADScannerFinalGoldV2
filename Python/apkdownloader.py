@@ -73,10 +73,10 @@ def install_apps_from_apk_folder(list_of_apps):
 
 def compile_framework():
     if os.getcwd().__contains__("Java"):
-        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java JavaHelper/* ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java")
+        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
     else:
         os.chdir("../Java")
-        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java JavaHelper/* ClassHelper/*.java Conditions/*.java Constants/*.java FileHandler/*.java FileParser/*.java FileWriter/*.java Logging/*.java Soot/*.java Utils/*.java")
+        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
 
 def run_framework(APK_Name, Main_Class):
     if os.getcwd().__contains__("Java"):
@@ -86,7 +86,7 @@ def run_framework(APK_Name, Main_Class):
         # Main_Class=get_main_class_from_APK(APK_Name)
         os.chdir("Classes")
         cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
-        # print(cmd)
+        print(cmd)
         os.system(cmd)
         os.chdir('../')
     else:
@@ -232,4 +232,4 @@ run_framework('TestApp3', Main_Class)
 
 # log_APK("Test")
 # uninstall_APK(APK_Package)
-# generate_model_from_log('Test')
+#generate_model_from_log('Test')

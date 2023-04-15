@@ -5,39 +5,12 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.Iterator;
 import java.util.*;
 import java.io.*;
-import java.lang.*;
-import java.util.concurrent.TimeUnit;
-import java.util.Collections;
-import java.lang.*;
-import Conditions.SootConditionChecker;
 import Soot.SootUtil;
-import Soot.SootInstrumenter;
 
-
-import soot.options.CGOptions;
-import soot.options.Options;
-import soot.toolkits.exceptions.PedanticThrowAnalysis;
-import soot.toolkits.exceptions.ThrowAnalysis;
-import soot.toolkits.exceptions.UnitThrowAnalysis;
-import soot.dexpler.DalvikThrowAnalysis;
-import soot.javaToJimple.DefaultLocalGenerator;
 import soot.*;
 import soot.jimple.*;
-import soot.Value;
-import soot.util.*;
-import soot.options.Options;
-import soot.jimple.internal.*;
-import soot.jimple.Jimple;
-import soot.jimple.JimpleMethodSource;
-import soot.ValueBox;
-
-
-import java.util.*;
-import JavaHelper.*;
 
 public class SootInstrumenter
 {
@@ -64,6 +37,7 @@ public class SootInstrumenter
 		// "-force-overwrite", "-include-all"
 		"-force-overwrite"
 	};
+		
 		return sootargs;
 	}
 
@@ -264,11 +238,7 @@ public class SootInstrumenter
 			        Hierarchy hierarchy = scene.getActiveHierarchy();
 					SootUtil sootUtil = new SootUtil();
 					Print("Class:"+ stringClassName);
-					// Print("Hierarchy: "+hierarchy.toString());
-					// Set<SootClass> thisSootClasses = SootUtil.getAllChildClasses(thisClass, hierarchy);
-					// Print("CLASSES:"+String.valueOf(thisSootClasses));
 					Print("Sub-Classes: "+sootUtil.getSubclassesOfIncluding(thisClass).toString());
-
 				}
 			}
 		}));
