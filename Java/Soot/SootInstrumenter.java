@@ -34,8 +34,8 @@ public class SootInstrumenter
 		"-android-jars", "../../Android/platforms",
 		"-src-prec", "apk",
 		"-no-bodies-for-excluded",
-		// "-force-overwrite", "-include-all"
-		"-force-overwrite"
+		"-force-overwrite", "-include-all"
+		// "-force-overwrite"
 	};
 		
 		return sootargs;
@@ -68,7 +68,7 @@ public class SootInstrumenter
 		}
 
 	//        Print(thisJavaHelper.ConcatenateStrings(Arrays.asList("Running analysis on: ",sootarguments[0],"\n")));
-		PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenterRunInstrumentationOnAPK", new BodyTransformer()
+		PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new BodyTransformer()
 		{
 			@Override
 			protected void internalTransform(final Body body, String phaseName, @SuppressWarnings("rawtypes") Map options)
@@ -77,111 +77,114 @@ public class SootInstrumenter
 				SootClass thisClass = thisMethod.getDeclaringClass();
 				String stringClassName =  thisClass.toString();
 				String thisMethodName = thisMethod.getName();
+				String thisClass_subclasses = null;
 				// String stringUnits = body.getUnits().toString();
 	                //ReturnAdviewID(body);
-
-                // if (thisMethodName.contains("findViewById") && ! stringClassName.contains("androidx.appcompat.app.AppCompatDialog")){
-				if (thisMethodName.contains("findViewById") && stringClassName.contains("androidx.appcompat.app.AppCompatActivity")){
-				// if (stringClassName.contains("MyActivity")){
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					IterateOverUnitsAndInsertLogMessageFindView(body, app_name_only, hash, stringClassName, thisMethodName, String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+				SootUtil sootUtil = new SootUtil();
+				
+				if(thisClass.isApplicationClass() & thisMethod.isConcrete()){
+					Print("\nClass:"+stringClassName);
+					Print("Short_Name:"+	thisClass.getShortName());
+					Print("Method:"+thisMethodName);
+					// Print("Is Abstract Method: " + thisMethod.isAbstract());
+					thisClass_subclasses = sootUtil.getSubclassesOfIncluding(body.getMethod().getDeclaringClass()).toString();
+					Print("Subclasses:"+thisClass_subclasses);
+					
 				}
-				else if (thisMethodName.contains("onCreate") && stringClassName.contains(main_class)){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
-					units.insertAfter(InvokeStatementLog, unit_to_insert_after);
-				}
-				else if (body.getUnits().toString().contains("setContentView") && stringClassName.contains("androidx.appcompat.app.AppCompatActivity")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					Unit unit_to_insert_after = null;
-					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					Unit LastKnownUnit = null;
-					for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
-					    LastKnownUnit = unit.next();
-					    String StringLastKnownUnit = LastKnownUnit.toString();
-					    if(StringLastKnownUnit.contains("setContentView")){
-						    // Print("Insert After:"+LastKnownUnit.toString());
-						    unit_to_insert_after = LastKnownUnit;
-					    }
-					}
-					if(unit_to_insert_after != null){
-						units.insertAfter(InvokeStatementLog, unit_to_insert_after);
-					}
-					// units.insertAfter(InvokeStatementLog, units.getFirst());
-				}
-				else if (thisMethodName.contains("onAdClicked") && stringClassName.contains("com.google.android.gms.internal.ads.zzbek")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					units.insertAfter(InvokeStatementLog, units.getFirst());
-				}
-				else if (thisMethodName.contains("initialize") && stringClassName.contains("com.google.android.gms.ads")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					// Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
-					// units.insertAfter(InvokeStatementLog, unit_to_insert_after);
-					units.insertBefore(InvokeStatementLog, units.getLast());
-				}
-				else if (thisMethodName.contains("loadAd") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					units.insertBefore(InvokeStatementLog, units.getLast());
-				}
-				else if (thisMethodName.contains("destroy") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					List<Value> listArgs = new ArrayList<Value>();
-					listArgs.add(StringConstant.v("FiniteState"));
-					listArgs.add(StringConstant.v(MSG));
-					StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					units.insertBefore(InvokeStatementLog, units.getLast());
-				}
-				// else if (thisMethodName.contains("getAdUnitId") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+				// if(stringClassName.contains("com.google.android") & thisClass != null){
+				// 	Print("stringClassName:"+stringClassName);
+				// 	Print("stringMethodName:"+thisMethodName);
+				// }
+				// if (sootUtil.getSubclassesOfIncluding(thisClass).toString().contains("com.google.android.gms.ads.AdListener")){
+				// 	final Scene scene = Scene.v();
+			    //     Hierarchy hierarchy = scene.getActiveHierarchy();
+				// 	Print("\nMethod:"+thisMethodName);
+				// 	Print("Class:"+ stringClassName);
+				// 	// Print("Sub-Classes: "+sootUtil.getSubclassesOfIncluding(thisClass).toString());
+				// }
+				// if (stringClassName.contains("com.google.android.gms.ads.AdListener")){
+				// 	final Scene scene = Scene.v();
+			    //     Hierarchy hierarchy = scene.getActiveHierarchy();
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("\nMethod:"+thisMethodName);
+				// 	Print("Class:"+ stringClassName);
+				// 	Print("Sub-Classes: "+sootUtil.getSubclassesOfIncluding(thisClass).toString());
+				// }
+				// else if (thisMethodName.contains("findViewById") && stringClassName.contains("androidx.appcompat.app.AppCompatActivity")){
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	IterateOverUnitsAndInsertLogMessageFindView(body, app_name_only, hash, stringClassName, thisMethodName, String.valueOf(thisMethod.getParameterTypes()), thisClass);                        
+				// }
+				// else if (thisMethodName.contains("onCreate") && stringClassName.contains(main_class)){
 				// 	SootUtil sootUtil = new SootUtil();
 				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
 				// 	UnitPatchingChain units = body.getUnits();
-				// 	Local str_local = sootUtil.getLocalUnsafe(body, "java.lang.String");
+				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	listArgs.add(StringConstant.v("FiniteState"));
+				// 	listArgs.add(StringConstant.v(MSG));
+				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+				// 	units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+				// }
+				// else if (body.getUnits().toString().contains("setContentView") && stringClassName.contains("androidx.appcompat.app.AppCompatActivity")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
+				// 	Unit unit_to_insert_after = null;
+				// 	// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	listArgs.add(StringConstant.v("FiniteState"));
+				// 	listArgs.add(StringConstant.v(MSG));
+				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	Unit LastKnownUnit = null;
+				// 	for (Iterator<Unit> unit = units.snapshotIterator(); unit.hasNext();) {
+				// 	    LastKnownUnit = unit.next();
+				// 	    String StringLastKnownUnit = LastKnownUnit.toString();
+				// 	    if(StringLastKnownUnit.contains("setContentView")){
+				// 		    // Print("Insert After:"+LastKnownUnit.toString());
+				// 		    unit_to_insert_after = LastKnownUnit;
+				// 	    }
+				// 	}
+				// 	if(unit_to_insert_after != null){
+				// 		units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+				// 	}
+				// 	// units.insertAfter(InvokeStatementLog, units.getFirst());
+				// }
+				// else if (thisMethodName.contains("onAdClicked") && stringClassName.contains("com.google.android.gms.internal.ads.zzbek")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
+				// 	// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	listArgs.add(StringConstant.v("FiniteState"));
+				// 	listArgs.add(StringConstant.v(MSG));
+				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	units.insertAfter(InvokeStatementLog, units.getFirst());
+				// }
+				// else if (thisMethodName.contains("initialize") && stringClassName.contains("com.google.android.gms.ads")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
+				// 	// CONSTRUCT UNIT AND THEN USE units.addFirst(u);
+				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	listArgs.add(StringConstant.v("FiniteState"));
+				// 	listArgs.add(StringConstant.v(MSG));
+				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	// Unit unit_to_insert_after = sootUtil.ReturnUnitOfInterest(units);
+				// 	// units.insertAfter(InvokeStatementLog, unit_to_insert_after);
+				// 	units.insertBefore(InvokeStatementLog, units.getLast());
+				// }
+				// else if (thisMethodName.contains("loadAd") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
 				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
 				// 	List<Value> listArgs = new ArrayList<Value>();
 				// 	listArgs.add(StringConstant.v("FiniteState"));
@@ -189,57 +192,75 @@ public class SootInstrumenter
 				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
 				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
 				// 	units.insertBefore(InvokeStatementLog, units.getLast());
-				// 	Print("Local:"+str_local.toString());
-
 				// }
-				else if (thisMethodName.contains("onAdImpression") && stringClassName.contains("com.google.android.gms.ads.AdListener")){
-					SootUtil sootUtil = new SootUtil();
-					Print("Class: "+stringClassName+ " ("+thisMethodName+")");
-					UnitPatchingChain units = body.getUnits();
-					// String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
-					// List<Value> listArgs = new ArrayList<Value>();
-					// listArgs.add(StringConstant.v("FiniteState"));
-					// listArgs.add(StringConstant.v(MSG));
-					// StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					// InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					// units.insertBefore(InvokeStatementLog, units.getLast());
+				// else if (thisMethodName.contains("destroy") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
+				// 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	listArgs.add(StringConstant.v("FiniteState"));
+				// 	listArgs.add(StringConstant.v(MSG));
+				// 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	units.insertBefore(InvokeStatementLog, units.getLast());
+				// }
+				// // else if (thisMethodName.contains("getAdUnitId") && stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
+				// // 	SootUtil sootUtil = new SootUtil();
+				// // 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// // 	UnitPatchingChain units = body.getUnits();
+				// // 	Local str_local = sootUtil.getLocalUnsafe(body, "java.lang.String");
+				// // 	String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// // 	List<Value> listArgs = new ArrayList<Value>();
+				// // 	listArgs.add(StringConstant.v("FiniteState"));
+				// // 	listArgs.add(StringConstant.v(MSG));
+				// // 	StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// // 	InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// // 	units.insertBefore(InvokeStatementLog, units.getLast());
+				// // 	Print("Local:"+str_local.toString());
 
-					LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
-					Local local_baseadview_class = sootUtil.getLocalUnsafeClass(body, "com.google.android.gms.ads.BaseAdView"); 
-					Local local_this_class = sootUtil.getLocalUnsafeClass(body, stringClassName); 
-					Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
-					if (local_java_lang_string == null){
-						local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
-					}
-					if (local_this_class == null){
-						local_this_class = localgenerator.generateLocal(RefType.v(stringClassName));
-					}
-					if (local_baseadview_class == null){
-						local_baseadview_class = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.BaseAdView"));
-					}
+				// // }
+				// else if (thisMethodName.contains("onAdImpression") && stringClassName.contains("com.google.android.gms.ads.AdListener")){
+				// 	SootUtil sootUtil = new SootUtil();
+				// 	Print("Class: "+stringClassName+ " ("+thisMethodName+")");
+				// 	UnitPatchingChain units = body.getUnits();
+				// 	// String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---null";
+				// 	// List<Value> listArgs = new ArrayList<Value>();
+				// 	// listArgs.add(StringConstant.v("FiniteState"));
+				// 	// listArgs.add(StringConstant.v(MSG));
+				// 	// StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	// InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	// units.insertBefore(InvokeStatementLog, units.getLast());
+
+				// 	LocalGenerator localgenerator = Scene.v().createLocalGenerator(body);
+				// 	Local local_baseadview_class = sootUtil.getLocalUnsafeClass(body, "com.google.android.gms.ads.BaseAdView"); 
+				// 	Local local_this_class = sootUtil.getLocalUnsafeClass(body, stringClassName); 
+				// 	Local local_java_lang_string = sootUtil.getLocalUnsafe(body, "java.lang.String");
+				// 	if (local_java_lang_string == null){
+				// 		local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+				// 	}
+				// 	if (local_this_class == null){
+				// 		local_this_class = localgenerator.generateLocal(RefType.v(stringClassName));
+				// 	}
+				// 	if (local_baseadview_class == null){
+				// 		local_baseadview_class = localgenerator.generateLocal(RefType.v("com.google.android.gms.ads.BaseAdView"));
+				// 	}
 					
-					// AssignStmt this_baseadview_stmt = sootUtil.NewAssignStmt(local_baseadview_class, Jimple.v().newNewExpr(RefType.v("com.google.android.gms.ads.BaseAdView")));
-					// units.insertBefore(this_baseadview_stmt, units.getLast());
-					// List<Value> listArgs = new ArrayList<Value>();
-					// VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_baseadview_class, Scene.v().getMethod("<com.google.android.gms.ads.BaseAdView: java.lang.String getAdUnitId()>").makeRef(), listArgs);
-				    // AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
-				    // units.insertAfter(stmt_virtualinvoke, this_baseadview_stmt);
+				// 	AssignStmt this_baseadview_stmt = sootUtil.NewAssignStmt(local_baseadview_class, Jimple.v().newNewExpr(RefType.v("com.google.android.gms.ads.BaseAdView")));
+				// 	units.insertBefore(this_baseadview_stmt, units.getLast());
+				// 	List<Value> listArgs = new ArrayList<Value>();
+				// 	VirtualInvokeExpr virtualinvoke = Jimple.v().newVirtualInvokeExpr(local_baseadview_class, Scene.v().getMethod("<com.google.android.gms.ads.BaseAdView: java.lang.String getAdUnitId()>").makeRef(), listArgs);
+				//     AssignStmt stmt_virtualinvoke  = Jimple.v().newAssignStmt(local_java_lang_string, virtualinvoke);
+				//     units.insertAfter(stmt_virtualinvoke, this_baseadview_stmt);
 
-				    // String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---"+local_java_lang_string;
-				    // listArgs = new ArrayList<Value>();
-					// listArgs.add(StringConstant.v("FiniteState"));
-					// listArgs.add(StringConstant.v(MSG));
-					// StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
-					// InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-					// units.insertAfter(InvokeStatementLog, stmt_virtualinvoke);
-				}
-				else if (stringClassName.contains("com.google.android.gms.ads.BaseAdView")){
-					final Scene scene = Scene.v();
-			        Hierarchy hierarchy = scene.getActiveHierarchy();
-					SootUtil sootUtil = new SootUtil();
-					Print("Class:"+ stringClassName);
-					Print("Sub-Classes: "+sootUtil.getSubclassesOfIncluding(thisClass).toString());
-				}
+				//     // String MSG = ""+app_name_only+"---"+hash.trim()+"---"+stringClassName+"---"+thisMethodName+"---"+String.valueOf(thisMethod.getParameterTypes())+"---"+local_java_lang_string;
+				//     // listArgs = new ArrayList<Value>();
+				// 	// listArgs.add(StringConstant.v("FiniteState"));
+				// 	// listArgs.add(StringConstant.v(MSG));
+				// 	// StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+				// 	// InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+				// 	// units.insertAfter(InvokeStatementLog, stmt_virtualinvoke);
+				// }
 			}
 		}));
 		Main.main(setupSoot(sootarguments));

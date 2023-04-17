@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from google_play_scraper import app, Sort, reviews_all, reviews, search
 from urllib.request import Request, urlopen, urlretrieve
 from graphviz import Source
+
 def get_top_n_number_of_apps(category, num_apps_to_investigate):
     results = search(
     str(category),
