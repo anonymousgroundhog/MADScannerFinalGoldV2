@@ -97,6 +97,7 @@ def run_framework(APK_Name, Main_Class):
         # Soot_output_Location=../sootOutput/$1/
         # Main_Class=get_main_class_from_APK(APK_Name)
         os.chdir("Classes")
+        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
         cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
         # print(cmd)
         os.system(cmd)
