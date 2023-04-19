@@ -46,7 +46,7 @@ public class SootUtil
     private static SootClass publicVariableSootClass;
     
     public List<SootClass> getSubclassesOfIncluding(SootClass c) {
-        c.checkLevel(SootClass.HIERARCHY);
+        // c.checkLevel(SootClass.HIERARCHY);
         if (c.isInterface()) {
            throw new RuntimeException("class needed!");
         }

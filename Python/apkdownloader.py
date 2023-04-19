@@ -1,4 +1,4 @@
-import urllib3, os, re, webbrowser, shutil, time, graphviz
+import urllib3, os, re, webbrowser, shutil, time, graphviz, subprocess
 from bs4 import BeautifulSoup
 from google_play_scraper import app, Sort, reviews_all, reviews, search
 from urllib.request import Request, urlopen, urlretrieve
@@ -83,24 +83,28 @@ def run_framework(APK_Name, Main_Class):
     if os.getcwd().__contains__("Java"):
         APK_Location=''.join(["../../APK/",APK_Name,".apk"])
         Soot_output_Location=''.join(['../sootOutput/',APK_Name,'/'])
-        # Soot_output_Location=../sootOutput/$1/
-        # Main_Class=get_main_class_from_APK(APK_Name)
         os.chdir("Classes")
-        cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
-        print(cmd)
-        os.system(cmd)
+        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
+        # print(cmd)
+        # os.system(cmd)
+        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
+        # print(''.join(["RUNNING ", APK_Name]))
+        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootAnalysis', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
+        del output[-16:]
+        print('\n'.join(output))
         os.chdir('../')
     else:
         os.chdir("../Java")
         APK_Location=''.join(["../../APK/",APK_Name,".apk"])
         Soot_output_Location=''.join(['../sootOutput/',APK_Name,'/'])
-        # Soot_output_Location=../sootOutput/$1/
-        # Main_Class=get_main_class_from_APK(APK_Name)
         os.chdir("Classes")
         # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
-        cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
         # print(cmd)
-        os.system(cmd)
+        # os.system(cmd)
+        # print(''.join(["RUNNING ", APK_Name]))
+        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootAnalysis', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
+        del output[-16:]
+        print('\n'.join(output))
         os.chdir('../')
 
 def get_main_class_from_APK(APK_Name):
@@ -225,13 +229,26 @@ clear_screen()
 #------------------------------------------------------------------------------------------------------------
 #-------------------------------------INSTRUMENT APK FILES---------------------------------------------------
 #------------------------------------------------------------------------------------------------------------
-compile_framework()
-Main_Class = get_main_class_from_APK('TestApp3')
-APK_Package = get_package_from_APK('TestApp3')
-run_framework('TestApp3', Main_Class)
+# compile_framework()
+# Main_Class = get_main_class_from_APK('TestApp3')
+# APK_Package = get_package_from_APK('TestApp3')
+# run_framework('TestApp3', Main_Class)
 # zip_and_sign_APK_file('TestApp3')
 # install_APK('TestApp3')
 
 # log_APK("Test")
 # uninstall_APK(APK_Package)
 #generate_model_from_log('Test')
+
+
+compile_framework()
+# Main_Class = get_main_class_from_APK("TestApp3")
+# APK_Package = get_package_from_APK("TestApp3")
+# run_framework("TestApp3", Main_Class)
+for file in os.listdir("../APK"):
+    if not file.__contains__("idsig"):
+        file_name_only = file.replace(".apk", "")
+        Main_Class = get_main_class_from_APK(file_name_only)
+        APK_Package = get_package_from_APK(file_name_only)
+        print(" ".join(["App:",file_name_only, "Main Class:",Main_Class]))
+        run_framework(file_name_only, Main_Class)

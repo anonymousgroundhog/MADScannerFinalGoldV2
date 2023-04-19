@@ -15,6 +15,8 @@ import soot.jimple.*;
 public class SootInstrumenter
 {
 	public static String hash = null; 
+	public static FileWriter writer;
+	public static boolean runOnce;
 	protected SootClass mainClass;	
 
 	public static void Print(String stringvalue)
@@ -28,7 +30,7 @@ public class SootInstrumenter
 		final String sootLocation = "../Jar_libs/";
 		String[] sootargs = {"-process-multiple-dex", "-w","-f", "J", "-allow-phantom-refs", "-x",
         // String[] sootargs = {"-process-multiple-dex", "-w","-f", "dex", "-allow-phantom-refs", "-x",
-		"android.support.", "-x", "android.annotation.",
+		"android.support.", "-x", "android.annotation.", "-x", "androidx.appcompat.R",
 		"-process-dir", sootarguments[0],
 		"-output-dir", sootarguments[1],
 		"-android-jars", "../../Android/platforms",
@@ -46,12 +48,20 @@ public class SootInstrumenter
 	}
 
 	public static void RunInstrumentationOnAPK(String[] sootarguments){
+		runOnce = true;
 		LinkedList<String> linked_listStringClassesToInvestigate = new LinkedList<String>();
 		String[] app_name =  sootarguments[0].split("/");
-		String app_name_only = app_name[app_name.length-1];
+		String app_name_only = app_name[app_name.length-1].replace(".apk", "");
 		String command = "sha256sum " + sootarguments[0];
 		String main_class = sootarguments[2];
-	        // sootUtil.SetSootOptions(sootarguments);
+		// try{
+		// 	String filename = app_name_only+".txt";
+		// 	writer = new FileWriter(filename, true);
+		// } catch (IOException e) {
+        //     System.out.println("An error occurred while writing to file ");
+        //     e.printStackTrace();
+        // }
+
 		Print("Main Class:"+main_class);
 		try {
 			Process process = Runtime.getRuntime().exec(command);
@@ -78,18 +88,39 @@ public class SootInstrumenter
 				String stringClassName =  thisClass.toString();
 				String thisMethodName = thisMethod.getName();
 				String thisClass_subclasses = null;
+				Scene thisScene = Scene.v();
+				if(runOnce){
+					Print("Classes:"+thisScene.getApplicationClasses().toString());
+					runOnce= false;
+				}
 				// String stringUnits = body.getUnits().toString();
 	                //ReturnAdviewID(body);
-				SootUtil sootUtil = new SootUtil();
+				// SootUtil sootUtil = new SootUtil();
+				boolean runOnce = true;
 				
-				if(thisClass.isApplicationClass() & thisMethod.isConcrete()){
-					Print("\nClass:"+stringClassName);
-					Print("Short_Name:"+	thisClass.getShortName());
-					Print("Method:"+thisMethodName);
-					// Print("Is Abstract Method: " + thisMethod.isAbstract());
-					thisClass_subclasses = sootUtil.getSubclassesOfIncluding(body.getMethod().getDeclaringClass()).toString();
-					Print("Subclasses:"+thisClass_subclasses);
-					
+				if(thisClass.isApplicationClass() & thisMethod.isConcrete() & runOnce){
+					// try {
+					// 	String filename = app_name_only+".txt";
+					// 	writer = new FileWriter(filename, true);
+					// 	writer.write("\nClass: "+stringClassName);
+					// 	writer.write("\n"+thisMethod.toString());
+			        //     writer.close();
+			        //     // System.out.println("Successfully wrote to file " + filename);
+			        // } catch (IOException e) {
+			        //     // System.out.println("An error occurred while writing to file " + filename);
+			        //     e.printStackTrace();
+			        // }
+					// Print("\nClass: "+stringClassName);
+					// Print("Short_Name: "+	thisClass.getShortName());
+					// Print("Method: "+thisMethodName);
+					// // Print("Is Abstract Method: " + thisMethod.isAbstract());
+					// // thisClass_subclasses = sootUtil.getSubclassesOfIncluding(body.getMethod().getDeclaringClass()).toString();
+					// Print("Is in Scene: "+thisClass.isInScene());
+					// Print("Has Interface: "+thisClass.isInterface());
+					// if(!thisClass.isInterface()){
+					// 	Print("Subclasses:"+thisScene.getActiveHierarchy().getSubclassesOf(thisClass).toString());
+					// }
+					// runOnce = false;
 				}
 				// if(stringClassName.contains("com.google.android") & thisClass != null){
 				// 	Print("stringClassName:"+stringClassName);
