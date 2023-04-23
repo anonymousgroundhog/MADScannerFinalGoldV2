@@ -6,7 +6,7 @@ import java.util.*;
 
 import soot.options.Options;
 import soot.*;
-
+import soot.jimple.toolkits.callgraph.*;
 public class SootAnalysis
 {
     public static void Print(String stringvalue)
@@ -28,21 +28,36 @@ public class SootAnalysis
         Options.v().set_allow_phantom_refs(true);
         Scene thisScene = Scene.v();
         thisScene.loadNecessaryClasses();
-        PackManager.v().writeOutput();
+        // PackManager.v().writeOutput();
        
         // START INSTRUMENTING HERE
-        Collection<SootClass> appClasses = thisScene.getApplicationClasses();
-        for (SootClass cl : appClasses) {
-             // if(cl.isPublic() && cl.getSuperclass().toString().contains("androidx.appcompat.app.AppCompatActivity")){
-            if(cl.getName().contains(sootarguments[2])){
-                Print("class:"+cl.getName());
-                // Print("test:"+Scene.v().getActiveHierarchy().getSubclassesOf(cl).toString());
-                for (SootMethod meth: cl.getMethods()){
-                    // if(meth.isDeclared() && meth.isConcrete()){
-                    if((meth.isProtected() || meth.isPublic()) && meth.getName().contains("onCreate")){
-                        Print("declared and protected:"+meth.getName());
+        // Collection<SootClass> appClasses = thisScene.getApplicationClasses();
+        Collection<SootClass> allClasses = thisScene.getClasses();
+        String adSpecificClass = "com.google.android.gms.ads";
+        for (SootClass cl : allClasses) {
+            for (SootMethod meth: cl.getMethods()){
+                if(meth.getName().contains("onCreate") && cl.getName().contains(sootarguments[2])){
+                    Print("Class:" + cl.getName());
+                    Print(meth.getName());
+                }
+                else if(meth.isStatic() && cl.getName().contains(adSpecificClass)){     
+                    Print("Class:" + cl.getName());            
+                    Print("Static Method: " + meth.getName());
+                }
+                else if(cl.hasSuperclass() && cl.getSuperclass().getName().contains("com.google.android.gms.ads.BaseAdView")){
+                    Print("Class:" + cl.getName());            
+                    Print(meth.getName());   
+                }
+                else if(!meth.isStatic() && cl.getName().contains(adSpecificClass)){     
+                    Print("Class:" + cl.getName());            
+                    Print(meth.getName());
+                    // Loop through parameters and ask if subtype is of the abstract class that contains getAdUnitId
+                    List<Type> parameterTypes = meth.getParameterTypes();
+                    for (Type type: parameterTypes) {
+                        System.out.println("Parameter " + ": " + type);
+                        // If is subtype of the abstract class call getAdUnitId
+                        // if not subtype of abstract class print name and say unsupported currently
                     }
-                    // }
                 }
             }
         }

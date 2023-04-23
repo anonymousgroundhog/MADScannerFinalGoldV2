@@ -242,13 +242,13 @@ clear_screen()
 
 
 compile_framework()
-# Main_Class = get_main_class_from_APK("TestApp3")
-# APK_Package = get_package_from_APK("TestApp3")
-# run_framework("TestApp3", Main_Class)
-for file in os.listdir("../APK"):
-    if not file.__contains__("idsig"):
-        file_name_only = file.replace(".apk", "")
-        Main_Class = get_main_class_from_APK(file_name_only)
-        APK_Package = get_package_from_APK(file_name_only)
-        print(" ".join(["App:",file_name_only, "Main Class:",Main_Class]))
-        run_framework(file_name_only, Main_Class)
+Main_Class = get_main_class_from_APK("TestApp3")
+APK_Package = get_package_from_APK("TestApp3")
+run_framework("TestApp3", Main_Class)
+# for file in os.listdir("../APK"):
+#     if not file.__contains__("idsig"):
+#         file_name_only = file.replace(".apk", "")
+#         Main_Class = get_main_class_from_APK(file_name_only)
+#         APK_Package = get_package_from_APK(file_name_only)
+#         print(" ".join(["App:",file_name_only, "Main Class:",Main_Class]))
+#         run_framework(file_name_only, Main_Class)
