@@ -33,6 +33,7 @@ public class SootAnalysis
         Collection<SootClass> allClasses = thisScene.getClasses();
         String advertising_specific_class = "com.google.android.gms.ads";
         String super_class_of_interest = "com.google.android.gms.ads.BaseAdView";
+        String super_class_of_interest2 = "com.google.android.gms.ads.adView";
         Map<String, List<String>> dictionary_of_classes = new HashMap<>();
 
         for (SootClass this_class : allClasses) {
@@ -48,7 +49,7 @@ public class SootAnalysis
                 list_of_methods.add(method_name+" is static");      
                 }
                 // class this method belongs to is a subclass of AdView or com.google.android.gms.ads.BaseAdView
-                else if(this_class.hasSuperclass() && this_class.getSuperclass().getName().contains(super_class_of_interest)){           
+                else if(this_class.hasSuperclass() && (this_class.getSuperclass().getName().contains(super_class_of_interest) || this_class.getSuperclass().getName().contains(super_class_of_interest2))){           
                     list_of_methods.add(method_name+" is a subclass of AdView or com.google.android.gms.ads.BaseAdView");  
                 }
                 else if(!meth.isStatic() && class_name.contains(advertising_specific_class)){                
