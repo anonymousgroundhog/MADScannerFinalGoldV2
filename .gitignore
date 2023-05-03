@@ -1,2 +1,3 @@
 *.jimple
 Java/sootOutput/*
+.Rproj.user

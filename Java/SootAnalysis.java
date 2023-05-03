@@ -18,7 +18,7 @@ public class SootAnalysis
     }
     public static void main(String[] sootarguments)
     {
-
+        
         G.reset();
         // G.v().reset();
         // Options.v().set_no_writeout_body_releasing(true);

@@ -84,16 +84,18 @@ def compile_framework():
 def run_framework(APK_Name, Main_Class):
     if os.getcwd().__contains__("Java"):
         APK_Location=''.join(["../../APK/",APK_Name,".apk"])
-        Soot_output_Location=''.join(['../sootOutput/',APK_Name,'/'])
+        Soot_output_Location=''.join(['../sootOutput/',APK_Name])
         os.chdir("Classes")
-        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
+        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
+        Output_Format = "J"
+        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
+        #     '--output-format', Output_Format]).decode().split("\n")
+        # del output[-16:]
+        # print('\n'.join(output))
+        cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class,
+            '--output-format', Output_Format])
         # print(cmd)
-        # os.system(cmd)
-        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
-        # print(''.join(["RUNNING ", APK_Name]))
-        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
-        del output[-16:]
-        print('\n'.join(output))
+        print(os.system(cmd))
         os.chdir('../')
     else:
         os.chdir("../Java")
@@ -104,8 +106,10 @@ def run_framework(APK_Name, Main_Class):
         # print(cmd)
         # os.system(cmd)
         # print(''.join(["RUNNING ", APK_Name]))
-        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
-        del output[-16:]
+        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
+        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
+            '--output-format', Output_Format]).decode().split("\n")
+        # del output[-16:]
         print('\n'.join(output))
         os.chdir('../')
 
@@ -131,7 +135,6 @@ def install_APK(APK_Name):
 
 def uninstall_APK(package):
     os.system(' '.join(['adb uninstall',package]))
-
 
 def log_APK(APK_Name):
     os.system(''.join(['nohup adb logcat FiniteState:V *:S > ../ADB_Logcat_Logs/',APK_Name,'.txt &']))

@@ -43,16 +43,14 @@ public class SootTest {
                 e.printStackTrace();
             }
 
-        PackManager.v().getPack("wjtp").add(new Transform("wjtp.ifds", new SceneTransformer() {
-            protected void internalTransform(String phaseName, @SuppressWarnings("rawtypes") Map options) {
+        // PackManager.v().getPack("wjtp").add(new Transform("wjtp.ifds", new SceneTransformer() {
+        //     protected void internalTransform(String phaseName, @SuppressWarnings("rawtypes") Map options) {
                 Scene thisScene = Scene.v();
-                // Chain<SootClass> applicationclasses = thisScene.getApplicationClasses();
-                for (SootClass this_class : thisScene.getApplicationClasses()) {
+                for (SootClass this_class : thisScene.getClasses()) {
                     for(SootMethod this_method : this_class.getMethods()){
                         if(this_method.getName().contains("onCreate") && this_class.getName().contains(sootarguments[1])){
-                            // Print(this_method.retrieveActiveBody().getUnits().toString());
                             UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
-                            String MSG = ""+app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null---null";
+                            String MSG = ""+app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
                             List<Value> listArgs = new ArrayList<Value>();
                             listArgs.add(StringConstant.v("FiniteState"));
                             listArgs.add(StringConstant.v(MSG));
@@ -62,19 +60,36 @@ public class SootTest {
                             Unit unit_to_insert_after = null;
                             for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
                                 LastKnownUnit = unit.next();
-                                // String StringLastKnownUnit = LastKnownUnit.toString();
-                                // Print(LastKnownUnit.getClass().getName());
                                 if(LastKnownUnit instanceof JInvokeStmt){
+                                    Print("Class:" + this_class.getName() + " Method: " + this_method.getName());
                                     Print("!!!FOUND:"+LastKnownUnit.toString());
                                     thisunits.insertAfter(InvokeStatementLog, LastKnownUnit);
                                     break;
                                 }
                             }
                         }
+                        else if(this_method.isStatic() && this_class.getName().contains("com.google.android.gms.ads")){
+                            UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+                            String MSG = ""+app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
+                            List<Value> listArgs = new ArrayList<Value>();
+                            listArgs.add(StringConstant.v("FiniteState"));
+                            listArgs.add(StringConstant.v(MSG));
+                            StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef(), listArgs);
+                            InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+                            Unit LastKnownUnit = null;
+                            Unit unit_to_insert_after = null;
+                            for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+                                LastKnownUnit = unit.next();
+                                if(LastKnownUnit instanceof JInvokeStmt){
+                                    // Print("Class:" + this_class.getName() + "Method:" + this_method.getName());
+                                    // Print("!!!FOUND:"+LastKnownUnit.toString());
+                                    thisunits.insertAfter(InvokeStatementLog, LastKnownUnit);
+                                    break;
+                                }
+                            }      
+                        }
                     }
                 }  
-            }
-        }));
         soot.Main.main(sootarguments);
     }
 
