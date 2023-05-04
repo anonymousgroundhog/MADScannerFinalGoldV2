@@ -1,7 +1,6 @@
 # Load required libraries
-requiredPackages <- c("readr", "purrr", "stringr", "tm", "arrow", 
-                      "tidyverse", "textmineR","cooccur", "birankr", "ngram", 
-                      "quanteda", "quanteda.textstats", "text2vec", "tidytext")
+requiredPackages <- c("readr", "purrr", "stringr", "tm", "arrow", "digest"
+                      "tidyverse","quanteda", "tidytext")
 ipak <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
   if (length(new.pkg))
@@ -10,9 +9,12 @@ ipak <- function(pkg){
 }
 ipak(requiredPackages)
 remove(requiredPackages, ipak)
-app_name="angrybirdsrio.apk"
+# app_name="angrybirdsrio.apk"
 
 # Create methods for framework to run
+Get_File_Hash_App <- function(app_name){
+  return(digest(file(paste("../APK/",app_name)), "sha256"))
+}
 Get_Version_From_App <- function(app_name){
   cmd = paste('aapt dump badging ../../APK/',app_name, ' | grep package', sep='')
   app_version=system(cmd, intern = TRUE)
@@ -45,6 +47,7 @@ Create_Dataframe_From_Files <- function(){
   indices_to_remove <- grep("idsig", files)
   files <- files[-indices_to_remove]
   df=data.frame("file_names"=c(files))
+  df$hash <- apply(df["file_names"], 1, Get_File_Hash_App)
   df$main_activity <- apply(df["file_names"], 1, Get_Main_Activity_From_App)
   df$package <- apply(df["file_names"], 1, Get_Package_From_App)
   df$CompileSdkVersion <- apply(df["file_names"], 1, Get_Version_From_App)
@@ -55,21 +58,38 @@ Compile_Framework <- function(){
   system(cmd)
 }
 Run_Framework <- function(app_name){
-  main_activity<<-Get_Main_Activity_From_App(app_name)
-  cmd<<-paste("java -cp .:../../Jar_Libs/* SootTest ",app_name,main_activity," --output-format j")
+  main_activity<-Get_Main_Activity_From_App(app_name)
+  hash <- digest(file(paste("../APK/",app_name)), "sha256")
+  cmd<-paste("java -cp .:../../Jar_Libs/* SootTest ",app_name,main_activity,hash," --output-format dex -force-overwrite")
   system(cmd)
 }
-Zip_Sign_And_Install_APK() <- function(app_name){
-  cmd<<-paste("")
+Zip_Sign_And_Install_APK <- function(app_name){
+  app_name_only=gsub(".apk", "", app_name)
+  cmd<-paste('zipalign -fv 4 sootOutput/',app_name_only,'/',app_name,' sootOutput/',app_name_only,'/signed',app_name, sep="")
+  system(cmd)
+  cmd<-paste('apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password sootOutput/',app_name_only,'/signed',app_name, sep="")
+  system(cmd)
+  cmd<-paste('rm  sootOutput/',app_name_only,'/*.idsig', sep="")
+  system(cmd)
+  cmd<-paste('adb install sootOutput/',app_name_only,'/signed',app_name, sep="")
   system(cmd)
 }
 Run_App_On_Emulator<- function(app_name){
   cmd = ""
   system(cmd)
 }
+
+# RUN CODE
+App_To_Analyze = "BannerOnly.apk"
 setwd("~/Desktop/MADScannerFinalGoldV2/Java/Classes")
 df = Create_Dataframe_From_Files()
+
 setwd("~/Desktop/MADScannerFinalGoldV2/Java")
 Compile_Framework()
+
 setwd("~/Desktop/MADScannerFinalGoldV2/Java/Classes")
-Run_Framework("TestApp3.apk")
+Run_Framework(App_To_Analyze)
+
+setwd("~/Desktop/MADScannerFinalGoldV2/Java")
+Zip_Sign_And_Install_APK(App_To_Analyze)
+

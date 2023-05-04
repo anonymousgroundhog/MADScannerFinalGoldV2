@@ -87,7 +87,7 @@ def run_framework(APK_Name, Main_Class):
         Soot_output_Location=''.join(['../sootOutput/',APK_Name])
         os.chdir("Classes")
         # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
-        Output_Format = "J"
+        Output_Format = "dex"
         # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
         #     '--output-format', Output_Format]).decode().split("\n")
         # del output[-16:]
@@ -95,7 +95,7 @@ def run_framework(APK_Name, Main_Class):
         cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class,
             '--output-format', Output_Format])
         # print(cmd)
-        print(os.system(cmd))
+        print(os.popen(cmd))
         os.chdir('../')
     else:
         os.chdir("../Java")
