@@ -1,5 +1,5 @@
 # Load required libraries
-requiredPackages <- c("readr", "purrr", "stringr", "tm", "arrow", "digest"
+requiredPackages <- c("readr", "purrr", "stringr", "tm", "arrow", "digest",
                       "tidyverse","quanteda", "tidytext")
 ipak <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
@@ -84,7 +84,8 @@ Run_App_On_Emulator<- function(app_name){
 setwd("~/Desktop/MADScannerFinalGoldV2/Java/Classes")
 df = Create_Dataframe_From_Files()
 
-App_To_Analyze = "BannerOnly.apk"
+# App_To_Analyze = "BannerOnly.apk"
+App_To_Analyze = "BannerOnly_Log_AdView.apk"
 setwd("~/Desktop/MADScannerFinalGoldV2/Java")
 Compile_Framework()
 
