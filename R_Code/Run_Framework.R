@@ -60,7 +60,7 @@ Compile_Framework <- function(){
 Run_Framework <- function(app_name){
   main_activity<-Get_Main_Activity_From_App(app_name)
   hash <- digest(file(paste("../APK/",app_name)), "sha256")
-  cmd<-paste("java -cp .:../../Jar_Libs/* SootTest ",app_name,main_activity,hash," --output-format J -force-overwrite")
+  cmd<-paste("java -cp .:../../Jar_Libs/* SootTest ",app_name,main_activity,hash," --output-format dex -force-overwrite")
   system(cmd)
 }
 Zip_Sign_And_Install_APK <- function(app_name){

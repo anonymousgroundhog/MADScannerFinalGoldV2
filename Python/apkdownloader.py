@@ -88,14 +88,14 @@ def run_framework(APK_Name, Main_Class):
         os.chdir("Classes")
         # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
         Output_Format = "dex"
-        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
-        #     '--output-format', Output_Format]).decode().split("\n")
+        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
+            '--output-format', Output_Format]).decode().split("\n")
         # del output[-16:]
-        # print('\n'.join(output))
-        cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class,
-            '--output-format', Output_Format])
-        # print(cmd)
-        print(os.popen(cmd))
+        print('\n'.join(output))
+        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootTest', APK_Location, Soot_output_Location, Main_Class,
+        #     '--output-format', Output_Format])
+        # # print(cmd)
+        # os.system(cmd)
         os.chdir('../')
     else:
         os.chdir("../Java")
@@ -109,8 +109,11 @@ def run_framework(APK_Name, Main_Class):
         # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
         output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
             '--output-format', Output_Format]).decode().split("\n")
-        # del output[-16:]
+        # # del output[-16:]
         print('\n'.join(output))
+        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootTest', APK_Location, Soot_output_Location, Main_Class,
+        #     '--output-format', Output_Format])
+        # os.system(cmd)
         os.chdir('../')
 
 def get_main_class_from_APK(APK_Name):
