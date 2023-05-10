@@ -6,11 +6,27 @@ import soot.jimple.*;
 import soot.jimple.internal.*;
 import soot.Scene;
 import soot.util.*;
-
+import soot.javaToJimple.*;
 public class SootTest {
     public static String hash = null;
     public static void Print(String stringvalue){
         System.out.println(stringvalue);
+    }
+    public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
+        SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
+        UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+        String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
+        List<Value> listArgs = new ArrayList<Value>();
+        listArgs.add(StringConstant.v("FiniteState"));
+        listArgs.add(StringConstant.v(MSG));
+        StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+        InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+        Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+
+        if(unit_to_insert_after != null){
+            Print("Injected log");
+            thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+        } 
     }
     public static LocalGenerator CreateLocalGenerator(Body b, Scene this_Scene){
         if(b != null){
@@ -52,9 +68,17 @@ public class SootTest {
     }
     public static Type Method_Has_Parameter_Adview(List<Type> method_soot_types){
         for (Type type: method_soot_types){
-            // Print("Field:"+type.toString());
             if(! type.toString().contains("OnAdManagerAdViewLoadedListener") &&  ! type.toString().contains("AdManagerAdViewOptions") && type.toString().contains("AdManagerAdView") || type.toString().contains("BaseAdView") || type.toString().contains(".AdView")){
                 return type;
+            }
+        }
+        return null;
+    }
+    public static SootClass Method_Has_SuperClass_Adview(SootClass this_class){
+        if(this_class.hasSuperclass()){
+            String super_class_name = this_class.getSuperclass().getName();
+            if(super_class_name.contains("adView") || super_class_name.contains("BaseAdView")){
+                return this_class.getSuperclass();
             }
         }
         return null;
@@ -77,7 +101,7 @@ public class SootTest {
         String app_name_only = app_name[app_name.length-1].replace(".apk", "");
         // G.v().reset();
         Options.v().set_no_writeout_body_releasing(true);
-        Options.v().set_full_resolver(true);
+        // Options.v().set_full_resolver(true);
         Options.v().set_include_all(true);
         Options.v().set_src_prec(Options.src_prec_apk);
         Options.v().set_allow_phantom_refs(true);
@@ -101,6 +125,8 @@ public class SootTest {
         for (SootClass this_class : classes) {
             List<SootMethod> methods = this_class.getMethods();
             Chain<SootField> class_soot_fields = this_class.getFields();
+            SootField this_class_has_fieldref_adview = FieldRef_Has_Adview(class_soot_fields);
+            SootClass this_class_superclass = Method_Has_SuperClass_Adview(this_class);
             for(SootMethod this_method : methods){
                 // Print("Class:"+this_class.getName() + " Method:"+this_method.getName());
                 List<Type> method_types = this_method.getParameterTypes();
@@ -109,7 +135,13 @@ public class SootTest {
                     this_method_body = this_method.retrieveActiveBody();
                     // Print("Class:"+this_class.getName() + " Method: "+this_method.getName() + " Has Active Body!!!");
                 }
-                if(this_method.getName().contains("onCreate") && this_class.getName().contains(sootarguments[1])){
+                 // Check if class is subtype of adview or baseadview
+                // Else check if parameters is subtype of adview or baseadview.
+                // If all these are false then check if object has reference to subtype of baseadview or adview.
+                // Perform same process for field references.
+                if(this_class_has_fieldref_adview != null && this_method_body != null){
+                    Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SootField: " + this_class_has_fieldref_adview.getName());
+                    Inject_Log_Generic(app_name_only,hash,this_class.getName(),this_method.getName(), this_method);
                     UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
                     String MSG = app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
                     List<Value> listArgs = new ArrayList<Value>();
@@ -123,44 +155,68 @@ public class SootTest {
                         thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
                     }
                 }
+                else if(this_class_superclass != null && this_method_body != null){
+                    Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SuperClass: " + this_class_superclass.getName());
+                }
+                else{
+                    // Print("No Method Body");
+                }
+
+
+                // if(this_method.getName().contains("onCreate") && this_class.getName().contains(sootarguments[1])){
+                //     UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+                //     String MSG = app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
+                //     List<Value> listArgs = new ArrayList<Value>();
+                //     listArgs.add(StringConstant.v("FiniteState"));
+                //     listArgs.add(StringConstant.v(MSG));
+                //     StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+                //     InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+                //     Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+
+                //     if(unit_to_insert_after != null){
+                //         thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+                //     }
+                // }
                 // else if(this_method.isStatic() && this_method.getSource() != null && !this_method.isEntryMethod() && this_class.isApplicationClass() && !this_method.getName().contains("<clinit>")){
                 // else if(this_method.getSource() != null && !this_method.isEntryMethod() && this_class.isApplicationClass() && !this_method.getName().contains("<clinit>") && !this_method.getName().contains("<init>")){
-                else if(this_method.isStatic() && this_class.isApplicationClass() && !this_method.getName().contains("<clinit>") && !this_method.getName().contains("<init>")){
-                    Type this_method_type = Method_Has_Parameter_Adview(method_types);
-                    SootField this_soot_field = FieldRef_Has_Adview(class_soot_fields);
-                    if(this_soot_field != null){
-                        Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SootField: " + this_soot_field.getName());
-                        Local this_method_local = Method_Has_Local_Adview(this_method);
-                        if(this_method_local != null){
-                            Print("Local:"+this_method_local.getType().toString());
-                        }
-                        // UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
-                        // String MSG = ""+app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"(Static Method)---null";
-                        // List<Value> listArgs = new ArrayList<Value>();
-                        // listArgs.add(StringConstant.v("FiniteState"));
-                        // listArgs.add(StringConstant.v(MSG));
-                        // StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
-                        // InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-                        // Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
-                        // if(unit_to_insert_after != null){
-                        //     thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
-                        // }      
-                    }else if(this_method_type != null){
-                        Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " Type: " + this_method_type.toString());
-                        // if(this_method_body != null){
-                            Local this_method_local = Method_Has_Local_Adview(this_method);
-                            if(this_method_local != null){
-                                Print("Local:"+this_method_local.getType().toString());
-                            }
+                // else if(this_method.isStatic() && this_class.isApplicationClass() && !this_method.getName().contains("<clinit>") && !this_method.getName().contains("<init>")){
+               
+                // else if(!this_method.getName().contains("<clinit>") && !this_method.getName().contains("<init>")){    
+                //     Type this_method_type = Method_Has_Parameter_Adview(method_types);
+                //     SootField this_soot_field = FieldRef_Has_Adview(class_soot_fields);
+                //     if(this_soot_field != null){
+                //         Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SootField: " + this_soot_field.getName());
+                //         Local this_method_local = Method_Has_Local_Adview(this_method);
+                //         if(this_method_local != null){
+                //             Print("Local:"+this_method_local.getType().toString());
+                //         }
+                //         // UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+                //         // String MSG = ""+app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"(Static Method)---null";
+                //         // List<Value> listArgs = new ArrayList<Value>();
+                //         // listArgs.add(StringConstant.v("FiniteState"));
+                //         // listArgs.add(StringConstant.v(MSG));
+                //         // StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+                //         // InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+                //         // Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+                //         // if(unit_to_insert_after != null){
+                //         //     thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+                //         // }      
+                //     }else if(this_method_type != null){
+                //         Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " Type: " + this_method_type.toString());
+                //         // if(this_method_body != null){
+                //             Local this_method_local = Method_Has_Local_Adview(this_method);
+                //             if(this_method_local != null){
+                //                 Print("Local:"+this_method_local.getType().toString());
+                //             }
 
-                            LocalGenerator localgenerator = CreateLocalGenerator(this_method_body, this_Scene);
-                            Local local_java_lang_string = CheckIfRefTypeExists(this_method_body, "java.lang.String");
-                            if(local_java_lang_string == null && localgenerator != null){
-                                local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
-                            }
-                        // }
-                    }
-                }
+                //             LocalGenerator localgenerator = CreateLocalGenerator(this_method_body, this_Scene);
+                //             Local local_java_lang_string = CheckIfRefTypeExists(this_method_body, "java.lang.String");
+                //             if(local_java_lang_string == null && localgenerator != null){
+                //                 local_java_lang_string = localgenerator.generateLocal(RefType.v("java.lang.String"));
+                //             }
+                //         // }
+                //     }
+                // }
                 // else if(this_class.hasSuperclass() && 
                 //     (this_class.getSuperclass().getName().contains("com.google.android.gms.ads.BaseAdView") || this_class.getSuperclass().getName().contains("com.google.android.gms.ads.adView"))){           
                 //      UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();

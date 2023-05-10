@@ -250,9 +250,9 @@ clear_screen()
 
 
 compile_framework()
-Main_Class = get_main_class_from_APK("TestApp3")
-APK_Package = get_package_from_APK("TestApp3")
-run_framework("TestApp3", Main_Class)
+Main_Class = get_main_class_from_APK("BannerOnly_Log_With_Class_AdView")
+APK_Package = get_package_from_APK("BannerOnly_Log_With_Class_AdView")
+run_framework("BannerOnly_Log_With_Class_AdView", Main_Class)
 
 # for file in os.listdir("../APK"):
 #     if not file.__contains__("idsig"):

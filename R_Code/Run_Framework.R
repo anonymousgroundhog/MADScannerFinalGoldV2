@@ -9,8 +9,6 @@ ipak <- function(pkg){
 }
 ipak(requiredPackages)
 remove(requiredPackages, ipak)
-# app_name="angrybirdsrio.apk"
-
 # Create methods for framework to run
 Get_File_Hash_App <- function(app_name){
   return(digest(file(paste("../APK/",app_name)), "sha256"))
@@ -54,13 +52,16 @@ Create_Dataframe_From_Files <- function(){
   return(df)
 }
 Compile_Framework <- function(){
-  cmd = paste("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
+  # cmd = paste("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
+  cmd = paste("javac -d Classes -cp '../Jar_Libs/*' SootTest2.java")
   system(cmd)
 }
 Run_Framework <- function(app_name){
   main_activity<-Get_Main_Activity_From_App(app_name)
   hash <- digest(file(paste("../APK/",app_name)), "sha256")
-  cmd<-paste("java -cp .:../../Jar_Libs/* SootTest ",app_name,main_activity,hash," --output-format J -force-overwrite")
+  # cmd<-paste("java -cp .:../../Jar_Libs/* SootTest2 ",app_name,main_activity,hash," --output-format J -force-overwrite ")
+  options <- paste('-allow-phantom-refs -android-jars ../Android/platforms -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir OutputJimple -process-dir "../../APK/',app_name,'.apk" -process-multiple-dex -w -p db.transformations enabled:true', sep='')
+  cmd<<-paste('java -cp .:../../Jar_Libs/* SootTest2 ',options,sep='')
   system(cmd)
 }
 Zip_Sign_And_Install_APK <- function(app_name){
