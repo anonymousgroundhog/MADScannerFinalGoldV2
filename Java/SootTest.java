@@ -7,6 +7,7 @@ import soot.jimple.internal.*;
 import soot.Scene;
 import soot.util.*;
 import soot.javaToJimple.*;
+
 public class SootTest {
     public static String hash = null;
     public static void Print(String stringvalue){
@@ -142,18 +143,18 @@ public class SootTest {
                 if(this_class_has_fieldref_adview != null && this_method_body != null){
                     Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SootField: " + this_class_has_fieldref_adview.getName());
                     Inject_Log_Generic(app_name_only,hash,this_class.getName(),this_method.getName(), this_method);
-                    UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
-                    String MSG = app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
-                    List<Value> listArgs = new ArrayList<Value>();
-                    listArgs.add(StringConstant.v("FiniteState"));
-                    listArgs.add(StringConstant.v(MSG));
-                    StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
-                    InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-                    Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+                    // UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+                    // String MSG = app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
+                    // List<Value> listArgs = new ArrayList<Value>();
+                    // listArgs.add(StringConstant.v("FiniteState"));
+                    // listArgs.add(StringConstant.v(MSG));
+                    // StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+                    // InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+                    // Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
 
-                    if(unit_to_insert_after != null){
-                        thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
-                    }
+                    // if(unit_to_insert_after != null){
+                    //     thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+                    // }
                 }
                 else if(this_class_superclass != null && this_method_body != null){
                     Print("Class:"+ this_class.getName() + " " +"Method:" + this_method.getName() + " SuperClass: " + this_class_superclass.getName());
