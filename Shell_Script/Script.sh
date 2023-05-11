@@ -17,4 +17,5 @@ apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed
 rm *.idsig
 adb install signed$apk_name.apk
 adb logcat -c
+clear
 adb logcat FiniteState:V *:S
