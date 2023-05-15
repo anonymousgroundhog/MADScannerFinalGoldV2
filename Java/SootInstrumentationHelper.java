@@ -11,6 +11,7 @@ import soot.jimple.internal.JAssignStmt.*;
 
 public class SootInstrumentationHelper
 {
+    public static String publicVariableStringClassToInject = "com.google.android.gms.example.bannerexample.TestClassAdViewAdListenerTesting";
     public static void Print(String stringvalue){
         System.out.println(stringvalue);
     }
@@ -80,11 +81,60 @@ public class SootInstrumentationHelper
     //         sootmethod_onAdOpened.setSource(sootmethodsource);
     //     Print("Finished Injecting New Class");
     // }
+    public static JimpleBody InitBody(SootMethod sootmethod){
+            // SootUtil sootUtil = new SootUtil();
+            JimpleBody newbody = Jimple.v().newBody(sootmethod);
+
+            sootmethod.setActiveBody(newbody);
+            // Chain sootunits = newbody.getUnits();
+            // Local argument1, argument2;
+
+            // argument1 = Jimple.v().newLocal("r0", RefType.v(publicVariableStringClassToInject)); //ERRORS out if you use $20 instead of $2
+            // newbody.getLocals().add(argument1);
+            // argument2 = Jimple.v().newLocal("$r1", RefType.v("com.google.android.gms.example.bannerexample.MyActivity"));
+            // newbody.getLocals().add(argument2);
+
+            // // Generate r0 := @this: com.google.android.gms.example.bannerexample.MyActivity$2;
+            // IdentityStmt thisStmt = sootUtil.NewIdentityStmtParameterRefThis(publicVariableStringClassToInject, 0, argument1);
+            // sootunits.add(thisStmt);
+
+            // //Generate $r1 := @parameter0: com.google.android.gms.example.bannerexample.MyActivity;
+            // sootunits.add(sootUtil.NewIdentityStmtParameterRef(publicVariableStringClassToInjectAdlistener, 0, argument2));
+
+
+            // //GENERATE r0.<com.google.android.gms.example.bannerexample.MyActivity$2: com.google.android.gms.example.bannerexample.MyActivity this$0> = $r1;
+            // Value sootfieldref = Jimple.v().newInstanceFieldRef(thisStmt.getLeftOpBox().getValue(), publicVariableSootClass.getFieldByName("this$0").makeRef());
+            // AssignStmt IdentityStmtNew = newAssignStmt(sootfieldref, argument2);
+            // sootunits.add(IdentityStmtNew);
+            
+            // //Generate specialinvoke r0.<com.google.android.gms.ads.AdListener: void <init>()>();
+            // Value valueofinterest = thisStmt.getLeftOpBox().getValue();
+            // SootMethodRef sootmethodofinterest = publicVariableSootClass.getSuperclass().getMethod("void <init>()").makeRef();
+            // List<Value> emptylist = Collections.<Value>emptyList();
+            // SpecialInvokeExpr specialInvokeExprAdListener = Jimple.v().newSpecialInvokeExpr(argument1,sootmethodofinterest, emptylist);
+            // Unit unitToAdd = Jimple.v().newInvokeStmt(specialInvokeExprAdListener);
+            // sootunits.add(unitToAdd);
+            // sootunits.add(Jimple.v().newReturnVoidStmt());
+
+            return newbody;
+    }
     public static void Inject_New_Class_And_Methods_AdListener(){
-        SootClass sClass = new SootClass("TestClassAdViewAdListener", Modifier.PUBLIC);
+        Scene.v().loadClassAndSupport("java.lang.System");
+        SootClass sClass = new SootClass("Testing", Modifier.PUBLIC);
         sClass.setSuperclass(Scene.v().getSootClass("java.lang.Object"));
         Scene.v().addClass(sClass); 
         sClass.setApplicationClass();
+
+        SootMethod sootmethod = Scene.v().makeSootMethod("<init>", new ArrayList(), VoidType.v(), Modifier.PUBLIC);
+        sClass.addMethod(sootmethod);
+        // JimpleBody newbody = InitBody(sootmethod);
+        // sootmethod.setActiveBody(newbody);
+        // SootMethod sootmethod = new SootMethod("<init>", Arrays.asList(), VoidType.v());
+        // JimpleBody newbody = Jimple.v().newBody(sootmethod);
+        // sootmethod.setActiveBody(newbody);
+        // Local arg = Jimple.v().newLocal("l0", ArrayType.v(RefType.v("java.lang.String"), 1));
+        // newbody.getLocals().add(arg);
+        // Print(sootmethod.toString());
         Print("Created Class!!!");
     }
     public static SootField FieldRef_Has_Adview(Chain<SootField> class_soot_fields){

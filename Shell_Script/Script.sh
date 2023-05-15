@@ -4,11 +4,14 @@ clear
 # echo $1
 cd ../Java/
 rm sootOutput/*
-javac -d Classes -cp "../Jar_Libs/*" SootTest2.java SootInstrumentationHelper.java Once.java
+javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java
+# javac -d Classes -cp "../Jar_Libs/*" AndroidClassInjector.java InstrumentUtil.java AndroidUtil.java
 
 cd Classes
 # java -cp ".:../../Jar_Libs/*" SootTest2 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format dex -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/BannerOnly_Log_With_Class_AdView.apk" -process-multiple-dex -w -p db.transformations enabled:true
-java -cp ".:../../Jar_Libs/*" SootTest2 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true
+java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true
+
+
 # cd ../sootOutput
 # rm signed*.apk
 # apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
