@@ -4,7 +4,7 @@ clear
 # echo $1
 cd ../Java/
 rm sootOutput/*
-javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java
+javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonAdClicked.java
 # javac -d Classes -cp "../Jar_Libs/*" AndroidClassInjector.java InstrumentUtil.java AndroidUtil.java
 
 cd Classes
