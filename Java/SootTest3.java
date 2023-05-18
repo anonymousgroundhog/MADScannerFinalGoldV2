@@ -14,15 +14,15 @@ public class SootTest3
     private static String public_variable_string_class_to_inject_adlistener = "com.google.android.gms.example.bannerexample.Testing";
     private static String public_variable_string_class_to_inject = "TestClass$1";
 
-    public static void InjectNewClass()
+    public static void InjectNewClass_AdListenerClass2()
     {
         SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
         this_Helper.Print("Injecting New Class");
         SootUtil this_soot_util = new SootUtil();
-        boolean adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
-        if(adlistener_exists)
+        boolean this_adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
+        if(this_adlistener_exists)
         {
-            SootMethod this_soot_method;
+            SootMethod this_soot_method = null;
             public_variable_soot_class = new SootClass(public_variable_string_class_to_inject);
 
             public_variable_soot_class.setSuperclass(Scene.v().getSootClass("com.google.android.gms.ads.AdListener"));
@@ -33,7 +33,7 @@ public class SootTest3
 , "this$0", public_variable_string_class_to_inject_adlistener);
 
             // CREATE FIELD: final com.google.android.gms.ads.admanager.AdManagerAdView val$adView;
-            SootClass classAdManagerAdView = Scene.v().getSootClass("com.google.android.gms.ads.admanager.AdManagerAdView");
+            // SootClass this_class_admanageradview = Scene.v().getSootClass("com.google.android.gms.ads.admanager.AdManagerAdView");
             this_soot_util.AddFinalFieldToSootClass(public_variable_soot_class
 , "val$adView", "com.google.android.gms.ads.admanager.AdManagerAdView");
 
@@ -44,8 +44,8 @@ public class SootTest3
             // Set method source for Init
             ClassLiteralMethodSourceonInit this_soot_method_source_init = new  ClassLiteralMethodSourceonInit();
             this_soot_method_source_init.public_string_class_to_inject = public_variable_soot_class.getName();
-            this_soot_method_source_init.sootclass = public_variable_soot_class;
-            this_soot_method_source_init.strMethodToInject = "void <init>";
+            this_soot_method_source_init.this_soot_class = public_variable_soot_class;
+            this_soot_method_source_init.this_string_method_to_inject = "void <init>";
             this_soot_method.setSource(this_soot_method_source_init);
 
             // Generate method public void onAdClicked()
@@ -56,8 +56,8 @@ public class SootTest3
             ClassLiteralMethodSourceonAdClicked this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
             this_soot_methodsource.public_string_class_to_inject = public_variable_soot_class.getName();
             // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
-            this_soot_methodsource.sootclass = public_variable_soot_class;
-            this_soot_methodsource.strMethodToInject = "void onAdClicked()";
+            this_soot_methodsource.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource.this_string_method_to_inject = "void onAdClicked()";
             this_soot_method_onAdClicked.setSource(this_soot_methodsource);
 
             // // Generate method public void onAdClosed() and set source
@@ -136,13 +136,12 @@ public class SootTest3
                 once.run(new Runnable() {
                     @Override
                     public void run() {
-                        InjectNewClass(); 
+                        InjectNewClass_AdListenerClass2(); 
                         // Try to cast to the class where getadunitid exists
                     }
                 });
             }
         }));   
         soot.Main.main(args);
-    }
-        
+    }       
 }
