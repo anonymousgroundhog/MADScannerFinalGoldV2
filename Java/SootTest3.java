@@ -96,6 +96,26 @@ public class SootTest3
         thisHelper.Print("Finished Injecting New Class");
     }
 
+    public static void InstrumentationTesting(Body b){
+        JimpleBody body = (JimpleBody) b;
+        SootMethod currentMethod = body.getMethod();
+        SootClass currentClass = currentMethod.getDeclaringClass();
+        if(currentClass.getName().contains("TestClassAdViewAdListener$1") && currentMethod.getName().contains("onAdClicked")){
+            System.out.println("Class " + currentClass.getName() + " Method "+ currentMethod.getName());
+            Iterator<Unit> it = body.getUnits().iterator();
+            while (it.hasNext()) {
+                Unit unit = it.next();
+                if(unit.getUseBoxes().size() > 0 && unit.getUseBoxes().get(0).getValue() instanceof VirtualInvokeExpr){
+                    VirtualInvokeExpr this_virtualInvoke = (VirtualInvokeExpr) unit.getUseBoxes().get(0).getValue();
+                    if(this_virtualInvoke.getMethod().getName().contains("getAdUnitId")){
+                        System.out.println("Unit " + this_virtualInvoke.getMethodRef().toString());
+                        System.out.println(this_virtualInvoke.getArgs().toString()); 
+                    }
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
         // setupSoot("../../Android/platforms", "../../APK/"+args[0], "../sootOutput");
@@ -105,24 +125,12 @@ public class SootTest3
             @Override
             protected void internalTransform(Body b, String phaseName, Map<String, String> options) {
                 Options.v().set_no_writeout_body_releasing(true);
-                JimpleBody body = (JimpleBody) b;
-                SootMethod currentMethod = body.getMethod();
-                SootClass currentClass = currentMethod.getDeclaringClass();
-                if(currentClass.getName().contains("TestClassAdViewAdListener$1") && currentMethod.getName().contains("onAdClicked")){
-                    System.out.println("Class " + currentClass.getName() + " Method "+ currentMethod.getName());
-                    Iterator<Unit> it = body.getUnits().iterator();
-                    while (it.hasNext()) {
-                        Unit unit = it.next();
-                        if(unit.getUseBoxes().size() > 0 && unit.getUseBoxes().get(0).getValue() instanceof VirtualInvokeExpr){
-                            // VirtualInvokeExpr = unit.getUnitBoxes()
-                            System.out.println("Unit " + unit.getUseBoxes().get(0).getValue().toString()); 
-                        }
-                    }
-                }
+                // InstrumentationTesting(b);
                 once.run(new Runnable() {
                     @Override
                     public void run() {
-                        // InjectNewClass();
+                        InjectNewClass(); 
+                        // Try to cast to the class where getadunitid exists
                     }
                 });
             }

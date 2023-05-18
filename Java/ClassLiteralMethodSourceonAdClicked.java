@@ -72,7 +72,8 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
     units.add(IdentityStmtNew);
 
   	// Generate  $r3 = virtualinvoke $r2.<com.google.android.gms.ads.admanager.AdManagerAdView: java.lang.String getAdUnitId()>();
-    VirtualInvokeExpr LogInvokeExpr = Jimple.v().newVirtualInvokeExpr(local_AdManagerAdView, Scene.v().getMethod("<com.google.android.gms.ads.admanager.AdManagerAdView: java.lang.String getAdUnitId()>").makeRef());  
+    VirtualInvokeExpr LogInvokeExpr = Jimple.v().newVirtualInvokeExpr(local_AdManagerAdView, Scene.v().getMethod("<com.google.android.gms.ads.BaseAdView: java.lang.String getAdUnitId()>").makeRef());  
+    
     // SootClass classAdManagerAdView = Scene.v().getSootClass("com.google.android.gms.ads.admanager.AdManagerAdView");
     // thisMethod = classAdManagerAdView.getMethod("java.lang.String getAdUnitId()");
     // thisMethod = Scene.v().getMethod("<com.google.android.gms.ads.admanager.AdManagerAdView: java.lang.String getAdUnitId()>"); 
