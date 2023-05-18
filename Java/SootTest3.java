@@ -10,90 +10,97 @@ import soot.jimple.internal.JAssignStmt.LinkedRValueBox;
 import soot.jimple.internal.*;
 public class SootTest3
 {
-    private static SootClass publicVariableSootClass;
-    private static String publicVariableStringClassToInjectAdlistener = "com.google.android.gms.example.bannerexample.Testing";
-    private static String publicVariableStringClassToInject = "TestClass$1";
+    private static SootClass public_variable_soot_class;
+    private static String public_variable_string_class_to_inject_adlistener = "com.google.android.gms.example.bannerexample.Testing";
+    private static String public_variable_string_class_to_inject = "TestClass$1";
 
     public static void InjectNewClass()
     {
-        SootInstrumentationHelper thisHelper = new SootInstrumentationHelper();
-        thisHelper.Print("Injecting New Class");
-        SootUtil sootUtil = new SootUtil();
-        boolean AdListenerExists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
-        if(AdListenerExists)
+        SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
+        this_Helper.Print("Injecting New Class");
+        SootUtil this_soot_util = new SootUtil();
+        boolean adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
+        if(adlistener_exists)
         {
-            SootMethod sootmethod;
-            publicVariableSootClass = new SootClass(publicVariableStringClassToInject);
+            SootMethod this_soot_method;
+            public_variable_soot_class = new SootClass(public_variable_string_class_to_inject);
 
-            publicVariableSootClass.setSuperclass(Scene.v().getSootClass("com.google.android.gms.ads.AdListener"));
-            Scene.v().addClass(publicVariableSootClass);
-            publicVariableSootClass.setApplicationClass();
+            public_variable_soot_class.setSuperclass(Scene.v().getSootClass("com.google.android.gms.ads.AdListener"));
+            Scene.v().addClass(public_variable_soot_class);
+            public_variable_soot_class.setApplicationClass();
             //CREATE FIELD: final com.google.android.gms.example.bannerexample.MyActivity this$0;
-            sootUtil.AddFinalFieldToSootClass(publicVariableSootClass, "this$0", publicVariableStringClassToInjectAdlistener);
+            this_soot_util.AddFinalFieldToSootClass(public_variable_soot_class
+, "this$0", public_variable_string_class_to_inject_adlistener);
 
             // CREATE FIELD: final com.google.android.gms.ads.admanager.AdManagerAdView val$adView;
             SootClass classAdManagerAdView = Scene.v().getSootClass("com.google.android.gms.ads.admanager.AdManagerAdView");
-            sootUtil.AddFinalFieldToSootClass(publicVariableSootClass, "val$adView", "com.google.android.gms.ads.admanager.AdManagerAdView");
+            this_soot_util.AddFinalFieldToSootClass(public_variable_soot_class
+, "val$adView", "com.google.android.gms.ads.admanager.AdManagerAdView");
 
-            sootmethod = new SootMethod("<init>", Arrays.asList(new Type[] {RefType.v(publicVariableStringClassToInjectAdlistener), RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView")}), VoidType.v());
-            publicVariableSootClass.addMethod(sootmethod);
+            this_soot_method = new SootMethod("<init>", Arrays.asList(new Type[] {RefType.v(public_variable_string_class_to_inject_adlistener
+), RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView")}), VoidType.v());
+            public_variable_soot_class.addMethod(this_soot_method);
 
             // Set method source for Init
-            ClassLiteralMethodSourceonInit sootmethodsourceinit = new  ClassLiteralMethodSourceonInit();
-            sootmethodsourceinit.strClassToInject = publicVariableSootClass.getName();
-            sootmethodsourceinit.sootclass = publicVariableSootClass;
-            sootmethodsourceinit.strMethodToInject = "void <init>";
-            sootmethod.setSource(sootmethodsourceinit);
+            ClassLiteralMethodSourceonInit this_soot_method_source_init = new  ClassLiteralMethodSourceonInit();
+            this_soot_method_source_init.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_method_source_init.sootclass = public_variable_soot_class;
+            this_soot_method_source_init.strMethodToInject = "void <init>";
+            this_soot_method.setSource(this_soot_method_source_init);
 
             // Generate method public void onAdClicked()
-            SootMethod sootmethod_onAdClicked = new SootMethod("onAdClicked", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            publicVariableSootClass.addMethod(sootmethod_onAdClicked);
+            SootMethod this_soot_method_onAdClicked = new SootMethod("onAdClicked", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdClicked);
             
             // // Set method source for onAdClicked
-            ClassLiteralMethodSourceonAdClicked sootmethodsource = new ClassLiteralMethodSourceonAdClicked();
-            sootmethodsource.strClassToInject = publicVariableSootClass.getName();
-            sootmethodsource.publicVariableStringClassToInject = publicVariableStringClassToInject;
-            sootmethodsource.sootclass = publicVariableSootClass;
-            sootmethodsource.strMethodToInject = "void onAdClicked()";
-            sootmethod_onAdClicked.setSource(sootmethodsource);
+            ClassLiteralMethodSourceonAdClicked this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            this_soot_methodsource.public_string_class_to_inject = public_variable_soot_class.getName();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            this_soot_methodsource.sootclass = public_variable_soot_class;
+            this_soot_methodsource.strMethodToInject = "void onAdClicked()";
+            this_soot_method_onAdClicked.setSource(this_soot_methodsource);
 
             // // Generate method public void onAdClosed() and set source
-            // // sootmethodsource = new ClassLiteralMethodSourceonAdClicked();
-            // sootmethodsource.publicVariableStringClassToInject = publicVariableStringClassToInject;
-            // sootmethodsource.sootclass = publicVariableSootClass;
-            // sootmethodsource.strMethodToInject = "void onAdClosed()";
-            // SootMethod sootmethod_onAdClosed = new SootMethod("onAdClosed", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            // publicVariableSootClass.addMethod(sootmethod_onAdClosed);            
-            // sootmethod_onAdClosed.setSource(sootmethodsource);
+            // // this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            // this_soot_methodsource.sootclass = public_variable_soot_class
+;
+            // this_soot_methodsource.strMethodToInject = "void onAdClosed()";
+            // SootMethod this_soot_method_onAdClosed = new SootMethod("onAdClosed", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            // public_variable_soot_class.addMethod(this_soot_method_onAdClosed);            
+            // this_soot_method_onAdClosed.setSource(this_soot_methodsource);
 
             // //Generate void onAdImpression()
-            // // sootmethodsource = new ClassLiteralMethodSourceonAdClicked();
-            // sootmethodsource.publicVariableStringClassToInject = publicVariableStringClassToInject;
-            // sootmethodsource.sootclass = publicVariableSootClass;
-            // sootmethodsource.strMethodToInject = "void onAdImpression()";
-            // SootMethod sootmethod_onAdImpression = new SootMethod("onAdImpression", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            // publicVariableSootClass.addMethod(sootmethod_onAdImpression);            
-            // sootmethod_onAdImpression.setSource(sootmethodsource);
+            // // this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            // this_soot_methodsource.sootclass = public_variable_soot_class
+;
+            // this_soot_methodsource.strMethodToInject = "void onAdImpression()";
+            // SootMethod this_soot_method_onAdImpression = new SootMethod("onAdImpression", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            // public_variable_soot_class.addMethod(this_soot_method_onAdImpression);            
+            // this_soot_method_onAdImpression.setSource(this_soot_methodsource);
 
             // //Generate void onAdLoaded()
-            // // sootmethodsource = new ClassLiteralMethodSourceonAdClicked();
-            // sootmethodsource.publicVariableStringClassToInject = publicVariableStringClassToInject;
-            // sootmethodsource.sootclass = publicVariableSootClass;
-            // sootmethodsource.strMethodToInject = "void onAdLoaded()";
-            // SootMethod sootmethod_onAdLoaded = new SootMethod("onAdLoaded", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            // publicVariableSootClass.addMethod(sootmethod_onAdLoaded);            
-            // sootmethod_onAdLoaded.setSource(sootmethodsource);
+            // // this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            // this_soot_methodsource.sootclass = public_variable_soot_class
+;
+            // this_soot_methodsource.strMethodToInject = "void onAdLoaded()";
+            // SootMethod this_soot_method_onAdLoaded = new SootMethod("onAdLoaded", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            // public_variable_soot_class.addMethod(this_soot_method_onAdLoaded);            
+            // this_soot_method_onAdLoaded.setSource(this_soot_methodsource);
 
             // //Generate void onAdOpened()
-            // // sootmethodsource = new ClassLiteralMethodSourceonAdClicked();
-            // sootmethodsource.publicVariableStringClassToInject = publicVariableStringClassToInject;
-            // sootmethodsource.sootclass = publicVariableSootClass;
-            // sootmethodsource.strMethodToInject = "void onAdOpened()";
-            // SootMethod sootmethod_onAdOpened = new SootMethod("onAdOpened", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            // publicVariableSootClass.addMethod(sootmethod_onAdOpened);            
-            // sootmethod_onAdOpened.setSource(sootmethodsource);
+            // // this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            // this_soot_methodsource.sootclass = public_variable_soot_class
+;
+            // this_soot_methodsource.strMethodToInject = "void onAdOpened()";
+            // SootMethod this_soot_method_onAdOpened = new SootMethod("onAdOpened", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            // public_variable_soot_class.addMethod(this_soot_method_onAdOpened);            
+            // this_soot_method_onAdOpened.setSource(this_soot_methodsource);
         }
-        thisHelper.Print("Finished Injecting New Class");
+        this_Helper.Print("Finished Injecting New Class");
     }
 
     public static void InstrumentationTesting(Body b){
@@ -120,7 +127,7 @@ public class SootTest3
     {
         // setupSoot("../../Android/platforms", "../../APK/"+args[0], "../sootOutput");
         Once once = new Once();
-        SootInstrumentationHelper thisHelper = new SootInstrumentationHelper();
+        SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
         PackManager.v().getPack("jtp").add(new Transform("jtp.myLogger", new BodyTransformer() {
             @Override
             protected void internalTransform(Body b, String phaseName, Map<String, String> options) {
