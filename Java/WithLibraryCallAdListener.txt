@@ -1,0 +1,169 @@
+public class com.google.android.gms.example.bannerexample.MyActivity extends androidx.appcompat.app.AppCompatActivity
+{
+    private static final java.lang.String TAG;
+    private com.google.android.gms.ads.admanager.AdManagerAdView adView;
+
+    public void <init>()
+    {
+        com.google.android.gms.example.bannerexample.MyActivity r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.MyActivity;
+
+        specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void <init>()>();
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        java.lang.String[] $r6;
+        com.google.android.gms.ads.admanager.AdManagerAdView r3;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest $r14;
+        com.google.android.gms.example.bannerexample.TestClassAdViewAdListener r4;
+        java.util.List $r7;
+        com.google.android.gms.ads.VersionInfo $r10;
+        com.google.android.gms.example.bannerexample.MyActivity$1 r12;
+        com.google.android.gms.ads.RequestConfiguration $r8;
+        android.view.View $r2;
+        java.lang.StringBuilder r9;
+        java.lang.String $r11;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder r13;
+        com.google.android.gms.ads.RequestConfiguration$Builder r5;
+        com.google.android.gms.example.bannerexample.MyActivity r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.MyActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke r0.<com.google.android.gms.example.bannerexample.MyActivity: void setContentView(int)>(2131361820);
+
+        $r2 = virtualinvoke r0.<com.google.android.gms.example.bannerexample.MyActivity: android.view.View findViewById(int)>(2131165242);
+
+        r3 = (com.google.android.gms.ads.admanager.AdManagerAdView) $r2;
+
+        r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r3;
+
+        r4 = new com.google.android.gms.example.bannerexample.TestClassAdViewAdListener;
+
+        specialinvoke r4.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener: void <init>()>();
+
+        r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+        virtualinvoke r4.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener: void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>(r3);
+
+        r5 = new com.google.android.gms.ads.RequestConfiguration$Builder;
+
+        specialinvoke r5.<com.google.android.gms.ads.RequestConfiguration$Builder: void <init>()>();
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r6[0] = "ABCDEF012345";
+
+        $r7 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r6);
+
+        r5 = virtualinvoke r5.<com.google.android.gms.ads.RequestConfiguration$Builder: com.google.android.gms.ads.RequestConfiguration$Builder setTestDeviceIds(java.util.List)>($r7);
+
+        $r8 = virtualinvoke r5.<com.google.android.gms.ads.RequestConfiguration$Builder: com.google.android.gms.ads.RequestConfiguration build()>();
+
+        staticinvoke <com.google.android.gms.ads.MobileAds: void setRequestConfiguration(com.google.android.gms.ads.RequestConfiguration)>($r8);
+
+        r9 = new java.lang.StringBuilder;
+
+        specialinvoke r9.<java.lang.StringBuilder: void <init>()>();
+
+        r9 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Google Mobile Ads SDK Version: ");
+
+        $r10 = staticinvoke <com.google.android.gms.ads.MobileAds: com.google.android.gms.ads.VersionInfo getVersion()>();
+
+        r9 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r10);
+
+        $r11 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("MyActivity", $r11);
+
+        r12 = new com.google.android.gms.example.bannerexample.MyActivity$1;
+
+        specialinvoke r12.<com.google.android.gms.example.bannerexample.MyActivity$1: void <init>(com.google.android.gms.example.bannerexample.MyActivity)>(r0);
+
+        staticinvoke <com.google.android.gms.ads.MobileAds: void initialize(android.content.Context,com.google.android.gms.ads.initialization.OnInitializationCompleteListener)>(r0, r12);
+
+        r13 = new com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder;
+
+        specialinvoke r13.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: void <init>()>();
+
+        $r14 = virtualinvoke r13.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: com.google.android.gms.ads.admanager.AdManagerAdRequest build()>();
+
+        r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+        virtualinvoke r3.<com.google.android.gms.ads.admanager.AdManagerAdView: void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)>($r14);
+
+        return;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView $r1;
+        com.google.android.gms.example.bannerexample.MyActivity r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.MyActivity;
+
+        $r1 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.<com.google.android.gms.ads.admanager.AdManagerAdView: void destroy()>();
+
+     label1:
+        specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onDestroy()>();
+
+        return;
+    }
+
+    public void onPause()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView $r1;
+        com.google.android.gms.example.bannerexample.MyActivity r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.MyActivity;
+
+        $r1 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.<com.google.android.gms.ads.admanager.AdManagerAdView: void pause()>();
+
+     label1:
+        specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onPause()>();
+
+        return;
+    }
+
+    public void onResume()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView $r1;
+        com.google.android.gms.example.bannerexample.MyActivity r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.MyActivity;
+
+        specialinvoke r0.<androidx.appcompat.app.AppCompatActivity: void onResume()>();
+
+        $r1 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.<com.google.android.gms.ads.admanager.AdManagerAdView: void resume()>();
+
+     label1:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.google.android.gms.example.bannerexample.MyActivity: java.lang.String TAG> = "MyActivity";
+
+        return;
+    }
+}

@@ -11,9 +11,10 @@ import soot.jimple.internal.*;
 public class SootTest3
 {
     private static SootClass public_variable_soot_class;
-    private static String public_variable_string_class_to_inject_adlistener = "com.google.android.gms.example.bannerexample.Testing";
+    private static String public_variable_string_class_to_inject_adlistener = "TestClass";
     private static String public_variable_string_class_to_inject = "TestClass";
     private static String public_variable_string_class_to_inject2 = "TestClass$1";
+    
     public static void InjectNewClass_AdListenerClass1(){
         SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
         this_Helper.Print("Injecting New Class");
@@ -26,6 +27,7 @@ public class SootTest3
             public_variable_soot_class.setSuperclass(Scene.v().getSootClass("java.lang.Object"));
             Scene.v().addClass(public_variable_soot_class);
             public_variable_soot_class.setApplicationClass();
+            
             this_soot_method = new SootMethod("<init>", Arrays.asList(), VoidType.v());
             public_variable_soot_class.addMethod(this_soot_method);
             // Set method source for Init
@@ -34,6 +36,16 @@ public class SootTest3
             this_soot_method_source_init.this_soot_class = public_variable_soot_class;
             this_soot_method_source_init.this_string_method_to_inject = "void <init>";
             this_soot_method.setSource(this_soot_method_source_init);
+
+            // this_method_arguments = Collections.<Value>emptyList();
+            this_soot_method = new SootMethod("setAdListener", Arrays.asList(new Type[] {RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView")}), VoidType.v());
+            public_variable_soot_class.addMethod(this_soot_method);
+            // Set method source for setAdListener
+            ClassLiteralMethodSourceSetAdListener this_soot_method_source_setAdListener = new ClassLiteralMethodSourceSetAdListener();
+            this_soot_method_source_setAdListener.public_string_class_to_inject = public_variable_string_class_to_inject_adlistener;
+            this_soot_method_source_setAdListener.this_soot_class = public_variable_soot_class;
+            this_soot_method_source_setAdListener.this_string_method_to_inject = "void <init>";
+            this_soot_method.setSource(this_soot_method_source_setAdListener);
         }
     }
     public static void InjectNewClass_AdListenerClass2()
@@ -158,8 +170,8 @@ public class SootTest3
                 once.run(new Runnable() {
                     @Override
                     public void run() {
+                        InjectNewClass_AdListenerClass2(); 
                         InjectNewClass_AdListenerClass1();
-                        // InjectNewClass_AdListenerClass2(); 
                         // Try to cast to the class where getadunitid exists
                     }
                 });
