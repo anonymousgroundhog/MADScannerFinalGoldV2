@@ -1,20 +1,56 @@
 import soot.*;
-import soot.jimple.*;
 import soot.util.*;
+import soot.jimple.*;
+import soot.jimple.internal.*;
 import soot.javaToJimple.*;
 import soot.options.Options;
 import java.io.*;
 import java.util.*;
 import soot.jimple.internal.JAssignStmt.LinkedVariableBox;
 import soot.jimple.internal.JAssignStmt.LinkedRValueBox;
-import soot.jimple.internal.*;
+import soot.grimp.NewInvokeExpr;
+
 public class SootTest3
 {
     private static SootClass public_variable_soot_class;
     private static String public_variable_string_class_to_inject_adlistener = "TestClass";
     private static String public_variable_string_class_to_inject = "TestClass";
     private static String public_variable_string_class_to_inject2 = "TestClass$1";
-    
+    private static String public_variable_mainactivity = null;
+
+    public static void Inject_Calls_Into_MainActivity(){
+        SootClass this_class = Scene.v().getSootClass(public_variable_mainactivity);
+        SootMethod this_method = this_class.getMethod("void onCreate(android.os.Bundle)");
+        Body this_body = this_method.getActiveBody();
+        Chain<Unit> this_units = this_body.getUnits();
+        Unit unit_to_inject_after = null;
+        for(Unit this_unit: this_units){
+            if (this_unit instanceof InvokeStmt){
+                InvokeStmt this_invokeStmt = (InvokeStmt) this_unit;
+                if(this_invokeStmt.getInvokeExpr() instanceof VirtualInvokeExpr){
+                    SootMethod this_invokeExpr_method = this_invokeStmt.getInvokeExpr().getMethod();
+                    if(this_invokeExpr_method.getName().contains("setContentView")){
+                        System.out.println(this_invokeExpr_method.getName());
+                        unit_to_inject_after = this_unit;
+                    }
+                }
+            }
+        }
+        // Start injection process here
+        if(unit_to_inject_after != null){
+            // Add Locals
+            LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_body);
+            // Check if local exists before adding it
+            // if(){
+
+            // }
+            Local local_this_class = this_local_generator.generateLocal(RefType.v(public_variable_string_class_to_inject));
+            this_body.getLocals().add(local_this_class);
+            // Generate r4 = new TestClass;
+            // Generate specialinvoke r4.<TestClass: void <init>()>();
+            // Generate r4.<TestClass: void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>(r3);
+        }
+    }
     public static void InjectNewClass_AdListenerClass1(){
         SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
         this_Helper.Print("Injecting New Class");
@@ -173,6 +209,9 @@ public class SootTest3
                         InjectNewClass_AdListenerClass2(); 
                         InjectNewClass_AdListenerClass1();
                         // Try to cast to the class where getadunitid exists
+                        public_variable_mainactivity = this_Helper.Read_Nth_Line("../APK_Details.txt",1).replace("Main_Activity:","").replace(" ", "");
+                        this_Helper.Print("Main_Class: "+public_variable_mainactivity);
+                        Inject_Calls_Into_MainActivity();
                     }
                 });
             }

@@ -12,6 +12,32 @@ import soot.jimple.internal.JAssignStmt.*;
 public class SootInstrumentationHelper
 {
     public static String publicVariableStringClassToInject = "com.google.android.gms.example.bannerexample.TestClassAdViewAdListenerTesting";
+    public static String Read_Nth_Line(String filePath, int lineNumber){
+        String line = null;
+        BufferedReader reader = null;
+        
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
+            for (int i = 1; i <= lineNumber; i++) {
+                line = reader.readLine();
+                if (line == null) {
+                    break;  // Line number exceeds file length
+                }
+            }
+        } catch (IOException e) {
+            // Handle any potential IO exceptions
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return line;
+    }
     public static void Print(String stringvalue){
         System.out.println(stringvalue);
     }
