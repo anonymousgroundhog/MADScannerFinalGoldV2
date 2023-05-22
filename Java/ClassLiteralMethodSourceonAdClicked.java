@@ -171,9 +171,9 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
             unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
             this_methods_units.add(unit_to_inject);
 
-            special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_reference, StringConstant.v("onAdClicked "));
-            unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
-            this_methods_units.add(unit_to_inject);
+            // special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_reference, StringConstant.v("onAdClicked "));
+            // unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
+            // this_methods_units.add(unit_to_inject);
             // Generate return;
 
             unit_to_inject = Jimple.v().newReturnVoidStmt();

@@ -11,6 +11,21 @@ import soot.jimple.internal.JAssignStmt.*;
 
 public class SootInstrumentationHelper
 {
+    public static Local Generate_Local(Body this_body, LocalGenerator this_local_generator, String string_this_local){
+        Boolean contains_local = false;
+        Local local_to_return = null;
+        for (Local local : this_body.getLocals()) {
+            if (local.getType().toString().contains(string_this_local)) {
+                contains_local = true;
+                local_to_return = local;
+            }
+        }
+        if(!contains_local){
+            local_to_return = this_local_generator.generateLocal(RefType.v(string_this_local));
+        }
+
+        return local_to_return;
+    }
     public static String publicVariableStringClassToInject = "com.google.android.gms.example.bannerexample.TestClassAdViewAdListenerTesting";
     public static String Read_Nth_Line(String filePath, int lineNumber){
         String line = null;
