@@ -20,6 +20,7 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
   public String public_variable_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
   public SootClass this_soot_class = null;
+  public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
 
 	public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
 		return new JAssignStmt(variable, rightvalue);
@@ -31,6 +32,7 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
     Chain this_methods_units = this_class_body.getUnits();
     Unit unit_to_inject = null;
     Local local_thisClass, local_stringBuilder, local_string, local_AdManagerAdView;
+    LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_class_body);
     IdentityStmt this_identity_stmt = null;
     SootClass this_class_stringbuilder = null;
     SootMethodRef this_method_ref = null;
@@ -40,17 +42,21 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
     Value sootvalue_field_ref = null;
     AssignStmt IdentityStmtNew = null;
 
-    local_thisClass = this_sootUtil.NewLocal("r0", RefType.v(public_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
-    this_class_body.getLocals().add(local_thisClass);
+    local_thisClass = this_Helper.Generate_Local(this_class_body, this_local_generator, public_string_class_to_inject);
+    // local_thisClass = this_sootUtil.NewLocal("r0", RefType.v(public_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
+    // this_class_body.getLocals().add(local_thisClass);
     
-    local_stringBuilder = this_sootUtil.NewLocal("$r1", RefType.v("java.lang.StringBuilder"));
-    this_class_body.getLocals().add(local_stringBuilder);
+    local_stringBuilder = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.StringBuilder");
+    // local_stringBuilder = this_sootUtil.NewLocal("$r1", RefType.v("java.lang.StringBuilder"));
+    // this_class_body.getLocals().add(local_stringBuilder);
     
-    local_AdManagerAdView = this_sootUtil.NewLocal("$r2", RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView"));
-    this_class_body.getLocals().add(local_AdManagerAdView);
+    local_AdManagerAdView = this_Helper.Generate_Local(this_class_body, this_local_generator, "com.google.android.gms.ads.admanager.AdManagerAdView");
+    // local_AdManagerAdView = this_sootUtil.NewLocal("$r2", RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView"));
+    // this_class_body.getLocals().add(local_AdManagerAdView);
 
-    local_string = this_sootUtil.NewLocal("$r3", RefType.v("java.lang.String"));
-    this_class_body.getLocals().add(local_string);
+    local_string = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.String");
+    // local_string = this_sootUtil.NewLocal("$r3", RefType.v("java.lang.String"));
+    // this_class_body.getLocals().add(local_string);
     
     // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
     this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_string_class_to_inject, 0, local_thisClass);
@@ -117,7 +123,8 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
   public String public_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
   public SootClass this_soot_class = null;
-
+  public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
+  
 	public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
 		return new JAssignStmt(variable, rightvalue);
 	}
@@ -133,18 +140,24 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
             sootMethod.setActiveBody(newbody);
             Chain this_methods_units = newbody.getUnits();
             Local local_this_class, local_admanageradview, localthisclass;
+            LocalGenerator this_local_generator = Scene.v().createLocalGenerator(newbody);
             AssignStmt this_assign_stmt_to_inject = null;
             List<Value> this_method_arguments = null;
             SpecialInvokeExpr special_invokeExpr_to_inject = null;
             Unit unit_to_inject = null;
-            localthisclass = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
-            newbody.getLocals().add(localthisclass);
 
-            local_this_class = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
-            newbody.getLocals().add(local_this_class);
+            localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject.replace("$1",""));
+            // localthisclass = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
+            // newbody.getLocals().add(localthisclass);
+
+            local_this_class = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject);
+            // local_this_class = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
+            // newbody.getLocals().add(local_this_class);
             
-            local_admanageradview = this_sootUtil.NewLocal("$r2",RefType.v(publicVariableAdManagerAdView));
-            newbody.getLocals().add(local_admanageradview);
+            local_admanageradview = this_Helper.Generate_Local(newbody, this_local_generator, publicVariableAdManagerAdView);
+            // local_admanageradview = this_sootUtil.NewLocal("$r2",RefType.v(publicVariableAdManagerAdView));
+            // newbody.getLocals().add(local_admanageradview);
+            
             // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
             IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, local_this_class);
             this_methods_units.add(this_identity_stmt);

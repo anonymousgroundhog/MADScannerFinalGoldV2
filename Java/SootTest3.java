@@ -89,16 +89,16 @@ public class SootTest3
             this_soot_method.setSource(this_soot_method_source_init);
 
             // Generate method public void onAdClicked()
-            // SootMethod this_soot_method_onAdClicked = new SootMethod("onAdClicked", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
-            // public_variable_soot_class.addMethod(this_soot_method_onAdClicked);
+            SootMethod this_soot_method_onAdClicked = new SootMethod("onAdClicked", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdClicked);
             
-            // // // Set method source for onAdClicked
-            // ClassLiteralMethodSourceonAdClicked this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
-            // this_soot_methodsource.public_string_class_to_inject = public_variable_soot_class.getName();
-            // // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
-            // this_soot_methodsource.this_soot_class = public_variable_soot_class;
-            // this_soot_methodsource.this_string_method_to_inject = "void onAdClicked()";
-            // this_soot_method_onAdClicked.setSource(this_soot_methodsource);
+            // // Set method source for onAdClicked
+            ClassLiteralMethodSourceonAdClicked this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
+            this_soot_methodsource.public_string_class_to_inject = public_variable_soot_class.getName();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            this_soot_methodsource.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource.this_string_method_to_inject = "void onAdClicked()";
+            this_soot_method_onAdClicked.setSource(this_soot_methodsource);
 
             // // Generate method public void onAdClosed() and set source
             // // this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
