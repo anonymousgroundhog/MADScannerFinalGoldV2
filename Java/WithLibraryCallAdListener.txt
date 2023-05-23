@@ -19,16 +19,13 @@ public class com.google.android.gms.example.bannerexample.MyActivity extends and
         android.os.Bundle $r1;
         java.lang.String[] $r6;
         com.google.android.gms.ads.admanager.AdManagerAdView r3;
-        com.google.android.gms.ads.admanager.AdManagerAdRequest $r14;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest $r11;
         com.google.android.gms.example.bannerexample.TestClassAdViewAdListener r4;
         java.util.List $r7;
-        com.google.android.gms.ads.VersionInfo $r10;
-        com.google.android.gms.example.bannerexample.MyActivity$1 r12;
+        com.google.android.gms.example.bannerexample.MyActivity$1 r9;
         com.google.android.gms.ads.RequestConfiguration $r8;
         android.view.View $r2;
-        java.lang.StringBuilder r9;
-        java.lang.String $r11;
-        com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder r13;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder r10;
         com.google.android.gms.ads.RequestConfiguration$Builder r5;
         com.google.android.gms.example.bannerexample.MyActivity r0;
 
@@ -70,35 +67,21 @@ public class com.google.android.gms.example.bannerexample.MyActivity extends and
 
         staticinvoke <com.google.android.gms.ads.MobileAds: void setRequestConfiguration(com.google.android.gms.ads.RequestConfiguration)>($r8);
 
-        r9 = new java.lang.StringBuilder;
+        r9 = new com.google.android.gms.example.bannerexample.MyActivity$1;
 
-        specialinvoke r9.<java.lang.StringBuilder: void <init>()>();
+        specialinvoke r9.<com.google.android.gms.example.bannerexample.MyActivity$1: void <init>(com.google.android.gms.example.bannerexample.MyActivity)>(r0);
 
-        r9 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Google Mobile Ads SDK Version: ");
+        staticinvoke <com.google.android.gms.ads.MobileAds: void initialize(android.content.Context,com.google.android.gms.ads.initialization.OnInitializationCompleteListener)>(r0, r9);
 
-        $r10 = staticinvoke <com.google.android.gms.ads.MobileAds: com.google.android.gms.ads.VersionInfo getVersion()>();
+        r10 = new com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder;
 
-        r9 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r10);
+        specialinvoke r10.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: void <init>()>();
 
-        $r11 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.String toString()>();
-
-        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("MyActivity", $r11);
-
-        r12 = new com.google.android.gms.example.bannerexample.MyActivity$1;
-
-        specialinvoke r12.<com.google.android.gms.example.bannerexample.MyActivity$1: void <init>(com.google.android.gms.example.bannerexample.MyActivity)>(r0);
-
-        staticinvoke <com.google.android.gms.ads.MobileAds: void initialize(android.content.Context,com.google.android.gms.ads.initialization.OnInitializationCompleteListener)>(r0, r12);
-
-        r13 = new com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder;
-
-        specialinvoke r13.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: void <init>()>();
-
-        $r14 = virtualinvoke r13.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: com.google.android.gms.ads.admanager.AdManagerAdRequest build()>();
+        $r11 = virtualinvoke r10.<com.google.android.gms.ads.admanager.AdManagerAdRequest$Builder: com.google.android.gms.ads.admanager.AdManagerAdRequest build()>();
 
         r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
 
-        virtualinvoke r3.<com.google.android.gms.ads.admanager.AdManagerAdView: void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)>($r14);
+        virtualinvoke r3.<com.google.android.gms.ads.admanager.AdManagerAdView: void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)>($r11);
 
         return;
     }
