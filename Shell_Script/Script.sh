@@ -37,5 +37,5 @@ echo "Main_Activity:" $main_activity > APK_Details.txt
 main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 echo "Main_Class:" $main_package >> APK_Details.txt
 
-# Function_Run_Framework_And_Output_Jimple $1
-Function_Run_Framework_And_Zip_And_Sign_APK $1
+Function_Run_Framework_And_Output_Jimple $1
+# Function_Run_Framework_And_Zip_And_Sign_APK $1

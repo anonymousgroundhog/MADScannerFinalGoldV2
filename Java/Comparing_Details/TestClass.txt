@@ -1,0 +1,33 @@
+class com.google.android.gms.example.bannerexample.TestClass extends java.lang.Object
+{
+
+    void <init>()
+    {
+        com.google.android.gms.example.bannerexample.TestClass r0;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.TestClass;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)
+    {
+        com.google.android.gms.example.bannerexample.TestClass r0;
+        com.google.android.gms.ads.admanager.AdManagerAdView $r1;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r2;
+
+        r0 := @this: com.google.android.gms.example.bannerexample.TestClass;
+
+        $r1 := @parameter0: com.google.android.gms.ads.admanager.AdManagerAdView;
+
+        $r2 = new com.google.android.gms.example.bannerexample.TestClass$1;
+
+        specialinvoke r0.<com.google.android.gms.example.bannerexample.TestClass$1: void <init>(com.google.android.gms.example.bannerexample.TestClass,com.google.android.gms.ads.admanager.AdManagerAdView)>(r0, $r1);
+
+        virtualinvoke $r1.<com.google.android.gms.ads.BaseAdView: void setAdListener(com.google.android.gms.ads.AdListener)>($r2);
+
+        return;
+    }
+}

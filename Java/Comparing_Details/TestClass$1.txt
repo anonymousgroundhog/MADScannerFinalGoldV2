@@ -1,0 +1,53 @@
+class com.google.android.gms.example.bannerexample.TestClass$1 extends com.google.android.gms.ads.AdListener
+{
+    final com.google.android.gms.example.bannerexample.TestClass this$0;
+    final com.google.android.gms.ads.admanager.AdManagerAdView val$adView;
+
+    void <init>(com.google.android.gms.example.bannerexample.TestClass, com.google.android.gms.ads.admanager.AdManagerAdView)
+    {
+        com.google.android.gms.example.bannerexample.TestClass $r0;
+        com.google.android.gms.ads.admanager.AdManagerAdView $r2;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r1;
+
+        $r1 := @this: com.google.android.gms.example.bannerexample.TestClass$1;
+
+        $r0 := @parameter0: com.google.android.gms.example.bannerexample.TestClass;
+
+        $r2 := @parameter1: com.google.android.gms.ads.admanager.AdManagerAdView;
+
+        $r1.<com.google.android.gms.example.bannerexample.TestClass$1: com.google.android.gms.example.bannerexample.TestClass this$0> = $r0;
+
+        $r1.<com.google.android.gms.example.bannerexample.TestClass$1: com.google.android.gms.ads.admanager.AdManagerAdView val$adView> = $r2;
+
+        specialinvoke $r1.<com.google.android.gms.ads.AdListener: void <init>()>();
+
+        return;
+    }
+
+    public void onAdClicked()
+    {
+        java.lang.StringBuilder $r1;
+        com.google.android.gms.ads.admanager.AdManagerAdView $r2;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r0;
+
+        $r0 := @this: com.google.android.gms.example.bannerexample.TestClass$1;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("onAdClicked ");
+
+        $r2 = $r0.<com.google.android.gms.example.bannerexample.TestClass$1: com.google.android.gms.ads.admanager.AdManagerAdView val$adView>;
+
+        $r1 = virtualinvoke $r2.<com.google.android.gms.ads.BaseAdView: java.lang.String getAdUnitId()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r1);
+
+        return;
+    }
+}
