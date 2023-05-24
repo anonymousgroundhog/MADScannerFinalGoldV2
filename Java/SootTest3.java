@@ -46,7 +46,7 @@ public class SootTest3
             this_soot_method.setSource(this_soot_method_source_init);
 
             // this_method_arguments = Collections.<Value>emptyList();
-            this_soot_method = new SootMethod("setAdListener", Arrays.asList(new Type[] {RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView")}), VoidType.v());
+            this_soot_method = new SootMethod("setAdListener", Arrays.asList(new Type[] {RefType.v("com.google.android.gms.ads.admanager.BaseAdView")}), VoidType.v());
             public_variable_soot_class.addMethod(this_soot_method);
             // Set method source for setAdListener
             ClassLiteralMethodSourceSetAdListener this_soot_method_source_setAdListener = new ClassLiteralMethodSourceSetAdListener();
@@ -79,7 +79,7 @@ public class SootTest3
 , "val$adView", "com.google.android.gms.ads.admanager.AdManagerAdView");
 
             this_soot_method = new SootMethod("<init>", Arrays.asList(new Type[] {RefType.v(public_variable_string_class_to_inject_adlistener
-), RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView")}), VoidType.v());
+), RefType.v("com.google.android.gms.ads.admanager.BaseAdView")}), VoidType.v());
             public_variable_soot_class.addMethod(this_soot_method);
 
             // Set method source for Init
@@ -199,29 +199,63 @@ public class SootTest3
                 LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_body);
                 Local local_this_class = this_Helper.Generate_Local(this_body, this_local_generator, public_variable_string_class_to_inject);
                 Local local_this_admanager = this_Helper.Generate_Local(this_body, this_local_generator, "com.google.android.gms.ads.admanager.AdManagerAdView");
-                
-                // Generate r4 = new TestClass;
+                // Generate r4 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+                Value this_value = null;
+                for (ValueBox vb: unit_to_inject_after.getDefBoxes()){
+                   this_value = vb.getValue(); 
+                }
+                // this_value = unit_to_inject_after.getDefBoxes().getValue();
+                AssignStmt this_assign_stmt_to_inject = Jimple.v().newAssignStmt(local_this_admanager, this_value);
+                this_Helper.Print("Testing:"+this_assign_stmt_to_inject.toString());
+                this_units.insertAfter(this_assign_stmt_to_inject, unit_to_inject_after);
+
+                // Generate r2 = new com.google.android.gms.example.bannerexample.TestClass;
                 AssignStmt IdentityStmtNew = Jimple.v().newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_to_inject)));
-                this_units.insertAfter(IdentityStmtNew, unit_to_inject_after);
-               
-                // Generate specialinvoke r4.<TestClass: void <init>()>();
+                this_units.insertAfter(IdentityStmtNew, this_assign_stmt_to_inject);
+                
+                // Generate specialinvoke r2.<com.google.android.gms.example.bannerexample.TestClass: void <init>()>();
                 SootMethodRef this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void <init>()>").makeRef();
                 SpecialInvokeExpr special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_ref);
                 Unit unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
                 this_units.insertAfter(unit_to_inject, IdentityStmtNew);
                 
-                // Generate r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
-                IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, local_this_class);
-                Value sootvalue_field_ref = Jimple.v().newInstanceFieldRef(this_identity_stmt.getLeftOpBox().getValue(), this_class.getFieldByName("adView").makeRef());
-                IdentityStmtNew = Jimple.v().newAssignStmt(local_this_admanager, sootvalue_field_ref);
-                this_units.insertAfter(IdentityStmtNew,unit_to_inject);
-
-                // Generate virtualinvoke r4.<TestClass: void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>(r3);
-                this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>").makeRef();
+                // Generate virtualinvoke r2.<com.google.android.gms.example.bannerexample.TestClass: void setAdListener(com.google.android.gms.ads.BaseAdView)>(r4);
+                this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void setAdListener(com.google.android.gms.ads.admanager.BaseAdView)>").makeRef();
                 ArrayList this_method_arguments = new ArrayList<Value>();
                 this_method_arguments.add(local_this_admanager);
                 VirtualInvokeExpr this_virtualInvokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class, this_method_ref, this_method_arguments);
-                this_units.insertAfter(Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject), IdentityStmtNew);
+                this_units.insertAfter(Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject), unit_to_inject);
+
+
+                // // Generate r4 = new TestClass;
+                // AssignStmt IdentityStmtNew = Jimple.v().newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_to_inject)));
+                // this_units.insertAfter(IdentityStmtNew, unit_to_inject_after);
+               
+                // // Generate specialinvoke r4.<TestClass: void <init>()>();
+                // SootMethodRef this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void <init>()>").makeRef();
+                // SpecialInvokeExpr special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_ref);
+                // Unit unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
+                // this_units.insertAfter(unit_to_inject, IdentityStmtNew);
+                
+                // // Generate r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+                // SootField sootvalue_field_of_interest = null;
+                // for(SootField field: this_class.getFields()){
+                //     if(field.getType().toString().equals("com.google.android.gms.ads.admanager.AdManagerAdView")){
+                //         this_Helper.Print("Field:"+field.toString());
+                //         sootvalue_field_of_interest = field;
+                //     }
+                // }
+                // IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, local_this_class);
+                // Value sootvalue_field_ref = Jimple.v().newInstanceFieldRef(this_identity_stmt.getLeftOpBox().getValue(), sootvalue_field_of_interest.makeRef());
+                // IdentityStmtNew = Jimple.v().newAssignStmt(local_this_admanager, sootvalue_field_ref);
+                // this_units.insertAfter(IdentityStmtNew,unit_to_inject);
+                
+                // // Generate virtualinvoke r4.<TestClass: void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>(r3);
+                // this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>").makeRef();
+                // ArrayList this_method_arguments = new ArrayList<Value>();
+                // this_method_arguments.add(local_this_admanager);
+                // VirtualInvokeExpr this_virtualInvokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class, this_method_ref, this_method_arguments);
+                // this_units.insertAfter(Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject), IdentityStmtNew);
             }
         }
     }
@@ -236,63 +270,6 @@ public class SootTest3
 
                 // Options.v().set_no_writeout_body_releasing(true);
                 // InstrumentationTesting(this_body);
-                // SootMethod this_method = this_body.getMethod();
-                // SootClass this_class = this_method.getDeclaringClass();
-                // String string_this_class = this_class.getName();
-                // if(public_variable_mainactivity != null && string_this_class.equals(public_variable_mainactivity)){
-                //     // this_Helper.Print("Here: "+string_this_class);
-                //     // Inject Locals and Units
-                //     Chain<Unit> this_units = this_body.getUnits();
-                //     Unit unit_to_inject_after = null;
-                //     for(Unit this_unit: this_units){
-                //         if (this_unit instanceof AssignStmt){
-                //             AssignStmt this_invokeStmt = (AssignStmt) this_unit;
-                //             this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + this_invokeStmt.getLeftOpBox().getValue().getType()+" Right:"+this_invokeStmt.getRightOpBox().getValue().getType()+")");
-                //             if(this_invokeStmt.getLeftOpBox().getValue().getType().toString().equals(public_variable_admanageradview) && this_invokeStmt.getRightOpBox().getValue().getType().toString().equals(public_variable_admanageradview)){
-                //                 unit_to_inject_after = this_unit;
-                //                 break;
-                //             }
-                //             // if(this_invokeStmt.getInvokeExpr() instanceof IdentityStmt){
-                //             //     this_Helper.Print("Stmt:"+this_invokeStmt.toString());
-                //             //     // SootMethod this_invokeExpr_method = this_invokeStmt.getInvokeExpr().getMethod();
-                //             //     // if(this_invokeExpr_method.getName().contains("findViewById")){
-                //             //     //     this_Helper.Print("FOUND Class:"+this_invokeExpr_method.toString());
-                //             //     //     unit_to_inject_after = this_unit;
-                //             //     // }
-                //             // }
-                //         }
-                //     }
-                //     // Start injection process here
-                //     if(unit_to_inject_after != null){
-                //         // Add Locals
-                //         LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_body);
-                //         Local local_this_class = this_Helper.Generate_Local(this_body, this_local_generator, public_variable_string_class_to_inject);
-                //         Local local_this_admanager = this_Helper.Generate_Local(this_body, this_local_generator, "com.google.android.gms.ads.admanager.AdManagerAdView");
-                        
-                //         // Generate r4 = new TestClass;
-                //         AssignStmt IdentityStmtNew = Jimple.v().newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_to_inject)));
-                //         this_units.insertAfter(IdentityStmtNew, unit_to_inject_after);
-                       
-                //         // Generate specialinvoke r4.<TestClass: void <init>()>();
-                //         SootMethodRef this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void <init>()>").makeRef();
-                //         SpecialInvokeExpr special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_ref);
-                //         Unit unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
-                //         this_units.insertAfter(unit_to_inject, IdentityStmtNew);
-                        
-                //         // Generate r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
-                //         IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, local_this_class);
-                //         Value sootvalue_field_ref = Jimple.v().newInstanceFieldRef(this_identity_stmt.getLeftOpBox().getValue(), this_class.getFieldByName("adView").makeRef());
-                //         IdentityStmtNew = Jimple.v().newAssignStmt(local_this_admanager, sootvalue_field_ref);
-                //         this_units.insertAfter(IdentityStmtNew,unit_to_inject);
-
-                //         // Generate virtualinvoke r4.<TestClass: void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>(r3);
-                //         this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_to_inject+": void setAdListener(com.google.android.gms.ads.admanager.AdManagerAdView)>").makeRef();
-                //         ArrayList this_method_arguments = new ArrayList<Value>();
-                //         this_method_arguments.add(local_this_admanager);
-                //         VirtualInvokeExpr this_virtualInvokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class, this_method_ref, this_method_arguments);
-                //         this_units.insertAfter(Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject), IdentityStmtNew);
-                //     }
-                // }
                 Inject_Into_Main_Activity(this_body);
                 once.run(new Runnable() {
                     @Override

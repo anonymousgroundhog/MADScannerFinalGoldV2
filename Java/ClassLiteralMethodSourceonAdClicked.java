@@ -50,7 +50,7 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
     // local_stringBuilder = this_sootUtil.NewLocal("$r1", RefType.v("java.lang.StringBuilder"));
     // this_class_body.getLocals().add(local_stringBuilder);
     
-    local_AdManagerAdView = this_Helper.Generate_Local(this_class_body, this_local_generator, "com.google.android.gms.ads.admanager.AdManagerAdView");
+    local_AdManagerAdView = this_Helper.Generate_Local(this_class_body, this_local_generator, "com.google.android.gms.ads.admanager.BaseAdView");
     // local_AdManagerAdView = this_sootUtil.NewLocal("$r2", RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView"));
     // this_class_body.getLocals().add(local_AdManagerAdView);
 
@@ -133,7 +133,7 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
 	    // create empty body
     
 	    SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-	    String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.AdManagerAdView";
+	    String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
 	    String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
 	    SootUtil this_sootUtil = new SootUtil();
             JimpleBody newbody = Jimple.v().newBody(sootMethod);
@@ -208,7 +208,7 @@ class ClassLiteralMethodSourceonInitFirst implements soot.MethodSource {
       // create empty body
     
       SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.AdManagerAdView";
+      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
       String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
       SootUtil this_sootUtil = new SootUtil();
             JimpleBody newbody = Jimple.v().newBody(sootMethod);
@@ -255,7 +255,7 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
       // create empty body
     
       SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.AdManagerAdView";
+      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
       String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
       String public_variable_string_class_2 = sootMethod.getDeclaringClass().getName() + "$1";
       SootUtil this_sootUtil = new SootUtil();
