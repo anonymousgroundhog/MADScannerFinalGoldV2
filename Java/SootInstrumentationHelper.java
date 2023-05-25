@@ -15,7 +15,7 @@ public class SootInstrumentationHelper
         Boolean contains_local = false;
         Local local_to_return = null;
         for (Local local : this_body.getLocals()) {
-            if (local.getType().toString().contains(string_this_local)) {
+            if (local.getType().toString().equals(string_this_local)) {
                 contains_local = true;
                 local_to_return = local;
             }

@@ -43,20 +43,9 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
     AssignStmt IdentityStmtNew = null;
 
     local_thisClass = this_Helper.Generate_Local(this_class_body, this_local_generator, public_string_class_to_inject);
-    // local_thisClass = this_sootUtil.NewLocal("r0", RefType.v(public_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
-    // this_class_body.getLocals().add(local_thisClass);
-    
     local_stringBuilder = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.StringBuilder");
-    // local_stringBuilder = this_sootUtil.NewLocal("$r1", RefType.v("java.lang.StringBuilder"));
-    // this_class_body.getLocals().add(local_stringBuilder);
-    
     local_AdManagerAdView = this_Helper.Generate_Local(this_class_body, this_local_generator, "com.google.android.gms.ads.admanager.BaseAdView");
-    // local_AdManagerAdView = this_sootUtil.NewLocal("$r2", RefType.v("com.google.android.gms.ads.admanager.AdManagerAdView"));
-    // this_class_body.getLocals().add(local_AdManagerAdView);
-
     local_string = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.String");
-    // local_string = this_sootUtil.NewLocal("$r3", RefType.v("java.lang.String"));
-    // this_class_body.getLocals().add(local_string);
     
     // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
     this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_string_class_to_inject, 0, local_thisClass);
@@ -103,6 +92,7 @@ public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
   	virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder, this_method_ref);  
     unit_to_inject = Jimple.v().newAssignStmt(local_string, virtual_invokeExpr_to_inject);
     this_methods_units.add(unit_to_inject);
+    this_Helper.Print("Testing: " + unit_to_inject.toString());
     // Generate staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r3);
     this_method_arguments = new ArrayList<Value>();
     this_method_arguments.add(StringConstant.v("FiniteState"));
@@ -124,7 +114,8 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
   public String this_string_method_to_inject = null;
   public SootClass this_soot_class = null;
   public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
-  
+  private static String public_variable_baseadview = "com.google.android.gms.ads.BaseAdView";
+
 	public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
 		return new JAssignStmt(variable, rightvalue);
 	}
@@ -133,7 +124,8 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
 	    // create empty body
     
 	    SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-	    String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
+	    // String publicVariableBaseAdView = "com.google.android.gms.ads.BaseAdView";
+
 	    String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
 	    SootUtil this_sootUtil = new SootUtil();
             JimpleBody newbody = Jimple.v().newBody(sootMethod);
@@ -147,16 +139,8 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
             Unit unit_to_inject = null;
 
             localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject.replace("$1",""));
-            // localthisclass = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
-            // newbody.getLocals().add(localthisclass);
-
             local_this_class = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject);
-            // local_this_class = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject)); //ERRORS out if you use $20 instead of $2
-            // newbody.getLocals().add(local_this_class);
-            
-            local_admanageradview = this_Helper.Generate_Local(newbody, this_local_generator, publicVariableAdManagerAdView);
-            // local_admanageradview = this_sootUtil.NewLocal("$r2",RefType.v(publicVariableAdManagerAdView));
-            // newbody.getLocals().add(local_admanageradview);
+            local_admanageradview = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_baseadview);
             
             // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
             IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, local_this_class);
@@ -166,7 +150,7 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
             this_methods_units.add(this_sootUtil.NewIdentityStmtParameterRef(public_variable_string_class_to_inject.replace("$1",""), 0, localthisclass));
 
             // Generate  $r2 := @parameter1: com.google.android.gms.ads.admanager.AdManagerAdView;
-            this_methods_units.add(this_sootUtil.NewIdentityStmtParameterRef(publicVariableAdManagerAdView, 1, local_admanageradview));
+            this_methods_units.add(this_sootUtil.NewIdentityStmtParameterRef(public_variable_baseadview, 1, local_admanageradview));
                         
             // Generate r0.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener this$0> = $r1;
             Value sootvalue_field_ref = Jimple.v().newInstanceFieldRef(this_identity_stmt.getLeftOpBox().getValue(), publicVariableSootClass.getFieldByName("this$0").makeRef());
@@ -184,11 +168,7 @@ class ClassLiteralMethodSourceonInit implements soot.MethodSource {
             unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
             this_methods_units.add(unit_to_inject);
 
-            // special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_reference, StringConstant.v("onAdClicked "));
-            // unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
-            // this_methods_units.add(unit_to_inject);
             // Generate return;
-
             unit_to_inject = Jimple.v().newReturnVoidStmt();
             this_methods_units.add(unit_to_inject);
             return newbody;
@@ -199,7 +179,9 @@ class ClassLiteralMethodSourceonInitFirst implements soot.MethodSource {
   public String public_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
   public SootClass this_soot_class = null;
-
+  public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
+  private static String public_variable_baseadview = "com.google.android.gms.ads.BaseAdView";
+  
   public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
     return new JAssignStmt(variable, rightvalue);
   }
@@ -208,7 +190,7 @@ class ClassLiteralMethodSourceonInitFirst implements soot.MethodSource {
       // create empty body
     
       SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
+      // String publicVariableBaseAdView = "com.google.android.gms.ads.BaseAdView";
       String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
       SootUtil this_sootUtil = new SootUtil();
             JimpleBody newbody = Jimple.v().newBody(sootMethod);
@@ -220,8 +202,11 @@ class ClassLiteralMethodSourceonInitFirst implements soot.MethodSource {
             SpecialInvokeExpr special_invokeExpr_to_inject = null;
             SootMethodRef this_method_ref = null;
             Unit unit_to_inject = null;
-            localthisclass = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
-            newbody.getLocals().add(localthisclass);
+
+            LocalGenerator this_local_generator = Scene.v().createLocalGenerator(newbody);
+            // localthisclass = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
+            localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject.replace("$1",""));
+            // newbody.getLocals().add(localthisclass);
 
             // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener;
             IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, localthisclass);
@@ -246,6 +231,7 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
   public String public_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
   public SootClass this_soot_class = null;
+  private static String public_variable_baseadview = "com.google.android.gms.ads.BaseAdView";
 
   public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
     return new JAssignStmt(variable, rightvalue);
@@ -255,7 +241,8 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
       // create empty body
     
       SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-      String publicVariableAdManagerAdView = "com.google.android.gms.ads.admanager.BaseAdView";
+      // String publicVariableBaseAdView = "com.google.android.gms.ads.BaseAdView";
+      
       String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
       String public_variable_string_class_2 = sootMethod.getDeclaringClass().getName() + "$1";
       SootUtil this_sootUtil = new SootUtil();
@@ -272,7 +259,7 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
             localthisclass = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
             newbody.getLocals().add(localthisclass);
 
-            local_admanageradview = this_sootUtil.NewLocal("$r1", RefType.v(publicVariableAdManagerAdView));
+            local_admanageradview = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_baseadview));
             newbody.getLocals().add(local_admanageradview);
 
             local_this_class = this_sootUtil.NewLocal("$r2", RefType.v(public_variable_string_class_2));
@@ -283,14 +270,14 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
             this_methods_units.add(this_identity_stmt);
             
             // Generate $r1 := @parameter0: com.google.android.gms.ads.admanager.AdManagerAdView;
-            this_methods_units.add(this_sootUtil.NewIdentityStmtParameterRef(publicVariableAdManagerAdView, 0, local_admanageradview));
+            this_methods_units.add(this_sootUtil.NewIdentityStmtParameterRef(public_variable_baseadview, 0, local_admanageradview));
 
             // Generate $r2 = new com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
             AssignStmt IdentityStmtNew = newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_2)));
             this_methods_units.add(IdentityStmtNew);
 
             // Generate specialinvoke $r2.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1: void <init>(com.google.android.gms.example.bannerexample.TestClassAdViewAdListener,com.google.android.gms.ads.admanager.AdManagerAdView)>(r0, $r1);
-            this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_2+": void <init>("+public_string_class_to_inject+","+publicVariableAdManagerAdView+")>").makeRef();
+            this_method_ref = Scene.v().getMethod("<"+public_variable_string_class_2+": void <init>("+public_string_class_to_inject+","+public_variable_baseadview+")>").makeRef();
             this_method_arguments = new ArrayList<Value>();
             this_method_arguments.add(localthisclass);
             this_method_arguments.add(local_admanageradview);

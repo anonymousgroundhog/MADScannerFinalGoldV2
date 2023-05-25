@@ -26,16 +26,24 @@ Function_Run_Framework_And_Output_Jimple() {
 	cd Classes
 	java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true
 }
+
+Function_Compile_Framework() {
+	cd ../Java/
+	rm sootOutput/*
+	javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonAdClicked.java
+}
+
+Function_Get_MainActivity_And_Write_To_File() {
+	main_activity=$(aapt dump badging ../APK/$1 | grep 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	echo "Main_Activity:" $main_activity > APK_Details.txt
+	main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	echo "Main_Class:" $main_package >> APK_Details.txt
+}
 clear
-cd ../Java/
-rm sootOutput/*
-javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonAdClicked.java
+Function_Compile_Framework
 
 # GET MAIN ACTIVITY FROM APK
-main_activity=$(aapt dump badging ../APK/$1 | grep 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
-echo "Main_Activity:" $main_activity > APK_Details.txt
-main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
-echo "Main_Class:" $main_package >> APK_Details.txt
+Function_Get_MainActivity_And_Write_To_File $1
 
 Function_Run_Framework_And_Output_Jimple $1
 # Function_Run_Framework_And_Zip_And_Sign_APK $1
