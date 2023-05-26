@@ -205,9 +205,12 @@ class ClassLiteralMethodSourceonInitFirst implements soot.MethodSource {
 
             LocalGenerator this_local_generator = Scene.v().createLocalGenerator(newbody);
             // localthisclass = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
-            localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject.replace("$1",""));
             // newbody.getLocals().add(localthisclass);
-
+            RefType type = sootMethod.getDeclaringClass().getType();
+            SootFieldRef this_ref = Scene.v().makeFieldRef(this_soot_class, "this", RefType.v(this_soot_class), true);
+            localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_string_class_to_inject.replace("$1",""));
+            // localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, this_ref);
+            this_Helper.Print("Testing:"+this_ref.toString());
             // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener;
             IdentityStmt this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_variable_string_class_to_inject, 0, localthisclass);
             this_methods_units.add(this_identity_stmt);

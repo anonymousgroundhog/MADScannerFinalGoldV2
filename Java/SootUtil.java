@@ -10,10 +10,11 @@ public class SootUtil
         return Jimple.v().newLocal(strlocal, valueref);
     }
 
-	public static void AddFinalFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
+	public static SootField AddFinalFieldToSootClass(SootClass sClass, String strVar, String strClassToInjectAdListenerClass)
     {
         SootField field = Scene.v().makeSootField(strVar, RefType.v(strClassToInjectAdListenerClass), Modifier.FINAL);
         sClass.addField(field);
+        return field;
     }
     public static IdentityStmt NewIdentityStmtParameterRef(String strClassToInjectAdListenerClass, int intVal, Local arg)
     {
