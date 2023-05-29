@@ -45,5 +45,5 @@ Function_Compile_Framework
 # GET MAIN ACTIVITY FROM APK
 Function_Get_MainActivity_And_Write_To_File $1
 
-# Function_Run_Framework_And_Output_Jimple $1
-Function_Run_Framework_And_Zip_And_Sign_APK $1
+Function_Run_Framework_And_Output_Jimple $1
+# Function_Run_Framework_And_Zip_And_Sign_APK $1

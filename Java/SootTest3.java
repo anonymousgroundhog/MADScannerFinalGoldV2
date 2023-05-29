@@ -55,7 +55,7 @@ public class SootTest3
             ClassLiteralMethodSourceSetAdListener this_soot_method_source_setAdListener = new ClassLiteralMethodSourceSetAdListener();
             this_soot_method_source_setAdListener.public_string_class_to_inject = public_variable_string_class_to_inject_adlistener;
             this_soot_method_source_setAdListener.this_soot_class = public_variable_soot_class;
-            this_soot_method_source_setAdListener.this_string_method_to_inject = "void <init>";
+            this_soot_method_source_setAdListener.this_string_method_to_inject = "void setAdListener("+public_variable_baseadview+")";
             this_soot_method.setSource(this_soot_method_source_setAdListener);
         }
     }
@@ -106,7 +106,6 @@ public class SootTest3
 
             
         }
-        // this_Helper.Print("Finished Injecting New Class");
     }
 
     public static void Inject_Into_Main_Activity(Body this_body){
@@ -181,12 +180,15 @@ public class SootTest3
             
         if(this_class_name.equals("com.google.android.gms.example.bannerexample.TestClassAdViewAdListener") && this_method_name.contains("setAdListener")){
          for(Local this_local : this_body.getLocals()){
-             this_Helper.Print(this_local.getType().toString()); 
+             this_Helper.Print(this_local.getName() + " : " + this_local.getType().toString()); 
          }
-         // Chain<Unit> this_units = this_body.getUnits();
-         // for(Unit this_unit: this_units){
-
-         // }  
+         Chain<Unit> this_units = this_body.getUnits();
+         for(Unit this_unit: this_units){
+            if (this_unit instanceof IdentityStmt){
+                IdentityStmt this_stmt = (IdentityStmt) this_unit;
+                this_Helper.Print(this_stmt.getLeftOp().getType().toString());
+            }
+         }  
         }
     }
     public static void main(String[] args) throws FileNotFoundException, IOException
