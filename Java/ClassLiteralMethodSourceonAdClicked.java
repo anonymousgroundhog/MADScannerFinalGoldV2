@@ -266,12 +266,15 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
             Unit unit_to_inject = null;
             
             // localthisclass = this_sootUtil.NewLocal("r0", RefType.v(public_variable_string_class_to_inject.replace("$1","")));
-            localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, this_soot_class.getName());
+            // localthisclass = this_Helper.Generate_Local(newbody, this_local_generator, this_soot_class.getName());
             // localthisclass = Jimple.v().newLocal("base", this_soot_class.getType());
             // newbody.getLocals().add(localthisclass);
-
-            local_admanageradview = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_baseadview));
-            newbody.getLocals().add(local_admanageradview);
+            localthisclass = Jimple.v().newLocal("base", this_soot_class.getType());;
+            newbody.getLocals().add(localthisclass);
+            
+            local_admanageradview = this_Helper.Generate_Local(newbody, this_local_generator, public_variable_baseadview);
+            // local_admanageradview = this_sootUtil.NewLocal("$r1", RefType.v(public_variable_baseadview));
+            // newbody.getLocals().add(local_admanageradview);
 
             local_this_class = this_sootUtil.NewLocal("$r2", RefType.v(public_variable_string_class_2));
             newbody.getLocals().add(local_this_class);
@@ -292,7 +295,7 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
             this_method_arguments = new ArrayList<Value>();
             this_method_arguments.add(localthisclass);
             this_method_arguments.add(local_admanageradview);
-            special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(localthisclass,this_method_ref,this_method_arguments);
+            special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class,this_method_ref,this_method_arguments);
             unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
             this_methods_units.add(unit_to_inject);
             

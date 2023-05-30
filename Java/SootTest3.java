@@ -120,7 +120,7 @@ public class SootTest3
                 // if (this_unit instanceof AssignStmt){
                     // AssignStmt this_invokeStmt = (AssignStmt) this_unit;
                     // if(this_invokeStmt.getLeftOpBox().getValue().getType().toString().equals(public_variable_admanageradview) && this_invokeStmt.getRightOpBox().getValue().getType().toString().equals(public_variable_admanageradview)){
-                if(this_unit.toString().equals("r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r4")){
+                if(this_unit.toString().equals("r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r3")){
                     // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + this_invokeStmt.getLeftOpBox().getValue().getType()+" Right:"+this_invokeStmt.getRightOpBox().getValue().getType()+")");
                     unit_to_inject_after = this_unit;
                     break;
