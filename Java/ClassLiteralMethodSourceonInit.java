@@ -14,101 +14,6 @@ import org.jf.dexlib2.iface.reference.FieldReference;
 import java.util.*;
 import java.io.*;
 
-
-public class ClassLiteralMethodSourceonAdClicked implements soot.MethodSource {
-  public String public_string_class_to_inject = null;
-  public String public_variable_string_class_to_inject = null;
-  public String this_string_method_to_inject = null;
-  public SootClass this_soot_class = null;
-  public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
-
-	public static AssignStmt newAssignStmt(Value variable, Value rightvalue){
-		return new JAssignStmt(variable, rightvalue);
-	}
-  public soot.Body getBody(soot.SootMethod sootMethod, String phaseName) {
-    // create empty body
-    SootUtil this_sootUtil = new SootUtil();
-    JimpleBody this_class_body = Jimple.v().newBody(sootMethod);
-    Chain this_methods_units = this_class_body.getUnits();
-    Unit unit_to_inject = null;
-    Local local_thisClass, local_stringBuilder, local_string, local_AdManagerAdView;
-    LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_class_body);
-    IdentityStmt this_identity_stmt = null;
-    SootClass this_class_stringbuilder = null;
-    SootMethodRef this_method_ref = null;
-    SpecialInvokeExpr special_invokeExpr_to_inject = null;
-    VirtualInvokeExpr virtual_invokeExpr_to_inject = null;
-    List<Value> this_method_arguments = null;
-    Value sootvalue_field_ref = null;
-    AssignStmt IdentityStmtNew = null;
-
-    local_thisClass = this_Helper.Generate_Local(this_class_body, this_local_generator, public_string_class_to_inject);
-    local_stringBuilder = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.StringBuilder");
-    local_AdManagerAdView = this_Helper.Generate_Local(this_class_body, this_local_generator, "com.google.android.gms.ads.admanager.BaseAdView");
-    local_string = this_Helper.Generate_Local(this_class_body, this_local_generator, "java.lang.String");
-    
-    // Generate r0 := @this: com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1;
-    this_identity_stmt = this_sootUtil.NewIdentityStmtParameterRefThis(public_string_class_to_inject, 0, local_thisClass);
-    this_methods_units.add(this_identity_stmt);
-
-    // Generate $r1 = new java.lang.StringBuilder;
-    unit_to_inject = Jimple.v().newAssignStmt(local_stringBuilder, Jimple.v().newNewExpr(RefType.v("java.lang.StringBuilder")));
-    this_methods_units.add(unit_to_inject);
-
-    // Generate specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
-    this_class_stringbuilder = Scene.v().getSootClass("java.lang.StringBuilder");
-    this_method_ref = this_class_stringbuilder.getMethod("void <init>()").makeRef();
-    this_method_arguments = Collections.<Value>emptyList();
-    special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_stringBuilder,this_method_ref, this_method_arguments);
-    unit_to_inject = Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
-    this_methods_units.add(unit_to_inject);
-
-    // Generate $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("onAdClicked ");
-    SootMethod thisMethod = this_class_stringbuilder.getMethod("java.lang.StringBuilder append(java.lang.String)");
-    this_method_ref = Scene.v().makeMethodRef(this_class_stringbuilder, thisMethod.getName(), thisMethod.getParameterTypes(), thisMethod.getReturnType(), thisMethod.isStatic());
-    virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder,this_method_ref,StringConstant.v("onAdClicked "));
-    unit_to_inject = Jimple.v().newAssignStmt(local_stringBuilder, virtual_invokeExpr_to_inject);
-    this_methods_units.add(unit_to_inject);
-
-	// Generate $r2 = r0.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1: com.google.android.gms.ads.admanager.AdManagerAdView val$adView>;
-    sootvalue_field_ref = Jimple.v().newInstanceFieldRef(this_identity_stmt.getLeftOpBox().getValue(), this_soot_class.getFieldByName("val$adView").makeRef());
-    IdentityStmtNew = newAssignStmt(local_AdManagerAdView, sootvalue_field_ref);
-    this_methods_units.add(IdentityStmtNew);
-
-  	// Generate  $r3 = virtualinvoke $r2.<com.google.android.gms.ads.admanager.AdManagerAdView: java.lang.String getAdUnitId()>();
-    this_method_ref = Scene.v().getMethod("<com.google.android.gms.ads.BaseAdView: java.lang.String getAdUnitId()>").makeRef();
-    virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_AdManagerAdView, this_method_ref);  
-    unit_to_inject = Jimple.v().newAssignStmt(local_string, virtual_invokeExpr_to_inject);
-    this_methods_units.add(unit_to_inject);
-
-  	// Generate $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
-  	this_method_ref = Scene.v().getMethod("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>").makeRef();
-    virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder, this_method_ref,local_string);  
-    unit_to_inject = Jimple.v().newAssignStmt(local_stringBuilder, virtual_invokeExpr_to_inject);
-    this_methods_units.add(unit_to_inject);
-    
-    // Generate $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
-    this_method_ref = Scene.v().getMethod("<java.lang.StringBuilder: java.lang.String toString()>").makeRef();
-  	virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder, this_method_ref);  
-    unit_to_inject = Jimple.v().newAssignStmt(local_string, virtual_invokeExpr_to_inject);
-    this_methods_units.add(unit_to_inject);
-    this_Helper.Print("Testing: " + unit_to_inject.toString());
-    // Generate staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FiniteState", $r3);
-    this_method_arguments = new ArrayList<Value>();
-    this_method_arguments.add(StringConstant.v("FiniteState"));
-    this_method_arguments.add(local_string);
-    SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
-    StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, this_method_arguments);
-    InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-    this_methods_units.add(InvokeStatementLog);
-  	// Generate return;
-    unit_to_inject = Jimple.v().newReturnVoidStmt();
-    this_methods_units.add(unit_to_inject);
-    
-    return this_class_body;
-  }
-}
-
 class ClassLiteralMethodSourceonInit implements soot.MethodSource {
   public String public_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
@@ -299,9 +204,10 @@ class ClassLiteralMethodSourceSetAdListener implements soot.MethodSource {
   }
 }
 
-class ClassLiteralMethodSourceonAdClosed implements soot.MethodSource {
+class ClassLiteralMethodSourceGeneric implements soot.MethodSource {
   public String public_string_class_to_inject = null;
   public String this_string_method_to_inject = null;
+  public String this_string_method_name = null;
   public SootClass this_soot_class = null;
   private static String public_variable_baseadview = "com.google.android.gms.ads.BaseAdView";
   public SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
@@ -314,9 +220,6 @@ class ClassLiteralMethodSourceonAdClosed implements soot.MethodSource {
     // create empty body
   
     SootClass publicVariableSootClass = sootMethod.getDeclaringClass();
-    // String publicVariableBaseAdView = "com.google.android.gms.ads.BaseAdView";
-    
-    // String public_variable_string_class_to_inject = sootMethod.getDeclaringClass().getName();
     String public_variable_string_class_2 = sootMethod.getDeclaringClass().getName();
     SootUtil this_sootUtil = new SootUtil();
     JimpleBody this_class_body = Jimple.v().newBody(sootMethod);
@@ -357,7 +260,7 @@ class ClassLiteralMethodSourceonAdClosed implements soot.MethodSource {
     // Generate $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("onAdClicked ");
     SootMethod thisMethod = this_class_stringbuilder.getMethod("java.lang.StringBuilder append(java.lang.String)");
     this_method_ref = Scene.v().makeMethodRef(this_class_stringbuilder, thisMethod.getName(), thisMethod.getParameterTypes(), thisMethod.getReturnType(), thisMethod.isStatic());
-    virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder,this_method_ref,StringConstant.v("onAdClosed "));
+    virtual_invokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_stringBuilder,this_method_ref,StringConstant.v(this_string_method_name+" "));
     unit_to_inject = Jimple.v().newAssignStmt(local_stringBuilder, virtual_invokeExpr_to_inject);
     this_methods_units.add(unit_to_inject);
 

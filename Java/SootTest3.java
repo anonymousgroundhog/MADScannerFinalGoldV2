@@ -77,7 +77,6 @@ public class SootTest3
 , "this$0", public_variable_string_class_to_inject_adlistener);
 
             // CREATE FIELD: final com.google.android.gms.ads.admanager.AdManagerAdView val$adView;
-            // SootClass this_class_admanageradview = Scene.v().getSootClass("com.google.android.gms.ads.admanager.AdManagerAdView");
             SootField this_field_adview = this_soot_util.AddFinalFieldToSootClass(public_variable_soot_class
 , "val$adView", public_variable_baseadview);
 
@@ -97,25 +96,64 @@ public class SootTest3
             public_variable_soot_class.addMethod(this_soot_method_onAdClicked);
             
             // // Set method source for onAdClicked
-            ClassLiteralMethodSourceonAdClicked this_soot_methodsource = new ClassLiteralMethodSourceonAdClicked();
-            this_soot_methodsource.public_string_class_to_inject = public_variable_soot_class.getName();
-            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
-            this_soot_methodsource.this_soot_class = public_variable_soot_class;
-            this_soot_methodsource.this_string_method_to_inject = "void onAdClicked()";
-            this_soot_method_onAdClicked.setSource(this_soot_methodsource);
+            ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adclicked = new ClassLiteralMethodSourceGeneric();
+            this_soot_methodsource_generic_adclicked.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_methodsource_generic_adclicked.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_generic_adclicked.this_string_method_to_inject = "void onAdClicked()";
+            this_soot_methodsource_generic_adclicked.this_string_method_name = "onAdClicked";
+            this_soot_method_onAdClicked.setSource(this_soot_methodsource_generic_adclicked);
 
             // Generate method public void onAdClosed()
             SootMethod this_soot_method_onAdClosed = new SootMethod("onAdClosed", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
             public_variable_soot_class.addMethod(this_soot_method_onAdClosed);
             
-            // // Set method source for onAdClicked
-            ClassLiteralMethodSourceonAdClosed this_soot_methodsource_ad_closed = new ClassLiteralMethodSourceonAdClosed();
-            this_soot_methodsource_ad_closed.public_string_class_to_inject = public_variable_soot_class.getName();
-            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
-            this_soot_methodsource_ad_closed.this_soot_class = public_variable_soot_class;
-            this_soot_methodsource_ad_closed.this_string_method_to_inject = "void onAdClosed()";
-            this_soot_method_onAdClosed.setSource(this_soot_methodsource_ad_closed);
+            // // Set method source for onAdClosed
+            ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adclosed = new ClassLiteralMethodSourceGeneric();
+            // ClassLiteralMethodSourceonAdClosed this_soot_methodsource_ad_closed = new ClassLiteralMethodSourceonAdClosed();
+            this_soot_methodsource_generic_adclosed.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_methodsource_generic_adclosed.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_generic_adclosed.this_string_method_to_inject = "void onAdClosed()";
+            this_soot_methodsource_generic_adclosed.this_string_method_name = "onAdClosed";
+            this_soot_method_onAdClosed.setSource(this_soot_methodsource_generic_adclosed);
+
+            // Generate method public void onAdLoaded()
+            SootMethod this_soot_method_onAdLoaded = new SootMethod("onAdLoaded", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdLoaded);
             
+            // // Set method source for onAdLoaded
+            ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adloaded = new ClassLiteralMethodSourceGeneric();
+            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
+            this_soot_methodsource_generic_adloaded.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_methodsource_generic_adloaded.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_generic_adloaded.this_string_method_name = "onAdLoaded";
+            this_soot_methodsource_generic_adloaded.this_string_method_to_inject = "void onAdLoaded()";
+            this_soot_method_onAdLoaded.setSource(this_soot_methodsource_generic_adloaded);
+            
+            // Generate method public void onAdImpression()
+            SootMethod this_soot_method_onAdImpression = new SootMethod("onAdImpression", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdImpression);
+            
+            // // Set method source for onAdImpression
+            ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adimpression = new ClassLiteralMethodSourceGeneric();
+            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
+            this_soot_methodsource_generic_adimpression.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_methodsource_generic_adimpression.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_generic_adimpression.this_string_method_name = "onAdImpression";
+            this_soot_methodsource_generic_adimpression.this_string_method_to_inject = "void onAdImpression()";
+            this_soot_method_onAdImpression.setSource(this_soot_methodsource_generic_adimpression);
+
+            // Generate method public void onAdImpression()
+            SootMethod this_soot_method_onAdOpened = new SootMethod("onAdOpened", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdOpened);
+            
+            // // Set method source for onAdImpression
+            ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adopened = new ClassLiteralMethodSourceGeneric();
+            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
+            this_soot_methodsource_generic_adopened.public_string_class_to_inject = public_variable_soot_class.getName();
+            this_soot_methodsource_generic_adopened.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_generic_adopened.this_string_method_name = "onAdOpened";
+            this_soot_methodsource_generic_adopened.this_string_method_to_inject = "void onAdOpened()";
+            this_soot_method_onAdOpened.setSource(this_soot_methodsource_generic_adopened);
         }
     }
 

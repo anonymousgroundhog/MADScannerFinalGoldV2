@@ -30,7 +30,7 @@ Function_Run_Framework_And_Output_Jimple() {
 Function_Compile_Framework() {
 	cd ../Java/
 	rm sootOutput/*
-	javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonAdClicked.java
+	javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
@@ -45,5 +45,5 @@ Function_Compile_Framework
 # GET MAIN ACTIVITY FROM APK
 Function_Get_MainActivity_And_Write_To_File $1
 
-# Function_Run_Framework_And_Output_Jimple $1
-Function_Run_Framework_And_Zip_And_Sign_APK $1
+Function_Run_Framework_And_Output_Jimple $1
+# Function_Run_Framework_And_Zip_And_Sign_APK $1
