@@ -104,6 +104,17 @@ public class SootTest3
             this_soot_methodsource.this_string_method_to_inject = "void onAdClicked()";
             this_soot_method_onAdClicked.setSource(this_soot_methodsource);
 
+            // Generate method public void onAdClosed()
+            SootMethod this_soot_method_onAdClosed = new SootMethod("onAdClosed", new LinkedList(), VoidType.v(), Modifier.PUBLIC);
+            public_variable_soot_class.addMethod(this_soot_method_onAdClosed);
+            
+            // // Set method source for onAdClicked
+            ClassLiteralMethodSourceonAdClosed this_soot_methodsource_ad_closed = new ClassLiteralMethodSourceonAdClosed();
+            this_soot_methodsource_ad_closed.public_string_class_to_inject = public_variable_soot_class.getName();
+            // this_soot_methodsource.public_variable_string_class_to_inject = public_variable_string_class_to_inject;
+            this_soot_methodsource_ad_closed.this_soot_class = public_variable_soot_class;
+            this_soot_methodsource_ad_closed.this_string_method_to_inject = "void onAdClosed()";
+            this_soot_method_onAdClosed.setSource(this_soot_methodsource_ad_closed);
             
         }
     }
