@@ -58,7 +58,6 @@ public class SootInstrumentationHelper
     }
     public static SootField FieldRef_Has_Adview(Chain<SootField> class_soot_fields){
         for (SootField field: class_soot_fields){
-            // Print("Field:"+field.getType().toString());
             if(! field.getType().toString().contains("OnAdManagerAdViewLoadedListener") && ! field.getType().toString().contains("AdManagerAdViewOptions") && field.getType().toString().contains("AdManagerAdView") || field.getType().toString().contains("BaseAdView") || field.getType().toString().contains("AdView")){
                 return field;
             }
@@ -91,5 +90,24 @@ public class SootInstrumentationHelper
             }
         }
         return null;
+    }
+    public static Boolean ContainsAdViewUnit(UnitPatchingChain thisunits){
+        String public_variable_admanageradview = "com.google.android.gms.ads.admanager.AdManagerAdView";
+        Unit this_unit = null;
+        for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+            this_unit = unit.next();
+            if (this_unit instanceof AssignStmt){
+                    AssignStmt this_invokeStmt = (AssignStmt) this_unit;
+                    Value left_side = this_invokeStmt.getLeftOpBox().getValue();
+                    Value right_side = this_invokeStmt.getRightOpBox().getValue();
+                    
+                    // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
+                    if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
+                        Print(this_unit.toString());
+                        return true;
+                    }
+                }
+        }
+        return false;
     }
 }

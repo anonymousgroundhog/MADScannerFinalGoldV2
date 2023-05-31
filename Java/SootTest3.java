@@ -157,7 +157,7 @@ public class SootTest3
         }
     }
 
-    public static void Inject_Into_Main_Activity(Body this_body){
+    public static void Inject_Into_Main_Activity(Body this_body, String app_name_only, String hash){
         SootMethod this_method = this_body.getMethod();
         SootClass this_class = this_method.getDeclaringClass();
         String string_this_class = this_class.getName();
@@ -171,10 +171,11 @@ public class SootTest3
                     Value left_side = this_invokeStmt.getLeftOpBox().getValue();
                     Value right_side = this_invokeStmt.getRightOpBox().getValue();
                     
-                    this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
+                    // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
                     if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
-                        this_Helper.Print("FOUND!!!");
+                        // this_Helper.Print("FOUND!!!");
                         unit_to_inject_after = this_unit;
+                        break;
                     }
                 }
                 // if(this_unit.toString().equals("r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r3")){
@@ -224,41 +225,39 @@ public class SootTest3
                 Unit u2= Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject);
                 
                 this_units.insertAfter(u2, u1);
+
+                // INJECT STANDARD LOG MESSAGE
+
+                SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
+                String MSG = app_name_only+"---"+hash+"---"+this_class.getName()+"---"+this_method.getName()+"---null";
+                List<Value> listArgs = new ArrayList<Value>();
+                listArgs.add(StringConstant.v("FiniteState"));
+                listArgs.add(StringConstant.v(MSG));
+                StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+                InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+                this_units.insertAfter(InvokeStatementLog, u2);
             }
         }
     }
-    public static void Testing(Body this_body){
-        SootMethod this_method = this_body.getMethod();
-        String this_method_name = this_method.getName();
-        SootClass this_class = this_method.getDeclaringClass();
-        String this_class_name = this_class.getName();
-        
-            
-        if(this_class_name.equals("com.google.android.gms.example.bannerexample.TestClassAdViewAdListener") && this_method_name.contains("setAdListener")){
-         for(Local this_local : this_body.getLocals()){
-             // this_Helper.Print(this_local.getName() + " : " + this_local.getType().toString()); 
-         }
-         Chain<Unit> this_units = this_body.getUnits();
-         for(Unit this_unit: this_units){
-            if (this_unit instanceof IdentityStmt){
-                IdentityStmt this_stmt = (IdentityStmt) this_unit;
-                // this_Helper.Print(this_stmt.getLeftOp().getType().toString());
-            }
-         }  
-        }
-    }
+    
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
-        // setupSoot("../../Android/platforms", "../../APK/"+args[0], "../sootOutput");
         Once once = new Once();
         
-
         PackManager.v().getPack("jtp").add(new Transform("jtp.myLogger", new BodyTransformer() {
             @Override
             protected void internalTransform(Body this_body, String phaseName, Map<String, String> options) {
-                Testing(this_body);
+                // Testing(this_body);
+                SootMethod this_method = this_body.getMethod();
+                String this_method_name = this_method.getName();
+                SootClass this_class = this_method.getDeclaringClass();
+                String this_class_name = this_class.getName();
+
                 if(boolean_injected_classes){
-                    Inject_Into_Main_Activity(this_body);
+                    String[] app_name =  args[13].split("/");
+                    String app_name_only = app_name[app_name.length-1].replace(".apk", "");
+                    String hash = args[19];
+                    Inject_Into_Main_Activity(this_body, app_name_only, hash);
                 }
                 once.run(new Runnable() {
                     @Override
@@ -267,7 +266,6 @@ public class SootTest3
                         this_Helper.Print("Main:"+public_variable_mainactivity);
                         int lastPeriodIndex = public_variable_mainactivity.lastIndexOf(".");
                         String this_package = public_variable_mainactivity.substring(0, lastPeriodIndex);
-                        // this_Helper.Print("Result:"+this_package);
                         public_variable_string_class_to_inject_adlistener = this_package+"."+"TestClass";
                         public_variable_string_class_to_inject = this_package+"."+"TestClass";
                         public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
@@ -280,6 +278,15 @@ public class SootTest3
                     }
                 });
 
+                // CHECK CONDITIONS FOR AD LIBRARY SPECIFIC INJECTION
+                Boolean class_has_superclass = this_class.hasSuperclass();
+                Boolean class_contains_google = this_class_name.contains("google");
+                Boolean method_not_clinit_or_init = (!this_method_name.contains("<clinit>") && !this_method_name.contains("<init>")); 
+                Boolean contains_ad_view = this_Helper.ContainsAdViewUnit(this_body.getUnits());
+                Boolean class_not_main_activity = !this_class_name.equals(public_variable_mainactivity);
+                if(class_not_main_activity && class_has_superclass && class_contains_google && method_not_clinit_or_init && contains_ad_view){
+                    System.out.printf("Class: %s, Method: %s\n\n",this_class_name, this_method_name); 
+                }
             }
         }));   
         soot.Main.main(args);
