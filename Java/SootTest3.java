@@ -166,14 +166,21 @@ public class SootTest3
             Chain<Unit> this_units = this_body.getUnits();
             Unit unit_to_inject_after = null;
             for(Unit this_unit: this_units){
-                // if (this_unit instanceof AssignStmt){
-                    // AssignStmt this_invokeStmt = (AssignStmt) this_unit;
-                    // if(this_invokeStmt.getLeftOpBox().getValue().getType().toString().equals(public_variable_admanageradview) && this_invokeStmt.getRightOpBox().getValue().getType().toString().equals(public_variable_admanageradview)){
-                if(this_unit.toString().equals("r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r3")){
-                    // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + this_invokeStmt.getLeftOpBox().getValue().getType()+" Right:"+this_invokeStmt.getRightOpBox().getValue().getType()+")");
-                    unit_to_inject_after = this_unit;
-                    break;
+                if (this_unit instanceof AssignStmt){
+                    AssignStmt this_invokeStmt = (AssignStmt) this_unit;
+                    Value left_side = this_invokeStmt.getLeftOpBox().getValue();
+                    Value right_side = this_invokeStmt.getRightOpBox().getValue();
+                    
+                    this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
+                    if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
+                        this_Helper.Print("FOUND!!!");
+                        unit_to_inject_after = this_unit;
+                    }
                 }
+                // if(this_unit.toString().equals("r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView> = r3")){
+                //     unit_to_inject_after = this_unit;
+                //     break;
+                // }
                     // if(this_invokeStmt.getInvokeExpr() instanceof IdentityStmt){
                     //     this_Helper.Print("Stmt:"+this_invokeStmt.toString());
                     //     // SootMethod this_invokeExpr_method = this_invokeStmt.getInvokeExpr().getMethod();
@@ -229,13 +236,13 @@ public class SootTest3
             
         if(this_class_name.equals("com.google.android.gms.example.bannerexample.TestClassAdViewAdListener") && this_method_name.contains("setAdListener")){
          for(Local this_local : this_body.getLocals()){
-             this_Helper.Print(this_local.getName() + " : " + this_local.getType().toString()); 
+             // this_Helper.Print(this_local.getName() + " : " + this_local.getType().toString()); 
          }
          Chain<Unit> this_units = this_body.getUnits();
          for(Unit this_unit: this_units){
             if (this_unit instanceof IdentityStmt){
                 IdentityStmt this_stmt = (IdentityStmt) this_unit;
-                this_Helper.Print(this_stmt.getLeftOp().getType().toString());
+                // this_Helper.Print(this_stmt.getLeftOp().getType().toString());
             }
          }  
         }
