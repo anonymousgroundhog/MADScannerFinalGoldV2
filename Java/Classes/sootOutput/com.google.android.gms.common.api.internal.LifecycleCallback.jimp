@@ -1,0 +1,221 @@
+public class com.google.android.gms.common.api.internal.LifecycleCallback extends java.lang.Object
+{
+    protected final com.google.android.gms.common.api.internal.LifecycleFragment mLifecycleFragment;
+
+    protected void <init>(com.google.android.gms.common.api.internal.LifecycleFragment)
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mLifecycleFragment = $r1;
+
+        return;
+    }
+
+    private static com.google.android.gms.common.api.internal.LifecycleFragment getChimeraLifecycleFragmentImpl(com.google.android.gms.common.api.internal.LifecycleActivity)
+    {
+        java.lang.IllegalStateException $r1;
+        com.google.android.gms.common.api.internal.LifecycleActivity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>("Method not available in SDK.");
+
+        throw $r1;
+    }
+
+    public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(android.app.Activity)
+    {
+        android.app.Activity $r2;
+        com.google.android.gms.common.api.internal.LifecycleActivity $r0;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r1;
+
+        $r2 := @parameter0;
+
+        $r0 = new com.google.android.gms.common.api.internal.LifecycleActivity;
+
+        specialinvoke $r0.<init>($r2);
+
+        $r1 = com.google.android.gms.common.api.internal.LifecycleCallback.getFragment($r0);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(android.content.ContextWrapper)
+    {
+        java.lang.UnsupportedOperationException $r1;
+        android.content.ContextWrapper $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    protected static com.google.android.gms.common.api.internal.LifecycleFragment getFragment(com.google.android.gms.common.api.internal.LifecycleActivity)
+    {
+        com.google.android.gms.common.api.internal.LifecycleActivity $r0;
+        com.google.android.gms.common.api.internal.zzd $r2;
+        com.google.android.gms.common.api.internal.zzb $r4;
+        java.lang.IllegalArgumentException $r5;
+        android.app.Activity $r3;
+        boolean $z0;
+        androidx.fragment.app.FragmentActivity $r1;
+
+        $r0 := @parameter0;
+
+        $z0 = virtualinvoke $r0.zzd();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r0.zzb();
+
+        $r2 = com.google.android.gms.common.api.internal.zzd.zzc($r1);
+
+        return $r2;
+
+     label1:
+        $z0 = virtualinvoke $r0.zzc();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = virtualinvoke $r0.zza();
+
+        $r4 = com.google.android.gms.common.api.internal.zzb.zzc($r3);
+
+        return $r4;
+
+     label2:
+        $r5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r5.<init>("Can\'t get fragment for unexpected activity.");
+
+        throw $r5;
+    }
+
+    public void dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[])
+    {
+        java.io.PrintWriter $r3;
+        java.io.FileDescriptor $r2;
+        java.lang.String[] $r4;
+        java.lang.String $r1;
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        return;
+    }
+
+    public android.app.Activity getActivity()
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+        android.app.Activity $r1;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mLifecycleFragment;
+
+        $r1 = interfaceinvoke $r2.getLifecycleActivity();
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1);
+
+        return $r1;
+    }
+
+    public void onActivityResult(int, int, android.content.Intent)
+    {
+        int $i0, $i1;
+        android.content.Intent $r1;
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public void onResume()
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public void onSaveInstanceState(android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onStart()
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public void onStop()
+    {
+        com.google.android.gms.common.api.internal.LifecycleCallback r0;
+
+        r0 := @this;
+
+        return;
+    }
+}

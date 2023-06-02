@@ -1,0 +1,48 @@
+final class com.google.android.gms.dynamic.zaf extends java.lang.Object implements com.google.android.gms.dynamic.zah
+{
+    final com.google.android.gms.dynamic.DeferredLifecycleHelper zaa;
+
+    void <init>(com.google.android.gms.dynamic.DeferredLifecycleHelper)
+    {
+        com.google.android.gms.dynamic.zaf r0;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zaa = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final int zaa()
+    {
+        com.google.android.gms.dynamic.zaf r0;
+
+        r0 := @this;
+
+        return 4;
+    }
+
+    public final void zab(com.google.android.gms.dynamic.LifecycleDelegate)
+    {
+        com.google.android.gms.dynamic.zaf r0;
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r1 = com.google.android.gms.dynamic.DeferredLifecycleHelper.zaa($r2);
+
+        interfaceinvoke $r1.onStart();
+
+        return;
+    }
+}

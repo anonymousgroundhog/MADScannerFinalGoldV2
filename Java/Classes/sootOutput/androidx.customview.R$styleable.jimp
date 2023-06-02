@@ -1,0 +1,148 @@
+public final class androidx.customview.R$styleable extends java.lang.Object
+{
+    public static final int[] ColorStateListItem;
+    public static final int ColorStateListItem_alpha;
+    public static final int ColorStateListItem_android_alpha;
+    public static final int ColorStateListItem_android_color;
+    public static final int[] FontFamily;
+    public static final int[] FontFamilyFont;
+    public static final int FontFamilyFont_android_font;
+    public static final int FontFamilyFont_android_fontStyle;
+    public static final int FontFamilyFont_android_fontVariationSettings;
+    public static final int FontFamilyFont_android_fontWeight;
+    public static final int FontFamilyFont_android_ttcIndex;
+    public static final int FontFamilyFont_font;
+    public static final int FontFamilyFont_fontStyle;
+    public static final int FontFamilyFont_fontVariationSettings;
+    public static final int FontFamilyFont_fontWeight;
+    public static final int FontFamilyFont_ttcIndex;
+    public static final int FontFamily_fontProviderAuthority;
+    public static final int FontFamily_fontProviderCerts;
+    public static final int FontFamily_fontProviderFetchStrategy;
+    public static final int FontFamily_fontProviderFetchTimeout;
+    public static final int FontFamily_fontProviderPackage;
+    public static final int FontFamily_fontProviderQuery;
+    public static final int FontFamily_fontProviderSystemFontFamily;
+    public static final int[] GradientColor;
+    public static final int[] GradientColorItem;
+    public static final int GradientColorItem_android_color;
+    public static final int GradientColorItem_android_offset;
+    public static final int GradientColor_android_centerColor;
+    public static final int GradientColor_android_centerX;
+    public static final int GradientColor_android_centerY;
+    public static final int GradientColor_android_endColor;
+    public static final int GradientColor_android_endX;
+    public static final int GradientColor_android_endY;
+    public static final int GradientColor_android_gradientRadius;
+    public static final int GradientColor_android_startColor;
+    public static final int GradientColor_android_startX;
+    public static final int GradientColor_android_startY;
+    public static final int GradientColor_android_tileMode;
+    public static final int GradientColor_android_type;
+
+    public static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[3];
+
+        $r0[0] = 16843173;
+
+        $r0[1] = 16843551;
+
+        $r0[2] = 2130837546;
+
+        androidx.customview.R$styleable.ColorStateListItem = $r0;
+
+        $r0 = newarray (int)[7];
+
+        $r0[0] = 2130837635;
+
+        $r0[1] = 2130837636;
+
+        $r0[2] = 2130837637;
+
+        $r0[3] = 2130837638;
+
+        $r0[4] = 2130837639;
+
+        $r0[5] = 2130837640;
+
+        $r0[6] = 2130837641;
+
+        androidx.customview.R$styleable.FontFamily = $r0;
+
+        $r0 = newarray (int)[10];
+
+        $r0[0] = 16844082;
+
+        $r0[1] = 16844083;
+
+        $r0[2] = 16844095;
+
+        $r0[3] = 16844143;
+
+        $r0[4] = 16844144;
+
+        $r0[5] = 2130837633;
+
+        $r0[6] = 2130837642;
+
+        $r0[7] = 2130837643;
+
+        $r0[8] = 2130837644;
+
+        $r0[9] = 2130837782;
+
+        androidx.customview.R$styleable.FontFamilyFont = $r0;
+
+        $r0 = newarray (int)[12];
+
+        $r0[0] = 16843165;
+
+        $r0[1] = 16843166;
+
+        $r0[2] = 16843169;
+
+        $r0[3] = 16843170;
+
+        $r0[4] = 16843171;
+
+        $r0[5] = 16843172;
+
+        $r0[6] = 16843265;
+
+        $r0[7] = 16843275;
+
+        $r0[8] = 16844048;
+
+        $r0[9] = 16844049;
+
+        $r0[10] = 16844050;
+
+        $r0[11] = 16844051;
+
+        androidx.customview.R$styleable.GradientColor = $r0;
+
+        $r0 = newarray (int)[2];
+
+        $r0[0] = 16843173;
+
+        $r0[1] = 16844052;
+
+        androidx.customview.R$styleable.GradientColorItem = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        androidx.customview.R$styleable r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

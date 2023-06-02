@@ -1,0 +1,148 @@
+public final class com.google.android.gms.internal.ads.zzdlp extends com.google.android.gms.ads.VideoController$VideoLifecycleCallbacks
+{
+    private final com.google.android.gms.internal.ads.zzdgi zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdgi)
+    {
+        com.google.android.gms.internal.ads.zzdlp r0;
+        com.google.android.gms.internal.ads.zzdgi $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    private static com.google.android.gms.ads.internal.client.zzdt zza(com.google.android.gms.internal.ads.zzdgi)
+    {
+        com.google.android.gms.ads.internal.client.zzdt $r2;
+        com.google.android.gms.internal.ads.zzdgi $r0;
+        android.os.RemoteException $r3;
+        com.google.android.gms.ads.internal.client.zzdq $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.zzj();
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = interfaceinvoke $r1.zzi();
+
+     label2:
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        return null;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public final void onVideoEnd()
+    {
+        com.google.android.gms.ads.internal.client.zzdt $r1;
+        com.google.android.gms.internal.ads.zzdgi $r2;
+        com.google.android.gms.internal.ads.zzdlp r0;
+        android.os.RemoteException $r3;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzdlp.zza($r2);
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        interfaceinvoke $r1.zze();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzk("Unable to call onVideoEnd()", $r3);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public final void onVideoPause()
+    {
+        com.google.android.gms.ads.internal.client.zzdt $r1;
+        com.google.android.gms.internal.ads.zzdgi $r2;
+        com.google.android.gms.internal.ads.zzdlp r0;
+        android.os.RemoteException $r3;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzdlp.zza($r2);
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        interfaceinvoke $r1.zzg();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzk("Unable to call onVideoEnd()", $r3);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+
+    public final void onVideoStart()
+    {
+        com.google.android.gms.ads.internal.client.zzdt $r1;
+        com.google.android.gms.internal.ads.zzdgi $r2;
+        com.google.android.gms.internal.ads.zzdlp r0;
+        android.os.RemoteException $r3;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzdlp.zza($r2);
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        interfaceinvoke $r1.zzi();
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzk("Unable to call onVideoEnd()", $r3);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+}

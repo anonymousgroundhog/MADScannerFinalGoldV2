@@ -1,0 +1,102 @@
+public class androidx.appcompat.app.AlertController$RecycleListView extends android.widget.ListView
+{
+    private final int mPaddingBottomNoButtons;
+    private final int mPaddingTopNoTitle;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.app.AlertController$RecycleListView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        int[] r3;
+        int $i0;
+        androidx.appcompat.app.AlertController$RecycleListView r0;
+        android.content.res.TypedArray $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r3 = androidx.appcompat.R$styleable.RecycleListView;
+
+        $r4 = virtualinvoke $r1.obtainStyledAttributes($r2, r3);
+
+        $i0 = androidx.appcompat.R$styleable.RecycleListView_paddingBottomNoButtons;
+
+        $i0 = virtualinvoke $r4.getDimensionPixelOffset($i0, -1);
+
+        r0.mPaddingBottomNoButtons = $i0;
+
+        $i0 = androidx.appcompat.R$styleable.RecycleListView_paddingTopNoTitle;
+
+        $i0 = virtualinvoke $r4.getDimensionPixelOffset($i0, -1);
+
+        r0.mPaddingTopNoTitle = $i0;
+
+        return;
+    }
+
+    public void setHasDecor(boolean, boolean)
+    {
+        int $i0, $i1, $i2, $i3;
+        androidx.appcompat.app.AlertController$RecycleListView r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 := @parameter1;
+
+        if $z1 == 0 goto label1;
+
+        if $z0 != 0 goto label6;
+
+     label1:
+        $i0 = virtualinvoke r0.getPaddingLeft();
+
+        if $z0 == 0 goto label2;
+
+        $i1 = virtualinvoke r0.getPaddingTop();
+
+        goto label3;
+
+     label2:
+        $i1 = r0.mPaddingTopNoTitle;
+
+     label3:
+        $i2 = virtualinvoke r0.getPaddingRight();
+
+        if $z1 == 0 goto label4;
+
+        $i3 = virtualinvoke r0.getPaddingBottom();
+
+        goto label5;
+
+     label4:
+        $i3 = r0.mPaddingBottomNoButtons;
+
+     label5:
+        virtualinvoke r0.setPadding($i0, $i1, $i2, $i3);
+
+     label6:
+        return;
+    }
+}

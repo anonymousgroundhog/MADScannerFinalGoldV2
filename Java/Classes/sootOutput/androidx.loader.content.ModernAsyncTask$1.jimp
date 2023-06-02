@@ -1,0 +1,57 @@
+final class androidx.loader.content.ModernAsyncTask$1 extends java.lang.Object implements java.util.concurrent.ThreadFactory
+{
+    private final java.util.concurrent.atomic.AtomicInteger mCount;
+
+    void <init>()
+    {
+        androidx.loader.content.ModernAsyncTask$1 r0;
+        java.util.concurrent.atomic.AtomicInteger $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r1.<init>(1);
+
+        r0.mCount = $r1;
+
+        return;
+    }
+
+    public java.lang.Thread newThread(java.lang.Runnable)
+    {
+        java.util.concurrent.atomic.AtomicInteger $r4;
+        java.lang.Thread $r2;
+        int $i0;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r5;
+        androidx.loader.content.ModernAsyncTask$1 r0;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new java.lang.Thread;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        $r3 = virtualinvoke $r3.append("ModernAsyncTask #");
+
+        $r4 = r0.mCount;
+
+        $i0 = virtualinvoke $r4.getAndIncrement();
+
+        $r3 = virtualinvoke $r3.append($i0);
+
+        $r5 = virtualinvoke $r3.toString();
+
+        specialinvoke $r2.<init>($r1, $r5);
+
+        return $r2;
+    }
+}

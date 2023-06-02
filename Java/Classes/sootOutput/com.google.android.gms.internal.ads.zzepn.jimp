@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzepn extends java.lang.Object
+{
+
+    public abstract int zza();
+
+    public abstract com.google.android.gms.internal.ads.zzfut zzb();
+}

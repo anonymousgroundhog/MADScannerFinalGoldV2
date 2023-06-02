@@ -1,0 +1,179 @@
+final class com.google.android.gms.internal.ads.zznp extends java.lang.Object
+{
+    private static final android.media.AudioAttributes zza;
+
+    static void <clinit>()
+    {
+        android.media.AudioAttributes$Builder $r0;
+        android.media.AudioAttributes $r1;
+
+        $r0 = new android.media.AudioAttributes$Builder;
+
+        specialinvoke $r0.<init>();
+
+        $r0 = virtualinvoke $r0.setUsage(1);
+
+        $r0 = virtualinvoke $r0.setContentType(3);
+
+        $r0 = virtualinvoke $r0.setFlags(0);
+
+        $r1 = virtualinvoke $r0.build();
+
+        com.google.android.gms.internal.ads.zznp.zza = $r1;
+
+        return;
+    }
+
+    public static int zza(int, int)
+    {
+        android.media.AudioFormat $r1;
+        int $i0, $i1, $i2, $i3;
+        android.media.AudioFormat$Builder $r0, $r3;
+        android.media.AudioAttributes $r2;
+        boolean $z0;
+
+        $i1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i2 = 8;
+
+     label1:
+        if $i2 <= 0 goto label3;
+
+        $r3 = new android.media.AudioFormat$Builder;
+
+        specialinvoke $r3.<init>();
+
+        $r0 = virtualinvoke $r3.setEncoding($i1);
+
+        $r0 = virtualinvoke $r0.setSampleRate($i0);
+
+        $i3 = com.google.android.gms.internal.ads.zzew.zzj($i2);
+
+        $r0 = virtualinvoke $r0.setChannelMask($i3);
+
+        $r1 = virtualinvoke $r0.build();
+
+        $r2 = com.google.android.gms.internal.ads.zznp.zza;
+
+        $z0 = android.media.AudioTrack.isDirectPlaybackSupported($r1, $r2);
+
+        if $z0 == 0 goto label2;
+
+        return $i2;
+
+     label2:
+        $i2 = $i2 + -1;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    public static int[] zzb()
+    {
+        com.google.android.gms.internal.ads.zzfqk $r9;
+        java.lang.Object[] $r10;
+        com.google.android.gms.internal.ads.zzfqp $r2;
+        com.google.android.gms.internal.ads.zzfqn $r1;
+        android.media.AudioFormat $r7;
+        com.google.android.gms.internal.ads.zzfqh $r0;
+        com.google.android.gms.internal.ads.zzfsj $r3;
+        java.lang.Integer $r5;
+        java.lang.NullPointerException $r14;
+        int[] $r11;
+        int $i0, $i1, $i2;
+        android.media.AudioFormat$Builder $r6, $r13;
+        android.media.AudioAttributes $r8;
+        java.lang.Number $r12;
+        boolean $z0;
+        java.lang.Object $r4;
+
+        $r0 = com.google.android.gms.internal.ads.zzfqk.zzi();
+
+        $r1 = com.google.android.gms.internal.ads.zznq.zzb();
+
+        $r2 = virtualinvoke $r1.zzh();
+
+        $r3 = virtualinvoke $r2.zze();
+
+     label1:
+        $z0 = interfaceinvoke $r3.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r3.next();
+
+        $r5 = (java.lang.Integer) $r4;
+
+        $i0 = virtualinvoke $r5.intValue();
+
+        $r13 = new android.media.AudioFormat$Builder;
+
+        specialinvoke $r13.<init>();
+
+        $r6 = virtualinvoke $r13.setChannelMask(12);
+
+        $r6 = virtualinvoke $r6.setEncoding($i0);
+
+        $r6 = virtualinvoke $r6.setSampleRate(48000);
+
+        $r7 = virtualinvoke $r6.build();
+
+        $r8 = com.google.android.gms.internal.ads.zznp.zza;
+
+        $z0 = android.media.AudioTrack.isDirectPlaybackSupported($r7, $r8);
+
+        if $z0 == 0 goto label1;
+
+        $r5 = java.lang.Integer.valueOf($i0);
+
+        virtualinvoke $r0.zzf($r5);
+
+        goto label1;
+
+     label2:
+        $r5 = java.lang.Integer.valueOf(2);
+
+        virtualinvoke $r0.zzf($r5);
+
+        $r9 = virtualinvoke $r0.zzi();
+
+        $r10 = interfaceinvoke $r9.toArray();
+
+        $i0 = lengthof $r10;
+
+        $r11 = newarray (int)[$i0];
+
+        $i1 = 0;
+
+     label3:
+        if $i1 >= $i0 goto label5;
+
+        $r4 = $r10[$i1];
+
+        if $r4 == null goto label4;
+
+        $r12 = (java.lang.Number) $r4;
+
+        $i2 = virtualinvoke $r12.intValue();
+
+        $r11[$i1] = $i2;
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label4:
+        $r14 = new java.lang.NullPointerException;
+
+        specialinvoke $r14.<init>("Null throw statement replaced by Soot");
+
+        throw $r14;
+
+     label5:
+        return $r11;
+    }
+}

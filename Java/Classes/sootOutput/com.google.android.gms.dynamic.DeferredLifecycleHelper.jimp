@@ -1,0 +1,544 @@
+public abstract class com.google.android.gms.dynamic.DeferredLifecycleHelper extends java.lang.Object
+{
+    private com.google.android.gms.dynamic.LifecycleDelegate zaa;
+    private android.os.Bundle zab;
+    private java.util.LinkedList zac;
+    private final com.google.android.gms.dynamic.OnDelegateCreatedListener zad;
+
+    public void <init>()
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        com.google.android.gms.dynamic.zaa $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.dynamic.zaa;
+
+        specialinvoke $r1.<init>(r0);
+
+        r0.zad = $r1;
+
+        return;
+    }
+
+    public static void showGooglePlayUnavailableMessage(android.widget.FrameLayout)
+    {
+        android.content.Context $r3, $r6;
+        android.widget.LinearLayout $r10;
+        android.widget.FrameLayout $r1;
+        android.content.Intent $r8;
+        android.widget.TextView $r12;
+        com.google.android.gms.dynamic.zae $r14;
+        int $i0;
+        android.widget.Button $r13;
+        java.lang.String $r4, $r5;
+        android.widget.FrameLayout$LayoutParams $r11;
+        com.google.android.gms.common.GoogleApiAvailability $r2;
+
+        $r1 := @parameter0;
+
+        $r2 = com.google.android.gms.common.GoogleApiAvailability.getInstance();
+
+        $r3 = virtualinvoke $r1.getContext();
+
+        $i0 = virtualinvoke $r2.isGooglePlayServicesAvailable($r3);
+
+        $r4 = com.google.android.gms.common.internal.zac.zad($r3, $i0);
+
+        $r5 = com.google.android.gms.common.internal.zac.zac($r3, $i0);
+
+        $r10 = new android.widget.LinearLayout;
+
+        $r6 = virtualinvoke $r1.getContext();
+
+        specialinvoke $r10.<init>($r6);
+
+        virtualinvoke $r10.setOrientation(1);
+
+        $r11 = new android.widget.FrameLayout$LayoutParams;
+
+        specialinvoke $r11.<init>(-2, -2);
+
+        virtualinvoke $r10.setLayoutParams($r11);
+
+        virtualinvoke $r1.addView($r10);
+
+        $r12 = new android.widget.TextView;
+
+        $r6 = virtualinvoke $r1.getContext();
+
+        specialinvoke $r12.<init>($r6);
+
+        $r11 = new android.widget.FrameLayout$LayoutParams;
+
+        specialinvoke $r11.<init>(-2, -2);
+
+        virtualinvoke $r12.setLayoutParams($r11);
+
+        virtualinvoke $r12.setText($r4);
+
+        virtualinvoke $r10.addView($r12);
+
+        $r8 = virtualinvoke $r2.getErrorResolutionIntent($r3, $i0, null);
+
+        if $r8 == null goto label1;
+
+        $r13 = new android.widget.Button;
+
+        specialinvoke $r13.<init>($r3);
+
+        virtualinvoke $r13.setId(16908313);
+
+        $r11 = new android.widget.FrameLayout$LayoutParams;
+
+        specialinvoke $r11.<init>(-2, -2);
+
+        virtualinvoke $r13.setLayoutParams($r11);
+
+        virtualinvoke $r13.setText($r5);
+
+        virtualinvoke $r10.addView($r13);
+
+        $r14 = new com.google.android.gms.dynamic.zae;
+
+        specialinvoke $r14.<init>($r3, $r8);
+
+        virtualinvoke $r13.setOnClickListener($r14);
+
+     label1:
+        return;
+    }
+
+    static volatile com.google.android.gms.dynamic.LifecycleDelegate zaa(com.google.android.gms.dynamic.DeferredLifecycleHelper)
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zaa;
+
+        return r1;
+    }
+
+    static volatile java.util.LinkedList zab(com.google.android.gms.dynamic.DeferredLifecycleHelper)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r0;
+        java.util.LinkedList r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zac;
+
+        return r1;
+    }
+
+    static volatile void zac(com.google.android.gms.dynamic.DeferredLifecycleHelper, com.google.android.gms.dynamic.LifecycleDelegate)
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r0.zaa = $r1;
+
+        return;
+    }
+
+    static volatile void zad(com.google.android.gms.dynamic.DeferredLifecycleHelper, android.os.Bundle)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper $r0;
+        android.os.Bundle $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r0.zab = null;
+
+        return;
+    }
+
+    private final void zae(int)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        int $i0, $i1;
+        java.lang.Object $r2;
+        com.google.android.gms.dynamic.zah $r3;
+        java.util.LinkedList $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+     label1:
+        $r1 = r0.zac;
+
+        $z0 = virtualinvoke $r1.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = r0.zac;
+
+        $r2 = virtualinvoke $r1.getLast();
+
+        $r3 = (com.google.android.gms.dynamic.zah) $r2;
+
+        $i1 = interfaceinvoke $r3.zaa();
+
+        if $i1 < $i0 goto label2;
+
+        $r1 = r0.zac;
+
+        virtualinvoke $r1.removeLast();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private final void zaf(android.os.Bundle, com.google.android.gms.dynamic.zah)
+    {
+        com.google.android.gms.dynamic.OnDelegateCreatedListener $r7;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        android.os.Bundle $r2, $r6;
+        com.google.android.gms.dynamic.LifecycleDelegate $r4;
+        java.lang.Object $r1;
+        com.google.android.gms.dynamic.zah $r3;
+        java.util.LinkedList $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 = r0.zaa;
+
+        if $r4 == null goto label1;
+
+        interfaceinvoke $r3.zab($r4);
+
+        return;
+
+     label1:
+        $r5 = r0.zac;
+
+        if $r5 != null goto label2;
+
+        $r5 = new java.util.LinkedList;
+
+        specialinvoke $r5.<init>();
+
+        r0.zac = $r5;
+
+     label2:
+        $r5 = r0.zac;
+
+        virtualinvoke $r5.add($r3);
+
+        if $r2 == null goto label4;
+
+        $r6 = r0.zab;
+
+        if $r6 != null goto label3;
+
+        $r1 = virtualinvoke $r2.clone();
+
+        $r2 = (android.os.Bundle) $r1;
+
+        r0.zab = $r2;
+
+        goto label4;
+
+     label3:
+        virtualinvoke $r6.putAll($r2);
+
+     label4:
+        $r7 = r0.zad;
+
+        virtualinvoke r0.createDelegate($r7);
+
+        return;
+    }
+
+    protected abstract void createDelegate(com.google.android.gms.dynamic.OnDelegateCreatedListener);
+
+    public com.google.android.gms.dynamic.LifecycleDelegate getDelegate()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        r1 = r0.zaa;
+
+        return r1;
+    }
+
+    protected void handleGooglePlayUnavailable(android.widget.FrameLayout)
+    {
+        android.widget.FrameLayout $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        com.google.android.gms.dynamic.DeferredLifecycleHelper.showGooglePlayUnavailableMessage($r1);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.dynamic.zac $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new com.google.android.gms.dynamic.zac;
+
+        specialinvoke $r2.<init>(r0, $r1);
+
+        specialinvoke r0.zaf($r1, $r2);
+
+        return;
+    }
+
+    public android.view.View onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+    {
+        android.content.Context $r5;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        android.os.Bundle $r2;
+        android.view.LayoutInflater $r6;
+        android.widget.FrameLayout $r3;
+        android.view.ViewGroup $r1;
+        com.google.android.gms.dynamic.zad $r4;
+        com.google.android.gms.dynamic.LifecycleDelegate $r7;
+
+        r0 := @this;
+
+        $r6 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = new android.widget.FrameLayout;
+
+        $r5 = virtualinvoke $r6.getContext();
+
+        specialinvoke $r3.<init>($r5);
+
+        $r4 = new com.google.android.gms.dynamic.zad;
+
+        specialinvoke $r4.<init>(r0, $r3, $r6, $r1, $r2);
+
+        specialinvoke r0.zaf($r2, $r4);
+
+        $r7 = r0.zaa;
+
+        if $r7 != null goto label1;
+
+        virtualinvoke r0.handleGooglePlayUnavailable($r3);
+
+     label1:
+        return $r3;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onDestroy();
+
+        return;
+
+     label1:
+        specialinvoke r0.zae(1);
+
+        return;
+    }
+
+    public void onDestroyView()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onDestroyView();
+
+        return;
+
+     label1:
+        specialinvoke r0.zae(2);
+
+        return;
+    }
+
+    public void onInflate(android.app.Activity, android.os.Bundle, android.os.Bundle)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        android.os.Bundle $r2, $r3;
+        com.google.android.gms.dynamic.zab $r4;
+        android.app.Activity $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 = new com.google.android.gms.dynamic.zab;
+
+        specialinvoke $r4.<init>(r0, $r1, $r2, $r3);
+
+        specialinvoke r0.zaf($r3, $r4);
+
+        return;
+    }
+
+    public void onLowMemory()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onLowMemory();
+
+     label1:
+        return;
+    }
+
+    public void onPause()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onPause();
+
+        return;
+
+     label1:
+        specialinvoke r0.zae(5);
+
+        return;
+    }
+
+    public void onResume()
+    {
+        com.google.android.gms.dynamic.zag $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.dynamic.zag;
+
+        specialinvoke $r1.<init>(r0);
+
+        specialinvoke r0.zaf(null, $r1);
+
+        return;
+    }
+
+    public void onSaveInstanceState(android.os.Bundle)
+    {
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+        android.os.Bundle $r1, $r3;
+        com.google.android.gms.dynamic.LifecycleDelegate $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.onSaveInstanceState($r1);
+
+        return;
+
+     label1:
+        $r3 = r0.zab;
+
+        if $r3 == null goto label2;
+
+        virtualinvoke $r1.putAll($r3);
+
+     label2:
+        return;
+    }
+
+    public void onStart()
+    {
+        com.google.android.gms.dynamic.zaf $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.dynamic.zaf;
+
+        specialinvoke $r1.<init>(r0);
+
+        specialinvoke r0.zaf(null, $r1);
+
+        return;
+    }
+
+    public void onStop()
+    {
+        com.google.android.gms.dynamic.LifecycleDelegate $r1;
+        com.google.android.gms.dynamic.DeferredLifecycleHelper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onStop();
+
+        return;
+
+     label1:
+        specialinvoke r0.zae(4);
+
+        return;
+    }
+}

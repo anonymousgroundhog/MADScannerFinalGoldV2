@@ -1,0 +1,149 @@
+public final class com.google.android.gms.internal.ads.zzbqp extends java.lang.Object
+{
+    private final com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomFormatAdLoadedListener zza;
+    private final com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener zzb;
+    private com.google.android.gms.ads.nativead.NativeCustomFormatAd zzc;
+
+    public void <init>(com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomFormatAdLoadedListener, com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener)
+    {
+        com.google.android.gms.internal.ads.zzbqp r0;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomFormatAdLoadedListener $r1;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener zzc(com.google.android.gms.internal.ads.zzbqp)
+    {
+        com.google.android.gms.internal.ads.zzbqp $r0;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomFormatAdLoadedListener zzd(com.google.android.gms.internal.ads.zzbqp)
+    {
+        com.google.android.gms.internal.ads.zzbqp $r0;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomFormatAdLoadedListener r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.ads.nativead.NativeCustomFormatAd zze(com.google.android.gms.internal.ads.zzbqp, com.google.android.gms.internal.ads.zzber)
+    {
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd $r1;
+        com.google.android.gms.internal.ads.zzbqp $r2;
+        com.google.android.gms.internal.ads.zzber $r0;
+
+        $r2 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 = specialinvoke $r2.zzf($r0);
+
+        return $r1;
+    }
+
+    private final com.google.android.gms.ads.nativead.NativeCustomFormatAd zzf(com.google.android.gms.internal.ads.zzber)
+    {
+        com.google.android.gms.internal.ads.zzbqq $r3;
+        java.lang.Throwable $r4;
+        com.google.android.gms.internal.ads.zzbqp r0;
+        com.google.android.gms.internal.ads.zzber $r1;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        $r2 = r0.zzc;
+
+     label2:
+        if $r2 == null goto label3;
+
+        exitmonitor r0;
+
+        return $r2;
+
+     label3:
+        $r3 = new com.google.android.gms.internal.ads.zzbqq;
+
+        specialinvoke $r3.<init>($r1);
+
+        r0.zzc = $r3;
+
+     label4:
+        exitmonitor r0;
+
+        return $r3;
+
+     label5:
+        $r4 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbfb zza()
+    {
+        com.google.android.gms.internal.ads.zzbqp r0;
+        com.google.android.gms.ads.nativead.NativeCustomFormatAd$OnCustomClickListener $r1;
+        com.google.android.gms.internal.ads.zzbqm $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = new com.google.android.gms.internal.ads.zzbqm;
+
+        specialinvoke $r2.<init>(r0, null);
+
+        return $r2;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbfe zzb()
+    {
+        com.google.android.gms.internal.ads.zzbqp r0;
+        com.google.android.gms.internal.ads.zzbqo $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzbqo;
+
+        specialinvoke $r1.<init>(r0, null);
+
+        return $r1;
+    }
+}

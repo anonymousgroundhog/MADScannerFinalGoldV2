@@ -1,0 +1,583 @@
+public final class com.google.android.gms.tasks.Tasks extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        com.google.android.gms.tasks.Tasks r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static java.lang.Object await(com.google.android.gms.tasks.Task) throws java.util.concurrent.ExecutionException, java.lang.InterruptedException
+    {
+        java.lang.Object $r1;
+        com.google.android.gms.tasks.Task $r0;
+        com.google.android.gms.tasks.zzad $r2;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotMainThread();
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r0, "Task must not be null");
+
+        $z0 = virtualinvoke $r0.isComplete();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = com.google.android.gms.tasks.Tasks.zza($r0);
+
+        return $r1;
+
+     label1:
+        $r2 = new com.google.android.gms.tasks.zzad;
+
+        specialinvoke $r2.<init>(null);
+
+        com.google.android.gms.tasks.Tasks.zzb($r0, $r2);
+
+        virtualinvoke $r2.zza();
+
+        $r1 = com.google.android.gms.tasks.Tasks.zza($r0);
+
+        return $r1;
+    }
+
+    public static java.lang.Object await(com.google.android.gms.tasks.Task, long, java.util.concurrent.TimeUnit) throws java.util.concurrent.ExecutionException, java.lang.InterruptedException, java.util.concurrent.TimeoutException
+    {
+        java.util.concurrent.TimeUnit $r0;
+        java.util.concurrent.TimeoutException $r4;
+        long $l0;
+        java.lang.Object $r2;
+        com.google.android.gms.tasks.Task $r1;
+        com.google.android.gms.tasks.zzad $r3;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $r0 := @parameter2;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotMainThread();
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Task must not be null");
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r0, "TimeUnit must not be null");
+
+        $z0 = virtualinvoke $r1.isComplete();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = com.google.android.gms.tasks.Tasks.zza($r1);
+
+        return $r2;
+
+     label1:
+        $r3 = new com.google.android.gms.tasks.zzad;
+
+        specialinvoke $r3.<init>(null);
+
+        com.google.android.gms.tasks.Tasks.zzb($r1, $r3);
+
+        $z0 = virtualinvoke $r3.zzb($l0, $r0);
+
+        if $z0 == 0 goto label2;
+
+        $r2 = com.google.android.gms.tasks.Tasks.zza($r1);
+
+        return $r2;
+
+     label2:
+        $r4 = new java.util.concurrent.TimeoutException;
+
+        specialinvoke $r4.<init>("Timed out waiting for Task");
+
+        throw $r4;
+    }
+
+    public static com.google.android.gms.tasks.Task call(java.util.concurrent.Callable)
+    {
+        java.util.concurrent.Callable $r2;
+        java.util.concurrent.Executor $r0;
+        com.google.android.gms.tasks.Task $r1;
+
+        $r2 := @parameter0;
+
+        $r0 = com.google.android.gms.tasks.TaskExecutors.MAIN_THREAD;
+
+        $r1 = com.google.android.gms.tasks.Tasks.call($r0, $r2);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.tasks.Task call(java.util.concurrent.Executor, java.util.concurrent.Callable)
+    {
+        com.google.android.gms.tasks.zzw $r3;
+        java.util.concurrent.Executor $r0;
+        java.util.concurrent.Callable $r1;
+        com.google.android.gms.tasks.zzz $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r0, "Executor must not be null");
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Callback must not be null");
+
+        $r3 = new com.google.android.gms.tasks.zzw;
+
+        specialinvoke $r3.<init>();
+
+        $r2 = new com.google.android.gms.tasks.zzz;
+
+        specialinvoke $r2.<init>($r3, $r1);
+
+        interfaceinvoke $r0.execute($r2);
+
+        return $r3;
+    }
+
+    public static com.google.android.gms.tasks.Task forCanceled()
+    {
+        com.google.android.gms.tasks.zzw $r0;
+
+        $r0 = new com.google.android.gms.tasks.zzw;
+
+        specialinvoke $r0.<init>();
+
+        virtualinvoke $r0.zzc();
+
+        return $r0;
+    }
+
+    public static com.google.android.gms.tasks.Task forException(java.lang.Exception)
+    {
+        com.google.android.gms.tasks.zzw $r1;
+        java.lang.Exception $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new com.google.android.gms.tasks.zzw;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.zza($r0);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.tasks.Task forResult(java.lang.Object)
+    {
+        com.google.android.gms.tasks.zzw $r1;
+        java.lang.Object $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new com.google.android.gms.tasks.zzw;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.zzb($r0);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.tasks.Task whenAll(java.util.Collection)
+    {
+        java.util.Iterator $r1;
+        java.util.Collection $r0;
+        com.google.android.gms.tasks.Task $r3;
+        java.lang.NullPointerException $r4;
+        com.google.android.gms.tasks.zzw $r5;
+        com.google.android.gms.tasks.zzaf $r6;
+        int $i0;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label7;
+
+        $z0 = interfaceinvoke $r0.isEmpty();
+
+        if $z0 == 0 goto label1;
+
+        goto label7;
+
+     label1:
+        $r1 = interfaceinvoke $r0.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r1.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r2 = interfaceinvoke $r1.next();
+
+        $r3 = (com.google.android.gms.tasks.Task) $r2;
+
+        if $r3 == null goto label3;
+
+        goto label2;
+
+     label3:
+        $r4 = new java.lang.NullPointerException;
+
+        specialinvoke $r4.<init>("null tasks are not accepted");
+
+        throw $r4;
+
+     label4:
+        $r5 = new com.google.android.gms.tasks.zzw;
+
+        specialinvoke $r5.<init>();
+
+        $r6 = new com.google.android.gms.tasks.zzaf;
+
+        $i0 = interfaceinvoke $r0.size();
+
+        specialinvoke $r6.<init>($i0, $r5);
+
+        $r1 = interfaceinvoke $r0.iterator();
+
+     label5:
+        $z0 = interfaceinvoke $r1.hasNext();
+
+        if $z0 == 0 goto label6;
+
+        $r2 = interfaceinvoke $r1.next();
+
+        $r3 = (com.google.android.gms.tasks.Task) $r2;
+
+        com.google.android.gms.tasks.Tasks.zzb($r3, $r6);
+
+        goto label5;
+
+     label6:
+        return $r5;
+
+     label7:
+        $r3 = com.google.android.gms.tasks.Tasks.forResult(null);
+
+        return $r3;
+    }
+
+    public static transient com.google.android.gms.tasks.Task whenAll(com.google.android.gms.tasks.Task[])
+    {
+        java.util.List $r1;
+        int $i0;
+        com.google.android.gms.tasks.Task $r2;
+        com.google.android.gms.tasks.Task[] $r0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label2;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = java.util.Arrays.asList($r0);
+
+        $r2 = com.google.android.gms.tasks.Tasks.whenAll($r1);
+
+        return $r2;
+
+     label2:
+        $r2 = com.google.android.gms.tasks.Tasks.forResult(null);
+
+        return $r2;
+    }
+
+    public static com.google.android.gms.tasks.Task whenAllComplete(java.util.Collection)
+    {
+        java.util.List $r4;
+        java.util.concurrent.Executor $r3;
+        java.util.Collection $r1;
+        com.google.android.gms.tasks.zzab $r0;
+        com.google.android.gms.tasks.Task $r2;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label2;
+
+        $z0 = interfaceinvoke $r1.isEmpty();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r2 = com.google.android.gms.tasks.Tasks.whenAll($r1);
+
+        $r0 = new com.google.android.gms.tasks.zzab;
+
+        specialinvoke $r0.<init>($r1);
+
+        $r3 = com.google.android.gms.tasks.TaskExecutors.MAIN_THREAD;
+
+        $r2 = virtualinvoke $r2.continueWithTask($r3, $r0);
+
+        return $r2;
+
+     label2:
+        $r4 = java.util.Collections.emptyList();
+
+        $r2 = com.google.android.gms.tasks.Tasks.forResult($r4);
+
+        return $r2;
+    }
+
+    public static transient com.google.android.gms.tasks.Task whenAllComplete(com.google.android.gms.tasks.Task[])
+    {
+        java.util.List $r1;
+        int $i0;
+        com.google.android.gms.tasks.Task $r2;
+        com.google.android.gms.tasks.Task[] $r0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label2;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = java.util.Arrays.asList($r0);
+
+        $r2 = com.google.android.gms.tasks.Tasks.whenAllComplete($r1);
+
+        return $r2;
+
+     label2:
+        $r1 = java.util.Collections.emptyList();
+
+        $r2 = com.google.android.gms.tasks.Tasks.forResult($r1);
+
+        return $r2;
+    }
+
+    public static com.google.android.gms.tasks.Task whenAllSuccess(java.util.Collection)
+    {
+        java.util.List $r4;
+        java.util.concurrent.Executor $r3;
+        java.util.Collection $r1;
+        com.google.android.gms.tasks.zzaa $r0;
+        com.google.android.gms.tasks.Task $r2;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label2;
+
+        $z0 = interfaceinvoke $r1.isEmpty();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r2 = com.google.android.gms.tasks.Tasks.whenAll($r1);
+
+        $r0 = new com.google.android.gms.tasks.zzaa;
+
+        specialinvoke $r0.<init>($r1);
+
+        $r3 = com.google.android.gms.tasks.TaskExecutors.MAIN_THREAD;
+
+        $r2 = virtualinvoke $r2.continueWith($r3, $r0);
+
+        return $r2;
+
+     label2:
+        $r4 = java.util.Collections.emptyList();
+
+        $r2 = com.google.android.gms.tasks.Tasks.forResult($r4);
+
+        return $r2;
+    }
+
+    public static transient com.google.android.gms.tasks.Task whenAllSuccess(com.google.android.gms.tasks.Task[])
+    {
+        java.util.List $r1;
+        int $i0;
+        com.google.android.gms.tasks.Task $r2;
+        com.google.android.gms.tasks.Task[] $r0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label2;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = java.util.Arrays.asList($r0);
+
+        $r2 = com.google.android.gms.tasks.Tasks.whenAllSuccess($r1);
+
+        return $r2;
+
+     label2:
+        $r1 = java.util.Collections.emptyList();
+
+        $r2 = com.google.android.gms.tasks.Tasks.forResult($r1);
+
+        return $r2;
+    }
+
+    public static com.google.android.gms.tasks.Task withTimeout(com.google.android.gms.tasks.Task, long, java.util.concurrent.TimeUnit)
+    {
+        com.google.android.gms.tasks.zzb $r6;
+        com.google.android.gms.internal.tasks.zza $r8;
+        long $l0;
+        com.google.android.gms.tasks.Task $r1;
+        com.google.android.gms.tasks.zzx $r10;
+        com.google.android.gms.tasks.zzy $r9;
+        java.util.concurrent.TimeUnit $r0;
+        byte $b1;
+        android.os.Looper $r5;
+        int $i2;
+        com.google.android.gms.tasks.TaskCompletionSource $r7;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $r0 := @parameter2;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Task must not be null");
+
+        $b1 = $l0 cmp 0L;
+
+        $i2 = (int) $b1;
+
+        if $i2 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        com.google.android.gms.common.internal.Preconditions.checkArgument($z0, "Timeout must be positive");
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r0, "TimeUnit must not be null");
+
+        $r6 = new com.google.android.gms.tasks.zzb;
+
+        specialinvoke $r6.<init>();
+
+        $r7 = new com.google.android.gms.tasks.TaskCompletionSource;
+
+        specialinvoke $r7.<init>($r6);
+
+        $r8 = new com.google.android.gms.internal.tasks.zza;
+
+        $r5 = android.os.Looper.getMainLooper();
+
+        specialinvoke $r8.<init>($r5);
+
+        $r9 = new com.google.android.gms.tasks.zzy;
+
+        specialinvoke $r9.<init>($r7);
+
+        $l0 = virtualinvoke $r0.toMillis($l0);
+
+        virtualinvoke $r8.postDelayed($r9, $l0);
+
+        $r10 = new com.google.android.gms.tasks.zzx;
+
+        specialinvoke $r10.<init>($r8, $r7, $r6);
+
+        virtualinvoke $r1.addOnCompleteListener($r10);
+
+        $r1 = virtualinvoke $r7.getTask();
+
+        return $r1;
+    }
+
+    private static java.lang.Object zza(com.google.android.gms.tasks.Task) throws java.util.concurrent.ExecutionException
+    {
+        java.util.concurrent.ExecutionException $r3;
+        java.util.concurrent.CancellationException $r2;
+        java.lang.Object $r1;
+        com.google.android.gms.tasks.Task $r0;
+        java.lang.Exception $r4;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = virtualinvoke $r0.isSuccessful();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r0.getResult();
+
+        return $r1;
+
+     label1:
+        $z0 = virtualinvoke $r0.isCanceled();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = new java.util.concurrent.CancellationException;
+
+        specialinvoke $r2.<init>("Task is already canceled");
+
+        throw $r2;
+
+     label2:
+        $r3 = new java.util.concurrent.ExecutionException;
+
+        $r4 = virtualinvoke $r0.getException();
+
+        specialinvoke $r3.<init>($r4);
+
+        throw $r3;
+    }
+
+    private static void zzb(com.google.android.gms.tasks.Task, com.google.android.gms.tasks.zzae)
+    {
+        com.google.android.gms.tasks.zzae $r1;
+        java.util.concurrent.Executor $r2;
+        com.google.android.gms.tasks.Task $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = com.google.android.gms.tasks.TaskExecutors.zza;
+
+        virtualinvoke $r0.addOnSuccessListener($r2, $r1);
+
+        $r2 = com.google.android.gms.tasks.TaskExecutors.zza;
+
+        virtualinvoke $r0.addOnFailureListener($r2, $r1);
+
+        $r2 = com.google.android.gms.tasks.TaskExecutors.zza;
+
+        virtualinvoke $r0.addOnCanceledListener($r2, $r1);
+
+        return;
+    }
+}

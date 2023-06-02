@@ -1,0 +1,31 @@
+public final class com.google.android.gms.internal.ads.zzbbb extends java.lang.Object
+{
+
+    public static transient boolean zza(com.google.android.gms.internal.ads.zzbbj, com.google.android.gms.internal.ads.zzbbg, java.lang.String[])
+    {
+        com.google.android.gms.common.util.Clock $r3;
+        com.google.android.gms.internal.ads.zzbbj $r2;
+        java.lang.String[] $r1;
+        long $l0;
+        com.google.android.gms.internal.ads.zzbbg $r0;
+
+        $r2 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r3 = com.google.android.gms.ads.internal.zzt.zzB();
+
+        $l0 = interfaceinvoke $r3.elapsedRealtime();
+
+        virtualinvoke $r2.zze($r0, $l0, $r1);
+
+        return 1;
+    }
+}

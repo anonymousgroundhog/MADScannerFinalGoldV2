@@ -1,0 +1,761 @@
+public final class androidx.work.impl.WorkDatabase_Impl extends androidx.work.impl.WorkDatabase
+{
+    private volatile androidx.work.impl.model.DependencyDao _dependencyDao;
+    private volatile androidx.work.impl.model.PreferenceDao _preferenceDao;
+    private volatile androidx.work.impl.model.RawWorkInfoDao _rawWorkInfoDao;
+    private volatile androidx.work.impl.model.SystemIdInfoDao _systemIdInfoDao;
+    private volatile androidx.work.impl.model.WorkNameDao _workNameDao;
+    private volatile androidx.work.impl.model.WorkProgressDao _workProgressDao;
+    private volatile androidx.work.impl.model.WorkSpecDao _workSpecDao;
+    private volatile androidx.work.impl.model.WorkTagDao _workTagDao;
+
+    public void <init>()
+    {
+        androidx.work.impl.WorkDatabase_Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static java.util.List access$000(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$100(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$1000(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$200(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$300(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$400(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$500(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static androidx.sqlite.db.SupportSQLiteDatabase access$602(androidx.work.impl.WorkDatabase_Impl, androidx.sqlite.db.SupportSQLiteDatabase)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        androidx.sqlite.db.SupportSQLiteDatabase $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r0.mDatabase = $r1;
+
+        return $r1;
+    }
+
+    static void access$700(androidx.work.impl.WorkDatabase_Impl, androidx.sqlite.db.SupportSQLiteDatabase)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        androidx.sqlite.db.SupportSQLiteDatabase $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        virtualinvoke $r0.internalInitInvalidationTracker($r1);
+
+        return;
+    }
+
+    static java.util.List access$800(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    static java.util.List access$900(androidx.work.impl.WorkDatabase_Impl)
+    {
+        androidx.work.impl.WorkDatabase_Impl $r0;
+        java.util.List r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mCallbacks;
+
+        return r1;
+    }
+
+    public void clearAllTables()
+    {
+        java.lang.Throwable $r4;
+        androidx.sqlite.db.SupportSQLiteDatabase $r2;
+        androidx.sqlite.db.SupportSQLiteOpenHelper $r1;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        int i0;
+        boolean z0;
+        android.database.Cursor $r3;
+
+        r0 := @this;
+
+        specialinvoke r0.assertNotMainThread();
+
+        $r1 = specialinvoke r0.getOpenHelper();
+
+        $r2 = interfaceinvoke $r1.getWritableDatabase();
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label01;
+
+        z0 = 1;
+
+        goto label02;
+
+     label01:
+        z0 = 0;
+
+     label02:
+        if z0 != 0 goto label04;
+
+     label03:
+        interfaceinvoke $r2.execSQL("PRAGMA foreign_keys = FALSE");
+
+     label04:
+        specialinvoke r0.beginTransaction();
+
+     label05:
+        if z0 == 0 goto label07;
+
+     label06:
+        interfaceinvoke $r2.execSQL("PRAGMA defer_foreign_keys = TRUE");
+
+     label07:
+        interfaceinvoke $r2.execSQL("DELETE FROM `Dependency`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `WorkSpec`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `WorkTag`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `SystemIdInfo`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `WorkName`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `WorkProgress`");
+
+        interfaceinvoke $r2.execSQL("DELETE FROM `Preference`");
+
+        specialinvoke r0.setTransactionSuccessful();
+
+     label08:
+        specialinvoke r0.endTransaction();
+
+        if z0 != 0 goto label09;
+
+        interfaceinvoke $r2.execSQL("PRAGMA foreign_keys = TRUE");
+
+     label09:
+        $r3 = interfaceinvoke $r2.query("PRAGMA wal_checkpoint(FULL)");
+
+        interfaceinvoke $r3.close();
+
+        z0 = interfaceinvoke $r2.inTransaction();
+
+        if z0 != 0 goto label13;
+
+        interfaceinvoke $r2.execSQL("VACUUM");
+
+        return;
+
+     label10:
+        $r4 := @caughtexception;
+
+        specialinvoke r0.endTransaction();
+
+        if z0 != 0 goto label11;
+
+        interfaceinvoke $r2.execSQL("PRAGMA foreign_keys = TRUE");
+
+     label11:
+        $r3 = interfaceinvoke $r2.query("PRAGMA wal_checkpoint(FULL)");
+
+        interfaceinvoke $r3.close();
+
+        z0 = interfaceinvoke $r2.inTransaction();
+
+        if z0 != 0 goto label12;
+
+        interfaceinvoke $r2.execSQL("VACUUM");
+
+     label12:
+        throw $r4;
+
+     label13:
+        return;
+
+        catch java.lang.Throwable from label03 to label05 with label10;
+        catch java.lang.Throwable from label06 to label08 with label10;
+    }
+
+    protected androidx.room.InvalidationTracker createInvalidationTracker()
+    {
+        androidx.room.InvalidationTracker $r4;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        java.util.HashMap r1, $r3;
+        java.lang.String[] $r2;
+
+        r0 := @this;
+
+        r1 = new java.util.HashMap;
+
+        specialinvoke r1.<init>(0);
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<init>(0);
+
+        $r4 = new androidx.room.InvalidationTracker;
+
+        $r2 = newarray (java.lang.String)[7];
+
+        $r2[0] = "Dependency";
+
+        $r2[1] = "WorkSpec";
+
+        $r2[2] = "WorkTag";
+
+        $r2[3] = "SystemIdInfo";
+
+        $r2[4] = "WorkName";
+
+        $r2[5] = "WorkProgress";
+
+        $r2[6] = "Preference";
+
+        specialinvoke $r4.<init>(r0, r1, $r3, $r2);
+
+        return $r4;
+    }
+
+    protected androidx.sqlite.db.SupportSQLiteOpenHelper createOpenHelper(androidx.room.DatabaseConfiguration)
+    {
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Factory r8;
+        android.content.Context r4;
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration$Builder $r5;
+        androidx.room.RoomOpenHelper r2;
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration $r7;
+        androidx.sqlite.db.SupportSQLiteOpenHelper $r9;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.room.DatabaseConfiguration $r1;
+        androidx.work.impl.WorkDatabase_Impl$1 r3;
+        java.lang.String r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new androidx.room.RoomOpenHelper;
+
+        r3 = new androidx.work.impl.WorkDatabase_Impl$1;
+
+        specialinvoke r3.<init>(r0, 12);
+
+        specialinvoke r2.<init>($r1, r3, "c103703e120ae8cc73c9248622f3cd1e", "49f946663a8deb7054212b8adda248c6");
+
+        r4 = $r1.context;
+
+        $r5 = androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration.builder(r4);
+
+        r6 = $r1.name;
+
+        $r5 = virtualinvoke $r5.name(r6);
+
+        $r5 = virtualinvoke $r5.callback(r2);
+
+        $r7 = virtualinvoke $r5.build();
+
+        r8 = $r1.sqliteOpenHelperFactory;
+
+        $r9 = interfaceinvoke r8.create($r7);
+
+        return $r9;
+    }
+
+    public androidx.work.impl.model.DependencyDao dependencyDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.DependencyDao_Impl $r2;
+        androidx.work.impl.model.DependencyDao $r1;
+
+        r0 := @this;
+
+        $r1 = r0._dependencyDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._dependencyDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._dependencyDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.DependencyDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._dependencyDao = $r2;
+
+     label3:
+        $r1 = r0._dependencyDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.PreferenceDao preferenceDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.PreferenceDao $r1;
+        androidx.work.impl.model.PreferenceDao_Impl $r2;
+
+        r0 := @this;
+
+        $r1 = r0._preferenceDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._preferenceDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._preferenceDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.PreferenceDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._preferenceDao = $r2;
+
+     label3:
+        $r1 = r0._preferenceDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.RawWorkInfoDao rawWorkInfoDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.model.RawWorkInfoDao $r1;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.RawWorkInfoDao_Impl $r2;
+
+        r0 := @this;
+
+        $r1 = r0._rawWorkInfoDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._rawWorkInfoDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._rawWorkInfoDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.RawWorkInfoDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._rawWorkInfoDao = $r2;
+
+     label3:
+        $r1 = r0._rawWorkInfoDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.SystemIdInfoDao systemIdInfoDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.SystemIdInfoDao $r1;
+        androidx.work.impl.model.SystemIdInfoDao_Impl $r2;
+
+        r0 := @this;
+
+        $r1 = r0._systemIdInfoDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._systemIdInfoDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._systemIdInfoDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.SystemIdInfoDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._systemIdInfoDao = $r2;
+
+     label3:
+        $r1 = r0._systemIdInfoDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.WorkNameDao workNameDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.model.WorkNameDao_Impl $r2;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.WorkNameDao $r1;
+
+        r0 := @this;
+
+        $r1 = r0._workNameDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._workNameDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._workNameDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.WorkNameDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._workNameDao = $r2;
+
+     label3:
+        $r1 = r0._workNameDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.WorkProgressDao workProgressDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.model.WorkProgressDao $r1;
+        androidx.work.impl.model.WorkProgressDao_Impl $r2;
+        androidx.work.impl.WorkDatabase_Impl r0;
+
+        r0 := @this;
+
+        $r1 = r0._workProgressDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._workProgressDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._workProgressDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.WorkProgressDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._workProgressDao = $r2;
+
+     label3:
+        $r1 = r0._workProgressDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.WorkSpecDao workSpecDao()
+    {
+        java.lang.Throwable $r3;
+        androidx.work.impl.model.WorkSpecDao $r1;
+        androidx.work.impl.WorkDatabase_Impl r0;
+        androidx.work.impl.model.WorkSpecDao_Impl $r2;
+
+        r0 := @this;
+
+        $r1 = r0._workSpecDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._workSpecDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._workSpecDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.WorkSpecDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._workSpecDao = $r2;
+
+     label3:
+        $r1 = r0._workSpecDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public androidx.work.impl.model.WorkTagDao workTagDao()
+    {
+        androidx.work.impl.model.WorkTagDao $r1;
+        java.lang.Throwable $r3;
+        androidx.work.impl.model.WorkTagDao_Impl $r2;
+        androidx.work.impl.WorkDatabase_Impl r0;
+
+        r0 := @this;
+
+        $r1 = r0._workTagDao;
+
+        if $r1 == null goto label1;
+
+        $r1 = r0._workTagDao;
+
+        return $r1;
+
+     label1:
+        entermonitor r0;
+
+     label2:
+        $r1 = r0._workTagDao;
+
+        if $r1 != null goto label3;
+
+        $r2 = new androidx.work.impl.model.WorkTagDao_Impl;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0._workTagDao = $r2;
+
+     label3:
+        $r1 = r0._workTagDao;
+
+        exitmonitor r0;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+     label6:
+        throw $r3;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+}

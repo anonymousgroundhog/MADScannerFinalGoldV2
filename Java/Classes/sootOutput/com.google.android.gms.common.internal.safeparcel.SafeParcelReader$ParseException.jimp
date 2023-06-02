@@ -1,0 +1,48 @@
+public class com.google.android.gms.common.internal.safeparcel.SafeParcelReader$ParseException extends java.lang.RuntimeException
+{
+
+    public void <init>(java.lang.String, android.os.Parcel)
+    {
+        com.google.android.gms.common.internal.safeparcel.SafeParcelReader$ParseException r0;
+        android.os.Parcel $r3;
+        int $i0, $i1, $i2;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2, $r4;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $i0 = virtualinvoke $r3.dataPosition();
+
+        $i1 = virtualinvoke $r3.dataSize();
+
+        $r4 = java.lang.String.valueOf($r2);
+
+        $i2 = virtualinvoke $r4.length();
+
+        $r1 = new java.lang.StringBuilder;
+
+        $i2 = $i2 + 41;
+
+        specialinvoke $r1.<init>($i2);
+
+        virtualinvoke $r1.append($r2);
+
+        virtualinvoke $r1.append(" Parcel: pos=");
+
+        virtualinvoke $r1.append($i0);
+
+        virtualinvoke $r1.append(" size=");
+
+        virtualinvoke $r1.append($i1);
+
+        $r2 = virtualinvoke $r1.toString();
+
+        specialinvoke r0.<init>($r2);
+
+        return;
+    }
+}

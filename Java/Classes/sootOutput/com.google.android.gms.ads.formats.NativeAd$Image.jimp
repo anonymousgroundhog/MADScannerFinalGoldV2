@@ -1,0 +1,38 @@
+public abstract class com.google.android.gms.ads.formats.NativeAd$Image extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.formats.NativeAd$Image r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract android.graphics.drawable.Drawable getDrawable();
+
+    public abstract double getScale();
+
+    public abstract android.net.Uri getUri();
+
+    public int zza()
+    {
+        com.google.android.gms.ads.formats.NativeAd$Image r0;
+
+        r0 := @this;
+
+        return -1;
+    }
+
+    public int zzb()
+    {
+        com.google.android.gms.ads.formats.NativeAd$Image r0;
+
+        r0 := @this;
+
+        return -1;
+    }
+}

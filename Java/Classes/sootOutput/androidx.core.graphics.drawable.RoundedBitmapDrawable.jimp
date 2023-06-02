@@ -1,0 +1,939 @@
+public abstract class androidx.core.graphics.drawable.RoundedBitmapDrawable extends android.graphics.drawable.Drawable
+{
+    private static final int DEFAULT_PAINT_FLAGS;
+    private boolean mApplyGravity;
+    final android.graphics.Bitmap mBitmap;
+    private int mBitmapHeight;
+    private final android.graphics.BitmapShader mBitmapShader;
+    private int mBitmapWidth;
+    private float mCornerRadius;
+    final android.graphics.Rect mDstRect;
+    private final android.graphics.RectF mDstRectF;
+    private int mGravity;
+    private boolean mIsCircular;
+    private final android.graphics.Paint mPaint;
+    private final android.graphics.Matrix mShaderMatrix;
+    private int mTargetDensity;
+
+    void <init>(android.content.res.Resources, android.graphics.Bitmap)
+    {
+        android.graphics.RectF $r9;
+        android.graphics.Shader$TileMode $r3, $r5;
+        android.graphics.Rect $r8;
+        android.graphics.BitmapShader $r10;
+        android.util.DisplayMetrics $r4;
+        android.graphics.Bitmap $r2;
+        int $i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r6;
+        android.graphics.Matrix $r7;
+        android.content.res.Resources $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mTargetDensity = 160;
+
+        r0.mGravity = 119;
+
+        $r6 = new android.graphics.Paint;
+
+        specialinvoke $r6.<init>(3);
+
+        r0.mPaint = $r6;
+
+        $r7 = new android.graphics.Matrix;
+
+        specialinvoke $r7.<init>();
+
+        r0.mShaderMatrix = $r7;
+
+        $r8 = new android.graphics.Rect;
+
+        specialinvoke $r8.<init>();
+
+        r0.mDstRect = $r8;
+
+        $r9 = new android.graphics.RectF;
+
+        specialinvoke $r9.<init>();
+
+        r0.mDstRectF = $r9;
+
+        r0.mApplyGravity = 1;
+
+        if $r1 == null goto label1;
+
+        $r4 = virtualinvoke $r1.getDisplayMetrics();
+
+        $i0 = $r4.densityDpi;
+
+        r0.mTargetDensity = $i0;
+
+     label1:
+        r0.mBitmap = $r2;
+
+        if $r2 == null goto label2;
+
+        specialinvoke r0.computeBitmapSize();
+
+        $r10 = new android.graphics.BitmapShader;
+
+        $r5 = android.graphics.Shader$TileMode.CLAMP;
+
+        $r3 = android.graphics.Shader$TileMode.CLAMP;
+
+        specialinvoke $r10.<init>($r2, $r5, $r3);
+
+        r0.mBitmapShader = $r10;
+
+        return;
+
+     label2:
+        r0.mBitmapHeight = -1;
+
+        r0.mBitmapWidth = -1;
+
+        r0.mBitmapShader = null;
+
+        return;
+    }
+
+    private void computeBitmapSize()
+    {
+        int $i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Bitmap $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mBitmap;
+
+        $i0 = r0.mTargetDensity;
+
+        $i0 = virtualinvoke $r1.getScaledWidth($i0);
+
+        r0.mBitmapWidth = $i0;
+
+        $r1 = r0.mBitmap;
+
+        $i0 = r0.mTargetDensity;
+
+        $i0 = virtualinvoke $r1.getScaledHeight($i0);
+
+        r0.mBitmapHeight = $i0;
+
+        return;
+    }
+
+    private static boolean isGreaterThanZero(float)
+    {
+        int $i1;
+        float $f0;
+        byte $b0;
+
+        $f0 := @parameter0;
+
+        $b0 = $f0 cmpl 0.05F;
+
+        $i1 = (int) $b0;
+
+        if $i1 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private void updateCircularCornerRadius()
+    {
+        int $i0, $i1;
+        float $f0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        $i0 = r0.mBitmapHeight;
+
+        $i1 = r0.mBitmapWidth;
+
+        $i0 = java.lang.Math.min($i0, $i1);
+
+        $i0 = $i0 / 2;
+
+        $f0 = (float) $i0;
+
+        r0.mCornerRadius = $f0;
+
+        return;
+    }
+
+    public void draw(android.graphics.Canvas)
+    {
+        android.graphics.RectF $r6;
+        android.graphics.Rect $r5;
+        android.graphics.Bitmap r2;
+        android.graphics.Shader $r3;
+        float $f0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Canvas $r1;
+        android.graphics.Paint $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mBitmap;
+
+        if r2 != null goto label1;
+
+        return;
+
+     label1:
+        virtualinvoke r0.updateDstRect();
+
+        $r4 = r0.mPaint;
+
+        $r3 = virtualinvoke $r4.getShader();
+
+        if $r3 != null goto label2;
+
+        $r5 = r0.mDstRect;
+
+        $r4 = r0.mPaint;
+
+        virtualinvoke $r1.drawBitmap(r2, null, $r5, $r4);
+
+        return;
+
+     label2:
+        $r6 = r0.mDstRectF;
+
+        $f0 = r0.mCornerRadius;
+
+        $r4 = r0.mPaint;
+
+        virtualinvoke $r1.drawRoundRect($r6, $f0, $f0, $r4);
+
+        return;
+    }
+
+    public int getAlpha()
+    {
+        int $i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mPaint;
+
+        $i0 = virtualinvoke $r1.getAlpha();
+
+        return $i0;
+    }
+
+    public final android.graphics.Bitmap getBitmap()
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Bitmap r1;
+
+        r0 := @this;
+
+        r1 = r0.mBitmap;
+
+        return r1;
+    }
+
+    public android.graphics.ColorFilter getColorFilter()
+    {
+        android.graphics.ColorFilter $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mPaint;
+
+        $r1 = virtualinvoke $r2.getColorFilter();
+
+        return $r1;
+    }
+
+    public float getCornerRadius()
+    {
+        float f0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        f0 = r0.mCornerRadius;
+
+        return f0;
+    }
+
+    public int getGravity()
+    {
+        int i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        i0 = r0.mGravity;
+
+        return i0;
+    }
+
+    public int getIntrinsicHeight()
+    {
+        int i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        i0 = r0.mBitmapHeight;
+
+        return i0;
+    }
+
+    public int getIntrinsicWidth()
+    {
+        int i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        i0 = r0.mBitmapWidth;
+
+        return i0;
+    }
+
+    public int getOpacity()
+    {
+        android.graphics.Bitmap r1;
+        int i0;
+        float $f0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r2;
+        boolean z0;
+
+        r0 := @this;
+
+        i0 = r0.mGravity;
+
+        if i0 != 119 goto label4;
+
+        z0 = r0.mIsCircular;
+
+        if z0 == 0 goto label1;
+
+        i0 = -3;
+
+        return i0;
+
+     label1:
+        r1 = r0.mBitmap;
+
+        if r1 == null goto label3;
+
+        z0 = virtualinvoke r1.hasAlpha();
+
+        if z0 != 0 goto label3;
+
+        $r2 = r0.mPaint;
+
+        i0 = virtualinvoke $r2.getAlpha();
+
+        if i0 < 255 goto label3;
+
+        $f0 = r0.mCornerRadius;
+
+        z0 = androidx.core.graphics.drawable.RoundedBitmapDrawable.isGreaterThanZero($f0);
+
+        if z0 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        i0 = -1;
+
+        return i0;
+
+     label3:
+        i0 = -3;
+
+        return i0;
+
+     label4:
+        i0 = -3;
+
+        return i0;
+    }
+
+    public final android.graphics.Paint getPaint()
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint r1;
+
+        r0 := @this;
+
+        r1 = r0.mPaint;
+
+        return r1;
+    }
+
+    void gravityCompatApply(int, int, int, android.graphics.Rect, android.graphics.Rect)
+    {
+        android.graphics.Rect $r1, $r2;
+        java.lang.UnsupportedOperationException $r3;
+        int $i0, $i1, $i2;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $r1 := @parameter3;
+
+        $r2 := @parameter4;
+
+        $r3 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r3.<init>();
+
+        throw $r3;
+    }
+
+    public boolean hasAntiAlias()
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mPaint;
+
+        $z0 = virtualinvoke $r1.isAntiAlias();
+
+        return $z0;
+    }
+
+    public boolean hasMipMap()
+    {
+        java.lang.UnsupportedOperationException $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    public boolean isCircular()
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsCircular;
+
+        return z0;
+    }
+
+    protected void onBoundsChange(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.onBoundsChange($r1);
+
+        $z0 = r0.mIsCircular;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.updateCircularCornerRadius();
+
+     label1:
+        r0.mApplyGravity = 1;
+
+        return;
+    }
+
+    public void setAlpha(int)
+    {
+        int $i0, $i1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPaint;
+
+        $i1 = virtualinvoke $r1.getAlpha();
+
+        if $i0 == $i1 goto label1;
+
+        $r1 = r0.mPaint;
+
+        virtualinvoke $r1.setAlpha($i0);
+
+        virtualinvoke r0.invalidateSelf();
+
+     label1:
+        return;
+    }
+
+    public void setAntiAlias(boolean)
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mPaint;
+
+        virtualinvoke $r1.setAntiAlias($z0);
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public void setCircular(boolean)
+    {
+        android.graphics.BitmapShader $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mIsCircular = $z0;
+
+        r0.mApplyGravity = 1;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.updateCircularCornerRadius();
+
+        $r2 = r0.mPaint;
+
+        $r1 = r0.mBitmapShader;
+
+        virtualinvoke $r2.setShader($r1);
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+
+     label1:
+        virtualinvoke r0.setCornerRadius(0.0F);
+
+        return;
+    }
+
+    public void setColorFilter(android.graphics.ColorFilter)
+    {
+        android.graphics.ColorFilter $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mPaint;
+
+        virtualinvoke $r2.setColorFilter($r1);
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public void setCornerRadius(float)
+    {
+        android.graphics.BitmapShader $r2;
+        byte $b0;
+        float $f0, $f1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $f1 = r0.mCornerRadius;
+
+        $b0 = $f1 cmpl $f0;
+
+        if $b0 != 0 goto label1;
+
+        return;
+
+     label1:
+        r0.mIsCircular = 0;
+
+        $z0 = androidx.core.graphics.drawable.RoundedBitmapDrawable.isGreaterThanZero($f0);
+
+        if $z0 == 0 goto label2;
+
+        $r1 = r0.mPaint;
+
+        $r2 = r0.mBitmapShader;
+
+        virtualinvoke $r1.setShader($r2);
+
+        goto label3;
+
+     label2:
+        $r1 = r0.mPaint;
+
+        virtualinvoke $r1.setShader(null);
+
+     label3:
+        r0.mCornerRadius = $f0;
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public void setDither(boolean)
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mPaint;
+
+        virtualinvoke $r1.setDither($z0);
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public void setFilterBitmap(boolean)
+    {
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mPaint;
+
+        virtualinvoke $r1.setFilterBitmap($z0);
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public void setGravity(int)
+    {
+        int $i0, $i1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.mGravity;
+
+        if $i1 == $i0 goto label1;
+
+        r0.mGravity = $i0;
+
+        r0.mApplyGravity = 1;
+
+        virtualinvoke r0.invalidateSelf();
+
+     label1:
+        return;
+    }
+
+    public void setMipMap(boolean)
+    {
+        java.lang.UnsupportedOperationException $r1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    public void setTargetDensity(int)
+    {
+        android.graphics.Bitmap $r1;
+        int $i0, $i1;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.mTargetDensity;
+
+        if $i1 == $i0 goto label3;
+
+        if $i0 != 0 goto label1;
+
+        $i0 = 160;
+
+        goto label1;
+
+     label1:
+        r0.mTargetDensity = $i0;
+
+        $r1 = r0.mBitmap;
+
+        if $r1 == null goto label2;
+
+        specialinvoke r0.computeBitmapSize();
+
+     label2:
+        virtualinvoke r0.invalidateSelf();
+
+     label3:
+        return;
+    }
+
+    public void setTargetDensity(android.graphics.Canvas)
+    {
+        int $i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Canvas $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getDensity();
+
+        virtualinvoke r0.setTargetDensity($i0);
+
+        return;
+    }
+
+    public void setTargetDensity(android.util.DisplayMetrics)
+    {
+        int $i0;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.util.DisplayMetrics $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = $r1.densityDpi;
+
+        virtualinvoke r0.setTargetDensity($i0);
+
+        return;
+    }
+
+    void updateDstRect()
+    {
+        android.graphics.RectF r3;
+        android.graphics.Rect $r1, $r2;
+        android.graphics.BitmapShader r4;
+        android.graphics.Bitmap r6;
+        int $i0, $i1, $i2;
+        float $f0, f1, f2;
+        androidx.core.graphics.drawable.RoundedBitmapDrawable r0;
+        android.graphics.Paint r7;
+        android.graphics.Matrix r5;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mApplyGravity;
+
+        if z0 == 0 goto label4;
+
+        z0 = r0.mIsCircular;
+
+        if z0 == 0 goto label1;
+
+        $i0 = r0.mBitmapWidth;
+
+        $i1 = r0.mBitmapHeight;
+
+        $i0 = java.lang.Math.min($i0, $i1);
+
+        $i1 = r0.mGravity;
+
+        $r1 = virtualinvoke r0.getBounds();
+
+        $r2 = r0.mDstRect;
+
+        virtualinvoke r0.gravityCompatApply($i1, $i0, $i0, $r1, $r2);
+
+        $r1 = r0.mDstRect;
+
+        $i0 = virtualinvoke $r1.width();
+
+        $r1 = r0.mDstRect;
+
+        $i1 = virtualinvoke $r1.height();
+
+        $i0 = java.lang.Math.min($i0, $i1);
+
+        $r1 = r0.mDstRect;
+
+        $i1 = virtualinvoke $r1.width();
+
+        $i1 = $i1 - $i0;
+
+        $i1 = $i1 / 2;
+
+        $i1 = java.lang.Math.max(0, $i1);
+
+        $r1 = r0.mDstRect;
+
+        $i2 = virtualinvoke $r1.height();
+
+        $i2 = $i2 - $i0;
+
+        $i2 = $i2 / 2;
+
+        $i2 = java.lang.Math.max(0, $i2);
+
+        $r1 = r0.mDstRect;
+
+        virtualinvoke $r1.inset($i1, $i2);
+
+        $f0 = (float) $i0;
+
+        $f0 = $f0 * 0.5F;
+
+        r0.mCornerRadius = $f0;
+
+        goto label2;
+
+     label1:
+        $i2 = r0.mGravity;
+
+        $i0 = r0.mBitmapWidth;
+
+        $i1 = r0.mBitmapHeight;
+
+        $r2 = virtualinvoke r0.getBounds();
+
+        $r1 = r0.mDstRect;
+
+        virtualinvoke r0.gravityCompatApply($i2, $i0, $i1, $r2, $r1);
+
+     label2:
+        r3 = r0.mDstRectF;
+
+        $r1 = r0.mDstRect;
+
+        virtualinvoke r3.set($r1);
+
+        r4 = r0.mBitmapShader;
+
+        if r4 == null goto label3;
+
+        r5 = r0.mShaderMatrix;
+
+        r3 = r0.mDstRectF;
+
+        $f0 = r3.left;
+
+        r3 = r0.mDstRectF;
+
+        f1 = r3.top;
+
+        virtualinvoke r5.setTranslate($f0, f1);
+
+        r5 = r0.mShaderMatrix;
+
+        r3 = r0.mDstRectF;
+
+        $f0 = virtualinvoke r3.width();
+
+        r6 = r0.mBitmap;
+
+        $i0 = virtualinvoke r6.getWidth();
+
+        f1 = (float) $i0;
+
+        $f0 = $f0 / f1;
+
+        r3 = r0.mDstRectF;
+
+        f1 = virtualinvoke r3.height();
+
+        r6 = r0.mBitmap;
+
+        $i0 = virtualinvoke r6.getHeight();
+
+        f2 = (float) $i0;
+
+        f1 = f1 / f2;
+
+        virtualinvoke r5.preScale($f0, f1);
+
+        r4 = r0.mBitmapShader;
+
+        r5 = r0.mShaderMatrix;
+
+        virtualinvoke r4.setLocalMatrix(r5);
+
+        r7 = r0.mPaint;
+
+        r4 = r0.mBitmapShader;
+
+        virtualinvoke r7.setShader(r4);
+
+     label3:
+        r0.mApplyGravity = 0;
+
+     label4:
+        return;
+    }
+}

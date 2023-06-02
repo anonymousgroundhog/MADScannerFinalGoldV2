@@ -1,0 +1,22 @@
+public interface  com.google.android.gms.internal.ads.zzos extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzos zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzpg $r0;
+        com.google.android.gms.internal.ads.zzph $r1;
+
+        $r0 = new com.google.android.gms.internal.ads.zzpg;
+
+        specialinvoke $r0.<init>();
+
+        $r1 = new com.google.android.gms.internal.ads.zzph;
+
+        specialinvoke $r1.<init>($r0);
+
+        com.google.android.gms.internal.ads.zzos.zza = $r1;
+
+        return;
+    }
+}

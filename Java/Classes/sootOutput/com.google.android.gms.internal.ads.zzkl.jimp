@@ -1,0 +1,313 @@
+final class com.google.android.gms.internal.ads.zzkl extends com.google.android.gms.internal.ads.zzgs
+{
+    public static final int zzc;
+    private final int zzd;
+    private final int zze;
+    private final int[] zzf;
+    private final int[] zzg;
+    private final com.google.android.gms.internal.ads.zzcn[] zzh;
+    private final java.lang.Object[] zzi;
+    private final java.util.HashMap zzj;
+
+    public void <init>(java.util.Collection, com.google.android.gms.internal.ads.zzum, byte[])
+    {
+        byte[] $r3;
+        java.lang.Object[] $r6;
+        java.util.HashMap $r7;
+        java.lang.Integer $r12;
+        com.google.android.gms.internal.ads.zzkl r0;
+        com.google.android.gms.internal.ads.zzcn $r11;
+        int[] $r4;
+        int $i0, $i1, $i2, $i3;
+        boolean $z0;
+        java.util.Iterator $r8;
+        java.util.Collection $r1;
+        com.google.android.gms.internal.ads.zzcn[] $r5;
+        com.google.android.gms.internal.ads.zzjv $r10;
+        com.google.android.gms.internal.ads.zzum $r2;
+        java.lang.Object $r9;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = 0;
+
+        specialinvoke r0.<init>(0, $r2, null);
+
+        $i1 = interfaceinvoke $r1.size();
+
+        $r4 = newarray (int)[$i1];
+
+        r0.zzf = $r4;
+
+        $r4 = newarray (int)[$i1];
+
+        r0.zzg = $r4;
+
+        $r5 = newarray (com.google.android.gms.internal.ads.zzcn)[$i1];
+
+        r0.zzh = $r5;
+
+        $r6 = newarray (java.lang.Object)[$i1];
+
+        r0.zzi = $r6;
+
+        $r7 = new java.util.HashMap;
+
+        specialinvoke $r7.<init>();
+
+        r0.zzj = $r7;
+
+        $r8 = interfaceinvoke $r1.iterator();
+
+        $i1 = 0;
+
+        $i2 = 0;
+
+     label1:
+        $z0 = interfaceinvoke $r8.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r9 = interfaceinvoke $r8.next();
+
+        $r10 = (com.google.android.gms.internal.ads.zzjv) $r9;
+
+        $r5 = r0.zzh;
+
+        $r11 = interfaceinvoke $r10.zza();
+
+        $r5[$i2] = $r11;
+
+        $r4 = r0.zzg;
+
+        $r4[$i2] = $i0;
+
+        $r4 = r0.zzf;
+
+        $r4[$i2] = $i1;
+
+        $r5 = r0.zzh;
+
+        $r11 = $r5[$i2];
+
+        $i3 = virtualinvoke $r11.zzc();
+
+        $i0 = $i0 + $i3;
+
+        $r5 = r0.zzh;
+
+        $r11 = $r5[$i2];
+
+        $i3 = virtualinvoke $r11.zzb();
+
+        $i1 = $i1 + $i3;
+
+        $r6 = r0.zzi;
+
+        $r9 = interfaceinvoke $r10.zzb();
+
+        $r6[$i2] = $r9;
+
+        $r7 = r0.zzj;
+
+        $r6 = r0.zzi;
+
+        $r9 = $r6[$i2];
+
+        $r12 = java.lang.Integer.valueOf($i2);
+
+        virtualinvoke $r7.put($r9, $r12);
+
+        $i2 = $i2 + 1;
+
+        goto label1;
+
+     label2:
+        r0.zzd = $i0;
+
+        r0.zze = $i1;
+
+        return;
+    }
+
+    public final int zzb()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        i0 = r0.zze;
+
+        return i0;
+    }
+
+    public final int zzc()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        i0 = r0.zzd;
+
+        return i0;
+    }
+
+    protected final int zzp(java.lang.Object)
+    {
+        int $i0;
+        java.util.HashMap $r1;
+        java.lang.Object $r2;
+        java.lang.Integer $r3;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zzj;
+
+        $r2 = virtualinvoke $r1.get($r2);
+
+        $r3 = (java.lang.Integer) $r2;
+
+        if $r3 != null goto label1;
+
+        return -1;
+
+     label1:
+        $i0 = virtualinvoke $r3.intValue();
+
+        return $i0;
+    }
+
+    protected final int zzq(int)
+    {
+        int $i0;
+        int[] $r1;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzf;
+
+        $i0 = $i0 + 1;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zzc($r1, $i0, 0, 0);
+
+        return $i0;
+    }
+
+    protected final int zzr(int)
+    {
+        int $i0;
+        int[] $r1;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzg;
+
+        $i0 = $i0 + 1;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zzc($r1, $i0, 0, 0);
+
+        return $i0;
+    }
+
+    protected final int zzs(int)
+    {
+        int $i0;
+        int[] $r1;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzf;
+
+        $i0 = $r1[$i0];
+
+        return $i0;
+    }
+
+    protected final int zzt(int)
+    {
+        int $i0;
+        int[] $r1;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzg;
+
+        $i0 = $r1[$i0];
+
+        return $i0;
+    }
+
+    protected final com.google.android.gms.internal.ads.zzcn zzu(int)
+    {
+        com.google.android.gms.internal.ads.zzcn $r2;
+        com.google.android.gms.internal.ads.zzcn[] $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzh;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+
+    protected final java.lang.Object zzv(int)
+    {
+        java.lang.Object[] $r1;
+        int $i0;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzkl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzi;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+
+    final java.util.List zzw()
+    {
+        java.util.List $r1;
+        com.google.android.gms.internal.ads.zzkl r0;
+        com.google.android.gms.internal.ads.zzcn[] $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zzh;
+
+        $r1 = java.util.Arrays.asList($r2);
+
+        return $r1;
+    }
+}

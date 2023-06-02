@@ -1,0 +1,197 @@
+public class com.google.android.gms.ads.AdRequest extends java.lang.Object
+{
+    public static final java.lang.String DEVICE_ID_EMULATOR;
+    public static final int ERROR_CODE_APP_ID_MISSING;
+    public static final int ERROR_CODE_INTERNAL_ERROR;
+    public static final int ERROR_CODE_INVALID_AD_STRING;
+    public static final int ERROR_CODE_INVALID_REQUEST;
+    public static final int ERROR_CODE_MEDIATION_NO_FILL;
+    public static final int ERROR_CODE_NETWORK_ERROR;
+    public static final int ERROR_CODE_NO_FILL;
+    public static final int ERROR_CODE_REQUEST_ID_MISMATCH;
+    public static final int GENDER_FEMALE;
+    public static final int GENDER_MALE;
+    public static final int GENDER_UNKNOWN;
+    public static final int MAX_CONTENT_URL_LENGTH;
+    protected final com.google.android.gms.ads.internal.client.zzdx zza;
+
+    protected void <init>(com.google.android.gms.ads.AdRequest$Builder)
+    {
+        com.google.android.gms.ads.internal.client.zzdw $r3;
+        com.google.android.gms.ads.internal.client.zzdx $r1;
+        com.google.android.gms.ads.AdRequest r0;
+        com.google.android.gms.ads.AdRequest$Builder $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.ads.internal.client.zzdx;
+
+        $r3 = $r2.zza;
+
+        specialinvoke $r1.<init>($r3, null);
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public java.lang.String getAdString()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        java.lang.String $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzj();
+
+        return $r1;
+    }
+
+    public java.lang.String getContentUrl()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        java.lang.String $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzk();
+
+        return $r1;
+    }
+
+    public android.os.Bundle getCustomEventExtrasBundle(java.lang.Class)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.ads.internal.client.zzdx $r1;
+        com.google.android.gms.ads.AdRequest r0;
+        java.lang.Class $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzd($r3);
+
+        return $r2;
+    }
+
+    public android.os.Bundle getCustomTargeting()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zze();
+
+        return $r1;
+    }
+
+    public java.util.Set getKeywords()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        java.util.Set $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzq();
+
+        return $r1;
+    }
+
+    public java.util.List getNeighboringContentUrls()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        java.util.List $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzo();
+
+        return $r1;
+    }
+
+    public android.os.Bundle getNetworkExtrasBundle(java.lang.Class)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.ads.internal.client.zzdx $r1;
+        com.google.android.gms.ads.AdRequest r0;
+        java.lang.Class $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzf($r3);
+
+        return $r2;
+    }
+
+    public java.lang.String getRequestAgent()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        java.lang.String $r1;
+        com.google.android.gms.ads.internal.client.zzdx $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzm();
+
+        return $r1;
+    }
+
+    public boolean isTestDevice(android.content.Context)
+    {
+        android.content.Context $r2;
+        com.google.android.gms.ads.internal.client.zzdx $r1;
+        com.google.android.gms.ads.AdRequest r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.zzs($r2);
+
+        return $z0;
+    }
+
+    public final com.google.android.gms.ads.internal.client.zzdx zza()
+    {
+        com.google.android.gms.ads.AdRequest r0;
+        com.google.android.gms.ads.internal.client.zzdx r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

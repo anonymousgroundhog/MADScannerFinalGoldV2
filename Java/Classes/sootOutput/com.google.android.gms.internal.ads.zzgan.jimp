@@ -1,0 +1,127 @@
+public final class com.google.android.gms.internal.ads.zzgan extends com.google.android.gms.internal.ads.zzgak
+{
+
+    public void <init>(byte[], int) throws java.security.InvalidKeyException
+    {
+        int $i0;
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzgan r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        return;
+    }
+
+    final int zza()
+    {
+        com.google.android.gms.internal.ads.zzgan r0;
+
+        r0 := @this;
+
+        return 24;
+    }
+
+    final int[] zzb(int[], int)
+    {
+        java.lang.Object[] $r6;
+        java.lang.IllegalArgumentException $r5;
+        java.lang.Integer $r7;
+        int[] $r1, $r2, $r3, $r4;
+        com.google.android.gms.internal.ads.zzgan r0;
+        int $i0, $i1;
+        java.lang.String $r8;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = lengthof $r2;
+
+        if $i1 != 6 goto label1;
+
+        $r1 = newarray (int)[16];
+
+        $r3 = r0.zza;
+
+        $r4 = newarray (int)[16];
+
+        com.google.android.gms.internal.ads.zzgag.zzb($r4, $r3);
+
+        $i1 = $r2[0];
+
+        $r4[12] = $i1;
+
+        $i1 = $r2[1];
+
+        $r4[13] = $i1;
+
+        $i1 = $r2[2];
+
+        $r4[14] = $i1;
+
+        $i1 = $r2[3];
+
+        $r4[15] = $i1;
+
+        com.google.android.gms.internal.ads.zzgag.zzc($r4);
+
+        $i1 = $r4[12];
+
+        $r4[4] = $i1;
+
+        $i1 = $r4[13];
+
+        $r4[5] = $i1;
+
+        $i1 = $r4[14];
+
+        $r4[6] = $i1;
+
+        $i1 = $r4[15];
+
+        $r4[7] = $i1;
+
+        $r3 = java.util.Arrays.copyOf($r4, 8);
+
+        com.google.android.gms.internal.ads.zzgag.zzb($r1, $r3);
+
+        $r1[12] = $i0;
+
+        $r1[13] = 0;
+
+        $i0 = $r2[4];
+
+        $r1[14] = $i0;
+
+        $i0 = $r2[5];
+
+        $r1[15] = $i0;
+
+        return $r1;
+
+     label1:
+        $i0 = $i1 * 32;
+
+        $r5 = new java.lang.IllegalArgumentException;
+
+        $r6 = newarray (java.lang.Object)[1];
+
+        $r7 = java.lang.Integer.valueOf($i0);
+
+        $r6[0] = $r7;
+
+        $r8 = java.lang.String.format("XChaCha20 uses 192-bit nonces, but got a %d-bit nonce", $r6);
+
+        specialinvoke $r5.<init>($r8);
+
+        throw $r5;
+    }
+}

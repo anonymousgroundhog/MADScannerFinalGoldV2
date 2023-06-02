@@ -1,0 +1,71 @@
+class androidx.appcompat.view.menu.MenuItemWrapperICS$CollapsibleActionViewWrapper extends android.widget.FrameLayout implements androidx.appcompat.view.CollapsibleActionView
+{
+    final android.view.CollapsibleActionView mWrappedView;
+
+    void <init>(android.view.View)
+    {
+        android.content.Context $r2;
+        android.view.CollapsibleActionView $r3;
+        android.view.View $r1;
+        androidx.appcompat.view.menu.MenuItemWrapperICS$CollapsibleActionViewWrapper r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke $r1.getContext();
+
+        specialinvoke r0.<init>($r2);
+
+        $r3 = (android.view.CollapsibleActionView) $r1;
+
+        r0.mWrappedView = $r3;
+
+        virtualinvoke r0.addView($r1);
+
+        return;
+    }
+
+    android.view.View getWrappedView()
+    {
+        android.view.View $r2;
+        androidx.appcompat.view.menu.MenuItemWrapperICS$CollapsibleActionViewWrapper r0;
+        android.view.CollapsibleActionView $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mWrappedView;
+
+        $r2 = (android.view.View) $r1;
+
+        return $r2;
+    }
+
+    public void onActionViewCollapsed()
+    {
+        androidx.appcompat.view.menu.MenuItemWrapperICS$CollapsibleActionViewWrapper r0;
+        android.view.CollapsibleActionView $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mWrappedView;
+
+        interfaceinvoke $r1.onActionViewCollapsed();
+
+        return;
+    }
+
+    public void onActionViewExpanded()
+    {
+        androidx.appcompat.view.menu.MenuItemWrapperICS$CollapsibleActionViewWrapper r0;
+        android.view.CollapsibleActionView $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mWrappedView;
+
+        interfaceinvoke $r1.onActionViewExpanded();
+
+        return;
+    }
+}

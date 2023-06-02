@@ -1,0 +1,7 @@
+interface  com.google.android.gms.internal.ads.zzgbt extends java.lang.Object
+{
+
+    public abstract com.google.android.gms.internal.ads.zzgbu zza(byte[]) throws java.security.GeneralSecurityException;
+
+    public abstract byte[] zzb() throws java.security.GeneralSecurityException;
+}

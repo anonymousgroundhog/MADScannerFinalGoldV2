@@ -1,0 +1,92 @@
+public class androidx.fragment.app.Fragment$SavedState extends java.lang.Object implements android.os.Parcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final android.os.Bundle mState;
+
+    static void <clinit>()
+    {
+        androidx.fragment.app.Fragment$SavedState$1 $r0;
+
+        $r0 = new androidx.fragment.app.Fragment$SavedState$1;
+
+        specialinvoke $r0.<init>();
+
+        androidx.fragment.app.Fragment$SavedState.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        androidx.fragment.app.Fragment$SavedState r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mState = $r1;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel, java.lang.ClassLoader)
+    {
+        android.os.Bundle $r3;
+        androidx.fragment.app.Fragment$SavedState r0;
+        java.lang.ClassLoader $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = virtualinvoke $r1.readBundle();
+
+        r0.mState = $r3;
+
+        if $r2 == null goto label1;
+
+        if $r3 == null goto label1;
+
+        virtualinvoke $r3.setClassLoader($r2);
+
+     label1:
+        return;
+    }
+
+    public int describeContents()
+    {
+        androidx.fragment.app.Fragment$SavedState r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        android.os.Bundle $r2;
+        androidx.fragment.app.Fragment$SavedState r0;
+        int $i0;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.mState;
+
+        virtualinvoke $r1.writeBundle($r2);
+
+        return;
+    }
+}

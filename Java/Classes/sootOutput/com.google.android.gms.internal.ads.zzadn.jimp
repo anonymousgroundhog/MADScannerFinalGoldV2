@@ -1,0 +1,67 @@
+final class com.google.android.gms.internal.ads.zzadn extends java.lang.Object
+{
+    private final int zza;
+    private final boolean zzb;
+    private final int zzc;
+
+    public void <init>(int, boolean, int)
+    {
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzadn r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $z0;
+
+        r0.zzc = $i1;
+
+        return;
+    }
+
+    static volatile int zza(com.google.android.gms.internal.ads.zzadn)
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzadn $r0;
+
+        $r0 := @parameter0;
+
+        i0 = $r0.zzc;
+
+        return i0;
+    }
+
+    static volatile int zzb(com.google.android.gms.internal.ads.zzadn)
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzadn $r0;
+
+        $r0 := @parameter0;
+
+        i0 = $r0.zza;
+
+        return i0;
+    }
+
+    static volatile boolean zzc(com.google.android.gms.internal.ads.zzadn)
+    {
+        com.google.android.gms.internal.ads.zzadn $r0;
+        boolean z0;
+
+        $r0 := @parameter0;
+
+        z0 = $r0.zzb;
+
+        return z0;
+    }
+}

@@ -1,0 +1,127 @@
+public class com.google.android.gms.internal.ads.zzan extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzan zza;
+    public static final com.google.android.gms.internal.ads.zzn zzb;
+    private static final java.lang.String zzh;
+    private static final java.lang.String zzi;
+    private static final java.lang.String zzj;
+    private static final java.lang.String zzk;
+    private static final java.lang.String zzl;
+    public final long zzc;
+    public final long zzd;
+    public final boolean zze;
+    public final boolean zzf;
+    public final boolean zzg;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzap $r0;
+        com.google.android.gms.internal.ads.zzal $r1;
+        com.google.android.gms.internal.ads.zzak $r3;
+        java.lang.String $r2;
+
+        $r1 = new com.google.android.gms.internal.ads.zzal;
+
+        specialinvoke $r1.<init>();
+
+        $r0 = new com.google.android.gms.internal.ads.zzap;
+
+        specialinvoke $r0.<init>($r1, null);
+
+        com.google.android.gms.internal.ads.zzan.zza = $r0;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzP(0);
+
+        com.google.android.gms.internal.ads.zzan.zzh = $r2;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzP(1);
+
+        com.google.android.gms.internal.ads.zzan.zzi = $r2;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzP(2);
+
+        com.google.android.gms.internal.ads.zzan.zzj = $r2;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzP(3);
+
+        com.google.android.gms.internal.ads.zzan.zzk = $r2;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzP(4);
+
+        com.google.android.gms.internal.ads.zzan.zzl = $r2;
+
+        $r3 = com.google.android.gms.internal.ads.zzak.zza;
+
+        com.google.android.gms.internal.ads.zzan.zzb = $r3;
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzal, com.google.android.gms.internal.ads.zzam)
+    {
+        com.google.android.gms.internal.ads.zzan r0;
+        com.google.android.gms.internal.ads.zzal $r2;
+        com.google.android.gms.internal.ads.zzam $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zzc = 0L;
+
+        r0.zzd = -9223372036854775808L;
+
+        r0.zze = 0;
+
+        r0.zzf = 0;
+
+        r0.zzg = 0;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzan r0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.internal.ads.zzan;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        r0 = (com.google.android.gms.internal.ads.zzan) $r1;
+
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzan r0;
+
+        r0 := @this;
+
+        $i0 = (int) -9223372034707292160L;
+
+        $i0 = $i0 * 29791;
+
+        return $i0;
+    }
+}

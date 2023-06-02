@@ -1,0 +1,25 @@
+class androidx.core.content.res.ResourcesCompat$ThemeCompat$ImplApi29 extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.content.res.ResourcesCompat$ThemeCompat$ImplApi29 r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void rebase(android.content.res.Resources$Theme)
+    {
+        android.content.res.Resources$Theme $r0;
+
+        $r0 := @parameter0;
+
+        virtualinvoke $r0.rebase();
+
+        return;
+    }
+}

@@ -1,0 +1,1389 @@
+public final class com.google.android.gms.internal.ads.zzatg extends java.lang.Object implements android.view.View$OnAttachStateChangeListener, android.view.ViewTreeObserver$OnGlobalLayoutListener, android.view.ViewTreeObserver$OnScrollChangedListener, android.app.Application$ActivityLifecycleCallbacks
+{
+    private static final long zzc;
+    android.content.BroadcastReceiver zza;
+    final java.lang.ref.WeakReference zzb;
+    private final android.content.Context zzd;
+    private android.app.Application zze;
+    private final android.view.WindowManager zzf;
+    private final android.os.PowerManager zzg;
+    private final android.app.KeyguardManager zzh;
+    private java.lang.ref.WeakReference zzi;
+    private com.google.android.gms.internal.ads.zzats zzj;
+    private final com.google.android.gms.ads.internal.util.zzbz zzk;
+    private boolean zzl;
+    private int zzm;
+    private final java.util.HashSet zzn;
+    private final android.util.DisplayMetrics zzo;
+    private final android.graphics.Rect zzp;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbap $r1;
+        java.lang.Long $r3;
+        java.lang.Object $r2;
+        long $l0;
+        com.google.android.gms.internal.ads.zzbaj $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbar.zzbf;
+
+        $r1 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r2 = virtualinvoke $r1.zzb($r0);
+
+        $r3 = (java.lang.Long) $r2;
+
+        $l0 = virtualinvoke $r3.longValue();
+
+        com.google.android.gms.internal.ads.zzatg.zzc = $l0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.view.View)
+    {
+        android.app.KeyguardManager $r7;
+        android.content.Context $r2, $r3;
+        android.graphics.Rect $r18;
+        android.view.WindowManager $r5;
+        long $l0;
+        java.util.HashSet $r16;
+        android.os.PowerManager $r6;
+        int $i1;
+        android.view.View $r1, $r14;
+        android.view.Display $r12;
+        java.lang.ref.WeakReference $r13, $r19;
+        com.google.android.gms.ads.internal.util.zzbz $r15;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzats $r17;
+        android.util.DisplayMetrics $r10;
+        android.app.Application $r8;
+        com.google.android.gms.internal.ads.zzatg r0;
+        java.lang.Object $r4;
+        android.content.res.Resources $r9;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r15 = new com.google.android.gms.ads.internal.util.zzbz;
+
+        $l0 = com.google.android.gms.internal.ads.zzatg.zzc;
+
+        specialinvoke $r15.<init>($l0);
+
+        r0.zzk = $r15;
+
+        r0.zzl = 0;
+
+        r0.zzm = -1;
+
+        $r16 = new java.util.HashSet;
+
+        specialinvoke $r16.<init>();
+
+        r0.zzn = $r16;
+
+        $r3 = virtualinvoke $r2.getApplicationContext();
+
+        r0.zzd = $r3;
+
+        $r4 = virtualinvoke $r2.getSystemService("window");
+
+        $r5 = (android.view.WindowManager) $r4;
+
+        r0.zzf = $r5;
+
+        $r4 = virtualinvoke $r3.getSystemService("power");
+
+        $r6 = (android.os.PowerManager) $r4;
+
+        r0.zzg = $r6;
+
+        $r4 = virtualinvoke $r2.getSystemService("keyguard");
+
+        $r7 = (android.app.KeyguardManager) $r4;
+
+        r0.zzh = $r7;
+
+        $z0 = $r3 instanceof android.app.Application;
+
+        if $z0 == 0 goto label1;
+
+        $r8 = (android.app.Application) $r3;
+
+        r0.zze = $r8;
+
+        $r17 = new com.google.android.gms.internal.ads.zzats;
+
+        specialinvoke $r17.<init>($r8, r0);
+
+        r0.zzj = $r17;
+
+     label1:
+        $r9 = virtualinvoke $r2.getResources();
+
+        $r10 = virtualinvoke $r9.getDisplayMetrics();
+
+        r0.zzo = $r10;
+
+        $r18 = new android.graphics.Rect;
+
+        specialinvoke $r18.<init>();
+
+        r0.zzp = $r18;
+
+        $r12 = interfaceinvoke $r5.getDefaultDisplay();
+
+        $i1 = virtualinvoke $r12.getWidth();
+
+        $r18.right = $i1;
+
+        $r12 = interfaceinvoke $r5.getDefaultDisplay();
+
+        $i1 = virtualinvoke $r12.getHeight();
+
+        $r18.bottom = $i1;
+
+        $r13 = r0.zzb;
+
+        if $r13 == null goto label2;
+
+        $r4 = virtualinvoke $r13.get();
+
+        $r14 = (android.view.View) $r4;
+
+        goto label3;
+
+     label2:
+        $r14 = null;
+
+     label3:
+        if $r14 == null goto label4;
+
+        virtualinvoke $r14.removeOnAttachStateChangeListener(r0);
+
+        specialinvoke r0.zzm($r14);
+
+     label4:
+        $r19 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r19.<init>($r1);
+
+        r0.zzb = $r19;
+
+        if $r1 == null goto label6;
+
+        $z0 = virtualinvoke $r1.isAttachedToWindow();
+
+        if $z0 == 0 goto label5;
+
+        specialinvoke r0.zzl($r1);
+
+     label5:
+        virtualinvoke $r1.addOnAttachStateChangeListener(r0);
+
+     label6:
+        return;
+    }
+
+    static volatile void zzb(com.google.android.gms.internal.ads.zzatg, int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzatg $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke $r0.zzj(3);
+
+        return;
+    }
+
+    private final int zzh(int)
+    {
+        com.google.android.gms.internal.ads.zzatg r0;
+        int $i0;
+        float $f0, $f1;
+        android.util.DisplayMetrics $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzo;
+
+        $f0 = $r1.density;
+
+        $f1 = (float) $i0;
+
+        $f0 = $f1 / $f0;
+
+        $i0 = (int) $f0;
+
+        return $i0;
+    }
+
+    private final void zzi(android.app.Activity, int)
+    {
+        com.google.android.gms.internal.ads.zzatg r0;
+        int $i0;
+        android.view.View $r4, $r6;
+        java.lang.Object $r5;
+        java.lang.ref.WeakReference $r2;
+        android.app.Activity $r1;
+        android.view.Window $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.zzb;
+
+        if $r2 != null goto label1;
+
+        return;
+
+     label1:
+        $r3 = virtualinvoke $r1.getWindow();
+
+        if $r3 != null goto label2;
+
+        return;
+
+     label2:
+        $r4 = virtualinvoke $r3.peekDecorView();
+
+        $r2 = r0.zzb;
+
+        $r5 = virtualinvoke $r2.get();
+
+        $r6 = (android.view.View) $r5;
+
+        if $r6 == null goto label3;
+
+        if $r4 == null goto label3;
+
+        $r6 = virtualinvoke $r6.getRootView();
+
+        $r4 = virtualinvoke $r4.getRootView();
+
+        if $r6 != $r4 goto label3;
+
+        r0.zzm = $i0;
+
+     label3:
+        return;
+    }
+
+    private final void zzj(int)
+    {
+        android.app.KeyguardManager $r24;
+        android.graphics.Rect $r1, $r2, $r3, $r8, $r19, $r33;
+        java.lang.Integer $r25;
+        android.os.PowerManager $r23;
+        byte $b5, $b6, $b7, $b9;
+        int[] $r9, $r10;
+        com.google.android.gms.internal.ads.zzbyj $r22;
+        android.view.View $r7, $r12, $r18;
+        com.google.android.gms.ads.internal.util.zzbz $r26;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+        com.google.android.gms.common.util.Clock $r28;
+        java.lang.Exception $r11, $r21;
+        android.util.DisplayMetrics $r29;
+        com.google.android.gms.internal.ads.zzate $r34;
+        com.google.android.gms.internal.ads.zzbap $r14;
+        java.util.List $r20;
+        com.google.android.gms.internal.ads.zzatg r0;
+        com.google.android.gms.internal.ads.zzatf $r31;
+        float $f0;
+        com.google.android.gms.internal.ads.zzbaj $r13;
+        android.view.ViewParent $r17;
+        long $l3, $l4;
+        java.util.ArrayList $r32;
+        java.util.HashSet $r4;
+        short $s8;
+        int $i0, $i1, $i2;
+        java.lang.Boolean $r15;
+        java.lang.ref.WeakReference $r5;
+        java.util.Iterator $r30;
+        java.lang.Object $r6;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r4 = r0.zzn;
+
+        $z0 = virtualinvoke $r4.isEmpty();
+
+        if $z0 == 0 goto label01;
+
+        return;
+
+     label01:
+        $r5 = r0.zzb;
+
+        if $r5 != null goto label02;
+
+        return;
+
+     label02:
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (android.view.View) $r6;
+
+        $r1 = new android.graphics.Rect;
+
+        $r8 = $r1;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = new android.graphics.Rect;
+
+        $r1 = $r2;
+
+        specialinvoke $r2.<init>();
+
+        $r3 = new android.graphics.Rect;
+
+        $r2 = $r3;
+
+        specialinvoke $r3.<init>();
+
+        $r19 = new android.graphics.Rect;
+
+        $r3 = $r19;
+
+        specialinvoke $r19.<init>();
+
+        $r9 = newarray (int)[2];
+
+        $r10 = newarray (int)[2];
+
+        if $r7 == null goto label07;
+
+        $z0 = virtualinvoke $r7.getGlobalVisibleRect($r1);
+
+        $z1 = virtualinvoke $r7.getLocalVisibleRect($r2);
+
+        virtualinvoke $r7.getHitRect($r19);
+
+     label03:
+        virtualinvoke $r7.getLocationOnScreen($r9);
+
+        virtualinvoke $r7.getLocationInWindow($r10);
+
+     label04:
+        goto label06;
+
+     label05:
+        $r11 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Failure getting view location.", $r11);
+
+     label06:
+        $i1 = $r9[0];
+
+        $r8.left = $i1;
+
+        $i1 = $r9[1];
+
+        $r8.top = $i1;
+
+        $i1 = $r8.left;
+
+        $i2 = virtualinvoke $r7.getWidth();
+
+        $i1 = $i1 + $i2;
+
+        $r8.right = $i1;
+
+        $i1 = $r8.top;
+
+        $i2 = virtualinvoke $r7.getHeight();
+
+        $i1 = $i1 + $i2;
+
+        $r8.bottom = $i1;
+
+        $r12 = $r7;
+
+        goto label08;
+
+     label07:
+        $r12 = null;
+
+        $z0 = 0;
+
+        $z1 = 0;
+
+     label08:
+        $r13 = com.google.android.gms.internal.ads.zzbar.zzbi;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r6 = virtualinvoke $r14.zzb($r13);
+
+        $r15 = (java.lang.Boolean) $r6;
+
+        $z2 = virtualinvoke $r15.booleanValue();
+
+        if $z2 == 0 goto label22;
+
+        if $r12 == null goto label22;
+
+        $r32 = new java.util.ArrayList;
+
+     label09:
+        specialinvoke $r32.<init>();
+
+        $r17 = virtualinvoke $r12.getParent();
+
+     label10:
+        $z2 = $r17 instanceof android.view.View;
+
+        if $z2 == 0 goto label20;
+
+     label11:
+        $r18 = (android.view.View) $r17;
+
+     label12:
+        $r33 = new android.graphics.Rect;
+
+     label13:
+        specialinvoke $r33.<init>();
+
+        $z2 = virtualinvoke $r18.isScrollContainer();
+
+     label14:
+        if $z2 == 0 goto label18;
+
+     label15:
+        $z2 = virtualinvoke $r18.getGlobalVisibleRect($r33);
+
+     label16:
+        if $z2 == 0 goto label18;
+
+     label17:
+        $r19 = virtualinvoke r0.zza($r33);
+
+        interfaceinvoke $r32.add($r19);
+
+     label18:
+        $r17 = interfaceinvoke $r17.getParent();
+
+     label19:
+        goto label10;
+
+     label20:
+        $r20 = $r32;
+
+        goto label23;
+
+     label21:
+        $r21 := @caughtexception;
+
+        $r22 = com.google.android.gms.ads.internal.zzt.zzo();
+
+        virtualinvoke $r22.zzu($r21, "PositionWatcher.getParentScrollViewRects");
+
+        $r20 = java.util.Collections.emptyList();
+
+        goto label23;
+
+     label22:
+        $r20 = java.util.Collections.emptyList();
+
+     label23:
+        if $r12 == null goto label24;
+
+        $i1 = virtualinvoke $r12.getWindowVisibility();
+
+        goto label25;
+
+     label24:
+        $i1 = 8;
+
+     label25:
+        $i2 = r0.zzm;
+
+        if $i2 == -1 goto label26;
+
+        $i1 = $i2;
+
+     label26:
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $l3 = com.google.android.gms.ads.internal.util.zzs.zzs($r12);
+
+        $r13 = com.google.android.gms.internal.ads.zzbar.zziV;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r6 = virtualinvoke $r14.zzb($r13);
+
+        $r15 = (java.lang.Boolean) $r6;
+
+        $z2 = virtualinvoke $r15.booleanValue();
+
+        if $z2 == 0 goto label28;
+
+        if $r7 == null goto label27;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r23 = r0.zzg;
+
+        $r24 = r0.zzh;
+
+        $z2 = com.google.android.gms.ads.internal.util.zzs.zzP($r12, $r23, $r24);
+
+        if $z2 == 0 goto label27;
+
+        if $z0 == 0 goto label27;
+
+        if $z1 == 0 goto label27;
+
+        $r13 = com.google.android.gms.internal.ads.zzbar.zziY;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r6 = virtualinvoke $r14.zzb($r13);
+
+        $r25 = (java.lang.Integer) $r6;
+
+        $i2 = virtualinvoke $r25.intValue();
+
+        $l4 = (long) $i2;
+
+        $b5 = $l3 cmp $l4;
+
+        $i2 = (int) $b5;
+
+        if $i2 < 0 goto label27;
+
+        if $i1 != 0 goto label27;
+
+        $z2 = 1;
+
+        $i1 = 0;
+
+        goto label30;
+
+     label27:
+        $z2 = 0;
+
+        goto label30;
+
+     label28:
+        if $r7 == null goto label29;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r23 = r0.zzg;
+
+        $r24 = r0.zzh;
+
+        $z2 = com.google.android.gms.ads.internal.util.zzs.zzP($r12, $r23, $r24);
+
+        if $z2 == 0 goto label29;
+
+        if $z0 == 0 goto label29;
+
+        if $z1 == 0 goto label29;
+
+        if $i1 != 0 goto label29;
+
+        $z2 = 1;
+
+        $i1 = 0;
+
+        goto label30;
+
+     label29:
+        $z2 = 0;
+
+     label30:
+        $r13 = com.google.android.gms.internal.ads.zzbar.zzja;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r6 = virtualinvoke $r14.zzb($r13);
+
+        $r15 = (java.lang.Boolean) $r6;
+
+        $z3 = virtualinvoke $r15.booleanValue();
+
+        if $z3 == 0 goto label41;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r23 = r0.zzg;
+
+        $r24 = r0.zzh;
+
+        $z3 = com.google.android.gms.ads.internal.util.zzs.zzP($r12, $r23, $r24);
+
+        if 1 == $z3 goto label31;
+
+        $b6 = 0;
+
+        goto label32;
+
+     label31:
+        $b6 = 64;
+
+     label32:
+        if 1 == $z0 goto label33;
+
+        $b7 = 0;
+
+        goto label34;
+
+     label33:
+        $b7 = 8;
+
+     label34:
+        if 1 == $z1 goto label35;
+
+        $b5 = 0;
+
+        goto label36;
+
+     label35:
+        $b5 = 16;
+
+     label36:
+        if $i1 != 0 goto label37;
+
+        $s8 = 128;
+
+        goto label38;
+
+     label37:
+        $s8 = 0;
+
+     label38:
+        $r13 = com.google.android.gms.internal.ads.zzbar.zziY;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r6 = virtualinvoke $r14.zzb($r13);
+
+        $r25 = (java.lang.Integer) $r6;
+
+        $i1 = virtualinvoke $r25.intValue();
+
+        $l4 = (long) $i1;
+
+        $b9 = $l3 cmp $l4;
+
+        $i1 = (int) $b9;
+
+        if $i1 < 0 goto label39;
+
+        $b9 = 32;
+
+        goto label40;
+
+     label39:
+        $b9 = 0;
+
+     label40:
+        $b6 = $b6 | $b7;
+
+        $b5 = $b6 | $b5;
+
+        $s8 = $b5 | $s8;
+
+        $s8 = $b9 | $s8;
+
+        $s8 = $s8 | $z2;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        com.google.android.gms.ads.internal.util.zzs.zzF($r12, $s8, null);
+
+     label41:
+        if $i0 != 1 goto label43;
+
+        $r26 = r0.zzk;
+
+        $z3 = virtualinvoke $r26.zzb();
+
+        if $z3 != 0 goto label43;
+
+        $z3 = r0.zzl;
+
+        if $z2 == $z3 goto label42;
+
+        goto label43;
+
+     label42:
+        return;
+
+     label43:
+        if $z2 != 0 goto label45;
+
+        $z3 = r0.zzl;
+
+        if $z3 != 0 goto label45;
+
+        $z3 = 1;
+
+        if $i0 == 1 goto label44;
+
+        goto label46;
+
+     label44:
+        return;
+
+     label45:
+        $z3 = 1;
+
+     label46:
+        $r34 = new com.google.android.gms.internal.ads.zzate;
+
+        $r28 = com.google.android.gms.ads.internal.zzt.zzB();
+
+        $l4 = interfaceinvoke $r28.elapsedRealtime();
+
+        $r23 = r0.zzg;
+
+        $z4 = virtualinvoke $r23.isScreenOn();
+
+        if $r12 == null goto label47;
+
+        $z5 = virtualinvoke $r12.isAttachedToWindow();
+
+        if $z5 == 0 goto label47;
+
+        goto label48;
+
+     label47:
+        $z3 = 0;
+
+     label48:
+        if $r12 == null goto label49;
+
+        $i0 = virtualinvoke $r12.getWindowVisibility();
+
+        goto label50;
+
+     label49:
+        $i0 = 8;
+
+     label50:
+        $r19 = r0.zzp;
+
+        $r19 = virtualinvoke r0.zza($r19);
+
+        $r8 = virtualinvoke r0.zza($r8);
+
+        $r1 = virtualinvoke r0.zza($r1);
+
+        $r2 = virtualinvoke r0.zza($r2);
+
+        $r3 = virtualinvoke r0.zza($r3);
+
+        $r29 = r0.zzo;
+
+        $f0 = $r29.density;
+
+        specialinvoke $r34.<init>($l4, $z4, $z3, $i0, $r19, $r8, $r1, $z0, $r2, $z1, $l3, $r3, $f0, $z2, $r20);
+
+        $r4 = r0.zzn;
+
+        $r30 = virtualinvoke $r4.iterator();
+
+     label51:
+        $z0 = interfaceinvoke $r30.hasNext();
+
+        if $z0 == 0 goto label52;
+
+        $r6 = interfaceinvoke $r30.next();
+
+        $r31 = (com.google.android.gms.internal.ads.zzatf) $r6;
+
+        interfaceinvoke $r31.zzc($r34);
+
+        goto label51;
+
+     label52:
+        r0.zzl = $z2;
+
+        return;
+
+        catch java.lang.Exception from label03 to label04 with label05;
+        catch java.lang.Exception from label09 to label10 with label21;
+        catch java.lang.Exception from label11 to label12 with label21;
+        catch java.lang.Exception from label13 to label14 with label21;
+        catch java.lang.Exception from label15 to label16 with label21;
+        catch java.lang.Exception from label17 to label19 with label21;
+    }
+
+    private final void zzk()
+    {
+        com.google.android.gms.internal.ads.zzatc $r2;
+        com.google.android.gms.internal.ads.zzfkr $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.ads.internal.util.zzs.zza;
+
+        $r2 = new com.google.android.gms.internal.ads.zzatc;
+
+        specialinvoke $r2.<init>(r0);
+
+        virtualinvoke $r1.post($r2);
+
+        return;
+    }
+
+    private final void zzl(android.view.View)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.ads.internal.util.zzcg $r8;
+        com.google.android.gms.internal.ads.zzats $r10;
+        android.content.IntentFilter $r6;
+        android.content.BroadcastReceiver $r2;
+        java.lang.Exception $r11;
+        com.google.android.gms.internal.ads.zzatd $r7;
+        android.app.Application $r9;
+        com.google.android.gms.internal.ads.zzatg r0;
+        android.view.View $r3;
+        android.view.ViewTreeObserver $r4;
+        java.lang.ref.WeakReference $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 = virtualinvoke $r3.getViewTreeObserver();
+
+        $z0 = virtualinvoke $r4.isAlive();
+
+        if $z0 == 0 goto label1;
+
+        $r5 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r5.<init>($r4);
+
+        r0.zzi = $r5;
+
+        virtualinvoke $r4.addOnScrollChangedListener(r0);
+
+        virtualinvoke $r4.addOnGlobalLayoutListener(r0);
+
+     label1:
+        $r2 = r0.zza;
+
+        if $r2 != null goto label2;
+
+        $r6 = new android.content.IntentFilter;
+
+        specialinvoke $r6.<init>();
+
+        virtualinvoke $r6.addAction("android.intent.action.SCREEN_ON");
+
+        virtualinvoke $r6.addAction("android.intent.action.SCREEN_OFF");
+
+        virtualinvoke $r6.addAction("android.intent.action.USER_PRESENT");
+
+        $r7 = new com.google.android.gms.internal.ads.zzatd;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.zza = $r7;
+
+        $r8 = com.google.android.gms.ads.internal.zzt.zzv();
+
+        $r1 = r0.zzd;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r8.zzc($r1, $r2, $r6);
+
+     label2:
+        $r9 = r0.zze;
+
+        if $r9 == null goto label6;
+
+     label3:
+        $r10 = r0.zzj;
+
+        virtualinvoke $r9.registerActivityLifecycleCallbacks($r10);
+
+     label4:
+        return;
+
+     label5:
+        $r11 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error registering activity lifecycle callbacks.", $r11);
+
+     label6:
+        return;
+
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    private final void zzm(android.view.View)
+    {
+        android.content.Context $r9;
+        java.lang.IllegalStateException $r12;
+        com.google.android.gms.internal.ads.zzbyj $r11;
+        android.view.View $r1;
+        java.lang.ref.WeakReference $r2;
+        boolean $z0;
+        com.google.android.gms.ads.internal.util.zzcg $r8;
+        com.google.android.gms.internal.ads.zzats $r14;
+        android.content.BroadcastReceiver $r7;
+        java.lang.Exception $r5, $r6, $r10, $r15;
+        android.app.Application $r13;
+        com.google.android.gms.internal.ads.zzatg r0;
+        android.view.ViewTreeObserver $r4;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+     label01:
+        $r2 = r0.zzi;
+
+     label02:
+        if $r2 == null goto label11;
+
+     label03:
+        $r3 = virtualinvoke $r2.get();
+
+        $r4 = (android.view.ViewTreeObserver) $r3;
+
+     label04:
+        if $r4 == null goto label08;
+
+     label05:
+        $z0 = virtualinvoke $r4.isAlive();
+
+     label06:
+        if $z0 == 0 goto label08;
+
+     label07:
+        virtualinvoke $r4.removeOnScrollChangedListener(r0);
+
+        virtualinvoke $r4.removeGlobalOnLayoutListener(r0);
+
+     label08:
+        r0.zzi = null;
+
+     label09:
+        goto label11;
+
+     label10:
+        $r5 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error while unregistering listeners from the last ViewTreeObserver.", $r5);
+
+     label11:
+        $r4 = virtualinvoke $r1.getViewTreeObserver();
+
+        $z0 = virtualinvoke $r4.isAlive();
+
+     label12:
+        if $z0 == 0 goto label16;
+
+     label13:
+        virtualinvoke $r4.removeOnScrollChangedListener(r0);
+
+        virtualinvoke $r4.removeGlobalOnLayoutListener(r0);
+
+     label14:
+        goto label16;
+
+     label15:
+        $r6 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error while unregistering listeners from the ViewTreeObserver.", $r6);
+
+     label16:
+        $r7 = r0.zza;
+
+        if $r7 == null goto label24;
+
+     label17:
+        $r8 = com.google.android.gms.ads.internal.zzt.zzv();
+
+     label18:
+        $r9 = r0.zzd;
+
+        $r7 = r0.zza;
+
+     label19:
+        virtualinvoke $r8.zzd($r9, $r7);
+
+     label20:
+        goto label23;
+
+     label21:
+        $r10 := @caughtexception;
+
+        $r11 = com.google.android.gms.ads.internal.zzt.zzo();
+
+        virtualinvoke $r11.zzu($r10, "ActiveViewUnit.stopScreenStatusMonitoring");
+
+        goto label23;
+
+     label22:
+        $r12 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Failed trying to unregister the receiver", $r12);
+
+     label23:
+        r0.zza = null;
+
+     label24:
+        $r13 = r0.zze;
+
+        if $r13 == null goto label28;
+
+     label25:
+        $r14 = r0.zzj;
+
+        virtualinvoke $r13.unregisterActivityLifecycleCallbacks($r14);
+
+     label26:
+        return;
+
+     label27:
+        $r15 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error registering activity lifecycle callbacks.", $r15);
+
+     label28:
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label10;
+        catch java.lang.Exception from label03 to label04 with label10;
+        catch java.lang.Exception from label05 to label06 with label10;
+        catch java.lang.Exception from label07 to label09 with label10;
+        catch java.lang.Exception from label11 to label12 with label15;
+        catch java.lang.Exception from label13 to label14 with label15;
+        catch java.lang.IllegalStateException from label17 to label18 with label22;
+        catch java.lang.IllegalStateException from label19 to label20 with label22;
+        catch java.lang.Exception from label17 to label20 with label21;
+        catch java.lang.Exception from label25 to label26 with label27;
+    }
+
+    public final void onActivityCreated(android.app.Activity, android.os.Bundle)
+    {
+        android.os.Bundle $r2;
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.zzi($r1, 0);
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivityDestroyed(android.app.Activity)
+    {
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivityPaused(android.app.Activity)
+    {
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzi($r1, 4);
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivityResumed(android.app.Activity)
+    {
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzi($r1, 0);
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivitySaveInstanceState(android.app.Activity, android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        android.app.Activity $r2;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivityStarted(android.app.Activity)
+    {
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzi($r1, 0);
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onActivityStopped(android.app.Activity)
+    {
+        android.app.Activity $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onGlobalLayout()
+    {
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zzj(2);
+
+        specialinvoke r0.zzk();
+
+        return;
+    }
+
+    public final void onScrollChanged()
+    {
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zzj(1);
+
+        return;
+    }
+
+    public final void onViewAttachedToWindow(android.view.View)
+    {
+        android.view.View $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzm = -1;
+
+        specialinvoke r0.zzl($r1);
+
+        specialinvoke r0.zzj(3);
+
+        return;
+    }
+
+    public final void onViewDetachedFromWindow(android.view.View)
+    {
+        android.view.View $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzm = -1;
+
+        specialinvoke r0.zzj(3);
+
+        specialinvoke r0.zzk();
+
+        specialinvoke r0.zzm($r1);
+
+        return;
+    }
+
+    final android.graphics.Rect zza(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1, $r2;
+        com.google.android.gms.internal.ads.zzatg r0;
+        int $i0, $i1, $i2, $i3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new android.graphics.Rect;
+
+        $i0 = $r2.left;
+
+        $i0 = specialinvoke r0.zzh($i0);
+
+        $i1 = $r2.top;
+
+        $i1 = specialinvoke r0.zzh($i1);
+
+        $i2 = $r2.right;
+
+        $i2 = specialinvoke r0.zzh($i2);
+
+        $i3 = $r2.bottom;
+
+        $i3 = specialinvoke r0.zzh($i3);
+
+        specialinvoke $r1.<init>($i0, $i1, $i2, $i3);
+
+        return $r1;
+    }
+
+    public final void zzc(com.google.android.gms.internal.ads.zzatf)
+    {
+        java.util.HashSet $r1;
+        com.google.android.gms.internal.ads.zzatg r0;
+        com.google.android.gms.internal.ads.zzatf $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zzn;
+
+        virtualinvoke $r1.add($r2);
+
+        specialinvoke r0.zzj(3);
+
+        return;
+    }
+
+    final void zzd()
+    {
+        com.google.android.gms.internal.ads.zzatg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zzj(3);
+
+        return;
+    }
+
+    public final void zze(com.google.android.gms.internal.ads.zzatf)
+    {
+        java.util.HashSet $r2;
+        com.google.android.gms.internal.ads.zzatg r0;
+        com.google.android.gms.internal.ads.zzatf $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzn;
+
+        virtualinvoke $r2.remove($r1);
+
+        return;
+    }
+
+    public final void zzf()
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzatg r0;
+        com.google.android.gms.ads.internal.util.zzbz $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzk;
+
+        $l0 = com.google.android.gms.internal.ads.zzatg.zzc;
+
+        virtualinvoke $r1.zza($l0);
+
+        return;
+    }
+
+    public final void zzg(long)
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzatg r0;
+        com.google.android.gms.ads.internal.util.zzbz $r1;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 = r0.zzk;
+
+        virtualinvoke $r1.zza($l0);
+
+        return;
+    }
+}

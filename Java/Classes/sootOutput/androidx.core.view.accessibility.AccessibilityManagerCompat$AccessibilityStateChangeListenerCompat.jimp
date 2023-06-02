@@ -1,0 +1,14 @@
+public abstract class androidx.core.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListenerCompat extends java.lang.Object implements androidx.core.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListener
+{
+
+    public void <init>()
+    {
+        androidx.core.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListenerCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

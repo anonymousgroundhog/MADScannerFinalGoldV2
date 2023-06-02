@@ -1,0 +1,43 @@
+public final class com.google.android.gms.internal.ads.zzbvu extends java.lang.Object implements java.lang.Runnable
+{
+    public final com.google.android.gms.internal.ads.zzbvw zza;
+    public final android.graphics.Bitmap zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzbvw, android.graphics.Bitmap)
+    {
+        com.google.android.gms.internal.ads.zzbvu r0;
+        android.graphics.Bitmap $r2;
+        com.google.android.gms.internal.ads.zzbvw $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.google.android.gms.internal.ads.zzbvu r0;
+        android.graphics.Bitmap $r2;
+        com.google.android.gms.internal.ads.zzbvw $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r1.zzf($r2);
+
+        return;
+    }
+}

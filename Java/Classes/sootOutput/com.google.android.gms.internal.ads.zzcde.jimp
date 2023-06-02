@@ -1,0 +1,217 @@
+final class com.google.android.gms.internal.ads.zzcde extends javax.net.ssl.SSLSocketFactory
+{
+    final javax.net.ssl.SSLSocketFactory zza;
+    final com.google.android.gms.internal.ads.zzcdf zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzcdf)
+    {
+        javax.net.SocketFactory $r1;
+        com.google.android.gms.internal.ads.zzcdf $r2;
+        com.google.android.gms.internal.ads.zzcde r0;
+        javax.net.ssl.SSLSocketFactory $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        r0.zzb = $r2;
+
+        specialinvoke r0.<init>();
+
+        $r1 = javax.net.ssl.SSLSocketFactory.getDefault();
+
+        $r3 = (javax.net.ssl.SSLSocketFactory) $r1;
+
+        r0.zza = $r3;
+
+        return;
+    }
+
+    private final java.net.Socket zza(java.net.Socket) throws java.net.SocketException
+    {
+        java.net.Socket $r1;
+        com.google.android.gms.internal.ads.zzcdf $r2;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzb;
+
+        $i0 = com.google.android.gms.internal.ads.zzcdf.zzk($r2);
+
+        if $i0 <= 0 goto label1;
+
+        $i0 = com.google.android.gms.internal.ads.zzcdf.zzk($r2);
+
+        virtualinvoke $r1.setReceiveBufferSize($i0);
+
+     label1:
+        $r2 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzcdf.zzl($r2, $r1);
+
+        return $r1;
+    }
+
+    public final java.net.Socket createSocket(java.lang.String, int) throws java.io.IOException
+    {
+        java.net.Socket $r2;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0;
+        java.lang.String $r3;
+        javax.net.ssl.SSLSocketFactory $r1;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.createSocket($r3, $i0);
+
+        specialinvoke r0.zza($r2);
+
+        return $r2;
+    }
+
+    public final java.net.Socket createSocket(java.lang.String, int, java.net.InetAddress, int) throws java.io.IOException
+    {
+        java.net.InetAddress $r1;
+        java.net.Socket $r3;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0, $i1;
+        java.lang.String $r4;
+        javax.net.ssl.SSLSocketFactory $r2;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i1 := @parameter3;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke $r2.createSocket($r4, $i0, $r1, $i1);
+
+        specialinvoke r0.zza($r3);
+
+        return $r3;
+    }
+
+    public final java.net.Socket createSocket(java.net.InetAddress, int) throws java.io.IOException
+    {
+        java.net.InetAddress $r3;
+        java.net.Socket $r2;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0;
+        javax.net.ssl.SSLSocketFactory $r1;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.createSocket($r3, $i0);
+
+        specialinvoke r0.zza($r2);
+
+        return $r2;
+    }
+
+    public final java.net.Socket createSocket(java.net.InetAddress, int, java.net.InetAddress, int) throws java.io.IOException
+    {
+        java.net.InetAddress $r1, $r4;
+        java.net.Socket $r3;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0, $i1;
+        javax.net.ssl.SSLSocketFactory $r2;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i1 := @parameter3;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke $r2.createSocket($r4, $i0, $r1, $i1);
+
+        specialinvoke r0.zza($r3);
+
+        return $r3;
+    }
+
+    public final java.net.Socket createSocket(java.net.Socket, java.lang.String, int, boolean) throws java.io.IOException
+    {
+        java.net.Socket $r3;
+        com.google.android.gms.internal.ads.zzcde r0;
+        int $i0;
+        java.lang.String $r1;
+        boolean $z0;
+        javax.net.ssl.SSLSocketFactory $r2;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $z0 := @parameter3;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke $r2.createSocket($r3, $r1, $i0, $z0);
+
+        specialinvoke r0.zza($r3);
+
+        return $r3;
+    }
+
+    public final java.lang.String[] getDefaultCipherSuites()
+    {
+        java.lang.String[] $r1;
+        com.google.android.gms.internal.ads.zzcde r0;
+        javax.net.ssl.SSLSocketFactory $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getDefaultCipherSuites();
+
+        return $r1;
+    }
+
+    public final java.lang.String[] getSupportedCipherSuites()
+    {
+        java.lang.String[] $r1;
+        com.google.android.gms.internal.ads.zzcde r0;
+        javax.net.ssl.SSLSocketFactory $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getSupportedCipherSuites();
+
+        return $r1;
+    }
+}

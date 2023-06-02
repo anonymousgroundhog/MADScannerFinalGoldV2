@@ -1,0 +1,44 @@
+class androidx.fragment.app.FragmentTabHost$DummyTabFactory extends java.lang.Object implements android.widget.TabHost$TabContentFactory
+{
+    private final android.content.Context mContext;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.fragment.app.FragmentTabHost$DummyTabFactory r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mContext = $r1;
+
+        return;
+    }
+
+    public android.view.View createTabContent(java.lang.String)
+    {
+        android.content.Context $r3;
+        android.view.View r2;
+        java.lang.String $r1;
+        androidx.fragment.app.FragmentTabHost$DummyTabFactory r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new android.view.View;
+
+        $r3 = r0.mContext;
+
+        specialinvoke r2.<init>($r3);
+
+        virtualinvoke r2.setMinimumWidth(0);
+
+        virtualinvoke r2.setMinimumHeight(0);
+
+        return r2;
+    }
+}

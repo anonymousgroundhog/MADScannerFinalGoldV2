@@ -1,0 +1,73 @@
+public final class com.google.android.gms.internal.ads.zzgxg extends java.lang.Object
+{
+
+    public static java.lang.Object zza(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        java.lang.NullPointerException $r2;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        if $r1 == null goto label1;
+
+        return $r1;
+
+     label1:
+        $r2 = new java.lang.NullPointerException;
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    public static java.lang.Object zzb(java.lang.Object)
+    {
+        java.lang.Object $r0;
+        java.lang.NullPointerException $r1;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label1;
+
+        return $r0;
+
+     label1:
+        $r1 = new java.lang.NullPointerException;
+
+        specialinvoke $r1.<init>("Cannot return null from a non-@Nullable @Provides method");
+
+        throw $r1;
+    }
+
+    public static void zzc(java.lang.Object, java.lang.Class)
+    {
+        java.lang.IllegalStateException $r2;
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        java.lang.String $r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r0 == null goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r3 = virtualinvoke $r1.getCanonicalName();
+
+        $r3 = java.lang.String.valueOf($r3);
+
+        $r3 = virtualinvoke $r3.concat(" must be set");
+
+        specialinvoke $r2.<init>($r3);
+
+        throw $r2;
+    }
+}

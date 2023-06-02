@@ -1,0 +1,60 @@
+class androidx.work.impl.WorkDatabase$1 extends java.lang.Object implements androidx.sqlite.db.SupportSQLiteOpenHelper$Factory
+{
+    final android.content.Context val$context;
+
+    void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.work.impl.WorkDatabase$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.val$context = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public androidx.sqlite.db.SupportSQLiteOpenHelper create(androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration)
+    {
+        android.content.Context r2;
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration$Builder $r3, $r5;
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration $r1;
+        androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory r7;
+        androidx.sqlite.db.SupportSQLiteOpenHelper $r8;
+        androidx.work.impl.WorkDatabase$1 r0;
+        java.lang.String r4;
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Callback $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.val$context;
+
+        $r3 = androidx.sqlite.db.SupportSQLiteOpenHelper$Configuration.builder(r2);
+
+        r4 = $r1.name;
+
+        $r5 = virtualinvoke $r3.name(r4);
+
+        $r6 = $r1.callback;
+
+        $r5 = virtualinvoke $r5.callback($r6);
+
+        virtualinvoke $r5.noBackupDirectory(1);
+
+        r7 = new androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory;
+
+        specialinvoke r7.<init>();
+
+        $r1 = virtualinvoke $r3.build();
+
+        $r8 = virtualinvoke r7.create($r1);
+
+        return $r8;
+    }
+}

@@ -1,0 +1,208 @@
+final class com.google.android.gms.internal.ads.zzfhv extends com.google.android.gms.internal.ads.zzfhr
+{
+    private final java.lang.String zza;
+    private final boolean zzb;
+    private final boolean zzc;
+
+    void <init>(java.lang.String, boolean, boolean, com.google.android.gms.internal.ads.zzfhu)
+    {
+        com.google.android.gms.internal.ads.zzfhv r0;
+        com.google.android.gms.internal.ads.zzfhu $r2;
+        java.lang.String $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $z0;
+
+        r0.zzc = $z1;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfhr $r2;
+        com.google.android.gms.internal.ads.zzfhv r0;
+        java.lang.Object $r1;
+        java.lang.String $r3, $r4;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != r0 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.internal.ads.zzfhr;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (com.google.android.gms.internal.ads.zzfhr) $r1;
+
+        $r3 = r0.zza;
+
+        $r4 = virtualinvoke $r2.zzb();
+
+        $z0 = virtualinvoke $r3.equals($r4);
+
+        if $z0 == 0 goto label2;
+
+        $z0 = r0.zzb;
+
+        $z1 = virtualinvoke $r2.zzd();
+
+        if $z0 != $z1 goto label2;
+
+        $z0 = r0.zzc;
+
+        $z1 = virtualinvoke $r2.zzc();
+
+        if $z0 != $z1 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final int hashCode()
+    {
+        short $s1, $s2;
+        com.google.android.gms.internal.ads.zzfhv r0;
+        int $i0;
+        java.lang.String $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = virtualinvoke $r1.hashCode();
+
+        $i0 = $i0 ^ 1000003;
+
+        $z0 = r0.zzb;
+
+        $s1 = 1237;
+
+        if 1 == $z0 goto label1;
+
+        $s2 = 1237;
+
+        goto label2;
+
+     label1:
+        $s2 = 1231;
+
+     label2:
+        $z0 = r0.zzc;
+
+        if 1 == $z0 goto label3;
+
+        goto label4;
+
+     label3:
+        $s1 = 1231;
+
+     label4:
+        $i0 = $i0 * 1000003;
+
+        $i0 = $i0 ^ $s2;
+
+        $i0 = $i0 * 1000003;
+
+        $i0 = $i0 ^ $s1;
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzfhv r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $z0 = r0.zzb;
+
+        $z1 = r0.zzc;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("AdShield2Options{clientVersion=");
+
+        virtualinvoke $r1.append($r2);
+
+        virtualinvoke $r1.append(", shouldGetAdvertisingId=");
+
+        virtualinvoke $r1.append($z0);
+
+        virtualinvoke $r1.append(", isGooglePlayServicesAvailable=");
+
+        virtualinvoke $r1.append($z1);
+
+        virtualinvoke $r1.append("}");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+    }
+
+    public final java.lang.String zzb()
+    {
+        java.lang.String r1;
+        com.google.android.gms.internal.ads.zzfhv r0;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public final boolean zzc()
+    {
+        com.google.android.gms.internal.ads.zzfhv r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzc;
+
+        return z0;
+    }
+
+    public final boolean zzd()
+    {
+        com.google.android.gms.internal.ads.zzfhv r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzb;
+
+        return z0;
+    }
+}

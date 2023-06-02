@@ -1,0 +1,565 @@
+final class androidx.fragment.app.FragmentState extends java.lang.Object implements android.os.Parcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final android.os.Bundle mArguments;
+    final java.lang.String mClassName;
+    final int mContainerId;
+    final boolean mDetached;
+    final int mFragmentId;
+    final boolean mFromLayout;
+    final boolean mHidden;
+    androidx.fragment.app.Fragment mInstance;
+    final int mMaxLifecycleState;
+    final boolean mRemoving;
+    final boolean mRetainInstance;
+    android.os.Bundle mSavedFragmentState;
+    final java.lang.String mTag;
+    final java.lang.String mWho;
+
+    static void <clinit>()
+    {
+        androidx.fragment.app.FragmentState$1 $r0;
+
+        $r0 = new androidx.fragment.app.FragmentState$1;
+
+        specialinvoke $r0.<init>();
+
+        androidx.fragment.app.FragmentState.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel)
+    {
+        androidx.fragment.app.FragmentState r0;
+        android.os.Bundle $r3;
+        int $i0;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = virtualinvoke $r1.readString();
+
+        r0.mClassName = $r2;
+
+        $r2 = virtualinvoke $r1.readString();
+
+        r0.mWho = $r2;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        $z0 = 1;
+
+        if $i0 == 0 goto label01;
+
+        $z1 = 1;
+
+        goto label02;
+
+     label01:
+        $z1 = 0;
+
+     label02:
+        r0.mFromLayout = $z1;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        r0.mFragmentId = $i0;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        r0.mContainerId = $i0;
+
+        $r2 = virtualinvoke $r1.readString();
+
+        r0.mTag = $r2;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        if $i0 == 0 goto label03;
+
+        $z1 = 1;
+
+        goto label04;
+
+     label03:
+        $z1 = 0;
+
+     label04:
+        r0.mRetainInstance = $z1;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        if $i0 == 0 goto label05;
+
+        $z1 = 1;
+
+        goto label06;
+
+     label05:
+        $z1 = 0;
+
+     label06:
+        r0.mRemoving = $z1;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        if $i0 == 0 goto label07;
+
+        $z1 = 1;
+
+        goto label08;
+
+     label07:
+        $z1 = 0;
+
+     label08:
+        r0.mDetached = $z1;
+
+        $r3 = virtualinvoke $r1.readBundle();
+
+        r0.mArguments = $r3;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        if $i0 == 0 goto label09;
+
+        goto label10;
+
+     label09:
+        $z0 = 0;
+
+     label10:
+        r0.mHidden = $z0;
+
+        $r3 = virtualinvoke $r1.readBundle();
+
+        r0.mSavedFragmentState = $r3;
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        r0.mMaxLifecycleState = $i0;
+
+        return;
+    }
+
+    void <init>(androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.FragmentState r0;
+        android.os.Bundle $r4;
+        androidx.lifecycle.Lifecycle$State $r5;
+        androidx.fragment.app.Fragment $r1;
+        int $i0;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = virtualinvoke $r1.getClass();
+
+        $r3 = virtualinvoke $r2.getName();
+
+        r0.mClassName = $r3;
+
+        $r3 = $r1.mWho;
+
+        r0.mWho = $r3;
+
+        $z0 = $r1.mFromLayout;
+
+        r0.mFromLayout = $z0;
+
+        $i0 = $r1.mFragmentId;
+
+        r0.mFragmentId = $i0;
+
+        $i0 = $r1.mContainerId;
+
+        r0.mContainerId = $i0;
+
+        $r3 = $r1.mTag;
+
+        r0.mTag = $r3;
+
+        $z0 = $r1.mRetainInstance;
+
+        r0.mRetainInstance = $z0;
+
+        $z0 = $r1.mRemoving;
+
+        r0.mRemoving = $z0;
+
+        $z0 = $r1.mDetached;
+
+        r0.mDetached = $z0;
+
+        $r4 = $r1.mArguments;
+
+        r0.mArguments = $r4;
+
+        $z0 = $r1.mHidden;
+
+        r0.mHidden = $z0;
+
+        $r5 = $r1.mMaxState;
+
+        $i0 = virtualinvoke $r5.ordinal();
+
+        r0.mMaxLifecycleState = $i0;
+
+        return;
+    }
+
+    public int describeContents()
+    {
+        androidx.fragment.app.FragmentState r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public androidx.fragment.app.Fragment instantiate(java.lang.ClassLoader, androidx.fragment.app.FragmentFactory)
+    {
+        androidx.fragment.app.FragmentState r0;
+        androidx.fragment.app.FragmentFactory $r2;
+        android.os.Bundle $r4;
+        androidx.lifecycle.Lifecycle$State[] $r6;
+        androidx.lifecycle.Lifecycle$State $r7;
+        int $i0;
+        androidx.fragment.app.Fragment $r3;
+        java.lang.StringBuilder $r8;
+        java.lang.ClassLoader $r1;
+        java.lang.String $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.mInstance;
+
+        if $r3 != null goto label4;
+
+        $r4 = r0.mArguments;
+
+        if $r4 == null goto label1;
+
+        virtualinvoke $r4.setClassLoader($r1);
+
+     label1:
+        $r5 = r0.mClassName;
+
+        $r3 = virtualinvoke $r2.instantiate($r1, $r5);
+
+        r0.mInstance = $r3;
+
+        $r4 = r0.mArguments;
+
+        virtualinvoke $r3.setArguments($r4);
+
+        $r4 = r0.mSavedFragmentState;
+
+        if $r4 == null goto label2;
+
+        virtualinvoke $r4.setClassLoader($r1);
+
+        $r3 = r0.mInstance;
+
+        $r4 = r0.mSavedFragmentState;
+
+        $r3.mSavedFragmentState = $r4;
+
+        goto label3;
+
+     label2:
+        $r3 = r0.mInstance;
+
+        $r4 = new android.os.Bundle;
+
+        specialinvoke $r4.<init>();
+
+        $r3.mSavedFragmentState = $r4;
+
+     label3:
+        $r3 = r0.mInstance;
+
+        $r5 = r0.mWho;
+
+        $r3.mWho = $r5;
+
+        $r3 = r0.mInstance;
+
+        $z0 = r0.mFromLayout;
+
+        $r3.mFromLayout = $z0;
+
+        $r3 = r0.mInstance;
+
+        $r3.mRestored = 1;
+
+        $r3 = r0.mInstance;
+
+        $i0 = r0.mFragmentId;
+
+        $r3.mFragmentId = $i0;
+
+        $r3 = r0.mInstance;
+
+        $i0 = r0.mContainerId;
+
+        $r3.mContainerId = $i0;
+
+        $r3 = r0.mInstance;
+
+        $r5 = r0.mTag;
+
+        $r3.mTag = $r5;
+
+        $r3 = r0.mInstance;
+
+        $z0 = r0.mRetainInstance;
+
+        $r3.mRetainInstance = $z0;
+
+        $r3 = r0.mInstance;
+
+        $z0 = r0.mRemoving;
+
+        $r3.mRemoving = $z0;
+
+        $r3 = r0.mInstance;
+
+        $z0 = r0.mDetached;
+
+        $r3.mDetached = $z0;
+
+        $r3 = r0.mInstance;
+
+        $z0 = r0.mHidden;
+
+        $r3.mHidden = $z0;
+
+        $r3 = r0.mInstance;
+
+        $r6 = androidx.lifecycle.Lifecycle$State.values();
+
+        $i0 = r0.mMaxLifecycleState;
+
+        $r7 = $r6[$i0];
+
+        $r3.mMaxState = $r7;
+
+        $z0 = androidx.fragment.app.FragmentManagerImpl.DEBUG;
+
+        if $z0 == 0 goto label4;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        $r8 = virtualinvoke $r8.append("Instantiated fragment ");
+
+        $r3 = r0.mInstance;
+
+        $r8 = virtualinvoke $r8.append($r3);
+
+        $r5 = virtualinvoke $r8.toString();
+
+        android.util.Log.v("FragmentManager", $r5);
+
+     label4:
+        $r3 = r0.mInstance;
+
+        return $r3;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.fragment.app.FragmentState r0;
+        int $i0;
+        java.lang.StringBuilder r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = new java.lang.StringBuilder;
+
+        specialinvoke r1.<init>(128);
+
+        virtualinvoke r1.append("FragmentState{");
+
+        $r2 = r0.mClassName;
+
+        virtualinvoke r1.append($r2);
+
+        virtualinvoke r1.append(" (");
+
+        $r2 = r0.mWho;
+
+        virtualinvoke r1.append($r2);
+
+        virtualinvoke r1.append(")}:");
+
+        $z0 = r0.mFromLayout;
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r1.append(" fromLayout");
+
+     label1:
+        $i0 = r0.mContainerId;
+
+        if $i0 == 0 goto label2;
+
+        virtualinvoke r1.append(" id=0x");
+
+        $i0 = r0.mContainerId;
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        virtualinvoke r1.append($r2);
+
+     label2:
+        $r2 = r0.mTag;
+
+        if $r2 == null goto label3;
+
+        $z0 = virtualinvoke $r2.isEmpty();
+
+        if $z0 != 0 goto label3;
+
+        virtualinvoke r1.append(" tag=");
+
+        $r2 = r0.mTag;
+
+        virtualinvoke r1.append($r2);
+
+     label3:
+        $z0 = r0.mRetainInstance;
+
+        if $z0 == 0 goto label4;
+
+        virtualinvoke r1.append(" retainInstance");
+
+     label4:
+        $z0 = r0.mRemoving;
+
+        if $z0 == 0 goto label5;
+
+        virtualinvoke r1.append(" removing");
+
+     label5:
+        $z0 = r0.mDetached;
+
+        if $z0 == 0 goto label6;
+
+        virtualinvoke r1.append(" detached");
+
+     label6:
+        $z0 = r0.mHidden;
+
+        if $z0 == 0 goto label7;
+
+        virtualinvoke r1.append(" hidden");
+
+     label7:
+        $r2 = virtualinvoke r1.toString();
+
+        return $r2;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        androidx.fragment.app.FragmentState r0;
+        android.os.Bundle $r3;
+        int $i0;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.mClassName;
+
+        virtualinvoke $r1.writeString($r2);
+
+        $r2 = r0.mWho;
+
+        virtualinvoke $r1.writeString($r2);
+
+        $z0 = r0.mFromLayout;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $i0 = r0.mFragmentId;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $i0 = r0.mContainerId;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $r2 = r0.mTag;
+
+        virtualinvoke $r1.writeString($r2);
+
+        $z0 = r0.mRetainInstance;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $z0 = r0.mRemoving;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $z0 = r0.mDetached;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $r3 = r0.mArguments;
+
+        virtualinvoke $r1.writeBundle($r3);
+
+        $z0 = r0.mHidden;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $r3 = r0.mSavedFragmentState;
+
+        virtualinvoke $r1.writeBundle($r3);
+
+        $i0 = r0.mMaxLifecycleState;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        return;
+    }
+}

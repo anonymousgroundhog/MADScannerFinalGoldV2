@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzdea extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzdeb zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdeb $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdeb;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdea.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzdeb zza()
+    {
+        com.google.android.gms.internal.ads.zzdeb r0;
+
+        r0 = com.google.android.gms.internal.ads.zzdea.zza;
+
+        return r0;
+    }
+}

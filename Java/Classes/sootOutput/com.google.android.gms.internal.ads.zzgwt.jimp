@@ -1,0 +1,47 @@
+public class com.google.android.gms.internal.ads.zzgwt extends java.lang.Object
+{
+    final java.util.LinkedHashMap zza;
+
+    void <init>(int)
+    {
+        java.util.LinkedHashMap $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzgwt r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r1 = com.google.android.gms.internal.ads.zzgwv.zzb($i0);
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    final com.google.android.gms.internal.ads.zzgwt zza(java.lang.Object, com.google.android.gms.internal.ads.zzgxl)
+    {
+        java.util.LinkedHashMap $r3;
+        com.google.android.gms.internal.ads.zzgwt r0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzgxl $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzgxg.zza($r1, "key");
+
+        com.google.android.gms.internal.ads.zzgxg.zza($r2, "provider");
+
+        virtualinvoke $r3.put($r1, $r2);
+
+        return r0;
+    }
+}

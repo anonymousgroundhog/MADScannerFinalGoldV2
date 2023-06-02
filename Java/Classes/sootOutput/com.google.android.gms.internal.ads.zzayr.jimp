@@ -1,0 +1,202 @@
+public final enum class com.google.android.gms.internal.ads.zzayr extends java.lang.Enum implements com.google.android.gms.internal.ads.zzgqo
+{
+    public static final enum com.google.android.gms.internal.ads.zzayr zza;
+    public static final enum com.google.android.gms.internal.ads.zzayr zzb;
+    public static final enum com.google.android.gms.internal.ads.zzayr zzc;
+    public static final enum com.google.android.gms.internal.ads.zzayr zzd;
+    public static final enum com.google.android.gms.internal.ads.zzayr zze;
+    public static final enum com.google.android.gms.internal.ads.zzayr zzf;
+    private static final com.google.android.gms.internal.ads.zzgqp zzg;
+    private static final com.google.android.gms.internal.ads.zzayr[] zzh;
+    private final int zzi;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzayr $r0, $r1, $r2, $r3, $r4, $r5;
+        com.google.android.gms.internal.ads.zzayp $r7;
+        com.google.android.gms.internal.ads.zzayr[] $r6;
+
+        $r0 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r0.<init>("UNSPECIFIED", 0, 0);
+
+        com.google.android.gms.internal.ads.zzayr.zza = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r1.<init>("CONNECTING", 1, 1);
+
+        com.google.android.gms.internal.ads.zzayr.zzb = $r1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r2.<init>("CONNECTED", 2, 2);
+
+        com.google.android.gms.internal.ads.zzayr.zzc = $r2;
+
+        $r3 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r3.<init>("DISCONNECTING", 3, 3);
+
+        com.google.android.gms.internal.ads.zzayr.zzd = $r3;
+
+        $r4 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r4.<init>("DISCONNECTED", 4, 4);
+
+        com.google.android.gms.internal.ads.zzayr.zze = $r4;
+
+        $r5 = new com.google.android.gms.internal.ads.zzayr;
+
+        specialinvoke $r5.<init>("SUSPENDED", 5, 5);
+
+        com.google.android.gms.internal.ads.zzayr.zzf = $r5;
+
+        $r6 = newarray (com.google.android.gms.internal.ads.zzayr)[6];
+
+        $r6[0] = $r0;
+
+        $r6[1] = $r1;
+
+        $r6[2] = $r2;
+
+        $r6[3] = $r3;
+
+        $r6[4] = $r4;
+
+        $r6[5] = $r5;
+
+        com.google.android.gms.internal.ads.zzayr.zzh = $r6;
+
+        $r7 = new com.google.android.gms.internal.ads.zzayp;
+
+        specialinvoke $r7.<init>();
+
+        com.google.android.gms.internal.ads.zzayr.zzg = $r7;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int, int)
+    {
+        com.google.android.gms.internal.ads.zzayr r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        r0.zzi = $i1;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzayr[] values()
+    {
+        java.lang.Object $r0;
+        com.google.android.gms.internal.ads.zzayr[] $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzayr.zzh;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (com.google.android.gms.internal.ads.zzayr[]) $r0;
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.internal.ads.zzayr zzb(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzayr r0;
+
+        $i0 := @parameter0;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label7;
+            case 1: goto label6;
+            case 2: goto label5;
+            case 3: goto label4;
+            case 4: goto label3;
+            case 5: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return null;
+
+     label2:
+        r0 = com.google.android.gms.internal.ads.zzayr.zzf;
+
+        return r0;
+
+     label3:
+        r0 = com.google.android.gms.internal.ads.zzayr.zze;
+
+        return r0;
+
+     label4:
+        r0 = com.google.android.gms.internal.ads.zzayr.zzd;
+
+        return r0;
+
+     label5:
+        r0 = com.google.android.gms.internal.ads.zzayr.zzc;
+
+        return r0;
+
+     label6:
+        r0 = com.google.android.gms.internal.ads.zzayr.zzb;
+
+        return r0;
+
+     label7:
+        r0 = com.google.android.gms.internal.ads.zzayr.zza;
+
+        return r0;
+    }
+
+    public static com.google.android.gms.internal.ads.zzgqq zzc()
+    {
+        com.google.android.gms.internal.ads.zzgqq r0;
+
+        r0 = com.google.android.gms.internal.ads.zzayq.zza;
+
+        return r0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzayr r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 = r0.zzi;
+
+        $r1 = java.lang.Integer.toString($i0);
+
+        return $r1;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzayr r0;
+        int i0;
+
+        r0 := @this;
+
+        i0 = r0.zzi;
+
+        return i0;
+    }
+}

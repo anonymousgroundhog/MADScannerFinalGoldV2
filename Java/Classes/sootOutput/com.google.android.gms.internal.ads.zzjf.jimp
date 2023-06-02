@@ -1,0 +1,51 @@
+final class com.google.android.gms.internal.ads.zzjf extends java.lang.Object implements com.google.android.gms.internal.ads.zzkm
+{
+    final com.google.android.gms.internal.ads.zzjm zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzjm)
+    {
+        com.google.android.gms.internal.ads.zzjm $r1;
+        com.google.android.gms.internal.ads.zzjf r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza()
+    {
+        com.google.android.gms.internal.ads.zzjm $r1;
+        com.google.android.gms.internal.ads.zzjf r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzjm.zzf($r1, 1);
+
+        return;
+    }
+
+    public final void zzb()
+    {
+        com.google.android.gms.internal.ads.zzjm $r2;
+        com.google.android.gms.internal.ads.zzjf r0;
+        com.google.android.gms.internal.ads.zzdv $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzjm.zzc($r2);
+
+        interfaceinvoke $r1.zzi(2);
+
+        return;
+    }
+}

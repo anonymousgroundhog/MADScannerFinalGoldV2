@@ -1,0 +1,19 @@
+public final class androidx.appcompat.R$integer extends java.lang.Object
+{
+    public static final int abc_config_activityDefaultDur;
+    public static final int abc_config_activityShortDur;
+    public static final int cancel_button_image_alpha;
+    public static final int config_tooltipAnimTime;
+    public static final int status_bar_notification_info_maxnum;
+
+    private void <init>()
+    {
+        androidx.appcompat.R$integer r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

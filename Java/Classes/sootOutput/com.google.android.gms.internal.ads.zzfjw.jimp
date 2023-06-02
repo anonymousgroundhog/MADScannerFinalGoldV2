@@ -1,0 +1,14 @@
+final class com.google.android.gms.internal.ads.zzfjw extends java.lang.Object implements com.google.android.gms.internal.ads.zzfjx
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfjw r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

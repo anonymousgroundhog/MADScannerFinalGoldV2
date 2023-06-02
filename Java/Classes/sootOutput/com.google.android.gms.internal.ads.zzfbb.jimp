@@ -1,0 +1,122 @@
+final class com.google.android.gms.internal.ads.zzfbb extends java.lang.Object implements com.google.android.gms.internal.ads.zzfuf
+{
+    final com.google.android.gms.internal.ads.zzfbe zza;
+    final com.google.android.gms.internal.ads.zzfbf zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzfbf, com.google.android.gms.internal.ads.zzfbe)
+    {
+        com.google.android.gms.internal.ads.zzfbf $r1;
+        com.google.android.gms.internal.ads.zzfbe $r2;
+        com.google.android.gms.internal.ads.zzfbb r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zzb = $r1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Throwable)
+    {
+        java.lang.Throwable $r1, $r4;
+        com.google.android.gms.internal.ads.zzfbb r0;
+        com.google.android.gms.internal.ads.zzfbf $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzb;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzfbf.zzc($r3, null);
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public final volatile void zzb(java.lang.Object)
+    {
+        java.lang.Throwable $r7;
+        java.lang.Void $r2;
+        com.google.android.gms.internal.ads.zzfbb r0;
+        com.google.android.gms.internal.ads.zzfbf $r3, $r4;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfbe $r6;
+        java.lang.Object $r1;
+        java.util.ArrayDeque $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (java.lang.Void) $r1;
+
+        $r3 = r0.zzb;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzfbf.zzc($r4, null);
+
+        $r4 = r0.zzb;
+
+        $r5 = com.google.android.gms.internal.ads.zzfbf.zzb($r4);
+
+        $r6 = r0.zza;
+
+        virtualinvoke $r5.addFirst($r6);
+
+        $r4 = r0.zzb;
+
+        $i0 = com.google.android.gms.internal.ads.zzfbf.zzg($r4);
+
+        if $i0 != 1 goto label2;
+
+        com.google.android.gms.internal.ads.zzfbf.zzd($r4);
+
+     label2:
+        exitmonitor $r3;
+
+     label3:
+        return;
+
+     label4:
+        $r7 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label5:
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+}

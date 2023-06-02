@@ -1,0 +1,7 @@
+public annotation interface  com.google.android.ump.ConsentInformation$ConsentStatus extends java.lang.Object implements java.lang.'annotation'.Annotation
+{
+    public static final int NOT_REQUIRED;
+    public static final int OBTAINED;
+    public static final int REQUIRED;
+    public static final int UNKNOWN;
+}

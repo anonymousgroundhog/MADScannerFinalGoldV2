@@ -1,0 +1,1572 @@
+public final class com.google.android.gms.internal.ads.zzqx extends java.lang.Object
+{
+    public final java.lang.String zza;
+    public final java.lang.String zzb;
+    public final java.lang.String zzc;
+    public final android.media.MediaCodecInfo$CodecCapabilities zzd;
+    public final boolean zze;
+    public final boolean zzf;
+    public final boolean zzg;
+    private final boolean zzh;
+
+    void <init>(java.lang.String, java.lang.String, java.lang.String, android.media.MediaCodecInfo$CodecCapabilities, boolean, boolean, boolean, boolean, boolean, boolean)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        java.lang.NullPointerException r5;
+        android.media.MediaCodecInfo$CodecCapabilities $r3;
+        java.lang.String $r1, $r2, $r4;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $z0 := @parameter4;
+
+        $z1 := @parameter5;
+
+        $z2 := @parameter6;
+
+        $z3 := @parameter7;
+
+        $z4 := @parameter8;
+
+        $z5 := @parameter9;
+
+        specialinvoke r0.<init>();
+
+        if $r4 == null goto label1;
+
+        r0.zza = $r4;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        r0.zzd = $r3;
+
+        r0.zzg = $z0;
+
+        r0.zze = $z3;
+
+        r0.zzf = $z5;
+
+        $z0 = com.google.android.gms.internal.ads.zzbt.zzh($r1);
+
+        r0.zzh = $z0;
+
+        return;
+
+     label1:
+        r5 = new java.lang.NullPointerException;
+
+        specialinvoke r5.<init>("Null throw statement replaced by Soot");
+
+        throw r5;
+    }
+
+    public static com.google.android.gms.internal.ads.zzqx zzc(java.lang.String, java.lang.String, java.lang.String, android.media.MediaCodecInfo$CodecCapabilities, boolean, boolean, boolean, boolean, boolean)
+    {
+        com.google.android.gms.internal.ads.zzqx $r4;
+        int $i0;
+        android.media.MediaCodecInfo$CodecCapabilities $r3;
+        java.lang.String $r0, $r1, $r2, $r5, $r6;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $z0 := @parameter4;
+
+        $z1 := @parameter5;
+
+        $z2 := @parameter6;
+
+        $z3 := @parameter7;
+
+        $z4 := @parameter8;
+
+        $r4 = new com.google.android.gms.internal.ads.zzqx;
+
+        if $r3 == null goto label3;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        $z3 = virtualinvoke $r3.isFeatureSupported("adaptive-playback");
+
+        if $z3 == 0 goto label3;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 > 22 goto label2;
+
+        $r5 = com.google.android.gms.internal.ads.zzew.zzd;
+
+        $r6 = "ODROID-XU3";
+
+        $z3 = virtualinvoke $r6.equals($r5);
+
+        if $z3 != 0 goto label1;
+
+        $r5 = "Nexus 10";
+
+        $r6 = com.google.android.gms.internal.ads.zzew.zzd;
+
+        $z3 = virtualinvoke $r5.equals($r6);
+
+        if $z3 == 0 goto label2;
+
+     label1:
+        $r5 = "OMX.Exynos.AVC.Decoder";
+
+        $z3 = virtualinvoke $r5.equals($r0);
+
+        if $z3 != 0 goto label3;
+
+        $r5 = "OMX.Exynos.AVC.Decoder.secure";
+
+        $z3 = virtualinvoke $r5.equals($r0);
+
+        if $z3 == 0 goto label2;
+
+        $z3 = 0;
+
+        goto label4;
+
+     label2:
+        $z3 = 1;
+
+        goto label4;
+
+     label3:
+        $z3 = 0;
+
+     label4:
+        if $r3 == null goto label5;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 21 goto label5;
+
+        $z5 = virtualinvoke $r3.isFeatureSupported("tunneled-playback");
+
+        if $z5 == 0 goto label5;
+
+        $z5 = 1;
+
+        goto label6;
+
+     label5:
+        $z5 = 0;
+
+     label6:
+        if $z4 != 0 goto label8;
+
+        if $r3 == null goto label7;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 21 goto label7;
+
+        $z4 = virtualinvoke $r3.isFeatureSupported("secure-playback");
+
+        if $z4 == 0 goto label7;
+
+        $z4 = 1;
+
+        goto label9;
+
+     label7:
+        $z4 = 0;
+
+        goto label9;
+
+     label8:
+        $z4 = 1;
+
+     label9:
+        specialinvoke $r4.<init>($r0, $r1, $r2, $r3, $z0, $z1, $z2, $z3, $z5, $z4);
+
+        return $r4;
+    }
+
+    private static android.graphics.Point zzi(android.media.MediaCodecInfo$VideoCapabilities, int, int)
+    {
+        int $i0, $i1, $i2, $i3;
+        android.media.MediaCodecInfo$VideoCapabilities $r1;
+        android.graphics.Point $r0;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 = virtualinvoke $r1.getWidthAlignment();
+
+        $i3 = virtualinvoke $r1.getHeightAlignment();
+
+        $r0 = new android.graphics.Point;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zze($i0, $i2);
+
+        $i0 = $i0 * $i2;
+
+        $i1 = com.google.android.gms.internal.ads.zzew.zze($i1, $i3);
+
+        $i1 = $i1 * $i3;
+
+        specialinvoke $r0.<init>($i0, $i1);
+
+        return $r0;
+    }
+
+    private final void zzj(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r1, $r2, $r4, $r5;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r5 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zze;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r3.append("NoSupport [");
+
+        virtualinvoke $r3.append($r4);
+
+        virtualinvoke $r3.append("] [");
+
+        virtualinvoke $r3.append($r5);
+
+        virtualinvoke $r3.append(", ");
+
+        virtualinvoke $r3.append($r1);
+
+        virtualinvoke $r3.append("] [");
+
+        virtualinvoke $r3.append($r2);
+
+        virtualinvoke $r3.append("]");
+
+        $r4 = virtualinvoke $r3.toString();
+
+        com.google.android.gms.internal.ads.zzee.zza("MediaCodecInfo", $r4);
+
+        return;
+    }
+
+    private static boolean zzk(android.media.MediaCodecInfo$VideoCapabilities, int, int, double)
+    {
+        android.media.MediaCodecInfo$VideoCapabilities $r0;
+        android.graphics.Point $r1;
+        byte $b2;
+        int $i0, $i1, $i3;
+        double $d0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $d0 := @parameter3;
+
+        $r1 = com.google.android.gms.internal.ads.zzqx.zzi($r0, $i0, $i1);
+
+        $i0 = $r1.x;
+
+        $i1 = $r1.y;
+
+        $b2 = $d0 cmpl -1.0;
+
+        if $b2 == 0 goto label2;
+
+        $b2 = $d0 cmpg 1.0;
+
+        $i3 = (int) $b2;
+
+        if $i3 >= 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $d0 = java.lang.Math.floor($d0);
+
+        $z0 = virtualinvoke $r0.areSizeAndRateSupported($i0, $i1, $d0);
+
+        return $z0;
+
+     label2:
+        $z0 = virtualinvoke $r0.isSizeSupported($i0, $i1);
+
+        return $z0;
+    }
+
+    private final boolean zzl(com.google.android.gms.internal.ads.zzaf, boolean)
+    {
+        android.media.MediaCodecInfo$CodecProfileLevel $r14;
+        com.google.android.gms.internal.ads.zzqx r0;
+        android.util.Pair $r3;
+        android.util.Range $r12;
+        android.media.MediaCodecInfo$VideoCapabilities $r11;
+        com.google.android.gms.internal.ads.zzaf $r2;
+        java.lang.Integer $r5;
+        short $s2;
+        android.media.MediaCodecInfo$CodecProfileLevel[] $r8, $r9;
+        int $i0, $i1, $i3, $i4, $i5;
+        java.lang.String $r1, $r6, $r7;
+        boolean $z0, $z1;
+        java.lang.Object $r4;
+        android.media.MediaCodecInfo$CodecCapabilities $r10;
+        java.lang.Comparable $r13;
+        java.lang.StringBuilder $r15;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r3 = com.google.android.gms.internal.ads.zzrp.zzb($r2);
+
+        if $r3 != null goto label01;
+
+        return 1;
+
+     label01:
+        $r4 = $r3.first;
+
+        $r5 = (java.lang.Integer) $r4;
+
+        $i0 = virtualinvoke $r5.intValue();
+
+        $r4 = $r3.second;
+
+        $r5 = (java.lang.Integer) $r4;
+
+        $i1 = virtualinvoke $r5.intValue();
+
+        $r1 = $r2.zzm;
+
+        $r6 = "video/dolby-vision";
+
+        $z1 = virtualinvoke $r6.equals($r1);
+
+        $s2 = 8;
+
+        $r1 = "video/hevc";
+
+        if $z1 == 0 goto label03;
+
+        $r6 = r0.zzb;
+
+        $r7 = "video/avc";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 == 0 goto label02;
+
+        $i1 = 0;
+
+        $i0 = 8;
+
+        goto label03;
+
+     label02:
+        $r6 = r0.zzb;
+
+        $z1 = virtualinvoke $r1.equals($r6);
+
+        if $z1 == 0 goto label03;
+
+        $i1 = 0;
+
+        $i0 = 2;
+
+        goto label03;
+
+     label03:
+        $z1 = r0.zzh;
+
+        if $z1 != 0 goto label05;
+
+        if $i0 != 42 goto label04;
+
+        goto label05;
+
+     label04:
+        return 1;
+
+     label05:
+        $r8 = virtualinvoke r0.zzh();
+
+        $r9 = $r8;
+
+        $i3 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i3 > 23 goto label19;
+
+        $r6 = r0.zzb;
+
+        $r7 = "video/x-vnd.on2.vp9";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 == 0 goto label19;
+
+        $i3 = lengthof $r8;
+
+        if $i3 != 0 goto label19;
+
+        $r10 = r0.zzd;
+
+        if $r10 == null goto label06;
+
+        $r11 = virtualinvoke $r10.getVideoCapabilities();
+
+        if $r11 == null goto label06;
+
+        $r12 = virtualinvoke $r11.getBitrateRange();
+
+        $r13 = virtualinvoke $r12.getUpper();
+
+        $r5 = (java.lang.Integer) $r13;
+
+        $i3 = virtualinvoke $r5.intValue();
+
+        goto label07;
+
+     label06:
+        $i3 = 0;
+
+     label07:
+        if $i3 < 180000000 goto label08;
+
+        $s2 = 1024;
+
+        goto label18;
+
+     label08:
+        if $i3 < 120000000 goto label09;
+
+        $s2 = 512;
+
+        goto label18;
+
+     label09:
+        if $i3 < 60000000 goto label10;
+
+        $s2 = 256;
+
+        goto label18;
+
+     label10:
+        if $i3 < 30000000 goto label11;
+
+        $s2 = 128;
+
+        goto label18;
+
+     label11:
+        if $i3 < 18000000 goto label12;
+
+        $s2 = 64;
+
+        goto label18;
+
+     label12:
+        if $i3 < 12000000 goto label13;
+
+        $s2 = 32;
+
+        goto label18;
+
+     label13:
+        if $i3 < 7200000 goto label14;
+
+        $s2 = 16;
+
+        goto label18;
+
+     label14:
+        if $i3 < 3600000 goto label15;
+
+        goto label18;
+
+     label15:
+        if $i3 < 1800000 goto label16;
+
+        $s2 = 4;
+
+        goto label18;
+
+     label16:
+        if $i3 < 800000 goto label17;
+
+        $s2 = 2;
+
+        goto label18;
+
+     label17:
+        $s2 = 1;
+
+     label18:
+        $r14 = new android.media.MediaCodecInfo$CodecProfileLevel;
+
+        specialinvoke $r14.<init>();
+
+        $r14.profile = 1;
+
+        $r14.level = $s2;
+
+        $r8 = newarray (android.media.MediaCodecInfo$CodecProfileLevel)[1];
+
+        $r8[0] = $r14;
+
+        $r9 = $r8;
+
+     label19:
+        $i3 = lengthof $r9;
+
+        $i4 = 0;
+
+     label20:
+        if $i4 >= $i3 goto label24;
+
+        $r14 = $r9[$i4];
+
+        $i5 = $r14.profile;
+
+        if $i5 != $i0 goto label23;
+
+        $i5 = $r14.level;
+
+        if $i5 >= $i1 goto label21;
+
+        if $z0 != 0 goto label23;
+
+     label21:
+        $r6 = r0.zzb;
+
+        $z1 = virtualinvoke $r1.equals($r6);
+
+        if $z1 == 0 goto label22;
+
+        if $i0 != 2 goto label25;
+
+        $r6 = com.google.android.gms.internal.ads.zzew.zzb;
+
+        $r7 = "sailfish";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label23;
+
+        $r6 = "marlin";
+
+        $r7 = com.google.android.gms.internal.ads.zzew.zzb;
+
+        $z1 = virtualinvoke $r6.equals($r7);
+
+        if $z1 == 0 goto label25;
+
+        goto label23;
+
+     label22:
+        return 1;
+
+     label23:
+        $i4 = $i4 + 1;
+
+        goto label20;
+
+     label24:
+        $r1 = $r2.zzj;
+
+        $r6 = r0.zzc;
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<init>();
+
+        virtualinvoke $r15.append("codec.profileLevel, ");
+
+        virtualinvoke $r15.append($r1);
+
+        virtualinvoke $r15.append(", ");
+
+        virtualinvoke $r15.append($r6);
+
+        $r1 = virtualinvoke $r15.toString();
+
+        specialinvoke r0.zzj($r1);
+
+        return 0;
+
+     label25:
+        return 1;
+    }
+
+    private final boolean zzm(com.google.android.gms.internal.ads.zzaf)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        com.google.android.gms.internal.ads.zzaf $r2;
+        java.lang.String $r1, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zzb;
+
+        $r1 = $r2.zzm;
+
+        $z0 = virtualinvoke $r3.equals($r1);
+
+        if $z0 != 0 goto label2;
+
+        $r1 = r0.zzb;
+
+        $r3 = com.google.android.gms.internal.ads.zzrp.zze($r2);
+
+        $z0 = virtualinvoke $r1.equals($r3);
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public final android.graphics.Point zza(int, int)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        int $i0, $i1;
+        android.media.MediaCodecInfo$VideoCapabilities $r2;
+        android.media.MediaCodecInfo$CodecCapabilities $r1;
+        android.graphics.Point $r3;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 = r0.zzd;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = virtualinvoke $r1.getVideoCapabilities();
+
+        if $r2 != null goto label2;
+
+        return null;
+
+     label2:
+        $r3 = com.google.android.gms.internal.ads.zzqx.zzi($r2, $i1, $i0);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.internal.ads.zzhc zzb(com.google.android.gms.internal.ads.zzaf, com.google.android.gms.internal.ads.zzaf)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        android.util.Pair $r8, $r9;
+        com.google.android.gms.internal.ads.zzaf $r1, $r2;
+        java.lang.Integer $r11;
+        short $s0;
+        byte $b3;
+        int $i1, $i2;
+        java.lang.String $r3, $r4;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzq $r5, $r6;
+        com.google.android.gms.internal.ads.zzhc $r7;
+        java.lang.Object $r10;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = $r1.zzm;
+
+        $r4 = $r2.zzm;
+
+        $z0 = com.google.android.gms.internal.ads.zzew.zzU($r3, $r4);
+
+        if 1 == $z0 goto label01;
+
+        $s0 = 8;
+
+        goto label02;
+
+     label01:
+        $s0 = 0;
+
+     label02:
+        $z0 = r0.zzh;
+
+        if $z0 == 0 goto label11;
+
+        $i1 = $r1.zzu;
+
+        $i2 = $r2.zzu;
+
+        if $i1 == $i2 goto label03;
+
+        $s0 = $s0 | 1024;
+
+     label03:
+        $z0 = r0.zze;
+
+        if $z0 != 0 goto label05;
+
+        $i1 = $r1.zzr;
+
+        $i2 = $r2.zzr;
+
+        if $i1 != $i2 goto label04;
+
+        $i1 = $r1.zzs;
+
+        $i2 = $r2.zzs;
+
+        if $i1 == $i2 goto label05;
+
+     label04:
+        $s0 = $s0 | 512;
+
+     label05:
+        $r5 = $r1.zzy;
+
+        $r6 = $r2.zzy;
+
+        $z0 = com.google.android.gms.internal.ads.zzew.zzU($r5, $r6);
+
+        if $z0 != 0 goto label06;
+
+        $s0 = $s0 | 2048;
+
+     label06:
+        $r3 = r0.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzew.zzd;
+
+        $z0 = virtualinvoke $r4.startsWith("SM-T230");
+
+        if $z0 == 0 goto label07;
+
+        $r4 = "OMX.MARVELL.VIDEO.HW.CODA7542DECODER";
+
+        $z0 = virtualinvoke $r4.equals($r3);
+
+        if $z0 == 0 goto label07;
+
+        $z0 = virtualinvoke $r1.zze($r2);
+
+        if $z0 != 0 goto label07;
+
+        $s0 = $s0 | 2;
+
+     label07:
+        if $s0 != 0 goto label10;
+
+        $r7 = new com.google.android.gms.internal.ads.zzhc;
+
+        $r3 = r0.zza;
+
+        $z0 = virtualinvoke $r1.zze($r2);
+
+        if 1 == $z0 goto label08;
+
+        $b3 = 2;
+
+        goto label09;
+
+     label08:
+        $b3 = 3;
+
+     label09:
+        specialinvoke $r7.<init>($r3, $r1, $r2, $b3, 0);
+
+        return $r7;
+
+     label10:
+        goto label19;
+
+     label11:
+        $i1 = $r1.zzz;
+
+        $i2 = $r2.zzz;
+
+        if $i1 == $i2 goto label12;
+
+        $s0 = $s0 | 4096;
+
+     label12:
+        $i1 = $r1.zzA;
+
+        $i2 = $r2.zzA;
+
+        if $i1 == $i2 goto label13;
+
+        $s0 = $s0 | 8192;
+
+     label13:
+        $i1 = $r1.zzB;
+
+        $i2 = $r2.zzB;
+
+        if $i1 == $i2 goto label14;
+
+        $s0 = $s0 | 16384;
+
+     label14:
+        if $s0 != 0 goto label16;
+
+        $r3 = r0.zzb;
+
+        $r4 = "audio/mp4a-latm";
+
+        $z0 = virtualinvoke $r4.equals($r3);
+
+        if $z0 == 0 goto label16;
+
+        $r8 = com.google.android.gms.internal.ads.zzrp.zzb($r1);
+
+        $r9 = com.google.android.gms.internal.ads.zzrp.zzb($r2);
+
+        if $r8 == null goto label16;
+
+        if $r9 == null goto label16;
+
+        $r10 = $r8.first;
+
+        $r11 = (java.lang.Integer) $r10;
+
+        $i1 = virtualinvoke $r11.intValue();
+
+        $r10 = $r9.first;
+
+        $r11 = (java.lang.Integer) $r10;
+
+        $i2 = virtualinvoke $r11.intValue();
+
+        if $i1 != 42 goto label16;
+
+        if $i2 == 42 goto label15;
+
+        goto label16;
+
+     label15:
+        $r7 = new com.google.android.gms.internal.ads.zzhc;
+
+        $r3 = r0.zza;
+
+        specialinvoke $r7.<init>($r3, $r1, $r2, 3, 0);
+
+        return $r7;
+
+     label16:
+        $z0 = virtualinvoke $r1.zze($r2);
+
+        if $z0 != 0 goto label17;
+
+        $s0 = $s0 | 32;
+
+     label17:
+        $r3 = r0.zzb;
+
+        $r4 = "audio/opus";
+
+        $z0 = virtualinvoke $r4.equals($r3);
+
+        if $z0 == 0 goto label18;
+
+        $s0 = $s0 | 2;
+
+     label18:
+        if $s0 != 0 goto label19;
+
+        $r7 = new com.google.android.gms.internal.ads.zzhc;
+
+        $r3 = r0.zza;
+
+        specialinvoke $r7.<init>($r3, $r1, $r2, 1, 0);
+
+        return $r7;
+
+     label19:
+        $r7 = new com.google.android.gms.internal.ads.zzhc;
+
+        $r3 = r0.zza;
+
+        specialinvoke $r7.<init>($r3, $r1, $r2, 0, $s0);
+
+        return $r7;
+    }
+
+    public final boolean zzd(com.google.android.gms.internal.ads.zzaf)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        com.google.android.gms.internal.ads.zzaf $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.zzm($r1);
+
+        if $z0 == 0 goto label1;
+
+        $z0 = specialinvoke r0.zzl($r1, 0);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final boolean zze(com.google.android.gms.internal.ads.zzaf) throws com.google.android.gms.internal.ads.zzrj
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        com.google.android.gms.internal.ads.zzaf $r1;
+        android.media.MediaCodecInfo$AudioCapabilities $r5;
+        byte $b4;
+        int $i0, $i1, $i2, $i3;
+        java.lang.String $r3, $r6, $r7;
+        boolean $z0, $z1;
+        double $d0;
+        float $f0;
+        android.media.MediaCodecInfo$CodecCapabilities $r4;
+        java.lang.StringBuilder $r8;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.zzm($r1);
+
+        $z1 = 0;
+
+        if $z0 != 0 goto label01;
+
+        return 0;
+
+     label01:
+        $z0 = specialinvoke r0.zzl($r1, 1);
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $z0 = r0.zzh;
+
+        if $z0 == 0 goto label07;
+
+        $i0 = $r1.zzr;
+
+        if $i0 <= 0 goto label06;
+
+        $i0 = $r1.zzs;
+
+        if $i0 > 0 goto label03;
+
+        return 1;
+
+     label03:
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 21 goto label04;
+
+        $i0 = $r1.zzr;
+
+        $i1 = $r1.zzs;
+
+        $f0 = $r1.zzt;
+
+        $d0 = (double) $f0;
+
+        $z1 = virtualinvoke r0.zzg($i0, $i1, $d0);
+
+        return $z1;
+
+     label04:
+        $i0 = $r1.zzr;
+
+        $i1 = $r1.zzs;
+
+        $i0 = $i0 * $i1;
+
+        $i1 = com.google.android.gms.internal.ads.zzrp.zza();
+
+        if $i0 > $i1 goto label05;
+
+        $z1 = 1;
+
+        goto label05;
+
+     label05:
+        if $z1 != 0 goto label20;
+
+        $i0 = $r1.zzr;
+
+        $i1 = $r1.zzs;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        virtualinvoke $r8.append("legacyFrameSize, ");
+
+        virtualinvoke $r8.append($i0);
+
+        virtualinvoke $r8.append("x");
+
+        virtualinvoke $r8.append($i1);
+
+        $r3 = virtualinvoke $r8.toString();
+
+        specialinvoke r0.zzj($r3);
+
+        return $z1;
+
+     label06:
+        return 1;
+
+     label07:
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 21 goto label19;
+
+        $i0 = $r1.zzA;
+
+        if $i0 == -1 goto label10;
+
+        $r4 = r0.zzd;
+
+        if $r4 != null goto label08;
+
+        specialinvoke r0.zzj("sampleRate.caps");
+
+        return 0;
+
+     label08:
+        $r5 = virtualinvoke $r4.getAudioCapabilities();
+
+        if $r5 != null goto label09;
+
+        specialinvoke r0.zzj("sampleRate.aCaps");
+
+        return 0;
+
+     label09:
+        $z1 = virtualinvoke $r5.isSampleRateSupported($i0);
+
+        if $z1 != 0 goto label10;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        virtualinvoke $r8.append("sampleRate.support, ");
+
+        virtualinvoke $r8.append($i0);
+
+        $r3 = virtualinvoke $r8.toString();
+
+        specialinvoke r0.zzj($r3);
+
+        return 0;
+
+     label10:
+        $i0 = $r1.zzz;
+
+        if $i0 == -1 goto label19;
+
+        $r4 = r0.zzd;
+
+        if $r4 != null goto label11;
+
+        specialinvoke r0.zzj("channelCount.caps");
+
+        return 0;
+
+     label11:
+        $r5 = virtualinvoke $r4.getAudioCapabilities();
+
+        if $r5 != null goto label12;
+
+        specialinvoke r0.zzj("channelCount.aCaps");
+
+        return 0;
+
+     label12:
+        $r3 = r0.zza;
+
+        $r6 = r0.zzb;
+
+        $i1 = virtualinvoke $r5.getMaxInputChannelCount();
+
+        $i2 = $i1;
+
+        if $i1 > 1 goto label18;
+
+        $i3 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i3 < 26 goto label13;
+
+        if $i1 <= 0 goto label13;
+
+        goto label18;
+
+     label13:
+        $r7 = "audio/mpeg";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/3gpp";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/amr-wb";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/mp4a-latm";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/vorbis";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/opus";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/raw";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/flac";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/g711-alaw";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/g711-mlaw";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 != 0 goto label18;
+
+        $r7 = "audio/gsm";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 == 0 goto label14;
+
+        goto label18;
+
+     label14:
+        $r7 = "audio/ac3";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 == 0 goto label15;
+
+        $b4 = 6;
+
+        goto label17;
+
+     label15:
+        $r7 = "audio/eac3";
+
+        $z1 = virtualinvoke $r7.equals($r6);
+
+        if $z1 == 0 goto label16;
+
+        $b4 = 16;
+
+        goto label17;
+
+     label16:
+        $b4 = 30;
+
+     label17:
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        virtualinvoke $r8.append("AssumedMaxChannelAdjustment: ");
+
+        virtualinvoke $r8.append($r3);
+
+        virtualinvoke $r8.append(", [");
+
+        virtualinvoke $r8.append($i1);
+
+        virtualinvoke $r8.append(" to ");
+
+        virtualinvoke $r8.append($b4);
+
+        virtualinvoke $r8.append("]");
+
+        $r3 = virtualinvoke $r8.toString();
+
+        com.google.android.gms.internal.ads.zzee.zze("MediaCodecInfo", $r3);
+
+        $i2 = $b4;
+
+        goto label18;
+
+     label18:
+        if $i2 >= $i0 goto label19;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        virtualinvoke $r8.append("channelCount.support, ");
+
+        virtualinvoke $r8.append($i0);
+
+        $r3 = virtualinvoke $r8.toString();
+
+        specialinvoke r0.zzj($r3);
+
+        return 0;
+
+     label19:
+        return 1;
+
+     label20:
+        return $z1;
+    }
+
+    public final boolean zzf(com.google.android.gms.internal.ads.zzaf)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        android.util.Pair $r2;
+        int $i0;
+        com.google.android.gms.internal.ads.zzaf $r1;
+        java.lang.Object $r3;
+        java.lang.Integer $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.zzh;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = r0.zze;
+
+        return $z0;
+
+     label1:
+        $r2 = com.google.android.gms.internal.ads.zzrp.zzb($r1);
+
+        if $r2 == null goto label2;
+
+        $r3 = $r2.first;
+
+        $r4 = (java.lang.Integer) $r3;
+
+        $i0 = virtualinvoke $r4.intValue();
+
+        if $i0 != 42 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final boolean zzg(int, int, double)
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        android.media.MediaCodecInfo$VideoCapabilities $r3;
+        int $i0, $i1, $i2;
+        android.media.MediaCodecInfo$CodecCapabilities $r2;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r1, $r5, $r6, $r7;
+        double $d0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $d0 := @parameter2;
+
+        $r2 = r0.zzd;
+
+        if $r2 != null goto label1;
+
+        specialinvoke r0.zzj("sizeAndRate.caps");
+
+        return 0;
+
+     label1:
+        $r3 = virtualinvoke $r2.getVideoCapabilities();
+
+        if $r3 != null goto label2;
+
+        specialinvoke r0.zzj("sizeAndRate.vCaps");
+
+        return 0;
+
+     label2:
+        $i2 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i2 < 29 goto label5;
+
+        $i2 = com.google.android.gms.internal.ads.zzqw.zza($r3, $i0, $i1, $d0);
+
+        if $i2 != 2 goto label3;
+
+        return 1;
+
+     label3:
+        if $i2 == 1 goto label4;
+
+        goto label5;
+
+     label4:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("sizeAndRate.cover, ");
+
+        virtualinvoke $r4.append($i0);
+
+        virtualinvoke $r4.append("x");
+
+        virtualinvoke $r4.append($i1);
+
+        virtualinvoke $r4.append("@");
+
+        virtualinvoke $r4.append($d0);
+
+        $r1 = virtualinvoke $r4.toString();
+
+        specialinvoke r0.zzj($r1);
+
+        return 0;
+
+     label5:
+        $z0 = com.google.android.gms.internal.ads.zzqx.zzk($r3, $i0, $i1, $d0);
+
+        if $z0 != 0 goto label9;
+
+        if $i0 >= $i1 goto label8;
+
+        $r1 = r0.zza;
+
+        $r5 = "OMX.MTK.VIDEO.DECODER.HEVC";
+
+        $z0 = virtualinvoke $r5.equals($r1);
+
+        if $z0 == 0 goto label6;
+
+        $r1 = "mcv5a";
+
+        $r5 = com.google.android.gms.internal.ads.zzew.zzb;
+
+        $z0 = virtualinvoke $r1.equals($r5);
+
+        if $z0 != 0 goto label8;
+
+     label6:
+        $z0 = com.google.android.gms.internal.ads.zzqx.zzk($r3, $i1, $i0, $d0);
+
+        if $z0 != 0 goto label7;
+
+        goto label8;
+
+     label7:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("sizeAndRate.rotated, ");
+
+        virtualinvoke $r4.append($i0);
+
+        virtualinvoke $r4.append("x");
+
+        virtualinvoke $r4.append($i1);
+
+        virtualinvoke $r4.append("@");
+
+        virtualinvoke $r4.append($d0);
+
+        $r5 = virtualinvoke $r4.toString();
+
+        $r6 = r0.zza;
+
+        $r7 = r0.zzb;
+
+        $r1 = com.google.android.gms.internal.ads.zzew.zze;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("AssumedSupport [");
+
+        virtualinvoke $r4.append($r5);
+
+        virtualinvoke $r4.append("] [");
+
+        virtualinvoke $r4.append($r6);
+
+        virtualinvoke $r4.append(", ");
+
+        virtualinvoke $r4.append($r7);
+
+        virtualinvoke $r4.append("] [");
+
+        virtualinvoke $r4.append($r1);
+
+        virtualinvoke $r4.append("]");
+
+        $r1 = virtualinvoke $r4.toString();
+
+        com.google.android.gms.internal.ads.zzee.zza("MediaCodecInfo", $r1);
+
+        return 1;
+
+     label8:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("sizeAndRate.support, ");
+
+        virtualinvoke $r4.append($i0);
+
+        virtualinvoke $r4.append("x");
+
+        virtualinvoke $r4.append($i1);
+
+        virtualinvoke $r4.append("@");
+
+        virtualinvoke $r4.append($d0);
+
+        $r1 = virtualinvoke $r4.toString();
+
+        specialinvoke r0.zzj($r1);
+
+        return 0;
+
+     label9:
+        return 1;
+    }
+
+    public final android.media.MediaCodecInfo$CodecProfileLevel[] zzh()
+    {
+        com.google.android.gms.internal.ads.zzqx r0;
+        android.media.MediaCodecInfo$CodecCapabilities $r1;
+        android.media.MediaCodecInfo$CodecProfileLevel[] $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zzd;
+
+        if $r1 == null goto label2;
+
+        $r2 = $r1.profileLevels;
+
+        if $r2 != null goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = r0.zzd;
+
+        $r2 = $r1.profileLevels;
+
+        return $r2;
+
+     label2:
+        $r2 = newarray (android.media.MediaCodecInfo$CodecProfileLevel)[0];
+
+        return $r2;
+    }
+}

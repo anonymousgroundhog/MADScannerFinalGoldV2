@@ -1,0 +1,118 @@
+final class com.google.android.gms.internal.ads.zzajm extends java.lang.Object implements com.google.android.gms.internal.ads.zzajn
+{
+    private final java.nio.ByteBuffer zza;
+
+    public void <init>(java.nio.ByteBuffer)
+    {
+        com.google.android.gms.internal.ads.zzajm r0;
+        java.nio.ByteBuffer $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r1 = virtualinvoke $r1.slice();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final long zza()
+    {
+        com.google.android.gms.internal.ads.zzajm r0;
+        int $i0;
+        long $l1;
+        java.nio.ByteBuffer $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = virtualinvoke $r1.capacity();
+
+        $l1 = (long) $i0;
+
+        return $l1;
+    }
+
+    public final void zzb(java.security.MessageDigest[], long, int) throws java.io.IOException
+    {
+        java.lang.Throwable $r5;
+        com.google.android.gms.internal.ads.zzajm r0;
+        java.security.MessageDigest $r4;
+        long $l0;
+        java.nio.ByteBuffer $r1, $r3;
+        java.security.MessageDigest[] $r2;
+        int $i1, $i2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $r3 = r0.zza;
+
+        entermonitor $r3;
+
+     label1:
+        $r1 = r0.zza;
+
+        $i2 = (int) $l0;
+
+        virtualinvoke $r1.position($i2);
+
+        $r1 = r0.zza;
+
+        $i1 = $i2 + $i1;
+
+        virtualinvoke $r1.limit($i1);
+
+        $r1 = r0.zza;
+
+        $r1 = virtualinvoke $r1.slice();
+
+        exitmonitor $r3;
+
+     label2:
+        $i1 = lengthof $r2;
+
+        $i2 = 0;
+
+     label3:
+        if $i2 >= $i1 goto label4;
+
+        $r4 = $r2[$i2];
+
+        virtualinvoke $r1.position(0);
+
+        virtualinvoke $r4.update($r1);
+
+        $i2 = $i2 + 1;
+
+        goto label3;
+
+     label4:
+        return;
+
+     label5:
+        $r5 := @caughtexception;
+
+     label6:
+        exitmonitor $r3;
+
+     label7:
+        goto label8;
+
+     label8:
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label6 to label7 with label5;
+    }
+}

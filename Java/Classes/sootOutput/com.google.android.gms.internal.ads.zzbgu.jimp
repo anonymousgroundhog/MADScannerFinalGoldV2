@@ -1,0 +1,134 @@
+public final class com.google.android.gms.internal.ads.zzbgu extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+    public static final com.google.android.gms.internal.ads.zzbgu zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbgu $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbgu;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbgu.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzbgu r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Object, java.util.Map)
+    {
+        android.content.Context $r11;
+        com.google.android.gms.internal.ads.zzbki $r14;
+        android.content.pm.PackageManager $r12;
+        java.util.HashMap $r10;
+        android.content.Intent $r13;
+        java.util.Map $r3;
+        com.google.android.gms.internal.ads.zzbhp $r5;
+        java.lang.Boolean $r8;
+        com.google.android.gms.internal.ads.zzcfj $r4;
+        java.lang.String $r9;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzbap $r7;
+        com.google.android.gms.internal.ads.zzbgu r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbaj $r6;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 = (com.google.android.gms.internal.ads.zzcfj) $r2;
+
+        $r5 = com.google.android.gms.internal.ads.zzbho.zza;
+
+        $r6 = com.google.android.gms.internal.ads.zzbar.zzhC;
+
+        $r7 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r2 = virtualinvoke $r7.zzb($r6);
+
+        $r8 = (java.lang.Boolean) $r2;
+
+        $z0 = virtualinvoke $r8.booleanValue();
+
+        if $z0 != 0 goto label1;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("canOpenAppGmsgHandler disabled.");
+
+        return;
+
+     label1:
+        $r2 = interfaceinvoke $r3.get("package_name");
+
+        $r9 = (java.lang.String) $r2;
+
+        $z0 = android.text.TextUtils.isEmpty($r9);
+
+        if $z0 == 0 goto label2;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Package name missing in canOpenApp GMSG.");
+
+        return;
+
+     label2:
+        $r10 = new java.util.HashMap;
+
+        specialinvoke $r10.<init>();
+
+        $r11 = interfaceinvoke $r4.getContext();
+
+        $r12 = virtualinvoke $r11.getPackageManager();
+
+        $r13 = virtualinvoke $r12.getLaunchIntentForPackage($r9);
+
+        if $r13 == null goto label3;
+
+        $z0 = 1;
+
+        goto label4;
+
+     label3:
+        $z0 = 0;
+
+     label4:
+        $r8 = java.lang.Boolean.valueOf($z0);
+
+        virtualinvoke $r10.put($r9, $r8);
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("/canOpenApp;");
+
+        virtualinvoke $r1.append($r9);
+
+        virtualinvoke $r1.append(";");
+
+        virtualinvoke $r1.append($r8);
+
+        $r9 = virtualinvoke $r1.toString();
+
+        com.google.android.gms.ads.internal.util.zze.zza($r9);
+
+        $r14 = (com.google.android.gms.internal.ads.zzbki) $r4;
+
+        interfaceinvoke $r14.zzd("openableApp", $r10);
+
+        return;
+    }
+}

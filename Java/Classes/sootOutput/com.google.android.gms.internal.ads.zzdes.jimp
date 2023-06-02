@@ -1,0 +1,24 @@
+public abstract class com.google.android.gms.internal.ads.zzdes extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdes r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract com.google.android.gms.internal.ads.zzcrt zza();
+
+    public abstract com.google.android.gms.internal.ads.zzcuq zzb();
+
+    public abstract com.google.android.gms.internal.ads.zzdgj zzd(com.google.android.gms.internal.ads.zzcrb, com.google.android.gms.internal.ads.zzdgu, com.google.android.gms.internal.ads.zzdfh);
+
+    public abstract com.google.android.gms.internal.ads.zzdgk zze(com.google.android.gms.internal.ads.zzcrb, com.google.android.gms.internal.ads.zzdgu, com.google.android.gms.internal.ads.zzdij);
+
+    public abstract com.google.android.gms.internal.ads.zzfen zzf();
+}

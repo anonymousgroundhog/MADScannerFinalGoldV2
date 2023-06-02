@@ -1,0 +1,620 @@
+public final class com.google.android.gms.common.util.DeviceProperties extends java.lang.Object
+{
+    private static java.lang.Boolean zza;
+    private static java.lang.Boolean zzb;
+    private static java.lang.Boolean zzc;
+    private static java.lang.Boolean zzd;
+    private static java.lang.Boolean zze;
+    private static java.lang.Boolean zzf;
+    private static java.lang.Boolean zzg;
+    private static java.lang.Boolean zzh;
+    private static java.lang.Boolean zzi;
+    private static java.lang.Boolean zzj;
+    private static java.lang.Boolean zzk;
+    private static java.lang.Boolean zzl;
+
+    private void <init>()
+    {
+        com.google.android.gms.common.util.DeviceProperties r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static boolean isAuto(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r1;
+        java.lang.Boolean $r2;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getPackageManager();
+
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzi;
+
+        if $r2 != null goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastO();
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r1.hasSystemFeature("android.hardware.type.automotive");
+
+        if $z0 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label1;
+
+     label1:
+        $r2 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzi = $r2;
+
+     label2:
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzi;
+
+        $z1 = virtualinvoke $r2.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isBstar(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r2;
+        java.lang.Boolean $r1;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzl;
+
+        if $r1 != null goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastR();
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("com.google.android.play.feature.HPE_EXPERIENCE");
+
+        if $z0 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label1;
+
+     label1:
+        $r1 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzl = $r1;
+
+     label2:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzl;
+
+        $z1 = virtualinvoke $r1.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isLatchsky(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r2;
+        java.lang.Boolean $r1;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzf;
+
+        if $r1 != null goto label2;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("com.google.android.feature.services_updater");
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("cn.google.services");
+
+        if $z0 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label1;
+
+     label1:
+        $r1 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzf = $r1;
+
+     label2:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzf;
+
+        $z1 = virtualinvoke $r1.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isPhone(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r2;
+        java.lang.Boolean $r1;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zza;
+
+        if $r1 != null goto label4;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isTablet($r0);
+
+        $z1 = 0;
+
+        if $z0 != 0 goto label3;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isWearable($r0);
+
+        if $z0 != 0 goto label3;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.zzb($r0);
+
+        if $z0 != 0 goto label3;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzh;
+
+        if $r1 != null goto label1;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("org.chromium.arc");
+
+        $r1 = java.lang.Boolean.valueOf($z0);
+
+        com.google.android.gms.common.util.DeviceProperties.zzh = $r1;
+
+     label1:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzh;
+
+        $z0 = virtualinvoke $r1.booleanValue();
+
+        if $z0 != 0 goto label3;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isAuto($r0);
+
+        if $z0 != 0 goto label3;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isTv($r0);
+
+        if $z0 != 0 goto label3;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzk;
+
+        if $r1 != null goto label2;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("com.google.android.feature.AMATI_EXPERIENCE");
+
+        $r1 = java.lang.Boolean.valueOf($z0);
+
+        com.google.android.gms.common.util.DeviceProperties.zzk = $r1;
+
+     label2:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzk;
+
+        $z0 = virtualinvoke $r1.booleanValue();
+
+        if $z0 != 0 goto label3;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isBstar($r0);
+
+        if $z0 != 0 goto label3;
+
+        $z1 = 1;
+
+        goto label3;
+
+     label3:
+        $r1 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zza = $r1;
+
+     label4:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zza;
+
+        $z1 = virtualinvoke $r1.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isSevenInchTablet(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.res.Resources $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getResources();
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.zzc($r1);
+
+        return $z0;
+    }
+
+    public static boolean isSidewinder(android.content.Context)
+    {
+        android.content.Context $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.zza($r0);
+
+        return $z0;
+    }
+
+    public static boolean isTablet(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.res.Resources $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getResources();
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isTablet($r1);
+
+        return $z0;
+    }
+
+    public static boolean isTablet(android.content.res.Resources)
+    {
+        android.content.res.Configuration $r2;
+        int $i0;
+        java.lang.Boolean $r1;
+        android.content.res.Resources $r0;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $z0 = 0;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzb;
+
+        if $r1 != null goto label4;
+
+        $r2 = virtualinvoke $r0.getConfiguration();
+
+        $i0 = $r2.screenLayout;
+
+        $i0 = $i0 & 15;
+
+        if $i0 <= 3 goto label2;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z1 = com.google.android.gms.common.util.DeviceProperties.zzc($r0);
+
+        if $z1 == 0 goto label3;
+
+        $z0 = 1;
+
+     label3:
+        $r1 = java.lang.Boolean.valueOf($z0);
+
+        com.google.android.gms.common.util.DeviceProperties.zzb = $r1;
+
+     label4:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzb;
+
+        $z0 = virtualinvoke $r1.booleanValue();
+
+        return $z0;
+    }
+
+    public static boolean isTv(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r1;
+        java.lang.Boolean $r2;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getPackageManager();
+
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzj;
+
+        if $r2 != null goto label3;
+
+        $z0 = virtualinvoke $r1.hasSystemFeature("com.google.android.tv");
+
+        $z1 = 1;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.hasSystemFeature("android.hardware.type.television");
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r1.hasSystemFeature("android.software.leanback");
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $z1 = 0;
+
+        goto label2;
+
+     label2:
+        $r2 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzj = $r2;
+
+     label3:
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzj;
+
+        $z1 = virtualinvoke $r2.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isUserBuild()
+    {
+        int $i0;
+        java.lang.String $r0, $r1;
+        boolean $z0;
+
+        $i0 = com.google.android.gms.common.GooglePlayServicesUtilLight.GOOGLE_PLAY_SERVICES_VERSION_CODE;
+
+        $r1 = android.os.Build.TYPE;
+
+        $r0 = "user";
+
+        $z0 = virtualinvoke $r0.equals($r1);
+
+        return $z0;
+    }
+
+    public static boolean isWearable(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r1;
+        java.lang.Boolean $r2;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getPackageManager();
+
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzd;
+
+        if $r2 != null goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastKitKatWatch();
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r1.hasSystemFeature("android.hardware.type.watch");
+
+        if $z0 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label1;
+
+     label1:
+        $r2 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzd = $r2;
+
+     label2:
+        $r2 = com.google.android.gms.common.util.DeviceProperties.zzd;
+
+        $z1 = virtualinvoke $r2.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean isWearableWithoutPlayStore(android.content.Context)
+    {
+        android.content.Context $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isWearable($r0);
+
+        if $z0 == 0 goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastN();
+
+        if $z0 == 0 goto label1;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.zza($r0);
+
+        if $z0 == 0 goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastO();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public static boolean zza(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r2;
+        java.lang.Boolean $r1;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zze;
+
+        if $r1 != null goto label2;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastLollipop();
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("cn.google");
+
+        if $z0 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label1;
+
+     label1:
+        $r1 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zze = $r1;
+
+     label2:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zze;
+
+        $z1 = virtualinvoke $r1.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean zzb(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager $r2;
+        java.lang.Boolean $r1;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzg;
+
+        if $r1 != null goto label3;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("android.hardware.type.iot");
+
+        $z1 = 1;
+
+        if $z0 != 0 goto label2;
+
+        $r2 = virtualinvoke $r0.getPackageManager();
+
+        $z0 = virtualinvoke $r2.hasSystemFeature("android.hardware.type.embedded");
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $z1 = 0;
+
+        goto label2;
+
+     label2:
+        $r1 = java.lang.Boolean.valueOf($z1);
+
+        com.google.android.gms.common.util.DeviceProperties.zzg = $r1;
+
+     label3:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzg;
+
+        $z1 = virtualinvoke $r1.booleanValue();
+
+        return $z1;
+    }
+
+    public static boolean zzc(android.content.res.Resources)
+    {
+        android.content.res.Configuration $r2;
+        int $i0;
+        java.lang.Boolean $r1;
+        android.content.res.Resources $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = 0;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzc;
+
+        if $r1 != null goto label3;
+
+        $r2 = virtualinvoke $r0.getConfiguration();
+
+        $i0 = $r2.screenLayout;
+
+        $i0 = $i0 & 15;
+
+        if $i0 > 3 goto label2;
+
+        $i0 = $r2.smallestScreenWidthDp;
+
+        if $i0 < 600 goto label2;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label2:
+        $r1 = java.lang.Boolean.valueOf($z0);
+
+        com.google.android.gms.common.util.DeviceProperties.zzc = $r1;
+
+     label3:
+        $r1 = com.google.android.gms.common.util.DeviceProperties.zzc;
+
+        $z0 = virtualinvoke $r1.booleanValue();
+
+        return $z0;
+    }
+}

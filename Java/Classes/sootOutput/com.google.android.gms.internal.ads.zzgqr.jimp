@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzgqr extends java.lang.Object implements com.google.android.gms.internal.ads.zzgqv
+{
+
+    public abstract com.google.android.gms.internal.ads.zzgqr zzg(int);
+
+    public abstract void zzh(int);
+}

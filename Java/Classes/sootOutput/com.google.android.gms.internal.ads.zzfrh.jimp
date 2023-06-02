@@ -1,0 +1,31 @@
+final class com.google.android.gms.internal.ads.zzfrh extends com.google.android.gms.internal.ads.zzfrm
+{
+
+    void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfrh r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    final java.util.Map zza()
+    {
+        com.google.android.gms.internal.ads.zzfrh r0;
+        com.google.android.gms.internal.ads.zzfpu $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfpu;
+
+        specialinvoke $r1.<init>(8);
+
+        return $r1;
+    }
+}

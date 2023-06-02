@@ -1,0 +1,621 @@
+final class com.google.android.gms.common.zzm extends java.lang.Object
+{
+    static final com.google.android.gms.common.zzk zza;
+    static final com.google.android.gms.common.zzk zzb;
+    static final com.google.android.gms.common.zzk zzc;
+    static final com.google.android.gms.common.zzk zzd;
+    private static volatile com.google.android.gms.common.internal.zzaf zze;
+    private static final java.lang.Object zzf;
+    private static android.content.Context zzg;
+
+    static void <clinit>()
+    {
+        byte[] $r1;
+        com.google.android.gms.common.zze $r0;
+        com.google.android.gms.common.zzf $r2;
+        com.google.android.gms.common.zzg $r3;
+        com.google.android.gms.common.zzh $r4;
+        java.lang.Object $r5;
+
+        $r0 = new com.google.android.gms.common.zze;
+
+        $r1 = com.google.android.gms.common.zzi.zze("0\u0082\u0005\u00c80\u0082\u0003\u00b0\u00a0\u0003\u0002\u0001\u0002\u0002\u0014\u0010\u008ae\u0008s\u00f9/\u008eQ\u00ed");
+
+        specialinvoke $r0.<init>($r1);
+
+        com.google.android.gms.common.zzm.zza = $r0;
+
+        $r2 = new com.google.android.gms.common.zzf;
+
+        $r1 = com.google.android.gms.common.zzi.zze("0\u0082\u0006\u00040\u0082\u0003\u00ec\u00a0\u0003\u0002\u0001\u0002\u0002\u0014\u0003\u00a3\u00b2\u00ad\u00d7\u00e1r\u00cak\u00ec");
+
+        specialinvoke $r2.<init>($r1);
+
+        com.google.android.gms.common.zzm.zzb = $r2;
+
+        $r3 = new com.google.android.gms.common.zzg;
+
+        $r1 = com.google.android.gms.common.zzi.zze("0\u0082\u0004C0\u0082\u0003+\u00a0\u0003\u0002\u0001\u0002\u0002\t\u0000\u00c2\u00e0\u0087FdJ0\u008d0");
+
+        specialinvoke $r3.<init>($r1);
+
+        com.google.android.gms.common.zzm.zzc = $r3;
+
+        $r4 = new com.google.android.gms.common.zzh;
+
+        $r1 = com.google.android.gms.common.zzi.zze("0\u0082\u0004\u00a80\u0082\u0003\u0090\u00a0\u0003\u0002\u0001\u0002\u0002\t\u0000\u00d5\u0085\u00b8l}\u00d3N\u00f50");
+
+        specialinvoke $r4.<init>($r1);
+
+        com.google.android.gms.common.zzm.zzd = $r4;
+
+        $r5 = new java.lang.Object;
+
+        specialinvoke $r5.<init>();
+
+        com.google.android.gms.common.zzm.zzf = $r5;
+
+        return;
+    }
+
+    static com.google.android.gms.common.zzw zza(java.lang.String, com.google.android.gms.common.zzi, boolean, boolean)
+    {
+        java.lang.Throwable $r4;
+        android.os.StrictMode$ThreadPolicy $r2;
+        com.google.android.gms.common.zzw $r3;
+        com.google.android.gms.common.zzi $r0;
+        java.lang.String $r1;
+        boolean $z0, $z1;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 := @parameter3;
+
+        $r2 = android.os.StrictMode.allowThreadDiskReads();
+
+     label1:
+        $r3 = com.google.android.gms.common.zzm.zzf($r1, $r0, $z0, $z1);
+
+     label2:
+        android.os.StrictMode.setThreadPolicy($r2);
+
+        return $r3;
+
+     label3:
+        $r4 := @caughtexception;
+
+        android.os.StrictMode.setThreadPolicy($r2);
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    static com.google.android.gms.common.zzw zzb(java.lang.String, boolean, boolean, boolean)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r4;
+        java.lang.Throwable $r12;
+        android.content.Context $r2;
+        com.google.android.gms.common.internal.zzaf $r5;
+        android.content.pm.PackageManager$NameNotFoundException $r14;
+        android.os.RemoteException $r10;
+        android.os.IBinder $r15;
+        int $i0;
+        java.lang.String $r0, $r8;
+        com.google.android.gms.dynamite.DynamiteModule$LoadingException $r11;
+        boolean $z0, $z1, $z2;
+        android.os.StrictMode$ThreadPolicy $r1;
+        com.google.android.gms.common.zzw $r7;
+        com.google.android.gms.common.zzn $r13;
+        com.google.android.gms.common.zzq $r6;
+
+        $r0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $z2 := @parameter3;
+
+        $r1 = android.os.StrictMode.allowThreadDiskReads();
+
+     label01:
+        $r2 = com.google.android.gms.common.zzm.zzg;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+     label02:
+        com.google.android.gms.common.zzm.zzg();
+
+     label03:
+        $r13 = new com.google.android.gms.common.zzn;
+
+     label04:
+        $r2 = com.google.android.gms.common.zzm.zzg;
+
+        $r4 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        $r15 = (android.os.IBinder) $r4;
+
+        specialinvoke $r13.<init>($r0, $z0, 0, $r15, 0);
+
+     label05:
+        $r5 = com.google.android.gms.common.zzm.zze;
+
+     label06:
+        $r6 = interfaceinvoke $r5.zze($r13);
+
+     label07:
+        $z0 = virtualinvoke $r6.zzb();
+
+     label08:
+        if $z0 == 0 goto label11;
+
+     label09:
+        $r7 = com.google.android.gms.common.zzw.zzb();
+
+     label10:
+        goto label34;
+
+     label11:
+        $r0 = virtualinvoke $r6.zza();
+
+     label12:
+        $r8 = $r0;
+
+        if $r0 != null goto label13;
+
+        $r8 = "error checking package certificate";
+
+     label13:
+        $i0 = virtualinvoke $r6.zzc();
+
+     label14:
+        if $i0 != 4 goto label18;
+
+     label15:
+        $r14 = new android.content.pm.PackageManager$NameNotFoundException;
+
+     label16:
+        specialinvoke $r14.<init>();
+
+        $r7 = com.google.android.gms.common.zzw.zzd($r8, $r14);
+
+     label17:
+        goto label34;
+
+     label18:
+        $r7 = com.google.android.gms.common.zzw.zzc($r8);
+
+     label19:
+        goto label34;
+
+     label20:
+        $r10 := @caughtexception;
+
+     label21:
+        android.util.Log.e("GoogleCertificates", "Failed to get Google certificates from remote", $r10);
+
+        $r7 = com.google.android.gms.common.zzw.zzd("module call", $r10);
+
+     label22:
+        goto label34;
+
+     label23:
+        $r11 := @caughtexception;
+
+     label24:
+        android.util.Log.e("GoogleCertificates", "Failed to get Google certificates from remote", $r11);
+
+     label25:
+        $r0 = "module init: ";
+
+     label26:
+        $r8 = virtualinvoke $r11.getMessage();
+
+        $r8 = java.lang.String.valueOf($r8);
+
+        $i0 = virtualinvoke $r8.length();
+
+     label27:
+        if $i0 == 0 goto label30;
+
+     label28:
+        $r0 = virtualinvoke $r0.concat($r8);
+
+     label29:
+        goto label33;
+
+     label30:
+        $r8 = new java.lang.String;
+
+     label31:
+        specialinvoke $r8.<init>("module init: ");
+
+     label32:
+        $r0 = $r8;
+
+     label33:
+        $r7 = com.google.android.gms.common.zzw.zzd($r0, $r11);
+
+     label34:
+        android.os.StrictMode.setThreadPolicy($r1);
+
+        return $r7;
+
+     label35:
+        $r12 := @caughtexception;
+
+        android.os.StrictMode.setThreadPolicy($r1);
+
+        throw $r12;
+
+        catch java.lang.Throwable from label01 to label02 with label35;
+        catch com.google.android.gms.dynamite.DynamiteModule$LoadingException from label02 to label03 with label23;
+        catch java.lang.Throwable from label02 to label03 with label35;
+        catch java.lang.Throwable from label03 to label04 with label35;
+        catch java.lang.Throwable from label04 to label05 with label35;
+        catch android.os.RemoteException from label06 to label07 with label20;
+        catch java.lang.Throwable from label05 to label07 with label35;
+        catch java.lang.Throwable from label07 to label08 with label35;
+        catch java.lang.Throwable from label09 to label10 with label35;
+        catch java.lang.Throwable from label11 to label12 with label35;
+        catch java.lang.Throwable from label13 to label14 with label35;
+        catch java.lang.Throwable from label15 to label16 with label35;
+        catch java.lang.Throwable from label16 to label17 with label35;
+        catch java.lang.Throwable from label18 to label19 with label35;
+        catch java.lang.Throwable from label21 to label22 with label35;
+        catch java.lang.Throwable from label24 to label25 with label35;
+        catch java.lang.Throwable from label26 to label27 with label35;
+        catch java.lang.Throwable from label28 to label29 with label35;
+        catch java.lang.Throwable from label30 to label31 with label35;
+        catch java.lang.Throwable from label31 to label32 with label35;
+        catch java.lang.Throwable from label33 to label34 with label35;
+    }
+
+    static java.lang.String zzc(boolean, java.lang.String, com.google.android.gms.common.zzi) throws java.lang.Exception
+    {
+        byte[] $r6;
+        java.lang.Object[] $r4;
+        com.google.android.gms.common.zzi $r1;
+        java.security.MessageDigest $r5;
+        com.google.android.gms.common.zzw $r2;
+        java.lang.Boolean $r7;
+        java.lang.String $r0, $r3;
+        boolean $z0, $z1;
+
+        $z0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = com.google.android.gms.common.zzm.zzf($r0, $r1, 1, 0);
+
+        $z1 = $r2.zza;
+
+        if $z1 == 0 goto label1;
+
+        $z1 = 1;
+
+        goto label2;
+
+     label1:
+        $z1 = 0;
+
+     label2:
+        if 1 == $z1 goto label3;
+
+        $r3 = "not allowed";
+
+        goto label4;
+
+     label3:
+        $r3 = "debug cert rejected";
+
+     label4:
+        $r4 = newarray (java.lang.Object)[5];
+
+        $r4[0] = $r3;
+
+        $r4[1] = $r0;
+
+        $r5 = com.google.android.gms.common.util.AndroidUtilsLight.zza("SHA-1");
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r5);
+
+        $r6 = virtualinvoke $r1.zzf();
+
+        $r6 = virtualinvoke $r5.digest($r6);
+
+        $r0 = com.google.android.gms.common.util.Hex.bytesToStringLowercase($r6);
+
+        $r4[2] = $r0;
+
+        $r7 = java.lang.Boolean.valueOf($z0);
+
+        $r4[3] = $r7;
+
+        $r4[4] = "12451000.false";
+
+        $r0 = java.lang.String.format("%s: pkg=%s, sha1=%s, atk=%s, ver=%s", $r4);
+
+        return $r0;
+    }
+
+    static void zzd(android.content.Context)
+    {
+        java.lang.Throwable $r2;
+        android.content.Context $r0, $r1;
+
+        $r0 := @parameter0;
+
+        entermonitor class "Lcom/google/android/gms/common/zzm;";
+
+     label1:
+        $r1 = com.google.android.gms.common.zzm.zzg;
+
+        if $r1 != null goto label3;
+
+        if $r0 == null goto label2;
+
+        $r0 = virtualinvoke $r0.getApplicationContext();
+
+        com.google.android.gms.common.zzm.zzg = $r0;
+
+     label2:
+        exitmonitor class "Lcom/google/android/gms/common/zzm;";
+
+        return;
+
+     label3:
+        android.util.Log.w("GoogleCertificates", "GoogleCertificates has been initialized already");
+
+     label4:
+        exitmonitor class "Lcom/google/android/gms/common/zzm;";
+
+        return;
+
+     label5:
+        $r2 := @caughtexception;
+
+        exitmonitor class "Lcom/google/android/gms/common/zzm;";
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+    }
+
+    static boolean zze()
+    {
+        java.lang.Throwable $r2;
+        com.google.android.gms.common.internal.zzaf $r1;
+        android.os.StrictMode$ThreadPolicy $r0;
+        java.lang.Exception $r3;
+        boolean $z0;
+
+        $r0 = android.os.StrictMode.allowThreadDiskReads();
+
+     label01:
+        com.google.android.gms.common.zzm.zzg();
+
+     label02:
+        $r1 = com.google.android.gms.common.zzm.zze;
+
+     label03:
+        $z0 = interfaceinvoke $r1.zzg();
+
+     label04:
+        android.os.StrictMode.setThreadPolicy($r0);
+
+        return $z0;
+
+     label05:
+        $r2 := @caughtexception;
+
+        goto label10;
+
+     label06:
+        $r3 := @caughtexception;
+
+        goto label08;
+
+     label07:
+        $r3 := @caughtexception;
+
+     label08:
+        android.util.Log.e("GoogleCertificates", "Failed to get Google certificates from remote", $r3);
+
+     label09:
+        android.os.StrictMode.setThreadPolicy($r0);
+
+        return 0;
+
+     label10:
+        android.os.StrictMode.setThreadPolicy($r0);
+
+        throw $r2;
+
+        catch com.google.android.gms.dynamite.DynamiteModule$LoadingException from label01 to label02 with label07;
+        catch com.google.android.gms.dynamite.DynamiteModule$LoadingException from label03 to label04 with label07;
+        catch android.os.RemoteException from label01 to label02 with label06;
+        catch android.os.RemoteException from label03 to label04 with label06;
+        catch java.lang.Throwable from label01 to label04 with label05;
+        catch java.lang.Throwable from label08 to label09 with label05;
+    }
+
+    private static com.google.android.gms.common.zzw zzf(java.lang.String, com.google.android.gms.common.zzi, boolean, boolean)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r6;
+        android.content.Context $r2;
+        com.google.android.gms.common.internal.zzaf $r4;
+        android.content.pm.PackageManager $r5;
+        android.os.RemoteException $r10;
+        int $i0;
+        java.lang.String $r0, $r12;
+        com.google.android.gms.dynamite.DynamiteModule$LoadingException $r11;
+        boolean $z0, $z1;
+        com.google.android.gms.common.zzd $r8;
+        com.google.android.gms.common.zzi $r1;
+        com.google.android.gms.common.zzs $r3;
+        com.google.android.gms.common.zzv $r9;
+        com.google.android.gms.common.zzw $r7;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 := @parameter3;
+
+     label1:
+        com.google.android.gms.common.zzm.zzg();
+
+     label2:
+        $r2 = com.google.android.gms.common.zzm.zzg;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        $r3 = new com.google.android.gms.common.zzs;
+
+        specialinvoke $r3.<init>($r0, $r1, $z0, $z1);
+
+        $r4 = com.google.android.gms.common.zzm.zze;
+
+        $r2 = com.google.android.gms.common.zzm.zzg;
+
+     label3:
+        $r5 = virtualinvoke $r2.getPackageManager();
+
+        $r6 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r5);
+
+        $z1 = interfaceinvoke $r4.zzf($r3, $r6);
+
+     label4:
+        if $z1 == 0 goto label5;
+
+        $r7 = com.google.android.gms.common.zzw.zzb();
+
+        return $r7;
+
+     label5:
+        $r8 = new com.google.android.gms.common.zzd;
+
+        specialinvoke $r8.<init>($z0, $r0, $r1);
+
+        $r9 = new com.google.android.gms.common.zzv;
+
+        specialinvoke $r9.<init>($r8, null);
+
+        return $r9;
+
+     label6:
+        $r10 := @caughtexception;
+
+        android.util.Log.e("GoogleCertificates", "Failed to get Google certificates from remote", $r10);
+
+        $r7 = com.google.android.gms.common.zzw.zzd("module call", $r10);
+
+        return $r7;
+
+     label7:
+        $r11 := @caughtexception;
+
+        android.util.Log.e("GoogleCertificates", "Failed to get Google certificates from remote", $r11);
+
+        $r0 = virtualinvoke $r11.getMessage();
+
+        $r0 = java.lang.String.valueOf($r0);
+
+        $i0 = virtualinvoke $r0.length();
+
+        $r12 = "module init: ";
+
+        if $i0 == 0 goto label8;
+
+        $r0 = virtualinvoke $r12.concat($r0);
+
+        goto label9;
+
+     label8:
+        $r0 = new java.lang.String;
+
+        specialinvoke $r0.<init>("module init: ");
+
+     label9:
+        $r7 = com.google.android.gms.common.zzw.zzd($r0, $r11);
+
+        return $r7;
+
+        catch com.google.android.gms.dynamite.DynamiteModule$LoadingException from label1 to label2 with label7;
+        catch android.os.RemoteException from label3 to label4 with label6;
+    }
+
+    private static void zzg() throws com.google.android.gms.dynamite.DynamiteModule$LoadingException
+    {
+        java.lang.Throwable $r6;
+        com.google.android.gms.common.internal.zzaf $r0;
+        android.content.Context $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.dynamite.DynamiteModule$VersionPolicy $r3;
+        com.google.android.gms.dynamite.DynamiteModule $r4;
+        android.os.IBinder $r5;
+
+        $r0 = com.google.android.gms.common.zzm.zze;
+
+        if $r0 == null goto label1;
+
+        return;
+
+     label1:
+        $r1 = com.google.android.gms.common.zzm.zzg;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1);
+
+        $r2 = com.google.android.gms.common.zzm.zzf;
+
+        entermonitor $r2;
+
+     label2:
+        $r0 = com.google.android.gms.common.zzm.zze;
+
+        if $r0 != null goto label3;
+
+        $r1 = com.google.android.gms.common.zzm.zzg;
+
+        $r3 = com.google.android.gms.dynamite.DynamiteModule.PREFER_HIGHEST_OR_LOCAL_VERSION_NO_FORCE_STAGING;
+
+        $r4 = com.google.android.gms.dynamite.DynamiteModule.load($r1, $r3, "com.google.android.gms.googlecertificates");
+
+        $r5 = virtualinvoke $r4.instantiate("com.google.android.gms.common.GoogleCertificatesImpl");
+
+        $r0 = com.google.android.gms.common.internal.zzae.zzb($r5);
+
+        com.google.android.gms.common.zzm.zze = $r0;
+
+     label3:
+        exitmonitor $r2;
+
+     label4:
+        return;
+
+     label5:
+        $r6 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label6:
+        throw $r6;
+
+        catch java.lang.Throwable from label2 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+}

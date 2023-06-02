@@ -1,0 +1,28 @@
+public final class com.google.android.gms.internal.ads.zzcha extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzcha r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object zzb()
+    {
+        java.util.ArrayDeque $r1;
+        com.google.android.gms.internal.ads.zzcha r0;
+
+        r0 := @this;
+
+        $r1 = new java.util.ArrayDeque;
+
+        specialinvoke $r1.<init>();
+
+        return $r1;
+    }
+}

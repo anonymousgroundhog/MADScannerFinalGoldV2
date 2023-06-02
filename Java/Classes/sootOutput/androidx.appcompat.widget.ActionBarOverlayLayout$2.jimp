@@ -1,0 +1,53 @@
+class androidx.appcompat.widget.ActionBarOverlayLayout$2 extends java.lang.Object implements java.lang.Runnable
+{
+    final androidx.appcompat.widget.ActionBarOverlayLayout this$0;
+
+    void <init>(androidx.appcompat.widget.ActionBarOverlayLayout)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout$2 r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void run()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1, $r4;
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout$2 r0;
+        android.view.ViewPropertyAnimator $r3;
+        android.animation.AnimatorListenerAdapter $r5;
+
+        r0 := @this;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.haltActionBarHideOffsetAnimations();
+
+        $r1 = r0.this$0;
+
+        $r2 = $r1.mActionBarTop;
+
+        $r3 = virtualinvoke $r2.animate();
+
+        $r3 = virtualinvoke $r3.translationY(0.0F);
+
+        $r4 = r0.this$0;
+
+        $r5 = $r4.mTopAnimatorListener;
+
+        $r3 = virtualinvoke $r3.setListener($r5);
+
+        $r1.mCurrentActionBarTopAnimator = $r3;
+
+        return;
+    }
+}

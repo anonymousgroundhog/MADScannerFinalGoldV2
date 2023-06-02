@@ -1,0 +1,138 @@
+public class androidx.appcompat.widget.AppCompatSeekBar extends android.widget.SeekBar
+{
+    private final androidx.appcompat.widget.AppCompatSeekBarHelper mAppCompatSeekBarHelper;
+
+    public void <init>(android.content.Context)
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        android.content.Context $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 = androidx.appcompat.R$attr.seekBarStyle;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatSeekBarHelper $r3;
+        android.util.AttributeSet $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        $r1 = virtualinvoke r0.getContext();
+
+        androidx.appcompat.widget.ThemeUtils.checkAppCompatTheme(r0, $r1);
+
+        $r3 = new androidx.appcompat.widget.AppCompatSeekBarHelper;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mAppCompatSeekBarHelper = $r3;
+
+        virtualinvoke $r3.loadFromAttributes($r2, $i0);
+
+        return;
+    }
+
+    protected void drawableStateChanged()
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        androidx.appcompat.widget.AppCompatSeekBarHelper $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.drawableStateChanged();
+
+        $r1 = r0.mAppCompatSeekBarHelper;
+
+        virtualinvoke $r1.drawableStateChanged();
+
+        return;
+    }
+
+    public void jumpDrawablesToCurrentState()
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        androidx.appcompat.widget.AppCompatSeekBarHelper $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.jumpDrawablesToCurrentState();
+
+        $r1 = r0.mAppCompatSeekBarHelper;
+
+        virtualinvoke $r1.jumpDrawablesToCurrentState();
+
+        return;
+    }
+
+    protected void onDraw(android.graphics.Canvas)
+    {
+        androidx.appcompat.widget.AppCompatSeekBar r0;
+        java.lang.Throwable $r3;
+        androidx.appcompat.widget.AppCompatSeekBarHelper $r1;
+        android.graphics.Canvas $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        specialinvoke r0.onDraw($r2);
+
+        $r1 = r0.mAppCompatSeekBarHelper;
+
+        virtualinvoke $r1.drawTickMarks($r2);
+
+     label2:
+        exitmonitor r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

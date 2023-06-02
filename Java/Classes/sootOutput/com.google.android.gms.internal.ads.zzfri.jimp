@@ -1,0 +1,37 @@
+final class com.google.android.gms.internal.ads.zzfri extends com.google.android.gms.internal.ads.zzfrm
+{
+    final java.util.Comparator zza;
+
+    void <init>(java.util.Comparator)
+    {
+        java.util.Comparator $r1;
+        com.google.android.gms.internal.ads.zzfri r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    final java.util.Map zza()
+    {
+        java.util.TreeMap $r1;
+        java.util.Comparator $r2;
+        com.google.android.gms.internal.ads.zzfri r0;
+
+        r0 := @this;
+
+        $r1 = new java.util.TreeMap;
+
+        $r2 = r0.zza;
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+}

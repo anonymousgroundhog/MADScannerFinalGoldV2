@@ -1,0 +1,167 @@
+class com.google.android.gms.internal.ads.zzfov extends com.google.android.gms.internal.ads.zzfrc
+{
+    final com.google.android.gms.internal.ads.zzfpf zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzfpf, java.util.Map)
+    {
+        com.google.android.gms.internal.ads.zzfov r0;
+        com.google.android.gms.internal.ads.zzfpf $r1;
+        java.util.Map $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>($r2);
+
+        return;
+    }
+
+    public final void clear()
+    {
+        java.util.Iterator $r1;
+        com.google.android.gms.internal.ads.zzfov r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.iterator();
+
+        com.google.android.gms.internal.ads.zzfqu.zzb($r1);
+
+        return;
+    }
+
+    public final boolean containsAll(java.util.Collection)
+    {
+        java.util.Collection $r1;
+        java.util.Map $r2;
+        java.util.Set $r3;
+        com.google.android.gms.internal.ads.zzfov r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzd;
+
+        $r3 = interfaceinvoke $r2.keySet();
+
+        $z0 = interfaceinvoke $r3.containsAll($r1);
+
+        return $z0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        java.util.Map $r2;
+        java.util.Set $r3;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfov r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 == $r1 goto label2;
+
+        $r2 = r0.zzd;
+
+        $r3 = interfaceinvoke $r2.keySet();
+
+        $z0 = virtualinvoke $r3.equals($r1);
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public final int hashCode()
+    {
+        java.util.Map $r1;
+        int $i0;
+        java.util.Set $r2;
+        com.google.android.gms.internal.ads.zzfov r0;
+
+        r0 := @this;
+
+        $r1 = r0.zzd;
+
+        $r2 = interfaceinvoke $r1.keySet();
+
+        $i0 = virtualinvoke $r2.hashCode();
+
+        return $i0;
+    }
+
+    public final java.util.Iterator iterator()
+    {
+        java.util.Iterator $r4;
+        java.util.Map $r2;
+        java.util.Set $r3;
+        com.google.android.gms.internal.ads.zzfov r0;
+        com.google.android.gms.internal.ads.zzfou $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zzd;
+
+        $r3 = interfaceinvoke $r2.entrySet();
+
+        $r4 = interfaceinvoke $r3.iterator();
+
+        $r1 = new com.google.android.gms.internal.ads.zzfou;
+
+        specialinvoke $r1.<init>(r0, $r4);
+
+        return $r1;
+    }
+
+    public final boolean remove(java.lang.Object)
+    {
+        java.util.Map $r2;
+        java.util.Collection $r3;
+        int $i0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfov r0;
+        com.google.android.gms.internal.ads.zzfpf $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzd;
+
+        $r1 = interfaceinvoke $r2.remove($r1);
+
+        $r3 = (java.util.Collection) $r1;
+
+        if $r3 == null goto label1;
+
+        $i0 = interfaceinvoke $r3.size();
+
+        interfaceinvoke $r3.clear();
+
+        $r4 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzfpf.zzg($r4, $i0);
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

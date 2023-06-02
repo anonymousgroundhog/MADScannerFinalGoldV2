@@ -1,0 +1,221 @@
+class com.google.android.gms.internal.ads.zzfoz extends com.google.android.gms.internal.ads.zzfos implements java.util.SortedMap
+{
+    java.util.SortedSet zzd;
+    final com.google.android.gms.internal.ads.zzfpf zze;
+
+    void <init>(com.google.android.gms.internal.ads.zzfpf, java.util.SortedMap)
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        com.google.android.gms.internal.ads.zzfpf $r1;
+        java.util.SortedMap $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zze = $r1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        return;
+    }
+
+    public final java.util.Comparator comparator()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.util.Comparator $r2;
+        java.util.SortedMap $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzf();
+
+        $r2 = interfaceinvoke $r1.comparator();
+
+        return $r2;
+    }
+
+    public final java.lang.Object firstKey()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.lang.Object $r2;
+        java.util.SortedMap $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzf();
+
+        $r2 = interfaceinvoke $r1.firstKey();
+
+        return $r2;
+    }
+
+    public java.util.SortedMap headMap(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfoz r0, $r1;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzfpf $r2;
+        java.util.SortedMap $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfoz;
+
+        $r2 = r0.zze;
+
+        $r4 = virtualinvoke r0.zzf();
+
+        $r4 = interfaceinvoke $r4.headMap($r3);
+
+        specialinvoke $r1.<init>($r2, $r4);
+
+        return $r1;
+    }
+
+    public volatile java.util.Set keySet()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.util.SortedSet $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzh();
+
+        return $r1;
+    }
+
+    public final java.lang.Object lastKey()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.lang.Object $r2;
+        java.util.SortedMap $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzf();
+
+        $r2 = interfaceinvoke $r1.lastKey();
+
+        return $r2;
+    }
+
+    public java.util.SortedMap subMap(java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfoz r0, $r2;
+        java.lang.Object $r1, $r4;
+        com.google.android.gms.internal.ads.zzfpf $r3;
+        java.util.SortedMap $r5;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzfoz;
+
+        $r3 = r0.zze;
+
+        $r5 = virtualinvoke r0.zzf();
+
+        $r5 = interfaceinvoke $r5.subMap($r4, $r1);
+
+        specialinvoke $r2.<init>($r3, $r5);
+
+        return $r2;
+    }
+
+    public java.util.SortedMap tailMap(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfoz r0, $r1;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzfpf $r2;
+        java.util.SortedMap $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfoz;
+
+        $r2 = r0.zze;
+
+        $r4 = virtualinvoke r0.zzf();
+
+        $r4 = interfaceinvoke $r4.tailMap($r3);
+
+        specialinvoke $r1.<init>($r2, $r4);
+
+        return $r1;
+    }
+
+    volatile java.util.Set zze()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.util.SortedSet $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzg();
+
+        return $r1;
+    }
+
+    java.util.SortedMap zzf()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.util.SortedMap $r2;
+        java.util.Map $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = (java.util.SortedMap) $r1;
+
+        return $r2;
+    }
+
+    java.util.SortedSet zzg()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        com.google.android.gms.internal.ads.zzfpa $r1;
+        com.google.android.gms.internal.ads.zzfpf $r2;
+        java.util.SortedMap $r3;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfpa;
+
+        $r2 = r0.zze;
+
+        $r3 = virtualinvoke r0.zzf();
+
+        specialinvoke $r1.<init>($r2, $r3);
+
+        return $r1;
+    }
+
+    public java.util.SortedSet zzh()
+    {
+        com.google.android.gms.internal.ads.zzfoz r0;
+        java.util.SortedSet $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzd;
+
+        if $r1 != null goto label1;
+
+        $r1 = virtualinvoke r0.zzg();
+
+        r0.zzd = $r1;
+
+     label1:
+        return $r1;
+    }
+}

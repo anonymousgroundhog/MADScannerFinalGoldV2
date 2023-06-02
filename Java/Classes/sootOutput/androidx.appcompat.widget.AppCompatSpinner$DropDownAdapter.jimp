@@ -1,0 +1,329 @@
+class androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter extends java.lang.Object implements android.widget.ListAdapter, android.widget.SpinnerAdapter
+{
+    private android.widget.SpinnerAdapter mAdapter;
+    private android.widget.ListAdapter mListAdapter;
+
+    public void <init>(android.widget.SpinnerAdapter, android.content.res.Resources$Theme)
+    {
+        androidx.appcompat.widget.ThemedSpinnerAdapter r6;
+        android.widget.SpinnerAdapter $r1;
+        android.widget.ThemedSpinnerAdapter r4;
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.ListAdapter r3;
+        int i0;
+        android.content.res.Resources$Theme $r2, $r5;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mAdapter = $r1;
+
+        z0 = $r1 instanceof android.widget.ListAdapter;
+
+        if z0 == 0 goto label1;
+
+        r3 = (android.widget.ListAdapter) $r1;
+
+        r0.mListAdapter = r3;
+
+     label1:
+        if $r2 == null goto label3;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label2;
+
+        z0 = $r1 instanceof android.widget.ThemedSpinnerAdapter;
+
+        if z0 == 0 goto label2;
+
+        r4 = (android.widget.ThemedSpinnerAdapter) $r1;
+
+        $r5 = interfaceinvoke r4.getDropDownViewTheme();
+
+        if $r5 == $r2 goto label3;
+
+        interfaceinvoke r4.setDropDownViewTheme($r2);
+
+        goto label3;
+
+     label2:
+        z0 = $r1 instanceof androidx.appcompat.widget.ThemedSpinnerAdapter;
+
+        if z0 == 0 goto label3;
+
+        r6 = (androidx.appcompat.widget.ThemedSpinnerAdapter) $r1;
+
+        $r5 = interfaceinvoke r6.getDropDownViewTheme();
+
+        if $r5 != null goto label3;
+
+        interfaceinvoke r6.setDropDownViewTheme($r2);
+
+     label3:
+        return;
+    }
+
+    public boolean areAllItemsEnabled()
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.ListAdapter r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mListAdapter;
+
+        if r1 == null goto label1;
+
+        $z0 = interfaceinvoke r1.areAllItemsEnabled();
+
+        return $z0;
+
+     label1:
+        return 1;
+    }
+
+    public int getCount()
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        int $i0;
+        android.widget.SpinnerAdapter $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mAdapter;
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $i0 = interfaceinvoke $r1.getCount();
+
+        return $i0;
+    }
+
+    public android.view.View getDropDownView(int, android.view.View, android.view.ViewGroup)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r3;
+        int $i0;
+        android.view.View $r1;
+        android.view.ViewGroup $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = r0.mAdapter;
+
+        if $r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = interfaceinvoke $r3.getDropDownView($i0, $r1, $r2);
+
+        return $r1;
+    }
+
+    public java.lang.Object getItem(int)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r2;
+        int $i0;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = r0.mAdapter;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = interfaceinvoke $r2.getItem($i0);
+
+        return $r1;
+    }
+
+    public long getItemId(int)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r1;
+        int $i0;
+        long $l1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mAdapter;
+
+        if $r1 != null goto label1;
+
+        return -1L;
+
+     label1:
+        $l1 = interfaceinvoke $r1.getItemId($i0);
+
+        return $l1;
+    }
+
+    public int getItemViewType(int)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return 0;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        int $i0;
+        android.view.View $r1;
+        android.view.ViewGroup $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r1 = virtualinvoke r0.getDropDownView($i0, $r1, $r2);
+
+        return $r1;
+    }
+
+    public int getViewTypeCount()
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+
+    public boolean hasStableIds()
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mAdapter;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.hasStableIds();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isEmpty()
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = virtualinvoke r0.getCount();
+
+        if $i0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isEnabled(int)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.ListAdapter r1;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mListAdapter;
+
+        if r1 == null goto label1;
+
+        $z0 = interfaceinvoke r1.isEnabled($i0);
+
+        return $z0;
+
+     label1:
+        return 1;
+    }
+
+    public void registerDataSetObserver(android.database.DataSetObserver)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r2;
+        android.database.DataSetObserver $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mAdapter;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.registerDataSetObserver($r1);
+
+     label1:
+        return;
+    }
+
+    public void unregisterDataSetObserver(android.database.DataSetObserver)
+    {
+        androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter r0;
+        android.widget.SpinnerAdapter $r2;
+        android.database.DataSetObserver $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mAdapter;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.unregisterDataSetObserver($r1);
+
+     label1:
+        return;
+    }
+}

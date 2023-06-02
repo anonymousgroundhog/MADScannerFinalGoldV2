@@ -1,0 +1,171 @@
+public final class androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat extends java.lang.Object
+{
+    private final androidx.core.graphics.Insets mLowerBound;
+    private final androidx.core.graphics.Insets mUpperBound;
+
+    private void <init>(android.view.WindowInsetsAnimation$Bounds)
+    {
+        android.view.WindowInsetsAnimation$Bounds $r1;
+        androidx.core.graphics.Insets $r2;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl30.getLowerBounds($r1);
+
+        r0.mLowerBound = $r2;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl30.getHigherBounds($r1);
+
+        r0.mUpperBound = $r2;
+
+        return;
+    }
+
+    public void <init>(androidx.core.graphics.Insets, androidx.core.graphics.Insets)
+    {
+        androidx.core.graphics.Insets $r1, $r2;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mLowerBound = $r1;
+
+        r0.mUpperBound = $r2;
+
+        return;
+    }
+
+    public static androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat toBoundsCompat(android.view.WindowInsetsAnimation$Bounds)
+    {
+        android.view.WindowInsetsAnimation$Bounds $r0;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = new androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat;
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+    }
+
+    public androidx.core.graphics.Insets getLowerBound()
+    {
+        androidx.core.graphics.Insets r1;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mLowerBound;
+
+        return r1;
+    }
+
+    public androidx.core.graphics.Insets getUpperBound()
+    {
+        androidx.core.graphics.Insets r1;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mUpperBound;
+
+        return r1;
+    }
+
+    public androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat inset(androidx.core.graphics.Insets)
+    {
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0, $r2;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets $r1, $r3, $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat;
+
+        $r3 = r0.mLowerBound;
+
+        $i0 = $r1.left;
+
+        $i1 = $r1.top;
+
+        $i2 = $r1.right;
+
+        $i3 = $r1.bottom;
+
+        $r3 = androidx.core.view.WindowInsetsCompat.insetInsets($r3, $i0, $i1, $i2, $i3);
+
+        $r4 = r0.mUpperBound;
+
+        $i1 = $r1.left;
+
+        $i2 = $r1.top;
+
+        $i3 = $r1.right;
+
+        $i0 = $r1.bottom;
+
+        $r1 = androidx.core.view.WindowInsetsCompat.insetInsets($r4, $i1, $i2, $i3, $i0);
+
+        specialinvoke $r2.<init>($r3, $r1);
+
+        return $r2;
+    }
+
+    public android.view.WindowInsetsAnimation$Bounds toBounds()
+    {
+        android.view.WindowInsetsAnimation$Bounds $r1;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+
+        r0 := @this;
+
+        $r1 = androidx.core.view.WindowInsetsAnimationCompat$Impl30.createPlatformBounds(r0);
+
+        return $r1;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r3;
+        androidx.core.graphics.Insets $r2;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("Bounds{lower=");
+
+        $r2 = r0.mLowerBound;
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(" upper=");
+
+        $r2 = r0.mUpperBound;
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append("}");
+
+        $r3 = virtualinvoke $r1.toString();
+
+        return $r3;
+    }
+}

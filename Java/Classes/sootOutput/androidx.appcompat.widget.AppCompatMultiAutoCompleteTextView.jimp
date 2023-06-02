@@ -1,0 +1,333 @@
+public class androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView extends android.widget.MultiAutoCompleteTextView implements androidx.core.view.TintableBackgroundView
+{
+    private static final int[] TINT_ATTRS;
+    private final androidx.appcompat.widget.AppCompatBackgroundHelper mBackgroundTintHelper;
+    private final androidx.appcompat.widget.AppCompatTextHelper mTextHelper;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[1];
+
+        $r0[0] = 16843126;
+
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView.TINT_ATTRS = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.content.Context $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        int $i0;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 = androidx.appcompat.R$attr.autoCompleteTextViewStyle;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r6;
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatTextHelper $r7;
+        android.graphics.drawable.Drawable $r5;
+        android.util.AttributeSet $r2;
+        int[] $r3;
+        androidx.appcompat.widget.TintTypedArray $r4;
+        int $i0;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r1 = androidx.appcompat.widget.TintContextWrapper.wrap($r1);
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        $r1 = virtualinvoke r0.getContext();
+
+        androidx.appcompat.widget.ThemeUtils.checkAppCompatTheme(r0, $r1);
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r3 = androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView.TINT_ATTRS;
+
+        $r4 = androidx.appcompat.widget.TintTypedArray.obtainStyledAttributes($r1, $r2, $r3, $i0, 0);
+
+        $z0 = virtualinvoke $r4.hasValue(0);
+
+        if $z0 == 0 goto label1;
+
+        $r5 = virtualinvoke $r4.getDrawable(0);
+
+        virtualinvoke r0.setDropDownBackgroundDrawable($r5);
+
+     label1:
+        virtualinvoke $r4.recycle();
+
+        $r6 = new androidx.appcompat.widget.AppCompatBackgroundHelper;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mBackgroundTintHelper = $r6;
+
+        virtualinvoke $r6.loadFromAttributes($r2, $i0);
+
+        $r7 = new androidx.appcompat.widget.AppCompatTextHelper;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mTextHelper = $r7;
+
+        virtualinvoke $r7.loadFromAttributes($r2, $i0);
+
+        virtualinvoke $r7.applyCompoundDrawablesTints();
+
+        return;
+    }
+
+    protected void drawableStateChanged()
+    {
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r1;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        androidx.appcompat.widget.AppCompatTextHelper $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.drawableStateChanged();
+
+        $r1 = r0.mBackgroundTintHelper;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.applySupportBackgroundTint();
+
+     label1:
+        $r2 = r0.mTextHelper;
+
+        if $r2 == null goto label2;
+
+        virtualinvoke $r2.applyCompoundDrawablesTints();
+
+     label2:
+        return;
+    }
+
+    public android.content.res.ColorStateList getSupportBackgroundTintList()
+    {
+        android.content.res.ColorStateList $r1;
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r2;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+
+        r0 := @this;
+
+        $r2 = r0.mBackgroundTintHelper;
+
+        if $r2 == null goto label1;
+
+        $r1 = virtualinvoke $r2.getSupportBackgroundTintList();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
+    {
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r2;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.graphics.PorterDuff$Mode $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mBackgroundTintHelper;
+
+        if $r2 == null goto label1;
+
+        $r1 = virtualinvoke $r2.getSupportBackgroundTintMode();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public android.view.inputmethod.InputConnection onCreateInputConnection(android.view.inputmethod.EditorInfo)
+    {
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.view.inputmethod.EditorInfo $r1;
+        android.view.inputmethod.InputConnection $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = specialinvoke r0.onCreateInputConnection($r1);
+
+        $r2 = androidx.appcompat.widget.AppCompatHintHelper.onCreateInputConnection($r2, $r1, r0);
+
+        return $r2;
+    }
+
+    public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r2;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.setBackgroundDrawable($r1);
+
+        $r2 = r0.mBackgroundTintHelper;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.onSetBackgroundDrawable($r1);
+
+     label1:
+        return;
+    }
+
+    public void setBackgroundResource(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r1;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.setBackgroundResource($i0);
+
+        $r1 = r0.mBackgroundTintHelper;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.onSetBackgroundResource($i0);
+
+     label1:
+        return;
+    }
+
+    public void setDropDownBackgroundResource(int)
+    {
+        android.content.Context $r1;
+        int $i0;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = androidx.appcompat.content.res.AppCompatResources.getDrawable($r1, $i0);
+
+        virtualinvoke r0.setDropDownBackgroundDrawable($r2);
+
+        return;
+    }
+
+    public void setSupportBackgroundTintList(android.content.res.ColorStateList)
+    {
+        android.content.res.ColorStateList $r1;
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r2;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mBackgroundTintHelper;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.setSupportBackgroundTintList($r1);
+
+     label1:
+        return;
+    }
+
+    public void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
+    {
+        androidx.appcompat.widget.AppCompatBackgroundHelper $r2;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+        android.graphics.PorterDuff$Mode $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mBackgroundTintHelper;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.setSupportBackgroundTintMode($r1);
+
+     label1:
+        return;
+    }
+
+    public void setTextAppearance(android.content.Context, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatTextHelper $r2;
+        int $i0;
+        androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.setTextAppearance($r1, $i0);
+
+        $r2 = r0.mTextHelper;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.onSetTextAppearance($r1, $i0);
+
+     label1:
+        return;
+    }
+}

@@ -1,0 +1,18 @@
+public class androidx.room.FtsOptions extends java.lang.Object
+{
+    public static final java.lang.String TOKENIZER_ICU;
+    public static final java.lang.String TOKENIZER_PORTER;
+    public static final java.lang.String TOKENIZER_SIMPLE;
+    public static final java.lang.String TOKENIZER_UNICODE61;
+
+    private void <init>()
+    {
+        androidx.room.FtsOptions r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,32 @@
+public final class com.google.android.gms.internal.ads.zzegk extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzbbp zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzbbp)
+    {
+        com.google.android.gms.internal.ads.zzegk r0;
+        com.google.android.gms.internal.ads.zzbbp $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    final com.google.android.gms.internal.ads.zzbbp zza()
+    {
+        com.google.android.gms.internal.ads.zzegk r0;
+        com.google.android.gms.internal.ads.zzbbp r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

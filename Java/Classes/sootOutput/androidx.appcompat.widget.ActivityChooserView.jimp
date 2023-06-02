@@ -1,0 +1,931 @@
+public class androidx.appcompat.widget.ActivityChooserView extends android.view.ViewGroup implements androidx.appcompat.widget.ActivityChooserModel$ActivityChooserModelClient
+{
+    private final android.view.View mActivityChooserContent;
+    private final android.graphics.drawable.Drawable mActivityChooserContentBackground;
+    final androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter mAdapter;
+    private final androidx.appcompat.widget.ActivityChooserView$Callbacks mCallbacks;
+    private int mDefaultActionButtonContentDescription;
+    final android.widget.FrameLayout mDefaultActivityButton;
+    private final android.widget.ImageView mDefaultActivityButtonImage;
+    final android.widget.FrameLayout mExpandActivityOverflowButton;
+    private final android.widget.ImageView mExpandActivityOverflowButtonImage;
+    int mInitialActivityCount;
+    private boolean mIsAttachedToWindow;
+    boolean mIsSelectingDefaultActivity;
+    private final int mListPopupMaxWidth;
+    private androidx.appcompat.widget.ListPopupWindow mListPopupWindow;
+    final android.database.DataSetObserver mModelDataSetObserver;
+    android.widget.PopupWindow$OnDismissListener mOnDismissListener;
+    private final android.view.ViewTreeObserver$OnGlobalLayoutListener mOnGlobalLayoutListener;
+    androidx.core.view.ActionProvider mProvider;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        android.util.AttributeSet $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2, 0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        android.content.Context $r1, $r8;
+        androidx.appcompat.widget.ActivityChooserView$Callbacks r10;
+        android.widget.FrameLayout r13;
+        android.widget.ImageView r14;
+        android.graphics.drawable.Drawable $r7, $r12;
+        android.content.res.TypedArray $r6;
+        android.util.AttributeSet $r2;
+        int[] r5;
+        androidx.appcompat.widget.ActivityChooserView$5 $r18;
+        int $i0, $i1;
+        androidx.appcompat.widget.ActivityChooserView$3 r15;
+        android.view.View $r11;
+        androidx.appcompat.widget.ActivityChooserView$4 r16;
+        androidx.appcompat.widget.ActivityChooserView$1 r3;
+        androidx.appcompat.widget.ActivityChooserView$2 r4;
+        android.view.LayoutInflater $r9;
+        android.util.DisplayMetrics $r20;
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter r17;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        android.content.res.Resources $r19;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        r3 = new androidx.appcompat.widget.ActivityChooserView$1;
+
+        specialinvoke r3.<init>(r0);
+
+        r0.mModelDataSetObserver = r3;
+
+        r4 = new androidx.appcompat.widget.ActivityChooserView$2;
+
+        specialinvoke r4.<init>(r0);
+
+        r0.mOnGlobalLayoutListener = r4;
+
+        r0.mInitialActivityCount = 4;
+
+        r5 = androidx.appcompat.R$styleable.ActivityChooserView;
+
+        $r6 = virtualinvoke $r1.obtainStyledAttributes($r2, r5, $i0, 0);
+
+        r5 = androidx.appcompat.R$styleable.ActivityChooserView;
+
+        androidx.core.view.ViewCompat.saveAttributeDataForStyleable(r0, $r1, r5, $r2, $r6, $i0, 0);
+
+        $i0 = androidx.appcompat.R$styleable.ActivityChooserView_initialActivityCount;
+
+        $i0 = virtualinvoke $r6.getInt($i0, 4);
+
+        r0.mInitialActivityCount = $i0;
+
+        $i0 = androidx.appcompat.R$styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+
+        $r7 = virtualinvoke $r6.getDrawable($i0);
+
+        virtualinvoke $r6.recycle();
+
+        $r8 = virtualinvoke r0.getContext();
+
+        $r9 = android.view.LayoutInflater.from($r8);
+
+        $i0 = androidx.appcompat.R$layout.abc_activity_chooser_view;
+
+        virtualinvoke $r9.inflate($i0, r0, 1);
+
+        r10 = new androidx.appcompat.widget.ActivityChooserView$Callbacks;
+
+        specialinvoke r10.<init>(r0);
+
+        r0.mCallbacks = r10;
+
+        $i0 = androidx.appcompat.R$id.activity_chooser_view_content;
+
+        $r11 = virtualinvoke r0.findViewById($i0);
+
+        r0.mActivityChooserContent = $r11;
+
+        $r12 = virtualinvoke $r11.getBackground();
+
+        r0.mActivityChooserContentBackground = $r12;
+
+        $i0 = androidx.appcompat.R$id.default_activity_button;
+
+        $r11 = virtualinvoke r0.findViewById($i0);
+
+        r13 = (android.widget.FrameLayout) $r11;
+
+        r0.mDefaultActivityButton = r13;
+
+        virtualinvoke r13.setOnClickListener(r10);
+
+        virtualinvoke r13.setOnLongClickListener(r10);
+
+        $i0 = androidx.appcompat.R$id.image;
+
+        $r11 = virtualinvoke r13.findViewById($i0);
+
+        r14 = (android.widget.ImageView) $r11;
+
+        r0.mDefaultActivityButtonImage = r14;
+
+        $i0 = androidx.appcompat.R$id.expand_activities_button;
+
+        $r11 = virtualinvoke r0.findViewById($i0);
+
+        r13 = (android.widget.FrameLayout) $r11;
+
+        virtualinvoke r13.setOnClickListener(r10);
+
+        r15 = new androidx.appcompat.widget.ActivityChooserView$3;
+
+        specialinvoke r15.<init>(r0);
+
+        virtualinvoke r13.setAccessibilityDelegate(r15);
+
+        r16 = new androidx.appcompat.widget.ActivityChooserView$4;
+
+        specialinvoke r16.<init>(r0, r13);
+
+        virtualinvoke r13.setOnTouchListener(r16);
+
+        r0.mExpandActivityOverflowButton = r13;
+
+        $i0 = androidx.appcompat.R$id.image;
+
+        $r11 = virtualinvoke r13.findViewById($i0);
+
+        r14 = (android.widget.ImageView) $r11;
+
+        r0.mExpandActivityOverflowButtonImage = r14;
+
+        virtualinvoke r14.setImageDrawable($r7);
+
+        r17 = new androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter;
+
+        specialinvoke r17.<init>(r0);
+
+        r0.mAdapter = r17;
+
+        $r18 = new androidx.appcompat.widget.ActivityChooserView$5;
+
+        specialinvoke $r18.<init>(r0);
+
+        virtualinvoke r17.registerDataSetObserver($r18);
+
+        $r19 = virtualinvoke $r1.getResources();
+
+        $r20 = virtualinvoke $r19.getDisplayMetrics();
+
+        $i0 = $r20.widthPixels;
+
+        $i0 = $i0 / 2;
+
+        $i1 = androidx.appcompat.R$dimen.abc_config_prefDialogWidth;
+
+        $i1 = virtualinvoke $r19.getDimensionPixelSize($i1);
+
+        $i0 = java.lang.Math.max($i0, $i1);
+
+        r0.mListPopupMaxWidth = $i0;
+
+        return;
+    }
+
+    public boolean dismissPopup()
+    {
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ListPopupWindow $r1;
+        android.view.ViewTreeObserver $r2;
+        boolean $z0;
+        android.view.ViewTreeObserver$OnGlobalLayoutListener $r3;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowingPopup();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke r0.getListPopupWindow();
+
+        virtualinvoke $r1.dismiss();
+
+        $r2 = virtualinvoke r0.getViewTreeObserver();
+
+        $z0 = virtualinvoke $r2.isAlive();
+
+        if $z0 == 0 goto label1;
+
+        $r3 = r0.mOnGlobalLayoutListener;
+
+        virtualinvoke $r2.removeGlobalOnLayoutListener($r3);
+
+     label1:
+        return 1;
+    }
+
+    public androidx.appcompat.widget.ActivityChooserModel getDataModel()
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter $r2;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ActivityChooserModel $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mAdapter;
+
+        $r1 = virtualinvoke $r2.getDataModel();
+
+        return $r1;
+    }
+
+    androidx.appcompat.widget.ListPopupWindow getListPopupWindow()
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter $r3;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ListPopupWindow $r2;
+        androidx.appcompat.widget.ActivityChooserView$Callbacks $r4;
+
+        r0 := @this;
+
+        $r2 = r0.mListPopupWindow;
+
+        if $r2 != null goto label1;
+
+        $r2 = new androidx.appcompat.widget.ListPopupWindow;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.mListPopupWindow = $r2;
+
+        $r3 = r0.mAdapter;
+
+        virtualinvoke $r2.setAdapter($r3);
+
+        $r2 = r0.mListPopupWindow;
+
+        virtualinvoke $r2.setAnchorView(r0);
+
+        $r2 = r0.mListPopupWindow;
+
+        virtualinvoke $r2.setModal(1);
+
+        $r2 = r0.mListPopupWindow;
+
+        $r4 = r0.mCallbacks;
+
+        virtualinvoke $r2.setOnItemClickListener($r4);
+
+        $r2 = r0.mListPopupWindow;
+
+        $r4 = r0.mCallbacks;
+
+        virtualinvoke $r2.setOnDismissListener($r4);
+
+     label1:
+        $r2 = r0.mListPopupWindow;
+
+        return $r2;
+    }
+
+    public boolean isShowingPopup()
+    {
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ListPopupWindow $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getListPopupWindow();
+
+        $z0 = virtualinvoke $r1.isShowing();
+
+        return $z0;
+    }
+
+    protected void onAttachedToWindow()
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter r2;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ActivityChooserModel $r1;
+        android.database.DataSetObserver $r3;
+
+        r0 := @this;
+
+        specialinvoke r0.onAttachedToWindow();
+
+        r2 = r0.mAdapter;
+
+        $r1 = virtualinvoke r2.getDataModel();
+
+        if $r1 == null goto label1;
+
+        $r3 = r0.mModelDataSetObserver;
+
+        virtualinvoke $r1.registerObserver($r3);
+
+     label1:
+        r0.mIsAttachedToWindow = 1;
+
+        return;
+    }
+
+    protected void onDetachedFromWindow()
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        android.view.ViewTreeObserver $r4;
+        androidx.appcompat.widget.ActivityChooserModel $r2;
+        android.database.DataSetObserver r3;
+        boolean $z0;
+        android.view.ViewTreeObserver$OnGlobalLayoutListener $r5;
+
+        r0 := @this;
+
+        specialinvoke r0.onDetachedFromWindow();
+
+        r1 = r0.mAdapter;
+
+        $r2 = virtualinvoke r1.getDataModel();
+
+        if $r2 == null goto label1;
+
+        r3 = r0.mModelDataSetObserver;
+
+        virtualinvoke $r2.unregisterObserver(r3);
+
+     label1:
+        $r4 = virtualinvoke r0.getViewTreeObserver();
+
+        $z0 = virtualinvoke $r4.isAlive();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = r0.mOnGlobalLayoutListener;
+
+        virtualinvoke $r4.removeGlobalOnLayoutListener($r5);
+
+     label2:
+        $z0 = virtualinvoke r0.isShowingPopup();
+
+        if $z0 == 0 goto label3;
+
+        virtualinvoke r0.dismissPopup();
+
+     label3:
+        r0.mIsAttachedToWindow = 0;
+
+        return;
+    }
+
+    protected void onLayout(boolean, int, int, int, int)
+    {
+        androidx.appcompat.widget.ActivityChooserView r0;
+        int $i0, $i1, $i2, $i3;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $r1 = r0.mActivityChooserContent;
+
+        $i0 = $i2 - $i0;
+
+        $i1 = $i3 - $i1;
+
+        virtualinvoke $r1.layout(0, 0, $i0, $i1);
+
+        $z0 = virtualinvoke r0.isShowingPopup();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke r0.dismissPopup();
+
+     label1:
+        return;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        androidx.appcompat.widget.ActivityChooserView r0;
+        int $i0, $i1, $i2;
+        android.widget.FrameLayout $r2;
+        android.view.View r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        r1 = r0.mActivityChooserContent;
+
+        $r2 = r0.mDefaultActivityButton;
+
+        $i2 = virtualinvoke $r2.getVisibility();
+
+        if $i2 == 0 goto label1;
+
+        $i1 = android.view.View$MeasureSpec.getSize($i1);
+
+        $i1 = android.view.View$MeasureSpec.makeMeasureSpec($i1, 1073741824);
+
+     label1:
+        virtualinvoke r0.measureChild(r1, $i0, $i1);
+
+        $i0 = virtualinvoke r1.getMeasuredWidth();
+
+        $i1 = virtualinvoke r1.getMeasuredHeight();
+
+        virtualinvoke r0.setMeasuredDimension($i0, $i1);
+
+        return;
+    }
+
+    public void setActivityChooserModel(androidx.appcompat.widget.ActivityChooserModel)
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter $r2;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.appcompat.widget.ActivityChooserModel $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mAdapter;
+
+        virtualinvoke $r2.setDataModel($r1);
+
+        $z0 = virtualinvoke r0.isShowingPopup();
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.dismissPopup();
+
+        virtualinvoke r0.showPopup();
+
+     label1:
+        return;
+    }
+
+    public void setDefaultActionButtonContentDescription(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActivityChooserView r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDefaultActionButtonContentDescription = $i0;
+
+        return;
+    }
+
+    public void setExpandActivityOverflowButtonContentDescription(int)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        int $i0;
+        android.widget.ImageView $r1;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $r3 = virtualinvoke $r2.getString($i0);
+
+        $r1 = r0.mExpandActivityOverflowButtonImage;
+
+        virtualinvoke $r1.setContentDescription($r3);
+
+        return;
+    }
+
+    public void setExpandActivityOverflowButtonDrawable(android.graphics.drawable.Drawable)
+    {
+        android.widget.ImageView $r2;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mExpandActivityOverflowButtonImage;
+
+        virtualinvoke $r2.setImageDrawable($r1);
+
+        return;
+    }
+
+    public void setInitialActivityCount(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActivityChooserView r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mInitialActivityCount = $i0;
+
+        return;
+    }
+
+    public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)
+    {
+        androidx.appcompat.widget.ActivityChooserView r0;
+        android.widget.PopupWindow$OnDismissListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mOnDismissListener = $r1;
+
+        return;
+    }
+
+    public void setProvider(androidx.core.view.ActionProvider)
+    {
+        androidx.core.view.ActionProvider $r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mProvider = $r1;
+
+        return;
+    }
+
+    public boolean showPopup()
+    {
+        int $i0;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowingPopup();
+
+        if $z0 != 0 goto label2;
+
+        $z0 = r0.mIsAttachedToWindow;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        r0.mIsSelectingDefaultActivity = 0;
+
+        $i0 = r0.mInitialActivityCount;
+
+        virtualinvoke r0.showPopupUnchecked($i0);
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    void showPopupUnchecked(int)
+    {
+        android.content.Context $r9;
+        java.lang.IllegalStateException $r12;
+        android.widget.FrameLayout r5;
+        android.graphics.drawable.ColorDrawable $r11;
+        int $i0, $i1, i2;
+        java.lang.String $r10;
+        boolean z0, z1;
+        androidx.appcompat.widget.ListPopupWindow $r6;
+        android.view.ViewTreeObserver$OnGlobalLayoutListener $r4;
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        androidx.core.view.ActionProvider $r7;
+        android.view.ViewTreeObserver $r3;
+        android.widget.ListView $r8;
+        androidx.appcompat.widget.ActivityChooserModel $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mAdapter;
+
+        $r2 = virtualinvoke r1.getDataModel();
+
+        if $r2 == null goto label11;
+
+        $r3 = virtualinvoke r0.getViewTreeObserver();
+
+        $r4 = r0.mOnGlobalLayoutListener;
+
+        virtualinvoke $r3.addOnGlobalLayoutListener($r4);
+
+        r5 = r0.mDefaultActivityButton;
+
+        $i1 = virtualinvoke r5.getVisibility();
+
+        if $i1 != 0 goto label01;
+
+        z0 = 1;
+
+        goto label02;
+
+     label01:
+        z0 = 0;
+
+     label02:
+        r1 = r0.mAdapter;
+
+        $i1 = virtualinvoke r1.getActivityCount();
+
+        if z0 == 0 goto label03;
+
+        z1 = 1;
+
+        goto label04;
+
+     label03:
+        z1 = 0;
+
+     label04:
+        if $i0 == 2147483647 goto label05;
+
+        i2 = $i0 + z1;
+
+        if $i1 <= i2 goto label05;
+
+        r1 = r0.mAdapter;
+
+        virtualinvoke r1.setShowFooterView(1);
+
+        r1 = r0.mAdapter;
+
+        $i0 = $i0 + -1;
+
+        virtualinvoke r1.setMaxActivityCount($i0);
+
+        goto label06;
+
+     label05:
+        r1 = r0.mAdapter;
+
+        virtualinvoke r1.setShowFooterView(0);
+
+        r1 = r0.mAdapter;
+
+        virtualinvoke r1.setMaxActivityCount($i0);
+
+     label06:
+        $r6 = virtualinvoke r0.getListPopupWindow();
+
+        z1 = virtualinvoke $r6.isShowing();
+
+        if z1 != 0 goto label12;
+
+        z1 = r0.mIsSelectingDefaultActivity;
+
+        if z1 != 0 goto label08;
+
+        if z0 != 0 goto label07;
+
+        goto label08;
+
+     label07:
+        r1 = r0.mAdapter;
+
+        virtualinvoke r1.setShowDefaultActivity(0, 0);
+
+        goto label09;
+
+     label08:
+        r1 = r0.mAdapter;
+
+        virtualinvoke r1.setShowDefaultActivity(1, z0);
+
+     label09:
+        r1 = r0.mAdapter;
+
+        $i0 = virtualinvoke r1.measureContentWidth();
+
+        $i1 = r0.mListPopupMaxWidth;
+
+        $i0 = java.lang.Math.min($i0, $i1);
+
+        virtualinvoke $r6.setContentWidth($i0);
+
+        virtualinvoke $r6.show();
+
+        $r7 = r0.mProvider;
+
+        if $r7 == null goto label10;
+
+        virtualinvoke $r7.subUiVisibilityChanged(1);
+
+     label10:
+        $r8 = virtualinvoke $r6.getListView();
+
+        $r9 = virtualinvoke r0.getContext();
+
+        $i0 = androidx.appcompat.R$string.abc_activitychooserview_choose_application;
+
+        $r10 = virtualinvoke $r9.getString($i0);
+
+        virtualinvoke $r8.setContentDescription($r10);
+
+        $r8 = virtualinvoke $r6.getListView();
+
+        $r11 = new android.graphics.drawable.ColorDrawable;
+
+        specialinvoke $r11.<init>(0);
+
+        virtualinvoke $r8.setSelector($r11);
+
+        return;
+
+     label11:
+        $r12 = new java.lang.IllegalStateException;
+
+        specialinvoke $r12.<init>("No data model. Did you call #setDataModel?");
+
+        throw $r12;
+
+     label12:
+        return;
+    }
+
+    void updateAppearance()
+    {
+        android.content.Context $r4;
+        java.lang.Object[] $r9;
+        java.lang.CharSequence $r8;
+        android.content.pm.PackageManager $r5;
+        android.widget.FrameLayout r2;
+        android.widget.ImageView r6;
+        android.graphics.drawable.Drawable $r7;
+        android.content.pm.ResolveInfo $r3;
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter r1;
+        androidx.appcompat.widget.ActivityChooserView r0;
+        int $i0, $i1;
+        android.view.View r11;
+        java.lang.String $r10;
+
+        r0 := @this;
+
+        r1 = r0.mAdapter;
+
+        $i0 = virtualinvoke r1.getCount();
+
+        if $i0 <= 0 goto label1;
+
+        r2 = r0.mExpandActivityOverflowButton;
+
+        virtualinvoke r2.setEnabled(1);
+
+        goto label2;
+
+     label1:
+        r2 = r0.mExpandActivityOverflowButton;
+
+        virtualinvoke r2.setEnabled(0);
+
+     label2:
+        r1 = r0.mAdapter;
+
+        $i0 = virtualinvoke r1.getActivityCount();
+
+        r1 = r0.mAdapter;
+
+        $i1 = virtualinvoke r1.getHistorySize();
+
+        if $i0 == 1 goto label4;
+
+        if $i0 <= 1 goto label3;
+
+        if $i1 <= 0 goto label3;
+
+        goto label4;
+
+     label3:
+        r2 = r0.mDefaultActivityButton;
+
+        virtualinvoke r2.setVisibility(8);
+
+        goto label5;
+
+     label4:
+        r2 = r0.mDefaultActivityButton;
+
+        virtualinvoke r2.setVisibility(0);
+
+        r1 = r0.mAdapter;
+
+        $r3 = virtualinvoke r1.getDefaultActivity();
+
+        $r4 = virtualinvoke r0.getContext();
+
+        $r5 = virtualinvoke $r4.getPackageManager();
+
+        r6 = r0.mDefaultActivityButtonImage;
+
+        $r7 = virtualinvoke $r3.loadIcon($r5);
+
+        virtualinvoke r6.setImageDrawable($r7);
+
+        $i0 = r0.mDefaultActionButtonContentDescription;
+
+        if $i0 == 0 goto label5;
+
+        $r8 = virtualinvoke $r3.loadLabel($r5);
+
+        $r4 = virtualinvoke r0.getContext();
+
+        $i0 = r0.mDefaultActionButtonContentDescription;
+
+        $r9 = newarray (java.lang.Object)[1];
+
+        $r9[0] = $r8;
+
+        $r10 = virtualinvoke $r4.getString($i0, $r9);
+
+        r2 = r0.mDefaultActivityButton;
+
+        virtualinvoke r2.setContentDescription($r10);
+
+     label5:
+        r2 = r0.mDefaultActivityButton;
+
+        $i0 = virtualinvoke r2.getVisibility();
+
+        if $i0 != 0 goto label6;
+
+        r11 = r0.mActivityChooserContent;
+
+        $r7 = r0.mActivityChooserContentBackground;
+
+        virtualinvoke r11.setBackgroundDrawable($r7);
+
+        return;
+
+     label6:
+        r11 = r0.mActivityChooserContent;
+
+        virtualinvoke r11.setBackgroundDrawable(null);
+
+        return;
+    }
+}

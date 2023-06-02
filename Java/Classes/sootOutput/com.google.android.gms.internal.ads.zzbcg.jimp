@@ -1,0 +1,20 @@
+public final class com.google.android.gms.internal.ads.zzbcg extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:debug_logging_feature:enable", 0);
+
+        com.google.android.gms.internal.ads.zzbcg.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:debug_logging_feature:intercept_web_view", 0);
+
+        com.google.android.gms.internal.ads.zzbcg.zzb = $r0;
+
+        return;
+    }
+}

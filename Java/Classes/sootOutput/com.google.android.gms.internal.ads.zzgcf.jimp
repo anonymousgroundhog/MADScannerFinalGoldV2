@@ -1,0 +1,96 @@
+final class com.google.android.gms.internal.ads.zzgcf extends java.lang.Object implements com.google.android.gms.internal.ads.zzgbt
+{
+    private final com.google.android.gms.internal.ads.zzgbo zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzgbo)
+    {
+        com.google.android.gms.internal.ads.zzgcf r0;
+        com.google.android.gms.internal.ads.zzgbo $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgbu zza(byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r2, $r3, $r5;
+        com.google.android.gms.internal.ads.zzgbu $r7;
+        byte[][] $r4;
+        com.google.android.gms.internal.ads.zzgbo $r6;
+        com.google.android.gms.internal.ads.zzgcf r0;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = com.google.android.gms.internal.ads.zzgoh.zzb();
+
+        $r3 = com.google.android.gms.internal.ads.zzgoh.zza($r2, $r1);
+
+        $r2 = com.google.android.gms.internal.ads.zzgoh.zzc($r2);
+
+        $r4 = newarray (byte[])[2];
+
+        $r4[0] = $r2;
+
+        $r4[1] = $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzgmv.zzb($r4);
+
+        $r5 = com.google.android.gms.internal.ads.zzgcc.zzb;
+
+        $r5 = com.google.android.gms.internal.ads.zzgcc.zzd($r5);
+
+        $r6 = r0.zza;
+
+        $i0 = virtualinvoke $r6.zza();
+
+        $r1 = virtualinvoke $r6.zzb(null, $r3, "eae_prk", $r1, "shared_secret", $r5, $i0);
+
+        $r7 = new com.google.android.gms.internal.ads.zzgbu;
+
+        specialinvoke $r7.<init>($r1, $r2);
+
+        return $r7;
+    }
+
+    public final byte[] zzb() throws java.security.GeneralSecurityException
+    {
+        byte[] $r2, $r3;
+        java.security.GeneralSecurityException $r4;
+        com.google.android.gms.internal.ads.zzgbo $r1;
+        com.google.android.gms.internal.ads.zzgcf r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzc();
+
+        $r3 = com.google.android.gms.internal.ads.zzgcc.zzf;
+
+        $z0 = java.util.Arrays.equals($r2, $r3);
+
+        if $z0 == 0 goto label1;
+
+        $r2 = com.google.android.gms.internal.ads.zzgcc.zzb;
+
+        return $r2;
+
+     label1:
+        $r4 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r4.<init>("Could not determine HPKE KEM ID");
+
+        throw $r4;
+    }
+}

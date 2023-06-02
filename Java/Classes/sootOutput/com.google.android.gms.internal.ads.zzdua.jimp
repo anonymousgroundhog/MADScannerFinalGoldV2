@@ -1,0 +1,42 @@
+public final class com.google.android.gms.internal.ads.zzdua extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdua r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzdua zza()
+    {
+        com.google.android.gms.internal.ads.zzdua $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzdtz.zza();
+
+        return $r0;
+    }
+
+    public final java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzdua r0;
+        java.util.UUID $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r1 = java.util.UUID.randomUUID();
+
+        $r2 = virtualinvoke $r1.toString();
+
+        com.google.android.gms.internal.ads.zzgxg.zzb($r2);
+
+        return $r2;
+    }
+}

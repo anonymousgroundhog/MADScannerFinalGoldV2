@@ -1,0 +1,16 @@
+public abstract class com.google.android.gms.internal.ads.zzfrk extends com.google.android.gms.internal.ads.zzfrn
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfrk r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(null);
+
+        return;
+    }
+
+    public abstract com.google.android.gms.internal.ads.zzfqv zza();
+}

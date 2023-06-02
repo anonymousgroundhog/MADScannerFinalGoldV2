@@ -1,0 +1,146 @@
+abstract class androidx.lifecycle.LiveData$ObserverWrapper extends java.lang.Object
+{
+    boolean mActive;
+    int mLastVersion;
+    final androidx.lifecycle.Observer mObserver;
+    final androidx.lifecycle.LiveData this$0;
+
+    void <init>(androidx.lifecycle.LiveData, androidx.lifecycle.Observer)
+    {
+        androidx.lifecycle.LiveData $r2;
+        androidx.lifecycle.LiveData$ObserverWrapper r0;
+        androidx.lifecycle.Observer r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        r1 := @parameter1;
+
+        r0.this$0 = $r2;
+
+        specialinvoke r0.<init>();
+
+        r0.mLastVersion = -1;
+
+        r0.mObserver = r1;
+
+        return;
+    }
+
+    void activeStateChanged(boolean)
+    {
+        androidx.lifecycle.LiveData $r1;
+        androidx.lifecycle.LiveData$ObserverWrapper r0;
+        byte $b1;
+        int i0;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        z1 = r0.mActive;
+
+        if $z0 != z1 goto label1;
+
+        return;
+
+     label1:
+        r0.mActive = $z0;
+
+        $r1 = r0.this$0;
+
+        i0 = $r1.mActiveCount;
+
+        $b1 = 1;
+
+        if i0 != 0 goto label2;
+
+        z1 = 1;
+
+        goto label3;
+
+     label2:
+        z1 = 0;
+
+     label3:
+        $r1 = r0.this$0;
+
+        i0 = $r1.mActiveCount;
+
+        $z0 = r0.mActive;
+
+        if $z0 == 0 goto label4;
+
+        goto label5;
+
+     label4:
+        $b1 = -1;
+
+     label5:
+        i0 = i0 + $b1;
+
+        $r1.mActiveCount = i0;
+
+        if z1 == 0 goto label6;
+
+        $z0 = r0.mActive;
+
+        if $z0 == 0 goto label6;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.onActive();
+
+     label6:
+        $r1 = r0.this$0;
+
+        i0 = $r1.mActiveCount;
+
+        if i0 != 0 goto label7;
+
+        $z0 = r0.mActive;
+
+        if $z0 != 0 goto label7;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.onInactive();
+
+     label7:
+        $z0 = r0.mActive;
+
+        if $z0 == 0 goto label8;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.dispatchingValue(r0);
+
+     label8:
+        return;
+    }
+
+    void detachObserver()
+    {
+        androidx.lifecycle.LiveData$ObserverWrapper r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    boolean isAttachedTo(androidx.lifecycle.LifecycleOwner)
+    {
+        androidx.lifecycle.LiveData$ObserverWrapper r0;
+        androidx.lifecycle.LifecycleOwner $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return 0;
+    }
+
+    abstract boolean shouldBeActive();
+}

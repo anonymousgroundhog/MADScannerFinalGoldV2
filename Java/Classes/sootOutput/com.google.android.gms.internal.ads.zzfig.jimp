@@ -1,0 +1,46 @@
+final class com.google.android.gms.internal.ads.zzfig extends java.lang.Object implements com.google.android.gms.internal.ads.zzfih
+{
+    private static final com.google.android.gms.internal.ads.zzans zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzamv $r0;
+        com.google.android.gms.internal.ads.zzans $r2;
+        com.google.android.gms.internal.ads.zzgqm $r1;
+
+        $r0 = com.google.android.gms.internal.ads.zzans.zza();
+
+        virtualinvoke $r0.zzx("E");
+
+        $r1 = virtualinvoke $r0.zzal();
+
+        $r2 = (com.google.android.gms.internal.ads.zzans) $r1;
+
+        com.google.android.gms.internal.ads.zzfig.zza = $r2;
+
+        return;
+    }
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfig r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzans zza()
+    {
+        com.google.android.gms.internal.ads.zzans r1;
+        com.google.android.gms.internal.ads.zzfig r0;
+
+        r0 := @this;
+
+        r1 = com.google.android.gms.internal.ads.zzfig.zza;
+
+        return r1;
+    }
+}

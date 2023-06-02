@@ -1,0 +1,25 @@
+public final class com.google.android.gms.internal.ads.zzbcf extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gad:force_dynamite_loading_enabled", 0);
+
+        com.google.android.gms.internal.ads.zzbcf.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gad:force_local_loading_enabled", 0);
+
+        com.google.android.gms.internal.ads.zzbcf.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:sdk_csi_write_to_file", 0);
+
+        com.google.android.gms.internal.ads.zzbcf.zzc = $r0;
+
+        return;
+    }
+}

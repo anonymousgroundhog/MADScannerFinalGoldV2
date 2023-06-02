@@ -1,0 +1,19 @@
+public final class androidx.browser.trusted.splashscreens.SplashScreenParamKey extends java.lang.Object
+{
+    public static final java.lang.String KEY_BACKGROUND_COLOR;
+    public static final java.lang.String KEY_FADE_OUT_DURATION_MS;
+    public static final java.lang.String KEY_IMAGE_TRANSFORMATION_MATRIX;
+    public static final java.lang.String KEY_SCALE_TYPE;
+    public static final java.lang.String KEY_VERSION;
+
+    private void <init>()
+    {
+        androidx.browser.trusted.splashscreens.SplashScreenParamKey r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

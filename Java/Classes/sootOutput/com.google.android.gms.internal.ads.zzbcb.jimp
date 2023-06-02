@@ -1,0 +1,43 @@
+public final class com.google.android.gms.internal.ads.zzbcb extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+    public static final com.google.android.gms.internal.ads.zzbbw zzd;
+    public static final com.google.android.gms.internal.ads.zzbbw zze;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbx $r1;
+        com.google.android.gms.internal.ads.zzbbw $r0;
+        java.lang.Long $r2;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbx.zzf("gads:consent:gmscore:dsid:enabled", 1);
+
+        com.google.android.gms.internal.ads.zzbcb.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbx.zzf("gads:consent:gmscore:lat:enabled", 1);
+
+        com.google.android.gms.internal.ads.zzbcb.zzb = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzbbx;
+
+        specialinvoke $r1.<init>("gads:consent:gmscore:backend_url", "https://adservice.google.com/getconfig/pubvendors", 4);
+
+        com.google.android.gms.internal.ads.zzbcb.zzc = $r1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzbbx;
+
+        $r2 = java.lang.Long.valueOf(10000L);
+
+        specialinvoke $r1.<init>("gads:consent:gmscore:time_out", $r2, 2);
+
+        com.google.android.gms.internal.ads.zzbcb.zzd = $r1;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbx.zzf("gads:consent:gmscore:enabled", 1);
+
+        com.google.android.gms.internal.ads.zzbcb.zze = $r0;
+
+        return;
+    }
+}

@@ -1,0 +1,87 @@
+final class com.google.android.gms.internal.ads.zzeae extends java.lang.Object implements com.google.android.gms.internal.ads.zzfuf
+{
+    final com.google.android.gms.internal.ads.zzfcd zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzeaf, com.google.android.gms.internal.ads.zzfcd)
+    {
+        com.google.android.gms.internal.ads.zzeaf $r1;
+        com.google.android.gms.internal.ads.zzeae r0;
+        com.google.android.gms.internal.ads.zzfcd $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Throwable)
+    {
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.ads.zzeae r0;
+        java.lang.String $r1, $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke $r2.getMessage();
+
+        $r3 = java.lang.String.valueOf($r1);
+
+        $r1 = "Failed to get offline buffered ping database: ";
+
+        $r1 = virtualinvoke $r1.concat($r3);
+
+        com.google.android.gms.internal.ads.zzbza.zzg($r1);
+
+        return;
+    }
+
+    public final volatile void zzb(java.lang.Object)
+    {
+        android.database.sqlite.SQLiteDatabase $r2;
+        com.google.android.gms.internal.ads.zzeae r0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfcd $r3;
+        java.lang.String $r5, $r6;
+        java.lang.Exception $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.database.sqlite.SQLiteDatabase) $r1;
+
+     label1:
+        $r3 = r0.zza;
+
+        interfaceinvoke $r3.zza($r2);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r5 = virtualinvoke $r4.getMessage();
+
+        $r5 = java.lang.String.valueOf($r5);
+
+        $r6 = "Error executing function on offline buffered ping database: ";
+
+        $r5 = virtualinvoke $r6.concat($r5);
+
+        com.google.android.gms.internal.ads.zzbza.zzg($r5);
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

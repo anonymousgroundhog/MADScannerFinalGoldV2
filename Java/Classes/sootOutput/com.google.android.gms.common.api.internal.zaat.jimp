@@ -1,0 +1,145 @@
+final class com.google.android.gms.common.api.internal.zaat extends java.lang.Object implements com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks, com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener
+{
+    final com.google.android.gms.common.api.internal.zaaw zaa;
+
+    void <init>(com.google.android.gms.common.api.internal.zaaw, com.google.android.gms.common.api.internal.zaas)
+    {
+        com.google.android.gms.common.api.internal.zaas $r2;
+        com.google.android.gms.common.api.internal.zaaw $r1;
+        com.google.android.gms.common.api.internal.zaat r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zaa = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onConnected(android.os.Bundle)
+    {
+        com.google.android.gms.common.api.internal.zaar $r1;
+        android.os.Bundle $r3;
+        com.google.android.gms.common.internal.ClientSettings $r4;
+        com.google.android.gms.common.api.internal.zaaw $r2;
+        com.google.android.gms.common.api.internal.zaat r0;
+        java.lang.Object $r5;
+        com.google.android.gms.signin.zae $r6;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r4 = com.google.android.gms.common.api.internal.zaaw.zal($r2);
+
+        $r5 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r4);
+
+        $r4 = (com.google.android.gms.common.internal.ClientSettings) $r5;
+
+        $r2 = r0.zaa;
+
+        $r6 = com.google.android.gms.common.api.internal.zaaw.zan($r2);
+
+        $r5 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r6);
+
+        $r6 = (com.google.android.gms.signin.zae) $r5;
+
+        $r1 = new com.google.android.gms.common.api.internal.zaar;
+
+        $r2 = r0.zaa;
+
+        specialinvoke $r1.<init>($r2);
+
+        interfaceinvoke $r6.zad($r1);
+
+        return;
+    }
+
+    public final void onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+    {
+        java.lang.Throwable $r4;
+        java.util.concurrent.locks.Lock $r3;
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw $r2;
+        com.google.android.gms.common.api.internal.zaat r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaw.zap($r2);
+
+        interfaceinvoke $r3.lock();
+
+     label1:
+        $r2 = r0.zaa;
+
+        $z0 = com.google.android.gms.common.api.internal.zaaw.zay($r2, $r1);
+
+     label2:
+        if $z0 == 0 goto label5;
+
+     label3:
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaw.zaq($r2);
+
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaw.zau($r2);
+
+     label4:
+        goto label6;
+
+     label5:
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaw.zas($r2, $r1);
+
+     label6:
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaw.zap($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaw.zap($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label7;
+        catch java.lang.Throwable from label3 to label4 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public final void onConnectionSuspended(int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.internal.zaat r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return;
+    }
+}

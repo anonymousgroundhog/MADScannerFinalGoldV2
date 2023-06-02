@@ -1,0 +1,248 @@
+public abstract class androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onFragmentActivityCreated(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.os.Bundle)
+    {
+        androidx.fragment.app.FragmentManager $r1;
+        android.os.Bundle $r3;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentAttached(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.content.Context)
+    {
+        android.content.Context $r3;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentCreated(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.os.Bundle)
+    {
+        androidx.fragment.app.FragmentManager $r1;
+        android.os.Bundle $r3;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentDestroyed(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentDetached(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentPaused(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentPreAttached(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.content.Context)
+    {
+        android.content.Context $r3;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentPreCreated(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.os.Bundle)
+    {
+        androidx.fragment.app.FragmentManager $r1;
+        android.os.Bundle $r3;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentResumed(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentSaveInstanceState(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.os.Bundle)
+    {
+        androidx.fragment.app.FragmentManager $r1;
+        android.os.Bundle $r3;
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+
+    public void onFragmentStarted(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentStopped(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onFragmentViewCreated(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment, android.view.View, android.os.Bundle)
+    {
+        androidx.fragment.app.FragmentManager $r1;
+        android.os.Bundle $r4;
+        androidx.fragment.app.Fragment $r2;
+        android.view.View $r3;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        return;
+    }
+
+    public void onFragmentViewDestroyed(androidx.fragment.app.FragmentManager, androidx.fragment.app.Fragment)
+    {
+        androidx.fragment.app.Fragment $r2;
+        androidx.fragment.app.FragmentManager $r1;
+        androidx.fragment.app.FragmentManager$FragmentLifecycleCallbacks r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+}

@@ -1,0 +1,49 @@
+final class com.google.android.gms.internal.ads.zzaqe extends java.lang.Object implements com.google.android.gms.internal.ads.zzaql
+{
+    final android.app.Activity zza;
+    final android.os.Bundle zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzaqm, android.app.Activity, android.os.Bundle)
+    {
+        android.os.Bundle $r3;
+        com.google.android.gms.internal.ads.zzaqe r0;
+        com.google.android.gms.internal.ads.zzaqm $r1;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(android.app.Application$ActivityLifecycleCallbacks)
+    {
+        android.app.Application$ActivityLifecycleCallbacks $r1;
+        android.os.Bundle $r3;
+        com.google.android.gms.internal.ads.zzaqe r0;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        interfaceinvoke $r1.onActivityCreated($r2, $r3);
+
+        return;
+    }
+}

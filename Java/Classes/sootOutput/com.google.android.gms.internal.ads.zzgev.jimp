@@ -1,0 +1,67 @@
+public final class com.google.android.gms.internal.ads.zzgev extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzgev zza;
+    public static final com.google.android.gms.internal.ads.zzgev zzb;
+    public static final com.google.android.gms.internal.ads.zzgev zzc;
+    public static final com.google.android.gms.internal.ads.zzgev zzd;
+    private final java.lang.String zze;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgev $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgev;
+
+        specialinvoke $r0.<init>("TINK");
+
+        com.google.android.gms.internal.ads.zzgev.zza = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgev;
+
+        specialinvoke $r0.<init>("CRUNCHY");
+
+        com.google.android.gms.internal.ads.zzgev.zzb = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgev;
+
+        specialinvoke $r0.<init>("LEGACY");
+
+        com.google.android.gms.internal.ads.zzgev.zzc = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgev;
+
+        specialinvoke $r0.<init>("NO_PREFIX");
+
+        com.google.android.gms.internal.ads.zzgev.zzd = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzgev r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zze = $r1;
+
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzgev r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zze;
+
+        return r1;
+    }
+}

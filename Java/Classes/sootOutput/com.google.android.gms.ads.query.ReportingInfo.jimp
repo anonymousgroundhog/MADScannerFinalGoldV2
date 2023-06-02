@@ -1,0 +1,122 @@
+public final class com.google.android.gms.ads.query.ReportingInfo extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzbrz zza;
+
+    void <init>(com.google.android.gms.ads.query.ReportingInfo$Builder, com.google.android.gms.ads.query.zzb)
+    {
+        com.google.android.gms.ads.query.ReportingInfo r0;
+        com.google.android.gms.internal.ads.zzbrz $r4;
+        com.google.android.gms.internal.ads.zzbry $r1;
+        com.google.android.gms.ads.query.ReportingInfo$Builder $r2;
+        com.google.android.gms.ads.query.zzb $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r4 = new com.google.android.gms.internal.ads.zzbrz;
+
+        $r1 = com.google.android.gms.ads.query.ReportingInfo$Builder.zza($r2);
+
+        specialinvoke $r4.<init>($r1);
+
+        r0.zza = $r4;
+
+        return;
+    }
+
+    public void recordClick(java.util.List)
+    {
+        com.google.android.gms.internal.ads.zzbrz $r2;
+        java.util.List $r1;
+        com.google.android.gms.ads.query.ReportingInfo r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zza($r1);
+
+        return;
+    }
+
+    public void recordImpression(java.util.List)
+    {
+        com.google.android.gms.internal.ads.zzbrz $r2;
+        java.util.List $r1;
+        com.google.android.gms.ads.query.ReportingInfo r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zzb($r1);
+
+        return;
+    }
+
+    public void reportTouchEvent(android.view.MotionEvent)
+    {
+        com.google.android.gms.internal.ads.zzbrz $r2;
+        com.google.android.gms.ads.query.ReportingInfo r0;
+        android.view.MotionEvent $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zzc($r1);
+
+        return;
+    }
+
+    public void updateClickUrl(android.net.Uri, com.google.android.gms.ads.query.UpdateClickUrlCallback)
+    {
+        com.google.android.gms.ads.query.ReportingInfo r0;
+        android.net.Uri $r1;
+        com.google.android.gms.internal.ads.zzbrz $r3;
+        com.google.android.gms.ads.query.UpdateClickUrlCallback $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r3.zzd($r1, $r2);
+
+        return;
+    }
+
+    public void updateImpressionUrls(java.util.List, com.google.android.gms.ads.query.UpdateImpressionUrlsCallback)
+    {
+        java.util.List $r1;
+        com.google.android.gms.ads.query.ReportingInfo r0;
+        com.google.android.gms.internal.ads.zzbrz $r3;
+        com.google.android.gms.ads.query.UpdateImpressionUrlsCallback $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r3.zze($r1, $r2);
+
+        return;
+    }
+}

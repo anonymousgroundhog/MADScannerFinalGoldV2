@@ -1,0 +1,144 @@
+public abstract class androidx.browser.customtabs.CustomTabsService extends android.app.Service
+{
+    public static final java.lang.String ACTION_CUSTOM_TABS_CONNECTION;
+    public static final java.lang.String CATEGORY_COLOR_SCHEME_CUSTOMIZATION;
+    public static final java.lang.String CATEGORY_NAVBAR_COLOR_CUSTOMIZATION;
+    public static final java.lang.String CATEGORY_TRUSTED_WEB_ACTIVITY_IMMERSIVE_MODE;
+    public static final java.lang.String CATEGORY_WEB_SHARE_TARGET_V2;
+    public static final int FILE_PURPOSE_TRUSTED_WEB_ACTIVITY_SPLASH_IMAGE;
+    public static final java.lang.String KEY_SUCCESS;
+    public static final java.lang.String KEY_URL;
+    public static final int RELATION_HANDLE_ALL_URLS;
+    public static final int RELATION_USE_AS_ORIGIN;
+    public static final int RESULT_FAILURE_DISALLOWED;
+    public static final int RESULT_FAILURE_MESSAGING_ERROR;
+    public static final int RESULT_FAILURE_REMOTE_ERROR;
+    public static final int RESULT_SUCCESS;
+    public static final java.lang.String TRUSTED_WEB_ACTIVITY_CATEGORY;
+    private android.support.customtabs.ICustomTabsService$Stub mBinder;
+    final androidx.collection.SimpleArrayMap mDeathRecipientMap;
+
+    public void <init>()
+    {
+        androidx.browser.customtabs.CustomTabsService r0;
+        androidx.browser.customtabs.CustomTabsService$1 $r2;
+        androidx.collection.SimpleArrayMap $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new androidx.collection.SimpleArrayMap;
+
+        specialinvoke $r1.<init>();
+
+        r0.mDeathRecipientMap = $r1;
+
+        $r2 = new androidx.browser.customtabs.CustomTabsService$1;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.mBinder = $r2;
+
+        return;
+    }
+
+    protected boolean cleanUpSession(androidx.browser.customtabs.CustomTabsSessionToken)
+    {
+        java.lang.Throwable r7;
+        android.os.IBinder$DeathRecipient r6;
+        androidx.browser.customtabs.CustomTabsService r0;
+        androidx.browser.customtabs.CustomTabsSessionToken r1;
+        android.os.IBinder $r4;
+        java.lang.Object $r5;
+        java.util.NoSuchElementException r8;
+        androidx.collection.SimpleArrayMap $r2, r3;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        r3 = r0.mDeathRecipientMap;
+
+        entermonitor r3;
+
+     label1:
+        $r4 = virtualinvoke r1.getCallbackBinder();
+
+        if $r4 != null goto label3;
+
+        exitmonitor r3;
+
+     label2:
+        return 0;
+
+     label3:
+        $r2 = r0.mDeathRecipientMap;
+
+        $r5 = virtualinvoke $r2.get($r4);
+
+        r6 = (android.os.IBinder$DeathRecipient) $r5;
+
+        interfaceinvoke $r4.unlinkToDeath(r6, 0);
+
+        $r2 = r0.mDeathRecipientMap;
+
+        virtualinvoke $r2.remove($r4);
+
+        exitmonitor r3;
+
+     label4:
+        return 1;
+
+     label5:
+        r7 := @caughtexception;
+
+        exitmonitor r3;
+
+     label6:
+        throw r7;
+
+     label7:
+        r8 := @caughtexception;
+
+        return 0;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+        catch java.util.NoSuchElementException from label6 to label7 with label7;
+    }
+
+    protected abstract android.os.Bundle extraCommand(java.lang.String, android.os.Bundle);
+
+    protected abstract boolean mayLaunchUrl(androidx.browser.customtabs.CustomTabsSessionToken, android.net.Uri, android.os.Bundle, java.util.List);
+
+    protected abstract boolean newSession(androidx.browser.customtabs.CustomTabsSessionToken);
+
+    public android.os.IBinder onBind(android.content.Intent)
+    {
+        android.content.Intent $r1;
+        androidx.browser.customtabs.CustomTabsService r0;
+        android.support.customtabs.ICustomTabsService$Stub r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mBinder;
+
+        return r2;
+    }
+
+    protected abstract int postMessage(androidx.browser.customtabs.CustomTabsSessionToken, java.lang.String, android.os.Bundle);
+
+    protected abstract boolean receiveFile(androidx.browser.customtabs.CustomTabsSessionToken, android.net.Uri, int, android.os.Bundle);
+
+    protected abstract boolean requestPostMessageChannel(androidx.browser.customtabs.CustomTabsSessionToken, android.net.Uri);
+
+    protected abstract boolean updateVisuals(androidx.browser.customtabs.CustomTabsSessionToken, android.os.Bundle);
+
+    protected abstract boolean validateRelationship(androidx.browser.customtabs.CustomTabsSessionToken, int, android.net.Uri, android.os.Bundle);
+
+    protected abstract boolean warmup(long);
+}

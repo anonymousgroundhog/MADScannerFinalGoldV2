@@ -1,0 +1,28 @@
+public abstract class androidx.lifecycle.Lifecycle extends java.lang.Object
+{
+    java.util.concurrent.atomic.AtomicReference mInternalScopeRef;
+
+    public void <init>()
+    {
+        androidx.lifecycle.Lifecycle r0;
+        java.util.concurrent.atomic.AtomicReference $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.util.concurrent.atomic.AtomicReference;
+
+        specialinvoke $r1.<init>();
+
+        r0.mInternalScopeRef = $r1;
+
+        return;
+    }
+
+    public abstract void addObserver(androidx.lifecycle.LifecycleObserver);
+
+    public abstract androidx.lifecycle.Lifecycle$State getCurrentState();
+
+    public abstract void removeObserver(androidx.lifecycle.LifecycleObserver);
+}

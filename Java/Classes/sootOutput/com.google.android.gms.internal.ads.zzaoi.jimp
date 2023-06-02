@@ -1,0 +1,205 @@
+public final class com.google.android.gms.internal.ads.zzaoi extends com.google.android.gms.internal.ads.zzaog
+{
+    public java.lang.String zza;
+    public long zzb;
+    public java.lang.String zzc;
+    public java.lang.String zzd;
+    public java.lang.String zze;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzaoi r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = "E";
+
+        r0.zzb = -1L;
+
+        r0.zzc = "E";
+
+        r0.zzd = "E";
+
+        r0.zze = "E";
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        long $l0;
+        java.util.HashMap $r3;
+        java.lang.Integer $r4;
+        com.google.android.gms.internal.ads.zzaoi r0;
+        java.lang.Long $r6;
+        java.lang.Object $r5;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = "E";
+
+        r0.zza = "E";
+
+        $l0 = -1L;
+
+        r0.zzb = -1L;
+
+        r0.zzc = "E";
+
+        r0.zzd = "E";
+
+        r0.zze = "E";
+
+        $r3 = com.google.android.gms.internal.ads.zzaoi.zza($r1);
+
+        if $r3 == null goto label11;
+
+        $r4 = java.lang.Integer.valueOf(0);
+
+        $r5 = virtualinvoke $r3.get($r4);
+
+        if $r5 != null goto label01;
+
+        $r1 = "E";
+
+        goto label02;
+
+     label01:
+        $r5 = virtualinvoke $r3.get($r4);
+
+        $r1 = (java.lang.String) $r5;
+
+     label02:
+        r0.zza = $r1;
+
+        $r4 = java.lang.Integer.valueOf(1);
+
+        $r5 = virtualinvoke $r3.get($r4);
+
+        if $r5 != null goto label03;
+
+        goto label04;
+
+     label03:
+        $r5 = virtualinvoke $r3.get($r4);
+
+        $r6 = (java.lang.Long) $r5;
+
+        $l0 = virtualinvoke $r6.longValue();
+
+     label04:
+        r0.zzb = $l0;
+
+        $r4 = java.lang.Integer.valueOf(2);
+
+        $r5 = virtualinvoke $r3.get($r4);
+
+        if $r5 != null goto label05;
+
+        $r1 = "E";
+
+        goto label06;
+
+     label05:
+        $r5 = virtualinvoke $r3.get($r4);
+
+        $r1 = (java.lang.String) $r5;
+
+     label06:
+        r0.zzc = $r1;
+
+        $r4 = java.lang.Integer.valueOf(3);
+
+        $r5 = virtualinvoke $r3.get($r4);
+
+        if $r5 != null goto label07;
+
+        $r1 = "E";
+
+        goto label08;
+
+     label07:
+        $r5 = virtualinvoke $r3.get($r4);
+
+        $r1 = (java.lang.String) $r5;
+
+     label08:
+        r0.zzd = $r1;
+
+        $r4 = java.lang.Integer.valueOf(4);
+
+        $r5 = virtualinvoke $r3.get($r4);
+
+        if $r5 != null goto label09;
+
+        goto label10;
+
+     label09:
+        $r5 = virtualinvoke $r3.get($r4);
+
+        $r2 = (java.lang.String) $r5;
+
+     label10:
+        r0.zze = $r2;
+
+     label11:
+        return;
+    }
+
+    protected final java.util.HashMap zzb()
+    {
+        java.lang.Long $r4;
+        java.util.HashMap $r1;
+        long $l0;
+        java.lang.String $r3;
+        java.lang.Integer $r2;
+        com.google.android.gms.internal.ads.zzaoi r0;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = java.lang.Integer.valueOf(0);
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(4);
+
+        $r3 = r0.zze;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(3);
+
+        $r3 = r0.zzd;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(2);
+
+        $r3 = r0.zzc;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(1);
+
+        $l0 = r0.zzb;
+
+        $r4 = java.lang.Long.valueOf($l0);
+
+        virtualinvoke $r1.put($r2, $r4);
+
+        return $r1;
+    }
+}

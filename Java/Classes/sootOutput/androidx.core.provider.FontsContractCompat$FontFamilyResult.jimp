@@ -1,0 +1,70 @@
+public class androidx.core.provider.FontsContractCompat$FontFamilyResult extends java.lang.Object
+{
+    public static final int STATUS_OK;
+    public static final int STATUS_UNEXPECTED_DATA_PROVIDED;
+    public static final int STATUS_WRONG_CERTIFICATES;
+    private final androidx.core.provider.FontsContractCompat$FontInfo[] mFonts;
+    private final int mStatusCode;
+
+    public void <init>(int, androidx.core.provider.FontsContractCompat$FontInfo[])
+    {
+        int $i0;
+        androidx.core.provider.FontsContractCompat$FontFamilyResult r0;
+        androidx.core.provider.FontsContractCompat$FontInfo[] $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mStatusCode = $i0;
+
+        r0.mFonts = $r1;
+
+        return;
+    }
+
+    static androidx.core.provider.FontsContractCompat$FontFamilyResult create(int, androidx.core.provider.FontsContractCompat$FontInfo[])
+    {
+        int $i0;
+        androidx.core.provider.FontsContractCompat$FontInfo[] $r0;
+        androidx.core.provider.FontsContractCompat$FontFamilyResult $r1;
+
+        $i0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 = new androidx.core.provider.FontsContractCompat$FontFamilyResult;
+
+        specialinvoke $r1.<init>($i0, $r0);
+
+        return $r1;
+    }
+
+    public androidx.core.provider.FontsContractCompat$FontInfo[] getFonts()
+    {
+        androidx.core.provider.FontsContractCompat$FontFamilyResult r0;
+        androidx.core.provider.FontsContractCompat$FontInfo[] r1;
+
+        r0 := @this;
+
+        r1 = r0.mFonts;
+
+        return r1;
+    }
+
+    public int getStatusCode()
+    {
+        int i0;
+        androidx.core.provider.FontsContractCompat$FontFamilyResult r0;
+
+        r0 := @this;
+
+        i0 = r0.mStatusCode;
+
+        return i0;
+    }
+}

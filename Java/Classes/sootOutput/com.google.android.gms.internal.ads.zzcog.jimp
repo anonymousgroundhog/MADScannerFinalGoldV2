@@ -1,0 +1,52 @@
+public final class com.google.android.gms.internal.ads.zzcog extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public static com.google.android.gms.internal.ads.zzcoe zza(com.google.android.gms.internal.ads.zzcql, android.content.Context, com.google.android.gms.internal.ads.zzcei, int, com.google.android.gms.internal.ads.zzcnt, com.google.android.gms.internal.ads.zzdee, com.google.android.gms.internal.ads.zzdbk, com.google.android.gms.internal.ads.zzcvb)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzdee $r4;
+        com.google.android.gms.internal.ads.zzcoe $r7;
+        com.google.android.gms.internal.ads.zzcql $r0;
+        com.google.android.gms.internal.ads.zzcvb $r6;
+        int $i0;
+        com.google.android.gms.internal.ads.zzcnt $r3;
+        com.google.android.gms.internal.ads.zzcei $r2;
+        com.google.android.gms.internal.ads.zzdbk $r5;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $r4 := @parameter5;
+
+        $r5 := @parameter6;
+
+        $r6 := @parameter7;
+
+        $r7 = new com.google.android.gms.internal.ads.zzcoe;
+
+        specialinvoke $r7.<init>($r0, $r1, $r2, $i0, $r3, $r4, $r5, $r6);
+
+        return $r7;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        java.lang.NullPointerException r1;
+        com.google.android.gms.internal.ads.zzcog r0;
+
+        r0 := @this;
+
+        r1 = new java.lang.NullPointerException;
+
+        specialinvoke r1.<init>("Null throw statement replaced by Soot");
+
+        throw r1;
+    }
+}

@@ -1,0 +1,40 @@
+public final class android.support.v4.app.RemoteActionCompatParcelizer extends androidx.core.app.RemoteActionCompatParcelizer
+{
+
+    public void <init>()
+    {
+        android.support.v4.app.RemoteActionCompatParcelizer r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static androidx.core.app.RemoteActionCompat read(androidx.versionedparcelable.VersionedParcel)
+    {
+        androidx.core.app.RemoteActionCompat $r1;
+        androidx.versionedparcelable.VersionedParcel $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = androidx.core.app.RemoteActionCompatParcelizer.read($r0);
+
+        return $r1;
+    }
+
+    public static void write(androidx.core.app.RemoteActionCompat, androidx.versionedparcelable.VersionedParcel)
+    {
+        androidx.core.app.RemoteActionCompat $r0;
+        androidx.versionedparcelable.VersionedParcel $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        androidx.core.app.RemoteActionCompatParcelizer.write($r0, $r1);
+
+        return;
+    }
+}

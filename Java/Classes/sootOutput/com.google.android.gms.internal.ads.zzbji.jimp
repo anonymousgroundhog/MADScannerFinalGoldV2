@@ -1,0 +1,100 @@
+final class com.google.android.gms.internal.ads.zzbji extends java.lang.Object implements com.google.android.gms.common.internal.BaseGmsClient$BaseConnectionCallbacks
+{
+    final com.google.android.gms.internal.ads.zzbzs zza;
+    final com.google.android.gms.internal.ads.zzbjk zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzbjk, com.google.android.gms.internal.ads.zzbzs)
+    {
+        com.google.android.gms.internal.ads.zzbji r0;
+        com.google.android.gms.internal.ads.zzbjk $r1;
+        com.google.android.gms.internal.ads.zzbzs $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zzb = $r1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onConnected(android.os.Bundle)
+    {
+        com.google.android.gms.internal.ads.zzbji r0;
+        com.google.android.gms.internal.ads.zzbix $r4;
+        android.os.Bundle $r1;
+        com.google.android.gms.internal.ads.zzbjk $r3;
+        com.google.android.gms.internal.ads.zzbje $r5;
+        com.google.android.gms.internal.ads.zzbzs $r2;
+        android.os.DeadObjectException $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = r0.zzb;
+
+     label1:
+        $r4 = com.google.android.gms.internal.ads.zzbjk.zzb($r3);
+
+        $r5 = virtualinvoke $r4.zzp();
+
+        virtualinvoke $r2.zzd($r5);
+
+     label2:
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zze($r6);
+
+        return;
+
+        catch android.os.DeadObjectException from label1 to label2 with label3;
+    }
+
+    public final void onConnectionSuspended(int)
+    {
+        com.google.android.gms.internal.ads.zzbji r0;
+        int $i0;
+        java.lang.StringBuilder $r3;
+        java.lang.RuntimeException $r2;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzbzs $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = new java.lang.RuntimeException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r3.append("onConnectionSuspended: ");
+
+        virtualinvoke $r3.append($i0);
+
+        $r4 = virtualinvoke $r3.toString();
+
+        specialinvoke $r2.<init>($r4);
+
+        virtualinvoke $r1.zze($r2);
+
+        return;
+    }
+}

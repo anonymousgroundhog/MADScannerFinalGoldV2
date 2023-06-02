@@ -1,0 +1,170 @@
+class androidx.core.location.LocationManagerCompat$GpsStatusTransport extends java.lang.Object implements android.location.GpsStatus$Listener
+{
+    final androidx.core.location.GnssStatusCompat$Callback mCallback;
+    volatile java.util.concurrent.Executor mExecutor;
+    private final android.location.LocationManager mLocationManager;
+
+    void <init>(android.location.LocationManager, androidx.core.location.GnssStatusCompat$Callback)
+    {
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport r0;
+        androidx.core.location.GnssStatusCompat$Callback $r2;
+        android.location.LocationManager $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        if $r2 == null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        androidx.core.util.Preconditions.checkArgument($z0, "invalid null callback");
+
+        r0.mLocationManager = $r1;
+
+        r0.mCallback = $r2;
+
+        return;
+    }
+
+    public void onGpsStatusChanged(int)
+    {
+        java.util.concurrent.Executor r1;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport$4 $r5;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport$3 $r6;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport$2 r7;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport$1 r8;
+        androidx.core.location.GnssStatusCompat $r4;
+        android.location.GpsStatus $r3;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport r0;
+        int $i0;
+        android.location.LocationManager r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mExecutor;
+
+        if r1 != null goto label1;
+
+        return;
+
+     label1:
+        lookupswitch($i0)
+        {
+            case 1: goto label6;
+            case 2: goto label5;
+            case 3: goto label4;
+            case 4: goto label3;
+            default: goto label2;
+        };
+
+     label2:
+        return;
+
+     label3:
+        r2 = r0.mLocationManager;
+
+        $r3 = virtualinvoke r2.getGpsStatus(null);
+
+        if $r3 == null goto label7;
+
+        $r4 = androidx.core.location.GnssStatusCompat.wrap($r3);
+
+        $r5 = new androidx.core.location.LocationManagerCompat$GpsStatusTransport$4;
+
+        specialinvoke $r5.<init>(r0, r1, $r4);
+
+        interfaceinvoke r1.execute($r5);
+
+        return;
+
+     label4:
+        r2 = r0.mLocationManager;
+
+        $r3 = virtualinvoke r2.getGpsStatus(null);
+
+        if $r3 == null goto label7;
+
+        $i0 = virtualinvoke $r3.getTimeToFirstFix();
+
+        $r6 = new androidx.core.location.LocationManagerCompat$GpsStatusTransport$3;
+
+        specialinvoke $r6.<init>(r0, r1, $i0);
+
+        interfaceinvoke r1.execute($r6);
+
+        return;
+
+     label5:
+        r7 = new androidx.core.location.LocationManagerCompat$GpsStatusTransport$2;
+
+        specialinvoke r7.<init>(r0, r1);
+
+        interfaceinvoke r1.execute(r7);
+
+        return;
+
+     label6:
+        r8 = new androidx.core.location.LocationManagerCompat$GpsStatusTransport$1;
+
+        specialinvoke r8.<init>(r0, r1);
+
+        interfaceinvoke r1.execute(r8);
+
+     label7:
+        return;
+    }
+
+    public void register(java.util.concurrent.Executor)
+    {
+        java.util.concurrent.Executor $r1, $r2;
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mExecutor;
+
+        if $r2 != null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        androidx.core.util.Preconditions.checkState($z0);
+
+        r0.mExecutor = $r1;
+
+        return;
+    }
+
+    public void unregister()
+    {
+        androidx.core.location.LocationManagerCompat$GpsStatusTransport r0;
+
+        r0 := @this;
+
+        r0.mExecutor = null;
+
+        return;
+    }
+}

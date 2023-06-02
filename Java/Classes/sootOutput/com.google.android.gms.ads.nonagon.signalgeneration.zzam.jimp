@@ -1,0 +1,57 @@
+public final class com.google.android.gms.ads.nonagon.signalgeneration.zzam extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    private final java.util.concurrent.Executor zza;
+    private final com.google.android.gms.internal.ads.zzdue zzb;
+
+    public void <init>(java.util.concurrent.Executor, com.google.android.gms.internal.ads.zzdue)
+    {
+        com.google.android.gms.ads.nonagon.signalgeneration.zzam r0;
+        java.util.concurrent.Executor $r1;
+        com.google.android.gms.internal.ads.zzdue $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final volatile com.google.android.gms.internal.ads.zzfut zza(java.lang.Object) throws java.lang.Exception
+    {
+        com.google.android.gms.ads.nonagon.signalgeneration.zzam r0;
+        com.google.android.gms.internal.ads.zzfut $r5;
+        java.util.concurrent.Executor $r6;
+        com.google.android.gms.internal.ads.zzdue $r4;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbtn $r3;
+        com.google.android.gms.ads.nonagon.signalgeneration.zzal $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (com.google.android.gms.internal.ads.zzbtn) $r2;
+
+        $r4 = r0.zzb;
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r1 = new com.google.android.gms.ads.nonagon.signalgeneration.zzal;
+
+        specialinvoke $r1.<init>($r3);
+
+        $r6 = r0.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzm($r5, $r1, $r6);
+
+        return $r5;
+    }
+}

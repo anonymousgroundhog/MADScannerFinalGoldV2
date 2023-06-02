@@ -1,0 +1,66 @@
+public final class com.google.android.gms.internal.ads.zzbbg extends java.lang.Object
+{
+    private final long zza;
+    private final java.lang.String zzb;
+    private final com.google.android.gms.internal.ads.zzbbg zzc;
+
+    public void <init>(long, java.lang.String, com.google.android.gms.internal.ads.zzbbg)
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzbbg r0, $r2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $l0;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        return;
+    }
+
+    public final long zza()
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzbbg r0;
+
+        r0 := @this;
+
+        l0 = r0.zza;
+
+        return l0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbbg zzb()
+    {
+        com.google.android.gms.internal.ads.zzbbg r0;
+
+        r0 := @this;
+
+        r0 = r0.zzc;
+
+        return r0;
+    }
+
+    public final java.lang.String zzc()
+    {
+        com.google.android.gms.internal.ads.zzbbg r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zzb;
+
+        return r1;
+    }
+}

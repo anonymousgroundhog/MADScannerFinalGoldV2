@@ -1,0 +1,778 @@
+public final class androidx.core.view.inputmethod.EditorInfoCompat extends java.lang.Object
+{
+    private static final java.lang.String CONTENT_MIME_TYPES_INTEROP_KEY;
+    private static final java.lang.String CONTENT_MIME_TYPES_KEY;
+    private static final java.lang.String CONTENT_SELECTION_END_KEY;
+    private static final java.lang.String CONTENT_SELECTION_HEAD_KEY;
+    private static final java.lang.String CONTENT_SURROUNDING_TEXT_KEY;
+    private static final java.lang.String[] EMPTY_STRING_ARRAY;
+    public static final int IME_FLAG_FORCE_ASCII;
+    public static final int IME_FLAG_NO_PERSONALIZED_LEARNING;
+    static final int MAX_INITIAL_SELECTION_LENGTH;
+    static final int MEMORY_EFFICIENT_TEXT_LENGTH;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0;
+
+        $r0 = newarray (java.lang.String)[0];
+
+        androidx.core.view.inputmethod.EditorInfoCompat.EMPTY_STRING_ARRAY = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        androidx.core.view.inputmethod.EditorInfoCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static java.lang.String[] getContentMimeTypes(android.view.inputmethod.EditorInfo)
+    {
+        android.os.Bundle r2;
+        int i0;
+        java.lang.String[] r1, r3;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 25 goto label2;
+
+        r1 = $r0.contentMimeTypes;
+
+        if r1 == null goto label1;
+
+        return r1;
+
+     label1:
+        r1 = androidx.core.view.inputmethod.EditorInfoCompat.EMPTY_STRING_ARRAY;
+
+        return r1;
+
+     label2:
+        r2 = $r0.extras;
+
+        if r2 != null goto label3;
+
+        r1 = androidx.core.view.inputmethod.EditorInfoCompat.EMPTY_STRING_ARRAY;
+
+        return r1;
+
+     label3:
+        r2 = $r0.extras;
+
+        r1 = virtualinvoke r2.getStringArray("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES");
+
+        r3 = r1;
+
+        if r1 != null goto label4;
+
+        r2 = $r0.extras;
+
+        r3 = virtualinvoke r2.getStringArray("android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES");
+
+     label4:
+        if r3 == null goto label5;
+
+        return r3;
+
+     label5:
+        r1 = androidx.core.view.inputmethod.EditorInfoCompat.EMPTY_STRING_ARRAY;
+
+        return r1;
+    }
+
+    public static java.lang.CharSequence getInitialSelectedText(android.view.inputmethod.EditorInfo, int)
+    {
+        android.os.Bundle r2;
+        java.lang.CharSequence $r1;
+        int $i0, i1, i2, i3, i4;
+        java.lang.String $r3;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 30 goto label01;
+
+        $r1 = androidx.core.view.inputmethod.EditorInfoCompat$Impl30.getInitialSelectedText($r0, $i0);
+
+        return $r1;
+
+     label01:
+        r2 = $r0.extras;
+
+        if r2 != null goto label02;
+
+        return null;
+
+     label02:
+        i1 = $r0.initialSelStart;
+
+        i2 = $r0.initialSelEnd;
+
+        if i1 <= i2 goto label03;
+
+        i3 = $r0.initialSelEnd;
+
+        goto label04;
+
+     label03:
+        i3 = $r0.initialSelStart;
+
+     label04:
+        i1 = $r0.initialSelStart;
+
+        i2 = $r0.initialSelEnd;
+
+        if i1 <= i2 goto label05;
+
+        i4 = $r0.initialSelStart;
+
+        goto label06;
+
+     label05:
+        i4 = $r0.initialSelEnd;
+
+     label06:
+        r2 = $r0.extras;
+
+        i1 = virtualinvoke r2.getInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_HEAD");
+
+        r2 = $r0.extras;
+
+        i2 = virtualinvoke r2.getInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_END");
+
+        i3 = i4 - i3;
+
+        i4 = $r0.initialSelStart;
+
+        if i4 < 0 goto label10;
+
+        i4 = $r0.initialSelEnd;
+
+        if i4 < 0 goto label10;
+
+        i4 = i2 - i1;
+
+        if i4 == i3 goto label07;
+
+        return null;
+
+     label07:
+        r2 = $r0.extras;
+
+        $r1 = virtualinvoke r2.getCharSequence("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SURROUNDING_TEXT");
+
+        if $r1 != null goto label08;
+
+        return null;
+
+     label08:
+        $i0 = $i0 & 1;
+
+        if $i0 == 0 goto label09;
+
+        $r1 = interfaceinvoke $r1.subSequence(i1, i2);
+
+        return $r1;
+
+     label09:
+        $r3 = android.text.TextUtils.substring($r1, i1, i2);
+
+        return $r3;
+
+     label10:
+        return null;
+    }
+
+    public static java.lang.CharSequence getInitialTextAfterCursor(android.view.inputmethod.EditorInfo, int, int)
+    {
+        android.os.Bundle r2;
+        java.lang.CharSequence $r1;
+        int $i0, $i1, i2, $i3;
+        java.lang.String $r3;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        i2 = android.os.Build$VERSION.SDK_INT;
+
+        if i2 < 30 goto label1;
+
+        $r1 = androidx.core.view.inputmethod.EditorInfoCompat$Impl30.getInitialTextAfterCursor($r0, $i0, $i1);
+
+        return $r1;
+
+     label1:
+        r2 = $r0.extras;
+
+        if r2 != null goto label2;
+
+        return null;
+
+     label2:
+        r2 = $r0.extras;
+
+        $r1 = virtualinvoke r2.getCharSequence("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SURROUNDING_TEXT");
+
+        if $r1 != null goto label3;
+
+        return null;
+
+     label3:
+        r2 = $r0.extras;
+
+        i2 = virtualinvoke r2.getInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_END");
+
+        $i3 = interfaceinvoke $r1.length();
+
+        $i3 = $i3 - i2;
+
+        $i0 = java.lang.Math.min($i0, $i3);
+
+        $i1 = $i1 & 1;
+
+        if $i1 == 0 goto label4;
+
+        $i0 = i2 + $i0;
+
+        $r1 = interfaceinvoke $r1.subSequence(i2, $i0);
+
+        return $r1;
+
+     label4:
+        $i0 = i2 + $i0;
+
+        $r3 = android.text.TextUtils.substring($r1, i2, $i0);
+
+        return $r3;
+    }
+
+    public static java.lang.CharSequence getInitialTextBeforeCursor(android.view.inputmethod.EditorInfo, int, int)
+    {
+        android.os.Bundle r2;
+        java.lang.CharSequence $r1;
+        int $i0, $i1, i2;
+        java.lang.String $r3;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        i2 = android.os.Build$VERSION.SDK_INT;
+
+        if i2 < 30 goto label1;
+
+        $r1 = androidx.core.view.inputmethod.EditorInfoCompat$Impl30.getInitialTextBeforeCursor($r0, $i0, $i1);
+
+        return $r1;
+
+     label1:
+        r2 = $r0.extras;
+
+        if r2 != null goto label2;
+
+        return null;
+
+     label2:
+        r2 = $r0.extras;
+
+        $r1 = virtualinvoke r2.getCharSequence("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SURROUNDING_TEXT");
+
+        if $r1 != null goto label3;
+
+        return null;
+
+     label3:
+        r2 = $r0.extras;
+
+        i2 = virtualinvoke r2.getInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_HEAD");
+
+        $i0 = java.lang.Math.min($i0, i2);
+
+        $i1 = $i1 & 1;
+
+        if $i1 == 0 goto label4;
+
+        $i0 = i2 - $i0;
+
+        $r1 = interfaceinvoke $r1.subSequence($i0, i2);
+
+        return $r1;
+
+     label4:
+        $i0 = i2 - $i0;
+
+        $r3 = android.text.TextUtils.substring($r1, $i0, i2);
+
+        return $r3;
+    }
+
+    static int getProtocol(android.view.inputmethod.EditorInfo)
+    {
+        android.os.Bundle r1;
+        int i0;
+        android.view.inputmethod.EditorInfo $r0;
+        boolean $z0, $z1;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 25 goto label1;
+
+        return 1;
+
+     label1:
+        r1 = $r0.extras;
+
+        if r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        r1 = $r0.extras;
+
+        $z0 = virtualinvoke r1.containsKey("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES");
+
+        r1 = $r0.extras;
+
+        $z1 = virtualinvoke r1.containsKey("android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES");
+
+        if $z0 == 0 goto label3;
+
+        if $z1 == 0 goto label3;
+
+        return 4;
+
+     label3:
+        if $z0 == 0 goto label4;
+
+        return 3;
+
+     label4:
+        if $z1 == 0 goto label5;
+
+        return 2;
+
+     label5:
+        return 0;
+    }
+
+    private static boolean isCutOnSurrogate(java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence $r0;
+        int $i0, $i1;
+        char $c2;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        lookupswitch($i1)
+        {
+            case 0: goto label3;
+            case 1: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $c2 = interfaceinvoke $r0.charAt($i0);
+
+        $z0 = java.lang.Character.isHighSurrogate($c2);
+
+        return $z0;
+
+     label3:
+        $c2 = interfaceinvoke $r0.charAt($i0);
+
+        $z0 = java.lang.Character.isLowSurrogate($c2);
+
+        return $z0;
+    }
+
+    private static boolean isPasswordInputType(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0;
+
+        $i0 = $i0 & 4095;
+
+        if $i0 == 129 goto label2;
+
+        if $i0 == 225 goto label2;
+
+        if $i0 != 18 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public static void setContentMimeTypes(android.view.inputmethod.EditorInfo, java.lang.String[])
+    {
+        android.os.Bundle $r2;
+        int $i0;
+        java.lang.String[] $r1;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 25 goto label1;
+
+        $r0.contentMimeTypes = $r1;
+
+        return;
+
+     label1:
+        $r2 = $r0.extras;
+
+        if $r2 != null goto label2;
+
+        $r2 = new android.os.Bundle;
+
+        specialinvoke $r2.<init>();
+
+        $r0.extras = $r2;
+
+     label2:
+        $r2 = $r0.extras;
+
+        virtualinvoke $r2.putStringArray("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES", $r1);
+
+        $r2 = $r0.extras;
+
+        virtualinvoke $r2.putStringArray("android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES", $r1);
+
+        return;
+    }
+
+    public static void setInitialSurroundingSubText(android.view.inputmethod.EditorInfo, java.lang.CharSequence, int)
+    {
+        java.lang.CharSequence $r1;
+        int $i0, i1, i2, i3;
+        android.view.inputmethod.EditorInfo $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        androidx.core.util.Preconditions.checkNotNull($r1);
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 30 goto label1;
+
+        androidx.core.view.inputmethod.EditorInfoCompat$Impl30.setInitialSurroundingSubText($r0, $r1, $i0);
+
+        return;
+
+     label1:
+        i1 = $r0.initialSelStart;
+
+        i2 = $r0.initialSelEnd;
+
+        if i1 <= i2 goto label2;
+
+        i1 = $r0.initialSelEnd;
+
+        i1 = i1 - $i0;
+
+        goto label3;
+
+     label2:
+        i1 = $r0.initialSelStart;
+
+        i1 = i1 - $i0;
+
+     label3:
+        i2 = $r0.initialSelStart;
+
+        i3 = $r0.initialSelEnd;
+
+        if i2 <= i3 goto label4;
+
+        i2 = $r0.initialSelStart;
+
+        i2 = i2 - $i0;
+
+        goto label5;
+
+     label4:
+        i2 = $r0.initialSelEnd;
+
+        i2 = i2 - $i0;
+
+     label5:
+        i3 = interfaceinvoke $r1.length();
+
+        if $i0 < 0 goto label9;
+
+        if i1 < 0 goto label9;
+
+        if i2 <= i3 goto label6;
+
+        goto label9;
+
+     label6:
+        $i0 = $r0.inputType;
+
+        $z0 = androidx.core.view.inputmethod.EditorInfoCompat.isPasswordInputType($i0);
+
+        if $z0 == 0 goto label7;
+
+        androidx.core.view.inputmethod.EditorInfoCompat.setSurroundingText($r0, null, 0, 0);
+
+        return;
+
+     label7:
+        if i3 > 2048 goto label8;
+
+        androidx.core.view.inputmethod.EditorInfoCompat.setSurroundingText($r0, $r1, i1, i2);
+
+        return;
+
+     label8:
+        androidx.core.view.inputmethod.EditorInfoCompat.trimLongSurroundingText($r0, $r1, i1, i2);
+
+        return;
+
+     label9:
+        androidx.core.view.inputmethod.EditorInfoCompat.setSurroundingText($r0, null, 0, 0);
+
+        return;
+    }
+
+    public static void setInitialSurroundingText(android.view.inputmethod.EditorInfo, java.lang.CharSequence)
+    {
+        int $i0;
+        java.lang.CharSequence $r1;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 30 goto label1;
+
+        androidx.core.view.inputmethod.EditorInfoCompat$Impl30.setInitialSurroundingSubText($r0, $r1, 0);
+
+        return;
+
+     label1:
+        androidx.core.view.inputmethod.EditorInfoCompat.setInitialSurroundingSubText($r0, $r1, 0);
+
+        return;
+    }
+
+    private static void setSurroundingText(android.view.inputmethod.EditorInfo, java.lang.CharSequence, int, int)
+    {
+        android.text.SpannableStringBuilder r3;
+        android.os.Bundle r2;
+        java.lang.CharSequence $r1;
+        int $i0, $i1;
+        android.view.inputmethod.EditorInfo $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        r2 = $r0.extras;
+
+        if r2 != null goto label1;
+
+        r2 = new android.os.Bundle;
+
+        specialinvoke r2.<init>();
+
+        $r0.extras = r2;
+
+     label1:
+        if $r1 == null goto label2;
+
+        r3 = new android.text.SpannableStringBuilder;
+
+        specialinvoke r3.<init>($r1);
+
+        goto label3;
+
+     label2:
+        r3 = null;
+
+     label3:
+        r2 = $r0.extras;
+
+        virtualinvoke r2.putCharSequence("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SURROUNDING_TEXT", r3);
+
+        r2 = $r0.extras;
+
+        virtualinvoke r2.putInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_HEAD", $i0);
+
+        r2 = $r0.extras;
+
+        virtualinvoke r2.putInt("androidx.core.view.inputmethod.EditorInfoCompat.CONTENT_SELECTION_END", $i1);
+
+        return;
+    }
+
+    private static void trimLongSurroundingText(android.view.inputmethod.EditorInfo, java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence $r1, $r2;
+        java.lang.CharSequence[] r3;
+        int $i0, $i1, i2, i3, i4, $i5, i6, $i7, $i8;
+        android.view.inputmethod.EditorInfo $r0;
+        double d0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        i2 = $i1 - $i0;
+
+        if i2 <= 1024 goto label1;
+
+        i4 = 0;
+
+        goto label2;
+
+     label1:
+        i4 = i2;
+
+     label2:
+        $i5 = interfaceinvoke $r1.length();
+
+        $i5 = $i5 - $i1;
+
+        i3 = 2048 - i4;
+
+        d0 = (double) i3;
+
+        java.lang.Double.isNaN(d0);
+
+        d0 = d0 * 0.8;
+
+        i6 = (int) d0;
+
+        i6 = java.lang.Math.min($i0, i6);
+
+        i6 = i3 - i6;
+
+        $i7 = java.lang.Math.min($i5, i6);
+
+        $i5 = $i7;
+
+        i3 = i3 - $i7;
+
+        $i8 = java.lang.Math.min($i0, i3);
+
+        i3 = $i8;
+
+        i6 = $i0 - $i8;
+
+        $i0 = $i0 - $i8;
+
+        $z0 = androidx.core.view.inputmethod.EditorInfoCompat.isCutOnSurrogate($r1, $i0, 0);
+
+        if $z0 == 0 goto label3;
+
+        i6 = i6 + 1;
+
+        i3 = $i8 + -1;
+
+     label3:
+        $i0 = $i1 + $i7;
+
+        $i0 = $i0 - 1;
+
+        $z0 = androidx.core.view.inputmethod.EditorInfoCompat.isCutOnSurrogate($r1, $i0, 1);
+
+        if $z0 == 0 goto label4;
+
+        $i5 = $i7 + -1;
+
+     label4:
+        $i0 = i3 + i4;
+
+        $i0 = $i0 + $i5;
+
+        if i4 == i2 goto label5;
+
+        $i0 = i6 + i3;
+
+        $r2 = interfaceinvoke $r1.subSequence(i6, $i0);
+
+        $i0 = $i1 + $i5;
+
+        $r1 = interfaceinvoke $r1.subSequence($i1, $i0);
+
+        r3 = newarray (java.lang.CharSequence)[2];
+
+        r3[0] = $r2;
+
+        r3[1] = $r1;
+
+        $r1 = android.text.TextUtils.concat(r3);
+
+        goto label6;
+
+     label5:
+        $i0 = i6 + $i0;
+
+        $r1 = interfaceinvoke $r1.subSequence(i6, $i0);
+
+     label6:
+        $i1 = i3 + i4;
+
+        androidx.core.view.inputmethod.EditorInfoCompat.setSurroundingText($r0, $r1, i3, $i1);
+
+        return;
+    }
+}

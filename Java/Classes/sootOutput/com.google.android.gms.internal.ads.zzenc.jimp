@@ -1,0 +1,52 @@
+public final class com.google.android.gms.internal.ads.zzenc extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    public final com.google.android.gms.internal.ads.zzeyb zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzeyb)
+    {
+        com.google.android.gms.internal.ads.zzenc r0;
+        com.google.android.gms.internal.ads.zzeyb $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.internal.ads.zzenc r0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzeyb $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.os.Bundle) $r1;
+
+        $r3 = r0.zza;
+
+        if $r3 == null goto label1;
+
+        $z0 = virtualinvoke $r3.zzd();
+
+        virtualinvoke $r2.putBoolean("render_in_browser", $z0);
+
+        $r3 = r0.zza;
+
+        $z0 = virtualinvoke $r3.zzc();
+
+        virtualinvoke $r2.putBoolean("disable_ml", $z0);
+
+     label1:
+        return;
+    }
+}

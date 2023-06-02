@@ -1,0 +1,127 @@
+final class com.google.android.gms.internal.ads.zzgay extends java.lang.Object implements com.google.android.gms.internal.ads.zzfvu
+{
+    private final com.google.android.gms.internal.ads.zzfxb zza;
+    private final com.google.android.gms.internal.ads.zzggm zzb;
+    private final com.google.android.gms.internal.ads.zzggm zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfxb)
+    {
+        com.google.android.gms.internal.ads.zzfxb $r1;
+        com.google.android.gms.internal.ads.zzgay r0;
+        com.google.android.gms.internal.ads.zzggs $r4;
+        com.google.android.gms.internal.ads.zzgdd $r2;
+        com.google.android.gms.internal.ads.zzggn $r3;
+        com.google.android.gms.internal.ads.zzggm $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        $z0 = virtualinvoke $r1.zzf();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = com.google.android.gms.internal.ads.zzgdd.zza();
+
+        $r3 = virtualinvoke $r2.zzb();
+
+        $r4 = com.google.android.gms.internal.ads.zzgda.zza($r1);
+
+        $r5 = interfaceinvoke $r3.zza($r4, "daead", "encrypt");
+
+        r0.zzb = $r5;
+
+        $r5 = interfaceinvoke $r3.zza($r4, "daead", "decrypt");
+
+     label1:
+        r0.zzc = $r5;
+
+        return;
+
+     label2:
+        $r5 = com.google.android.gms.internal.ads.zzgda.zza;
+
+        r0.zzb = $r5;
+
+        goto label1;
+    }
+
+    public final byte[] zza(byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r2, $r6;
+        com.google.android.gms.internal.ads.zzgay r0;
+        com.google.android.gms.internal.ads.zzfvu $r8;
+        byte[][] $r3;
+        com.google.android.gms.internal.ads.zzfxb $r4;
+        java.security.GeneralSecurityException $r9;
+        int $i0;
+        java.lang.Object $r7;
+        com.google.android.gms.internal.ads.zzfwx $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = newarray (byte[])[2];
+
+        $r4 = r0.zza;
+
+     label01:
+        $r5 = virtualinvoke $r4.zza();
+
+        $r6 = virtualinvoke $r5.zzg();
+
+     label02:
+        $r3[0] = $r6;
+
+        $r4 = r0.zza;
+
+     label03:
+        $r5 = virtualinvoke $r4.zza();
+
+        $r7 = virtualinvoke $r5.zze();
+
+     label04:
+        $r8 = (com.google.android.gms.internal.ads.zzfvu) $r7;
+
+     label05:
+        $r2 = interfaceinvoke $r8.zza($r1, $r2);
+
+     label06:
+        $r3[1] = $r2;
+
+     label07:
+        $r2 = com.google.android.gms.internal.ads.zzgmv.zzb($r3);
+
+     label08:
+        $r4 = r0.zza;
+
+     label09:
+        $r5 = virtualinvoke $r4.zza();
+
+        virtualinvoke $r5.zza();
+
+     label10:
+        $i0 = lengthof $r1;
+
+        return $r2;
+
+     label11:
+        $r9 := @caughtexception;
+
+        throw $r9;
+
+        catch java.security.GeneralSecurityException from label01 to label02 with label11;
+        catch java.security.GeneralSecurityException from label03 to label04 with label11;
+        catch java.security.GeneralSecurityException from label05 to label06 with label11;
+        catch java.security.GeneralSecurityException from label07 to label08 with label11;
+        catch java.security.GeneralSecurityException from label09 to label10 with label11;
+    }
+}

@@ -1,0 +1,1791 @@
+public class androidx.work.impl.WorkerWrapper extends java.lang.Object implements java.lang.Runnable
+{
+    static final java.lang.String TAG;
+    android.content.Context mAppContext;
+    private androidx.work.Configuration mConfiguration;
+    private androidx.work.impl.model.DependencyDao mDependencyDao;
+    private androidx.work.impl.foreground.ForegroundProcessor mForegroundProcessor;
+    androidx.work.impl.utils.futures.SettableFuture mFuture;
+    com.google.common.util.concurrent.ListenableFuture mInnerFuture;
+    private volatile boolean mInterrupted;
+    androidx.work.ListenableWorker$Result mResult;
+    private androidx.work.WorkerParameters$RuntimeExtras mRuntimeExtras;
+    private java.util.List mSchedulers;
+    private java.util.List mTags;
+    private androidx.work.impl.WorkDatabase mWorkDatabase;
+    private java.lang.String mWorkDescription;
+    androidx.work.impl.model.WorkSpec mWorkSpec;
+    private androidx.work.impl.model.WorkSpecDao mWorkSpecDao;
+    private java.lang.String mWorkSpecId;
+    private androidx.work.impl.model.WorkTagDao mWorkTagDao;
+    androidx.work.impl.utils.taskexecutor.TaskExecutor mWorkTaskExecutor;
+    androidx.work.ListenableWorker mWorker;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = androidx.work.Logger.tagWithPrefix("WorkerWrapper");
+
+        androidx.work.impl.WorkerWrapper.TAG = $r0;
+
+        return;
+    }
+
+    void <init>(androidx.work.impl.WorkerWrapper$Builder)
+    {
+        androidx.work.ListenableWorker$Result $r2;
+        android.content.Context $r4;
+        androidx.work.ListenableWorker $r10;
+        androidx.work.impl.model.DependencyDao $r14;
+        androidx.work.WorkerParameters$RuntimeExtras $r9;
+        androidx.work.Configuration $r11;
+        androidx.work.impl.foreground.ForegroundProcessor $r6;
+        androidx.work.impl.WorkDatabase $r12;
+        java.lang.String $r7;
+        androidx.work.impl.WorkerWrapper$Builder $r1;
+        androidx.work.impl.model.WorkSpecDao $r13;
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r5;
+        androidx.work.impl.model.WorkTagDao $r15;
+        java.util.List $r8;
+        androidx.work.impl.WorkerWrapper r0;
+        androidx.work.impl.utils.futures.SettableFuture $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = androidx.work.ListenableWorker$Result.failure();
+
+        r0.mResult = $r2;
+
+        $r3 = androidx.work.impl.utils.futures.SettableFuture.create();
+
+        r0.mFuture = $r3;
+
+        r0.mInnerFuture = null;
+
+        $r4 = $r1.mAppContext;
+
+        r0.mAppContext = $r4;
+
+        $r5 = $r1.mWorkTaskExecutor;
+
+        r0.mWorkTaskExecutor = $r5;
+
+        $r6 = $r1.mForegroundProcessor;
+
+        r0.mForegroundProcessor = $r6;
+
+        $r7 = $r1.mWorkSpecId;
+
+        r0.mWorkSpecId = $r7;
+
+        $r8 = $r1.mSchedulers;
+
+        r0.mSchedulers = $r8;
+
+        $r9 = $r1.mRuntimeExtras;
+
+        r0.mRuntimeExtras = $r9;
+
+        $r10 = $r1.mWorker;
+
+        r0.mWorker = $r10;
+
+        $r11 = $r1.mConfiguration;
+
+        r0.mConfiguration = $r11;
+
+        $r12 = $r1.mWorkDatabase;
+
+        r0.mWorkDatabase = $r12;
+
+        $r13 = virtualinvoke $r12.workSpecDao();
+
+        r0.mWorkSpecDao = $r13;
+
+        $r12 = r0.mWorkDatabase;
+
+        $r14 = virtualinvoke $r12.dependencyDao();
+
+        r0.mDependencyDao = $r14;
+
+        $r12 = r0.mWorkDatabase;
+
+        $r15 = virtualinvoke $r12.workTagDao();
+
+        r0.mWorkTagDao = $r15;
+
+        return;
+    }
+
+    private java.lang.String createWorkDescription(java.util.List)
+    {
+        java.util.Iterator $r4;
+        java.util.List r1;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.StringBuilder r2;
+        java.lang.Object $r5;
+        java.lang.String r3;
+        boolean z0, $z1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        r2 = new java.lang.StringBuilder;
+
+        specialinvoke r2.<init>("Work [ id=");
+
+        r3 = r0.mWorkSpecId;
+
+        r2 = virtualinvoke r2.append(r3);
+
+        r2 = virtualinvoke r2.append(", tags={ ");
+
+        z0 = 1;
+
+        $r4 = interfaceinvoke r1.iterator();
+
+     label1:
+        $z1 = interfaceinvoke $r4.hasNext();
+
+        if $z1 == 0 goto label4;
+
+        $r5 = interfaceinvoke $r4.next();
+
+        r3 = (java.lang.String) $r5;
+
+        if z0 == 0 goto label2;
+
+        z0 = 0;
+
+        goto label3;
+
+     label2:
+        virtualinvoke r2.append(", ");
+
+     label3:
+        virtualinvoke r2.append(r3);
+
+        goto label1;
+
+     label4:
+        virtualinvoke r2.append(" } ]");
+
+        r3 = virtualinvoke r2.toString();
+
+        return r3;
+    }
+
+    private void handleResult(androidx.work.ListenableWorker$Result)
+    {
+        androidx.work.ListenableWorker$Result $r1;
+        java.lang.Object[] $r4;
+        androidx.work.impl.model.WorkSpec $r7;
+        androidx.work.Logger $r2;
+        java.lang.Throwable[] $r6;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r3, $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof androidx.work.ListenableWorker$Result$Success;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r5 = r0.mWorkDescription;
+
+        $r4[0] = $r5;
+
+        $r5 = java.lang.String.format("Worker result SUCCESS for %s", $r4);
+
+        $r6 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.info($r3, $r5, $r6);
+
+        $r7 = r0.mWorkSpec;
+
+        $z0 = virtualinvoke $r7.isPeriodic();
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.resetPeriodicAndResolve();
+
+        return;
+
+     label1:
+        specialinvoke r0.setSucceededAndResolve();
+
+        return;
+
+     label2:
+        $z0 = $r1 instanceof androidx.work.ListenableWorker$Result$Retry;
+
+        if $z0 == 0 goto label3;
+
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r5 = r0.mWorkDescription;
+
+        $r4[0] = $r5;
+
+        $r5 = java.lang.String.format("Worker result RETRY for %s", $r4);
+
+        $r6 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.info($r3, $r5, $r6);
+
+        specialinvoke r0.rescheduleAndResolve();
+
+        return;
+
+     label3:
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r5 = r0.mWorkDescription;
+
+        $r4[0] = $r5;
+
+        $r5 = java.lang.String.format("Worker result FAILURE for %s", $r4);
+
+        $r6 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.info($r3, $r5, $r6);
+
+        $r7 = r0.mWorkSpec;
+
+        $z0 = virtualinvoke $r7.isPeriodic();
+
+        if $z0 == 0 goto label4;
+
+        specialinvoke r0.resetPeriodicAndResolve();
+
+        return;
+
+     label4:
+        virtualinvoke r0.setFailedAndResolve();
+
+        return;
+    }
+
+    private void iterativelyFailWorkAndDependents(java.lang.String)
+    {
+        androidx.work.impl.model.WorkSpecDao $r4;
+        java.lang.String[] $r7;
+        androidx.work.impl.model.DependencyDao $r8;
+        java.util.List $r9;
+        androidx.work.WorkInfo$State $r5, $r6;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.Object $r3;
+        java.lang.String $r1;
+        java.util.LinkedList r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new java.util.LinkedList;
+
+        specialinvoke r2.<init>();
+
+        virtualinvoke r2.add($r1);
+
+     label1:
+        $z0 = virtualinvoke r2.isEmpty();
+
+        if $z0 != 0 goto label3;
+
+        $r3 = virtualinvoke r2.remove();
+
+        $r1 = (java.lang.String) $r3;
+
+        $r4 = r0.mWorkSpecDao;
+
+        $r5 = interfaceinvoke $r4.getState($r1);
+
+        $r6 = androidx.work.WorkInfo$State.CANCELLED;
+
+        if $r5 == $r6 goto label2;
+
+        $r4 = r0.mWorkSpecDao;
+
+        $r5 = androidx.work.WorkInfo$State.FAILED;
+
+        $r7 = newarray (java.lang.String)[1];
+
+        $r7[0] = $r1;
+
+        interfaceinvoke $r4.setState($r5, $r7);
+
+     label2:
+        $r8 = r0.mDependencyDao;
+
+        $r9 = interfaceinvoke $r8.getDependentWorkIds($r1);
+
+        virtualinvoke r2.addAll($r9);
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    private void rescheduleAndResolve()
+    {
+        java.lang.Throwable $r6;
+        androidx.work.impl.model.WorkSpecDao $r3;
+        long $l0;
+        java.lang.String[] $r5;
+        androidx.work.impl.WorkDatabase $r2;
+        androidx.work.WorkInfo$State $r4;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.beginTransaction();
+
+     label1:
+        $r3 = r0.mWorkSpecDao;
+
+        $r4 = androidx.work.WorkInfo$State.ENQUEUED;
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r1 = r0.mWorkSpecId;
+
+        $r5[0] = $r1;
+
+        interfaceinvoke $r3.setState($r4, $r5);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        $l0 = java.lang.System.currentTimeMillis();
+
+        interfaceinvoke $r3.setPeriodStartTime($r1, $l0);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r3.markWorkSpecScheduled($r1, -1L);
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.setTransactionSuccessful();
+
+     label2:
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.endTransaction();
+
+        specialinvoke r0.resolve(1);
+
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.endTransaction();
+
+        specialinvoke r0.resolve(1);
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private void resetPeriodicAndResolve()
+    {
+        java.lang.Throwable $r6;
+        androidx.work.impl.model.WorkSpecDao $r3;
+        long $l0;
+        java.lang.String[] $r5;
+        androidx.work.impl.WorkDatabase $r2;
+        androidx.work.WorkInfo$State $r4;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.beginTransaction();
+
+     label1:
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        $l0 = java.lang.System.currentTimeMillis();
+
+        interfaceinvoke $r3.setPeriodStartTime($r1, $l0);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r4 = androidx.work.WorkInfo$State.ENQUEUED;
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r1 = r0.mWorkSpecId;
+
+        $r5[0] = $r1;
+
+        interfaceinvoke $r3.setState($r4, $r5);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r3.resetWorkSpecRunAttemptCount($r1);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r3.markWorkSpecScheduled($r1, -1L);
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.setTransactionSuccessful();
+
+     label2:
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        $r2 = r0.mWorkDatabase;
+
+        virtualinvoke $r2.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private void resolve(boolean)
+    {
+        java.lang.Throwable r12;
+        android.content.Context $r4;
+        androidx.work.impl.model.WorkSpecDao $r3;
+        androidx.work.ListenableWorker $r8;
+        java.lang.String[] $r6;
+        androidx.work.impl.model.WorkSpec $r7;
+        androidx.work.impl.foreground.ForegroundProcessor $r9;
+        androidx.work.impl.WorkDatabase r2;
+        androidx.work.WorkInfo$State $r5;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.Boolean $r11;
+        java.lang.String $r1;
+        androidx.work.impl.utils.futures.SettableFuture r10;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r2 = r0.mWorkDatabase;
+
+        virtualinvoke r2.beginTransaction();
+
+     label01:
+        r2 = r0.mWorkDatabase;
+
+        $r3 = virtualinvoke r2.workSpecDao();
+
+        $z1 = interfaceinvoke $r3.hasUnfinishedWork();
+
+     label02:
+        if $z1 != 0 goto label04;
+
+     label03:
+        $r4 = r0.mAppContext;
+
+        androidx.work.impl.utils.PackageManagerHelper.setComponentEnabled($r4, class "Landroidx/work/impl/background/systemalarm/RescheduleReceiver;", 0);
+
+     label04:
+        if $z0 == 0 goto label06;
+
+     label05:
+        $r3 = r0.mWorkSpecDao;
+
+        $r5 = androidx.work.WorkInfo$State.ENQUEUED;
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r1 = r0.mWorkSpecId;
+
+        $r6[0] = $r1;
+
+        interfaceinvoke $r3.setState($r5, $r6);
+
+        $r3 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r3.markWorkSpecScheduled($r1, -1L);
+
+     label06:
+        $r7 = r0.mWorkSpec;
+
+     label07:
+        if $r7 == null goto label13;
+
+     label08:
+        $r8 = r0.mWorker;
+
+     label09:
+        if $r8 == null goto label13;
+
+     label10:
+        $z1 = virtualinvoke $r8.isRunInForeground();
+
+     label11:
+        if $z1 == 0 goto label13;
+
+     label12:
+        $r9 = r0.mForegroundProcessor;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r9.stopForeground($r1);
+
+     label13:
+        r2 = r0.mWorkDatabase;
+
+        virtualinvoke r2.setTransactionSuccessful();
+
+     label14:
+        r2 = r0.mWorkDatabase;
+
+        virtualinvoke r2.endTransaction();
+
+        r10 = r0.mFuture;
+
+        $r11 = java.lang.Boolean.valueOf($z0);
+
+        virtualinvoke r10.set($r11);
+
+        return;
+
+     label15:
+        r12 := @caughtexception;
+
+        r2 = r0.mWorkDatabase;
+
+        virtualinvoke r2.endTransaction();
+
+        throw r12;
+
+        catch java.lang.Throwable from label01 to label02 with label15;
+        catch java.lang.Throwable from label03 to label04 with label15;
+        catch java.lang.Throwable from label05 to label07 with label15;
+        catch java.lang.Throwable from label08 to label09 with label15;
+        catch java.lang.Throwable from label10 to label11 with label15;
+        catch java.lang.Throwable from label12 to label14 with label15;
+    }
+
+    private void resolveIncorrectStatus()
+    {
+        java.lang.Object[] $r6;
+        androidx.work.impl.model.WorkSpecDao r1;
+        androidx.work.Logger $r5;
+        androidx.work.WorkInfo$State $r3, $r4;
+        java.lang.Throwable[] $r8;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r2, $r7;
+
+        r0 := @this;
+
+        r1 = r0.mWorkSpecDao;
+
+        $r2 = r0.mWorkSpecId;
+
+        $r3 = interfaceinvoke r1.getState($r2);
+
+        $r4 = androidx.work.WorkInfo$State.RUNNING;
+
+        if $r3 != $r4 goto label1;
+
+        $r5 = androidx.work.Logger.get();
+
+        $r2 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r6 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpecId;
+
+        $r6[0] = $r7;
+
+        $r7 = java.lang.String.format("Status for %s is RUNNING;not doing any work and rescheduling for later execution", $r6);
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r5.debug($r2, $r7, $r8);
+
+        specialinvoke r0.resolve(1);
+
+        return;
+
+     label1:
+        $r5 = androidx.work.Logger.get();
+
+        $r2 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r6 = newarray (java.lang.Object)[2];
+
+        $r7 = r0.mWorkSpecId;
+
+        $r6[0] = $r7;
+
+        $r6[1] = $r3;
+
+        $r7 = java.lang.String.format("Status for %s is %s; not doing any work", $r6);
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r5.debug($r2, $r7, $r8);
+
+        specialinvoke r0.resolve(0);
+
+        return;
+    }
+
+    private void runWorker()
+    {
+        androidx.work.InputMerger $r17;
+        androidx.work.impl.utils.WorkForegroundUpdater $r35;
+        androidx.work.WorkerParameters$RuntimeExtras $r2;
+        byte b3;
+        androidx.work.Data r14;
+        boolean $z0;
+        androidx.work.impl.model.WorkSpecDao r5;
+        java.util.UUID $r20;
+        androidx.work.WorkerFactory $r22;
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r3, $r23;
+        java.util.List $r1;
+        androidx.work.InputMergerFactory $r16;
+        androidx.work.impl.WorkerWrapper r0;
+        androidx.work.impl.utils.SerialExecutor $r31;
+        androidx.work.impl.utils.futures.SettableFuture $r27;
+        java.lang.Throwable r32;
+        androidx.work.impl.WorkerWrapper$1 $r38;
+        android.content.Context r26;
+        androidx.work.impl.WorkerWrapper$2 $r39;
+        java.lang.Object[] r9;
+        com.google.common.util.concurrent.ListenableFuture $r30;
+        androidx.work.WorkerParameters r19, $r36;
+        androidx.work.impl.utils.WorkForegroundRunnable r28, $r37;
+        androidx.work.ListenableWorker r25;
+        long $l1, l2;
+        androidx.work.impl.model.WorkSpec $r7;
+        java.util.ArrayList r18, $r33;
+        androidx.work.Logger $r8;
+        androidx.work.Configuration r15;
+        androidx.work.impl.utils.WorkProgressUpdater $r34;
+        androidx.work.impl.foreground.ForegroundProcessor $r24;
+        androidx.work.impl.WorkDatabase r4;
+        int $i0;
+        java.lang.String r6, r10;
+        java.util.concurrent.Executor $r21;
+        androidx.work.ForegroundUpdater $r29;
+        java.lang.Throwable[] r11;
+        androidx.work.WorkInfo$State r12, r13;
+
+        r0 := @this;
+
+        $z0 = specialinvoke r0.tryCheckForInterruptionAndResolve();
+
+        if $z0 == 0 goto label01;
+
+        return;
+
+     label01:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.beginTransaction();
+
+     label02:
+        r5 = r0.mWorkSpecDao;
+
+        r6 = r0.mWorkSpecId;
+
+        $r7 = interfaceinvoke r5.getWorkSpec(r6);
+
+        r0.mWorkSpec = $r7;
+
+     label03:
+        if $r7 != null goto label06;
+
+     label04:
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        r10 = r0.mWorkSpecId;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("Didn\'t find WorkSpec for id %s", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.error(r6, r10, r11);
+
+        specialinvoke r0.resolve(0);
+
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.setTransactionSuccessful();
+
+     label05:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.endTransaction();
+
+        return;
+
+     label06:
+        r12 = $r7.state;
+
+        r13 = androidx.work.WorkInfo$State.ENQUEUED;
+
+     label07:
+        if r12 == r13 goto label10;
+
+     label08:
+        specialinvoke r0.resolveIncorrectStatus();
+
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.setTransactionSuccessful();
+
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpec;
+
+        r10 = $r7.workerClassName;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("%s is not in ENQUEUED state. Nothing more to do.", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.debug(r6, r10, r11);
+
+     label09:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.endTransaction();
+
+        return;
+
+     label10:
+        $r7 = r0.mWorkSpec;
+
+        $z0 = virtualinvoke $r7.isPeriodic();
+
+     label11:
+        if $z0 != 0 goto label14;
+
+     label12:
+        $r7 = r0.mWorkSpec;
+
+        $z0 = virtualinvoke $r7.isBackedOff();
+
+     label13:
+        if $z0 == 0 goto label22;
+
+     label14:
+        $l1 = java.lang.System.currentTimeMillis();
+
+        $r7 = r0.mWorkSpec;
+
+        l2 = $r7.periodStartTime;
+
+     label15:
+        b3 = l2 cmp 0L;
+
+        if b3 != 0 goto label16;
+
+        $z0 = 1;
+
+        goto label17;
+
+     label16:
+        $z0 = 0;
+
+     label17:
+        if $z0 != 0 goto label22;
+
+     label18:
+        $r7 = r0.mWorkSpec;
+
+        l2 = virtualinvoke $r7.calculateNextRunTime();
+
+     label19:
+        b3 = $l1 cmp l2;
+
+        $i0 = (int) b3;
+
+        if $i0 >= 0 goto label22;
+
+     label20:
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpec;
+
+        r10 = $r7.workerClassName;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("Delaying execution for %s because it is being executed before schedule.", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.debug(r6, r10, r11);
+
+        specialinvoke r0.resolve(1);
+
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.setTransactionSuccessful();
+
+     label21:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.endTransaction();
+
+        return;
+
+     label22:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.setTransactionSuccessful();
+
+     label23:
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.endTransaction();
+
+        $r7 = r0.mWorkSpec;
+
+        $z0 = virtualinvoke $r7.isPeriodic();
+
+        if $z0 == 0 goto label24;
+
+        $r7 = r0.mWorkSpec;
+
+        r14 = $r7.input;
+
+        goto label26;
+
+     label24:
+        r15 = r0.mConfiguration;
+
+        $r16 = virtualinvoke r15.getInputMergerFactory();
+
+        $r7 = r0.mWorkSpec;
+
+        r6 = $r7.inputMergerClassName;
+
+        $r17 = virtualinvoke $r16.createInputMergerWithDefaultFallback(r6);
+
+        if $r17 != null goto label25;
+
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpec;
+
+        r10 = $r7.inputMergerClassName;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("Could not create Input Merger %s", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.error(r6, r10, r11);
+
+        virtualinvoke r0.setFailedAndResolve();
+
+        return;
+
+     label25:
+        $r33 = new java.util.ArrayList;
+
+        r18 = $r33;
+
+        specialinvoke $r33.<init>();
+
+        $r7 = r0.mWorkSpec;
+
+        r14 = $r7.input;
+
+        interfaceinvoke r18.add(r14);
+
+        r5 = r0.mWorkSpecDao;
+
+        r6 = r0.mWorkSpecId;
+
+        $r1 = interfaceinvoke r5.getInputsFromPrerequisites(r6);
+
+        interfaceinvoke r18.addAll($r1);
+
+        r14 = virtualinvoke $r17.merge(r18);
+
+     label26:
+        $r36 = new androidx.work.WorkerParameters;
+
+        r19 = $r36;
+
+        r6 = r0.mWorkSpecId;
+
+        $r20 = java.util.UUID.fromString(r6);
+
+        $r1 = r0.mTags;
+
+        $r2 = r0.mRuntimeExtras;
+
+        $r7 = r0.mWorkSpec;
+
+        $i0 = $r7.runAttemptCount;
+
+        r15 = r0.mConfiguration;
+
+        $r21 = virtualinvoke r15.getExecutor();
+
+        $r3 = r0.mWorkTaskExecutor;
+
+        r15 = r0.mConfiguration;
+
+        $r22 = virtualinvoke r15.getWorkerFactory();
+
+        $r34 = new androidx.work.impl.utils.WorkProgressUpdater;
+
+        r4 = r0.mWorkDatabase;
+
+        $r23 = r0.mWorkTaskExecutor;
+
+        specialinvoke $r34.<init>(r4, $r23);
+
+        $r35 = new androidx.work.impl.utils.WorkForegroundUpdater;
+
+        r4 = r0.mWorkDatabase;
+
+        $r24 = r0.mForegroundProcessor;
+
+        $r23 = r0.mWorkTaskExecutor;
+
+        specialinvoke $r35.<init>(r4, $r24, $r23);
+
+        specialinvoke $r36.<init>($r20, r14, $r1, $r2, $i0, $r21, $r3, $r22, $r34, $r35);
+
+        r25 = r0.mWorker;
+
+        if r25 != null goto label27;
+
+        r15 = r0.mConfiguration;
+
+        $r22 = virtualinvoke r15.getWorkerFactory();
+
+        r26 = r0.mAppContext;
+
+        $r7 = r0.mWorkSpec;
+
+        r6 = $r7.workerClassName;
+
+        r25 = virtualinvoke $r22.createWorkerWithDefaultFallback(r26, r6, r19);
+
+        r0.mWorker = r25;
+
+     label27:
+        r25 = r0.mWorker;
+
+        if r25 != null goto label28;
+
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpec;
+
+        r10 = $r7.workerClassName;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("Could not create Worker %s", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.error(r6, r10, r11);
+
+        virtualinvoke r0.setFailedAndResolve();
+
+        return;
+
+     label28:
+        $z0 = virtualinvoke r25.isUsed();
+
+        if $z0 == 0 goto label29;
+
+        $r8 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.WorkerWrapper.TAG;
+
+        r9 = newarray (java.lang.Object)[1];
+
+        $r7 = r0.mWorkSpec;
+
+        r10 = $r7.workerClassName;
+
+        r9[0] = r10;
+
+        r10 = java.lang.String.format("Received an already-used Worker %s; WorkerFactory should return new instances", r9);
+
+        r11 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.error(r6, r10, r11);
+
+        virtualinvoke r0.setFailedAndResolve();
+
+        return;
+
+     label29:
+        r25 = r0.mWorker;
+
+        virtualinvoke r25.setUsed();
+
+        $z0 = specialinvoke r0.trySetRunning();
+
+        if $z0 == 0 goto label31;
+
+        $z0 = specialinvoke r0.tryCheckForInterruptionAndResolve();
+
+        if $z0 == 0 goto label30;
+
+        return;
+
+     label30:
+        $r27 = androidx.work.impl.utils.futures.SettableFuture.create();
+
+        $r37 = new androidx.work.impl.utils.WorkForegroundRunnable;
+
+        r28 = $r37;
+
+        r26 = r0.mAppContext;
+
+        $r7 = r0.mWorkSpec;
+
+        r25 = r0.mWorker;
+
+        $r29 = virtualinvoke r19.getForegroundUpdater();
+
+        $r3 = r0.mWorkTaskExecutor;
+
+        specialinvoke $r37.<init>(r26, $r7, r25, $r29, $r3);
+
+        $r3 = r0.mWorkTaskExecutor;
+
+        $r21 = interfaceinvoke $r3.getMainThreadExecutor();
+
+        interfaceinvoke $r21.execute(r28);
+
+        $r30 = virtualinvoke r28.getFuture();
+
+        $r38 = new androidx.work.impl.WorkerWrapper$1;
+
+        specialinvoke $r38.<init>(r0, $r30, $r27);
+
+        $r3 = r0.mWorkTaskExecutor;
+
+        $r21 = interfaceinvoke $r3.getMainThreadExecutor();
+
+        interfaceinvoke $r30.addListener($r38, $r21);
+
+        r6 = r0.mWorkDescription;
+
+        $r39 = new androidx.work.impl.WorkerWrapper$2;
+
+        specialinvoke $r39.<init>(r0, $r27, r6);
+
+        $r3 = r0.mWorkTaskExecutor;
+
+        $r31 = interfaceinvoke $r3.getBackgroundExecutor();
+
+        virtualinvoke $r27.addListener($r39, $r31);
+
+        return;
+
+     label31:
+        specialinvoke r0.resolveIncorrectStatus();
+
+        return;
+
+     label32:
+        r32 := @caughtexception;
+
+        r4 = r0.mWorkDatabase;
+
+        virtualinvoke r4.endTransaction();
+
+        throw r32;
+
+        catch java.lang.Throwable from label02 to label03 with label32;
+        catch java.lang.Throwable from label04 to label05 with label32;
+        catch java.lang.Throwable from label06 to label07 with label32;
+        catch java.lang.Throwable from label08 to label09 with label32;
+        catch java.lang.Throwable from label10 to label11 with label32;
+        catch java.lang.Throwable from label12 to label13 with label32;
+        catch java.lang.Throwable from label14 to label15 with label32;
+        catch java.lang.Throwable from label18 to label19 with label32;
+        catch java.lang.Throwable from label20 to label21 with label32;
+        catch java.lang.Throwable from label22 to label23 with label32;
+    }
+
+    private void setSucceededAndResolve()
+    {
+        java.lang.Throwable r19;
+        androidx.work.ListenableWorker$Result r6;
+        java.lang.Object[] $r16;
+        androidx.work.ListenableWorker$Result$Success r7;
+        java.lang.String[] r4;
+        long $l0;
+        androidx.work.impl.model.DependencyDao r9;
+        androidx.work.Logger $r14;
+        androidx.work.impl.WorkDatabase $r1;
+        java.lang.String $r5, $r15, $r17;
+        androidx.work.Data $r8;
+        boolean $z0;
+        java.util.Iterator $r11;
+        androidx.work.impl.model.WorkSpecDao r2;
+        java.util.List $r10;
+        androidx.work.WorkInfo$State r3, $r13;
+        java.lang.Throwable[] $r18;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.Object $r12;
+
+        r0 := @this;
+
+        $r1 = r0.mWorkDatabase;
+
+        virtualinvoke $r1.beginTransaction();
+
+     label01:
+        r2 = r0.mWorkSpecDao;
+
+        r3 = androidx.work.WorkInfo$State.SUCCEEDED;
+
+        r4 = newarray (java.lang.String)[1];
+
+        $r5 = r0.mWorkSpecId;
+
+        r4[0] = $r5;
+
+        interfaceinvoke r2.setState(r3, r4);
+
+        r6 = r0.mResult;
+
+        r7 = (androidx.work.ListenableWorker$Result$Success) r6;
+
+        $r8 = virtualinvoke r7.getOutputData();
+
+        r2 = r0.mWorkSpecDao;
+
+        $r5 = r0.mWorkSpecId;
+
+        interfaceinvoke r2.setOutput($r5, $r8);
+
+        $l0 = java.lang.System.currentTimeMillis();
+
+        r9 = r0.mDependencyDao;
+
+        $r5 = r0.mWorkSpecId;
+
+        $r10 = interfaceinvoke r9.getDependentWorkIds($r5);
+
+        $r11 = interfaceinvoke $r10.iterator();
+
+     label02:
+        $z0 = interfaceinvoke $r11.hasNext();
+
+     label03:
+        if $z0 == 0 goto label10;
+
+     label04:
+        $r12 = interfaceinvoke $r11.next();
+
+        $r5 = (java.lang.String) $r12;
+
+        r2 = r0.mWorkSpecDao;
+
+        r3 = interfaceinvoke r2.getState($r5);
+
+        $r13 = androidx.work.WorkInfo$State.BLOCKED;
+
+     label05:
+        if r3 != $r13 goto label02;
+
+     label06:
+        r9 = r0.mDependencyDao;
+
+        $z0 = interfaceinvoke r9.hasCompletedAllPrerequisites($r5);
+
+     label07:
+        if $z0 == 0 goto label02;
+
+     label08:
+        $r14 = androidx.work.Logger.get();
+
+        $r15 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r16 = newarray (java.lang.Object)[1];
+
+        $r16[0] = $r5;
+
+        $r17 = java.lang.String.format("Setting status to enqueued for %s", $r16);
+
+        $r18 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r14.info($r15, $r17, $r18);
+
+        r2 = r0.mWorkSpecDao;
+
+        r3 = androidx.work.WorkInfo$State.ENQUEUED;
+
+        r4 = newarray (java.lang.String)[1];
+
+        r4[0] = $r5;
+
+        interfaceinvoke r2.setState(r3, r4);
+
+        r2 = r0.mWorkSpecDao;
+
+        interfaceinvoke r2.setPeriodStartTime($r5, $l0);
+
+     label09:
+        goto label02;
+
+     label10:
+        $r1 = r0.mWorkDatabase;
+
+        virtualinvoke $r1.setTransactionSuccessful();
+
+     label11:
+        $r1 = r0.mWorkDatabase;
+
+        virtualinvoke $r1.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        return;
+
+     label12:
+        r19 := @caughtexception;
+
+        $r1 = r0.mWorkDatabase;
+
+        virtualinvoke $r1.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        goto label13;
+
+     label13:
+        throw r19;
+
+        catch java.lang.Throwable from label01 to label03 with label12;
+        catch java.lang.Throwable from label04 to label05 with label12;
+        catch java.lang.Throwable from label06 to label07 with label12;
+        catch java.lang.Throwable from label08 to label09 with label12;
+        catch java.lang.Throwable from label10 to label11 with label12;
+    }
+
+    private boolean tryCheckForInterruptionAndResolve()
+    {
+        java.lang.Object[] $r3;
+        androidx.work.impl.model.WorkSpecDao r6;
+        androidx.work.Logger $r1;
+        java.lang.Throwable[] $r5;
+        androidx.work.WorkInfo$State $r7;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r2, $r4;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mInterrupted;
+
+        if z0 == 0 goto label2;
+
+        $r1 = androidx.work.Logger.get();
+
+        $r2 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r4 = r0.mWorkDescription;
+
+        $r3[0] = $r4;
+
+        $r4 = java.lang.String.format("Work interrupted for %s", $r3);
+
+        $r5 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r1.debug($r2, $r4, $r5);
+
+        r6 = r0.mWorkSpecDao;
+
+        $r2 = r0.mWorkSpecId;
+
+        $r7 = interfaceinvoke r6.getState($r2);
+
+        if $r7 != null goto label1;
+
+        specialinvoke r0.resolve(0);
+
+        return 1;
+
+     label1:
+        z0 = virtualinvoke $r7.isFinished();
+
+        z0 = z0 ^ 1;
+
+        specialinvoke r0.resolve(z0);
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    private boolean trySetRunning()
+    {
+        java.lang.Throwable r7;
+        androidx.work.impl.model.WorkSpecDao r4;
+        java.lang.String[] $r6;
+        androidx.work.impl.WorkDatabase r3;
+        androidx.work.WorkInfo$State $r2, $r5;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = 0;
+
+        r3 = r0.mWorkDatabase;
+
+        virtualinvoke r3.beginTransaction();
+
+     label1:
+        r4 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        $r2 = interfaceinvoke r4.getState($r1);
+
+        $r5 = androidx.work.WorkInfo$State.ENQUEUED;
+
+     label2:
+        if $r2 != $r5 goto label5;
+
+     label3:
+        r4 = r0.mWorkSpecDao;
+
+        $r2 = androidx.work.WorkInfo$State.RUNNING;
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r1 = r0.mWorkSpecId;
+
+        $r6[0] = $r1;
+
+        interfaceinvoke r4.setState($r2, $r6);
+
+        r4 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke r4.incrementWorkSpecRunAttemptCount($r1);
+
+     label4:
+        z0 = 1;
+
+     label5:
+        r3 = r0.mWorkDatabase;
+
+        virtualinvoke r3.setTransactionSuccessful();
+
+     label6:
+        r3 = r0.mWorkDatabase;
+
+        virtualinvoke r3.endTransaction();
+
+        return z0;
+
+     label7:
+        r7 := @caughtexception;
+
+        r3 = r0.mWorkDatabase;
+
+        virtualinvoke r3.endTransaction();
+
+        throw r7;
+
+        catch java.lang.Throwable from label1 to label2 with label7;
+        catch java.lang.Throwable from label3 to label4 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public com.google.common.util.concurrent.ListenableFuture getFuture()
+    {
+        androidx.work.impl.WorkerWrapper r0;
+        androidx.work.impl.utils.futures.SettableFuture r1;
+
+        r0 := @this;
+
+        r1 = r0.mFuture;
+
+        return r1;
+    }
+
+    public void interrupt()
+    {
+        java.lang.Object[] r4;
+        com.google.common.util.concurrent.ListenableFuture $r2;
+        androidx.work.ListenableWorker $r3;
+        androidx.work.impl.model.WorkSpec $r5;
+        androidx.work.Logger $r7;
+        java.lang.Throwable[] $r8;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1, $r6;
+        boolean z0;
+
+        r0 := @this;
+
+        r0.mInterrupted = 1;
+
+        specialinvoke r0.tryCheckForInterruptionAndResolve();
+
+        z0 = 0;
+
+        $r2 = r0.mInnerFuture;
+
+        if $r2 == null goto label1;
+
+        z0 = interfaceinvoke $r2.isDone();
+
+        $r2 = r0.mInnerFuture;
+
+        interfaceinvoke $r2.cancel(1);
+
+     label1:
+        $r3 = r0.mWorker;
+
+        if $r3 == null goto label2;
+
+        if z0 != 0 goto label2;
+
+        virtualinvoke $r3.stop();
+
+        return;
+
+     label2:
+        r4 = newarray (java.lang.Object)[1];
+
+        $r5 = r0.mWorkSpec;
+
+        r4[0] = $r5;
+
+        $r6 = java.lang.String.format("WorkSpec %s is already done. Not interrupting.", r4);
+
+        $r7 = androidx.work.Logger.get();
+
+        $r1 = androidx.work.impl.WorkerWrapper.TAG;
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r7.debug($r1, $r6, $r8);
+
+        return;
+    }
+
+    void onWorkFinished()
+    {
+        java.lang.Throwable r8;
+        androidx.work.ListenableWorker$Result r7;
+        java.util.Iterator $r10;
+        androidx.work.impl.model.WorkSpecDao r2;
+        java.util.List r9;
+        androidx.work.Configuration r13;
+        androidx.work.impl.model.WorkProgressDao $r5;
+        androidx.work.impl.WorkDatabase r1;
+        androidx.work.WorkInfo$State $r4, r6;
+        androidx.work.impl.WorkerWrapper r0;
+        androidx.work.impl.Scheduler r12;
+        java.lang.Object $r11;
+        java.lang.String r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = specialinvoke r0.tryCheckForInterruptionAndResolve();
+
+        if $z0 != 0 goto label15;
+
+        r1 = r0.mWorkDatabase;
+
+        virtualinvoke r1.beginTransaction();
+
+     label01:
+        r2 = r0.mWorkSpecDao;
+
+        r3 = r0.mWorkSpecId;
+
+        $r4 = interfaceinvoke r2.getState(r3);
+
+        r1 = r0.mWorkDatabase;
+
+        $r5 = virtualinvoke r1.workProgressDao();
+
+        r3 = r0.mWorkSpecId;
+
+        interfaceinvoke $r5.delete(r3);
+
+     label02:
+        if $r4 != null goto label05;
+
+     label03:
+        specialinvoke r0.resolve(0);
+
+     label04:
+        goto label12;
+
+     label05:
+        r6 = androidx.work.WorkInfo$State.RUNNING;
+
+     label06:
+        if $r4 != r6 goto label09;
+
+     label07:
+        r7 = r0.mResult;
+
+        specialinvoke r0.handleResult(r7);
+
+     label08:
+        goto label12;
+
+     label09:
+        $z0 = virtualinvoke $r4.isFinished();
+
+     label10:
+        if $z0 != 0 goto label12;
+
+     label11:
+        specialinvoke r0.rescheduleAndResolve();
+
+     label12:
+        r1 = r0.mWorkDatabase;
+
+        virtualinvoke r1.setTransactionSuccessful();
+
+     label13:
+        r1 = r0.mWorkDatabase;
+
+        virtualinvoke r1.endTransaction();
+
+        goto label15;
+
+     label14:
+        r8 := @caughtexception;
+
+        r1 = r0.mWorkDatabase;
+
+        virtualinvoke r1.endTransaction();
+
+        throw r8;
+
+     label15:
+        r9 = r0.mSchedulers;
+
+        if r9 == null goto label18;
+
+        $r10 = interfaceinvoke r9.iterator();
+
+     label16:
+        $z0 = interfaceinvoke $r10.hasNext();
+
+        if $z0 == 0 goto label17;
+
+        $r11 = interfaceinvoke $r10.next();
+
+        r12 = (androidx.work.impl.Scheduler) $r11;
+
+        r3 = r0.mWorkSpecId;
+
+        interfaceinvoke r12.cancel(r3);
+
+        goto label16;
+
+     label17:
+        r13 = r0.mConfiguration;
+
+        r1 = r0.mWorkDatabase;
+
+        r9 = r0.mSchedulers;
+
+        androidx.work.impl.Schedulers.schedule(r13, r1, r9);
+
+     label18:
+        return;
+
+        catch java.lang.Throwable from label01 to label02 with label14;
+        catch java.lang.Throwable from label03 to label04 with label14;
+        catch java.lang.Throwable from label05 to label06 with label14;
+        catch java.lang.Throwable from label07 to label08 with label14;
+        catch java.lang.Throwable from label09 to label10 with label14;
+        catch java.lang.Throwable from label11 to label13 with label14;
+    }
+
+    public void run()
+    {
+        androidx.work.impl.model.WorkTagDao $r2;
+        java.util.List $r3;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mWorkTagDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        $r3 = interfaceinvoke $r2.getTagsForWorkSpecId($r1);
+
+        r0.mTags = $r3;
+
+        $r1 = specialinvoke r0.createWorkDescription($r3);
+
+        r0.mWorkDescription = $r1;
+
+        specialinvoke r0.runWorker();
+
+        return;
+    }
+
+    void setFailedAndResolve()
+    {
+        java.lang.Throwable r7;
+        androidx.work.ListenableWorker$Result r4;
+        androidx.work.ListenableWorker$Result$Failure r5;
+        androidx.work.impl.model.WorkSpecDao $r6;
+        androidx.work.impl.WorkDatabase $r3;
+        androidx.work.impl.WorkerWrapper r0;
+        java.lang.String $r1;
+        androidx.work.Data $r2;
+
+        r0 := @this;
+
+        $r3 = r0.mWorkDatabase;
+
+        virtualinvoke $r3.beginTransaction();
+
+     label1:
+        $r1 = r0.mWorkSpecId;
+
+        specialinvoke r0.iterativelyFailWorkAndDependents($r1);
+
+        r4 = r0.mResult;
+
+        r5 = (androidx.work.ListenableWorker$Result$Failure) r4;
+
+        $r2 = virtualinvoke r5.getOutputData();
+
+        $r6 = r0.mWorkSpecDao;
+
+        $r1 = r0.mWorkSpecId;
+
+        interfaceinvoke $r6.setOutput($r1, $r2);
+
+        $r3 = r0.mWorkDatabase;
+
+        virtualinvoke $r3.setTransactionSuccessful();
+
+     label2:
+        $r3 = r0.mWorkDatabase;
+
+        virtualinvoke $r3.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        return;
+
+     label3:
+        r7 := @caughtexception;
+
+        $r3 = r0.mWorkDatabase;
+
+        virtualinvoke $r3.endTransaction();
+
+        specialinvoke r0.resolve(0);
+
+        throw r7;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

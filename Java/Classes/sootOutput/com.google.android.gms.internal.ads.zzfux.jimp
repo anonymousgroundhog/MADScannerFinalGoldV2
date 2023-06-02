@@ -1,0 +1,87 @@
+final class com.google.android.gms.internal.ads.zzfux extends com.google.android.gms.internal.ads.zzfud implements java.util.concurrent.ScheduledFuture, com.google.android.gms.internal.ads.zzfut
+{
+    private final java.util.concurrent.ScheduledFuture zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfut, java.util.concurrent.ScheduledFuture)
+    {
+        com.google.android.gms.internal.ads.zzfux r0;
+        java.util.concurrent.ScheduledFuture $r2;
+        com.google.android.gms.internal.ads.zzfut $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.zza = $r2;
+
+        return;
+    }
+
+    public final boolean cancel(boolean)
+    {
+        java.util.concurrent.Future $r2;
+        java.util.concurrent.ScheduledFuture $r1;
+        com.google.android.gms.internal.ads.zzfux r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r2 = virtualinvoke r0.zzb();
+
+        $z1 = interfaceinvoke $r2.cancel($z0);
+
+        if $z1 == 0 goto label1;
+
+        $r1 = r0.zza;
+
+        interfaceinvoke $r1.cancel($z0);
+
+     label1:
+        return $z1;
+    }
+
+    public final volatile int compareTo(java.lang.Object)
+    {
+        java.util.concurrent.ScheduledFuture $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfux r0;
+        java.lang.Object $r2;
+        java.util.concurrent.Delayed $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (java.util.concurrent.Delayed) $r2;
+
+        $r1 = r0.zza;
+
+        $i0 = interfaceinvoke $r1.compareTo($r3);
+
+        return $i0;
+    }
+
+    public final long getDelay(java.util.concurrent.TimeUnit)
+    {
+        java.util.concurrent.TimeUnit $r1;
+        java.util.concurrent.ScheduledFuture $r2;
+        com.google.android.gms.internal.ads.zzfux r0;
+        long $l0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $l0 = interfaceinvoke $r2.getDelay($r1);
+
+        return $l0;
+    }
+}

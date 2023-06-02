@@ -1,0 +1,446 @@
+public abstract class com.google.android.gms.common.data.DataBufferRef extends java.lang.Object
+{
+    protected final com.google.android.gms.common.data.DataHolder mDataHolder;
+    protected int mDataRow;
+    private int zaa;
+
+    public void <init>(com.google.android.gms.common.data.DataHolder, int)
+    {
+        com.google.android.gms.common.data.DataHolder $r2;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r1 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        $r2 = (com.google.android.gms.common.data.DataHolder) $r1;
+
+        r0.mDataHolder = $r2;
+
+        virtualinvoke r0.zaa($i0);
+
+        return;
+    }
+
+    protected void copyToBuffer(java.lang.String, android.database.CharArrayBuffer)
+    {
+        android.database.CharArrayBuffer $r2;
+        com.google.android.gms.common.data.DataHolder $r3;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        virtualinvoke $r3.zac($r1, $i0, $i1, $r2);
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.common.data.DataBufferRef r0, $r2;
+        java.lang.Integer $r3, $r4;
+        com.google.android.gms.common.data.DataHolder $r5, $r6;
+        int $i0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof com.google.android.gms.common.data.DataBufferRef;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (com.google.android.gms.common.data.DataBufferRef) $r1;
+
+        $i0 = $r2.mDataRow;
+
+        $r3 = java.lang.Integer.valueOf($i0);
+
+        $i0 = r0.mDataRow;
+
+        $r4 = java.lang.Integer.valueOf($i0);
+
+        $z0 = com.google.android.gms.common.internal.Objects.equal($r3, $r4);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = $r2.zaa;
+
+        $r3 = java.lang.Integer.valueOf($i0);
+
+        $i0 = r0.zaa;
+
+        $r4 = java.lang.Integer.valueOf($i0);
+
+        $z0 = com.google.android.gms.common.internal.Objects.equal($r3, $r4);
+
+        if $z0 == 0 goto label1;
+
+        $r5 = $r2.mDataHolder;
+
+        $r6 = r0.mDataHolder;
+
+        if $r5 != $r6 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    protected boolean getBoolean(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $z0 = virtualinvoke $r1.getBoolean($r2, $i0, $i1);
+
+        return $z0;
+    }
+
+    protected byte[] getByteArray(java.lang.String)
+    {
+        byte[] $r2;
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $r2 = virtualinvoke $r1.getByteArray($r3, $i0, $i1);
+
+        return $r2;
+    }
+
+    protected int getDataRow()
+    {
+        int i0;
+        com.google.android.gms.common.data.DataBufferRef r0;
+
+        r0 := @this;
+
+        i0 = r0.mDataRow;
+
+        return i0;
+    }
+
+    protected double getDouble(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r2;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+        double $d0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $d0 = virtualinvoke $r2.zaa($r1, $i0, $i1);
+
+        return $d0;
+    }
+
+    protected float getFloat(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        float $f0;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $f0 = virtualinvoke $r1.zab($r2, $i0, $i1);
+
+        return $f0;
+    }
+
+    protected int getInteger(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $i0 = virtualinvoke $r1.getInteger($r2, $i0, $i1);
+
+        return $i0;
+    }
+
+    protected long getLong(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r2;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        long $l2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $l2 = virtualinvoke $r2.getLong($r1, $i0, $i1);
+
+        return $l2;
+    }
+
+    protected java.lang.String getString(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $r2 = virtualinvoke $r1.getString($r2, $i0, $i1);
+
+        return $r2;
+    }
+
+    public boolean hasColumn(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $z0 = virtualinvoke $r1.hasColumn($r2);
+
+        return $z0;
+    }
+
+    protected boolean hasNull(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $z0 = virtualinvoke $r1.hasNull($r2, $i0, $i1);
+
+        return $z0;
+    }
+
+    public int hashCode()
+    {
+        com.google.android.gms.common.data.DataHolder $r3;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        java.lang.Object[] $r1;
+        int $i0;
+        java.lang.Integer $r2;
+
+        r0 := @this;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $i0 = r0.mDataRow;
+
+        $r2 = java.lang.Integer.valueOf($i0);
+
+        $r1[0] = $r2;
+
+        $i0 = r0.zaa;
+
+        $r2 = java.lang.Integer.valueOf($i0);
+
+        $r1[1] = $r2;
+
+        $r3 = r0.mDataHolder;
+
+        $r1[2] = $r3;
+
+        $i0 = com.google.android.gms.common.internal.Objects.hashCode($r1);
+
+        return $i0;
+    }
+
+    public boolean isDataValid()
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDataHolder;
+
+        $z0 = virtualinvoke $r1.isClosed();
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    protected android.net.Uri parseUri(java.lang.String)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        android.net.Uri $r3;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = r0.mDataRow;
+
+        $i1 = r0.zaa;
+
+        $r2 = virtualinvoke $r1.getString($r2, $i0, $i1);
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = android.net.Uri.parse($r2);
+
+        return $r3;
+    }
+
+    protected final void zaa(int)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.data.DataBufferRef r0;
+        int $i0, $i1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 = 0;
+
+        if $i0 < 0 goto label1;
+
+        $r1 = r0.mDataHolder;
+
+        $i1 = virtualinvoke $r1.getCount();
+
+        if $i0 >= $i1 goto label1;
+
+        $z0 = 1;
+
+        goto label1;
+
+     label1:
+        com.google.android.gms.common.internal.Preconditions.checkState($z0);
+
+        r0.mDataRow = $i0;
+
+        $r1 = r0.mDataHolder;
+
+        $i0 = virtualinvoke $r1.getWindowIndex($i0);
+
+        r0.zaa = $i0;
+
+        return;
+    }
+}

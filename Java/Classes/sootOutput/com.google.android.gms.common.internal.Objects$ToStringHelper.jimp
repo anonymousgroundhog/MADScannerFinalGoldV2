@@ -1,0 +1,143 @@
+public final class com.google.android.gms.common.internal.Objects$ToStringHelper extends java.lang.Object
+{
+    private final java.util.List zza;
+    private final java.lang.Object zzb;
+
+    void <init>(java.lang.Object, com.google.android.gms.common.internal.zzah)
+    {
+        com.google.android.gms.common.internal.Objects$ToStringHelper r0;
+        com.google.android.gms.common.internal.zzah $r1;
+        java.lang.Object $r2;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        r0.zzb = $r2;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<init>();
+
+        r0.zza = $r3;
+
+        return;
+    }
+
+    public com.google.android.gms.common.internal.Objects$ToStringHelper add(java.lang.String, java.lang.Object)
+    {
+        com.google.android.gms.common.internal.Objects$ToStringHelper r0;
+        java.util.List $r1;
+        int $i0, $i1;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r4;
+        java.lang.String $r3, $r5, $r6;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r5 = java.lang.String.valueOf($r4);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        $i0 = virtualinvoke $r6.length();
+
+        $r2 = new java.lang.StringBuilder;
+
+        $i1 = virtualinvoke $r3.length();
+
+        $i1 = $i1 + 1;
+
+        $i0 = $i1 + $i0;
+
+        specialinvoke $r2.<init>($i0);
+
+        virtualinvoke $r2.append($r3);
+
+        virtualinvoke $r2.append("=");
+
+        virtualinvoke $r2.append($r5);
+
+        $r3 = virtualinvoke $r2.toString();
+
+        interfaceinvoke $r1.add($r3);
+
+        return r0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.common.internal.Objects$ToStringHelper r0;
+        java.util.List $r5;
+        int $i0, $i1, $i2;
+        java.lang.Object $r2;
+        java.lang.Class $r3;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r4;
+
+        r0 := @this;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<init>(100);
+
+        $r2 = r0.zzb;
+
+        $r3 = virtualinvoke $r2.getClass();
+
+        $r4 = virtualinvoke $r3.getSimpleName();
+
+        virtualinvoke $r6.append($r4);
+
+        virtualinvoke $r6.append(123);
+
+        $r5 = r0.zza;
+
+        $i0 = interfaceinvoke $r5.size();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label3;
+
+        $r5 = r0.zza;
+
+        $r2 = interfaceinvoke $r5.get($i1);
+
+        $r4 = (java.lang.String) $r2;
+
+        virtualinvoke $r6.append($r4);
+
+        $i2 = $i0 + -1;
+
+        if $i1 >= $i2 goto label2;
+
+        virtualinvoke $r6.append(", ");
+
+     label2:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        virtualinvoke $r6.append(125);
+
+        $r4 = virtualinvoke $r6.toString();
+
+        return $r4;
+    }
+}

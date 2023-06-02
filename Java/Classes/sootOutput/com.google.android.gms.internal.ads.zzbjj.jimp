@@ -1,0 +1,45 @@
+final class com.google.android.gms.internal.ads.zzbjj extends java.lang.Object implements com.google.android.gms.common.internal.BaseGmsClient$BaseOnConnectionFailedListener
+{
+    final com.google.android.gms.internal.ads.zzbzs zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzbjk, com.google.android.gms.internal.ads.zzbzs)
+    {
+        com.google.android.gms.internal.ads.zzbjj r0;
+        com.google.android.gms.internal.ads.zzbjk $r1;
+        com.google.android.gms.internal.ads.zzbzs $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.internal.ads.zzbjj r0;
+        com.google.android.gms.common.ConnectionResult $r2;
+        java.lang.RuntimeException $r1;
+        com.google.android.gms.internal.ads.zzbzs $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        $r1 = new java.lang.RuntimeException;
+
+        specialinvoke $r1.<init>("Connection failed.");
+
+        virtualinvoke $r3.zze($r1);
+
+        return;
+    }
+}

@@ -1,0 +1,750 @@
+public final class com.google.android.gms.internal.ads.zzgg extends com.google.android.gms.internal.ads.zzfa
+{
+    private final android.content.res.Resources zza;
+    private final java.lang.String zzb;
+    private android.net.Uri zzc;
+    private android.content.res.AssetFileDescriptor zzd;
+    private java.io.InputStream zze;
+    private long zzf;
+    private boolean zzg;
+
+    public void <init>(android.content.Context)
+    {
+        com.google.android.gms.internal.ads.zzgg r0;
+        android.content.Context $r1;
+        java.lang.String $r3;
+        android.content.res.Resources $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>(0);
+
+        $r2 = virtualinvoke $r1.getResources();
+
+        r0.zza = $r2;
+
+        $r3 = virtualinvoke $r1.getPackageName();
+
+        r0.zzb = $r3;
+
+        return;
+    }
+
+    public static android.net.Uri buildRawResourceUri(int)
+    {
+        int $i0;
+        android.net.Uri $r2;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r1;
+
+        $i0 := @parameter0;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<init>();
+
+        virtualinvoke $r0.append("rawresource:///");
+
+        virtualinvoke $r0.append($i0);
+
+        $r1 = virtualinvoke $r0.toString();
+
+        $r2 = android.net.Uri.parse($r1);
+
+        return $r2;
+    }
+
+    public final int zza(byte[], int, int) throws com.google.android.gms.internal.ads.zzgf
+    {
+        com.google.android.gms.internal.ads.zzgf $r5;
+        com.google.android.gms.internal.ads.zzgg r0;
+        byte[] $r1;
+        long $l2, $l5;
+        java.io.IOException $r3;
+        java.io.EOFException $r4;
+        byte $b1;
+        int $i0, $i3, $i4;
+        java.io.InputStream $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i3 := @parameter1;
+
+        $i4 := @parameter2;
+
+        if $i4 != 0 goto label01;
+
+        return 0;
+
+     label01:
+        $l5 = r0.zzf;
+
+        $b1 = $l5 cmp 0L;
+
+        if $b1 == 0 goto label11;
+
+        $b1 = $l5 cmp -1L;
+
+        if $b1 == 0 goto label04;
+
+        $l2 = (long) $i4;
+
+     label02:
+        $l2 = java.lang.Math.min($l5, $l2);
+
+     label03:
+        $i4 = (int) $l2;
+
+     label04:
+        $r2 = r0.zze;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+     label05:
+        $i3 = virtualinvoke $r2.read($r1, $i3, $i4);
+
+     label06:
+        if $i3 != -1 goto label08;
+
+        $l2 = r0.zzf;
+
+        $b1 = $l2 cmp -1L;
+
+        if $b1 != 0 goto label07;
+
+        return -1;
+
+     label07:
+        $r5 = new com.google.android.gms.internal.ads.zzgf;
+
+        $r4 = new java.io.EOFException;
+
+        specialinvoke $r4.<init>();
+
+        specialinvoke $r5.<init>("End of stream reached having not read sufficient data.", $r4, 2000);
+
+        throw $r5;
+
+     label08:
+        $l2 = r0.zzf;
+
+        $b1 = $l2 cmp -1L;
+
+        if $b1 == 0 goto label09;
+
+        $l5 = (long) $i3;
+
+        $l2 = $l2 - $l5;
+
+        r0.zzf = $l2;
+
+     label09:
+        virtualinvoke r0.zzg($i3);
+
+        return $i3;
+
+     label10:
+        $r3 := @caughtexception;
+
+        $r5 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r5.<init>(null, $r3, 2000);
+
+        throw $r5;
+
+     label11:
+        return -1;
+
+        catch java.io.IOException from label02 to label03 with label10;
+        catch java.io.IOException from label05 to label06 with label10;
+    }
+
+    public final long zzb(com.google.android.gms.internal.ads.zzfl) throws com.google.android.gms.internal.ads.zzgf
+    {
+        com.google.android.gms.internal.ads.zzgf $r8, $r18;
+        android.content.res.AssetFileDescriptor $r9;
+        com.google.android.gms.internal.ads.zzgg r0;
+        android.net.Uri $r2;
+        long $l2, $l4, $l5;
+        java.lang.NullPointerException $r17;
+        byte $b3;
+        int $i0, $i1;
+        java.lang.String $r3, $r5, $r6;
+        boolean $z0;
+        android.content.res.Resources$NotFoundException $r15;
+        java.io.IOException $r14;
+        java.lang.NumberFormatException $r16;
+        com.google.android.gms.internal.ads.zzfl $r1;
+        java.io.FileInputStream $r19;
+        com.google.android.gms.internal.ads.zzfh $r20;
+        java.util.List $r4;
+        java.io.FileDescriptor $r11;
+        java.nio.channels.FileChannel $r12;
+        android.content.res.Resources $r7;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = $r1.zza;
+
+        r0.zzc = $r2;
+
+        $r3 = virtualinvoke $r2.getScheme();
+
+        $z0 = android.text.TextUtils.equals("rawresource", $r3);
+
+        if $z0 != 0 goto label09;
+
+        $r3 = virtualinvoke $r2.getScheme();
+
+        $z0 = android.text.TextUtils.equals("android.resource", $r3);
+
+        if $z0 == 0 goto label02;
+
+        $r4 = virtualinvoke $r2.getPathSegments();
+
+        $i0 = interfaceinvoke $r4.size();
+
+        if $i0 != 1 goto label02;
+
+        $r3 = virtualinvoke $r2.getLastPathSegment();
+
+        if $r3 == null goto label01;
+
+        $z0 = virtualinvoke $r3.matches("\\d+");
+
+        if $z0 == 0 goto label02;
+
+        goto label09;
+
+     label01:
+        $r17 = new java.lang.NullPointerException;
+
+        specialinvoke $r17.<init>("Null throw statement replaced by Soot");
+
+        throw $r17;
+
+     label02:
+        $r3 = virtualinvoke $r2.getScheme();
+
+        $z0 = android.text.TextUtils.equals("android.resource", $r3);
+
+        if $z0 == 0 goto label08;
+
+        $r5 = virtualinvoke $r2.getPath();
+
+        $r3 = $r5;
+
+        if $r5 == null goto label07;
+
+        $z0 = virtualinvoke $r5.startsWith("/");
+
+        if $z0 == 0 goto label03;
+
+        $r3 = virtualinvoke $r5.substring(1);
+
+     label03:
+        $r5 = virtualinvoke $r2.getHost();
+
+        $z0 = android.text.TextUtils.isEmpty($r5);
+
+        if $z0 == 0 goto label04;
+
+        $r5 = "";
+
+        goto label05;
+
+     label04:
+        $r5 = java.lang.String.valueOf($r5);
+
+        $r5 = virtualinvoke $r5.concat(":");
+
+     label05:
+        $r6 = java.lang.String.valueOf($r3);
+
+        $r7 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        $r5 = virtualinvoke $r5.concat($r6);
+
+        $i0 = virtualinvoke $r7.getIdentifier($r5, "raw", $r3);
+
+        $i1 = $i0;
+
+        if $i0 == 0 goto label06;
+
+        goto label13;
+
+     label06:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r18.<init>("Resource not found.", null, 2005);
+
+        throw $r18;
+
+     label07:
+        $r17 = new java.lang.NullPointerException;
+
+        specialinvoke $r17.<init>("Null throw statement replaced by Soot");
+
+        throw $r17;
+
+     label08:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r18.<init>("URI must either use scheme rawresource or android.resource", null, 1004);
+
+        throw $r18;
+
+     label09:
+        $r3 = virtualinvoke $r2.getLastPathSegment();
+
+     label10:
+        if $r3 == null goto label45;
+
+     label11:
+        $i0 = java.lang.Integer.parseInt($r3);
+
+     label12:
+        $i1 = $i0;
+
+     label13:
+        virtualinvoke r0.zzi($r1);
+
+        $r7 = r0.zza;
+
+     label14:
+        $r9 = virtualinvoke $r7.openRawResourceFd($i1);
+
+     label15:
+        r0.zzd = $r9;
+
+        if $r9 == null goto label43;
+
+        $l2 = virtualinvoke $r9.getLength();
+
+        $r19 = new java.io.FileInputStream;
+
+        $r11 = virtualinvoke $r9.getFileDescriptor();
+
+        specialinvoke $r19.<init>($r11);
+
+        r0.zze = $r19;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 == 0 goto label19;
+
+        $l4 = $r1.zzf;
+
+        $b3 = $l4 cmp $l2;
+
+        $i0 = (int) $b3;
+
+        if $i0 > 0 goto label16;
+
+        goto label19;
+
+     label16:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+     label17:
+        specialinvoke $r18.<init>(null, null, 2008);
+
+     label18:
+        throw $r18;
+
+     label19:
+        $l4 = virtualinvoke $r9.getStartOffset();
+
+     label20:
+        $l5 = $r1.zzf;
+
+        $l5 = $l5 + $l4;
+
+     label21:
+        $l5 = virtualinvoke $r19.skip($l5);
+
+     label22:
+        $l4 = $l5 - $l4;
+
+        $l5 = $r1.zzf;
+
+        $b3 = $l4 cmp $l5;
+
+        if $b3 != 0 goto label38;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 != 0 goto label30;
+
+     label23:
+        $r12 = virtualinvoke $r19.getChannel();
+
+        $l2 = virtualinvoke $r12.size();
+
+     label24:
+        $b3 = $l2 cmp 0L;
+
+        if $b3 != 0 goto label25;
+
+        r0.zzf = -1L;
+
+        $l2 = -1L;
+
+        goto label31;
+
+     label25:
+        $l2 = virtualinvoke $r12.size();
+
+        $l4 = virtualinvoke $r12.position();
+
+     label26:
+        $l2 = $l2 - $l4;
+
+        r0.zzf = $l2;
+
+        $b3 = $l2 cmp 0L;
+
+        $i0 = (int) $b3;
+
+        if $i0 < 0 goto label27;
+
+        goto label31;
+
+     label27:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+     label28:
+        specialinvoke $r18.<init>(null, null, 2008);
+
+     label29:
+        throw $r18;
+
+     label30:
+        $l2 = $l2 - $l4;
+
+        r0.zzf = $l2;
+
+        $b3 = $l2 cmp 0L;
+
+        $i0 = (int) $b3;
+
+        if $i0 < 0 goto label36;
+
+     label31:
+        $l4 = $r1.zzg;
+
+        $b3 = $l4 cmp -1L;
+
+        if $b3 == 0 goto label34;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 != 0 goto label32;
+
+        goto label33;
+
+     label32:
+        $l4 = java.lang.Math.min($l2, $l4);
+
+     label33:
+        r0.zzf = $l4;
+
+     label34:
+        r0.zzg = 1;
+
+        virtualinvoke r0.zzj($r1);
+
+        $l2 = $r1.zzg;
+
+        $b3 = $l2 cmp -1L;
+
+        if $b3 == 0 goto label35;
+
+        return $l2;
+
+     label35:
+        $l2 = r0.zzf;
+
+        return $l2;
+
+     label36:
+        $r20 = new com.google.android.gms.internal.ads.zzfh;
+
+     label37:
+        specialinvoke $r20.<init>(2008);
+
+        throw $r20;
+
+     label38:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+     label39:
+        specialinvoke $r18.<init>(null, null, 2008);
+
+     label40:
+        throw $r18;
+
+     label41:
+        $r14 := @caughtexception;
+
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r18.<init>(null, $r14, 2000);
+
+        throw $r18;
+
+     label42:
+        $r8 := @caughtexception;
+
+        throw $r8;
+
+     label43:
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        $r3 = java.lang.String.valueOf($r2);
+
+        $r3 = java.lang.String.valueOf($r3);
+
+        $r5 = "Resource is compressed: ";
+
+        $r3 = virtualinvoke $r5.concat($r3);
+
+        specialinvoke $r18.<init>($r3, null, 2000);
+
+        throw $r18;
+
+     label44:
+        $r15 := @caughtexception;
+
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r18.<init>(null, $r15, 2005);
+
+        throw $r18;
+
+     label45:
+        $r17 = new java.lang.NullPointerException;
+
+     label46:
+        specialinvoke $r17.<init>("Null throw statement replaced by Soot");
+
+     label47:
+        throw $r17;
+
+     label48:
+        $r16 := @caughtexception;
+
+        $r18 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r18.<init>("Resource identifier must be an integer.", null, 1004);
+
+        throw $r18;
+
+        catch java.lang.NumberFormatException from label09 to label10 with label48;
+        catch java.lang.NumberFormatException from label11 to label12 with label48;
+        catch android.content.res.Resources$NotFoundException from label14 to label15 with label44;
+        catch com.google.android.gms.internal.ads.zzgf from label17 to label20 with label42;
+        catch com.google.android.gms.internal.ads.zzgf from label21 to label22 with label42;
+        catch com.google.android.gms.internal.ads.zzgf from label23 to label24 with label42;
+        catch com.google.android.gms.internal.ads.zzgf from label25 to label26 with label42;
+        catch com.google.android.gms.internal.ads.zzgf from label28 to label30 with label42;
+        catch java.io.IOException from label17 to label18 with label41;
+        catch java.io.IOException from label19 to label20 with label41;
+        catch java.io.IOException from label21 to label22 with label41;
+        catch java.io.IOException from label23 to label24 with label41;
+        catch java.io.IOException from label25 to label26 with label41;
+        catch java.io.IOException from label28 to label29 with label41;
+        catch com.google.android.gms.internal.ads.zzgf from label37 to label38 with label42;
+        catch com.google.android.gms.internal.ads.zzgf from label39 to label41 with label42;
+        catch java.io.IOException from label37 to label38 with label41;
+        catch java.io.IOException from label39 to label40 with label41;
+        catch java.lang.NumberFormatException from label46 to label47 with label48;
+    }
+
+    public final android.net.Uri zzc()
+    {
+        android.net.Uri r1;
+        com.google.android.gms.internal.ads.zzgg r0;
+
+        r0 := @this;
+
+        r1 = r0.zzc;
+
+        return r1;
+    }
+
+    public final void zzd() throws com.google.android.gms.internal.ads.zzgf
+    {
+        android.content.res.AssetFileDescriptor $r2;
+        java.lang.Throwable $r3, $r6, $r8;
+        com.google.android.gms.internal.ads.zzgf $r5;
+        com.google.android.gms.internal.ads.zzgg r0;
+        java.io.IOException $r4, $r7, $r9;
+        java.io.InputStream $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        r0.zzc = null;
+
+     label01:
+        $r1 = r0.zze;
+
+     label02:
+        if $r1 == null goto label04;
+
+     label03:
+        virtualinvoke $r1.close();
+
+     label04:
+        r0.zze = null;
+
+     label05:
+        $r2 = r0.zzd;
+
+     label06:
+        if $r2 == null goto label08;
+
+     label07:
+        virtualinvoke $r2.close();
+
+     label08:
+        r0.zzd = null;
+
+        $z0 = r0.zzg;
+
+        if $z0 == 0 goto label29;
+
+        r0.zzg = 0;
+
+        virtualinvoke r0.zzh();
+
+        return;
+
+     label09:
+        $r3 := @caughtexception;
+
+        goto label12;
+
+     label10:
+        $r4 := @caughtexception;
+
+     label11:
+        $r5 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r5.<init>(null, $r4, 2000);
+
+        throw $r5;
+
+     label12:
+        r0.zzd = null;
+
+        $z0 = r0.zzg;
+
+        if $z0 == 0 goto label13;
+
+        r0.zzg = 0;
+
+        virtualinvoke r0.zzh();
+
+     label13:
+        throw $r3;
+
+     label14:
+        $r6 := @caughtexception;
+
+        goto label17;
+
+     label15:
+        $r7 := @caughtexception;
+
+     label16:
+        $r5 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r5.<init>(null, $r7, 2000);
+
+        throw $r5;
+
+     label17:
+        r0.zze = null;
+
+     label18:
+        $r2 = r0.zzd;
+
+     label19:
+        if $r2 == null goto label21;
+
+     label20:
+        virtualinvoke $r2.close();
+
+     label21:
+        r0.zzd = null;
+
+        $z0 = r0.zzg;
+
+        if $z0 == 0 goto label22;
+
+        r0.zzg = 0;
+
+        virtualinvoke r0.zzh();
+
+     label22:
+        throw $r6;
+
+     label23:
+        $r8 := @caughtexception;
+
+        goto label26;
+
+     label24:
+        $r9 := @caughtexception;
+
+     label25:
+        $r5 = new com.google.android.gms.internal.ads.zzgf;
+
+        specialinvoke $r5.<init>(null, $r9, 2000);
+
+        throw $r5;
+
+     label26:
+        r0.zzd = null;
+
+        $z0 = r0.zzg;
+
+        if $z0 != 0 goto label27;
+
+        goto label28;
+
+     label27:
+        r0.zzg = 0;
+
+        virtualinvoke r0.zzh();
+
+     label28:
+        throw $r8;
+
+     label29:
+        return;
+
+        catch java.io.IOException from label03 to label04 with label15;
+        catch java.lang.Throwable from label01 to label02 with label14;
+        catch java.lang.Throwable from label03 to label04 with label14;
+        catch java.io.IOException from label07 to label08 with label10;
+        catch java.lang.Throwable from label05 to label06 with label09;
+        catch java.lang.Throwable from label07 to label08 with label09;
+        catch java.lang.Throwable from label11 to label12 with label09;
+        catch java.lang.Throwable from label16 to label17 with label14;
+        catch java.io.IOException from label20 to label21 with label24;
+        catch java.lang.Throwable from label18 to label19 with label23;
+        catch java.lang.Throwable from label20 to label21 with label23;
+        catch java.lang.Throwable from label25 to label26 with label23;
+    }
+}

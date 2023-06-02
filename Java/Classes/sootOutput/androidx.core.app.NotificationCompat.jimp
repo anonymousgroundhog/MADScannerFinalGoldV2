@@ -1,0 +1,1153 @@
+public class androidx.core.app.NotificationCompat extends java.lang.Object
+{
+    public static final int BADGE_ICON_LARGE;
+    public static final int BADGE_ICON_NONE;
+    public static final int BADGE_ICON_SMALL;
+    public static final java.lang.String CATEGORY_ALARM;
+    public static final java.lang.String CATEGORY_CALL;
+    public static final java.lang.String CATEGORY_EMAIL;
+    public static final java.lang.String CATEGORY_ERROR;
+    public static final java.lang.String CATEGORY_EVENT;
+    public static final java.lang.String CATEGORY_LOCATION_SHARING;
+    public static final java.lang.String CATEGORY_MESSAGE;
+    public static final java.lang.String CATEGORY_MISSED_CALL;
+    public static final java.lang.String CATEGORY_NAVIGATION;
+    public static final java.lang.String CATEGORY_PROGRESS;
+    public static final java.lang.String CATEGORY_PROMO;
+    public static final java.lang.String CATEGORY_RECOMMENDATION;
+    public static final java.lang.String CATEGORY_REMINDER;
+    public static final java.lang.String CATEGORY_SERVICE;
+    public static final java.lang.String CATEGORY_SOCIAL;
+    public static final java.lang.String CATEGORY_STATUS;
+    public static final java.lang.String CATEGORY_STOPWATCH;
+    public static final java.lang.String CATEGORY_SYSTEM;
+    public static final java.lang.String CATEGORY_TRANSPORT;
+    public static final java.lang.String CATEGORY_WORKOUT;
+    public static final int COLOR_DEFAULT;
+    public static final int DEFAULT_ALL;
+    public static final int DEFAULT_LIGHTS;
+    public static final int DEFAULT_SOUND;
+    public static final int DEFAULT_VIBRATE;
+    public static final java.lang.String EXTRA_AUDIO_CONTENTS_URI;
+    public static final java.lang.String EXTRA_BACKGROUND_IMAGE_URI;
+    public static final java.lang.String EXTRA_BIG_TEXT;
+    public static final java.lang.String EXTRA_CHANNEL_GROUP_ID;
+    public static final java.lang.String EXTRA_CHANNEL_ID;
+    public static final java.lang.String EXTRA_CHRONOMETER_COUNT_DOWN;
+    public static final java.lang.String EXTRA_COLORIZED;
+    public static final java.lang.String EXTRA_COMPACT_ACTIONS;
+    public static final java.lang.String EXTRA_COMPAT_TEMPLATE;
+    public static final java.lang.String EXTRA_CONVERSATION_TITLE;
+    public static final java.lang.String EXTRA_HIDDEN_CONVERSATION_TITLE;
+    public static final java.lang.String EXTRA_HISTORIC_MESSAGES;
+    public static final java.lang.String EXTRA_INFO_TEXT;
+    public static final java.lang.String EXTRA_IS_GROUP_CONVERSATION;
+    public static final java.lang.String EXTRA_LARGE_ICON;
+    public static final java.lang.String EXTRA_LARGE_ICON_BIG;
+    public static final java.lang.String EXTRA_MEDIA_SESSION;
+    public static final java.lang.String EXTRA_MESSAGES;
+    public static final java.lang.String EXTRA_MESSAGING_STYLE_USER;
+    public static final java.lang.String EXTRA_NOTIFICATION_ID;
+    public static final java.lang.String EXTRA_NOTIFICATION_TAG;
+    public static final java.lang.String EXTRA_PEOPLE;
+    public static final java.lang.String EXTRA_PEOPLE_LIST;
+    public static final java.lang.String EXTRA_PICTURE;
+    public static final java.lang.String EXTRA_PROGRESS;
+    public static final java.lang.String EXTRA_PROGRESS_INDETERMINATE;
+    public static final java.lang.String EXTRA_PROGRESS_MAX;
+    public static final java.lang.String EXTRA_REMOTE_INPUT_HISTORY;
+    public static final java.lang.String EXTRA_SELF_DISPLAY_NAME;
+    public static final java.lang.String EXTRA_SHOW_CHRONOMETER;
+    public static final java.lang.String EXTRA_SHOW_WHEN;
+    public static final java.lang.String EXTRA_SMALL_ICON;
+    public static final java.lang.String EXTRA_SUB_TEXT;
+    public static final java.lang.String EXTRA_SUMMARY_TEXT;
+    public static final java.lang.String EXTRA_TEMPLATE;
+    public static final java.lang.String EXTRA_TEXT;
+    public static final java.lang.String EXTRA_TEXT_LINES;
+    public static final java.lang.String EXTRA_TITLE;
+    public static final java.lang.String EXTRA_TITLE_BIG;
+    public static final int FLAG_AUTO_CANCEL;
+    public static final int FLAG_BUBBLE;
+    public static final int FLAG_FOREGROUND_SERVICE;
+    public static final int FLAG_GROUP_SUMMARY;
+    public static final int FLAG_HIGH_PRIORITY;
+    public static final int FLAG_INSISTENT;
+    public static final int FLAG_LOCAL_ONLY;
+    public static final int FLAG_NO_CLEAR;
+    public static final int FLAG_ONGOING_EVENT;
+    public static final int FLAG_ONLY_ALERT_ONCE;
+    public static final int FLAG_SHOW_LIGHTS;
+    public static final int GROUP_ALERT_ALL;
+    public static final int GROUP_ALERT_CHILDREN;
+    public static final int GROUP_ALERT_SUMMARY;
+    public static final java.lang.String GROUP_KEY_SILENT;
+    public static final java.lang.String INTENT_CATEGORY_NOTIFICATION_PREFERENCES;
+    public static final int PRIORITY_DEFAULT;
+    public static final int PRIORITY_HIGH;
+    public static final int PRIORITY_LOW;
+    public static final int PRIORITY_MAX;
+    public static final int PRIORITY_MIN;
+    public static final int STREAM_DEFAULT;
+    public static final int VISIBILITY_PRIVATE;
+    public static final int VISIBILITY_PUBLIC;
+    public static final int VISIBILITY_SECRET;
+
+    public void <init>()
+    {
+        androidx.core.app.NotificationCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static androidx.core.app.NotificationCompat$Action getAction(android.app.Notification, int)
+    {
+        android.os.Bundle r6, r7;
+        java.lang.CharSequence $r1;
+        android.app.Notification$Action r4;
+        android.app.PendingIntent $r2;
+        androidx.core.app.NotificationCompat$Action $r5;
+        android.util.SparseArray $r8;
+        android.app.Notification$Action[] r3;
+        int $i0, i1;
+        android.app.Notification $r0;
+        java.lang.Object $r9;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 20 goto label1;
+
+        r3 = $r0.actions;
+
+        r4 = r3[$i0];
+
+        $r5 = androidx.core.app.NotificationCompat.getActionCompatFromAction(r4);
+
+        return $r5;
+
+     label1:
+        r3 = $r0.actions;
+
+        r4 = r3[$i0];
+
+        r6 = null;
+
+        r7 = $r0.extras;
+
+        $r8 = virtualinvoke r7.getSparseParcelableArray("android.support.actionExtras");
+
+        if $r8 == null goto label2;
+
+        $r9 = virtualinvoke $r8.get($i0);
+
+        r6 = (android.os.Bundle) $r9;
+
+     label2:
+        $i0 = r4.icon;
+
+        $r1 = r4.title;
+
+        $r2 = r4.actionIntent;
+
+        $r5 = androidx.core.app.NotificationCompatJellybean.readAction($i0, $r1, $r2, r6);
+
+        return $r5;
+    }
+
+    static androidx.core.app.NotificationCompat$Action getActionCompatFromAction(android.app.Notification$Action)
+    {
+        androidx.core.app.RemoteInput[] r2;
+        android.os.Bundle $r8;
+        android.app.PendingIntent $r11;
+        androidx.core.app.NotificationCompat$Action $r10;
+        android.app.RemoteInput r3;
+        java.lang.CharSequence[] $r7;
+        androidx.core.app.RemoteInput $r4;
+        int i0, i1;
+        java.lang.String $r5;
+        android.graphics.drawable.Icon $r9;
+        boolean $z0, $z1, $z2;
+        java.lang.CharSequence $r6;
+        android.app.Notification$Action $r0;
+        android.app.RemoteInput[] $r1;
+        androidx.core.graphics.drawable.IconCompat $r12;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getRemoteInputs();
+
+        if $r1 != null goto label01;
+
+        r2 = null;
+
+        goto label05;
+
+     label01:
+        i0 = lengthof $r1;
+
+        r2 = newarray (androidx.core.app.RemoteInput)[i0];
+
+        i0 = 0;
+
+     label02:
+        i1 = lengthof $r1;
+
+        if i0 >= i1 goto label05;
+
+        r3 = $r1[i0];
+
+        $r4 = new androidx.core.app.RemoteInput;
+
+        $r5 = virtualinvoke r3.getResultKey();
+
+        $r6 = virtualinvoke r3.getLabel();
+
+        $r7 = virtualinvoke r3.getChoices();
+
+        $z0 = virtualinvoke r3.getAllowFreeFormInput();
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 29 goto label03;
+
+        i1 = virtualinvoke r3.getEditChoicesBeforeSending();
+
+        goto label04;
+
+     label03:
+        i1 = 0;
+
+     label04:
+        $r8 = virtualinvoke r3.getExtras();
+
+        specialinvoke $r4.<init>($r5, $r6, $r7, $z0, i1, $r8, null);
+
+        r2[i0] = $r4;
+
+        i0 = i0 + 1;
+
+        goto label02;
+
+     label05:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 24 goto label09;
+
+        $r8 = virtualinvoke $r0.getExtras();
+
+        $z0 = virtualinvoke $r8.getBoolean("android.support.allowGeneratedReplies");
+
+        if $z0 != 0 goto label07;
+
+        $z0 = virtualinvoke $r0.getAllowGeneratedReplies();
+
+        if $z0 == 0 goto label06;
+
+        goto label07;
+
+     label06:
+        $z0 = 0;
+
+        goto label08;
+
+     label07:
+        $z0 = 1;
+
+     label08:
+        goto label10;
+
+     label09:
+        $r8 = virtualinvoke $r0.getExtras();
+
+        $z0 = virtualinvoke $r8.getBoolean("android.support.allowGeneratedReplies");
+
+     label10:
+        $r8 = virtualinvoke $r0.getExtras();
+
+        $z1 = virtualinvoke $r8.getBoolean("android.support.action.showsUserInterface", 1);
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 28 goto label11;
+
+        i0 = virtualinvoke $r0.getSemanticAction();
+
+        goto label12;
+
+     label11:
+        $r8 = virtualinvoke $r0.getExtras();
+
+        i0 = virtualinvoke $r8.getInt("android.support.action.semanticAction", 0);
+
+     label12:
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 29 goto label13;
+
+        $z2 = virtualinvoke $r0.isContextual();
+
+        goto label14;
+
+     label13:
+        $z2 = 0;
+
+     label14:
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 23 goto label18;
+
+        $r9 = virtualinvoke $r0.getIcon();
+
+        if $r9 != null goto label15;
+
+        i1 = $r0.icon;
+
+        if i1 == 0 goto label15;
+
+        $r10 = new androidx.core.app.NotificationCompat$Action;
+
+        i1 = $r0.icon;
+
+        $r6 = $r0.title;
+
+        $r11 = $r0.actionIntent;
+
+        $r8 = virtualinvoke $r0.getExtras();
+
+        specialinvoke $r10.<init>(i1, $r6, $r11, $r8, r2, null, $z0, i0, $z1, $z2);
+
+        return $r10;
+
+     label15:
+        $r9 = virtualinvoke $r0.getIcon();
+
+        if $r9 != null goto label16;
+
+        $r12 = null;
+
+        goto label17;
+
+     label16:
+        $r9 = virtualinvoke $r0.getIcon();
+
+        $r12 = androidx.core.graphics.drawable.IconCompat.createFromIconOrNullIfZeroResId($r9);
+
+     label17:
+        $r10 = new androidx.core.app.NotificationCompat$Action;
+
+        $r6 = $r0.title;
+
+        $r11 = $r0.actionIntent;
+
+        $r8 = virtualinvoke $r0.getExtras();
+
+        specialinvoke $r10.<init>($r12, $r6, $r11, $r8, r2, null, $z0, i0, $z1, $z2);
+
+        return $r10;
+
+     label18:
+        $r10 = new androidx.core.app.NotificationCompat$Action;
+
+        i1 = $r0.icon;
+
+        $r6 = $r0.title;
+
+        $r11 = $r0.actionIntent;
+
+        $r8 = virtualinvoke $r0.getExtras();
+
+        specialinvoke $r10.<init>(i1, $r6, $r11, $r8, r2, null, $z0, i0, $z1, $z2);
+
+        return $r10;
+    }
+
+    public static int getActionCount(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        android.app.Notification$Action[] $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = $r0.actions;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.actions;
+
+        $i0 = lengthof $r1;
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean getAllowSystemGeneratedContextualActions(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 29 goto label1;
+
+        $z0 = virtualinvoke $r0.getAllowSystemGeneratedContextualActions();
+
+        return $z0;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean getAutoCancel(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 16;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static int getBadgeIconType(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 26 goto label1;
+
+        $i0 = virtualinvoke $r0.getBadgeIconType();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public static androidx.core.app.NotificationCompat$BubbleMetadata getBubbleMetadata(android.app.Notification)
+    {
+        android.app.Notification$BubbleMetadata $r1;
+        androidx.core.app.NotificationCompat$BubbleMetadata $r2;
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 29 goto label1;
+
+        $r1 = virtualinvoke $r0.getBubbleMetadata();
+
+        $r2 = androidx.core.app.NotificationCompat$BubbleMetadata.fromPlatform($r1);
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public static java.lang.String getCategory(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        r1 = $r0.category;
+
+        return r1;
+
+     label1:
+        return null;
+    }
+
+    public static java.lang.String getChannelId(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 26 goto label1;
+
+        $r1 = virtualinvoke $r0.getChannelId();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public static int getColor(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $i0 = $r0.color;
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public static java.lang.CharSequence getContentInfo(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r2;
+        java.lang.CharSequence $r1;
+
+        $r0 := @parameter0;
+
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getCharSequence("android.infoText");
+
+        return $r1;
+    }
+
+    public static java.lang.CharSequence getContentText(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r2;
+        java.lang.CharSequence $r1;
+
+        $r0 := @parameter0;
+
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getCharSequence("android.text");
+
+        return $r1;
+    }
+
+    public static java.lang.CharSequence getContentTitle(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r2;
+        java.lang.CharSequence $r1;
+
+        $r0 := @parameter0;
+
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getCharSequence("android.title");
+
+        return $r1;
+    }
+
+    public static android.os.Bundle getExtras(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.extras;
+
+        return r1;
+    }
+
+    public static java.lang.String getGroup(android.app.Notification)
+    {
+        android.os.Bundle $r2;
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 20 goto label1;
+
+        $r1 = virtualinvoke $r0.getGroup();
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getString("android.support.groupKey");
+
+        return $r1;
+    }
+
+    public static int getGroupAlertBehavior(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 26 goto label1;
+
+        $i0 = virtualinvoke $r0.getGroupAlertBehavior();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    static boolean getHighPriority(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 128;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static java.util.List getInvisibleActions(android.app.Notification)
+    {
+        android.os.Bundle r2, $r4;
+        androidx.core.app.NotificationCompat$Action $r5;
+        java.util.ArrayList r1;
+        int i0, $i1;
+        android.app.Notification $r0;
+        java.lang.String $r3;
+
+        $r0 := @parameter0;
+
+        r1 = new java.util.ArrayList;
+
+        specialinvoke r1.<init>();
+
+        r2 = $r0.extras;
+
+        r2 = virtualinvoke r2.getBundle("android.car.EXTENSIONS");
+
+        if r2 != null goto label1;
+
+        return r1;
+
+     label1:
+        r2 = virtualinvoke r2.getBundle("invisible_actions");
+
+        if r2 == null goto label3;
+
+        i0 = 0;
+
+     label2:
+        $i1 = virtualinvoke r2.size();
+
+        if i0 >= $i1 goto label3;
+
+        $r3 = java.lang.Integer.toString(i0);
+
+        $r4 = virtualinvoke r2.getBundle($r3);
+
+        $r5 = androidx.core.app.NotificationCompatJellybean.getActionFromBundle($r4);
+
+        virtualinvoke r1.add($r5);
+
+        i0 = i0 + 1;
+
+        goto label2;
+
+     label3:
+        return r1;
+    }
+
+    public static boolean getLocalOnly(android.app.Notification)
+    {
+        android.os.Bundle $r1;
+        int $i0;
+        android.app.Notification $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 20 goto label2;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 256;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        $r1 = $r0.extras;
+
+        $z0 = virtualinvoke $r1.getBoolean("android.support.localOnly");
+
+        return $z0;
+    }
+
+    public static androidx.core.content.LocusIdCompat getLocusId(android.app.Notification)
+    {
+        int i0;
+        android.app.Notification $r0;
+        android.content.LocusId $r1;
+        androidx.core.content.LocusIdCompat $r2;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 29 goto label2;
+
+        $r1 = virtualinvoke $r0.getLocusId();
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = androidx.core.content.LocusIdCompat.toLocusIdCompat($r1);
+
+        return $r2;
+
+     label2:
+        return null;
+    }
+
+    static android.app.Notification[] getNotificationArrayFromBundle(android.os.Bundle, java.lang.String)
+    {
+        android.os.Bundle $r0;
+        android.os.Parcelable $r4;
+        android.app.Notification[] r3;
+        android.os.Parcelable[] $r2;
+        int i0, $i1;
+        android.app.Notification $r5;
+        java.lang.String $r1;
+        boolean z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = virtualinvoke $r0.getParcelableArray($r1);
+
+        z0 = $r2 instanceof android.app.Notification[];
+
+        if z0 != 0 goto label4;
+
+        if $r2 != null goto label1;
+
+        goto label4;
+
+     label1:
+        i0 = lengthof $r2;
+
+        r3 = newarray (android.app.Notification)[i0];
+
+        i0 = 0;
+
+     label2:
+        $i1 = lengthof $r2;
+
+        if i0 >= $i1 goto label3;
+
+        $r4 = $r2[i0];
+
+        $r5 = (android.app.Notification) $r4;
+
+        r3[i0] = $r5;
+
+        i0 = i0 + 1;
+
+        goto label2;
+
+     label3:
+        virtualinvoke $r0.putParcelableArray($r1, r3);
+
+        return r3;
+
+     label4:
+        r3 = (android.app.Notification[]) $r2;
+
+        return r3;
+    }
+
+    public static boolean getOngoing(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 2;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean getOnlyAlertOnce(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 8;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static java.util.List getPeople(android.app.Notification)
+    {
+        android.os.Bundle r2;
+        java.util.Iterator $r4;
+        android.app.Person r6;
+        java.lang.String[] $r8;
+        java.util.ArrayList r1, $r3;
+        androidx.core.app.Person $r7;
+        int i0, i1;
+        androidx.core.app.Person$Builder $r10;
+        android.app.Notification $r0;
+        java.lang.Object $r5;
+        java.lang.String r9;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        r1 = new java.util.ArrayList;
+
+        specialinvoke r1.<init>();
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 28 goto label3;
+
+        r2 = $r0.extras;
+
+        $r3 = virtualinvoke r2.getParcelableArrayList("android.people.list");
+
+        if $r3 == null goto label2;
+
+        $z0 = virtualinvoke $r3.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        $r4 = virtualinvoke $r3.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r4.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = interfaceinvoke $r4.next();
+
+        r6 = (android.app.Person) $r5;
+
+        $r7 = androidx.core.app.Person.fromAndroidPerson(r6);
+
+        virtualinvoke r1.add($r7);
+
+        goto label1;
+
+     label2:
+        return r1;
+
+     label3:
+        r2 = $r0.extras;
+
+        $r8 = virtualinvoke r2.getStringArray("android.people");
+
+        if $r8 == null goto label5;
+
+        i0 = lengthof $r8;
+
+        if i0 == 0 goto label5;
+
+        i0 = lengthof $r8;
+
+        i1 = 0;
+
+     label4:
+        if i1 >= i0 goto label5;
+
+        r9 = $r8[i1];
+
+        $r10 = new androidx.core.app.Person$Builder;
+
+        specialinvoke $r10.<init>();
+
+        $r10 = virtualinvoke $r10.setUri(r9);
+
+        $r7 = virtualinvoke $r10.build();
+
+        virtualinvoke r1.add($r7);
+
+        i1 = i1 + 1;
+
+        goto label4;
+
+     label5:
+        return r1;
+    }
+
+    public static android.app.Notification getPublicVersion(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $r0 = $r0.publicVersion;
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    public static java.lang.CharSequence getSettingsText(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.CharSequence $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 26 goto label1;
+
+        $r1 = virtualinvoke $r0.getSettingsText();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public static java.lang.String getShortcutId(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 26 goto label1;
+
+        $r1 = virtualinvoke $r0.getShortcutId();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public static boolean getShowWhen(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = $r0.extras;
+
+        $z0 = virtualinvoke $r1.getBoolean("android.showWhen");
+
+        return $z0;
+    }
+
+    public static java.lang.String getSortKey(android.app.Notification)
+    {
+        android.os.Bundle $r2;
+        int $i0;
+        android.app.Notification $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 20 goto label1;
+
+        $r1 = virtualinvoke $r0.getSortKey();
+
+        return $r1;
+
+     label1:
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getString("android.support.sortKey");
+
+        return $r1;
+    }
+
+    public static java.lang.CharSequence getSubText(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r2;
+        java.lang.CharSequence $r1;
+
+        $r0 := @parameter0;
+
+        $r2 = $r0.extras;
+
+        $r1 = virtualinvoke $r2.getCharSequence("android.subText");
+
+        return $r1;
+    }
+
+    public static long getTimeoutAfter(android.app.Notification)
+    {
+        int $i1;
+        android.app.Notification $r0;
+        long $l0;
+
+        $r0 := @parameter0;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 26 goto label1;
+
+        $l0 = virtualinvoke $r0.getTimeoutAfter();
+
+        return $l0;
+
+     label1:
+        return 0L;
+    }
+
+    public static boolean getUsesChronometer(android.app.Notification)
+    {
+        android.app.Notification $r0;
+        android.os.Bundle $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = $r0.extras;
+
+        $z0 = virtualinvoke $r1.getBoolean("android.showChronometer");
+
+        return $z0;
+    }
+
+    public static int getVisibility(android.app.Notification)
+    {
+        int $i0;
+        android.app.Notification $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $i0 = $r0.visibility;
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean isGroupSummary(android.app.Notification)
+    {
+        android.os.Bundle $r1;
+        int $i0;
+        android.app.Notification $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 20 goto label2;
+
+        $i0 = $r0.flags;
+
+        $i0 = $i0 & 512;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        $r1 = $r0.extras;
+
+        $z0 = virtualinvoke $r1.getBoolean("android.support.isGroupSummary");
+
+        return $z0;
+    }
+}

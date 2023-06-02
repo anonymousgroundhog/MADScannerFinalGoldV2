@@ -1,0 +1,499 @@
+public final class com.google.android.gms.common.internal.Preconditions extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        java.lang.AssertionError $r1;
+        com.google.android.gms.common.internal.Preconditions r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.lang.AssertionError;
+
+        specialinvoke $r1.<init>("Uninstantiable");
+
+        throw $r1;
+    }
+
+    public static void checkArgument(boolean)
+    {
+        java.lang.IllegalArgumentException $r0;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<init>();
+
+        throw $r0;
+    }
+
+    public static void checkArgument(boolean, java.lang.Object)
+    {
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        java.lang.IllegalArgumentException $r2;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r0 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    public static transient void checkArgument(boolean, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r0;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r2;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r0 := @parameter2;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r1 = java.lang.String.format($r1, $r0);
+
+        specialinvoke $r2.<init>($r1);
+
+        throw $r2;
+    }
+
+    public static void checkHandlerThread(android.os.Handler)
+    {
+        java.lang.IllegalStateException $r6;
+        android.os.Handler $r1;
+        android.os.Looper $r2, $r3;
+        java.lang.Thread $r4;
+        int $i0, $i1;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r5, $r7, $r8;
+
+        $r1 := @parameter0;
+
+        $r2 = android.os.Looper.myLooper();
+
+        $r3 = virtualinvoke $r1.getLooper();
+
+        if $r2 == $r3 goto label3;
+
+        if $r2 == null goto label1;
+
+        $r4 = virtualinvoke $r2.getThread();
+
+        $r5 = virtualinvoke $r4.getName();
+
+        goto label2;
+
+     label1:
+        $r5 = "null current looper";
+
+     label2:
+        $r6 = new java.lang.IllegalStateException;
+
+        $r2 = virtualinvoke $r1.getLooper();
+
+        $r4 = virtualinvoke $r2.getThread();
+
+        $r7 = virtualinvoke $r4.getName();
+
+        $r8 = java.lang.String.valueOf($r7);
+
+        $i0 = virtualinvoke $r8.length();
+
+        $r8 = java.lang.String.valueOf($r5);
+
+        $i1 = virtualinvoke $r8.length();
+
+        $r0 = new java.lang.StringBuilder;
+
+        $i0 = $i0 + 36;
+
+        $i1 = $i0 + $i1;
+
+        specialinvoke $r0.<init>($i1);
+
+        virtualinvoke $r0.append("Must be called on ");
+
+        virtualinvoke $r0.append($r7);
+
+        virtualinvoke $r0.append(" thread, but got ");
+
+        virtualinvoke $r0.append($r5);
+
+        virtualinvoke $r0.append(".");
+
+        $r5 = virtualinvoke $r0.toString();
+
+        specialinvoke $r6.<init>($r5);
+
+        throw $r6;
+
+     label3:
+        return;
+    }
+
+    public static void checkHandlerThread(android.os.Handler, java.lang.String)
+    {
+        java.lang.IllegalStateException $r4;
+        android.os.Handler $r1;
+        android.os.Looper $r2, $r3;
+        java.lang.String $r0;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r2 = android.os.Looper.myLooper();
+
+        $r3 = virtualinvoke $r1.getLooper();
+
+        if $r2 != $r3 goto label1;
+
+        return;
+
+     label1:
+        $r4 = new java.lang.IllegalStateException;
+
+        specialinvoke $r4.<init>($r0);
+
+        throw $r4;
+    }
+
+    public static void checkMainThread(java.lang.String)
+    {
+        java.lang.IllegalStateException $r1;
+        java.lang.String $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = com.google.android.gms.common.util.zzb.zza();
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+    }
+
+    public static java.lang.String checkNotEmpty(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.IllegalArgumentException $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = android.text.TextUtils.isEmpty($r0);
+
+        if $z0 != 0 goto label1;
+
+        return $r0;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<init>("Given String is empty or null");
+
+        throw $r1;
+    }
+
+    public static java.lang.String checkNotEmpty(java.lang.String, java.lang.Object)
+    {
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        java.lang.IllegalArgumentException $r2;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = android.text.TextUtils.isEmpty($r0);
+
+        if $z0 != 0 goto label1;
+
+        return $r0;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r0 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    public static void checkNotMainThread()
+    {
+        com.google.android.gms.common.internal.Preconditions.checkNotMainThread("Must not be called on the main application thread");
+
+        return;
+    }
+
+    public static void checkNotMainThread(java.lang.String)
+    {
+        java.lang.IllegalStateException $r1;
+        java.lang.String $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = com.google.android.gms.common.util.zzb.zza();
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+    }
+
+    public static java.lang.Object checkNotNull(java.lang.Object)
+    {
+        java.lang.Object $r0;
+        java.lang.NullPointerException $r1;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label1;
+
+        return $r0;
+
+     label1:
+        $r1 = new java.lang.NullPointerException;
+
+        specialinvoke $r1.<init>("null reference");
+
+        throw $r1;
+    }
+
+    public static java.lang.Object checkNotNull(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object $r1, $r2;
+        java.lang.String $r0;
+        java.lang.NullPointerException $r3;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        if $r1 == null goto label1;
+
+        return $r1;
+
+     label1:
+        $r3 = new java.lang.NullPointerException;
+
+        $r0 = java.lang.String.valueOf($r2);
+
+        specialinvoke $r3.<init>($r0);
+
+        throw $r3;
+    }
+
+    public static int checkNotZero(int)
+    {
+        int $i0;
+        java.lang.IllegalArgumentException $r0;
+
+        $i0 := @parameter0;
+
+        if $i0 == 0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<init>("Given Integer is zero");
+
+        throw $r0;
+    }
+
+    public static int checkNotZero(int, java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        java.lang.IllegalArgumentException $r2;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $i0 == 0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r0 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    public static long checkNotZero(long)
+    {
+        long $l1;
+        byte $b0;
+        java.lang.IllegalArgumentException $r0;
+
+        $l1 := @parameter0;
+
+        $b0 = $l1 cmp 0L;
+
+        if $b0 == 0 goto label1;
+
+        return $l1;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<init>("Given Long is zero");
+
+        throw $r0;
+    }
+
+    public static long checkNotZero(long, java.lang.Object)
+    {
+        byte $b0;
+        java.lang.Object $r0;
+        long $l1;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r2;
+
+        $l1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $b0 = $l1 cmp 0L;
+
+        if $b0 == 0 goto label1;
+
+        return $l1;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r1 = java.lang.String.valueOf($r0);
+
+        specialinvoke $r2.<init>($r1);
+
+        throw $r2;
+    }
+
+    public static void checkState(boolean)
+    {
+        java.lang.IllegalStateException $r0;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r0 = new java.lang.IllegalStateException;
+
+        specialinvoke $r0.<init>();
+
+        throw $r0;
+    }
+
+    public static void checkState(boolean, java.lang.Object)
+    {
+        java.lang.IllegalStateException $r2;
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r0 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    public static transient void checkState(boolean, java.lang.String, java.lang.Object[])
+    {
+        java.lang.IllegalStateException $r2;
+        java.lang.Object[] $r0;
+        java.lang.String $r1;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r0 := @parameter2;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r1 = java.lang.String.format($r1, $r0);
+
+        specialinvoke $r2.<init>($r1);
+
+        throw $r2;
+    }
+}

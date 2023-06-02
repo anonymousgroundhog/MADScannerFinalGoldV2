@@ -1,0 +1,46 @@
+final class com.google.android.gms.internal.ads.zzfwl extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzfwl zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzfwl $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfwl;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfwl.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfwl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzfwl zza()
+    {
+        com.google.android.gms.internal.ads.zzfwl r0;
+
+        r0 = com.google.android.gms.internal.ads.zzfwl.zza;
+
+        return r0;
+    }
+
+    static com.google.android.gms.internal.ads.zzfwl zzb()
+    {
+        com.google.android.gms.internal.ads.zzfwl r0;
+
+        r0 = com.google.android.gms.internal.ads.zzfwl.zza;
+
+        return r0;
+    }
+}

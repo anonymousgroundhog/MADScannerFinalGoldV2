@@ -1,0 +1,35 @@
+public class androidx.work.impl.workers.CombineContinuationsWorker extends androidx.work.Worker
+{
+
+    public void <init>(android.content.Context, androidx.work.WorkerParameters)
+    {
+        androidx.work.WorkerParameters $r2;
+        android.content.Context $r1;
+        androidx.work.impl.workers.CombineContinuationsWorker r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        return;
+    }
+
+    public androidx.work.ListenableWorker$Result doWork()
+    {
+        androidx.work.ListenableWorker$Result $r2;
+        androidx.work.Data $r1;
+        androidx.work.impl.workers.CombineContinuationsWorker r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getInputData();
+
+        $r2 = androidx.work.ListenableWorker$Result.success($r1);
+
+        return $r2;
+    }
+}

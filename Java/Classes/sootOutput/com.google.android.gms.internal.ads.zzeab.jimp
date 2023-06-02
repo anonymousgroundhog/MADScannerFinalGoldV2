@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzeab extends java.lang.Object implements com.google.android.gms.internal.ads.zzfcd
+{
+    public final com.google.android.gms.internal.ads.zzbzf zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzbzf)
+    {
+        com.google.android.gms.internal.ads.zzeab r0;
+        com.google.android.gms.internal.ads.zzbzf $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object zza(java.lang.Object)
+    {
+        android.database.sqlite.SQLiteDatabase $r3;
+        com.google.android.gms.internal.ads.zzeab r0;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbzf $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r3 = (android.database.sqlite.SQLiteDatabase) $r2;
+
+        com.google.android.gms.internal.ads.zzeaf.zzb($r1, $r3);
+
+        return null;
+    }
+}

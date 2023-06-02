@@ -1,0 +1,115 @@
+class androidx.browser.browseractions.BrowserServiceFileProvider$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final android.content.ContentResolver val$resolver;
+    final androidx.concurrent.futures.ResolvableFuture val$result;
+    final android.net.Uri val$uri;
+
+    void <init>(android.content.ContentResolver, android.net.Uri, androidx.concurrent.futures.ResolvableFuture)
+    {
+        android.content.ContentResolver $r1;
+        android.net.Uri $r2;
+        androidx.concurrent.futures.ResolvableFuture $r3;
+        androidx.browser.browseractions.BrowserServiceFileProvider$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.val$resolver = $r1;
+
+        r0.val$uri = $r2;
+
+        r0.val$result = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void run()
+    {
+        android.os.ParcelFileDescriptor $r4;
+        android.net.Uri r3;
+        androidx.concurrent.futures.ResolvableFuture r5;
+        java.io.IOException $r1;
+        androidx.browser.browseractions.BrowserServiceFileProvider$1 r0;
+        java.io.FileNotFoundException r6;
+        android.content.ContentResolver r2;
+        android.graphics.Bitmap $r8;
+        java.io.FileDescriptor $r7;
+
+        r0 := @this;
+
+        r2 = r0.val$resolver;
+
+        r3 = r0.val$uri;
+
+     label01:
+        $r4 = virtualinvoke r2.openFileDescriptor(r3, "r");
+
+     label02:
+        if $r4 != null goto label05;
+
+        r5 = r0.val$result;
+
+        r6 = new java.io.FileNotFoundException;
+
+     label03:
+        specialinvoke r6.<init>();
+
+        virtualinvoke r5.setException(r6);
+
+     label04:
+        return;
+
+     label05:
+        $r7 = virtualinvoke $r4.getFileDescriptor();
+
+        $r8 = android.graphics.BitmapFactory.decodeFileDescriptor($r7);
+
+        virtualinvoke $r4.close();
+
+     label06:
+        if $r8 != null goto label09;
+
+        r5 = r0.val$result;
+
+        $r1 = new java.io.IOException;
+
+     label07:
+        specialinvoke $r1.<init>("File could not be decoded.");
+
+        virtualinvoke r5.setException($r1);
+
+     label08:
+        return;
+
+     label09:
+        r5 = r0.val$result;
+
+     label10:
+        virtualinvoke r5.set($r8);
+
+     label11:
+        return;
+
+     label12:
+        $r1 := @caughtexception;
+
+        r5 = r0.val$result;
+
+        virtualinvoke r5.setException($r1);
+
+        return;
+
+        catch java.io.IOException from label01 to label02 with label12;
+        catch java.io.IOException from label03 to label04 with label12;
+        catch java.io.IOException from label05 to label06 with label12;
+        catch java.io.IOException from label07 to label08 with label12;
+        catch java.io.IOException from label10 to label11 with label12;
+    }
+}

@@ -1,0 +1,223 @@
+class androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState extends android.graphics.drawable.Drawable$ConstantState
+{
+    android.animation.AnimatorSet mAnimatorSet;
+    java.util.ArrayList mAnimators;
+    int mChangingConfigurations;
+    androidx.collection.ArrayMap mTargetNameMap;
+    androidx.vectordrawable.graphics.drawable.VectorDrawableCompat mVectorDrawable;
+
+    public void <init>(android.content.Context, androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState, android.graphics.drawable.Drawable$Callback, android.content.res.Resources)
+    {
+        android.content.Context $r1;
+        android.graphics.Rect $r9;
+        android.graphics.drawable.Drawable$Callback $r3;
+        android.animation.Animator r13, $r14;
+        android.graphics.drawable.Drawable $r7;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat r5, r8;
+        java.util.ArrayList r10;
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState r0, $r2;
+        android.graphics.drawable.Drawable$ConstantState $r6;
+        int i0, i1;
+        java.lang.String r15;
+        androidx.collection.ArrayMap r11;
+        java.lang.Object $r12;
+        android.content.res.Resources $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        if $r2 == null goto label6;
+
+        i0 = $r2.mChangingConfigurations;
+
+        r0.mChangingConfigurations = i0;
+
+        r5 = $r2.mVectorDrawable;
+
+        if r5 == null goto label3;
+
+        $r6 = virtualinvoke r5.getConstantState();
+
+        if $r4 == null goto label1;
+
+        $r7 = virtualinvoke $r6.newDrawable($r4);
+
+        r5 = (androidx.vectordrawable.graphics.drawable.VectorDrawableCompat) $r7;
+
+        r0.mVectorDrawable = r5;
+
+        goto label2;
+
+     label1:
+        $r7 = virtualinvoke $r6.newDrawable();
+
+        r5 = (androidx.vectordrawable.graphics.drawable.VectorDrawableCompat) $r7;
+
+        r0.mVectorDrawable = r5;
+
+     label2:
+        r5 = r0.mVectorDrawable;
+
+        $r7 = virtualinvoke r5.mutate();
+
+        r5 = (androidx.vectordrawable.graphics.drawable.VectorDrawableCompat) $r7;
+
+        r0.mVectorDrawable = r5;
+
+        virtualinvoke r5.setCallback($r3);
+
+        r5 = r0.mVectorDrawable;
+
+        r8 = $r2.mVectorDrawable;
+
+        $r9 = virtualinvoke r8.getBounds();
+
+        virtualinvoke r5.setBounds($r9);
+
+        r5 = r0.mVectorDrawable;
+
+        virtualinvoke r5.setAllowCaching(0);
+
+     label3:
+        r10 = $r2.mAnimators;
+
+        if r10 == null goto label6;
+
+        i0 = virtualinvoke r10.size();
+
+        r10 = new java.util.ArrayList;
+
+        specialinvoke r10.<init>(i0);
+
+        r0.mAnimators = r10;
+
+        r11 = new androidx.collection.ArrayMap;
+
+        specialinvoke r11.<init>(i0);
+
+        r0.mTargetNameMap = r11;
+
+        i1 = 0;
+
+     label4:
+        if i1 >= i0 goto label5;
+
+        r10 = $r2.mAnimators;
+
+        $r12 = virtualinvoke r10.get(i1);
+
+        r13 = (android.animation.Animator) $r12;
+
+        $r14 = virtualinvoke r13.clone();
+
+        r11 = $r2.mTargetNameMap;
+
+        $r12 = virtualinvoke r11.get(r13);
+
+        r15 = (java.lang.String) $r12;
+
+        r5 = r0.mVectorDrawable;
+
+        $r12 = virtualinvoke r5.getTargetByName(r15);
+
+        virtualinvoke $r14.setTarget($r12);
+
+        r10 = r0.mAnimators;
+
+        virtualinvoke r10.add($r14);
+
+        r11 = r0.mTargetNameMap;
+
+        virtualinvoke r11.put($r14, r15);
+
+        i1 = i1 + 1;
+
+        goto label4;
+
+     label5:
+        virtualinvoke r0.setupAnimatorSet();
+
+     label6:
+        return;
+    }
+
+    public int getChangingConfigurations()
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState r0;
+        int i0;
+
+        r0 := @this;
+
+        i0 = r0.mChangingConfigurations;
+
+        return i0;
+    }
+
+    public android.graphics.drawable.Drawable newDrawable()
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState r0;
+        java.lang.IllegalStateException $r1;
+
+        r0 := @this;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>("No constant state support for SDK < 24.");
+
+        throw $r1;
+    }
+
+    public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources)
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState r0;
+        java.lang.IllegalStateException $r2;
+        android.content.res.Resources $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("No constant state support for SDK < 24.");
+
+        throw $r2;
+    }
+
+    public void setupAnimatorSet()
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableCompatState r0;
+        android.animation.AnimatorSet $r2;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mAnimatorSet;
+
+        if $r2 != null goto label1;
+
+        $r2 = new android.animation.AnimatorSet;
+
+        specialinvoke $r2.<init>();
+
+        r0.mAnimatorSet = $r2;
+
+     label1:
+        $r2 = r0.mAnimatorSet;
+
+        $r1 = r0.mAnimators;
+
+        virtualinvoke $r2.playTogether($r1);
+
+        return;
+    }
+}

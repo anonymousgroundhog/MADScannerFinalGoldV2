@@ -1,0 +1,78 @@
+public final class com.google.android.gms.internal.ads.zzdgf extends java.lang.Object
+{
+    private com.google.android.gms.internal.ads.zzbdu zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdfr)
+    {
+        com.google.android.gms.internal.ads.zzdfr $r1;
+        com.google.android.gms.internal.ads.zzdgf r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbdu zza()
+    {
+        java.lang.Throwable $r1;
+        com.google.android.gms.internal.ads.zzdgf r0;
+        com.google.android.gms.internal.ads.zzbdu r2;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label1:
+        r2 = r0.zza;
+
+     label2:
+        exitmonitor r0;
+
+        return r2;
+
+     label3:
+        $r1 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r1;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zzb(com.google.android.gms.internal.ads.zzbdu)
+    {
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.ads.zzdgf r0;
+        com.google.android.gms.internal.ads.zzbdu $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        r0.zza = $r1;
+
+     label2:
+        exitmonitor r0;
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

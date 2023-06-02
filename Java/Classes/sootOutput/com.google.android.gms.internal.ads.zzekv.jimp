@@ -1,0 +1,48 @@
+public final class com.google.android.gms.internal.ads.zzekv extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    public final com.google.android.gms.internal.ads.zzekw zza;
+    public final android.os.Bundle zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzekw, android.os.Bundle)
+    {
+        com.google.android.gms.internal.ads.zzekw $r1;
+        com.google.android.gms.internal.ads.zzekv r0;
+        android.os.Bundle $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void zzh(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzekw $r1;
+        com.google.android.gms.internal.ads.zzekv r0;
+        android.os.Bundle $r2, $r4;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r4 = (android.os.Bundle) $r3;
+
+        virtualinvoke $r1.zzc($r2, $r4);
+
+        return;
+    }
+}

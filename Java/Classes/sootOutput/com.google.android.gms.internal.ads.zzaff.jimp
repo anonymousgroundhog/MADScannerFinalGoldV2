@@ -1,0 +1,337 @@
+final class com.google.android.gms.internal.ads.zzaff extends java.lang.Object implements com.google.android.gms.internal.ads.zzafe
+{
+    private final long[] zza;
+    private final long[] zzb;
+    private final long zzc;
+    private final long zzd;
+
+    private void <init>(long[], long[], long, long)
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+        long[] $r1, $r2;
+        long $l0, $l1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $l1 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $l0;
+
+        r0.zzd = $l1;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzaff zza(long, long, com.google.android.gms.internal.ads.zzaan, com.google.android.gms.internal.ads.zzen)
+    {
+        long $l0, $l1, $l2, $l6, $l7, $l11;
+        short $s5;
+        long[] $r2, $r3;
+        byte $b13;
+        com.google.android.gms.internal.ads.zzen $r1;
+        int $i3, $i4, $i8, $i9, $i10, $i12;
+        java.lang.String $r5;
+        com.google.android.gms.internal.ads.zzaff $r6;
+        java.lang.StringBuilder $r4;
+        com.google.android.gms.internal.ads.zzaan $r0;
+
+        $l0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        $r0 := @parameter2;
+
+        $r1 := @parameter3;
+
+        virtualinvoke $r1.zzG(10);
+
+        $i3 = virtualinvoke $r1.zze();
+
+        if $i3 > 0 goto label01;
+
+        return null;
+
+     label01:
+        $i4 = $r0.zzd;
+
+        if $i4 < 32000 goto label02;
+
+        $s5 = 1152;
+
+        goto label03;
+
+     label02:
+        $s5 = 576;
+
+     label03:
+        $l2 = (long) $s5;
+
+        $l2 = $l2 * 1000000L;
+
+        $l6 = (long) $i4;
+
+        $l7 = (long) $i3;
+
+        $l2 = com.google.android.gms.internal.ads.zzew.zzw($l7, $l2, $l6);
+
+        $i8 = virtualinvoke $r1.zzo();
+
+        $i3 = $i8;
+
+        $i9 = virtualinvoke $r1.zzo();
+
+        $i4 = virtualinvoke $r1.zzo();
+
+        virtualinvoke $r1.zzG(2);
+
+        $i10 = $r0.zzc;
+
+        $l6 = (long) $i10;
+
+        $l6 = $l1 + $l6;
+
+        $r3 = newarray (long)[$i8];
+
+        $r2 = newarray (long)[$i8];
+
+        $i8 = 0;
+
+     label04:
+        if $i8 >= $i3 goto label11;
+
+        $l7 = (long) $i8;
+
+        $l7 = $l7 * $l2;
+
+        $i10 = $i9;
+
+        $l11 = (long) $i3;
+
+        $l7 = $l7 / $l11;
+
+        $r3[$i8] = $l7;
+
+        $l7 = java.lang.Math.max($l1, $l6);
+
+        $r2[$i8] = $l7;
+
+        lookupswitch($i4)
+        {
+            case 1: goto label09;
+            case 2: goto label08;
+            case 3: goto label07;
+            case 4: goto label06;
+            default: goto label05;
+        };
+
+     label05:
+        return null;
+
+     label06:
+        $i12 = virtualinvoke $r1.zzn();
+
+        goto label10;
+
+     label07:
+        $i12 = virtualinvoke $r1.zzm();
+
+        goto label10;
+
+     label08:
+        $i12 = virtualinvoke $r1.zzo();
+
+        goto label10;
+
+     label09:
+        $i12 = virtualinvoke $r1.zzk();
+
+     label10:
+        $i9 = $i10;
+
+        $l7 = (long) $i10;
+
+        $l11 = (long) $i12;
+
+        $l7 = $l11 * $l7;
+
+        $l1 = $l1 + $l7;
+
+        $i8 = $i8 + 1;
+
+        goto label04;
+
+     label11:
+        $b13 = $l0 cmp -1L;
+
+        if $b13 == 0 goto label12;
+
+        $b13 = $l0 cmp $l1;
+
+        if $b13 == 0 goto label12;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("VBRI data size mismatch: ");
+
+        virtualinvoke $r4.append($l0);
+
+        virtualinvoke $r4.append(", ");
+
+        virtualinvoke $r4.append($l1);
+
+        $r5 = virtualinvoke $r4.toString();
+
+        com.google.android.gms.internal.ads.zzee.zze("VbriSeeker", $r5);
+
+     label12:
+        $r6 = new com.google.android.gms.internal.ads.zzaff;
+
+        specialinvoke $r6.<init>($r3, $r2, $l2, $l1);
+
+        return $r6;
+    }
+
+    public final long zzb()
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+        long l0;
+
+        r0 := @this;
+
+        l0 = r0.zzd;
+
+        return l0;
+    }
+
+    public final long zzc(long)
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+        long[] $r1, $r2;
+        int $i0;
+        long $l1;
+
+        r0 := @this;
+
+        $l1 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zzd($r2, $l1, 1, 1);
+
+        $l1 = $r1[$i0];
+
+        return $l1;
+    }
+
+    public final long zze()
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+        long l0;
+
+        r0 := @this;
+
+        l0 = r0.zzc;
+
+        return l0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzaav zzg(long)
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+        com.google.android.gms.internal.ads.zzaay $r3, $r4;
+        long $l0, $l2, $l4;
+        long[] $r2;
+        byte $b1;
+        com.google.android.gms.internal.ads.zzaav $r5;
+        int $i3, $i5;
+
+        r0 := @this;
+
+        $l4 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $i3 = com.google.android.gms.internal.ads.zzew.zzd($r2, $l4, 1, 1);
+
+        $r3 = new com.google.android.gms.internal.ads.zzaay;
+
+        $r2 = r0.zza;
+
+        $l0 = $r2[$i3];
+
+        $r2 = r0.zzb;
+
+        $l2 = $r2[$i3];
+
+        specialinvoke $r3.<init>($l0, $l2);
+
+        $l0 = $r3.zzb;
+
+        $b1 = $l0 cmp $l4;
+
+        $i5 = (int) $b1;
+
+        if $i5 >= 0 goto label2;
+
+        $r2 = r0.zza;
+
+        $i5 = lengthof $r2;
+
+        $i5 = $i5 + -1;
+
+        if $i3 != $i5 goto label1;
+
+        goto label2;
+
+     label1:
+        $i3 = $i3 + 1;
+
+        $r4 = new com.google.android.gms.internal.ads.zzaay;
+
+        $l4 = $r2[$i3];
+
+        $r2 = r0.zzb;
+
+        $l0 = $r2[$i3];
+
+        specialinvoke $r4.<init>($l4, $l0);
+
+        $r5 = new com.google.android.gms.internal.ads.zzaav;
+
+        specialinvoke $r5.<init>($r3, $r4);
+
+        return $r5;
+
+     label2:
+        $r5 = new com.google.android.gms.internal.ads.zzaav;
+
+        specialinvoke $r5.<init>($r3, $r3);
+
+        return $r5;
+    }
+
+    public final boolean zzh()
+    {
+        com.google.android.gms.internal.ads.zzaff r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+}

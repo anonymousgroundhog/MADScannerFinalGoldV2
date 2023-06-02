@@ -1,0 +1,90 @@
+public class androidx.room.util.FileUtil extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.room.util.FileUtil r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void copy(java.nio.channels.ReadableByteChannel, java.nio.channels.FileChannel) throws java.io.IOException
+    {
+        java.io.OutputStream $r3;
+        java.lang.Throwable r5;
+        byte[] r4;
+        java.nio.channels.ReadableByteChannel $r0;
+        int i0;
+        java.nio.channels.FileChannel $r1;
+        java.io.InputStream $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+     label01:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+     label02:
+        if i0 <= 23 goto label05;
+
+     label03:
+        virtualinvoke $r1.transferFrom($r0, 0L, 9223372036854775807L);
+
+     label04:
+        goto label11;
+
+     label05:
+        $r2 = java.nio.channels.Channels.newInputStream($r0);
+
+        $r3 = java.nio.channels.Channels.newOutputStream($r1);
+
+     label06:
+        r4 = newarray (byte)[4096];
+
+     label07:
+        i0 = virtualinvoke $r2.read(r4);
+
+     label08:
+        if i0 <= 0 goto label11;
+
+     label09:
+        virtualinvoke $r3.write(r4, 0, i0);
+
+     label10:
+        goto label07;
+
+     label11:
+        virtualinvoke $r1.force(0);
+
+     label12:
+        interfaceinvoke $r0.close();
+
+        virtualinvoke $r1.close();
+
+        return;
+
+     label13:
+        r5 := @caughtexception;
+
+        interfaceinvoke $r0.close();
+
+        virtualinvoke $r1.close();
+
+        goto label14;
+
+     label14:
+        throw r5;
+
+        catch java.lang.Throwable from label01 to label02 with label13;
+        catch java.lang.Throwable from label03 to label04 with label13;
+        catch java.lang.Throwable from label05 to label06 with label13;
+        catch java.lang.Throwable from label07 to label08 with label13;
+        catch java.lang.Throwable from label09 to label10 with label13;
+        catch java.lang.Throwable from label11 to label12 with label13;
+    }
+}

@@ -1,0 +1,27 @@
+public abstract class androidx.room.migration.Migration extends java.lang.Object
+{
+    public final int endVersion;
+    public final int startVersion;
+
+    public void <init>(int, int)
+    {
+        int $i0, $i1;
+        androidx.room.migration.Migration r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.startVersion = $i0;
+
+        r0.endVersion = $i1;
+
+        return;
+    }
+
+    public abstract void migrate(androidx.sqlite.db.SupportSQLiteDatabase);
+}

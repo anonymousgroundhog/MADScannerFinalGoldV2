@@ -1,0 +1,109 @@
+final class com.google.android.gms.internal.consent_sdk.zzn extends java.lang.Object
+{
+    private final android.app.Application zza;
+    private final com.google.android.gms.internal.consent_sdk.zzb zzb;
+    private final com.google.android.gms.internal.consent_sdk.zzam zzc;
+
+    void <init>(android.app.Application, com.google.android.gms.internal.consent_sdk.zzb, com.google.android.gms.internal.consent_sdk.zzam)
+    {
+        com.google.android.gms.internal.consent_sdk.zzam $r3;
+        android.app.Application $r1;
+        com.google.android.gms.internal.consent_sdk.zzb $r2;
+        com.google.android.gms.internal.consent_sdk.zzn r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        return;
+    }
+
+    static android.app.Application zza(com.google.android.gms.internal.consent_sdk.zzn)
+    {
+        com.google.android.gms.internal.consent_sdk.zzn $r0;
+        android.app.Application r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    static com.google.android.gms.internal.consent_sdk.zzb zzb(com.google.android.gms.internal.consent_sdk.zzn)
+    {
+        com.google.android.gms.internal.consent_sdk.zzn $r0;
+        com.google.android.gms.internal.consent_sdk.zzb r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static com.google.android.gms.internal.consent_sdk.zzam zzc(com.google.android.gms.internal.consent_sdk.zzn)
+    {
+        com.google.android.gms.internal.consent_sdk.zzn $r0;
+        com.google.android.gms.internal.consent_sdk.zzam r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzc;
+
+        return r1;
+    }
+
+    final com.google.android.gms.internal.consent_sdk.zzbu zzd(android.app.Activity, com.google.android.ump.ConsentRequestParameters) throws com.google.android.gms.internal.consent_sdk.zzj
+    {
+        com.google.android.ump.ConsentDebugSettings $r3;
+        com.google.android.gms.internal.consent_sdk.zzn r0;
+        com.google.android.gms.internal.consent_sdk.zzo $r6;
+        android.app.Application $r5;
+        com.google.android.ump.ConsentDebugSettings$Builder $r4;
+        com.google.android.ump.ConsentRequestParameters $r1;
+        android.app.Activity $r2;
+        com.google.android.gms.internal.consent_sdk.zzbu $r7;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r3 = virtualinvoke $r1.getConsentDebugSettings();
+
+        if $r3 != null goto label1;
+
+        $r4 = new com.google.android.ump.ConsentDebugSettings$Builder;
+
+        $r5 = r0.zza;
+
+        specialinvoke $r4.<init>($r5);
+
+        $r3 = virtualinvoke $r4.build();
+
+        goto label1;
+
+     label1:
+        $r6 = new com.google.android.gms.internal.consent_sdk.zzo;
+
+        specialinvoke $r6.<init>(r0, $r2, $r3, $r1, null);
+
+        $r7 = com.google.android.gms.internal.consent_sdk.zzo.zza($r6);
+
+        return $r7;
+    }
+}

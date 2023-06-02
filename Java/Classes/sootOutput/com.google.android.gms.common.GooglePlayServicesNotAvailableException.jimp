@@ -1,0 +1,20 @@
+public final class com.google.android.gms.common.GooglePlayServicesNotAvailableException extends java.lang.Exception
+{
+    public final int errorCode;
+
+    public void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.common.GooglePlayServicesNotAvailableException r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.errorCode = $i0;
+
+        return;
+    }
+}

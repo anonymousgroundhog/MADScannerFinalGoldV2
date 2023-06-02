@@ -1,0 +1,72 @@
+final class com.google.android.gms.ads.internal.client.zzeg extends com.google.android.gms.ads.internal.client.zzcz
+{
+
+    private void <init>()
+    {
+        com.google.android.gms.ads.internal.client.zzeg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.ads.internal.client.zzef)
+    {
+        com.google.android.gms.ads.internal.client.zzef $r1;
+        com.google.android.gms.ads.internal.client.zzeg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zze(com.google.android.gms.ads.internal.client.zze)
+    {
+        com.google.android.gms.ads.internal.client.zzeg r0;
+        com.google.android.gms.ads.internal.client.zzej $r4;
+        com.google.android.gms.ads.internal.client.zze $r3;
+        com.google.android.gms.ads.AdInspectorError $r1;
+        com.google.android.gms.ads.OnAdInspectorClosedListener $r5;
+        int $i0;
+        java.lang.String $r2, $r6;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzej.zzf();
+
+        $r5 = com.google.android.gms.ads.internal.client.zzej.zzb($r4);
+
+        if $r5 == null goto label3;
+
+        if $r3 != null goto label1;
+
+        $r1 = null;
+
+        goto label2;
+
+     label1:
+        $r1 = new com.google.android.gms.ads.AdInspectorError;
+
+        $i0 = $r3.zza;
+
+        $r2 = $r3.zzb;
+
+        $r6 = $r3.zzc;
+
+        specialinvoke $r1.<init>($i0, $r2, $r6);
+
+     label2:
+        interfaceinvoke $r5.onAdInspectorClosed($r1);
+
+     label3:
+        return;
+    }
+}

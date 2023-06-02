@@ -1,0 +1,30 @@
+public final class com.google.android.gms.internal.ads.zzbcy extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+    public static final com.google.android.gms.internal.ads.zzbbw zzd;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:always_collect_trustless_token_at_native_side", 0);
+
+        com.google.android.gms.internal.ads.zzbcy.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gms:expose_token_for_gma:enabled", 1);
+
+        com.google.android.gms.internal.ads.zzbcy.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzb("gads:timeout_for_trustless_token:millis", 2000L);
+
+        com.google.android.gms.internal.ads.zzbcy.zzc = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzb("gads:cached_token:ttl_millis", 10800000L);
+
+        com.google.android.gms.internal.ads.zzbcy.zzd = $r0;
+
+        return;
+    }
+}

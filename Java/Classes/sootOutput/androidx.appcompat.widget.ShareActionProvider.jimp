@@ -1,0 +1,355 @@
+public class androidx.appcompat.widget.ShareActionProvider extends androidx.core.view.ActionProvider
+{
+    private static final int DEFAULT_INITIAL_ACTIVITY_COUNT;
+    public static final java.lang.String DEFAULT_SHARE_HISTORY_FILE_NAME;
+    final android.content.Context mContext;
+    private int mMaxShownActivityCount;
+    private androidx.appcompat.widget.ActivityChooserModel$OnChooseActivityListener mOnChooseActivityListener;
+    private final androidx.appcompat.widget.ShareActionProvider$ShareMenuItemOnMenuItemClickListener mOnMenuItemClickListener;
+    androidx.appcompat.widget.ShareActionProvider$OnShareTargetSelectedListener mOnShareTargetSelectedListener;
+    java.lang.String mShareHistoryFileName;
+
+    public void <init>(android.content.Context)
+    {
+        androidx.appcompat.widget.ShareActionProvider$ShareMenuItemOnMenuItemClickListener $r2;
+        android.content.Context $r1;
+        androidx.appcompat.widget.ShareActionProvider r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.mMaxShownActivityCount = 4;
+
+        $r2 = new androidx.appcompat.widget.ShareActionProvider$ShareMenuItemOnMenuItemClickListener;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.mOnMenuItemClickListener = $r2;
+
+        r0.mShareHistoryFileName = "share_history.xml";
+
+        r0.mContext = $r1;
+
+        return;
+    }
+
+    private void setActivityChooserPolicyIfNeeded()
+    {
+        android.content.Context r5;
+        androidx.appcompat.widget.ActivityChooserModel$OnChooseActivityListener r3;
+        androidx.appcompat.widget.ShareActionProvider$OnShareTargetSelectedListener r2;
+        java.lang.String $r6;
+        androidx.appcompat.widget.ShareActionProvider r0;
+        androidx.appcompat.widget.ShareActionProvider$ShareActivityChooserModelPolicy r4;
+        androidx.appcompat.widget.ActivityChooserModel $r1;
+
+        r0 := @this;
+
+        r2 = r0.mOnShareTargetSelectedListener;
+
+        if r2 != null goto label1;
+
+        return;
+
+     label1:
+        r3 = r0.mOnChooseActivityListener;
+
+        if r3 != null goto label2;
+
+        r4 = new androidx.appcompat.widget.ShareActionProvider$ShareActivityChooserModelPolicy;
+
+        specialinvoke r4.<init>(r0);
+
+        r0.mOnChooseActivityListener = r4;
+
+     label2:
+        r5 = r0.mContext;
+
+        $r6 = r0.mShareHistoryFileName;
+
+        $r1 = androidx.appcompat.widget.ActivityChooserModel.get(r5, $r6);
+
+        r3 = r0.mOnChooseActivityListener;
+
+        virtualinvoke $r1.setOnChooseActivityListener(r3);
+
+        return;
+    }
+
+    public boolean hasSubMenu()
+    {
+        androidx.appcompat.widget.ShareActionProvider r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+
+    public android.view.View onCreateActionView()
+    {
+        android.content.Context r2;
+        android.graphics.drawable.Drawable $r7;
+        androidx.appcompat.widget.ActivityChooserView r1;
+        android.util.TypedValue r5;
+        int $i0;
+        java.lang.String r3;
+        androidx.appcompat.widget.ShareActionProvider r0;
+        androidx.appcompat.widget.ActivityChooserModel $r4;
+        android.content.res.Resources$Theme $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = new androidx.appcompat.widget.ActivityChooserView;
+
+        r2 = r0.mContext;
+
+        specialinvoke r1.<init>(r2);
+
+        $z0 = virtualinvoke r1.isInEditMode();
+
+        if $z0 != 0 goto label1;
+
+        r2 = r0.mContext;
+
+        r3 = r0.mShareHistoryFileName;
+
+        $r4 = androidx.appcompat.widget.ActivityChooserModel.get(r2, r3);
+
+        virtualinvoke r1.setActivityChooserModel($r4);
+
+     label1:
+        r5 = new android.util.TypedValue;
+
+        specialinvoke r5.<init>();
+
+        r2 = r0.mContext;
+
+        $r6 = virtualinvoke r2.getTheme();
+
+        $i0 = androidx.appcompat.R$attr.actionModeShareDrawable;
+
+        virtualinvoke $r6.resolveAttribute($i0, r5, 1);
+
+        r2 = r0.mContext;
+
+        $i0 = r5.resourceId;
+
+        $r7 = androidx.appcompat.content.res.AppCompatResources.getDrawable(r2, $i0);
+
+        virtualinvoke r1.setExpandActivityOverflowButtonDrawable($r7);
+
+        virtualinvoke r1.setProvider(r0);
+
+        $i0 = androidx.appcompat.R$string.abc_shareactionprovider_share_with_application;
+
+        virtualinvoke r1.setDefaultActionButtonContentDescription($i0);
+
+        $i0 = androidx.appcompat.R$string.abc_shareactionprovider_share_with;
+
+        virtualinvoke r1.setExpandActivityOverflowButtonContentDescription($i0);
+
+        return r1;
+    }
+
+    public void onPrepareSubMenu(android.view.SubMenu)
+    {
+        androidx.appcompat.widget.ShareActionProvider$ShareMenuItemOnMenuItemClickListener r10;
+        android.content.Context r2;
+        java.lang.CharSequence $r7;
+        android.content.pm.PackageManager $r5;
+        android.view.SubMenu $r1;
+        android.graphics.drawable.Drawable $r9;
+        android.content.pm.ResolveInfo $r6;
+        android.view.MenuItem $r8;
+        int $i0, i1, i2;
+        java.lang.String r3;
+        androidx.appcompat.widget.ShareActionProvider r0;
+        androidx.appcompat.widget.ActivityChooserModel $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        interfaceinvoke $r1.clear();
+
+        r2 = r0.mContext;
+
+        r3 = r0.mShareHistoryFileName;
+
+        $r4 = androidx.appcompat.widget.ActivityChooserModel.get(r2, r3);
+
+        r2 = r0.mContext;
+
+        $r5 = virtualinvoke r2.getPackageManager();
+
+        $i0 = virtualinvoke $r4.getActivityCount();
+
+        i1 = r0.mMaxShownActivityCount;
+
+        i1 = java.lang.Math.min($i0, i1);
+
+        i2 = 0;
+
+     label1:
+        if i2 >= i1 goto label2;
+
+        $r6 = virtualinvoke $r4.getActivity(i2);
+
+        $r7 = virtualinvoke $r6.loadLabel($r5);
+
+        $r8 = interfaceinvoke $r1.add(0, i2, i2, $r7);
+
+        $r9 = virtualinvoke $r6.loadIcon($r5);
+
+        $r8 = interfaceinvoke $r8.setIcon($r9);
+
+        r10 = r0.mOnMenuItemClickListener;
+
+        interfaceinvoke $r8.setOnMenuItemClickListener(r10);
+
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label2:
+        if i1 >= $i0 goto label4;
+
+        r2 = r0.mContext;
+
+        i2 = androidx.appcompat.R$string.abc_activity_chooser_view_see_all;
+
+        r3 = virtualinvoke r2.getString(i2);
+
+        $r1 = interfaceinvoke $r1.addSubMenu(0, i1, i1, r3);
+
+        i1 = 0;
+
+     label3:
+        if i1 >= $i0 goto label4;
+
+        $r6 = virtualinvoke $r4.getActivity(i1);
+
+        $r7 = virtualinvoke $r6.loadLabel($r5);
+
+        $r8 = interfaceinvoke $r1.add(0, i1, i1, $r7);
+
+        $r9 = virtualinvoke $r6.loadIcon($r5);
+
+        $r8 = interfaceinvoke $r8.setIcon($r9);
+
+        r10 = r0.mOnMenuItemClickListener;
+
+        interfaceinvoke $r8.setOnMenuItemClickListener(r10);
+
+        i1 = i1 + 1;
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    public void setOnShareTargetSelectedListener(androidx.appcompat.widget.ShareActionProvider$OnShareTargetSelectedListener)
+    {
+        androidx.appcompat.widget.ShareActionProvider$OnShareTargetSelectedListener $r1;
+        androidx.appcompat.widget.ShareActionProvider r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mOnShareTargetSelectedListener = $r1;
+
+        specialinvoke r0.setActivityChooserPolicyIfNeeded();
+
+        return;
+    }
+
+    public void setShareHistoryFileName(java.lang.String)
+    {
+        java.lang.String $r1;
+        androidx.appcompat.widget.ShareActionProvider r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mShareHistoryFileName = $r1;
+
+        specialinvoke r0.setActivityChooserPolicyIfNeeded();
+
+        return;
+    }
+
+    public void setShareIntent(android.content.Intent)
+    {
+        android.content.Context r4;
+        android.content.Intent $r1;
+        java.lang.String $r2, $r3;
+        androidx.appcompat.widget.ShareActionProvider r0;
+        androidx.appcompat.widget.ActivityChooserModel $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label2;
+
+        $r2 = virtualinvoke $r1.getAction();
+
+        $r3 = "android.intent.action.SEND";
+
+        $z0 = virtualinvoke $r3.equals($r2);
+
+        if $z0 != 0 goto label1;
+
+        $r3 = "android.intent.action.SEND_MULTIPLE";
+
+        $z0 = virtualinvoke $r3.equals($r2);
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        virtualinvoke r0.updateIntent($r1);
+
+     label2:
+        r4 = r0.mContext;
+
+        $r2 = r0.mShareHistoryFileName;
+
+        $r5 = androidx.appcompat.widget.ActivityChooserModel.get(r4, $r2);
+
+        virtualinvoke $r5.setIntent($r1);
+
+        return;
+    }
+
+    void updateIntent(android.content.Intent)
+    {
+        int $i0;
+        android.content.Intent $r1;
+        androidx.appcompat.widget.ShareActionProvider r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        virtualinvoke $r1.addFlags(134742016);
+
+        return;
+
+     label1:
+        virtualinvoke $r1.addFlags(524288);
+
+        return;
+    }
+}

@@ -1,0 +1,79 @@
+public final class com.google.android.gms.internal.ads.zzvg extends java.lang.Object implements com.google.android.gms.internal.ads.zzvx
+{
+    public final com.google.android.gms.internal.ads.zzvq zza;
+    public final java.lang.String zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzvq, java.lang.String)
+    {
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzvq $r1;
+        com.google.android.gms.internal.ads.zzvg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final java.util.List zza(int, com.google.android.gms.internal.ads.zzcp, int[])
+    {
+        com.google.android.gms.internal.ads.zzfqk $r7;
+        com.google.android.gms.internal.ads.zzvq $r3;
+        com.google.android.gms.internal.ads.zzfqh $r6;
+        com.google.android.gms.internal.ads.zzvw $r5;
+        com.google.android.gms.internal.ads.zzcp $r1;
+        int[] $r2;
+        int $i0, $i1, $i2;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzvg r0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = r0.zza;
+
+        $r4 = r0.zzb;
+
+        $i2 = com.google.android.gms.internal.ads.zzwc.zzb;
+
+        $r6 = com.google.android.gms.internal.ads.zzfqk.zzi();
+
+        $i2 = 0;
+
+     label1:
+        $i0 = $r1.zzb;
+
+        if $i2 > 0 goto label2;
+
+        $r5 = new com.google.android.gms.internal.ads.zzvw;
+
+        $i0 = $r2[$i2];
+
+        specialinvoke $r5.<init>($i1, $r1, $i2, $r3, $i0, $r4);
+
+        virtualinvoke $r6.zzf($r5);
+
+        $i2 = $i2 + 1;
+
+        goto label1;
+
+     label2:
+        $r7 = virtualinvoke $r6.zzi();
+
+        return $r7;
+    }
+}

@@ -1,0 +1,804 @@
+public final class com.google.android.gms.internal.ads.zzceh extends android.webkit.WebChromeClient
+{
+    private final com.google.android.gms.internal.ads.zzcei zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzcei)
+    {
+        com.google.android.gms.internal.ads.zzcei $r1;
+        com.google.android.gms.internal.ads.zzceh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    private static final android.content.Context zzb(android.webkit.WebView)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzcei $r2;
+        android.webkit.WebView $r0;
+        android.app.Activity $r3;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = $r0 instanceof com.google.android.gms.internal.ads.zzcei;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = virtualinvoke $r0.getContext();
+
+        return $r1;
+
+     label1:
+        $r2 = (com.google.android.gms.internal.ads.zzcei) $r0;
+
+        $r3 = interfaceinvoke $r2.zzi();
+
+        if $r3 == null goto label2;
+
+        return $r3;
+
+     label2:
+        $r1 = interfaceinvoke $r2.getContext();
+
+        return $r1;
+    }
+
+    public final void onCloseWindow(android.webkit.WebView)
+    {
+        com.google.android.gms.ads.internal.overlay.zzl $r1;
+        com.google.android.gms.internal.ads.zzceh r0;
+        com.google.android.gms.internal.ads.zzcei $r3;
+        android.webkit.WebView $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $z0 = $r2 instanceof com.google.android.gms.internal.ads.zzcei;
+
+        if $z0 != 0 goto label1;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Tried to close a WebView that wasn\'t an AdWebView.");
+
+        return;
+
+     label1:
+        $r3 = (com.google.android.gms.internal.ads.zzcei) $r2;
+
+        $r1 = interfaceinvoke $r3.zzL();
+
+        if $r1 != null goto label2;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Tried to close an AdWebView not associated with an overlay.");
+
+        return;
+
+     label2:
+        virtualinvoke $r1.zzb();
+
+        return;
+    }
+
+    public final boolean onConsoleMessage(android.webkit.ConsoleMessage)
+    {
+        android.webkit.ConsoleMessage$MessageLevel $r6;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.ConsoleMessage $r2;
+        int[] $r5;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r3, $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = virtualinvoke $r2.message();
+
+        $r4 = virtualinvoke $r2.sourceId();
+
+        $i0 = virtualinvoke $r2.lineNumber();
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("JS: ");
+
+        virtualinvoke $r1.append($r3);
+
+        virtualinvoke $r1.append(" (");
+
+        virtualinvoke $r1.append($r4);
+
+        virtualinvoke $r1.append(":");
+
+        virtualinvoke $r1.append($i0);
+
+        virtualinvoke $r1.append(")");
+
+        $r3 = virtualinvoke $r1.toString();
+
+        $z0 = virtualinvoke $r3.contains("Application Cache");
+
+        if $z0 == 0 goto label1;
+
+        $z0 = specialinvoke r0.onConsoleMessage($r2);
+
+        return $z0;
+
+     label1:
+        $r5 = com.google.android.gms.internal.ads.zzceg.zza;
+
+        $r6 = virtualinvoke $r2.messageLevel();
+
+        $i0 = virtualinvoke $r6.ordinal();
+
+        $i0 = $r5[$i0];
+
+        lookupswitch($i0)
+        {
+            case 1: goto label6;
+            case 2: goto label5;
+            case 3: goto label4;
+            case 4: goto label4;
+            case 5: goto label3;
+            default: goto label2;
+        };
+
+     label2:
+        com.google.android.gms.internal.ads.zzbza.zzi($r3);
+
+        goto label7;
+
+     label3:
+        com.google.android.gms.internal.ads.zzbza.zze($r3);
+
+        goto label7;
+
+     label4:
+        com.google.android.gms.internal.ads.zzbza.zzi($r3);
+
+        goto label7;
+
+     label5:
+        com.google.android.gms.internal.ads.zzbza.zzj($r3);
+
+        goto label7;
+
+     label6:
+        com.google.android.gms.internal.ads.zzbza.zzg($r3);
+
+     label7:
+        $z0 = specialinvoke r0.onConsoleMessage($r2);
+
+        return $z0;
+    }
+
+    public final boolean onCreateWindow(android.webkit.WebView, boolean, boolean, android.os.Message)
+    {
+        android.content.Context $r6;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.WebView$WebViewTransport $r4;
+        android.os.Message $r1;
+        android.webkit.WebViewClient $r8;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzcei $r7;
+        android.webkit.WebView $r2, $r5;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $r1 := @parameter3;
+
+        $r3 = $r1.obj;
+
+        $r4 = (android.webkit.WebView$WebViewTransport) $r3;
+
+        $r5 = new android.webkit.WebView;
+
+        $r6 = virtualinvoke $r2.getContext();
+
+        specialinvoke $r5.<init>($r6);
+
+        $r7 = r0.zza;
+
+        $r8 = interfaceinvoke $r7.zzH();
+
+        if $r8 == null goto label1;
+
+        $r7 = r0.zza;
+
+        $r8 = interfaceinvoke $r7.zzH();
+
+        virtualinvoke $r5.setWebViewClient($r8);
+
+     label1:
+        virtualinvoke $r4.setWebView($r5);
+
+        virtualinvoke $r1.sendToTarget();
+
+        return 1;
+    }
+
+    public final void onExceededDatabaseQuota(java.lang.String, java.lang.String, long, long, long, android.webkit.WebStorage$QuotaUpdater)
+    {
+        com.google.android.gms.internal.ads.zzceh r0;
+        long $l0, $l1, $l2, $l4;
+        android.webkit.WebStorage$QuotaUpdater $r2;
+        byte $b3;
+        int $i5;
+        java.lang.String $r1, $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $l1 := @parameter3;
+
+        $l2 := @parameter4;
+
+        $r2 := @parameter5;
+
+        $l2 = 5242880L - $l2;
+
+        $b3 = $l2 cmp 0L;
+
+        $i5 = (int) $b3;
+
+        if $i5 > 0 goto label1;
+
+        interfaceinvoke $r2.updateQuota($l0);
+
+        return;
+
+     label1:
+        $b3 = $l0 cmp 0L;
+
+        if $b3 != 0 goto label4;
+
+        $b3 = $l1 cmp $l2;
+
+        $i5 = (int) $b3;
+
+        if $i5 > 0 goto label2;
+
+        $b3 = $l1 cmp 1048576L;
+
+        $i5 = (int) $b3;
+
+        if $i5 > 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $l1 = 0L;
+
+     label3:
+        goto label7;
+
+     label4:
+        $b3 = $l1 cmp 0L;
+
+        if $b3 != 0 goto label5;
+
+        $l1 = java.lang.Math.min(131072L, $l2);
+
+        $l0 = $l0 + $l1;
+
+        $l1 = java.lang.Math.min($l0, 1048576L);
+
+        goto label7;
+
+     label5:
+        $l4 = 1048576L - $l0;
+
+        $l2 = java.lang.Math.min($l4, $l2);
+
+        $b3 = $l1 cmp $l2;
+
+        $i5 = (int) $b3;
+
+        if $i5 > 0 goto label6;
+
+        $l0 = $l0 + $l1;
+
+     label6:
+        $l1 = $l0;
+
+     label7:
+        interfaceinvoke $r2.updateQuota($l1);
+
+        return;
+    }
+
+    public final void onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions$Callback)
+    {
+        android.content.Context $r4;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.GeolocationPermissions$Callback $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzcei $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        if $r2 == null goto label4;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r3 = r0.zza;
+
+        $r4 = interfaceinvoke $r3.getContext();
+
+        $z0 = com.google.android.gms.ads.internal.util.zzs.zzw($r4, "android.permission.ACCESS_FINE_LOCATION");
+
+        if $z0 != 0 goto label2;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r3 = r0.zza;
+
+        $r4 = interfaceinvoke $r3.getContext();
+
+        $z0 = com.google.android.gms.ads.internal.util.zzs.zzw($r4, "android.permission.ACCESS_COARSE_LOCATION");
+
+        if $z0 == 0 goto label1;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label1:
+        $z0 = 0;
+
+        goto label3;
+
+     label2:
+        $z0 = 1;
+
+     label3:
+        interfaceinvoke $r2.invoke($r1, $z0, 1);
+
+     label4:
+        return;
+    }
+
+    public final void onHideCustomView()
+    {
+        com.google.android.gms.ads.internal.overlay.zzl $r1;
+        com.google.android.gms.internal.ads.zzcei $r2;
+        com.google.android.gms.internal.ads.zzceh r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = interfaceinvoke $r2.zzL();
+
+        if $r1 != null goto label1;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not get ad overlay when hiding custom view.");
+
+        return;
+
+     label1:
+        virtualinvoke $r1.zzf();
+
+        return;
+    }
+
+    public final boolean onJsAlert(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult)
+    {
+        android.content.Context $r5;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.JsResult $r3;
+        java.lang.String $r1, $r2;
+        android.webkit.WebView $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r5 = com.google.android.gms.internal.ads.zzceh.zzb($r4);
+
+        $z0 = virtualinvoke r0.zza($r5, "alert", $r1, $r2, null, $r3, null, 0);
+
+        return $z0;
+    }
+
+    public final boolean onJsBeforeUnload(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult)
+    {
+        android.content.Context $r5;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.JsResult $r3;
+        java.lang.String $r1, $r2;
+        android.webkit.WebView $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r5 = com.google.android.gms.internal.ads.zzceh.zzb($r4);
+
+        $z0 = virtualinvoke r0.zza($r5, "onBeforeUnload", $r1, $r2, null, $r3, null, 0);
+
+        return $z0;
+    }
+
+    public final boolean onJsConfirm(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult)
+    {
+        android.content.Context $r5;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.JsResult $r3;
+        java.lang.String $r1, $r2;
+        android.webkit.WebView $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r5 = com.google.android.gms.internal.ads.zzceh.zzb($r4);
+
+        $z0 = virtualinvoke r0.zza($r5, "confirm", $r1, $r2, null, $r3, null, 0);
+
+        return $z0;
+    }
+
+    public final boolean onJsPrompt(android.webkit.WebView, java.lang.String, java.lang.String, java.lang.String, android.webkit.JsPromptResult)
+    {
+        android.content.Context $r6;
+        android.webkit.JsPromptResult $r4;
+        com.google.android.gms.internal.ads.zzceh r0;
+        java.lang.String $r1, $r2, $r3;
+        android.webkit.WebView $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r5 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 := @parameter4;
+
+        $r6 = com.google.android.gms.internal.ads.zzceh.zzb($r5);
+
+        $z0 = virtualinvoke r0.zza($r6, "prompt", $r1, $r2, $r3, null, $r4, 1);
+
+        return $z0;
+    }
+
+    public final void onShowCustomView(android.view.View, int, android.webkit.WebChromeClient$CustomViewCallback)
+    {
+        com.google.android.gms.ads.internal.overlay.zzl $r2;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.WebChromeClient$CustomViewCallback $r1;
+        int $i0;
+        android.view.View $r3;
+        com.google.android.gms.internal.ads.zzcei $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r4 = r0.zza;
+
+        $r2 = interfaceinvoke $r4.zzL();
+
+        if $r2 != null goto label1;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not get ad overlay when showing custom view.");
+
+        interfaceinvoke $r1.onCustomViewHidden();
+
+        return;
+
+     label1:
+        virtualinvoke $r2.zzA($r3, $r1);
+
+        virtualinvoke $r2.zzy($i0);
+
+        return;
+    }
+
+    public final void onShowCustomView(android.view.View, android.webkit.WebChromeClient$CustomViewCallback)
+    {
+        android.view.View $r1;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.WebChromeClient$CustomViewCallback $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.onShowCustomView($r1, -1, $r2);
+
+        return;
+    }
+
+    protected final boolean zza(android.content.Context, java.lang.String, java.lang.String, java.lang.String, java.lang.String, android.webkit.JsResult, android.webkit.JsPromptResult, boolean)
+    {
+        com.google.android.gms.internal.ads.zzced $r18;
+        android.content.Context $r3;
+        com.google.android.gms.internal.ads.zzcec $r20;
+        android.widget.LinearLayout $r13;
+        com.google.android.gms.internal.ads.zzceb $r21;
+        com.google.android.gms.internal.ads.zzcea $r22;
+        com.google.android.gms.internal.ads.zzceh r0;
+        android.webkit.JsResult $r7;
+        com.google.android.gms.internal.ads.zzcef $r16;
+        com.google.android.gms.internal.ads.zzcee $r17;
+        android.view.WindowManager$BadTokenException $r23;
+        com.google.android.gms.internal.ads.zzcfv $r9;
+        java.lang.String $r1, $r4, $r5, $r6;
+        boolean $z0, $z1;
+        android.webkit.JsPromptResult $r2;
+        com.google.android.gms.ads.internal.zzb $r10;
+        android.app.AlertDialog $r19;
+        android.widget.TextView $r14;
+        android.app.AlertDialog$Builder $r12;
+        java.lang.StringBuilder $r11;
+        com.google.android.gms.internal.ads.zzcei $r8;
+        android.widget.EditText $r15;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $r5 := @parameter2;
+
+        $r6 := @parameter3;
+
+        $r1 := @parameter4;
+
+        $r7 := @parameter5;
+
+        $r2 := @parameter6;
+
+        $z0 := @parameter7;
+
+        $r8 = r0.zza;
+
+        if $r8 == null goto label11;
+
+     label01:
+        $r9 = interfaceinvoke $r8.zzN();
+
+     label02:
+        if $r9 == null goto label11;
+
+        $r8 = r0.zza;
+
+     label03:
+        $r9 = interfaceinvoke $r8.zzN();
+
+        $r10 = interfaceinvoke $r9.zzd();
+
+     label04:
+        if $r10 == null goto label11;
+
+        $r8 = r0.zza;
+
+     label05:
+        $r9 = interfaceinvoke $r8.zzN();
+
+        $r10 = interfaceinvoke $r9.zzd();
+
+     label06:
+        if $r10 == null goto label11;
+
+     label07:
+        $z1 = virtualinvoke $r10.zzc();
+
+     label08:
+        if $z1 != 0 goto label11;
+
+        $r11 = new java.lang.StringBuilder;
+
+     label09:
+        specialinvoke $r11.<init>();
+
+        virtualinvoke $r11.append("window.");
+
+        virtualinvoke $r11.append($r4);
+
+        virtualinvoke $r11.append("(\'");
+
+        virtualinvoke $r11.append($r6);
+
+        virtualinvoke $r11.append("\')");
+
+        $r4 = virtualinvoke $r11.toString();
+
+        virtualinvoke $r10.zzb($r4);
+
+     label10:
+        return 0;
+
+     label11:
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r12 = com.google.android.gms.ads.internal.util.zzs.zzG($r3);
+
+        virtualinvoke $r12.setTitle($r5);
+
+     label12:
+        if $z0 == 0 goto label25;
+
+        $r13 = new android.widget.LinearLayout;
+
+     label13:
+        specialinvoke $r13.<init>($r3);
+
+        virtualinvoke $r13.setOrientation(1);
+
+     label14:
+        $r14 = new android.widget.TextView;
+
+     label15:
+        specialinvoke $r14.<init>($r3);
+
+        virtualinvoke $r14.setText($r6);
+
+     label16:
+        $r15 = new android.widget.EditText;
+
+     label17:
+        specialinvoke $r15.<init>($r3);
+
+        virtualinvoke $r15.setText($r1);
+
+        virtualinvoke $r13.addView($r14);
+
+        virtualinvoke $r13.addView($r15);
+
+        $r12 = virtualinvoke $r12.setView($r13);
+
+     label18:
+        $r16 = new com.google.android.gms.internal.ads.zzcef;
+
+     label19:
+        specialinvoke $r16.<init>($r2, $r15);
+
+        $r12 = virtualinvoke $r12.setPositiveButton(17039370, $r16);
+
+     label20:
+        $r17 = new com.google.android.gms.internal.ads.zzcee;
+
+     label21:
+        specialinvoke $r17.<init>($r2);
+
+        $r12 = virtualinvoke $r12.setNegativeButton(17039360, $r17);
+
+     label22:
+        $r18 = new com.google.android.gms.internal.ads.zzced;
+
+     label23:
+        specialinvoke $r18.<init>($r2);
+
+        $r12 = virtualinvoke $r12.setOnCancelListener($r18);
+
+        $r19 = virtualinvoke $r12.create();
+
+        virtualinvoke $r19.show();
+
+     label24:
+        return 1;
+
+     label25:
+        $r12 = virtualinvoke $r12.setMessage($r6);
+
+     label26:
+        $r20 = new com.google.android.gms.internal.ads.zzcec;
+
+     label27:
+        specialinvoke $r20.<init>($r7);
+
+        $r12 = virtualinvoke $r12.setPositiveButton(17039370, $r20);
+
+     label28:
+        $r21 = new com.google.android.gms.internal.ads.zzceb;
+
+     label29:
+        specialinvoke $r21.<init>($r7);
+
+        $r12 = virtualinvoke $r12.setNegativeButton(17039360, $r21);
+
+     label30:
+        $r22 = new com.google.android.gms.internal.ads.zzcea;
+
+     label31:
+        specialinvoke $r22.<init>($r7);
+
+        $r12 = virtualinvoke $r12.setOnCancelListener($r22);
+
+        $r19 = virtualinvoke $r12.create();
+
+        virtualinvoke $r19.show();
+
+     label32:
+        return 1;
+
+     label33:
+        $r23 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzk("Fail to display Dialog.", $r23);
+
+        return 1;
+
+        catch android.view.WindowManager$BadTokenException from label01 to label02 with label33;
+        catch android.view.WindowManager$BadTokenException from label03 to label04 with label33;
+        catch android.view.WindowManager$BadTokenException from label05 to label06 with label33;
+        catch android.view.WindowManager$BadTokenException from label07 to label08 with label33;
+        catch android.view.WindowManager$BadTokenException from label09 to label10 with label33;
+        catch android.view.WindowManager$BadTokenException from label11 to label12 with label33;
+        catch android.view.WindowManager$BadTokenException from label13 to label14 with label33;
+        catch android.view.WindowManager$BadTokenException from label15 to label16 with label33;
+        catch android.view.WindowManager$BadTokenException from label17 to label18 with label33;
+        catch android.view.WindowManager$BadTokenException from label19 to label20 with label33;
+        catch android.view.WindowManager$BadTokenException from label21 to label22 with label33;
+        catch android.view.WindowManager$BadTokenException from label23 to label24 with label33;
+        catch android.view.WindowManager$BadTokenException from label25 to label26 with label33;
+        catch android.view.WindowManager$BadTokenException from label27 to label28 with label33;
+        catch android.view.WindowManager$BadTokenException from label29 to label30 with label33;
+        catch android.view.WindowManager$BadTokenException from label31 to label32 with label33;
+    }
+}

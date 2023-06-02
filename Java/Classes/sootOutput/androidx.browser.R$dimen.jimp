@@ -1,0 +1,16 @@
+public final class androidx.browser.R$dimen extends java.lang.Object
+{
+    public static final int browser_actions_context_menu_max_width;
+    public static final int browser_actions_context_menu_min_padding;
+
+    private void <init>()
+    {
+        androidx.browser.R$dimen r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

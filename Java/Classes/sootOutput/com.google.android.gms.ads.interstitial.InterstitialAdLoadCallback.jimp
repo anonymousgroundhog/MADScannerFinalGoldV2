@@ -1,0 +1,14 @@
+public abstract class com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback extends com.google.android.gms.ads.AdLoadCallback
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

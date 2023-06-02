@@ -1,0 +1,30 @@
+final class com.google.android.gms.internal.ads.zzgod extends java.lang.ThreadLocal
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgod r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    protected final java.lang.Object initialValue()
+    {
+        java.security.SecureRandom $r1;
+        com.google.android.gms.internal.ads.zzgod r0;
+
+        r0 := @this;
+
+        $r1 = new java.security.SecureRandom;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.nextLong();
+
+        return $r1;
+    }
+}

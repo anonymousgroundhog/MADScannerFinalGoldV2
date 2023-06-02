@@ -1,0 +1,69 @@
+public final class com.google.android.gms.internal.ads.zzerv extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    private final java.lang.String zza;
+    private final java.lang.String zzb;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzerv r0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        org.json.JSONException $r4;
+        org.json.JSONObject $r1;
+        com.google.android.gms.internal.ads.zzerv r0;
+        java.lang.Object $r2;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = (org.json.JSONObject) $r2;
+
+     label1:
+        $r1 = com.google.android.gms.ads.internal.util.zzbu.zzf($r1, "pii");
+
+     label2:
+        $r3 = r0.zza;
+
+     label3:
+        virtualinvoke $r1.put("doritos", $r3);
+
+     label4:
+        $r3 = r0.zzb;
+
+     label5:
+        virtualinvoke $r1.put("doritos_v2", $r3);
+
+     label6:
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        com.google.android.gms.ads.internal.util.zze.zza("Failed putting doritos string.");
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label7;
+        catch org.json.JSONException from label3 to label4 with label7;
+        catch org.json.JSONException from label5 to label6 with label7;
+    }
+}

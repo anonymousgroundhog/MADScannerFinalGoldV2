@@ -1,0 +1,32 @@
+public final class com.google.android.gms.internal.ads.zzcoc extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzcoc r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzcoc zza()
+    {
+        com.google.android.gms.internal.ads.zzcoc $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzcob.zza();
+
+        return $r0;
+    }
+
+    public final java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzcoc r0;
+
+        r0 := @this;
+
+        return "app_open_ad";
+    }
+}

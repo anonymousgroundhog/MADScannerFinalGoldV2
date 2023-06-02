@@ -1,0 +1,56 @@
+public class com.google.android.gms.internal.ads.zzfud extends com.google.android.gms.internal.ads.zzfue
+{
+    private final com.google.android.gms.internal.ads.zzfut zza;
+
+    protected void <init>(com.google.android.gms.internal.ads.zzfut)
+    {
+        com.google.android.gms.internal.ads.zzfud r0;
+        com.google.android.gms.internal.ads.zzfut $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    protected final java.lang.Object zza()
+    {
+        com.google.android.gms.internal.ads.zzfud r0;
+        com.google.android.gms.internal.ads.zzfut r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    protected final java.util.concurrent.Future zzb()
+    {
+        com.google.android.gms.internal.ads.zzfud r0;
+        com.google.android.gms.internal.ads.zzfut r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    protected final com.google.android.gms.internal.ads.zzfut zzd()
+    {
+        com.google.android.gms.internal.ads.zzfud r0;
+        com.google.android.gms.internal.ads.zzfut r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

@@ -1,0 +1,120 @@
+final class com.google.android.gms.internal.ads.zzer extends java.lang.Object implements com.google.android.gms.internal.ads.zzdu
+{
+    private android.os.Message zza;
+    private com.google.android.gms.internal.ads.zzes zzb;
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzeq)
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+        com.google.android.gms.internal.ads.zzeq $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    private final void zzd()
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+
+        r0 := @this;
+
+        r0.zza = null;
+
+        r0.zzb = null;
+
+        com.google.android.gms.internal.ads.zzes.zzl(r0);
+
+        return;
+    }
+
+    public final void zza()
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+        android.os.Message $r1;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.sendToTarget();
+
+        specialinvoke r0.zzd();
+
+        return;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+
+    public final com.google.android.gms.internal.ads.zzer zzb(android.os.Message, com.google.android.gms.internal.ads.zzes)
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+        com.google.android.gms.internal.ads.zzes $r2;
+        android.os.Message $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return r0;
+    }
+
+    public final boolean zzc(android.os.Handler)
+    {
+        com.google.android.gms.internal.ads.zzer r0;
+        android.os.Message $r1;
+        android.os.Handler $r2;
+        java.lang.NullPointerException r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zza;
+
+        if $r1 == null goto label1;
+
+        $z0 = virtualinvoke $r2.sendMessageAtFrontOfQueue($r1);
+
+        specialinvoke r0.zzd();
+
+        return $z0;
+
+     label1:
+        r3 = new java.lang.NullPointerException;
+
+        specialinvoke r3.<init>("Null throw statement replaced by Soot");
+
+        throw r3;
+    }
+}

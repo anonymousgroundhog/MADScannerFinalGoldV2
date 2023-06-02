@@ -1,0 +1,26 @@
+class androidx.core.view.ViewCompat$1 extends java.lang.Object implements androidx.core.view.OnReceiveContentViewBehavior
+{
+
+    void <init>()
+    {
+        androidx.core.view.ViewCompat$1 r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public androidx.core.view.ContentInfoCompat onReceiveContent(androidx.core.view.ContentInfoCompat)
+    {
+        androidx.core.view.ContentInfoCompat $r1;
+        androidx.core.view.ViewCompat$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return $r1;
+    }
+}

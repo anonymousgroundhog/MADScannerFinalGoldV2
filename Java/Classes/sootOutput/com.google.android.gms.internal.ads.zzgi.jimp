@@ -1,0 +1,11 @@
+public interface  com.google.android.gms.internal.ads.zzgi extends java.lang.Object
+{
+
+    public abstract void zza(com.google.android.gms.internal.ads.zzfg, com.google.android.gms.internal.ads.zzfl, boolean, int);
+
+    public abstract void zzb(com.google.android.gms.internal.ads.zzfg, com.google.android.gms.internal.ads.zzfl, boolean);
+
+    public abstract void zzc(com.google.android.gms.internal.ads.zzfg, com.google.android.gms.internal.ads.zzfl, boolean);
+
+    public abstract void zzd(com.google.android.gms.internal.ads.zzfg, com.google.android.gms.internal.ads.zzfl, boolean);
+}

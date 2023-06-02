@@ -1,0 +1,667 @@
+public final class com.google.android.gms.internal.ads.zzfgp extends java.lang.Object
+{
+    static float zza;
+    private static android.view.WindowManager zzb;
+    private static final java.lang.String[] zzc;
+
+    static void <clinit>()
+    {
+        float $f0;
+        java.lang.String[] $r0;
+        android.util.DisplayMetrics $r2;
+        android.content.res.Resources $r1;
+
+        com.google.android.gms.internal.ads.zzfgp.zzb = null;
+
+        $r0 = newarray (java.lang.String)[4];
+
+        $r0[0] = "x";
+
+        $r0[1] = "y";
+
+        $r0[2] = "width";
+
+        $r0[3] = "height";
+
+        com.google.android.gms.internal.ads.zzfgp.zzc = $r0;
+
+        $r1 = android.content.res.Resources.getSystem();
+
+        $r2 = virtualinvoke $r1.getDisplayMetrics();
+
+        $f0 = $r2.density;
+
+        com.google.android.gms.internal.ads.zzfgp.zza = $f0;
+
+        return;
+    }
+
+    public static org.json.JSONObject zza(int, int, int, int)
+    {
+        org.json.JSONException $r1;
+        org.json.JSONObject $r0;
+        int $i0, $i1, $i2, $i3;
+        float $f0, $f1;
+        double $d0;
+
+        $i1 := @parameter0;
+
+        $i2 := @parameter1;
+
+        $i3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $r0 = new org.json.JSONObject;
+
+        specialinvoke $r0.<init>();
+
+        $f0 = (float) $i1;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f0 = $f0 / $f1;
+
+        $d0 = (double) $f0;
+
+     label1:
+        virtualinvoke $r0.put("x", $d0);
+
+     label2:
+        $f0 = (float) $i2;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f0 = $f0 / $f1;
+
+        $d0 = (double) $f0;
+
+     label3:
+        virtualinvoke $r0.put("y", $d0);
+
+     label4:
+        $f0 = (float) $i3;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f0 = $f0 / $f1;
+
+        $d0 = (double) $f0;
+
+     label5:
+        virtualinvoke $r0.put("width", $d0);
+
+     label6:
+        $f0 = (float) $i0;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f0 = $f0 / $f1;
+
+        $d0 = (double) $f0;
+
+     label7:
+        virtualinvoke $r0.put("height", $d0);
+
+     label8:
+        return $r0;
+
+     label9:
+        $r1 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzfgq.zza("Error with creating viewStateObject", $r1);
+
+        return $r0;
+
+        catch org.json.JSONException from label1 to label2 with label9;
+        catch org.json.JSONException from label3 to label4 with label9;
+        catch org.json.JSONException from label5 to label6 with label9;
+        catch org.json.JSONException from label7 to label8 with label9;
+    }
+
+    public static void zzb(org.json.JSONObject, java.lang.String)
+    {
+        org.json.JSONException $r2;
+        org.json.JSONObject $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+     label1:
+        virtualinvoke $r0.put("adSessionId", $r1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzfgq.zza("Error with setting ad session id", $r2);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public static void zzc(org.json.JSONObject, org.json.JSONObject)
+    {
+        org.json.JSONException $r4;
+        org.json.JSONObject $r0, $r2;
+        org.json.JSONArray $r1, $r3;
+
+        $r2 := @parameter0;
+
+        $r0 := @parameter1;
+
+     label1:
+        $r1 = virtualinvoke $r2.optJSONArray("childViews");
+
+     label2:
+        $r3 = $r1;
+
+        if $r1 != null goto label5;
+
+        $r3 = new org.json.JSONArray;
+
+     label3:
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r2.put("childViews", $r3);
+
+     label4:
+        goto label5;
+
+     label5:
+        virtualinvoke $r3.put($r0);
+
+     label6:
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r4.printStackTrace();
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label7;
+        catch org.json.JSONException from label3 to label4 with label7;
+        catch org.json.JSONException from label5 to label6 with label7;
+    }
+
+    public static void zzd(org.json.JSONObject, com.google.android.gms.internal.ads.zzfgt)
+    {
+        com.google.android.gms.internal.ads.zzfgb $r2;
+        java.util.ArrayList $r4;
+        com.google.android.gms.internal.ads.zzffq $r7;
+        org.json.JSONException $r8;
+        org.json.JSONObject $r0;
+        com.google.android.gms.internal.ads.zzfgt $r1;
+        int $i0, $i1;
+        java.lang.Object $r5;
+        java.lang.String $r6;
+        org.json.JSONArray $r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = virtualinvoke $r1.zza();
+
+        $r3 = new org.json.JSONArray;
+
+        specialinvoke $r3.<init>();
+
+        $r4 = virtualinvoke $r1.zzb();
+
+        $i0 = interfaceinvoke $r4.size();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r5 = interfaceinvoke $r4.get($i1);
+
+        $r6 = (java.lang.String) $r5;
+
+        virtualinvoke $r3.put($r6);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        virtualinvoke $r0.put("isFriendlyObstructionFor", $r3);
+
+        $r6 = virtualinvoke $r2.zzd();
+
+        virtualinvoke $r0.put("friendlyObstructionClass", $r6);
+
+        $r7 = virtualinvoke $r2.zza();
+
+        virtualinvoke $r0.put("friendlyObstructionPurpose", $r7);
+
+        $r6 = virtualinvoke $r2.zzc();
+
+        virtualinvoke $r0.put("friendlyObstructionReason", $r6);
+
+     label3:
+        return;
+
+     label4:
+        $r8 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzfgq.zza("Error with setting friendly obstruction", $r8);
+
+        return;
+
+        catch org.json.JSONException from label2 to label3 with label4;
+    }
+
+    public static void zze(org.json.JSONObject, java.lang.Boolean)
+    {
+        java.lang.Boolean $r1;
+        org.json.JSONException $r2;
+        org.json.JSONObject $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+     label1:
+        virtualinvoke $r0.put("hasWindowFocus", $r1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzfgq.zza("Error with setting not visible reason", $r2);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public static void zzf(org.json.JSONObject, java.lang.String)
+    {
+        org.json.JSONException $r2;
+        org.json.JSONObject $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+     label1:
+        virtualinvoke $r0.put("notVisibleReason", $r1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzfgq.zza("Error with setting not visible reason", $r2);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public static void zzg(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.view.WindowManager $r4;
+        float $f0;
+        java.lang.Object $r3;
+        android.util.DisplayMetrics $r2;
+        android.content.res.Resources $r1;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label1;
+
+        $r1 = virtualinvoke $r0.getResources();
+
+        $r2 = virtualinvoke $r1.getDisplayMetrics();
+
+        $f0 = $r2.density;
+
+        com.google.android.gms.internal.ads.zzfgp.zza = $f0;
+
+        $r3 = virtualinvoke $r0.getSystemService("window");
+
+        $r4 = (android.view.WindowManager) $r3;
+
+        com.google.android.gms.internal.ads.zzfgp.zzb = $r4;
+
+     label1:
+        return;
+    }
+
+    public static void zzh(org.json.JSONObject, java.lang.String, java.lang.Object)
+    {
+        org.json.JSONObject $r1;
+        java.lang.Object $r2;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r0;
+        java.lang.Exception $r3;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r2 := @parameter2;
+
+     label1:
+        virtualinvoke $r1.put($r0, $r2);
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        goto label5;
+
+     label4:
+        $r3 := @caughtexception;
+
+     label5:
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        virtualinvoke $r4.append("JSONException during JSONObject.put for name [");
+
+        virtualinvoke $r4.append($r0);
+
+        virtualinvoke $r4.append("]");
+
+        $r0 = virtualinvoke $r4.toString();
+
+        com.google.android.gms.internal.ads.zzfgq.zza($r0, $r3);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label4;
+        catch org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public static void zzi(org.json.JSONObject)
+    {
+        android.view.WindowManager $r2;
+        android.graphics.Point $r3;
+        org.json.JSONException $r4;
+        org.json.JSONObject $r1;
+        int $i0;
+        android.view.Display $r0;
+        float $f0, $f1, $f2;
+        double $d0;
+
+        $r1 := @parameter0;
+
+        $r2 = com.google.android.gms.internal.ads.zzfgp.zzb;
+
+        if $r2 == null goto label1;
+
+        $r3 = new android.graphics.Point;
+
+        specialinvoke $r3.<init>(0, 0);
+
+        $r2 = com.google.android.gms.internal.ads.zzfgp.zzb;
+
+        $r0 = interfaceinvoke $r2.getDefaultDisplay();
+
+        virtualinvoke $r0.getRealSize($r3);
+
+        $i0 = $r3.x;
+
+        $f0 = (float) $i0;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f0 = $f0 / $f1;
+
+        $i0 = $r3.y;
+
+        $f1 = (float) $i0;
+
+        $f2 = com.google.android.gms.internal.ads.zzfgp.zza;
+
+        $f1 = $f1 / $f2;
+
+        goto label2;
+
+     label1:
+        $f0 = 0.0F;
+
+        $f1 = 0.0F;
+
+     label2:
+        $d0 = (double) $f0;
+
+     label3:
+        virtualinvoke $r1.put("width", $d0);
+
+     label4:
+        $d0 = (double) $f1;
+
+     label5:
+        virtualinvoke $r1.put("height", $d0);
+
+     label6:
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r4.printStackTrace();
+
+        return;
+
+        catch org.json.JSONException from label3 to label4 with label7;
+        catch org.json.JSONException from label5 to label6 with label7;
+    }
+
+    public static boolean zzj(org.json.JSONObject, org.json.JSONObject)
+    {
+        java.lang.String[] $r2;
+        org.json.JSONObject $r0, $r1;
+        byte $b1;
+        int $i0, $i2;
+        java.lang.Boolean $r5, $r6;
+        java.lang.String $r3, $r4;
+        org.json.JSONArray $r7, $r8;
+        double $d0, $d1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r0 != null goto label02;
+
+        if $r1 == null goto label01;
+
+        goto label02;
+
+     label01:
+        return 1;
+
+     label02:
+        if $r0 == null goto label13;
+
+        if $r1 != null goto label03;
+
+        return 0;
+
+     label03:
+        $r2 = com.google.android.gms.internal.ads.zzfgp.zzc;
+
+        $i0 = 0;
+
+     label04:
+        if $i0 >= 4 goto label06;
+
+        $r3 = $r2[$i0];
+
+        $d0 = virtualinvoke $r0.optDouble($r3);
+
+        $d1 = virtualinvoke $r1.optDouble($r3);
+
+        $b1 = $d0 cmpl $d1;
+
+        if $b1 == 0 goto label05;
+
+        return 0;
+
+     label05:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label06:
+        $r3 = virtualinvoke $r0.optString("adSessionId", "");
+
+        $r4 = virtualinvoke $r1.optString("adSessionId", "");
+
+        $z0 = virtualinvoke $r3.equals($r4);
+
+        if $z0 == 0 goto label13;
+
+        $z0 = virtualinvoke $r0.optBoolean("hasWindowFocus");
+
+        $r5 = java.lang.Boolean.valueOf($z0);
+
+        $z0 = virtualinvoke $r1.optBoolean("hasWindowFocus");
+
+        $r6 = java.lang.Boolean.valueOf($z0);
+
+        $z0 = virtualinvoke $r5.equals($r6);
+
+        if $z0 == 0 goto label13;
+
+        $r7 = virtualinvoke $r0.optJSONArray("isFriendlyObstructionFor");
+
+        $r8 = virtualinvoke $r1.optJSONArray("isFriendlyObstructionFor");
+
+        if $r7 != null goto label07;
+
+        if $r8 != null goto label07;
+
+        goto label09;
+
+     label07:
+        $z0 = com.google.android.gms.internal.ads.zzfgp.zzk($r7, $r8);
+
+        if $z0 == 0 goto label13;
+
+        $i0 = 0;
+
+     label08:
+        $i2 = virtualinvoke $r7.length();
+
+        if $i0 >= $i2 goto label09;
+
+        $r3 = virtualinvoke $r7.optString($i0, "");
+
+        $r4 = virtualinvoke $r8.optString($i0, "");
+
+        $z0 = virtualinvoke $r3.equals($r4);
+
+        if $z0 == 0 goto label13;
+
+        $i0 = $i0 + 1;
+
+        goto label08;
+
+     label09:
+        $r7 = virtualinvoke $r0.optJSONArray("childViews");
+
+        $r8 = virtualinvoke $r1.optJSONArray("childViews");
+
+        if $r7 != null goto label10;
+
+        if $r8 == null goto label12;
+
+     label10:
+        $z0 = com.google.android.gms.internal.ads.zzfgp.zzk($r7, $r8);
+
+        if $z0 == 0 goto label13;
+
+        $i0 = 0;
+
+     label11:
+        $i2 = virtualinvoke $r7.length();
+
+        if $i0 >= $i2 goto label14;
+
+        $r0 = virtualinvoke $r7.optJSONObject($i0);
+
+        $r1 = virtualinvoke $r8.optJSONObject($i0);
+
+        $z0 = com.google.android.gms.internal.ads.zzfgp.zzj($r0, $r1);
+
+        if $z0 == 0 goto label15;
+
+        $i0 = $i0 + 1;
+
+        goto label11;
+
+     label12:
+        return 1;
+
+     label13:
+        return 0;
+
+     label14:
+        return 1;
+
+     label15:
+        return 0;
+    }
+
+    private static boolean zzk(org.json.JSONArray, org.json.JSONArray)
+    {
+        int $i0, $i1;
+        org.json.JSONArray $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r0 != null goto label2;
+
+        if $r1 == null goto label1;
+
+        goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        if $r0 == null goto label4;
+
+        if $r1 != null goto label3;
+
+        return 0;
+
+     label3:
+        $i0 = virtualinvoke $r0.length();
+
+        $i1 = virtualinvoke $r1.length();
+
+        if $i0 != $i1 goto label4;
+
+        return 1;
+
+     label4:
+        return 0;
+    }
+}

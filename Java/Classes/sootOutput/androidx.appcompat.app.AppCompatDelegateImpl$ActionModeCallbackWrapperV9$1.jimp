@@ -1,0 +1,122 @@
+class androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1 extends androidx.core.view.ViewPropertyAnimatorListenerAdapter
+{
+    final androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9 this$1;
+
+    void <init>(androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9)
+    {
+        androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9 $r1;
+        androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$1 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onAnimationEnd(android.view.View)
+    {
+        android.view.ViewParent $r6;
+        androidx.appcompat.app.AppCompatDelegateImpl $r3;
+        android.widget.PopupWindow $r5;
+        androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9$1 r0;
+        androidx.appcompat.widget.ActionBarContextView $r4;
+        android.view.ViewGroup $r8;
+        androidx.appcompat.app.AppCompatDelegateImpl$ActionModeCallbackWrapperV9 $r2;
+        androidx.core.view.ViewPropertyAnimatorCompat $r7;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r4 = $r3.mActionModeView;
+
+        virtualinvoke $r4.setVisibility(8);
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r5 = $r3.mActionModePopup;
+
+        if $r5 == null goto label1;
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r5 = $r3.mActionModePopup;
+
+        virtualinvoke $r5.dismiss();
+
+        goto label2;
+
+     label1:
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r4 = $r3.mActionModeView;
+
+        $r6 = virtualinvoke $r4.getParent();
+
+        $z0 = $r6 instanceof android.view.View;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r4 = $r3.mActionModeView;
+
+        $r6 = virtualinvoke $r4.getParent();
+
+        $r1 = (android.view.View) $r6;
+
+        androidx.core.view.ViewCompat.requestApplyInsets($r1);
+
+     label2:
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r4 = $r3.mActionModeView;
+
+        virtualinvoke $r4.removeAllViews();
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r7 = $r3.mFadeAnim;
+
+        virtualinvoke $r7.setListener(null);
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r3.mFadeAnim = null;
+
+        $r2 = r0.this$1;
+
+        $r3 = $r2.this$0;
+
+        $r8 = $r3.mSubDecor;
+
+        androidx.core.view.ViewCompat.requestApplyInsets($r8);
+
+        return;
+    }
+}

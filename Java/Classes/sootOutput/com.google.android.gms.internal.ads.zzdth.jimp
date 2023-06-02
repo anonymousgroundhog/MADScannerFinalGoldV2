@@ -1,0 +1,49 @@
+public final class com.google.android.gms.internal.ads.zzdth extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public static final com.google.android.gms.internal.ads.zzdth zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdth $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdth;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdth.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdth r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        java.util.concurrent.ExecutionException $r2;
+        java.lang.Throwable $r3;
+        com.google.android.gms.internal.ads.zzfut $r4;
+        com.google.android.gms.internal.ads.zzdth r0;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (java.util.concurrent.ExecutionException) $r1;
+
+        $r3 = virtualinvoke $r2.getCause();
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzg($r3);
+
+        return $r4;
+    }
+}

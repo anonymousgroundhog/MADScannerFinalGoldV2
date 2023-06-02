@@ -1,0 +1,70 @@
+public final class com.google.android.gms.internal.ads.zzgch extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzfvo zza;
+    private final com.google.android.gms.internal.ads.zzfvu zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfvo)
+    {
+        com.google.android.gms.internal.ads.zzfvo $r1;
+        com.google.android.gms.internal.ads.zzgch r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = null;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.internal.ads.zzfvu)
+    {
+        com.google.android.gms.internal.ads.zzfvu $r1;
+        com.google.android.gms.internal.ads.zzgch r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = null;
+
+        r0.zzb = $r1;
+
+        return;
+    }
+
+    public final byte[] zza(byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r2;
+        com.google.android.gms.internal.ads.zzfvo $r3;
+        com.google.android.gms.internal.ads.zzfvu $r4;
+        com.google.android.gms.internal.ads.zzgch r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r3 = r0.zza;
+
+        if $r3 == null goto label1;
+
+        $r2 = interfaceinvoke $r3.zzb($r2, $r1);
+
+        return $r2;
+
+     label1:
+        $r4 = r0.zzb;
+
+        $r2 = interfaceinvoke $r4.zza($r2, $r1);
+
+        return $r2;
+    }
+}

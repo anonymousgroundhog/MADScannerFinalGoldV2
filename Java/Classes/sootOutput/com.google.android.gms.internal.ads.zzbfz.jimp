@@ -1,0 +1,56 @@
+final class com.google.android.gms.internal.ads.zzbfz extends com.google.android.gms.internal.ads.zzbfa
+{
+    final com.google.android.gms.internal.ads.zzbgc zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzbgc, com.google.android.gms.internal.ads.zzbfy)
+    {
+        com.google.android.gms.internal.ads.zzbfz r0;
+        com.google.android.gms.internal.ads.zzbgc $r1;
+        com.google.android.gms.internal.ads.zzbfy $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zze(com.google.android.gms.internal.ads.zzber, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzber $r3;
+        com.google.android.gms.internal.ads.zzbfz r0;
+        com.google.android.gms.ads.formats.NativeCustomTemplateAd $r5;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbgc $r2;
+        com.google.android.gms.ads.formats.NativeCustomTemplateAd$OnCustomClickListener $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzbgc.zza($r2);
+
+        if $r4 != null goto label1;
+
+        return;
+
+     label1:
+        $r4 = com.google.android.gms.internal.ads.zzbgc.zza($r2);
+
+        $r5 = com.google.android.gms.internal.ads.zzbgc.zzc($r2, $r3);
+
+        interfaceinvoke $r4.onCustomClick($r5, $r1);
+
+        return;
+    }
+}

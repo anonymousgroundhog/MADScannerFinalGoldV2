@@ -1,0 +1,659 @@
+public final class com.google.android.gms.internal.base.zai extends android.graphics.drawable.Drawable implements android.graphics.drawable.Drawable$Callback
+{
+    private int zaa;
+    private long zab;
+    private int zac;
+    private int zad;
+    private int zae;
+    private int zaf;
+    private boolean zag;
+    private boolean zah;
+    private com.google.android.gms.internal.base.zah zai;
+    private android.graphics.drawable.Drawable zaj;
+    private android.graphics.drawable.Drawable zak;
+    private boolean zal;
+    private boolean zam;
+    private boolean zan;
+    private int zao;
+
+    public void <init>(android.graphics.drawable.Drawable, android.graphics.drawable.Drawable)
+    {
+        com.google.android.gms.internal.base.zah $r3;
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+        android.graphics.drawable.Drawable $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>(null);
+
+        if $r1 != null goto label1;
+
+        $r1 = com.google.android.gms.internal.base.zag.zaa();
+
+     label1:
+        r0.zaj = $r1;
+
+        virtualinvoke $r1.setCallback(r0);
+
+        $r3 = r0.zai;
+
+        $i0 = $r3.zab;
+
+        $i1 = virtualinvoke $r1.getChangingConfigurations();
+
+        $i0 = $i1 | $i0;
+
+        $r3.zab = $i0;
+
+        if $r2 != null goto label2;
+
+        $r2 = com.google.android.gms.internal.base.zag.zaa();
+
+        goto label2;
+
+     label2:
+        r0.zak = $r2;
+
+        virtualinvoke $r2.setCallback(r0);
+
+        $r3 = r0.zai;
+
+        $i0 = $r3.zab;
+
+        $i1 = virtualinvoke $r2.getChangingConfigurations();
+
+        $i0 = $i1 | $i0;
+
+        $r3.zab = $i0;
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.base.zah)
+    {
+        com.google.android.gms.internal.base.zah $r1, $r2;
+        com.google.android.gms.internal.base.zai r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zaa = 0;
+
+        r0.zad = 255;
+
+        r0.zaf = 0;
+
+        r0.zag = 1;
+
+        $r2 = new com.google.android.gms.internal.base.zah;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.zai = $r2;
+
+        return;
+    }
+
+    public final void draw(android.graphics.Canvas)
+    {
+        long $l2, $l4;
+        android.graphics.drawable.Drawable $r2, $r3;
+        byte $b3;
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+        float $f0, $f1;
+        android.graphics.Canvas $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = r0.zaa;
+
+        $z0 = 1;
+
+        $i1 = 0;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label07;
+            case 2: goto label02;
+            default: goto label01;
+        };
+
+     label01:
+        goto label08;
+
+     label02:
+        $l2 = r0.zab;
+
+        $b3 = $l2 cmp 0L;
+
+        $i0 = (int) $b3;
+
+        if $i0 < 0 goto label06;
+
+        $l2 = android.os.SystemClock.uptimeMillis();
+
+        $l4 = r0.zab;
+
+        $l2 = $l2 - $l4;
+
+        $f0 = (float) $l2;
+
+        $i0 = r0.zae;
+
+        $f1 = (float) $i0;
+
+        $f0 = $f0 / $f1;
+
+        $b3 = $f0 cmpl 1.0F;
+
+        $i0 = (int) $b3;
+
+        if $i0 < 0 goto label03;
+
+        goto label04;
+
+     label03:
+        $z0 = 0;
+
+     label04:
+        if $z0 == 0 goto label05;
+
+        r0.zaa = 0;
+
+     label05:
+        $f0 = java.lang.Math.min($f0, 1.0F);
+
+        $i0 = r0.zac;
+
+        $f1 = (float) $i0;
+
+        $f0 = $f1 * $f0;
+
+        $f0 = $f0 + 0.0F;
+
+        $i0 = (int) $f0;
+
+        r0.zaf = $i0;
+
+        goto label08;
+
+     label06:
+        goto label08;
+
+     label07:
+        $l2 = android.os.SystemClock.uptimeMillis();
+
+        r0.zab = $l2;
+
+        r0.zaa = 2;
+
+        $z0 = 0;
+
+     label08:
+        $i0 = r0.zaf;
+
+        $z1 = r0.zag;
+
+        $r2 = r0.zaj;
+
+        $r3 = r0.zak;
+
+        if $z0 == 0 goto label13;
+
+        if $z1 == 0 goto label10;
+
+        if $i0 != 0 goto label09;
+
+        goto label11;
+
+     label09:
+        goto label12;
+
+     label10:
+        $i1 = $i0;
+
+     label11:
+        virtualinvoke $r2.draw($r1);
+
+        $i0 = $i1;
+
+     label12:
+        $i1 = r0.zad;
+
+        if $i0 != $i1 goto label17;
+
+        virtualinvoke $r3.setAlpha($i1);
+
+        virtualinvoke $r3.draw($r1);
+
+        return;
+
+     label13:
+        if $z1 == 0 goto label14;
+
+        $i1 = r0.zad;
+
+        $i1 = $i1 - $i0;
+
+        virtualinvoke $r2.setAlpha($i1);
+
+     label14:
+        virtualinvoke $r2.draw($r1);
+
+        if $z1 == 0 goto label15;
+
+        $i1 = r0.zad;
+
+        virtualinvoke $r2.setAlpha($i1);
+
+     label15:
+        if $i0 <= 0 goto label16;
+
+        virtualinvoke $r3.setAlpha($i0);
+
+        virtualinvoke $r3.draw($r1);
+
+        $i1 = r0.zad;
+
+        virtualinvoke $r3.setAlpha($i1);
+
+     label16:
+        virtualinvoke r0.invalidateSelf();
+
+     label17:
+        return;
+    }
+
+    public final int getChangingConfigurations()
+    {
+        com.google.android.gms.internal.base.zah $r1;
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i1 = specialinvoke r0.getChangingConfigurations();
+
+        $r1 = r0.zai;
+
+        $i0 = $r1.zaa;
+
+        $i0 = $i1 | $i0;
+
+        $i1 = $r1.zab;
+
+        $i0 = $i0 | $i1;
+
+        return $i0;
+    }
+
+    public final android.graphics.drawable.Drawable$ConstantState getConstantState()
+    {
+        com.google.android.gms.internal.base.zah $r1;
+        com.google.android.gms.internal.base.zai r0;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.zac();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.zai;
+
+        $i0 = virtualinvoke r0.getChangingConfigurations();
+
+        $r1.zaa = $i0;
+
+        $r1 = r0.zai;
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public final int getIntrinsicHeight()
+    {
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zaj;
+
+        $i0 = virtualinvoke $r1.getIntrinsicHeight();
+
+        $r1 = r0.zak;
+
+        $i1 = virtualinvoke $r1.getIntrinsicHeight();
+
+        $i0 = java.lang.Math.max($i0, $i1);
+
+        return $i0;
+    }
+
+    public final int getIntrinsicWidth()
+    {
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zaj;
+
+        $i0 = virtualinvoke $r1.getIntrinsicWidth();
+
+        $r1 = r0.zak;
+
+        $i1 = virtualinvoke $r1.getIntrinsicWidth();
+
+        $i0 = java.lang.Math.max($i0, $i1);
+
+        return $i0;
+    }
+
+    public final int getOpacity()
+    {
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zan;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = r0.zaj;
+
+        $i0 = virtualinvoke $r1.getOpacity();
+
+        $r1 = r0.zak;
+
+        $i1 = virtualinvoke $r1.getOpacity();
+
+        $i0 = android.graphics.drawable.Drawable.resolveOpacity($i0, $i1);
+
+        r0.zao = $i0;
+
+        r0.zan = 1;
+
+     label1:
+        $i0 = r0.zao;
+
+        return $i0;
+    }
+
+    public final void invalidateDrawable(android.graphics.drawable.Drawable)
+    {
+        android.graphics.drawable.Drawable $r2;
+        com.google.android.gms.internal.base.zai r0;
+        android.graphics.drawable.Drawable$Callback $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.getCallback();
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.invalidateDrawable(r0);
+
+     label1:
+        return;
+    }
+
+    public final android.graphics.drawable.Drawable mutate()
+    {
+        java.lang.IllegalStateException $r2;
+        com.google.android.gms.internal.base.zai r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zah;
+
+        if $z0 != 0 goto label2;
+
+        $r1 = specialinvoke r0.mutate();
+
+        if $r1 != r0 goto label2;
+
+        $z0 = virtualinvoke r0.zac();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.zaj;
+
+        virtualinvoke $r1.mutate();
+
+        $r1 = r0.zak;
+
+        virtualinvoke $r1.mutate();
+
+        r0.zah = 1;
+
+        return r0;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("One or more children of this LayerDrawable does not have constant state; this drawable cannot be mutated.");
+
+        throw $r2;
+
+     label2:
+        return r0;
+    }
+
+    protected final void onBoundsChange(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1;
+        android.graphics.drawable.Drawable $r2;
+        com.google.android.gms.internal.base.zai r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaj;
+
+        virtualinvoke $r2.setBounds($r1);
+
+        $r2 = r0.zak;
+
+        virtualinvoke $r2.setBounds($r1);
+
+        return;
+    }
+
+    public final void scheduleDrawable(android.graphics.drawable.Drawable, java.lang.Runnable, long)
+    {
+        com.google.android.gms.internal.base.zai r0;
+        android.graphics.drawable.Drawable$Callback $r2;
+        long $l0;
+        java.lang.Runnable $r1;
+        android.graphics.drawable.Drawable $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $r2 = virtualinvoke r0.getCallback();
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.scheduleDrawable(r0, $r1, $l0);
+
+     label1:
+        return;
+    }
+
+    public final void setAlpha(int)
+    {
+        com.google.android.gms.internal.base.zai r0;
+        int $i0, $i1, $i2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.zaf;
+
+        $i2 = r0.zad;
+
+        if $i1 != $i2 goto label1;
+
+        r0.zaf = $i0;
+
+     label1:
+        r0.zad = $i0;
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public final void setColorFilter(android.graphics.ColorFilter)
+    {
+        android.graphics.ColorFilter $r1;
+        android.graphics.drawable.Drawable $r2;
+        com.google.android.gms.internal.base.zai r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaj;
+
+        virtualinvoke $r2.setColorFilter($r1);
+
+        $r2 = r0.zak;
+
+        virtualinvoke $r2.setColorFilter($r1);
+
+        return;
+    }
+
+    public final void unscheduleDrawable(android.graphics.drawable.Drawable, java.lang.Runnable)
+    {
+        com.google.android.gms.internal.base.zai r0;
+        android.graphics.drawable.Drawable$Callback $r2;
+        java.lang.Runnable $r1;
+        android.graphics.drawable.Drawable $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = virtualinvoke r0.getCallback();
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.unscheduleDrawable(r0, $r1);
+
+     label1:
+        return;
+    }
+
+    public final android.graphics.drawable.Drawable zaa()
+    {
+        android.graphics.drawable.Drawable r1;
+        com.google.android.gms.internal.base.zai r0;
+
+        r0 := @this;
+
+        r1 = r0.zak;
+
+        return r1;
+    }
+
+    public final void zab(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.base.zai r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i0 = r0.zad;
+
+        r0.zac = $i0;
+
+        r0.zaf = 0;
+
+        r0.zae = 250;
+
+        r0.zaa = 1;
+
+        virtualinvoke r0.invalidateSelf();
+
+        return;
+    }
+
+    public final boolean zac()
+    {
+        android.graphics.drawable.Drawable$ConstantState $r2;
+        com.google.android.gms.internal.base.zai r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zal;
+
+        if $z0 != 0 goto label2;
+
+        $r1 = r0.zaj;
+
+        $r2 = virtualinvoke $r1.getConstantState();
+
+        $z0 = 0;
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.zak;
+
+        $r2 = virtualinvoke $r1.getConstantState();
+
+        if $r2 == null goto label1;
+
+        $z0 = 1;
+
+     label1:
+        r0.zam = $z0;
+
+        r0.zal = 1;
+
+     label2:
+        $z0 = r0.zam;
+
+        return $z0;
+    }
+}

@@ -1,0 +1,29 @@
+final class com.google.android.gms.internal.ads.zzfxd extends com.google.android.gms.internal.ads.zzfwa implements com.google.android.gms.internal.ads.zzfvy
+{
+    private final com.google.android.gms.internal.ads.zzgdy zza;
+    private final com.google.android.gms.internal.ads.zzgcu zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgdy, com.google.android.gms.internal.ads.zzgcu, java.lang.Class)
+    {
+        com.google.android.gms.internal.ads.zzfxd r0;
+        com.google.android.gms.internal.ads.zzgcu $r2;
+        java.lang.Class $r3;
+        com.google.android.gms.internal.ads.zzgdy $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r3);
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+}

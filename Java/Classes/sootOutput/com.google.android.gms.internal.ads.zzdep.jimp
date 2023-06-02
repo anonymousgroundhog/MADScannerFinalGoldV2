@@ -1,0 +1,44 @@
+public final class com.google.android.gms.internal.ads.zzdep extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzden zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzden)
+    {
+        com.google.android.gms.internal.ads.zzdep r0;
+        com.google.android.gms.internal.ads.zzden $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzden zza()
+    {
+        com.google.android.gms.internal.ads.zzdep r0;
+        com.google.android.gms.internal.ads.zzden r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public final java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzdep r0;
+        com.google.android.gms.internal.ads.zzden r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

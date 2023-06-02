@@ -1,0 +1,14 @@
+abstract class com.google.android.gms.internal.ads.zzfnc extends com.google.android.gms.internal.ads.zzfng
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfnc r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

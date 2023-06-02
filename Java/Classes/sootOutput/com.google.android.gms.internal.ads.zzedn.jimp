@@ -1,0 +1,49 @@
+public final class com.google.android.gms.internal.ads.zzedn extends java.lang.Object implements com.google.android.gms.internal.ads.zzfnj
+{
+    public static final com.google.android.gms.internal.ads.zzedn zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzedn $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzedn;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzedn.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzedn r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object apply(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzdgd $r2;
+        java.util.List $r4;
+        com.google.android.gms.internal.ads.zzedn r0;
+        com.google.android.gms.internal.ads.zzfut $r3;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (com.google.android.gms.internal.ads.zzdgd) $r1;
+
+        $r3 = com.google.android.gms.internal.ads.zzfuj.zzh($r2);
+
+        $r4 = java.util.Collections.singletonList($r3);
+
+        return $r4;
+    }
+}

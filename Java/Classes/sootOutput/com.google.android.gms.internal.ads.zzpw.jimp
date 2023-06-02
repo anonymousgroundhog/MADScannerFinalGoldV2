@@ -1,0 +1,28 @@
+public final class com.google.android.gms.internal.ads.zzpw extends java.lang.Object implements com.google.android.gms.internal.ads.zzpy
+{
+    public static final com.google.android.gms.internal.ads.zzpw zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzpw $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzpw;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzpw.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzpw r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

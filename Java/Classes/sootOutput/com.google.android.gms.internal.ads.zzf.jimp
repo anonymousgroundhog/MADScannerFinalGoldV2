@@ -1,0 +1,17 @@
+final class com.google.android.gms.internal.ads.zzf extends java.lang.Object
+{
+
+    public static void zza(android.media.AudioAttributes$Builder, int)
+    {
+        int $i0;
+        android.media.AudioAttributes$Builder $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        virtualinvoke $r0.setAllowedCapturePolicy($i0);
+
+        return;
+    }
+}

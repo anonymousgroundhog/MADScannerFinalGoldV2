@@ -1,0 +1,82 @@
+final class com.google.android.gms.internal.ads.zzfrx extends com.google.android.gms.internal.ads.zzfqk
+{
+    private final transient java.lang.Object[] zza;
+    private final transient int zzb;
+    private final transient int zzc;
+
+    void <init>(java.lang.Object[], int, int)
+    {
+        java.lang.Object[] $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzfrx r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $i0;
+
+        r0.zzc = $i1;
+
+        return;
+    }
+
+    public final java.lang.Object get(int)
+    {
+        java.lang.Object[] $r1;
+        int $i0, $i1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzfrx r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.zzc;
+
+        com.google.android.gms.internal.ads.zzfnu.zza($i0, $i1, "index");
+
+        $r1 = r0.zza;
+
+        $i0 = $i0 + $i0;
+
+        $i1 = r0.zzb;
+
+        $i0 = $i0 + $i1;
+
+        $r2 = $r1[$i0];
+
+        virtualinvoke $r2.getClass();
+
+        return $r2;
+    }
+
+    public final int size()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzfrx r0;
+
+        r0 := @this;
+
+        i0 = r0.zzc;
+
+        return i0;
+    }
+
+    final boolean zzf()
+    {
+        com.google.android.gms.internal.ads.zzfrx r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+}

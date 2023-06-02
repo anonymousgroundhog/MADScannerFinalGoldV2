@@ -1,0 +1,73 @@
+public final class com.google.android.gms.internal.ads.zzdtw extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzgxl zza;
+    private final com.google.android.gms.internal.ads.zzgxl zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgxl, com.google.android.gms.internal.ads.zzgxl)
+    {
+        com.google.android.gms.internal.ads.zzdtw r0;
+        com.google.android.gms.internal.ads.zzgxl $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzdtr $r4;
+        android.content.Context $r3;
+        android.content.pm.PackageManager$NameNotFoundException $r9;
+        com.google.android.gms.common.wrappers.PackageManagerWrapper $r6;
+        android.content.pm.PackageInfo $r8;
+        com.google.android.gms.internal.ads.zzgxl $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzdtw r0;
+        java.lang.String $r7;
+        android.content.pm.ApplicationInfo $r5;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = interfaceinvoke $r1.zzb();
+
+        $r3 = (android.content.Context) $r2;
+
+        $r1 = r0.zzb;
+
+        $r4 = (com.google.android.gms.internal.ads.zzdtr) $r1;
+
+        $r5 = virtualinvoke $r4.zza();
+
+     label1:
+        $r6 = com.google.android.gms.common.wrappers.Wrappers.packageManager($r3);
+
+     label2:
+        $r7 = $r5.packageName;
+
+     label3:
+        $r8 = virtualinvoke $r6.getPackageInfo($r7, 0);
+
+     label4:
+        return $r8;
+
+     label5:
+        $r9 := @caughtexception;
+
+        return null;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label1 to label2 with label5;
+        catch android.content.pm.PackageManager$NameNotFoundException from label3 to label4 with label5;
+    }
+}

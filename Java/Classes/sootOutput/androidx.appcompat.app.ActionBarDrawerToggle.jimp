@@ -1,0 +1,723 @@
+public class androidx.appcompat.app.ActionBarDrawerToggle extends java.lang.Object implements androidx.drawerlayout.widget.DrawerLayout$DrawerListener
+{
+    private final androidx.appcompat.app.ActionBarDrawerToggle$Delegate mActivityImpl;
+    private final int mCloseDrawerContentDescRes;
+    boolean mDrawerIndicatorEnabled;
+    private final androidx.drawerlayout.widget.DrawerLayout mDrawerLayout;
+    private boolean mDrawerSlideAnimationEnabled;
+    private boolean mHasCustomUpIndicator;
+    private android.graphics.drawable.Drawable mHomeAsUpIndicator;
+    private final int mOpenDrawerContentDescRes;
+    private androidx.appcompat.graphics.drawable.DrawerArrowDrawable mSlider;
+    android.view.View$OnClickListener mToolbarNavigationClickListener;
+    private boolean mWarnedForDisplayHomeAsUp;
+
+    void <init>(android.app.Activity, androidx.appcompat.widget.Toolbar, androidx.drawerlayout.widget.DrawerLayout, androidx.appcompat.graphics.drawable.DrawerArrowDrawable, int, int)
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable $r4;
+        android.content.Context $r10;
+        androidx.drawerlayout.widget.DrawerLayout $r3;
+        androidx.appcompat.app.ActionBarDrawerToggle$ToolbarCompatDelegate $r5;
+        android.graphics.drawable.Drawable $r11;
+        androidx.appcompat.app.ActionBarDrawerToggle$DelegateProvider $r7;
+        androidx.appcompat.app.ActionBarDrawerToggle$1 $r6;
+        androidx.appcompat.app.ActionBarDrawerToggle$Delegate $r8;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        androidx.appcompat.app.ActionBarDrawerToggle$FrameworkActionBarDelegate $r9;
+        int $i0, $i1;
+        androidx.appcompat.widget.Toolbar $r2;
+        android.app.Activity $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $i0 := @parameter4;
+
+        $i1 := @parameter5;
+
+        specialinvoke r0.<init>();
+
+        r0.mDrawerSlideAnimationEnabled = 1;
+
+        r0.mDrawerIndicatorEnabled = 1;
+
+        r0.mWarnedForDisplayHomeAsUp = 0;
+
+        if $r2 == null goto label1;
+
+        $r5 = new androidx.appcompat.app.ActionBarDrawerToggle$ToolbarCompatDelegate;
+
+        specialinvoke $r5.<init>($r2);
+
+        r0.mActivityImpl = $r5;
+
+        $r6 = new androidx.appcompat.app.ActionBarDrawerToggle$1;
+
+        specialinvoke $r6.<init>(r0);
+
+        virtualinvoke $r2.setNavigationOnClickListener($r6);
+
+        goto label3;
+
+     label1:
+        $z0 = $r1 instanceof androidx.appcompat.app.ActionBarDrawerToggle$DelegateProvider;
+
+        if $z0 == 0 goto label2;
+
+        $r7 = (androidx.appcompat.app.ActionBarDrawerToggle$DelegateProvider) $r1;
+
+        $r8 = interfaceinvoke $r7.getDrawerToggleDelegate();
+
+        r0.mActivityImpl = $r8;
+
+        goto label3;
+
+     label2:
+        $r9 = new androidx.appcompat.app.ActionBarDrawerToggle$FrameworkActionBarDelegate;
+
+        specialinvoke $r9.<init>($r1);
+
+        r0.mActivityImpl = $r9;
+
+     label3:
+        r0.mDrawerLayout = $r3;
+
+        r0.mOpenDrawerContentDescRes = $i0;
+
+        r0.mCloseDrawerContentDescRes = $i1;
+
+        if $r4 != null goto label4;
+
+        $r4 = new androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
+
+        $r8 = r0.mActivityImpl;
+
+        $r10 = interfaceinvoke $r8.getActionBarThemedContext();
+
+        specialinvoke $r4.<init>($r10);
+
+        r0.mSlider = $r4;
+
+        goto label5;
+
+     label4:
+        r0.mSlider = $r4;
+
+     label5:
+        $r11 = virtualinvoke r0.getThemeUpIndicator();
+
+        r0.mHomeAsUpIndicator = $r11;
+
+        return;
+    }
+
+    public void <init>(android.app.Activity, androidx.drawerlayout.widget.DrawerLayout, int, int)
+    {
+        androidx.drawerlayout.widget.DrawerLayout $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0, $i1;
+        android.app.Activity $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        specialinvoke r0.<init>($r1, null, $r2, null, $i0, $i1);
+
+        return;
+    }
+
+    public void <init>(android.app.Activity, androidx.drawerlayout.widget.DrawerLayout, androidx.appcompat.widget.Toolbar, int, int)
+    {
+        androidx.drawerlayout.widget.DrawerLayout $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0, $i1;
+        androidx.appcompat.widget.Toolbar $r3;
+        android.app.Activity $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $i1 := @parameter4;
+
+        specialinvoke r0.<init>($r1, $r3, $r2, null, $i0, $i1);
+
+        return;
+    }
+
+    private void setPosition(float)
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable $r1;
+        byte $b0;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        float $f0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $b0 = $f0 cmpl 1.0F;
+
+        if $b0 != 0 goto label1;
+
+        $r1 = r0.mSlider;
+
+        virtualinvoke $r1.setVerticalMirror(1);
+
+        goto label2;
+
+     label1:
+        $b0 = $f0 cmpl 0.0F;
+
+        if $b0 != 0 goto label2;
+
+        $r1 = r0.mSlider;
+
+        virtualinvoke $r1.setVerticalMirror(0);
+
+     label2:
+        $r1 = r0.mSlider;
+
+        virtualinvoke $r1.setProgress($f0);
+
+        return;
+    }
+
+    public androidx.appcompat.graphics.drawable.DrawerArrowDrawable getDrawerArrowDrawable()
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable r1;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+
+        r0 := @this;
+
+        r1 = r0.mSlider;
+
+        return r1;
+    }
+
+    android.graphics.drawable.Drawable getThemeUpIndicator()
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle$Delegate $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mActivityImpl;
+
+        $r1 = interfaceinvoke $r2.getThemeUpIndicator();
+
+        return $r1;
+    }
+
+    public android.view.View$OnClickListener getToolbarNavigationClickListener()
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.view.View$OnClickListener r1;
+
+        r0 := @this;
+
+        r1 = r0.mToolbarNavigationClickListener;
+
+        return r1;
+    }
+
+    public boolean isDrawerIndicatorEnabled()
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mDrawerIndicatorEnabled;
+
+        return z0;
+    }
+
+    public boolean isDrawerSlideAnimationEnabled()
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mDrawerSlideAnimationEnabled;
+
+        return z0;
+    }
+
+    public void onConfigurationChanged(android.content.res.Configuration)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.content.res.Configuration $r1;
+        android.graphics.drawable.Drawable $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.mHasCustomUpIndicator;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = virtualinvoke r0.getThemeUpIndicator();
+
+        r0.mHomeAsUpIndicator = $r2;
+
+     label1:
+        virtualinvoke r0.syncState();
+
+        return;
+    }
+
+    public void onDrawerClosed(android.view.View)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.setPosition(0.0F);
+
+        $z0 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 == 0 goto label1;
+
+        $i0 = r0.mOpenDrawerContentDescRes;
+
+        virtualinvoke r0.setActionBarDescription($i0);
+
+     label1:
+        return;
+    }
+
+    public void onDrawerOpened(android.view.View)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.setPosition(1.0F);
+
+        $z0 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 == 0 goto label1;
+
+        $i0 = r0.mCloseDrawerContentDescRes;
+
+        virtualinvoke r0.setActionBarDescription($i0);
+
+     label1:
+        return;
+    }
+
+    public void onDrawerSlide(android.view.View, float)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.view.View $r1;
+        float $f0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $z0 = r0.mDrawerSlideAnimationEnabled;
+
+        if $z0 == 0 goto label1;
+
+        $f0 = java.lang.Math.max(0.0F, $f0);
+
+        $f0 = java.lang.Math.min(1.0F, $f0);
+
+        specialinvoke r0.setPosition($f0);
+
+        return;
+
+     label1:
+        specialinvoke r0.setPosition(0.0F);
+
+        return;
+    }
+
+    public void onDrawerStateChanged(int)
+    {
+        int $i0;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.view.MenuItem $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $i0 = interfaceinvoke $r1.getItemId();
+
+        if $i0 != 16908332 goto label1;
+
+        $z0 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.toggle();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    void setActionBarDescription(int)
+    {
+        int $i0;
+        androidx.appcompat.app.ActionBarDrawerToggle$Delegate $r1;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mActivityImpl;
+
+        interfaceinvoke $r1.setActionBarDescription($i0);
+
+        return;
+    }
+
+    void setActionBarUpIndicator(android.graphics.drawable.Drawable, int)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle$Delegate $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $z0 = r0.mWarnedForDisplayHomeAsUp;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = r0.mActivityImpl;
+
+        $z0 = interfaceinvoke $r2.isNavigationVisible();
+
+        if $z0 != 0 goto label1;
+
+        android.util.Log.w("ActionBarDrawerToggle", "DrawerToggle may not show up because NavigationIcon is not visible. You may need to call actionbar.setDisplayHomeAsUpEnabled(true);");
+
+        r0.mWarnedForDisplayHomeAsUp = 1;
+
+     label1:
+        $r2 = r0.mActivityImpl;
+
+        interfaceinvoke $r2.setActionBarUpIndicator($r1, $i0);
+
+        return;
+    }
+
+    public void setDrawerArrowDrawable(androidx.appcompat.graphics.drawable.DrawerArrowDrawable)
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable $r1;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSlider = $r1;
+
+        virtualinvoke r0.syncState();
+
+        return;
+    }
+
+    public void setDrawerIndicatorEnabled(boolean)
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable $r1;
+        androidx.drawerlayout.widget.DrawerLayout $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.graphics.drawable.Drawable $r3;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 == $z1 goto label5;
+
+        if $z0 == 0 goto label3;
+
+        $r1 = r0.mSlider;
+
+        $r2 = r0.mDrawerLayout;
+
+        $z1 = virtualinvoke $r2.isDrawerOpen(8388611);
+
+        if $z1 == 0 goto label1;
+
+        $i0 = r0.mCloseDrawerContentDescRes;
+
+        goto label2;
+
+     label1:
+        $i0 = r0.mOpenDrawerContentDescRes;
+
+     label2:
+        virtualinvoke r0.setActionBarUpIndicator($r1, $i0);
+
+        goto label4;
+
+     label3:
+        $r3 = r0.mHomeAsUpIndicator;
+
+        virtualinvoke r0.setActionBarUpIndicator($r3, 0);
+
+     label4:
+        r0.mDrawerIndicatorEnabled = $z0;
+
+     label5:
+        return;
+    }
+
+    public void setDrawerSlideAnimationEnabled(boolean)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mDrawerSlideAnimationEnabled = $z0;
+
+        if $z0 != 0 goto label1;
+
+        specialinvoke r0.setPosition(0.0F);
+
+     label1:
+        return;
+    }
+
+    public void setHomeAsUpIndicator(int)
+    {
+        androidx.drawerlayout.widget.DrawerLayout $r2;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        android.graphics.drawable.Drawable r1;
+        android.content.res.Resources $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = null;
+
+        if $i0 == 0 goto label1;
+
+        $r2 = r0.mDrawerLayout;
+
+        $r3 = virtualinvoke $r2.getResources();
+
+        r1 = virtualinvoke $r3.getDrawable($i0);
+
+     label1:
+        virtualinvoke r0.setHomeAsUpIndicator(r1);
+
+        return;
+    }
+
+    public void setHomeAsUpIndicator(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        $r1 = virtualinvoke r0.getThemeUpIndicator();
+
+        r0.mHomeAsUpIndicator = $r1;
+
+        r0.mHasCustomUpIndicator = 0;
+
+        goto label2;
+
+     label1:
+        r0.mHomeAsUpIndicator = $r1;
+
+        r0.mHasCustomUpIndicator = 1;
+
+     label2:
+        $z0 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 != 0 goto label3;
+
+        $r1 = r0.mHomeAsUpIndicator;
+
+        virtualinvoke r0.setActionBarUpIndicator($r1, 0);
+
+     label3:
+        return;
+    }
+
+    public void setToolbarNavigationClickListener(android.view.View$OnClickListener)
+    {
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        android.view.View$OnClickListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mToolbarNavigationClickListener = $r1;
+
+        return;
+    }
+
+    public void syncState()
+    {
+        androidx.appcompat.graphics.drawable.DrawerArrowDrawable $r2;
+        androidx.drawerlayout.widget.DrawerLayout $r1;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDrawerLayout;
+
+        $z0 = virtualinvoke $r1.isDrawerOpen(8388611);
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.setPosition(1.0F);
+
+        goto label2;
+
+     label1:
+        specialinvoke r0.setPosition(0.0F);
+
+     label2:
+        $z0 = r0.mDrawerIndicatorEnabled;
+
+        if $z0 == 0 goto label5;
+
+        $r2 = r0.mSlider;
+
+        $r1 = r0.mDrawerLayout;
+
+        $z0 = virtualinvoke $r1.isDrawerOpen(8388611);
+
+        if $z0 == 0 goto label3;
+
+        $i0 = r0.mCloseDrawerContentDescRes;
+
+        goto label4;
+
+     label3:
+        $i0 = r0.mOpenDrawerContentDescRes;
+
+     label4:
+        virtualinvoke r0.setActionBarUpIndicator($r2, $i0);
+
+     label5:
+        return;
+    }
+
+    void toggle()
+    {
+        androidx.drawerlayout.widget.DrawerLayout r1;
+        androidx.appcompat.app.ActionBarDrawerToggle r0;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mDrawerLayout;
+
+        $i0 = virtualinvoke r1.getDrawerLockMode(8388611);
+
+        r1 = r0.mDrawerLayout;
+
+        $z0 = virtualinvoke r1.isDrawerVisible(8388611);
+
+        if $z0 == 0 goto label1;
+
+        if $i0 == 2 goto label1;
+
+        r1 = r0.mDrawerLayout;
+
+        virtualinvoke r1.closeDrawer(8388611);
+
+        return;
+
+     label1:
+        if $i0 == 1 goto label2;
+
+        r1 = r0.mDrawerLayout;
+
+        virtualinvoke r1.openDrawer(8388611);
+
+     label2:
+        return;
+    }
+}

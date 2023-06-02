@@ -1,0 +1,55 @@
+public final class com.google.android.gms.internal.ads.zzdtr extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzgxl zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgxl)
+    {
+        com.google.android.gms.internal.ads.zzdtr r0;
+        com.google.android.gms.internal.ads.zzgxl $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final android.content.pm.ApplicationInfo zza()
+    {
+        com.google.android.gms.internal.ads.zzdtr r0;
+        android.content.Context $r3;
+        java.lang.Object $r2;
+        android.content.pm.ApplicationInfo $r4;
+        com.google.android.gms.internal.ads.zzgxl $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = interfaceinvoke $r1.zzb();
+
+        $r3 = (android.content.Context) $r2;
+
+        $r4 = virtualinvoke $r3.getApplicationInfo();
+
+        com.google.android.gms.internal.ads.zzgxg.zzb($r4);
+
+        return $r4;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzdtr r0;
+        android.content.pm.ApplicationInfo $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zza();
+
+        return $r1;
+    }
+}

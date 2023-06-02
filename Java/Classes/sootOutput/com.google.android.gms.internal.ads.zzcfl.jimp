@@ -1,0 +1,153 @@
+public class com.google.android.gms.internal.ads.zzcfl extends com.google.android.gms.internal.ads.zzcep
+{
+
+    public void <init>(com.google.android.gms.internal.ads.zzcei, com.google.android.gms.internal.ads.zzawe, boolean)
+    {
+        com.google.android.gms.internal.ads.zzawe $r2;
+        com.google.android.gms.internal.ads.zzcfl r0;
+        com.google.android.gms.internal.ads.zzcei $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $z0);
+
+        return;
+    }
+
+    protected final android.webkit.WebResourceResponse zzN(android.webkit.WebView, java.lang.String, java.util.Map)
+    {
+        android.webkit.WebResourceResponse $r9;
+        android.content.Context $r15;
+        com.google.android.gms.internal.ads.zzcfx $r11;
+        java.util.Map $r3;
+        com.google.android.gms.internal.ads.zzcfv $r10;
+        com.google.android.gms.internal.ads.zzcfl r0;
+        java.lang.String $r2, $r7, $r8;
+        android.webkit.WebView $r1;
+        com.google.android.gms.internal.ads.zzbwb $r5;
+        boolean $z0;
+        java.io.File $r6;
+        com.google.android.gms.internal.ads.zzbap $r13;
+        com.google.android.gms.internal.ads.zzbzg $r16;
+        java.lang.Object $r14;
+        com.google.android.gms.internal.ads.zzcei $r4;
+        com.google.android.gms.internal.ads.zzbaj $r12;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $z0 = $r1 instanceof com.google.android.gms.internal.ads.zzcei;
+
+        if $z0 != 0 goto label1;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Tried to intercept request from a WebView that wasn\'t an AdWebView.");
+
+        return null;
+
+     label1:
+        $r4 = (com.google.android.gms.internal.ads.zzcei) $r1;
+
+        $r5 = r0.zza;
+
+        if $r5 == null goto label2;
+
+        interfaceinvoke $r5.zzd($r2, $r3, 1);
+
+     label2:
+        $r6 = new java.io.File;
+
+        specialinvoke $r6.<init>($r2);
+
+        $r7 = virtualinvoke $r6.getName();
+
+        $r8 = "mraid.js";
+
+        $z0 = virtualinvoke $r8.equalsIgnoreCase($r7);
+
+        if $z0 != 0 goto label4;
+
+        if $r3 != null goto label3;
+
+        $r3 = java.util.Collections.emptyMap();
+
+     label3:
+        $r9 = specialinvoke r0.zzc($r2, $r3);
+
+        return $r9;
+
+     label4:
+        $r10 = interfaceinvoke $r4.zzN();
+
+        if $r10 == null goto label5;
+
+        $r10 = interfaceinvoke $r4.zzN();
+
+        interfaceinvoke $r10.zzE();
+
+     label5:
+        $r11 = interfaceinvoke $r4.zzO();
+
+        $z0 = virtualinvoke $r11.zzi();
+
+        if $z0 == 0 goto label6;
+
+        $r12 = com.google.android.gms.internal.ads.zzbar.zzM;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r2 = (java.lang.String) $r14;
+
+        goto label8;
+
+     label6:
+        $z0 = interfaceinvoke $r4.zzaA();
+
+        if $z0 == 0 goto label7;
+
+        $r12 = com.google.android.gms.internal.ads.zzbar.zzL;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r2 = (java.lang.String) $r14;
+
+        goto label8;
+
+     label7:
+        $r12 = com.google.android.gms.internal.ads.zzbar.zzK;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r2 = (java.lang.String) $r14;
+
+     label8:
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r15 = interfaceinvoke $r4.getContext();
+
+        $r16 = interfaceinvoke $r4.zzn();
+
+        $r7 = $r16.zza;
+
+        $r9 = com.google.android.gms.ads.internal.util.zzs.zzt($r15, $r7, $r2);
+
+        return $r9;
+    }
+}

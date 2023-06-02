@@ -1,0 +1,74 @@
+class androidx.work.impl.foreground.SystemForegroundService$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final androidx.work.impl.foreground.SystemForegroundService this$0;
+    final android.app.Notification val$notification;
+    final int val$notificationId;
+    final int val$notificationType;
+
+    void <init>(androidx.work.impl.foreground.SystemForegroundService, int, android.app.Notification, int)
+    {
+        androidx.work.impl.foreground.SystemForegroundService$1 r0;
+        androidx.work.impl.foreground.SystemForegroundService $r1;
+        int $i0, $i1;
+        android.app.Notification $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i1 := @parameter3;
+
+        r0.this$0 = $r1;
+
+        r0.val$notificationId = $i0;
+
+        r0.val$notification = $r2;
+
+        r0.val$notificationType = $i1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void run()
+    {
+        androidx.work.impl.foreground.SystemForegroundService$1 r0;
+        int $i0, $i1;
+        androidx.work.impl.foreground.SystemForegroundService $r1;
+        android.app.Notification $r2;
+
+        r0 := @this;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 29 goto label1;
+
+        $r1 = r0.this$0;
+
+        $i1 = r0.val$notificationId;
+
+        $r2 = r0.val$notification;
+
+        $i0 = r0.val$notificationType;
+
+        virtualinvoke $r1.startForeground($i1, $r2, $i0);
+
+        return;
+
+     label1:
+        $r1 = r0.this$0;
+
+        $i0 = r0.val$notificationId;
+
+        $r2 = r0.val$notification;
+
+        virtualinvoke $r1.startForeground($i0, $r2);
+
+        return;
+    }
+}

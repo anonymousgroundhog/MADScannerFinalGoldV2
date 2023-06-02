@@ -1,0 +1,31 @@
+final class com.google.android.gms.internal.ads.zzfrj extends java.lang.Object implements java.io.Serializable, com.google.android.gms.internal.ads.zzfok
+{
+
+    void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfrj r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final volatile java.lang.Object zza()
+    {
+        com.google.android.gms.internal.ads.zzfrj r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>(2);
+
+        return $r1;
+    }
+}

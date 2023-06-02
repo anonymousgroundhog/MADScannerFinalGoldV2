@@ -1,0 +1,93 @@
+final class com.google.android.gms.internal.ads.zzapz extends android.net.ConnectivityManager$NetworkCallback
+{
+    final com.google.android.gms.internal.ads.zzaqa zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzaqa)
+    {
+        com.google.android.gms.internal.ads.zzaqa $r1;
+        com.google.android.gms.internal.ads.zzapz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onCapabilitiesChanged(android.net.Network, android.net.NetworkCapabilities)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.internal.ads.zzaqa $r1;
+        android.net.NetworkCapabilities $r3;
+        android.net.Network $r2;
+        com.google.android.gms.internal.ads.zzapz r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        entermonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label1:
+        $r1 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzaqa.zzd($r1, $r3);
+
+        exitmonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public final void onLost(android.net.Network)
+    {
+        java.lang.Throwable $r3;
+        com.google.android.gms.internal.ads.zzaqa $r2;
+        android.net.Network $r1;
+        com.google.android.gms.internal.ads.zzapz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        entermonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label1:
+        $r2 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzaqa.zzd($r2, null);
+
+        exitmonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor class "Lcom/google/android/gms/internal/ads/zzaqa;";
+
+     label4:
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+}

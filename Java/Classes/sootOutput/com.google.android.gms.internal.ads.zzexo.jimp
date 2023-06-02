@@ -1,0 +1,30 @@
+final class com.google.android.gms.internal.ads.zzexo extends java.lang.Object implements com.google.android.gms.internal.ads.zzevr
+{
+    public com.google.android.gms.internal.ads.zzeyx zza;
+    public java.lang.String zzb;
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzexo r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzexn)
+    {
+        com.google.android.gms.internal.ads.zzexo r0;
+        com.google.android.gms.internal.ads.zzexn $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,47 @@
+public final class com.google.android.gms.internal.ads.zzcxl extends java.lang.Object implements com.google.android.gms.internal.ads.zzcyu
+{
+    public final java.lang.String zza;
+    public final java.lang.String zzb;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzcxl r0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void zza(java.lang.Object)
+    {
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzcxl r0;
+        java.lang.String $r1, $r2;
+        com.google.android.gms.internal.ads.zzeib $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r4 = (com.google.android.gms.internal.ads.zzeib) $r3;
+
+        virtualinvoke $r4.onAppEvent($r1, $r2);
+
+        return;
+    }
+}

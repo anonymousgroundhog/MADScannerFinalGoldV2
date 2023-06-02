@@ -1,0 +1,2531 @@
+public class androidx.appcompat.widget.ListPopupWindow extends java.lang.Object implements androidx.appcompat.view.menu.ShowableListMenu
+{
+    private static final boolean DEBUG;
+    static final int EXPAND_LIST_TIMEOUT;
+    public static final int INPUT_METHOD_FROM_FOCUSABLE;
+    public static final int INPUT_METHOD_NEEDED;
+    public static final int INPUT_METHOD_NOT_NEEDED;
+    public static final int MATCH_PARENT;
+    public static final int POSITION_PROMPT_ABOVE;
+    public static final int POSITION_PROMPT_BELOW;
+    private static final java.lang.String TAG;
+    public static final int WRAP_CONTENT;
+    private static java.lang.reflect.Method sGetMaxAvailableHeightMethod;
+    private static java.lang.reflect.Method sSetClipToWindowEnabledMethod;
+    private static java.lang.reflect.Method sSetEpicenterBoundsMethod;
+    private android.widget.ListAdapter mAdapter;
+    private android.content.Context mContext;
+    private boolean mDropDownAlwaysVisible;
+    private android.view.View mDropDownAnchorView;
+    private int mDropDownGravity;
+    private int mDropDownHeight;
+    private int mDropDownHorizontalOffset;
+    androidx.appcompat.widget.DropDownListView mDropDownList;
+    private android.graphics.drawable.Drawable mDropDownListHighlight;
+    private int mDropDownVerticalOffset;
+    private boolean mDropDownVerticalOffsetSet;
+    private int mDropDownWidth;
+    private int mDropDownWindowLayoutType;
+    private android.graphics.Rect mEpicenterBounds;
+    private boolean mForceIgnoreOutsideTouch;
+    final android.os.Handler mHandler;
+    private final androidx.appcompat.widget.ListPopupWindow$ListSelectorHider mHideSelector;
+    private android.widget.AdapterView$OnItemClickListener mItemClickListener;
+    private android.widget.AdapterView$OnItemSelectedListener mItemSelectedListener;
+    int mListItemExpandMaximum;
+    private boolean mModal;
+    private android.database.DataSetObserver mObserver;
+    private boolean mOverlapAnchor;
+    private boolean mOverlapAnchorSet;
+    android.widget.PopupWindow mPopup;
+    private int mPromptPosition;
+    private android.view.View mPromptView;
+    final androidx.appcompat.widget.ListPopupWindow$ResizePopupRunnable mResizePopupRunnable;
+    private final androidx.appcompat.widget.ListPopupWindow$PopupScrollListener mScrollListener;
+    private java.lang.Runnable mShowDropDownRunnable;
+    private final android.graphics.Rect mTempRect;
+    private final androidx.appcompat.widget.ListPopupWindow$PopupTouchInterceptor mTouchInterceptor;
+
+    static void <clinit>()
+    {
+        java.lang.NoSuchMethodException r4, r5, r6;
+        java.lang.Class[] $r1;
+        int i0;
+        java.lang.Class r0, $r2;
+        java.lang.reflect.Method $r3;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 > 28 goto label08;
+
+        r0 = class "Landroid/widget/PopupWindow;";
+
+        $r1 = newarray (java.lang.Class)[1];
+
+        $r2 = java.lang.Boolean.TYPE;
+
+        $r1[0] = $r2;
+
+     label01:
+        $r3 = virtualinvoke r0.getDeclaredMethod("setClipToScreenEnabled", $r1);
+
+     label02:
+        androidx.appcompat.widget.ListPopupWindow.sSetClipToWindowEnabledMethod = $r3;
+
+        goto label04;
+
+     label03:
+        r4 := @caughtexception;
+
+        android.util.Log.i("ListPopupWindow", "Could not find method setClipToScreenEnabled() on PopupWindow. Oh well.");
+
+     label04:
+        r0 = class "Landroid/widget/PopupWindow;";
+
+        $r1 = newarray (java.lang.Class)[1];
+
+        $r1[0] = class "Landroid/graphics/Rect;";
+
+     label05:
+        $r3 = virtualinvoke r0.getDeclaredMethod("setEpicenterBounds", $r1);
+
+     label06:
+        androidx.appcompat.widget.ListPopupWindow.sSetEpicenterBoundsMethod = $r3;
+
+        goto label08;
+
+     label07:
+        r5 := @caughtexception;
+
+        android.util.Log.i("ListPopupWindow", "Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.");
+
+     label08:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 > 23 goto label12;
+
+        r0 = class "Landroid/widget/PopupWindow;";
+
+        $r1 = newarray (java.lang.Class)[3];
+
+        $r1[0] = class "Landroid/view/View;";
+
+        $r2 = java.lang.Integer.TYPE;
+
+        $r1[1] = $r2;
+
+        $r2 = java.lang.Boolean.TYPE;
+
+        $r1[2] = $r2;
+
+     label09:
+        $r3 = virtualinvoke r0.getDeclaredMethod("getMaxAvailableHeight", $r1);
+
+     label10:
+        androidx.appcompat.widget.ListPopupWindow.sGetMaxAvailableHeightMethod = $r3;
+
+        return;
+
+     label11:
+        r6 := @caughtexception;
+
+        android.util.Log.i("ListPopupWindow", "Could not find method getMaxAvailableHeight(View, int, boolean) on PopupWindow. Oh well.");
+
+     label12:
+        return;
+
+        catch java.lang.NoSuchMethodException from label01 to label02 with label03;
+        catch java.lang.NoSuchMethodException from label05 to label06 with label07;
+        catch java.lang.NoSuchMethodException from label09 to label10 with label11;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        int $i0;
+        android.content.Context $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = androidx.appcompat.R$attr.listPopupWindowStyle;
+
+        specialinvoke r0.<init>($r1, null, $i0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.util.AttributeSet $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 = androidx.appcompat.R$attr.listPopupWindowStyle;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.util.AttributeSet $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $i0, 0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int, int)
+    {
+        android.content.Context $r1;
+        android.graphics.Rect $r11;
+        androidx.appcompat.widget.ListPopupWindow$ListSelectorHider $r10;
+        androidx.appcompat.widget.AppCompatPopupWindow $r13;
+        android.content.res.TypedArray $r5;
+        android.util.AttributeSet $r2;
+        androidx.appcompat.widget.ListPopupWindow$PopupTouchInterceptor $r8;
+        int[] r4;
+        android.os.Looper $r3;
+        android.os.Handler $r12;
+        int $i0, $i1, $i2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        androidx.appcompat.widget.ListPopupWindow$ResizePopupRunnable $r7;
+        androidx.appcompat.widget.ListPopupWindow$PopupScrollListener $r9;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.mDropDownHeight = -2;
+
+        r0.mDropDownWidth = -2;
+
+        r0.mDropDownWindowLayoutType = 1002;
+
+        r0.mDropDownGravity = 0;
+
+        r0.mDropDownAlwaysVisible = 0;
+
+        r0.mForceIgnoreOutsideTouch = 0;
+
+        r0.mListItemExpandMaximum = 2147483647;
+
+        r0.mPromptPosition = 0;
+
+        $r7 = new androidx.appcompat.widget.ListPopupWindow$ResizePopupRunnable;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mResizePopupRunnable = $r7;
+
+        $r8 = new androidx.appcompat.widget.ListPopupWindow$PopupTouchInterceptor;
+
+        specialinvoke $r8.<init>(r0);
+
+        r0.mTouchInterceptor = $r8;
+
+        $r9 = new androidx.appcompat.widget.ListPopupWindow$PopupScrollListener;
+
+        specialinvoke $r9.<init>(r0);
+
+        r0.mScrollListener = $r9;
+
+        $r10 = new androidx.appcompat.widget.ListPopupWindow$ListSelectorHider;
+
+        specialinvoke $r10.<init>(r0);
+
+        r0.mHideSelector = $r10;
+
+        $r11 = new android.graphics.Rect;
+
+        specialinvoke $r11.<init>();
+
+        r0.mTempRect = $r11;
+
+        r0.mContext = $r1;
+
+        $r12 = new android.os.Handler;
+
+        $r3 = virtualinvoke $r1.getMainLooper();
+
+        specialinvoke $r12.<init>($r3);
+
+        r0.mHandler = $r12;
+
+        r4 = androidx.appcompat.R$styleable.ListPopupWindow;
+
+        $r5 = virtualinvoke $r1.obtainStyledAttributes($r2, r4, $i0, $i1);
+
+        $i2 = androidx.appcompat.R$styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+
+        $i2 = virtualinvoke $r5.getDimensionPixelOffset($i2, 0);
+
+        r0.mDropDownHorizontalOffset = $i2;
+
+        $i2 = androidx.appcompat.R$styleable.ListPopupWindow_android_dropDownVerticalOffset;
+
+        $i2 = virtualinvoke $r5.getDimensionPixelOffset($i2, 0);
+
+        r0.mDropDownVerticalOffset = $i2;
+
+        if $i2 == 0 goto label1;
+
+        r0.mDropDownVerticalOffsetSet = 1;
+
+     label1:
+        virtualinvoke $r5.recycle();
+
+        $r13 = new androidx.appcompat.widget.AppCompatPopupWindow;
+
+        specialinvoke $r13.<init>($r1, $r2, $i0, $i1);
+
+        r0.mPopup = $r13;
+
+        virtualinvoke $r13.setInputMethodMode(1);
+
+        return;
+    }
+
+    private int buildDropDown()
+    {
+        android.graphics.Rect r16;
+        android.widget.LinearLayout r10, $r21;
+        android.graphics.drawable.Drawable r3;
+        android.view.View r9;
+        boolean z0, z1;
+        android.view.ViewGroup$LayoutParams $r14;
+        android.view.ViewGroup r8;
+        android.util.DisplayMetrics $r18;
+        android.widget.ListAdapter r4;
+        androidx.appcompat.widget.ListPopupWindow$PopupScrollListener r6;
+        java.lang.StringBuilder r12, $r23;
+        android.widget.AdapterView$OnItemSelectedListener r7;
+        android.content.Context r2;
+        int i0, i1, i2, i3, i4, i5;
+        android.widget.LinearLayout$LayoutParams r11, $r22;
+        android.widget.AdapterView$OnItemClickListener r5;
+        java.lang.String $r13;
+        androidx.appcompat.widget.DropDownListView r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        androidx.appcompat.widget.ListPopupWindow$3 $r20;
+        androidx.appcompat.widget.ListPopupWindow$2 $r19;
+        android.widget.PopupWindow r15;
+        android.content.res.Resources $r17;
+
+        r0 := @this;
+
+        i0 = 0;
+
+        r1 = r0.mDropDownList;
+
+        z0 = 0;
+
+        if r1 != null goto label10;
+
+        r2 = r0.mContext;
+
+        $r19 = new androidx.appcompat.widget.ListPopupWindow$2;
+
+        specialinvoke $r19.<init>(r0);
+
+        r0.mShowDropDownRunnable = $r19;
+
+        z1 = r0.mModal;
+
+        z1 = z1 ^ 1;
+
+        r1 = virtualinvoke r0.createDropDownListView(r2, z1);
+
+        r0.mDropDownList = r1;
+
+        r3 = r0.mDropDownListHighlight;
+
+        if r3 == null goto label01;
+
+        virtualinvoke r1.setSelector(r3);
+
+     label01:
+        r1 = r0.mDropDownList;
+
+        r4 = r0.mAdapter;
+
+        virtualinvoke r1.setAdapter(r4);
+
+        r1 = r0.mDropDownList;
+
+        r5 = r0.mItemClickListener;
+
+        virtualinvoke r1.setOnItemClickListener(r5);
+
+        r1 = r0.mDropDownList;
+
+        virtualinvoke r1.setFocusable(1);
+
+        r1 = r0.mDropDownList;
+
+        virtualinvoke r1.setFocusableInTouchMode(1);
+
+        r1 = r0.mDropDownList;
+
+        $r20 = new androidx.appcompat.widget.ListPopupWindow$3;
+
+        specialinvoke $r20.<init>(r0);
+
+        virtualinvoke r1.setOnItemSelectedListener($r20);
+
+        r1 = r0.mDropDownList;
+
+        r6 = r0.mScrollListener;
+
+        virtualinvoke r1.setOnScrollListener(r6);
+
+        r7 = r0.mItemSelectedListener;
+
+        if r7 == null goto label02;
+
+        r1 = r0.mDropDownList;
+
+        virtualinvoke r1.setOnItemSelectedListener(r7);
+
+     label02:
+        r8 = r0.mDropDownList;
+
+        r9 = r0.mPromptView;
+
+        if r9 == null goto label09;
+
+        $r21 = new android.widget.LinearLayout;
+
+        r10 = $r21;
+
+        specialinvoke $r21.<init>(r2);
+
+        virtualinvoke r10.setOrientation(1);
+
+        $r22 = new android.widget.LinearLayout$LayoutParams;
+
+        r11 = $r22;
+
+        i0 = -1;
+
+        specialinvoke $r22.<init>(i0, 0, 1.0F);
+
+        i0 = r0.mPromptPosition;
+
+        lookupswitch(i0)
+        {
+            case 0: goto label05;
+            case 1: goto label04;
+            default: goto label03;
+        };
+
+     label03:
+        $r23 = new java.lang.StringBuilder;
+
+        specialinvoke $r23.<init>();
+
+        r12 = virtualinvoke $r23.append("Invalid hint position ");
+
+        i0 = r0.mPromptPosition;
+
+        r12 = virtualinvoke r12.append(i0);
+
+        $r13 = virtualinvoke r12.toString();
+
+        android.util.Log.e("ListPopupWindow", $r13);
+
+        goto label06;
+
+     label04:
+        virtualinvoke r10.addView(r8, r11);
+
+        virtualinvoke r10.addView(r9);
+
+        goto label06;
+
+     label05:
+        virtualinvoke r10.addView(r9);
+
+        virtualinvoke r10.addView(r8, r11);
+
+     label06:
+        i0 = r0.mDropDownWidth;
+
+        if i0 < 0 goto label07;
+
+        i0 = -2147483648;
+
+        i1 = r0.mDropDownWidth;
+
+        goto label08;
+
+     label07:
+        i0 = 0;
+
+        i1 = 0;
+
+     label08:
+        i0 = android.view.View$MeasureSpec.makeMeasureSpec(i1, i0);
+
+        virtualinvoke r9.measure(i0, 0);
+
+        $r14 = virtualinvoke r9.getLayoutParams();
+
+        r11 = (android.widget.LinearLayout$LayoutParams) $r14;
+
+        i0 = virtualinvoke r9.getMeasuredHeight();
+
+        i1 = r11.topMargin;
+
+        i0 = i0 + i1;
+
+        i1 = r11.bottomMargin;
+
+        r8 = r10;
+
+        i0 = i0 + i1;
+
+     label09:
+        r15 = r0.mPopup;
+
+        virtualinvoke r15.setContentView(r8);
+
+        goto label11;
+
+     label10:
+        r15 = r0.mPopup;
+
+        r9 = virtualinvoke r15.getContentView();
+
+        r8 = (android.view.ViewGroup) r9;
+
+        r9 = r0.mPromptView;
+
+        if r9 == null goto label11;
+
+        $r14 = virtualinvoke r9.getLayoutParams();
+
+        r11 = (android.widget.LinearLayout$LayoutParams) $r14;
+
+        i0 = virtualinvoke r9.getMeasuredHeight();
+
+        i1 = r11.topMargin;
+
+        i0 = i0 + i1;
+
+        i1 = r11.bottomMargin;
+
+        i0 = i0 + i1;
+
+     label11:
+        r15 = r0.mPopup;
+
+        r3 = virtualinvoke r15.getBackground();
+
+        if r3 == null goto label12;
+
+        r16 = r0.mTempRect;
+
+        virtualinvoke r3.getPadding(r16);
+
+        r16 = r0.mTempRect;
+
+        i1 = r16.top;
+
+        r16 = r0.mTempRect;
+
+        i2 = r16.bottom;
+
+        i1 = i1 + i2;
+
+        z1 = r0.mDropDownVerticalOffsetSet;
+
+        if z1 != 0 goto label13;
+
+        r16 = r0.mTempRect;
+
+        i2 = r16.top;
+
+        i2 = neg i2;
+
+        r0.mDropDownVerticalOffset = i2;
+
+        goto label13;
+
+     label12:
+        r16 = r0.mTempRect;
+
+        virtualinvoke r16.setEmpty();
+
+        i1 = 0;
+
+     label13:
+        r15 = r0.mPopup;
+
+        i2 = virtualinvoke r15.getInputMethodMode();
+
+        if i2 != 2 goto label14;
+
+        z0 = 1;
+
+     label14:
+        r9 = virtualinvoke r0.getAnchorView();
+
+        i2 = r0.mDropDownVerticalOffset;
+
+        i2 = specialinvoke r0.getMaxAvailableHeight(r9, i2, z0);
+
+        z0 = r0.mDropDownAlwaysVisible;
+
+        if z0 != 0 goto label21;
+
+        i3 = r0.mDropDownHeight;
+
+        i4 = -1;
+
+        if i3 != i4 goto label15;
+
+        goto label21;
+
+     label15:
+        i3 = r0.mDropDownWidth;
+
+        lookupswitch(i3)
+        {
+            case -2: goto label18;
+            case -1: goto label17;
+            default: goto label16;
+        };
+
+     label16:
+        i3 = android.view.View$MeasureSpec.makeMeasureSpec(i3, 1073741824);
+
+        goto label19;
+
+     label17:
+        r2 = r0.mContext;
+
+        $r17 = virtualinvoke r2.getResources();
+
+        $r18 = virtualinvoke $r17.getDisplayMetrics();
+
+        i3 = $r18.widthPixels;
+
+        r16 = r0.mTempRect;
+
+        i4 = r16.left;
+
+        r16 = r0.mTempRect;
+
+        i5 = r16.right;
+
+        i4 = i4 + i5;
+
+        i3 = i3 - i4;
+
+        i3 = android.view.View$MeasureSpec.makeMeasureSpec(i3, 1073741824);
+
+        goto label19;
+
+     label18:
+        r2 = r0.mContext;
+
+        $r17 = virtualinvoke r2.getResources();
+
+        $r18 = virtualinvoke $r17.getDisplayMetrics();
+
+        i3 = $r18.widthPixels;
+
+        r16 = r0.mTempRect;
+
+        i4 = r16.left;
+
+        r16 = r0.mTempRect;
+
+        i5 = r16.right;
+
+        i4 = i4 + i5;
+
+        i3 = i3 - i4;
+
+        i3 = android.view.View$MeasureSpec.makeMeasureSpec(i3, -2147483648);
+
+     label19:
+        r1 = r0.mDropDownList;
+
+        i2 = i2 - i0;
+
+        i4 = -1;
+
+        i5 = -1;
+
+        i2 = virtualinvoke r1.measureHeightOfChildrenCompat(i3, 0, i4, i2, i5);
+
+        if i2 <= 0 goto label20;
+
+        r1 = r0.mDropDownList;
+
+        i3 = virtualinvoke r1.getPaddingTop();
+
+        r1 = r0.mDropDownList;
+
+        i4 = virtualinvoke r1.getPaddingBottom();
+
+        i3 = i3 + i4;
+
+        i1 = i1 + i3;
+
+        i0 = i0 + i1;
+
+     label20:
+        i0 = i2 + i0;
+
+        return i0;
+
+     label21:
+        i0 = i2 + i1;
+
+        return i0;
+    }
+
+    private int getMaxAvailableHeight(android.view.View, int, boolean)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        java.lang.Object[] $r4;
+        android.widget.PopupWindow $r3;
+        java.lang.Integer $r5;
+        java.lang.Exception r8;
+        int $i0, i1;
+        android.view.View $r1;
+        java.lang.Boolean $r6;
+        java.lang.Object $r7;
+        java.lang.reflect.Method r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 > 23 goto label7;
+
+        r2 = androidx.appcompat.widget.ListPopupWindow.sGetMaxAvailableHeightMethod;
+
+        if r2 == null goto label6;
+
+     label1:
+        $r3 = r0.mPopup;
+
+     label2:
+        $r4 = newarray (java.lang.Object)[3];
+
+     label3:
+        $r4[0] = $r1;
+
+        $r5 = java.lang.Integer.valueOf($i0);
+
+        $r4[1] = $r5;
+
+        $r6 = java.lang.Boolean.valueOf($z0);
+
+        $r4[2] = $r6;
+
+        $r7 = virtualinvoke r2.invoke($r3, $r4);
+
+        $r5 = (java.lang.Integer) $r7;
+
+        i1 = virtualinvoke $r5.intValue();
+
+     label4:
+        return i1;
+
+     label5:
+        r8 := @caughtexception;
+
+        android.util.Log.i("ListPopupWindow", "Could not call getMaxAvailableHeightMethod(View, int, boolean) on PopupWindow. Using the public version.");
+
+     label6:
+        $r3 = r0.mPopup;
+
+        $i0 = virtualinvoke $r3.getMaxAvailableHeight($r1, $i0);
+
+        return $i0;
+
+     label7:
+        $r3 = r0.mPopup;
+
+        $i0 = virtualinvoke $r3.getMaxAvailableHeight($r1, $i0, $z0);
+
+        return $i0;
+
+        catch java.lang.Exception from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    private static boolean isConfirmKey(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0;
+
+        if $i0 == 66 goto label2;
+
+        if $i0 != 23 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    private void removePromptView()
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.view.ViewParent $r2;
+        android.view.View $r1;
+        android.view.ViewGroup r3;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 = r0.mPromptView;
+
+        if $r1 == null goto label1;
+
+        $r2 = virtualinvoke $r1.getParent();
+
+        z0 = $r2 instanceof android.view.ViewGroup;
+
+        if z0 == 0 goto label1;
+
+        r3 = (android.view.ViewGroup) $r2;
+
+        $r1 = r0.mPromptView;
+
+        virtualinvoke r3.removeView($r1);
+
+     label1:
+        return;
+    }
+
+    private void setPopupClipToScreenEnabled(boolean)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        java.lang.Object[] $r4;
+        android.widget.PopupWindow $r3;
+        java.lang.Exception r5;
+        int i0;
+        java.lang.Boolean $r1;
+        java.lang.reflect.Method r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 > 28 goto label7;
+
+        r2 = androidx.appcompat.widget.ListPopupWindow.sSetClipToWindowEnabledMethod;
+
+        if r2 == null goto label8;
+
+     label1:
+        $r3 = r0.mPopup;
+
+     label2:
+        $r4 = newarray (java.lang.Object)[1];
+
+     label3:
+        $r1 = java.lang.Boolean.valueOf($z0);
+
+        $r4[0] = $r1;
+
+        virtualinvoke r2.invoke($r3, $r4);
+
+     label4:
+        goto label6;
+
+     label5:
+        r5 := @caughtexception;
+
+        android.util.Log.i("ListPopupWindow", "Could not call setClipToScreenEnabled() on PopupWindow. Oh well.");
+
+     label6:
+        return;
+
+     label7:
+        $r3 = r0.mPopup;
+
+        virtualinvoke $r3.setIsClippedToScreen($z0);
+
+     label8:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public void clearListSelection()
+    {
+        androidx.appcompat.widget.DropDownListView r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        r1 = r0.mDropDownList;
+
+        if r1 == null goto label1;
+
+        virtualinvoke r1.setListSelectionHidden(1);
+
+        virtualinvoke r1.requestLayout();
+
+     label1:
+        return;
+    }
+
+    public android.view.View$OnTouchListener createDragToOpenListener(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        androidx.appcompat.widget.ListPopupWindow$1 $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new androidx.appcompat.widget.ListPopupWindow$1;
+
+        specialinvoke $r2.<init>(r0, $r1);
+
+        return $r2;
+    }
+
+    androidx.appcompat.widget.DropDownListView createDropDownListView(android.content.Context, boolean)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.DropDownListView $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r2 = new androidx.appcompat.widget.DropDownListView;
+
+        specialinvoke $r2.<init>($r1, $z0);
+
+        return $r2;
+    }
+
+    public void dismiss()
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.os.Handler $r2;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow$ResizePopupRunnable $r3;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.dismiss();
+
+        specialinvoke r0.removePromptView();
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setContentView(null);
+
+        r0.mDropDownList = null;
+
+        $r2 = r0.mHandler;
+
+        $r3 = r0.mResizePopupRunnable;
+
+        virtualinvoke $r2.removeCallbacks($r3);
+
+        return;
+    }
+
+    public android.view.View getAnchorView()
+    {
+        android.view.View r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        r1 = r0.mDropDownAnchorView;
+
+        return r1;
+    }
+
+    public int getAnimationStyle()
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        $i0 = virtualinvoke $r1.getAnimationStyle();
+
+        return $i0;
+    }
+
+    public android.graphics.drawable.Drawable getBackground()
+    {
+        android.widget.PopupWindow $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mPopup;
+
+        $r1 = virtualinvoke $r2.getBackground();
+
+        return $r1;
+    }
+
+    public android.graphics.Rect getEpicenterBounds()
+    {
+        android.graphics.Rect $r1, $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 = r0.mEpicenterBounds;
+
+        if $r1 == null goto label1;
+
+        $r2 = new android.graphics.Rect;
+
+        $r1 = r0.mEpicenterBounds;
+
+        specialinvoke $r2.<init>($r1);
+
+        return $r2;
+
+     label1:
+        return null;
+    }
+
+    public int getHeight()
+    {
+        int i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        i0 = r0.mDropDownHeight;
+
+        return i0;
+    }
+
+    public int getHorizontalOffset()
+    {
+        int i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        i0 = r0.mDropDownHorizontalOffset;
+
+        return i0;
+    }
+
+    public int getInputMethodMode()
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        $i0 = virtualinvoke $r1.getInputMethodMode();
+
+        return $i0;
+    }
+
+    public android.widget.ListView getListView()
+    {
+        androidx.appcompat.widget.DropDownListView r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        r1 = r0.mDropDownList;
+
+        return r1;
+    }
+
+    public int getPromptPosition()
+    {
+        int i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        i0 = r0.mPromptPosition;
+
+        return i0;
+    }
+
+    public java.lang.Object getSelectedItem()
+    {
+        androidx.appcompat.widget.DropDownListView $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r1 = r0.mDropDownList;
+
+        $r2 = virtualinvoke $r1.getSelectedItem();
+
+        return $r2;
+    }
+
+    public long getSelectedItemId()
+    {
+        androidx.appcompat.widget.DropDownListView $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        long $l0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 != 0 goto label1;
+
+        return -9223372036854775808L;
+
+     label1:
+        $r1 = r0.mDropDownList;
+
+        $l0 = virtualinvoke $r1.getSelectedItemId();
+
+        return $l0;
+    }
+
+    public int getSelectedItemPosition()
+    {
+        androidx.appcompat.widget.DropDownListView $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        $r1 = r0.mDropDownList;
+
+        $i0 = virtualinvoke $r1.getSelectedItemPosition();
+
+        return $i0;
+    }
+
+    public android.view.View getSelectedView()
+    {
+        androidx.appcompat.widget.DropDownListView $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.view.View $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r1 = r0.mDropDownList;
+
+        $r2 = virtualinvoke $r1.getSelectedView();
+
+        return $r2;
+    }
+
+    public int getSoftInputMode()
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        $i0 = virtualinvoke $r1.getSoftInputMode();
+
+        return $i0;
+    }
+
+    public int getVerticalOffset()
+    {
+        int i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mDropDownVerticalOffsetSet;
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        i0 = r0.mDropDownVerticalOffset;
+
+        return i0;
+    }
+
+    public int getWidth()
+    {
+        int i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        i0 = r0.mDropDownWidth;
+
+        return i0;
+    }
+
+    public boolean isDropDownAlwaysVisible()
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mDropDownAlwaysVisible;
+
+        return z0;
+    }
+
+    public boolean isInputMethodNotNeeded()
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        $i0 = virtualinvoke $r1.getInputMethodMode();
+
+        if $i0 != 2 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isModal()
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mModal;
+
+        return z0;
+    }
+
+    public boolean isShowing()
+    {
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mPopup;
+
+        $z0 = virtualinvoke $r1.isShowing();
+
+        return $z0;
+    }
+
+    public boolean onKeyDown(int, android.view.KeyEvent)
+    {
+        androidx.appcompat.widget.DropDownListView r3;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.view.KeyEvent $r1;
+        android.widget.PopupWindow r4;
+        android.widget.ListAdapter r2;
+        int $i0, $i1, i2, i3;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label13;
+
+        if $i0 == 62 goto label13;
+
+        r3 = r0.mDropDownList;
+
+        $i1 = virtualinvoke r3.getSelectedItemPosition();
+
+        if $i1 >= 0 goto label01;
+
+        $z0 = androidx.appcompat.widget.ListPopupWindow.isConfirmKey($i0);
+
+        if $z0 != 0 goto label13;
+
+     label01:
+        r3 = r0.mDropDownList;
+
+        $i1 = virtualinvoke r3.getSelectedItemPosition();
+
+        r4 = r0.mPopup;
+
+        $z0 = virtualinvoke r4.isAboveAnchor();
+
+        $z0 = $z0 ^ 1;
+
+        r2 = r0.mAdapter;
+
+        i2 = 2147483647;
+
+        i3 = -2147483648;
+
+        if r2 == null goto label05;
+
+        $z1 = interfaceinvoke r2.areAllItemsEnabled();
+
+        if $z1 == 0 goto label02;
+
+        i2 = 0;
+
+        goto label03;
+
+     label02:
+        r3 = r0.mDropDownList;
+
+        i2 = virtualinvoke r3.lookForSelectablePosition(0, 1);
+
+     label03:
+        if $z1 == 0 goto label04;
+
+        i3 = interfaceinvoke r2.getCount();
+
+        i3 = i3 - 1;
+
+        goto label05;
+
+     label04:
+        r3 = r0.mDropDownList;
+
+        i3 = interfaceinvoke r2.getCount();
+
+        i3 = i3 - 1;
+
+        i3 = virtualinvoke r3.lookForSelectablePosition(i3, 0);
+
+     label05:
+        if $z0 == 0 goto label06;
+
+        if $i0 != 19 goto label06;
+
+        if $i1 <= i2 goto label07;
+
+     label06:
+        if $z0 != 0 goto label08;
+
+        if $i0 != 20 goto label08;
+
+        if $i1 < i3 goto label08;
+
+     label07:
+        virtualinvoke r0.clearListSelection();
+
+        r4 = r0.mPopup;
+
+        virtualinvoke r4.setInputMethodMode(1);
+
+        virtualinvoke r0.show();
+
+        return 1;
+
+     label08:
+        r3 = r0.mDropDownList;
+
+        virtualinvoke r3.setListSelectionHidden(0);
+
+        r3 = r0.mDropDownList;
+
+        $z1 = virtualinvoke r3.onKeyDown($i0, $r1);
+
+        if $z1 == 0 goto label11;
+
+        r4 = r0.mPopup;
+
+        virtualinvoke r4.setInputMethodMode(2);
+
+        r3 = r0.mDropDownList;
+
+        virtualinvoke r3.requestFocusFromTouch();
+
+        virtualinvoke r0.show();
+
+        lookupswitch($i0)
+        {
+            case 19: goto label10;
+            case 20: goto label10;
+            case 23: goto label10;
+            case 66: goto label10;
+            default: goto label09;
+        };
+
+     label09:
+        return 0;
+
+     label10:
+        return 1;
+
+     label11:
+        if $z0 == 0 goto label12;
+
+        if $i0 != 20 goto label12;
+
+        if $i1 != i3 goto label13;
+
+        return 1;
+
+     label12:
+        if $z0 != 0 goto label13;
+
+        if $i0 != 19 goto label13;
+
+        if $i1 != i2 goto label13;
+
+        return 1;
+
+     label13:
+        return 0;
+    }
+
+    public boolean onKeyPreIme(int, android.view.KeyEvent)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.view.KeyEvent $r1;
+        int $i0;
+        android.view.View r2;
+        android.view.KeyEvent$DispatcherState $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $i0 != 4 goto label3;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label3;
+
+        r2 = r0.mDropDownAnchorView;
+
+        $i0 = virtualinvoke $r1.getAction();
+
+        if $i0 != 0 goto label1;
+
+        $i0 = virtualinvoke $r1.getRepeatCount();
+
+        if $i0 != 0 goto label1;
+
+        $r3 = virtualinvoke r2.getKeyDispatcherState();
+
+        if $r3 == null goto label4;
+
+        virtualinvoke $r3.startTracking($r1, r0);
+
+        return 1;
+
+     label1:
+        $i0 = virtualinvoke $r1.getAction();
+
+        if $i0 != 1 goto label3;
+
+        $r3 = virtualinvoke r2.getKeyDispatcherState();
+
+        if $r3 == null goto label2;
+
+        virtualinvoke $r3.handleUpEvent($r1);
+
+     label2:
+        $z0 = virtualinvoke $r1.isTracking();
+
+        if $z0 == 0 goto label3;
+
+        $z0 = virtualinvoke $r1.isCanceled();
+
+        if $z0 != 0 goto label3;
+
+        virtualinvoke r0.dismiss();
+
+        return 1;
+
+     label3:
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public boolean onKeyUp(int, android.view.KeyEvent)
+    {
+        androidx.appcompat.widget.DropDownListView r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.view.KeyEvent $r1;
+        int $i0, $i1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        r2 = r0.mDropDownList;
+
+        $i1 = virtualinvoke r2.getSelectedItemPosition();
+
+        if $i1 < 0 goto label1;
+
+        r2 = r0.mDropDownList;
+
+        $z0 = virtualinvoke r2.onKeyUp($i0, $r1);
+
+        if $z0 == 0 goto label2;
+
+        $z1 = androidx.appcompat.widget.ListPopupWindow.isConfirmKey($i0);
+
+        if $z1 == 0 goto label2;
+
+        virtualinvoke r0.dismiss();
+
+        return $z0;
+
+     label1:
+        return 0;
+
+     label2:
+        return $z0;
+    }
+
+    public boolean performItemClick(int)
+    {
+        androidx.appcompat.widget.DropDownListView r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        long $l2;
+        android.widget.ListAdapter $r4;
+        int $i0, $i1;
+        android.view.View $r3;
+        android.widget.AdapterView$OnItemClickListener r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label2;
+
+        r1 = r0.mItemClickListener;
+
+        if r1 == null goto label1;
+
+        r2 = r0.mDropDownList;
+
+        $i1 = virtualinvoke r2.getFirstVisiblePosition();
+
+        $i1 = $i0 - $i1;
+
+        $r3 = virtualinvoke r2.getChildAt($i1);
+
+        $r4 = virtualinvoke r2.getAdapter();
+
+        r1 = r0.mItemClickListener;
+
+        $l2 = interfaceinvoke $r4.getItemId($i0);
+
+        interfaceinvoke r1.onItemClick(r2, $r3, $i0, $l2);
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public void postShow()
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        java.lang.Runnable $r2;
+        android.os.Handler $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mHandler;
+
+        $r2 = r0.mShowDropDownRunnable;
+
+        virtualinvoke $r1.post($r2);
+
+        return;
+    }
+
+    public void setAdapter(android.widget.ListAdapter)
+    {
+        androidx.appcompat.widget.DropDownListView $r5;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.widget.ListAdapter $r1, $r4;
+        androidx.appcompat.widget.ListPopupWindow$PopupDataSetObserver $r3;
+        android.database.DataSetObserver $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mObserver;
+
+        if $r2 != null goto label1;
+
+        $r3 = new androidx.appcompat.widget.ListPopupWindow$PopupDataSetObserver;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mObserver = $r3;
+
+        goto label2;
+
+     label1:
+        $r4 = r0.mAdapter;
+
+        if $r4 == null goto label2;
+
+        interfaceinvoke $r4.unregisterDataSetObserver($r2);
+
+     label2:
+        r0.mAdapter = $r1;
+
+        if $r1 == null goto label3;
+
+        $r2 = r0.mObserver;
+
+        interfaceinvoke $r1.registerDataSetObserver($r2);
+
+     label3:
+        $r5 = r0.mDropDownList;
+
+        if $r5 == null goto label4;
+
+        $r1 = r0.mAdapter;
+
+        virtualinvoke $r5.setAdapter($r1);
+
+     label4:
+        return;
+    }
+
+    public void setAnchorView(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mDropDownAnchorView = $r1;
+
+        return;
+    }
+
+    public void setAnimationStyle(int)
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setAnimationStyle($i0);
+
+        return;
+    }
+
+    public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    {
+        android.widget.PopupWindow $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mPopup;
+
+        virtualinvoke $r2.setBackgroundDrawable($r1);
+
+        return;
+    }
+
+    public void setContentWidth(int)
+    {
+        android.graphics.Rect $r3;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        int $i0, $i1, $i2;
+        android.widget.PopupWindow r2;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r2 = r0.mPopup;
+
+        $r1 = virtualinvoke r2.getBackground();
+
+        if $r1 == null goto label1;
+
+        $r3 = r0.mTempRect;
+
+        virtualinvoke $r1.getPadding($r3);
+
+        $r3 = r0.mTempRect;
+
+        $i1 = $r3.left;
+
+        $r3 = r0.mTempRect;
+
+        $i2 = $r3.right;
+
+        $i1 = $i1 + $i2;
+
+        $i0 = $i1 + $i0;
+
+        r0.mDropDownWidth = $i0;
+
+        return;
+
+     label1:
+        virtualinvoke r0.setWidth($i0);
+
+        return;
+    }
+
+    public void setDropDownAlwaysVisible(boolean)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mDropDownAlwaysVisible = $z0;
+
+        return;
+    }
+
+    public void setDropDownGravity(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownGravity = $i0;
+
+        return;
+    }
+
+    public void setEpicenterBounds(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1, $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $r2 = new android.graphics.Rect;
+
+        specialinvoke $r2.<init>($r1);
+
+        goto label2;
+
+     label1:
+        $r2 = null;
+
+     label2:
+        r0.mEpicenterBounds = $r2;
+
+        return;
+    }
+
+    public void setForceIgnoreOutsideTouch(boolean)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mForceIgnoreOutsideTouch = $z0;
+
+        return;
+    }
+
+    public void setHeight(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        java.lang.IllegalArgumentException $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 >= 0 goto label2;
+
+        if -2 == $i0 goto label2;
+
+        if -1 != $i0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<init>("Invalid height. Must be a positive value, MATCH_PARENT, or WRAP_CONTENT.");
+
+        throw $r1;
+
+     label2:
+        r0.mDropDownHeight = $i0;
+
+        return;
+    }
+
+    public void setHorizontalOffset(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownHorizontalOffset = $i0;
+
+        return;
+    }
+
+    public void setInputMethodMode(int)
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setInputMethodMode($i0);
+
+        return;
+    }
+
+    void setListItemExpandMax(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mListItemExpandMaximum = $i0;
+
+        return;
+    }
+
+    public void setListSelector(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mDropDownListHighlight = $r1;
+
+        return;
+    }
+
+    public void setModal(boolean)
+    {
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mModal = $z0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setFocusable($z0);
+
+        return;
+    }
+
+    public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)
+    {
+        android.widget.PopupWindow $r2;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.widget.PopupWindow$OnDismissListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mPopup;
+
+        virtualinvoke $r2.setOnDismissListener($r1);
+
+        return;
+    }
+
+    public void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.widget.AdapterView$OnItemClickListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mItemClickListener = $r1;
+
+        return;
+    }
+
+    public void setOnItemSelectedListener(android.widget.AdapterView$OnItemSelectedListener)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.widget.AdapterView$OnItemSelectedListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mItemSelectedListener = $r1;
+
+        return;
+    }
+
+    public void setOverlapAnchor(boolean)
+    {
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mOverlapAnchorSet = 1;
+
+        r0.mOverlapAnchor = $z0;
+
+        return;
+    }
+
+    public void setPromptPosition(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mPromptPosition = $i0;
+
+        return;
+    }
+
+    public void setPromptView(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.removePromptView();
+
+     label1:
+        r0.mPromptView = $r1;
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.show();
+
+     label2:
+        return;
+    }
+
+    public void setSelection(int)
+    {
+        androidx.appcompat.widget.DropDownListView r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        int $i0, $i1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mDropDownList;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        if r1 == null goto label1;
+
+        virtualinvoke r1.setListSelectionHidden(0);
+
+        virtualinvoke r1.setSelection($i0);
+
+        $i1 = virtualinvoke r1.getChoiceMode();
+
+        if $i1 == 0 goto label1;
+
+        virtualinvoke r1.setItemChecked($i0, 1);
+
+     label1:
+        return;
+    }
+
+    public void setSoftInputMode(int)
+    {
+        int $i0;
+        android.widget.PopupWindow $r1;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setSoftInputMode($i0);
+
+        return;
+    }
+
+    public void setVerticalOffset(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownVerticalOffset = $i0;
+
+        r0.mDropDownVerticalOffsetSet = 1;
+
+        return;
+    }
+
+    public void setWidth(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownWidth = $i0;
+
+        return;
+    }
+
+    public void setWindowLayoutType(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ListPopupWindow r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownWindowLayoutType = $i0;
+
+        return;
+    }
+
+    public void show()
+    {
+        android.graphics.Rect $r6;
+        androidx.appcompat.widget.ListPopupWindow$ListSelectorHider $r10;
+        java.lang.Object[] r5;
+        byte $b4;
+        androidx.appcompat.widget.ListPopupWindow$PopupTouchInterceptor $r3;
+        android.os.Handler r9;
+        int $i0, $i1, $i2, i3;
+        android.view.View $r2;
+        java.lang.reflect.Method $r4;
+        boolean $z0, $z1, z2;
+        androidx.appcompat.widget.DropDownListView r8;
+        androidx.appcompat.widget.ListPopupWindow r0;
+        android.widget.PopupWindow r1;
+        java.lang.Exception r7;
+
+        r0 := @this;
+
+        $i2 = specialinvoke r0.buildDropDown();
+
+        $z0 = virtualinvoke r0.isInputMethodNotNeeded();
+
+        r1 = r0.mPopup;
+
+        i3 = r0.mDropDownWindowLayoutType;
+
+        androidx.core.widget.PopupWindowCompat.setWindowLayoutType(r1, i3);
+
+        r1 = r0.mPopup;
+
+        $z1 = virtualinvoke r1.isShowing();
+
+        z2 = 1;
+
+        if $z1 == 0 goto label19;
+
+        $r2 = virtualinvoke r0.getAnchorView();
+
+        $z1 = androidx.core.view.ViewCompat.isAttachedToWindow($r2);
+
+        if $z1 != 0 goto label01;
+
+        return;
+
+     label01:
+        i3 = r0.mDropDownWidth;
+
+        if i3 != -1 goto label02;
+
+        i3 = -1;
+
+        goto label04;
+
+     label02:
+        if i3 != -2 goto label03;
+
+        $r2 = virtualinvoke r0.getAnchorView();
+
+        i3 = virtualinvoke $r2.getWidth();
+
+        goto label04;
+
+     label03:
+        i3 = r0.mDropDownWidth;
+
+     label04:
+        $i0 = r0.mDropDownHeight;
+
+        if $i0 != -1 goto label12;
+
+        if $z0 == 0 goto label05;
+
+        goto label06;
+
+     label05:
+        $i2 = -1;
+
+     label06:
+        if $z0 == 0 goto label09;
+
+        r1 = r0.mPopup;
+
+        $i0 = r0.mDropDownWidth;
+
+        if $i0 != -1 goto label07;
+
+        $b4 = -1;
+
+        goto label08;
+
+     label07:
+        $b4 = 0;
+
+     label08:
+        virtualinvoke r1.setWidth($b4);
+
+        r1 = r0.mPopup;
+
+        virtualinvoke r1.setHeight(0);
+
+        goto label14;
+
+     label09:
+        r1 = r0.mPopup;
+
+        $i0 = r0.mDropDownWidth;
+
+        if $i0 != -1 goto label10;
+
+        $b4 = -1;
+
+        goto label11;
+
+     label10:
+        $b4 = 0;
+
+     label11:
+        virtualinvoke r1.setWidth($b4);
+
+        r1 = r0.mPopup;
+
+        virtualinvoke r1.setHeight(-1);
+
+        goto label14;
+
+     label12:
+        if $i0 != -2 goto label13;
+
+        goto label14;
+
+     label13:
+        $i2 = r0.mDropDownHeight;
+
+     label14:
+        r1 = r0.mPopup;
+
+        $z0 = r0.mForceIgnoreOutsideTouch;
+
+        if $z0 != 0 goto label15;
+
+        $z0 = r0.mDropDownAlwaysVisible;
+
+        if $z0 != 0 goto label15;
+
+        goto label16;
+
+     label15:
+        z2 = 0;
+
+     label16:
+        virtualinvoke r1.setOutsideTouchable(z2);
+
+        r1 = r0.mPopup;
+
+        $r2 = virtualinvoke r0.getAnchorView();
+
+        $i0 = r0.mDropDownHorizontalOffset;
+
+        $i1 = r0.mDropDownVerticalOffset;
+
+        if i3 >= 0 goto label17;
+
+        i3 = -1;
+
+        goto label17;
+
+     label17:
+        if $i2 >= 0 goto label18;
+
+        $i2 = -1;
+
+        goto label18;
+
+     label18:
+        virtualinvoke r1.update($r2, $i0, $i1, i3, $i2);
+
+        return;
+
+     label19:
+        i3 = r0.mDropDownWidth;
+
+        if i3 != -1 goto label20;
+
+        i3 = -1;
+
+        goto label22;
+
+     label20:
+        if i3 != -2 goto label21;
+
+        $r2 = virtualinvoke r0.getAnchorView();
+
+        i3 = virtualinvoke $r2.getWidth();
+
+        goto label22;
+
+     label21:
+        i3 = r0.mDropDownWidth;
+
+     label22:
+        $i0 = r0.mDropDownHeight;
+
+        if $i0 != -1 goto label23;
+
+        $i2 = -1;
+
+        goto label25;
+
+     label23:
+        if $i0 != -2 goto label24;
+
+        goto label25;
+
+     label24:
+        $i2 = r0.mDropDownHeight;
+
+     label25:
+        r1 = r0.mPopup;
+
+        virtualinvoke r1.setWidth(i3);
+
+        r1 = r0.mPopup;
+
+        virtualinvoke r1.setHeight($i2);
+
+        specialinvoke r0.setPopupClipToScreenEnabled(1);
+
+        r1 = r0.mPopup;
+
+        z2 = r0.mForceIgnoreOutsideTouch;
+
+        if z2 != 0 goto label26;
+
+        z2 = r0.mDropDownAlwaysVisible;
+
+        if z2 != 0 goto label26;
+
+        z2 = 1;
+
+        goto label27;
+
+     label26:
+        z2 = 0;
+
+     label27:
+        virtualinvoke r1.setOutsideTouchable(z2);
+
+        r1 = r0.mPopup;
+
+        $r3 = r0.mTouchInterceptor;
+
+        virtualinvoke r1.setTouchInterceptor($r3);
+
+        z2 = r0.mOverlapAnchorSet;
+
+        if z2 == 0 goto label28;
+
+        r1 = r0.mPopup;
+
+        z2 = r0.mOverlapAnchor;
+
+        androidx.core.widget.PopupWindowCompat.setOverlapAnchor(r1, z2);
+
+     label28:
+        $i2 = android.os.Build$VERSION.SDK_INT;
+
+        if $i2 > 28 goto label35;
+
+        $r4 = androidx.appcompat.widget.ListPopupWindow.sSetEpicenterBoundsMethod;
+
+        if $r4 == null goto label36;
+
+     label29:
+        r1 = r0.mPopup;
+
+     label30:
+        r5 = newarray (java.lang.Object)[1];
+
+     label31:
+        $r6 = r0.mEpicenterBounds;
+
+        r5[0] = $r6;
+
+        virtualinvoke $r4.invoke(r1, r5);
+
+     label32:
+        goto label34;
+
+     label33:
+        r7 := @caughtexception;
+
+        android.util.Log.e("ListPopupWindow", "Could not invoke setEpicenterBounds on PopupWindow", r7);
+
+     label34:
+        goto label36;
+
+     label35:
+        r1 = r0.mPopup;
+
+        $r6 = r0.mEpicenterBounds;
+
+        virtualinvoke r1.setEpicenterBounds($r6);
+
+     label36:
+        r1 = r0.mPopup;
+
+        $r2 = virtualinvoke r0.getAnchorView();
+
+        $i2 = r0.mDropDownHorizontalOffset;
+
+        i3 = r0.mDropDownVerticalOffset;
+
+        $i0 = r0.mDropDownGravity;
+
+        androidx.core.widget.PopupWindowCompat.showAsDropDown(r1, $r2, $i2, i3, $i0);
+
+        r8 = r0.mDropDownList;
+
+        virtualinvoke r8.setSelection(-1);
+
+        z2 = r0.mModal;
+
+        if z2 == 0 goto label37;
+
+        r8 = r0.mDropDownList;
+
+        z2 = virtualinvoke r8.isInTouchMode();
+
+        if z2 == 0 goto label38;
+
+     label37:
+        virtualinvoke r0.clearListSelection();
+
+     label38:
+        z2 = r0.mModal;
+
+        if z2 != 0 goto label39;
+
+        r9 = r0.mHandler;
+
+        $r10 = r0.mHideSelector;
+
+        virtualinvoke r9.post($r10);
+
+     label39:
+        return;
+
+        catch java.lang.Exception from label29 to label30 with label33;
+        catch java.lang.Exception from label31 to label32 with label33;
+    }
+}

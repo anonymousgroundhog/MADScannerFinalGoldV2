@@ -1,0 +1,51 @@
+class androidx.core.view.WindowInsetsControllerCompat$Impl20$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final androidx.core.view.WindowInsetsControllerCompat$Impl20 this$0;
+    final android.view.View val$finalView;
+
+    void <init>(androidx.core.view.WindowInsetsControllerCompat$Impl20, android.view.View)
+    {
+        android.view.View $r2;
+        androidx.core.view.WindowInsetsControllerCompat$Impl20 $r1;
+        androidx.core.view.WindowInsetsControllerCompat$Impl20$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        r0.val$finalView = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void run()
+    {
+        android.content.Context $r2;
+        androidx.core.view.WindowInsetsControllerCompat$Impl20$1 r0;
+        android.view.View r1;
+        java.lang.Object $r3;
+        android.view.inputmethod.InputMethodManager r4;
+
+        r0 := @this;
+
+        r1 = r0.val$finalView;
+
+        $r2 = virtualinvoke r1.getContext();
+
+        $r3 = virtualinvoke $r2.getSystemService("input_method");
+
+        r4 = (android.view.inputmethod.InputMethodManager) $r3;
+
+        r1 = r0.val$finalView;
+
+        virtualinvoke r4.showSoftInput(r1, 0);
+
+        return;
+    }
+}

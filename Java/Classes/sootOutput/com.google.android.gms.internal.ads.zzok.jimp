@@ -1,0 +1,321 @@
+final class com.google.android.gms.internal.ads.zzok extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzoj zza;
+    private int zzb;
+    private long zzc;
+    private long zzd;
+    private long zze;
+    private long zzf;
+
+    public void <init>(android.media.AudioTrack)
+    {
+        com.google.android.gms.internal.ads.zzoj $r2;
+        com.google.android.gms.internal.ads.zzok r0;
+        int $i0;
+        android.media.AudioTrack $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        $r2 = new com.google.android.gms.internal.ads.zzoj;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.zza = $r2;
+
+        specialinvoke r0.zzh(0);
+
+        return;
+    }
+
+    private final void zzh(int)
+    {
+        com.google.android.gms.internal.ads.zzok r0;
+        int $i0;
+        long $l1, $l2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.zzb = $i0;
+
+        $l2 = 10000L;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label5;
+            case 1: goto label4;
+            case 2: goto label3;
+            case 3: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        $l2 = 500000L;
+
+     label2:
+        r0.zzd = $l2;
+
+        return;
+
+     label3:
+        $l2 = 10000000L;
+
+        goto label2;
+
+     label4:
+        r0.zzd = 10000L;
+
+        return;
+
+     label5:
+        r0.zze = 0L;
+
+        r0.zzf = -1L;
+
+        $l1 = java.lang.System.nanoTime();
+
+        $l1 = $l1 / 1000L;
+
+        r0.zzc = $l1;
+
+        goto label2;
+    }
+
+    public final long zza()
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzoj $r1;
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $l0 = virtualinvoke $r1.zza();
+
+        return $l0;
+    }
+
+    public final long zzb()
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzoj $r1;
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $l0 = virtualinvoke $r1.zzb();
+
+        return $l0;
+    }
+
+    public final void zzc()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        $i0 = r0.zzb;
+
+        if $i0 != 4 goto label1;
+
+        specialinvoke r0.zzh(0);
+
+     label1:
+        return;
+    }
+
+    public final void zzd()
+    {
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zzh(4);
+
+        return;
+    }
+
+    public final void zze()
+    {
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zzh(0);
+
+        return;
+    }
+
+    public final boolean zzf()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzok r0;
+
+        r0 := @this;
+
+        $i0 = r0.zzb;
+
+        if $i0 != 2 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final boolean zzg(long)
+    {
+        com.google.android.gms.internal.ads.zzoj $r1;
+        com.google.android.gms.internal.ads.zzok r0;
+        long $l1, $l2, $l3;
+        byte $b0;
+        int $i4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $l1 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $l2 = r0.zze;
+
+        $l2 = $l1 - $l2;
+
+        $l3 = r0.zzd;
+
+        $b0 = $l2 cmp $l3;
+
+        $i4 = (int) $b0;
+
+        if $i4 >= 0 goto label01;
+
+        return 0;
+
+     label01:
+        r0.zze = $l1;
+
+        $z0 = virtualinvoke $r1.zzc();
+
+        $i4 = r0.zzb;
+
+        lookupswitch($i4)
+        {
+            case 0: goto label10;
+            case 1: goto label07;
+            case 2: goto label05;
+            case 3: goto label03;
+            default: goto label02;
+        };
+
+     label02:
+        goto label14;
+
+     label03:
+        if $z0 != 0 goto label04;
+
+        return 0;
+
+     label04:
+        specialinvoke r0.zzh(0);
+
+        return 1;
+
+     label05:
+        if $z0 == 0 goto label06;
+
+        return 1;
+
+     label06:
+        specialinvoke r0.zzh(0);
+
+        return 0;
+
+     label07:
+        if $z0 == 0 goto label09;
+
+        $r1 = r0.zza;
+
+        $l1 = virtualinvoke $r1.zza();
+
+        $l2 = r0.zzf;
+
+        $b0 = $l1 cmp $l2;
+
+        $i4 = (int) $b0;
+
+        if $i4 > 0 goto label08;
+
+        goto label14;
+
+     label08:
+        specialinvoke r0.zzh(2);
+
+        return 1;
+
+     label09:
+        specialinvoke r0.zzh(0);
+
+        goto label14;
+
+     label10:
+        if $z0 == 0 goto label12;
+
+        $r1 = r0.zza;
+
+        $l1 = virtualinvoke $r1.zzb();
+
+        $l2 = r0.zzc;
+
+        $b0 = $l1 cmp $l2;
+
+        $i4 = (int) $b0;
+
+        if $i4 >= 0 goto label11;
+
+        return 0;
+
+     label11:
+        $r1 = r0.zza;
+
+        $l1 = virtualinvoke $r1.zza();
+
+        r0.zzf = $l1;
+
+        specialinvoke r0.zzh(1);
+
+        return 1;
+
+     label12:
+        $l2 = r0.zzc;
+
+        $l1 = $l1 - $l2;
+
+        $b0 = $l1 cmp 500000L;
+
+        $i4 = (int) $b0;
+
+        if $i4 > 0 goto label13;
+
+        goto label14;
+
+     label13:
+        specialinvoke r0.zzh(3);
+
+        return 0;
+
+     label14:
+        return $z0;
+    }
+}

@@ -1,0 +1,42 @@
+public final class com.google.android.gms.internal.ads.zzeny extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    private final android.os.Bundle zza;
+
+    public void <init>(android.os.Bundle)
+    {
+        com.google.android.gms.internal.ads.zzeny r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzeny r0;
+        android.os.Bundle $r1, $r3;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (android.os.Bundle) $r2;
+
+        $r1 = r0.zza;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r3.putAll($r1);
+
+     label1:
+        return;
+    }
+}

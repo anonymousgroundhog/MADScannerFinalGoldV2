@@ -1,0 +1,1665 @@
+class androidx.appcompat.widget.ActionMenuPresenter extends androidx.appcompat.view.menu.BaseMenuPresenter implements androidx.core.view.ActionProvider$SubUiVisibilityListener
+{
+    private static final java.lang.String TAG;
+    private final android.util.SparseBooleanArray mActionButtonGroups;
+    androidx.appcompat.widget.ActionMenuPresenter$ActionButtonSubmenu mActionButtonPopup;
+    private int mActionItemWidthLimit;
+    private boolean mExpandedActionViewsExclusive;
+    private int mMaxItems;
+    private boolean mMaxItemsSet;
+    private int mMinCellSize;
+    int mOpenSubMenuId;
+    androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton mOverflowButton;
+    androidx.appcompat.widget.ActionMenuPresenter$OverflowPopup mOverflowPopup;
+    private android.graphics.drawable.Drawable mPendingOverflowIcon;
+    private boolean mPendingOverflowIconSet;
+    private androidx.appcompat.widget.ActionMenuPresenter$ActionMenuPopupCallback mPopupCallback;
+    final androidx.appcompat.widget.ActionMenuPresenter$PopupPresenterCallback mPopupPresenterCallback;
+    androidx.appcompat.widget.ActionMenuPresenter$OpenOverflowRunnable mPostedOpenRunnable;
+    private boolean mReserveOverflow;
+    private boolean mReserveOverflowSet;
+    private boolean mStrictWidthLimit;
+    private int mWidthLimit;
+    private boolean mWidthLimitSet;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        android.util.SparseBooleanArray $r2;
+        int $i0, $i1;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.widget.ActionMenuPresenter$PopupPresenterCallback $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i1 = androidx.appcompat.R$layout.abc_action_menu_layout;
+
+        $i0 = androidx.appcompat.R$layout.abc_action_menu_item_layout;
+
+        specialinvoke r0.<init>($r1, $i1, $i0);
+
+        $r2 = new android.util.SparseBooleanArray;
+
+        specialinvoke $r2.<init>();
+
+        r0.mActionButtonGroups = $r2;
+
+        $r3 = new androidx.appcompat.widget.ActionMenuPresenter$PopupPresenterCallback;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mPopupPresenterCallback = $r3;
+
+        return;
+    }
+
+    static androidx.appcompat.view.menu.MenuBuilder access$000(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuBuilder r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenu;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuBuilder access$100(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuBuilder r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenu;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuView access$200(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuView r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenuView;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuBuilder access$300(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuBuilder r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenu;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuBuilder access$400(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuBuilder r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenu;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuBuilder access$500(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuBuilder r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenu;
+
+        return r1;
+    }
+
+    static androidx.appcompat.view.menu.MenuView access$600(androidx.appcompat.widget.ActionMenuPresenter)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter $r0;
+        androidx.appcompat.view.menu.MenuView r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.mMenuView;
+
+        return r1;
+    }
+
+    private android.view.View findViewForItem(android.view.MenuItem)
+    {
+        androidx.appcompat.view.menu.MenuItemImpl $r6;
+        androidx.appcompat.view.menu.MenuView r2;
+        android.view.ViewGroup r3;
+        android.view.MenuItem $r1;
+        androidx.appcompat.view.menu.MenuView$ItemView $r5;
+        int $i0, i1;
+        android.view.View $r4;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mMenuView;
+
+        r3 = (android.view.ViewGroup) r2;
+
+        if r3 != null goto label1;
+
+        return null;
+
+     label1:
+        $i0 = virtualinvoke r3.getChildCount();
+
+        i1 = 0;
+
+     label2:
+        if i1 >= $i0 goto label4;
+
+        $r4 = virtualinvoke r3.getChildAt(i1);
+
+        $z0 = $r4 instanceof androidx.appcompat.view.menu.MenuView$ItemView;
+
+        if $z0 == 0 goto label3;
+
+        $r5 = (androidx.appcompat.view.menu.MenuView$ItemView) $r4;
+
+        $r6 = interfaceinvoke $r5.getItemData();
+
+        if $r6 != $r1 goto label3;
+
+        return $r4;
+
+     label3:
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label4:
+        return null;
+    }
+
+    public void bindItemView(androidx.appcompat.view.menu.MenuItemImpl, androidx.appcompat.view.menu.MenuView$ItemView)
+    {
+        androidx.appcompat.widget.ActionMenuView r4;
+        androidx.appcompat.view.menu.MenuItemImpl $r1;
+        androidx.appcompat.widget.ActionMenuPresenter$ActionMenuPopupCallback $r6;
+        androidx.appcompat.view.menu.ActionMenuItemView r5;
+        androidx.appcompat.view.menu.MenuView$ItemView $r2;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.MenuView r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        interfaceinvoke $r2.initialize($r1, 0);
+
+        r3 = r0.mMenuView;
+
+        r4 = (androidx.appcompat.widget.ActionMenuView) r3;
+
+        r5 = (androidx.appcompat.view.menu.ActionMenuItemView) $r2;
+
+        virtualinvoke r5.setItemInvoker(r4);
+
+        $r6 = r0.mPopupCallback;
+
+        if $r6 != null goto label1;
+
+        $r6 = new androidx.appcompat.widget.ActionMenuPresenter$ActionMenuPopupCallback;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mPopupCallback = $r6;
+
+     label1:
+        $r6 = r0.mPopupCallback;
+
+        virtualinvoke r5.setPopupCallback($r6);
+
+        return;
+    }
+
+    public boolean dismissPopupMenus()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.hideOverflowMenu();
+
+        $z1 = virtualinvoke r0.hideSubMenus();
+
+        $z0 = $z0 | $z1;
+
+        return $z0;
+    }
+
+    public boolean filterLeftoverView(android.view.ViewGroup, int)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton $r2;
+        int $i0;
+        android.view.View $r3;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        android.view.ViewGroup $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r3 = virtualinvoke $r1.getChildAt($i0);
+
+        $r2 = r0.mOverflowButton;
+
+        if $r3 != $r2 goto label1;
+
+        return 0;
+
+     label1:
+        $z0 = specialinvoke r0.filterLeftoverView($r1, $i0);
+
+        return $z0;
+    }
+
+    public boolean flagActionItems()
+    {
+        androidx.appcompat.view.menu.MenuItemImpl r8, r11;
+        androidx.appcompat.view.menu.MenuView r5;
+        java.util.ArrayList $r3, r4;
+        int i0, i1, $i2, i3, i4, i5, i6, i7, $i8, $i9, $i10;
+        android.view.View $r10;
+        androidx.appcompat.widget.ActionMenuPresenter r0, r1;
+        boolean z0, $z1, z2;
+        androidx.appcompat.view.menu.MenuBuilder r2;
+        android.view.ViewGroup r6;
+        android.util.SparseBooleanArray r9;
+        java.lang.Object $r7;
+
+        r0 := @this;
+
+        r1 = r0;
+
+        r2 = r0.mMenu;
+
+        if r2 == null goto label01;
+
+        r2 = r0.mMenu;
+
+        $r3 = virtualinvoke r2.getVisibleItems();
+
+        r4 = $r3;
+
+        i1 = virtualinvoke $r3.size();
+
+        goto label02;
+
+     label01:
+        r4 = null;
+
+        i1 = 0;
+
+     label02:
+        i3 = r0.mMaxItems;
+
+        i4 = r0.mActionItemWidthLimit;
+
+        $i2 = android.view.View$MeasureSpec.makeMeasureSpec(0, 0);
+
+        r5 = r0.mMenuView;
+
+        r6 = (android.view.ViewGroup) r5;
+
+        i5 = 0;
+
+        i0 = 0;
+
+        i6 = 0;
+
+        z0 = 0;
+
+        i7 = 0;
+
+     label03:
+        if i7 >= i1 goto label08;
+
+        $r7 = virtualinvoke r4.get(i7);
+
+        r8 = (androidx.appcompat.view.menu.MenuItemImpl) $r7;
+
+        $z1 = virtualinvoke r8.requiresActionButton();
+
+        if $z1 == 0 goto label04;
+
+        i5 = i5 + 1;
+
+        goto label06;
+
+     label04:
+        $z1 = virtualinvoke r8.requestsActionButton();
+
+        if $z1 == 0 goto label05;
+
+        i0 = i0 + 1;
+
+        goto label06;
+
+     label05:
+        z0 = 1;
+
+     label06:
+        $z1 = r0.mExpandedActionViewsExclusive;
+
+        if $z1 == 0 goto label07;
+
+        $z1 = virtualinvoke r8.isActionViewExpanded();
+
+        if $z1 == 0 goto label07;
+
+        i3 = 0;
+
+     label07:
+        i7 = i7 + 1;
+
+        goto label03;
+
+     label08:
+        $z1 = r0.mReserveOverflow;
+
+        if $z1 == 0 goto label10;
+
+        if z0 != 0 goto label09;
+
+        i0 = i5 + i0;
+
+        if i0 <= i3 goto label10;
+
+     label09:
+        i0 = -1;
+
+        i3 = i3 + i0;
+
+     label10:
+        i7 = i3 - i5;
+
+        r9 = r0.mActionButtonGroups;
+
+        virtualinvoke r9.clear();
+
+        i5 = 0;
+
+        i3 = 0;
+
+        z0 = r0.mStrictWidthLimit;
+
+        if z0 == 0 goto label11;
+
+        i5 = r0.mMinCellSize;
+
+        i3 = i4 / i5;
+
+        i0 = i4 % i5;
+
+        i0 = i0 / i3;
+
+        i5 = i5 + i0;
+
+     label11:
+        i0 = 0;
+
+     label12:
+        if i0 >= i1 goto label42;
+
+        $r7 = virtualinvoke r4.get(i0);
+
+        r8 = (androidx.appcompat.view.menu.MenuItemImpl) $r7;
+
+        z0 = virtualinvoke r8.requiresActionButton();
+
+        if z0 == 0 goto label17;
+
+        $r10 = virtualinvoke r1.getItemView(r8, null, r6);
+
+        z0 = r1.mStrictWidthLimit;
+
+        if z0 == 0 goto label13;
+
+        $i8 = androidx.appcompat.widget.ActionMenuView.measureChildForCells($r10, i5, i3, $i2, 0);
+
+        i3 = i3 - $i8;
+
+        goto label14;
+
+     label13:
+        virtualinvoke $r10.measure($i2, $i2);
+
+     label14:
+        $i8 = virtualinvoke $r10.getMeasuredWidth();
+
+        i4 = i4 - $i8;
+
+        if i6 != 0 goto label15;
+
+        i6 = $i8;
+
+     label15:
+        $i8 = virtualinvoke r8.getGroupId();
+
+        if $i8 == 0 goto label16;
+
+        virtualinvoke r9.put($i8, 1);
+
+        goto label16;
+
+     label16:
+        virtualinvoke r8.setIsActionButton(1);
+
+        $r3 = r4;
+
+        goto label41;
+
+     label17:
+        z0 = virtualinvoke r8.requestsActionButton();
+
+        if z0 == 0 goto label40;
+
+        $i8 = virtualinvoke r8.getGroupId();
+
+        z0 = virtualinvoke r9.get($i8);
+
+        if i7 > 0 goto label18;
+
+        if z0 == 0 goto label20;
+
+     label18:
+        if i4 <= 0 goto label20;
+
+        $z1 = r1.mStrictWidthLimit;
+
+        if $z1 == 0 goto label19;
+
+        if i3 <= 0 goto label20;
+
+     label19:
+        $z1 = 1;
+
+        goto label21;
+
+     label20:
+        $z1 = 0;
+
+     label21:
+        if $z1 == 0 goto label31;
+
+        $r10 = virtualinvoke r1.getItemView(r8, null, r6);
+
+        z2 = r1.mStrictWidthLimit;
+
+        if z2 == 0 goto label23;
+
+        $i9 = androidx.appcompat.widget.ActionMenuView.measureChildForCells($r10, i5, i3, $i2, 0);
+
+        i3 = i3 - $i9;
+
+        if $i9 != 0 goto label22;
+
+        $z1 = 0;
+
+        goto label22;
+
+     label22:
+        goto label24;
+
+     label23:
+        virtualinvoke $r10.measure($i2, $i2);
+
+     label24:
+        $i9 = virtualinvoke $r10.getMeasuredWidth();
+
+        i4 = i4 - $i9;
+
+        if i6 != 0 goto label25;
+
+        i6 = $i9;
+
+     label25:
+        z2 = r1.mStrictWidthLimit;
+
+        if z2 == 0 goto label28;
+
+        if i4 < 0 goto label26;
+
+        z2 = 1;
+
+        goto label27;
+
+     label26:
+        z2 = 0;
+
+     label27:
+        $z1 = z2 & $z1;
+
+        goto label31;
+
+     label28:
+        $i9 = i4 + i6;
+
+        if $i9 <= 0 goto label29;
+
+        z2 = 1;
+
+        goto label30;
+
+     label29:
+        z2 = 0;
+
+     label30:
+        $z1 = z2 & $z1;
+
+        goto label31;
+
+     label31:
+        if $z1 == 0 goto label32;
+
+        if $i8 == 0 goto label32;
+
+        virtualinvoke r9.put($i8, 1);
+
+        $r3 = r4;
+
+        goto label38;
+
+     label32:
+        if z0 == 0 goto label37;
+
+        virtualinvoke r9.put($i8, 0);
+
+        $i9 = 0;
+
+     label33:
+        if $i9 >= i0 goto label36;
+
+        $r7 = virtualinvoke r4.get($i9);
+
+        r11 = (androidx.appcompat.view.menu.MenuItemImpl) $r7;
+
+        $r3 = r4;
+
+        $i10 = virtualinvoke r11.getGroupId();
+
+        if $i10 != $i8 goto label35;
+
+        z0 = virtualinvoke r11.isActionButton();
+
+        if z0 == 0 goto label34;
+
+        i7 = i7 + 1;
+
+     label34:
+        virtualinvoke r11.setIsActionButton(0);
+
+     label35:
+        $i9 = $i9 + 1;
+
+        r4 = $r3;
+
+        goto label33;
+
+     label36:
+        $r3 = r4;
+
+        goto label38;
+
+     label37:
+        $r3 = r4;
+
+     label38:
+        if $z1 == 0 goto label39;
+
+        i7 = i7 + -1;
+
+     label39:
+        virtualinvoke r8.setIsActionButton($z1);
+
+        goto label41;
+
+     label40:
+        $r3 = r4;
+
+        virtualinvoke r8.setIsActionButton(0);
+
+     label41:
+        i0 = i0 + 1;
+
+        r1 = r0;
+
+        r4 = $r3;
+
+        goto label12;
+
+     label42:
+        return 1;
+    }
+
+    public android.view.View getItemView(androidx.appcompat.view.menu.MenuItemImpl, android.view.View, android.view.ViewGroup)
+    {
+        androidx.appcompat.view.menu.MenuItemImpl $r1;
+        android.view.ViewGroup$LayoutParams $r7;
+        android.view.ViewGroup $r3;
+        androidx.appcompat.widget.ActionMenuView r6;
+        androidx.appcompat.widget.ActionMenuView$LayoutParams $r8;
+        byte b0;
+        android.view.View $r2, $r4, r5;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 = virtualinvoke $r1.getActionView();
+
+        r5 = $r4;
+
+        if $r4 == null goto label1;
+
+        $z0 = virtualinvoke $r1.hasCollapsibleActionView();
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        r5 = specialinvoke r0.getItemView($r1, $r2, $r3);
+
+     label2:
+        $z0 = virtualinvoke $r1.isActionViewExpanded();
+
+        if $z0 == 0 goto label3;
+
+        b0 = 8;
+
+        goto label4;
+
+     label3:
+        b0 = 0;
+
+     label4:
+        virtualinvoke r5.setVisibility(b0);
+
+        r6 = (androidx.appcompat.widget.ActionMenuView) $r3;
+
+        $r7 = virtualinvoke r5.getLayoutParams();
+
+        $z0 = virtualinvoke r6.checkLayoutParams($r7);
+
+        if $z0 != 0 goto label5;
+
+        $r8 = virtualinvoke r6.generateLayoutParams($r7);
+
+        virtualinvoke r5.setLayoutParams($r8);
+
+     label5:
+        return r5;
+    }
+
+    public androidx.appcompat.view.menu.MenuView getMenuView(android.view.ViewGroup)
+    {
+        androidx.appcompat.widget.ActionMenuView $r4;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.MenuView r2, $r3;
+        android.view.ViewGroup $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mMenuView;
+
+        $r3 = specialinvoke r0.getMenuView($r1);
+
+        if r2 == $r3 goto label1;
+
+        $r4 = (androidx.appcompat.widget.ActionMenuView) $r3;
+
+        virtualinvoke $r4.setPresenter(r0);
+
+     label1:
+        return $r3;
+    }
+
+    public android.graphics.drawable.Drawable getOverflowIcon()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton $r2;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 = r0.mOverflowButton;
+
+        if $r2 == null goto label1;
+
+        $r1 = virtualinvoke $r2.getDrawable();
+
+        return $r1;
+
+     label1:
+        $z0 = r0.mPendingOverflowIconSet;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = r0.mPendingOverflowIcon;
+
+        return $r1;
+
+     label2:
+        return null;
+    }
+
+    public boolean hideOverflowMenu()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowPopup r4;
+        android.view.View r3;
+        androidx.appcompat.widget.ActionMenuPresenter$OpenOverflowRunnable $r1;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.MenuView r2;
+
+        r0 := @this;
+
+        $r1 = r0.mPostedOpenRunnable;
+
+        if $r1 == null goto label1;
+
+        r2 = r0.mMenuView;
+
+        if r2 == null goto label1;
+
+        r2 = r0.mMenuView;
+
+        r3 = (android.view.View) r2;
+
+        $r1 = r0.mPostedOpenRunnable;
+
+        virtualinvoke r3.removeCallbacks($r1);
+
+        r0.mPostedOpenRunnable = null;
+
+        return 1;
+
+     label1:
+        r4 = r0.mOverflowPopup;
+
+        if r4 == null goto label2;
+
+        virtualinvoke r4.dismiss();
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public boolean hideSubMenus()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.widget.ActionMenuPresenter$ActionButtonSubmenu $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mActionButtonPopup;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.dismiss();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void initForMenu(android.content.Context, androidx.appcompat.view.menu.MenuBuilder)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton r5;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+        android.graphics.drawable.Drawable $r6;
+        android.util.DisplayMetrics $r7;
+        int $i0, $i1;
+        float f0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.ActionBarPolicy $r4;
+        android.content.res.Resources $r3;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.initForMenu($r1, $r2);
+
+        $r3 = virtualinvoke $r1.getResources();
+
+        $r4 = androidx.appcompat.view.ActionBarPolicy.get($r1);
+
+        z0 = r0.mReserveOverflowSet;
+
+        if z0 != 0 goto label1;
+
+        z0 = virtualinvoke $r4.showsOverflowMenuButton();
+
+        r0.mReserveOverflow = z0;
+
+     label1:
+        z0 = r0.mWidthLimitSet;
+
+        if z0 != 0 goto label2;
+
+        $i0 = virtualinvoke $r4.getEmbeddedMenuWidthLimit();
+
+        r0.mWidthLimit = $i0;
+
+     label2:
+        z0 = r0.mMaxItemsSet;
+
+        if z0 != 0 goto label3;
+
+        $i0 = virtualinvoke $r4.getMaxActionButtons();
+
+        r0.mMaxItems = $i0;
+
+     label3:
+        $i0 = r0.mWidthLimit;
+
+        z0 = r0.mReserveOverflow;
+
+        if z0 == 0 goto label6;
+
+        r5 = r0.mOverflowButton;
+
+        if r5 != null goto label5;
+
+        r5 = new androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton;
+
+        $r1 = r0.mSystemContext;
+
+        specialinvoke r5.<init>(r0, $r1);
+
+        r0.mOverflowButton = r5;
+
+        z0 = r0.mPendingOverflowIconSet;
+
+        if z0 == 0 goto label4;
+
+        $r6 = r0.mPendingOverflowIcon;
+
+        virtualinvoke r5.setImageDrawable($r6);
+
+        r0.mPendingOverflowIcon = null;
+
+        r0.mPendingOverflowIconSet = 0;
+
+     label4:
+        $i1 = android.view.View$MeasureSpec.makeMeasureSpec(0, 0);
+
+        r5 = r0.mOverflowButton;
+
+        virtualinvoke r5.measure($i1, $i1);
+
+     label5:
+        r5 = r0.mOverflowButton;
+
+        $i1 = virtualinvoke r5.getMeasuredWidth();
+
+        $i0 = $i0 - $i1;
+
+        goto label7;
+
+     label6:
+        r0.mOverflowButton = null;
+
+     label7:
+        r0.mActionItemWidthLimit = $i0;
+
+        $r7 = virtualinvoke $r3.getDisplayMetrics();
+
+        f0 = $r7.density;
+
+        f0 = f0 * 56.0F;
+
+        $i0 = (int) f0;
+
+        r0.mMinCellSize = $i0;
+
+        return;
+    }
+
+    public boolean isOverflowMenuShowPending()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter$OpenOverflowRunnable $r1;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mPostedOpenRunnable;
+
+        if $r1 != null goto label2;
+
+        $z0 = virtualinvoke r0.isOverflowMenuShowing();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean isOverflowMenuShowing()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowPopup $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mOverflowPopup;
+
+        if $r1 == null goto label1;
+
+        $z0 = virtualinvoke $r1.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isOverflowReserved()
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mReserveOverflow;
+
+        return z0;
+    }
+
+    public void onCloseMenu(androidx.appcompat.view.menu.MenuBuilder, boolean)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.MenuBuilder $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        virtualinvoke r0.dismissPopupMenus();
+
+        specialinvoke r0.onCloseMenu($r1, $z0);
+
+        return;
+    }
+
+    public void onConfigurationChanged(android.content.res.Configuration)
+    {
+        android.content.Context $r2;
+        android.content.res.Configuration $r1;
+        androidx.appcompat.view.menu.MenuBuilder $r4;
+        int $i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.ActionBarPolicy $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.mMaxItemsSet;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = r0.mContext;
+
+        $r3 = androidx.appcompat.view.ActionBarPolicy.get($r2);
+
+        $i0 = virtualinvoke $r3.getMaxActionButtons();
+
+        r0.mMaxItems = $i0;
+
+     label1:
+        $r4 = r0.mMenu;
+
+        if $r4 == null goto label2;
+
+        $r4 = r0.mMenu;
+
+        virtualinvoke $r4.onItemsChanged(1);
+
+     label2:
+        return;
+    }
+
+    public void onRestoreInstanceState(android.os.Parcelable)
+    {
+        android.os.Parcelable $r1;
+        androidx.appcompat.view.menu.MenuBuilder r3;
+        android.view.SubMenu $r5;
+        android.view.MenuItem $r4;
+        int i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.widget.ActionMenuPresenter$SavedState r2;
+        boolean z0;
+        androidx.appcompat.view.menu.SubMenuBuilder r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        z0 = $r1 instanceof androidx.appcompat.widget.ActionMenuPresenter$SavedState;
+
+        if z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        r2 = (androidx.appcompat.widget.ActionMenuPresenter$SavedState) $r1;
+
+        i0 = r2.openSubMenuId;
+
+        if i0 <= 0 goto label2;
+
+        r3 = r0.mMenu;
+
+        i0 = r2.openSubMenuId;
+
+        $r4 = virtualinvoke r3.findItem(i0);
+
+        if $r4 == null goto label2;
+
+        $r5 = interfaceinvoke $r4.getSubMenu();
+
+        r6 = (androidx.appcompat.view.menu.SubMenuBuilder) $r5;
+
+        virtualinvoke r0.onSubMenuSelected(r6);
+
+     label2:
+        return;
+    }
+
+    public android.os.Parcelable onSaveInstanceState()
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.widget.ActionMenuPresenter$SavedState r1;
+
+        r0 := @this;
+
+        r1 = new androidx.appcompat.widget.ActionMenuPresenter$SavedState;
+
+        specialinvoke r1.<init>();
+
+        $i0 = r0.mOpenSubMenuId;
+
+        r1.openSubMenuId = $i0;
+
+        return r1;
+    }
+
+    public boolean onSubMenuSelected(androidx.appcompat.view.menu.SubMenuBuilder)
+    {
+        android.content.Context r9;
+        androidx.appcompat.view.menu.MenuBuilder r4;
+        android.graphics.drawable.Drawable $r7;
+        android.view.MenuItem $r5;
+        androidx.appcompat.widget.ActionMenuPresenter$ActionButtonSubmenu r8;
+        android.view.Menu $r3;
+        int $i0, i1;
+        android.view.View $r6;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.SubMenuBuilder $r1, r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke $r1.hasVisibleItems();
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        r2 = $r1;
+
+     label2:
+        $r3 = virtualinvoke r2.getParentMenu();
+
+        r4 = r0.mMenu;
+
+        if $r3 == r4 goto label3;
+
+        $r3 = virtualinvoke r2.getParentMenu();
+
+        r2 = (androidx.appcompat.view.menu.SubMenuBuilder) $r3;
+
+        goto label2;
+
+     label3:
+        $r5 = virtualinvoke r2.getItem();
+
+        $r6 = specialinvoke r0.findViewForItem($r5);
+
+        if $r6 != null goto label4;
+
+        return 0;
+
+     label4:
+        $r5 = virtualinvoke $r1.getItem();
+
+        $i0 = interfaceinvoke $r5.getItemId();
+
+        r0.mOpenSubMenuId = $i0;
+
+        $z0 = 0;
+
+        $i0 = virtualinvoke $r1.size();
+
+        i1 = 0;
+
+     label5:
+        if i1 >= $i0 goto label7;
+
+        $r5 = virtualinvoke $r1.getItem(i1);
+
+        $z1 = interfaceinvoke $r5.isVisible();
+
+        if $z1 == 0 goto label6;
+
+        $r7 = interfaceinvoke $r5.getIcon();
+
+        if $r7 == null goto label6;
+
+        $z0 = 1;
+
+        goto label7;
+
+     label6:
+        i1 = i1 + 1;
+
+        goto label5;
+
+     label7:
+        r8 = new androidx.appcompat.widget.ActionMenuPresenter$ActionButtonSubmenu;
+
+        r9 = r0.mContext;
+
+        specialinvoke r8.<init>(r0, r9, $r1, $r6);
+
+        r0.mActionButtonPopup = r8;
+
+        virtualinvoke r8.setForceShowIcon($z0);
+
+        r8 = r0.mActionButtonPopup;
+
+        virtualinvoke r8.show();
+
+        specialinvoke r0.onSubMenuSelected($r1);
+
+        return 1;
+    }
+
+    public void onSubUiVisibilityChanged(boolean)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+        androidx.appcompat.view.menu.MenuBuilder $r1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.onSubMenuSelected(null);
+
+        return;
+
+     label1:
+        $r1 = r0.mMenu;
+
+        if $r1 == null goto label2;
+
+        $r1 = r0.mMenu;
+
+        virtualinvoke $r1.close(0);
+
+     label2:
+        return;
+    }
+
+    public void setExpandedActionViewsExclusive(boolean)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mExpandedActionViewsExclusive = $z0;
+
+        return;
+    }
+
+    public void setItemLimit(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mMaxItems = $i0;
+
+        r0.mMaxItemsSet = 1;
+
+        return;
+    }
+
+    public void setMenuView(androidx.appcompat.widget.ActionMenuView)
+    {
+        androidx.appcompat.widget.ActionMenuView $r1;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mMenuView = $r1;
+
+        $r2 = r0.mMenu;
+
+        virtualinvoke $r1.initialize($r2);
+
+        return;
+    }
+
+    public void setOverflowIcon(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        android.graphics.drawable.Drawable $r1;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mOverflowButton;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.setImageDrawable($r1);
+
+        return;
+
+     label1:
+        r0.mPendingOverflowIconSet = 1;
+
+        r0.mPendingOverflowIcon = $r1;
+
+        return;
+    }
+
+    public void setReserveOverflow(boolean)
+    {
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mReserveOverflow = $z0;
+
+        r0.mReserveOverflowSet = 1;
+
+        return;
+    }
+
+    public void setWidthLimit(int, boolean)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        r0.mWidthLimit = $i0;
+
+        r0.mStrictWidthLimit = $z0;
+
+        r0.mWidthLimitSet = 1;
+
+        return;
+    }
+
+    public boolean shouldIncludeItem(int, androidx.appcompat.view.menu.MenuItemImpl)
+    {
+        androidx.appcompat.view.menu.MenuItemImpl $r1;
+        int $i0;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = virtualinvoke $r1.isActionButton();
+
+        return $z0;
+    }
+
+    public boolean showOverflowMenu()
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton $r3;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+        androidx.appcompat.view.menu.MenuView r4;
+        java.util.ArrayList $r6;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowPopup r7;
+        android.view.View $r8;
+        androidx.appcompat.widget.ActionMenuPresenter$OpenOverflowRunnable r5;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mReserveOverflow;
+
+        if z0 == 0 goto label1;
+
+        z0 = virtualinvoke r0.isOverflowMenuShowing();
+
+        if z0 != 0 goto label1;
+
+        $r2 = r0.mMenu;
+
+        if $r2 == null goto label1;
+
+        r4 = r0.mMenuView;
+
+        if r4 == null goto label1;
+
+        r5 = r0.mPostedOpenRunnable;
+
+        if r5 != null goto label1;
+
+        $r2 = r0.mMenu;
+
+        $r6 = virtualinvoke $r2.getNonActionItems();
+
+        z0 = virtualinvoke $r6.isEmpty();
+
+        if z0 != 0 goto label1;
+
+        r7 = new androidx.appcompat.widget.ActionMenuPresenter$OverflowPopup;
+
+        $r1 = r0.mContext;
+
+        $r2 = r0.mMenu;
+
+        $r3 = r0.mOverflowButton;
+
+        specialinvoke r7.<init>(r0, $r1, $r2, $r3, 1);
+
+        r5 = new androidx.appcompat.widget.ActionMenuPresenter$OpenOverflowRunnable;
+
+        specialinvoke r5.<init>(r0, r7);
+
+        r0.mPostedOpenRunnable = r5;
+
+        r4 = r0.mMenuView;
+
+        $r8 = (android.view.View) r4;
+
+        r5 = r0.mPostedOpenRunnable;
+
+        virtualinvoke $r8.post(r5);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void updateMenuView(boolean)
+    {
+        android.content.Context r9;
+        android.view.ViewParent $r10;
+        androidx.appcompat.view.menu.MenuItemImpl r6;
+        androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton r8;
+        androidx.appcompat.view.menu.MenuView r1;
+        java.util.ArrayList $r4;
+        androidx.appcompat.widget.ActionMenuView r12;
+        int $i0, i1;
+        android.view.View r2;
+        androidx.appcompat.widget.ActionMenuPresenter r0;
+        boolean $z0, z1;
+        androidx.appcompat.view.menu.MenuBuilder r3;
+        android.view.ViewGroup r11;
+        androidx.appcompat.widget.ActionMenuView$LayoutParams $r13;
+        androidx.core.view.ActionProvider $r7;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.updateMenuView($z0);
+
+        r1 = r0.mMenuView;
+
+        r2 = (android.view.View) r1;
+
+        virtualinvoke r2.requestLayout();
+
+        r3 = r0.mMenu;
+
+        if r3 == null goto label03;
+
+        r3 = r0.mMenu;
+
+        $r4 = virtualinvoke r3.getActionItems();
+
+        $i0 = virtualinvoke $r4.size();
+
+        i1 = 0;
+
+     label01:
+        if i1 >= $i0 goto label03;
+
+        $r5 = virtualinvoke $r4.get(i1);
+
+        r6 = (androidx.appcompat.view.menu.MenuItemImpl) $r5;
+
+        $r7 = virtualinvoke r6.getSupportActionProvider();
+
+        if $r7 == null goto label02;
+
+        virtualinvoke $r7.setSubUiVisibilityListener(r0);
+
+     label02:
+        i1 = i1 + 1;
+
+        goto label01;
+
+     label03:
+        r3 = r0.mMenu;
+
+        if r3 == null goto label04;
+
+        r3 = r0.mMenu;
+
+        $r4 = virtualinvoke r3.getNonActionItems();
+
+        goto label05;
+
+     label04:
+        $r4 = null;
+
+     label05:
+        $z0 = 0;
+
+        z1 = r0.mReserveOverflow;
+
+        if z1 == 0 goto label07;
+
+        if $r4 == null goto label07;
+
+        $i0 = virtualinvoke $r4.size();
+
+        $z0 = 0;
+
+        if $i0 != 1 goto label06;
+
+        $r5 = virtualinvoke $r4.get(0);
+
+        r6 = (androidx.appcompat.view.menu.MenuItemImpl) $r5;
+
+        $z0 = virtualinvoke r6.isActionViewExpanded();
+
+        $z0 = $z0 ^ 1;
+
+        goto label07;
+
+     label06:
+        if $i0 <= 0 goto label07;
+
+        $z0 = 1;
+
+     label07:
+        if $z0 == 0 goto label10;
+
+        r8 = r0.mOverflowButton;
+
+        if r8 != null goto label08;
+
+        r8 = new androidx.appcompat.widget.ActionMenuPresenter$OverflowMenuButton;
+
+        r9 = r0.mSystemContext;
+
+        specialinvoke r8.<init>(r0, r9);
+
+        r0.mOverflowButton = r8;
+
+     label08:
+        r8 = r0.mOverflowButton;
+
+        $r10 = virtualinvoke r8.getParent();
+
+        r11 = (android.view.ViewGroup) $r10;
+
+        r1 = r0.mMenuView;
+
+        if r11 == r1 goto label11;
+
+        if r11 == null goto label09;
+
+        r8 = r0.mOverflowButton;
+
+        virtualinvoke r11.removeView(r8);
+
+     label09:
+        r1 = r0.mMenuView;
+
+        r12 = (androidx.appcompat.widget.ActionMenuView) r1;
+
+        r8 = r0.mOverflowButton;
+
+        $r13 = virtualinvoke r12.generateOverflowButtonLayoutParams();
+
+        virtualinvoke r12.addView(r8, $r13);
+
+        goto label11;
+
+     label10:
+        r8 = r0.mOverflowButton;
+
+        if r8 == null goto label11;
+
+        $r10 = virtualinvoke r8.getParent();
+
+        r1 = r0.mMenuView;
+
+        if $r10 != r1 goto label11;
+
+        r1 = r0.mMenuView;
+
+        r11 = (android.view.ViewGroup) r1;
+
+        r8 = r0.mOverflowButton;
+
+        virtualinvoke r11.removeView(r8);
+
+        goto label11;
+
+     label11:
+        r1 = r0.mMenuView;
+
+        r12 = (androidx.appcompat.widget.ActionMenuView) r1;
+
+        $z0 = r0.mReserveOverflow;
+
+        virtualinvoke r12.setOverflowReserved($z0);
+
+        return;
+    }
+}

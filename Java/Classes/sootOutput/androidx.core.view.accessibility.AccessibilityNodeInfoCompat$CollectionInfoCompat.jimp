@@ -1,0 +1,161 @@
+public class androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat extends java.lang.Object
+{
+    public static final int SELECTION_MODE_MULTIPLE;
+    public static final int SELECTION_MODE_NONE;
+    public static final int SELECTION_MODE_SINGLE;
+    final java.lang.Object mInfo;
+
+    void <init>(java.lang.Object)
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat r0;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mInfo = $r1;
+
+        return;
+    }
+
+    public static androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat obtain(int, int, boolean)
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat $r0;
+        int $i0, $i1;
+        boolean $z0;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r1;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $r0 = new androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat;
+
+        $r1 = android.view.accessibility.AccessibilityNodeInfo$CollectionInfo.obtain($i0, $i1, $z0);
+
+        specialinvoke $r0.<init>($r1);
+
+        return $r0;
+    }
+
+    public static androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat obtain(int, int, boolean, int)
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat $r0;
+        int $i0, $i1, $i2, $i3;
+        boolean $z0;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r1;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 = android.os.Build$VERSION.SDK_INT;
+
+        if $i3 < 21 goto label1;
+
+        $r0 = new androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat;
+
+        $r1 = android.view.accessibility.AccessibilityNodeInfo$CollectionInfo.obtain($i0, $i1, $z0, $i2);
+
+        specialinvoke $r0.<init>($r1);
+
+        return $r0;
+
+     label1:
+        $r0 = new androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat;
+
+        $r1 = android.view.accessibility.AccessibilityNodeInfo$CollectionInfo.obtain($i0, $i1, $z0);
+
+        specialinvoke $r0.<init>($r1);
+
+        return $r0;
+    }
+
+    public int getColumnCount()
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat r0;
+        int $i0;
+        java.lang.Object $r1;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mInfo;
+
+        $r2 = (android.view.accessibility.AccessibilityNodeInfo$CollectionInfo) $r1;
+
+        $i0 = virtualinvoke $r2.getColumnCount();
+
+        return $i0;
+    }
+
+    public int getRowCount()
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat r0;
+        int $i0;
+        java.lang.Object $r1;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mInfo;
+
+        $r2 = (android.view.accessibility.AccessibilityNodeInfo$CollectionInfo) $r1;
+
+        $i0 = virtualinvoke $r2.getRowCount();
+
+        return $i0;
+    }
+
+    public int getSelectionMode()
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat r0;
+        int $i0;
+        java.lang.Object $r1;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r2;
+
+        r0 := @this;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $r1 = r0.mInfo;
+
+        $r2 = (android.view.accessibility.AccessibilityNodeInfo$CollectionInfo) $r1;
+
+        $i0 = virtualinvoke $r2.getSelectionMode();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isHierarchical()
+    {
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        android.view.accessibility.AccessibilityNodeInfo$CollectionInfo $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mInfo;
+
+        $r2 = (android.view.accessibility.AccessibilityNodeInfo$CollectionInfo) $r1;
+
+        $z0 = virtualinvoke $r2.isHierarchical();
+
+        return $z0;
+    }
+}

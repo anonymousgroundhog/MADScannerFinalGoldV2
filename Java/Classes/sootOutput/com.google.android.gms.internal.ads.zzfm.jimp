@@ -1,0 +1,56 @@
+public final class com.google.android.gms.internal.ads.zzfm extends java.lang.Object implements com.google.android.gms.internal.ads.zzff
+{
+    private final android.content.Context zza;
+    private final com.google.android.gms.internal.ads.zzff zzb;
+
+    public void <init>(android.content.Context)
+    {
+        com.google.android.gms.internal.ads.zzfm r0;
+        android.content.Context $r2;
+        com.google.android.gms.internal.ads.zzfo $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfo;
+
+        specialinvoke $r1.<init>();
+
+        specialinvoke r0.<init>();
+
+        $r2 = virtualinvoke $r2.getApplicationContext();
+
+        r0.zza = $r2;
+
+        r0.zzb = $r1;
+
+        return;
+    }
+
+    public final volatile com.google.android.gms.internal.ads.zzfg zza()
+    {
+        android.content.Context $r2;
+        com.google.android.gms.internal.ads.zzff $r4;
+        com.google.android.gms.internal.ads.zzft $r3;
+        com.google.android.gms.internal.ads.zzfo $r5;
+        com.google.android.gms.internal.ads.zzfm r0;
+        com.google.android.gms.internal.ads.zzfn $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfn;
+
+        $r2 = r0.zza;
+
+        $r4 = r0.zzb;
+
+        $r5 = (com.google.android.gms.internal.ads.zzfo) $r4;
+
+        $r3 = virtualinvoke $r5.zzg();
+
+        specialinvoke $r1.<init>($r2, $r3);
+
+        return $r1;
+    }
+}

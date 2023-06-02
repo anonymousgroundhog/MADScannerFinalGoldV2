@@ -1,0 +1,20 @@
+public final class com.google.android.gms.internal.ads.zzeis extends com.google.android.gms.internal.ads.zzeip
+{
+    public final int zza;
+
+    public void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzeis r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        return;
+    }
+}

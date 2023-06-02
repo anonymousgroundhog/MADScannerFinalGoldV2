@@ -1,0 +1,41 @@
+public final class com.google.android.gms.internal.ads.zzfyo extends com.google.android.gms.internal.ads.zzfxj
+{
+    private final com.google.android.gms.internal.ads.zzfyw zza;
+    private final com.google.android.gms.internal.ads.zzgok zzb;
+    private final com.google.android.gms.internal.ads.zzgoj zzc;
+    private final java.lang.Integer zzd;
+
+    void <init>(com.google.android.gms.internal.ads.zzfyw, com.google.android.gms.internal.ads.zzgok, com.google.android.gms.internal.ads.zzgoj, java.lang.Integer, com.google.android.gms.internal.ads.zzfyn)
+    {
+        com.google.android.gms.internal.ads.zzgoj $r3;
+        com.google.android.gms.internal.ads.zzfyw $r1;
+        com.google.android.gms.internal.ads.zzgok $r2;
+        java.lang.Integer $r4;
+        com.google.android.gms.internal.ads.zzfyo r0;
+        com.google.android.gms.internal.ads.zzfyn $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $r5 := @parameter4;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        r0.zzd = $r4;
+
+        return;
+    }
+}

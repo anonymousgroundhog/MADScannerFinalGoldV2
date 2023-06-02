@@ -1,0 +1,475 @@
+public final class com.google.android.gms.dynamic.FragmentWrapper extends com.google.android.gms.dynamic.IFragmentWrapper$Stub
+{
+    private android.app.Fragment zza;
+
+    private void <init>(android.app.Fragment)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public static com.google.android.gms.dynamic.FragmentWrapper wrap(android.app.Fragment)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper $r0;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $r0 = new com.google.android.gms.dynamic.FragmentWrapper;
+
+        specialinvoke $r0.<init>($r1);
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    public final boolean zzA()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isVisible();
+
+        return $z0;
+    }
+
+    public final int zzb()
+    {
+        int $i0;
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = virtualinvoke $r1.getId();
+
+        return $i0;
+    }
+
+    public final int zzc()
+    {
+        int $i0;
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = virtualinvoke $r1.getTargetRequestCode();
+
+        return $i0;
+    }
+
+    public final android.os.Bundle zzd()
+    {
+        android.app.Fragment $r2;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getArguments();
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.dynamic.IFragmentWrapper zze()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r1 = virtualinvoke $r1.getParentFragment();
+
+        r0 = com.google.android.gms.dynamic.FragmentWrapper.wrap($r1);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.dynamic.IFragmentWrapper zzf()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r1 = virtualinvoke $r1.getTargetFragment();
+
+        r0 = com.google.android.gms.dynamic.FragmentWrapper.wrap($r1);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzg()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getActivity();
+
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzh()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        android.content.res.Resources $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getResources();
+
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzi()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        android.app.Fragment $r1;
+        android.view.View $r2;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getView();
+
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final java.lang.String zzj()
+    {
+        android.app.Fragment $r2;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getTag();
+
+        return $r1;
+    }
+
+    public final void zzk(com.google.android.gms.dynamic.IObjectWrapper)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        android.app.Fragment $r1;
+        android.view.View $r4;
+        java.lang.Object $r2;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r2 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r3);
+
+        $r4 = (android.view.View) $r2;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r4);
+
+        virtualinvoke $r1.registerForContextMenu($r4);
+
+        return;
+    }
+
+    public final void zzl(boolean)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.setHasOptionsMenu($z0);
+
+        return;
+    }
+
+    public final void zzm(boolean)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.setMenuVisibility($z0);
+
+        return;
+    }
+
+    public final void zzn(boolean)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.setRetainInstance($z0);
+
+        return;
+    }
+
+    public final void zzo(boolean)
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.setUserVisibleHint($z0);
+
+        return;
+    }
+
+    public final void zzp(android.content.Intent)
+    {
+        android.app.Fragment $r2;
+        android.content.Intent $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.startActivity($r1);
+
+        return;
+    }
+
+    public final void zzq(android.content.Intent, int)
+    {
+        android.app.Fragment $r2;
+        int $i0;
+        android.content.Intent $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.startActivityForResult($r1, $i0);
+
+        return;
+    }
+
+    public final void zzr(com.google.android.gms.dynamic.IObjectWrapper)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        android.app.Fragment $r1;
+        android.view.View $r4;
+        java.lang.Object $r2;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r2 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r3);
+
+        $r4 = (android.view.View) $r2;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r4);
+
+        virtualinvoke $r1.unregisterForContextMenu($r4);
+
+        return;
+    }
+
+    public final boolean zzs()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.getRetainInstance();
+
+        return $z0;
+    }
+
+    public final boolean zzt()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.getUserVisibleHint();
+
+        return $z0;
+    }
+
+    public final boolean zzu()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isAdded();
+
+        return $z0;
+    }
+
+    public final boolean zzv()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isDetached();
+
+        return $z0;
+    }
+
+    public final boolean zzw()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isHidden();
+
+        return $z0;
+    }
+
+    public final boolean zzx()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isInLayout();
+
+        return $z0;
+    }
+
+    public final boolean zzy()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isRemoving();
+
+        return $z0;
+    }
+
+    public final boolean zzz()
+    {
+        android.app.Fragment $r1;
+        com.google.android.gms.dynamic.FragmentWrapper r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.isResumed();
+
+        return $z0;
+    }
+}

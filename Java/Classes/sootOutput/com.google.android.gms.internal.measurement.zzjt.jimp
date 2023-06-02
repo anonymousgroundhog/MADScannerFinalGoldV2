@@ -1,0 +1,449 @@
+final class com.google.android.gms.internal.measurement.zzjt extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.measurement.zzjt zzb;
+    final com.google.android.gms.internal.measurement.zzmh zza;
+    private boolean zzc;
+    private boolean zzd;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.measurement.zzjt $r0;
+
+        $r0 = new com.google.android.gms.internal.measurement.zzjt;
+
+        specialinvoke $r0.<init>(1);
+
+        com.google.android.gms.internal.measurement.zzjt.zzb = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.measurement.zzlx $r1;
+        com.google.android.gms.internal.measurement.zzjt r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.internal.measurement.zzlx;
+
+        specialinvoke $r1.<init>(16);
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    private void <init>(boolean)
+    {
+        com.google.android.gms.internal.measurement.zzlx $r1;
+        com.google.android.gms.internal.measurement.zzjt r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.measurement.zzlx;
+
+        specialinvoke $r1.<init>(0);
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        virtualinvoke r0.zzb();
+
+        virtualinvoke r0.zzb();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.measurement.zzjt zza()
+    {
+        java.lang.NullPointerException r0;
+
+        r0 = new java.lang.NullPointerException;
+
+        specialinvoke r0.<init>("Null throw statement replaced by Soot");
+
+        throw r0;
+    }
+
+    private static final void zzd(com.google.android.gms.internal.measurement.zzjs, java.lang.Object)
+    {
+        com.google.android.gms.internal.measurement.zznb $r2, $r3;
+        java.lang.Object[] $r6;
+        com.google.android.gms.internal.measurement.zzjs $r0;
+        java.lang.IllegalArgumentException $r5;
+        java.lang.Integer $r7;
+        int $i0;
+        java.lang.Object $r1;
+        java.lang.Class $r8;
+        java.lang.String $r9;
+        com.google.android.gms.internal.measurement.zznc $r4;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = interfaceinvoke $r0.zzb();
+
+        com.google.android.gms.internal.measurement.zzkk.zze($r1);
+
+        $r3 = com.google.android.gms.internal.measurement.zznb.zza;
+
+        $r4 = com.google.android.gms.internal.measurement.zznc.zza;
+
+        $r4 = virtualinvoke $r2.zza();
+
+        $i0 = virtualinvoke $r4.ordinal();
+
+        lookupswitch($i0)
+        {
+            case 0: goto label10;
+            case 1: goto label09;
+            case 2: goto label08;
+            case 3: goto label07;
+            case 4: goto label06;
+            case 5: goto label05;
+            case 6: goto label04;
+            case 7: goto label03;
+            case 8: goto label02;
+            default: goto label01;
+        };
+
+     label01:
+        goto label12;
+
+     label02:
+        $z0 = $r1 instanceof com.google.android.gms.internal.measurement.zzlj;
+
+        if $z0 != 0 goto label13;
+
+        $z0 = $r1 instanceof com.google.android.gms.internal.measurement.zzko;
+
+        if $z0 == 0 goto label12;
+
+        return;
+
+     label03:
+        $z0 = $r1 instanceof java.lang.Integer;
+
+        if $z0 != 0 goto label13;
+
+        $z0 = $r1 instanceof com.google.android.gms.internal.measurement.zzke;
+
+        if $z0 == 0 goto label12;
+
+        return;
+
+     label04:
+        $z0 = $r1 instanceof com.google.android.gms.internal.measurement.zzjb;
+
+        if $z0 != 0 goto label13;
+
+        $z0 = $r1 instanceof byte[];
+
+        if $z0 == 0 goto label12;
+
+        return;
+
+     label05:
+        $z0 = $r1 instanceof java.lang.String;
+
+        goto label11;
+
+     label06:
+        $z0 = $r1 instanceof java.lang.Boolean;
+
+        goto label11;
+
+     label07:
+        $z0 = $r1 instanceof java.lang.Double;
+
+        goto label11;
+
+     label08:
+        $z0 = $r1 instanceof java.lang.Float;
+
+        goto label11;
+
+     label09:
+        $z0 = $r1 instanceof java.lang.Long;
+
+        goto label11;
+
+     label10:
+        $z0 = $r1 instanceof java.lang.Integer;
+
+     label11:
+        if $z0 == 0 goto label12;
+
+        return;
+
+     label12:
+        $r5 = new java.lang.IllegalArgumentException;
+
+        $r6 = newarray (java.lang.Object)[3];
+
+        $i0 = interfaceinvoke $r0.zza();
+
+        $r7 = java.lang.Integer.valueOf($i0);
+
+        $r6[0] = $r7;
+
+        $r2 = interfaceinvoke $r0.zzb();
+
+        $r4 = virtualinvoke $r2.zza();
+
+        $r6[1] = $r4;
+
+        $r8 = virtualinvoke $r1.getClass();
+
+        $r9 = virtualinvoke $r8.getName();
+
+        $r6[2] = $r9;
+
+        $r9 = java.lang.String.format("Wrong object type used with protocol message reflection.\nField number: %d, field java type: %s, value type: %s\n", $r6);
+
+        specialinvoke $r5.<init>($r9);
+
+        throw $r5;
+
+     label13:
+        return;
+    }
+
+    public final volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        java.util.Map$Entry $r3;
+        java.util.Iterator $r7;
+        com.google.android.gms.internal.measurement.zzjs $r5;
+        com.google.android.gms.internal.measurement.zzjt r0, $r1;
+        java.lang.Iterable $r6;
+        int $i0, $i1;
+        com.google.android.gms.internal.measurement.zzmh $r2;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.measurement.zzjt;
+
+        specialinvoke $r1.<init>();
+
+        $i0 = 0;
+
+     label1:
+        $r2 = r0.zza;
+
+        $i1 = virtualinvoke $r2.zzb();
+
+        if $i0 >= $i1 goto label2;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke $r2.zzg($i0);
+
+        $r4 = interfaceinvoke $r3.getKey();
+
+        $r5 = (com.google.android.gms.internal.measurement.zzjs) $r4;
+
+        $r4 = interfaceinvoke $r3.getValue();
+
+        virtualinvoke $r1.zzc($r5, $r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        $r2 = r0.zza;
+
+        $r6 = virtualinvoke $r2.zzc();
+
+        $r7 = interfaceinvoke $r6.iterator();
+
+     label3:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r4 = interfaceinvoke $r7.next();
+
+        $r3 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke $r3.getKey();
+
+        $r5 = (com.google.android.gms.internal.measurement.zzjs) $r4;
+
+        $r4 = interfaceinvoke $r3.getValue();
+
+        virtualinvoke $r1.zzc($r5, $r4);
+
+        goto label3;
+
+     label4:
+        $z0 = r0.zzd;
+
+        $r1.zzd = $z0;
+
+        return $r1;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.internal.measurement.zzmh $r3, $r4;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.measurement.zzjt r0, $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof com.google.android.gms.internal.measurement.zzjt;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (com.google.android.gms.internal.measurement.zzjt) $r1;
+
+        $r3 = r0.zza;
+
+        $r4 = $r2.zza;
+
+        $z0 = virtualinvoke $r3.equals($r4);
+
+        return $z0;
+    }
+
+    public final int hashCode()
+    {
+        int $i0;
+        com.google.android.gms.internal.measurement.zzmh $r1;
+        com.google.android.gms.internal.measurement.zzjt r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = virtualinvoke $r1.hashCode();
+
+        return $i0;
+    }
+
+    public final void zzb()
+    {
+        com.google.android.gms.internal.measurement.zzmh $r1;
+        com.google.android.gms.internal.measurement.zzjt r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zzc;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.zza();
+
+        r0.zzc = 1;
+
+        return;
+    }
+
+    public final void zzc(com.google.android.gms.internal.measurement.zzjs, java.lang.Object)
+    {
+        com.google.android.gms.internal.measurement.zzjs $r1;
+        com.google.android.gms.internal.measurement.zzjt r0;
+        java.lang.IllegalArgumentException $r5;
+        java.util.ArrayList $r3;
+        java.util.List $r4;
+        int $i0, $i1;
+        com.google.android.gms.internal.measurement.zzmh $r6;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 = interfaceinvoke $r1.zzc();
+
+        if $z0 == 0 goto label4;
+
+        $z0 = $r2 instanceof java.util.List;
+
+        if $z0 == 0 goto label3;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<init>();
+
+        $r4 = (java.util.List) $r2;
+
+        interfaceinvoke $r3.addAll($r4);
+
+        $i0 = interfaceinvoke $r3.size();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r2 = interfaceinvoke $r3.get($i1);
+
+        com.google.android.gms.internal.measurement.zzjt.zzd($r1, $r2);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r2 = $r3;
+
+        goto label5;
+
+     label3:
+        $r5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r5.<init>("Wrong object type used with protocol message reflection.");
+
+        throw $r5;
+
+     label4:
+        com.google.android.gms.internal.measurement.zzjt.zzd($r1, $r2);
+
+     label5:
+        $z0 = $r2 instanceof com.google.android.gms.internal.measurement.zzko;
+
+        if $z0 == 0 goto label6;
+
+        r0.zzd = 1;
+
+     label6:
+        $r6 = r0.zza;
+
+        virtualinvoke $r6.zze($r1, $r2);
+
+        return;
+    }
+}

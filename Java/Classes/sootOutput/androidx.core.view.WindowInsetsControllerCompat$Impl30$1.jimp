@@ -1,0 +1,104 @@
+class androidx.core.view.WindowInsetsControllerCompat$Impl30$1 extends java.lang.Object implements android.view.WindowInsetsAnimationControlListener
+{
+    private androidx.core.view.WindowInsetsAnimationControllerCompat mCompatAnimController;
+    final androidx.core.view.WindowInsetsControllerCompat$Impl30 this$0;
+    final androidx.core.view.WindowInsetsAnimationControlListenerCompat val$listener;
+
+    void <init>(androidx.core.view.WindowInsetsControllerCompat$Impl30, androidx.core.view.WindowInsetsAnimationControlListenerCompat)
+    {
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$1 r0;
+        androidx.core.view.WindowInsetsControllerCompat$Impl30 $r1;
+        androidx.core.view.WindowInsetsAnimationControlListenerCompat $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        r0.val$listener = $r2;
+
+        specialinvoke r0.<init>();
+
+        r0.mCompatAnimController = null;
+
+        return;
+    }
+
+    public void onCancelled(android.view.WindowInsetsAnimationController)
+    {
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$1 r0;
+        android.view.WindowInsetsAnimationController $r1;
+        androidx.core.view.WindowInsetsAnimationControlListenerCompat $r2;
+        androidx.core.view.WindowInsetsAnimationControllerCompat $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$listener;
+
+        if $r1 != null goto label1;
+
+        $r3 = null;
+
+        goto label2;
+
+     label1:
+        $r3 = r0.mCompatAnimController;
+
+     label2:
+        interfaceinvoke $r2.onCancelled($r3);
+
+        return;
+    }
+
+    public void onFinished(android.view.WindowInsetsAnimationController)
+    {
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$1 r0;
+        android.view.WindowInsetsAnimationController $r1;
+        androidx.core.view.WindowInsetsAnimationControlListenerCompat $r2;
+        androidx.core.view.WindowInsetsAnimationControllerCompat $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$listener;
+
+        $r3 = r0.mCompatAnimController;
+
+        interfaceinvoke $r2.onFinished($r3);
+
+        return;
+    }
+
+    public void onReady(android.view.WindowInsetsAnimationController, int)
+    {
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$1 r0;
+        int $i0;
+        android.view.WindowInsetsAnimationController $r1;
+        androidx.core.view.WindowInsetsAnimationControlListenerCompat $r3;
+        androidx.core.view.WindowInsetsAnimationControllerCompat $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = new androidx.core.view.WindowInsetsAnimationControllerCompat;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.mCompatAnimController = $r2;
+
+        $r3 = r0.val$listener;
+
+        interfaceinvoke $r3.onReady($r2, $i0);
+
+        return;
+    }
+}

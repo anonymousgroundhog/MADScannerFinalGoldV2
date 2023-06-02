@@ -1,0 +1,109 @@
+public class com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    final int zaa;
+    private int zab;
+    private android.os.Bundle zac;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.auth.api.signin.internal.zaa $r0;
+
+        $r0 = new com.google.android.gms.auth.api.signin.internal.zaa;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(int, int, android.os.Bundle)
+    {
+        android.os.Bundle $r1;
+        com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable r0;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zaa = $i0;
+
+        r0.zab = $i1;
+
+        r0.zac = $r1;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable r0;
+        com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension $r1;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = interfaceinvoke $r1.getExtensionType();
+
+        $r2 = interfaceinvoke $r1.toBundle();
+
+        specialinvoke r0.<init>(1, $i0, $r2);
+
+        return;
+    }
+
+    public int getType()
+    {
+        int i0;
+        com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable r0;
+
+        r0 := @this;
+
+        i0 = r0.zab;
+
+        return i0;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.auth.api.signin.internal.GoogleSignInOptionsExtensionParcelable r0;
+        int $i0, $i1;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $i1 = r0.zaa;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1, $i1);
+
+        $i1 = virtualinvoke r0.getType();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 2, $i1);
+
+        $r2 = r0.zac;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBundle($r1, 3, $r2, 0);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i0);
+
+        return;
+    }
+}

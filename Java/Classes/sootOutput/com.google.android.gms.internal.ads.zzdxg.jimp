@@ -1,0 +1,45 @@
+public final class com.google.android.gms.internal.ads.zzdxg extends java.lang.Object implements com.google.android.gms.internal.ads.zzblx
+{
+    public static final com.google.android.gms.internal.ads.zzdxg zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdxg $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdxg;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdxg.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdxg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object zza(org.json.JSONObject)
+    {
+        org.json.JSONObject $r1;
+        com.google.android.gms.internal.ads.zzbtq $r2;
+        com.google.android.gms.internal.ads.zzdxg r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new com.google.android.gms.internal.ads.zzbtq;
+
+        specialinvoke $r2.<init>($r1);
+
+        return $r2;
+    }
+}

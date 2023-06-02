@@ -1,0 +1,46 @@
+final class com.google.android.gms.internal.ads.zzgcg extends java.lang.Object implements com.google.android.gms.internal.ads.zzgbv
+{
+    private final com.google.android.gms.internal.ads.zzgoj zza;
+    private final com.google.android.gms.internal.ads.zzgoj zzb;
+
+    private void <init>(byte[], byte[])
+    {
+        com.google.android.gms.internal.ads.zzgoj $r3;
+        byte[] $r1, $r2;
+        com.google.android.gms.internal.ads.zzgcg r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = com.google.android.gms.internal.ads.zzgoj.zzb($r2);
+
+        r0.zza = $r3;
+
+        $r3 = com.google.android.gms.internal.ads.zzgoj.zzb($r1);
+
+        r0.zzb = $r3;
+
+        return;
+    }
+
+    static com.google.android.gms.internal.ads.zzgcg zza(byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r0, $r2;
+        com.google.android.gms.internal.ads.zzgcg $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgcg;
+
+        $r2 = com.google.android.gms.internal.ads.zzgoh.zzc($r0);
+
+        specialinvoke $r1.<init>($r0, $r2);
+
+        return $r1;
+    }
+}

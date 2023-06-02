@@ -1,0 +1,57 @@
+final class com.google.android.gms.internal.ads.zzgn extends java.lang.Object
+{
+    private final android.media.MediaCodec$CryptoInfo zza;
+    private final android.media.MediaCodec$CryptoInfo$Pattern zzb;
+
+    void <init>(android.media.MediaCodec$CryptoInfo, com.google.android.gms.internal.ads.zzgm)
+    {
+        android.media.MediaCodec$CryptoInfo $r1;
+        android.media.MediaCodec$CryptoInfo$Pattern $r3;
+        com.google.android.gms.internal.ads.zzgn r0;
+        com.google.android.gms.internal.ads.zzgm $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        $r3 = new android.media.MediaCodec$CryptoInfo$Pattern;
+
+        specialinvoke $r3.<init>(0, 0);
+
+        r0.zzb = $r3;
+
+        return;
+    }
+
+    static volatile void zza(com.google.android.gms.internal.ads.zzgn, int, int)
+    {
+        android.media.MediaCodec$CryptoInfo $r2;
+        android.media.MediaCodec$CryptoInfo$Pattern $r0;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzgn $r1;
+
+        $r1 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r0 = $r1.zzb;
+
+        virtualinvoke $r0.set($i1, $i0);
+
+        $r2 = $r1.zza;
+
+        $r0 = $r1.zzb;
+
+        virtualinvoke $r2.setPattern($r0);
+
+        return;
+    }
+}

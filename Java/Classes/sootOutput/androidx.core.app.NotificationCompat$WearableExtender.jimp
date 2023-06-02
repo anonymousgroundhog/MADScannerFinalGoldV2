@@ -1,0 +1,1338 @@
+public final class androidx.core.app.NotificationCompat$WearableExtender extends java.lang.Object implements androidx.core.app.NotificationCompat$Extender
+{
+    private static final int DEFAULT_CONTENT_ICON_GRAVITY;
+    private static final int DEFAULT_FLAGS;
+    private static final int DEFAULT_GRAVITY;
+    private static final java.lang.String EXTRA_WEARABLE_EXTENSIONS;
+    private static final int FLAG_BIG_PICTURE_AMBIENT;
+    private static final int FLAG_CONTENT_INTENT_AVAILABLE_OFFLINE;
+    private static final int FLAG_HINT_AVOID_BACKGROUND_CLIPPING;
+    private static final int FLAG_HINT_CONTENT_INTENT_LAUNCHES_ACTIVITY;
+    private static final int FLAG_HINT_HIDE_ICON;
+    private static final int FLAG_HINT_SHOW_BACKGROUND_ONLY;
+    private static final int FLAG_START_SCROLL_BOTTOM;
+    private static final java.lang.String KEY_ACTIONS;
+    private static final java.lang.String KEY_BACKGROUND;
+    private static final java.lang.String KEY_BRIDGE_TAG;
+    private static final java.lang.String KEY_CONTENT_ACTION_INDEX;
+    private static final java.lang.String KEY_CONTENT_ICON;
+    private static final java.lang.String KEY_CONTENT_ICON_GRAVITY;
+    private static final java.lang.String KEY_CUSTOM_CONTENT_HEIGHT;
+    private static final java.lang.String KEY_CUSTOM_SIZE_PRESET;
+    private static final java.lang.String KEY_DISMISSAL_ID;
+    private static final java.lang.String KEY_DISPLAY_INTENT;
+    private static final java.lang.String KEY_FLAGS;
+    private static final java.lang.String KEY_GRAVITY;
+    private static final java.lang.String KEY_HINT_SCREEN_TIMEOUT;
+    private static final java.lang.String KEY_PAGES;
+    public static final int SCREEN_TIMEOUT_LONG;
+    public static final int SCREEN_TIMEOUT_SHORT;
+    public static final int SIZE_DEFAULT;
+    public static final int SIZE_FULL_SCREEN;
+    public static final int SIZE_LARGE;
+    public static final int SIZE_MEDIUM;
+    public static final int SIZE_SMALL;
+    public static final int SIZE_XSMALL;
+    public static final int UNSET_ACTION_INDEX;
+    private java.util.ArrayList mActions;
+    private android.graphics.Bitmap mBackground;
+    private java.lang.String mBridgeTag;
+    private int mContentActionIndex;
+    private int mContentIcon;
+    private int mContentIconGravity;
+    private int mCustomContentHeight;
+    private int mCustomSizePreset;
+    private java.lang.String mDismissalId;
+    private android.app.PendingIntent mDisplayIntent;
+    private int mFlags;
+    private int mGravity;
+    private int mHintScreenTimeout;
+    private java.util.ArrayList mPages;
+
+    public void <init>()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.mActions = $r1;
+
+        r0.mFlags = 1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.mPages = $r1;
+
+        r0.mContentIconGravity = 8388613;
+
+        r0.mContentActionIndex = -1;
+
+        r0.mCustomSizePreset = 0;
+
+        r0.mGravity = 80;
+
+        return;
+    }
+
+    public void <init>(android.app.Notification)
+    {
+        android.os.Bundle $r3, $r8;
+        android.app.Notification[] $r11;
+        android.app.PendingIntent r10;
+        androidx.core.app.NotificationCompat$Action $r7;
+        java.util.ArrayList r2, $r14;
+        androidx.core.app.NotificationCompat$Action[] r4;
+        int $i0, $i1;
+        java.lang.String $r13;
+        android.os.Parcelable $r9;
+        android.app.Notification$Action $r6;
+        android.graphics.Bitmap r12;
+        android.app.Notification $r1;
+        java.lang.Object $r5;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r14 = new java.util.ArrayList;
+
+        specialinvoke $r14.<init>();
+
+        r0.mActions = $r14;
+
+        r0.mFlags = 1;
+
+        $r14 = new java.util.ArrayList;
+
+        specialinvoke $r14.<init>();
+
+        r0.mPages = $r14;
+
+        r0.mContentIconGravity = 8388613;
+
+        r0.mContentActionIndex = -1;
+
+        r0.mCustomSizePreset = 0;
+
+        r0.mGravity = 80;
+
+        $r3 = androidx.core.app.NotificationCompat.getExtras($r1);
+
+        if $r3 == null goto label1;
+
+        $r3 = virtualinvoke $r3.getBundle("android.wearable.EXTENSIONS");
+
+        goto label2;
+
+     label1:
+        $r3 = null;
+
+     label2:
+        if $r3 == null goto label9;
+
+        r2 = virtualinvoke $r3.getParcelableArrayList("actions");
+
+        if r2 == null goto label7;
+
+        $i0 = virtualinvoke r2.size();
+
+        r4 = newarray (androidx.core.app.NotificationCompat$Action)[$i0];
+
+        $i0 = 0;
+
+     label3:
+        $i1 = lengthof r4;
+
+        if $i0 >= $i1 goto label6;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 20 goto label4;
+
+        $r5 = virtualinvoke r2.get($i0);
+
+        $r6 = (android.app.Notification$Action) $r5;
+
+        $r7 = androidx.core.app.NotificationCompat.getActionCompatFromAction($r6);
+
+        r4[$i0] = $r7;
+
+        goto label5;
+
+     label4:
+        $r5 = virtualinvoke r2.get($i0);
+
+        $r8 = (android.os.Bundle) $r5;
+
+        $r7 = androidx.core.app.NotificationCompatJellybean.getActionFromBundle($r8);
+
+        r4[$i0] = $r7;
+
+     label5:
+        $i0 = $i0 + 1;
+
+        goto label3;
+
+     label6:
+        r2 = r0.mActions;
+
+        java.util.Collections.addAll(r2, r4);
+
+     label7:
+        $i0 = virtualinvoke $r3.getInt("flags", 1);
+
+        r0.mFlags = $i0;
+
+        $r9 = virtualinvoke $r3.getParcelable("displayIntent");
+
+        r10 = (android.app.PendingIntent) $r9;
+
+        r0.mDisplayIntent = r10;
+
+        $r11 = androidx.core.app.NotificationCompat.getNotificationArrayFromBundle($r3, "pages");
+
+        if $r11 == null goto label8;
+
+        r2 = r0.mPages;
+
+        java.util.Collections.addAll(r2, $r11);
+
+     label8:
+        $r9 = virtualinvoke $r3.getParcelable("background");
+
+        r12 = (android.graphics.Bitmap) $r9;
+
+        r0.mBackground = r12;
+
+        $i0 = virtualinvoke $r3.getInt("contentIcon");
+
+        r0.mContentIcon = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("contentIconGravity", 8388613);
+
+        r0.mContentIconGravity = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("contentActionIndex", -1);
+
+        r0.mContentActionIndex = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("customSizePreset", 0);
+
+        r0.mCustomSizePreset = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("customContentHeight");
+
+        r0.mCustomContentHeight = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("gravity", 80);
+
+        r0.mGravity = $i0;
+
+        $i0 = virtualinvoke $r3.getInt("hintScreenTimeout");
+
+        r0.mHintScreenTimeout = $i0;
+
+        $r13 = virtualinvoke $r3.getString("dismissalId");
+
+        r0.mDismissalId = $r13;
+
+        $r13 = virtualinvoke $r3.getString("bridgeTag");
+
+        r0.mBridgeTag = $r13;
+
+     label9:
+        return;
+    }
+
+    private static android.app.Notification$Action getActionFromActionCompat(androidx.core.app.NotificationCompat$Action)
+    {
+        android.app.Notification$Action$Builder r3;
+        android.os.Bundle $r7, $r8;
+        androidx.core.app.RemoteInput[] $r9;
+        java.lang.CharSequence $r5;
+        android.app.Notification$Action $r11;
+        android.app.PendingIntent $r6;
+        androidx.core.app.NotificationCompat$Action $r0;
+        android.app.RemoteInput[] $r10;
+        android.app.RemoteInput r1;
+        androidx.core.graphics.drawable.IconCompat $r2;
+        int i0, $i1;
+        android.graphics.drawable.Icon r4;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label03;
+
+        $r2 = virtualinvoke $r0.getIconCompat();
+
+        r3 = new android.app.Notification$Action$Builder;
+
+        if $r2 != null goto label01;
+
+        r4 = null;
+
+        goto label02;
+
+     label01:
+        r4 = virtualinvoke $r2.toIcon();
+
+     label02:
+        $r5 = virtualinvoke $r0.getTitle();
+
+        $r6 = virtualinvoke $r0.getActionIntent();
+
+        specialinvoke r3.<init>(r4, $r5, $r6);
+
+        goto label05;
+
+     label03:
+        $r2 = virtualinvoke $r0.getIconCompat();
+
+        i0 = 0;
+
+        if $r2 == null goto label04;
+
+        $i1 = virtualinvoke $r2.getType();
+
+        if $i1 != 2 goto label04;
+
+        i0 = virtualinvoke $r2.getResId();
+
+     label04:
+        r3 = new android.app.Notification$Action$Builder;
+
+        $r5 = virtualinvoke $r0.getTitle();
+
+        $r6 = virtualinvoke $r0.getActionIntent();
+
+        specialinvoke r3.<init>(i0, $r5, $r6);
+
+     label05:
+        $r7 = virtualinvoke $r0.getExtras();
+
+        if $r7 == null goto label06;
+
+        $r7 = new android.os.Bundle;
+
+        $r8 = virtualinvoke $r0.getExtras();
+
+        specialinvoke $r7.<init>($r8);
+
+        goto label07;
+
+     label06:
+        $r7 = new android.os.Bundle;
+
+        specialinvoke $r7.<init>();
+
+     label07:
+        $z0 = virtualinvoke $r0.getAllowGeneratedReplies();
+
+        virtualinvoke $r7.putBoolean("android.support.allowGeneratedReplies", $z0);
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 24 goto label08;
+
+        $z0 = virtualinvoke $r0.getAllowGeneratedReplies();
+
+        virtualinvoke r3.setAllowGeneratedReplies($z0);
+
+     label08:
+        virtualinvoke r3.addExtras($r7);
+
+        $r9 = virtualinvoke $r0.getRemoteInputs();
+
+        if $r9 == null goto label10;
+
+        $r10 = androidx.core.app.RemoteInput.fromCompat($r9);
+
+        i0 = lengthof $r10;
+
+        $i1 = 0;
+
+     label09:
+        if $i1 >= i0 goto label10;
+
+        r1 = $r10[$i1];
+
+        virtualinvoke r3.addRemoteInput(r1);
+
+        $i1 = $i1 + 1;
+
+        goto label09;
+
+     label10:
+        $r11 = virtualinvoke r3.build();
+
+        return $r11;
+    }
+
+    private void setFlag(int, boolean)
+    {
+        int $i0, $i1;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        if $z0 == 0 goto label1;
+
+        $i1 = r0.mFlags;
+
+        $i0 = $i1 | $i0;
+
+        r0.mFlags = $i0;
+
+        return;
+
+     label1:
+        $i1 = r0.mFlags;
+
+        $i0 = $i0 ^ -1;
+
+        $i0 = $i1 & $i0;
+
+        r0.mFlags = $i0;
+
+        return;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender addAction(androidx.core.app.NotificationCompat$Action)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        androidx.core.app.NotificationCompat$Action $r1;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mActions;
+
+        virtualinvoke $r2.add($r1);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender addActions(java.util.List)
+    {
+        java.util.List r1;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 = r0.mActions;
+
+        virtualinvoke $r2.addAll(r1);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender addPage(android.app.Notification)
+    {
+        android.app.Notification $r1;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mPages;
+
+        virtualinvoke $r2.add($r1);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender addPages(java.util.List)
+    {
+        java.util.List r1;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 = r0.mPages;
+
+        virtualinvoke $r2.addAll(r1);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender clearActions()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mActions;
+
+        virtualinvoke $r1.clear();
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender clearPages()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mPages;
+
+        virtualinvoke $r1.clear();
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender clone()
+    {
+        android.app.PendingIntent $r4;
+        java.util.ArrayList $r2, $r3;
+        android.graphics.Bitmap $r5;
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0, r1;
+        java.lang.String $r6;
+
+        r0 := @this;
+
+        r1 = new androidx.core.app.NotificationCompat$WearableExtender;
+
+        specialinvoke r1.<init>();
+
+        $r2 = new java.util.ArrayList;
+
+        $r3 = r0.mActions;
+
+        specialinvoke $r2.<init>($r3);
+
+        r1.mActions = $r2;
+
+        $i0 = r0.mFlags;
+
+        r1.mFlags = $i0;
+
+        $r4 = r0.mDisplayIntent;
+
+        r1.mDisplayIntent = $r4;
+
+        $r2 = new java.util.ArrayList;
+
+        $r3 = r0.mPages;
+
+        specialinvoke $r2.<init>($r3);
+
+        r1.mPages = $r2;
+
+        $r5 = r0.mBackground;
+
+        r1.mBackground = $r5;
+
+        $i0 = r0.mContentIcon;
+
+        r1.mContentIcon = $i0;
+
+        $i0 = r0.mContentIconGravity;
+
+        r1.mContentIconGravity = $i0;
+
+        $i0 = r0.mContentActionIndex;
+
+        r1.mContentActionIndex = $i0;
+
+        $i0 = r0.mCustomSizePreset;
+
+        r1.mCustomSizePreset = $i0;
+
+        $i0 = r0.mCustomContentHeight;
+
+        r1.mCustomContentHeight = $i0;
+
+        $i0 = r0.mGravity;
+
+        r1.mGravity = $i0;
+
+        $i0 = r0.mHintScreenTimeout;
+
+        r1.mHintScreenTimeout = $i0;
+
+        $r6 = r0.mDismissalId;
+
+        r1.mDismissalId = $r6;
+
+        $r6 = r0.mBridgeTag;
+
+        r1.mBridgeTag = $r6;
+
+        return r1;
+    }
+
+    public volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        r0 = virtualinvoke r0.clone();
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$Builder extend(androidx.core.app.NotificationCompat$Builder)
+    {
+        android.os.Bundle r2, $r9;
+        java.lang.Object[] $r12;
+        android.app.Notification[] $r11;
+        androidx.core.app.NotificationCompat$Builder $r1;
+        android.app.PendingIntent r10;
+        androidx.core.app.NotificationCompat$Action r7;
+        java.util.ArrayList r3, $r4, $r16;
+        android.os.Parcelable[] r13;
+        int $i0;
+        java.lang.String r15;
+        boolean $z0;
+        java.util.Iterator $r5;
+        android.app.Notification$Action $r8;
+        android.graphics.Bitmap r14;
+        java.lang.Object $r6;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r9 = new android.os.Bundle;
+
+        r2 = $r9;
+
+        specialinvoke $r9.<init>();
+
+        r3 = r0.mActions;
+
+        $z0 = virtualinvoke r3.isEmpty();
+
+        if $z0 != 0 goto label04;
+
+        $r16 = new java.util.ArrayList;
+
+        r3 = $r16;
+
+        $r4 = r0.mActions;
+
+        $i0 = virtualinvoke $r4.size();
+
+        specialinvoke $r16.<init>($i0);
+
+        $r4 = r0.mActions;
+
+        $r5 = virtualinvoke $r4.iterator();
+
+     label01:
+        $z0 = interfaceinvoke $r5.hasNext();
+
+        if $z0 == 0 goto label03;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        r7 = (androidx.core.app.NotificationCompat$Action) $r6;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 20 goto label02;
+
+        $r8 = androidx.core.app.NotificationCompat$WearableExtender.getActionFromActionCompat(r7);
+
+        virtualinvoke r3.add($r8);
+
+        goto label01;
+
+     label02:
+        $r9 = androidx.core.app.NotificationCompatJellybean.getBundleForAction(r7);
+
+        virtualinvoke r3.add($r9);
+
+        goto label01;
+
+     label03:
+        virtualinvoke r2.putParcelableArrayList("actions", r3);
+
+     label04:
+        $i0 = r0.mFlags;
+
+        if $i0 == 1 goto label05;
+
+        virtualinvoke r2.putInt("flags", $i0);
+
+     label05:
+        r10 = r0.mDisplayIntent;
+
+        if r10 == null goto label06;
+
+        virtualinvoke r2.putParcelable("displayIntent", r10);
+
+     label06:
+        r3 = r0.mPages;
+
+        $z0 = virtualinvoke r3.isEmpty();
+
+        if $z0 != 0 goto label07;
+
+        r3 = r0.mPages;
+
+        $i0 = virtualinvoke r3.size();
+
+        $r11 = newarray (android.app.Notification)[$i0];
+
+        $r12 = virtualinvoke r3.toArray($r11);
+
+        r13 = (android.os.Parcelable[]) $r12;
+
+        virtualinvoke r2.putParcelableArray("pages", r13);
+
+     label07:
+        r14 = r0.mBackground;
+
+        if r14 == null goto label08;
+
+        virtualinvoke r2.putParcelable("background", r14);
+
+     label08:
+        $i0 = r0.mContentIcon;
+
+        if $i0 == 0 goto label09;
+
+        virtualinvoke r2.putInt("contentIcon", $i0);
+
+     label09:
+        $i0 = r0.mContentIconGravity;
+
+        if $i0 == 8388613 goto label10;
+
+        virtualinvoke r2.putInt("contentIconGravity", $i0);
+
+     label10:
+        $i0 = r0.mContentActionIndex;
+
+        if $i0 == -1 goto label11;
+
+        virtualinvoke r2.putInt("contentActionIndex", $i0);
+
+     label11:
+        $i0 = r0.mCustomSizePreset;
+
+        if $i0 == 0 goto label12;
+
+        virtualinvoke r2.putInt("customSizePreset", $i0);
+
+     label12:
+        $i0 = r0.mCustomContentHeight;
+
+        if $i0 == 0 goto label13;
+
+        virtualinvoke r2.putInt("customContentHeight", $i0);
+
+     label13:
+        $i0 = r0.mGravity;
+
+        if $i0 == 80 goto label14;
+
+        virtualinvoke r2.putInt("gravity", $i0);
+
+     label14:
+        $i0 = r0.mHintScreenTimeout;
+
+        if $i0 == 0 goto label15;
+
+        virtualinvoke r2.putInt("hintScreenTimeout", $i0);
+
+     label15:
+        r15 = r0.mDismissalId;
+
+        if r15 == null goto label16;
+
+        virtualinvoke r2.putString("dismissalId", r15);
+
+     label16:
+        r15 = r0.mBridgeTag;
+
+        if r15 == null goto label17;
+
+        virtualinvoke r2.putString("bridgeTag", r15);
+
+     label17:
+        $r9 = virtualinvoke $r1.getExtras();
+
+        virtualinvoke $r9.putBundle("android.wearable.EXTENSIONS", r2);
+
+        return $r1;
+    }
+
+    public java.util.List getActions()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList r1;
+
+        r0 := @this;
+
+        r1 = r0.mActions;
+
+        return r1;
+    }
+
+    public android.graphics.Bitmap getBackground()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        android.graphics.Bitmap r1;
+
+        r0 := @this;
+
+        r1 = r0.mBackground;
+
+        return r1;
+    }
+
+    public java.lang.String getBridgeTag()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.mBridgeTag;
+
+        return r1;
+    }
+
+    public int getContentAction()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mContentActionIndex;
+
+        return i0;
+    }
+
+    public int getContentIcon()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mContentIcon;
+
+        return i0;
+    }
+
+    public int getContentIconGravity()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mContentIconGravity;
+
+        return i0;
+    }
+
+    public boolean getContentIntentAvailableOffline()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 1;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public int getCustomContentHeight()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mCustomContentHeight;
+
+        return i0;
+    }
+
+    public int getCustomSizePreset()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mCustomSizePreset;
+
+        return i0;
+    }
+
+    public java.lang.String getDismissalId()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.mDismissalId;
+
+        return r1;
+    }
+
+    public android.app.PendingIntent getDisplayIntent()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        android.app.PendingIntent r1;
+
+        r0 := @this;
+
+        r1 = r0.mDisplayIntent;
+
+        return r1;
+    }
+
+    public int getGravity()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mGravity;
+
+        return i0;
+    }
+
+    public boolean getHintAmbientBigPicture()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 32;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean getHintAvoidBackgroundClipping()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 16;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean getHintContentIntentLaunchesActivity()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 64;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean getHintHideIcon()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 2;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public int getHintScreenTimeout()
+    {
+        int i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        i0 = r0.mHintScreenTimeout;
+
+        return i0;
+    }
+
+    public boolean getHintShowBackgroundOnly()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 4;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.util.List getPages()
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.util.ArrayList r1;
+
+        r0 := @this;
+
+        r1 = r0.mPages;
+
+        return r1;
+    }
+
+    public boolean getStartScrollBottom()
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 = r0.mFlags;
+
+        $i0 = $i0 & 8;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setBackground(android.graphics.Bitmap)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        android.graphics.Bitmap $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mBackground = $r1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setBridgeTag(java.lang.String)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mBridgeTag = $r1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setContentAction(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mContentActionIndex = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setContentIcon(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mContentIcon = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setContentIconGravity(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mContentIconGravity = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setContentIntentAvailableOffline(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(1, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setCustomContentHeight(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mCustomContentHeight = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setCustomSizePreset(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mCustomSizePreset = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setDismissalId(java.lang.String)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mDismissalId = $r1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setDisplayIntent(android.app.PendingIntent)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        android.app.PendingIntent $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mDisplayIntent = $r1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setGravity(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mGravity = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintAmbientBigPicture(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(32, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintAvoidBackgroundClipping(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(16, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintContentIntentLaunchesActivity(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(64, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintHideIcon(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(2, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintScreenTimeout(int)
+    {
+        int $i0;
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mHintScreenTimeout = $i0;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setHintShowBackgroundOnly(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(4, $z0);
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$WearableExtender setStartScrollBottom(boolean)
+    {
+        androidx.core.app.NotificationCompat$WearableExtender r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.setFlag(8, $z0);
+
+        return r0;
+    }
+}

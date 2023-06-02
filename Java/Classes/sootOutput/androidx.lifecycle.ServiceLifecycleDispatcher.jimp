@@ -1,0 +1,140 @@
+public class androidx.lifecycle.ServiceLifecycleDispatcher extends java.lang.Object
+{
+    private final android.os.Handler mHandler;
+    private androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable mLastDispatchRunnable;
+    private final androidx.lifecycle.LifecycleRegistry mRegistry;
+
+    public void <init>(androidx.lifecycle.LifecycleOwner)
+    {
+        androidx.lifecycle.LifecycleOwner $r1;
+        android.os.Handler $r3;
+        androidx.lifecycle.LifecycleRegistry $r2;
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new androidx.lifecycle.LifecycleRegistry;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.mRegistry = $r2;
+
+        $r3 = new android.os.Handler;
+
+        specialinvoke $r3.<init>();
+
+        r0.mHandler = $r3;
+
+        return;
+    }
+
+    private void postDispatchRunnable(androidx.lifecycle.Lifecycle$Event)
+    {
+        androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable $r2;
+        android.os.Handler $r4;
+        androidx.lifecycle.LifecycleRegistry $r3;
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+        androidx.lifecycle.Lifecycle$Event $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLastDispatchRunnable;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.run();
+
+     label1:
+        $r2 = new androidx.lifecycle.ServiceLifecycleDispatcher$DispatchRunnable;
+
+        $r3 = r0.mRegistry;
+
+        specialinvoke $r2.<init>($r3, $r1);
+
+        r0.mLastDispatchRunnable = $r2;
+
+        $r4 = r0.mHandler;
+
+        virtualinvoke $r4.postAtFrontOfQueue($r2);
+
+        return;
+    }
+
+    public androidx.lifecycle.Lifecycle getLifecycle()
+    {
+        androidx.lifecycle.LifecycleRegistry r1;
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+
+        r0 := @this;
+
+        r1 = r0.mRegistry;
+
+        return r1;
+    }
+
+    public void onServicePreSuperOnBind()
+    {
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+        androidx.lifecycle.Lifecycle$Event $r1;
+
+        r0 := @this;
+
+        $r1 = androidx.lifecycle.Lifecycle$Event.ON_START;
+
+        specialinvoke r0.postDispatchRunnable($r1);
+
+        return;
+    }
+
+    public void onServicePreSuperOnCreate()
+    {
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+        androidx.lifecycle.Lifecycle$Event $r1;
+
+        r0 := @this;
+
+        $r1 = androidx.lifecycle.Lifecycle$Event.ON_CREATE;
+
+        specialinvoke r0.postDispatchRunnable($r1);
+
+        return;
+    }
+
+    public void onServicePreSuperOnDestroy()
+    {
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+        androidx.lifecycle.Lifecycle$Event $r1;
+
+        r0 := @this;
+
+        $r1 = androidx.lifecycle.Lifecycle$Event.ON_STOP;
+
+        specialinvoke r0.postDispatchRunnable($r1);
+
+        $r1 = androidx.lifecycle.Lifecycle$Event.ON_DESTROY;
+
+        specialinvoke r0.postDispatchRunnable($r1);
+
+        return;
+    }
+
+    public void onServicePreSuperOnStart()
+    {
+        androidx.lifecycle.ServiceLifecycleDispatcher r0;
+        androidx.lifecycle.Lifecycle$Event $r1;
+
+        r0 := @this;
+
+        $r1 = androidx.lifecycle.Lifecycle$Event.ON_START;
+
+        specialinvoke r0.postDispatchRunnable($r1);
+
+        return;
+    }
+}

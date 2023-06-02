@@ -1,0 +1,46 @@
+final class com.google.android.gms.internal.ads.zzfgd extends java.lang.Object implements java.lang.Runnable
+{
+    final android.webkit.WebView zza;
+    final java.lang.String zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzfge, android.webkit.WebView, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzfge $r1;
+        com.google.android.gms.internal.ads.zzfgd r0;
+        java.lang.String $r3;
+        android.webkit.WebView $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        java.lang.String $r2;
+        android.webkit.WebView $r1;
+        com.google.android.gms.internal.ads.zzfgd r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r1.loadUrl($r2);
+
+        return;
+    }
+}

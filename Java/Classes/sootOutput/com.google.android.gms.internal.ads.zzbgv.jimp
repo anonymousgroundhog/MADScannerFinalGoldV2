@@ -1,0 +1,88 @@
+final class com.google.android.gms.internal.ads.zzbgv extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzbgv r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final volatile void zza(java.lang.Object, java.util.Map)
+    {
+        android.content.Context $r5;
+        android.view.WindowManager $r6;
+        java.util.HashMap $r1;
+        java.lang.Integer $r10;
+        android.util.DisplayMetrics $r8;
+        com.google.android.gms.internal.ads.zzbgv r0;
+        int[] $r9;
+        java.util.Map $r3;
+        int $i0, $i1, $i2;
+        android.view.View $r7;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzcei $r4;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 = (com.google.android.gms.internal.ads.zzcei) $r2;
+
+        $r5 = interfaceinvoke $r4.getContext();
+
+        $r2 = virtualinvoke $r5.getSystemService("window");
+
+        $r6 = (android.view.WindowManager) $r2;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r7 = (android.view.View) $r4;
+
+        $r8 = com.google.android.gms.ads.internal.util.zzs.zzq($r6);
+
+        $i0 = $r8.widthPixels;
+
+        $i1 = $r8.heightPixels;
+
+        $r9 = newarray (int)[2];
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r7.getLocationInWindow($r9);
+
+        $i2 = $r9[0];
+
+        $r10 = java.lang.Integer.valueOf($i2);
+
+        interfaceinvoke $r1.put("xInPixels", $r10);
+
+        $i2 = $r9[1];
+
+        $r10 = java.lang.Integer.valueOf($i2);
+
+        interfaceinvoke $r1.put("yInPixels", $r10);
+
+        $r10 = java.lang.Integer.valueOf($i0);
+
+        interfaceinvoke $r1.put("windowWidthInPixels", $r10);
+
+        $r10 = java.lang.Integer.valueOf($i1);
+
+        interfaceinvoke $r1.put("windowHeightInPixels", $r10);
+
+        interfaceinvoke $r4.zzd("locationReady", $r1);
+
+        com.google.android.gms.internal.ads.zzbza.zzj("GET LOCATION COMPILED");
+
+        return;
+    }
+}

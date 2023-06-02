@@ -1,0 +1,80 @@
+public class com.google.android.gms.common.GmsSignatureVerifier extends java.lang.Object
+{
+    private static final com.google.android.gms.common.zzz zza;
+    private static final com.google.android.gms.common.zzz zzb;
+
+    static void <clinit>()
+    {
+        byte[] $r2, $r3;
+        com.google.android.gms.common.zzx $r0;
+        com.google.android.gms.internal.common.zzag $r4;
+        com.google.android.gms.common.zzz $r5;
+        com.google.android.gms.common.zzk $r1;
+
+        $r0 = new com.google.android.gms.common.zzx;
+
+        specialinvoke $r0.<init>();
+
+        virtualinvoke $r0.zzd("com.google.android.gms");
+
+        virtualinvoke $r0.zza(204200000L);
+
+        $r1 = com.google.android.gms.common.zzm.zzd;
+
+        $r2 = virtualinvoke $r1.zzf();
+
+        $r1 = com.google.android.gms.common.zzm.zzb;
+
+        $r3 = virtualinvoke $r1.zzf();
+
+        $r4 = com.google.android.gms.internal.common.zzag.zzn($r2, $r3);
+
+        virtualinvoke $r0.zzc($r4);
+
+        $r1 = com.google.android.gms.common.zzm.zzc;
+
+        $r2 = virtualinvoke $r1.zzf();
+
+        $r1 = com.google.android.gms.common.zzm.zza;
+
+        $r3 = virtualinvoke $r1.zzf();
+
+        $r4 = com.google.android.gms.internal.common.zzag.zzn($r2, $r3);
+
+        virtualinvoke $r0.zzb($r4);
+
+        $r5 = virtualinvoke $r0.zze();
+
+        com.google.android.gms.common.GmsSignatureVerifier.zza = $r5;
+
+        $r0 = new com.google.android.gms.common.zzx;
+
+        specialinvoke $r0.<init>();
+
+        virtualinvoke $r0.zzd("com.android.vending");
+
+        virtualinvoke $r0.zza(82240000L);
+
+        $r1 = com.google.android.gms.common.zzm.zzd;
+
+        $r2 = virtualinvoke $r1.zzf();
+
+        $r4 = com.google.android.gms.internal.common.zzag.zzm($r2);
+
+        virtualinvoke $r0.zzc($r4);
+
+        $r1 = com.google.android.gms.common.zzm.zzc;
+
+        $r2 = virtualinvoke $r1.zzf();
+
+        $r4 = com.google.android.gms.internal.common.zzag.zzm($r2);
+
+        virtualinvoke $r0.zzb($r4);
+
+        $r5 = virtualinvoke $r0.zze();
+
+        com.google.android.gms.common.GmsSignatureVerifier.zzb = $r5;
+
+        return;
+    }
+}

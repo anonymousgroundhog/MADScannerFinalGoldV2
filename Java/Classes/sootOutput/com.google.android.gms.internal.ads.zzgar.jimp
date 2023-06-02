@@ -1,0 +1,249 @@
+public final class com.google.android.gms.internal.ads.zzgar extends java.lang.Object implements com.google.android.gms.internal.ads.zzfvo
+{
+    private static final java.lang.ThreadLocal zza;
+    private final javax.crypto.SecretKey zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgaq $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgaq;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzgar.zza = $r0;
+
+        return;
+    }
+
+    public void <init>(byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1;
+        int $i0;
+        javax.crypto.spec.SecretKeySpec $r2;
+        com.google.android.gms.internal.ads.zzgar r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $i0 = lengthof $r1;
+
+        com.google.android.gms.internal.ads.zzgog.zza($i0);
+
+        $r2 = new javax.crypto.spec.SecretKeySpec;
+
+        specialinvoke $r2.<init>($r1, "AES");
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    private static java.security.spec.AlgorithmParameterSpec zzc(byte[], int, int) throws java.security.GeneralSecurityException
+    {
+        byte[] $r0;
+        java.security.GeneralSecurityException $r4;
+        javax.crypto.spec.IvParameterSpec $r3;
+        int $i0, $i1;
+        java.lang.ClassNotFoundException $r2;
+        boolean $z0;
+        javax.crypto.spec.GCMParameterSpec $r1;
+
+        $r0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i0 := @parameter2;
+
+     label1:
+        java.lang.Class.forName("javax.crypto.spec.GCMParameterSpec");
+
+     label2:
+        $r1 = new javax.crypto.spec.GCMParameterSpec;
+
+     label3:
+        specialinvoke $r1.<init>(128, $r0, 0, $i0);
+
+     label4:
+        return $r1;
+
+     label5:
+        $r2 := @caughtexception;
+
+        $z0 = com.google.android.gms.internal.ads.zzgof.zza();
+
+        if $z0 == 0 goto label6;
+
+        $r3 = new javax.crypto.spec.IvParameterSpec;
+
+        specialinvoke $r3.<init>($r0, 0, $i0);
+
+        return $r3;
+
+     label6:
+        $r4 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r4.<init>("cannot use AES-GCM: javax.crypto.spec.GCMParameterSpec not found");
+
+        throw $r4;
+
+        catch java.lang.ClassNotFoundException from label1 to label2 with label5;
+        catch java.lang.ClassNotFoundException from label3 to label4 with label5;
+    }
+
+    public final byte[] zza(byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r3, $r4;
+        java.lang.ThreadLocal $r1;
+        com.google.android.gms.internal.ads.zzgar r0;
+        javax.crypto.Cipher $r7;
+        java.security.GeneralSecurityException $r8;
+        int $i0, $i1;
+        java.lang.Object $r6;
+        javax.crypto.SecretKey $r2;
+        java.security.spec.AlgorithmParameterSpec $r5;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 28 goto label2;
+
+        $r5 = com.google.android.gms.internal.ads.zzgar.zzc($r3, 0, 12);
+
+        $r1 = com.google.android.gms.internal.ads.zzgar.zza;
+
+        $r6 = virtualinvoke $r1.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r7.init(2, $r2, $r5);
+
+        if $r4 == null goto label1;
+
+        $i1 = lengthof $r4;
+
+        if $i1 == 0 goto label1;
+
+        $r6 = virtualinvoke $r1.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        virtualinvoke $r7.updateAAD($r4);
+
+     label1:
+        $r6 = virtualinvoke $r1.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $i0 = $i0 + -12;
+
+        $r3 = virtualinvoke $r7.doFinal($r3, 12, $i0);
+
+        return $r3;
+
+     label2:
+        $r8 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r8.<init>("ciphertext too short");
+
+        throw $r8;
+    }
+
+    public final byte[] zzb(byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r2, $r3;
+        java.lang.Object[] $r10;
+        javax.crypto.Cipher $r7;
+        java.lang.Integer $r11;
+        java.security.GeneralSecurityException $r9;
+        int $i0, $i1, $i2;
+        java.security.spec.AlgorithmParameterSpec $r4;
+        java.lang.String $r12;
+        java.lang.ThreadLocal $r5;
+        com.google.android.gms.internal.ads.zzgar r0;
+        java.lang.Object $r6;
+        javax.crypto.SecretKey $r8;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = lengthof $r2;
+
+        if $i0 > 2147483619 goto label2;
+
+        $i1 = $i0 + 28;
+
+        $r1 = newarray (byte)[$i1];
+
+        $r3 = com.google.android.gms.internal.ads.zzgoe.zza(12);
+
+        java.lang.System.arraycopy($r3, 0, $r1, 0, 12);
+
+        $i1 = lengthof $r3;
+
+        $r4 = com.google.android.gms.internal.ads.zzgar.zzc($r3, 0, $i1);
+
+        $r5 = com.google.android.gms.internal.ads.zzgar.zza;
+
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $r8 = r0.zzb;
+
+        virtualinvoke $r7.init(1, $r8, $r4);
+
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $i1 = virtualinvoke $r7.doFinal($r2, 0, $i0, $r1, 12);
+
+        $i2 = $i0 + 16;
+
+        if $i1 != $i2 goto label1;
+
+        return $r1;
+
+     label1:
+        $i0 = $i1 - $i0;
+
+        $r9 = new java.security.GeneralSecurityException;
+
+        $r10 = newarray (java.lang.Object)[2];
+
+        $r11 = java.lang.Integer.valueOf(16);
+
+        $r10[0] = $r11;
+
+        $r11 = java.lang.Integer.valueOf($i0);
+
+        $r10[1] = $r11;
+
+        $r12 = java.lang.String.format("encryption failed; GCM tag must be %s bytes, but got only %s bytes", $r10);
+
+        specialinvoke $r9.<init>($r12);
+
+        throw $r9;
+
+     label2:
+        $r9 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r9.<init>("plaintext too long");
+
+        throw $r9;
+    }
+}

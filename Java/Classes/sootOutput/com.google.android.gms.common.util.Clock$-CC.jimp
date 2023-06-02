@@ -1,0 +1,15 @@
+public final class com.google.android.gms.common.util.Clock$-CC extends java.lang.Object
+{
+
+    public static long $default$currentThreadTimeMillis(com.google.android.gms.common.util.Clock)
+    {
+        com.google.android.gms.common.util.Clock $r0;
+        long $l0;
+
+        $r0 := @parameter0;
+
+        $l0 = android.os.SystemClock.currentThreadTimeMillis();
+
+        return $l0;
+    }
+}

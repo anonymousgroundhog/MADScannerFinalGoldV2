@@ -1,0 +1,150 @@
+abstract class com.google.android.gms.internal.ads.zzftv extends com.google.android.gms.internal.ads.zzfus
+{
+    private final java.util.concurrent.Executor zza;
+    final com.google.android.gms.internal.ads.zzftw zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzftw, java.util.concurrent.Executor)
+    {
+        java.util.concurrent.Executor $r1;
+        com.google.android.gms.internal.ads.zzftw $r2;
+        com.google.android.gms.internal.ads.zzftv r0;
+        java.lang.NullPointerException r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r0.zzb = $r2;
+
+        specialinvoke r0.<init>();
+
+        if $r1 == null goto label1;
+
+        r0.zza = $r1;
+
+        return;
+
+     label1:
+        r3 = new java.lang.NullPointerException;
+
+        specialinvoke r3.<init>("Null throw statement replaced by Soot");
+
+        throw r3;
+    }
+
+    abstract void zzc(java.lang.Object);
+
+    final void zzd(java.lang.Throwable)
+    {
+        java.lang.Throwable $r1;
+        java.util.concurrent.ExecutionException $r3;
+        com.google.android.gms.internal.ads.zzftw $r2;
+        com.google.android.gms.internal.ads.zzftv r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzftw.zzH($r2, null);
+
+        $z0 = $r1 instanceof java.util.concurrent.ExecutionException;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = r0.zzb;
+
+        $r3 = (java.util.concurrent.ExecutionException) $r1;
+
+        $r1 = virtualinvoke $r3.getCause();
+
+        virtualinvoke $r2.zze($r1);
+
+        return;
+
+     label1:
+        $z0 = $r1 instanceof java.util.concurrent.CancellationException;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r2.cancel(0);
+
+        return;
+
+     label2:
+        $r2 = r0.zzb;
+
+        virtualinvoke $r2.zze($r1);
+
+        return;
+    }
+
+    final void zze(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzftw $r2;
+        com.google.android.gms.internal.ads.zzftv r0;
+        java.lang.Object $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzftw.zzH($r2, null);
+
+        virtualinvoke r0.zzc($r1);
+
+        return;
+    }
+
+    final void zzf()
+    {
+        java.util.concurrent.RejectedExecutionException $r3;
+        java.util.concurrent.Executor $r2;
+        com.google.android.gms.internal.ads.zzftw $r1;
+        com.google.android.gms.internal.ads.zzftv r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+     label1:
+        interfaceinvoke $r2.execute(r0);
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r1 = r0.zzb;
+
+        virtualinvoke $r1.zze($r3);
+
+        return;
+
+        catch java.util.concurrent.RejectedExecutionException from label1 to label2 with label3;
+    }
+
+    final boolean zzg()
+    {
+        com.google.android.gms.internal.ads.zzftw $r1;
+        com.google.android.gms.internal.ads.zzftv r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        $z0 = virtualinvoke $r1.isDone();
+
+        return $z0;
+    }
+}

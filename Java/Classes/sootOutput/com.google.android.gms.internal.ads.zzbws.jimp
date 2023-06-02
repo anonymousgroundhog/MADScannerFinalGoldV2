@@ -1,0 +1,52 @@
+public final class com.google.android.gms.internal.ads.zzbws extends java.lang.Object implements java.lang.Runnable
+{
+    public final com.google.android.gms.internal.ads.zzbxf zza;
+    public final com.google.android.gms.internal.ads.zzbxe zzb;
+    public final java.lang.String zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzbxf, com.google.android.gms.internal.ads.zzbxe, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzbxf $r1;
+        com.google.android.gms.internal.ads.zzbxe $r2;
+        java.lang.String $r3;
+        com.google.android.gms.internal.ads.zzbws r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.google.android.gms.internal.ads.zzbxf $r1;
+        com.google.android.gms.internal.ads.zzbxe $r2;
+        java.lang.String $r3;
+        com.google.android.gms.internal.ads.zzbws r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r3 = r0.zzc;
+
+        virtualinvoke $r1.zzj($r2, $r3);
+
+        return;
+    }
+}

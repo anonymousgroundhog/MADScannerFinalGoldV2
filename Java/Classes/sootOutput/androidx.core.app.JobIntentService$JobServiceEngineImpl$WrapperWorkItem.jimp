@@ -1,0 +1,91 @@
+final class androidx.core.app.JobIntentService$JobServiceEngineImpl$WrapperWorkItem extends java.lang.Object implements androidx.core.app.JobIntentService$GenericWorkItem
+{
+    final android.app.job.JobWorkItem mJobWork;
+    final androidx.core.app.JobIntentService$JobServiceEngineImpl this$0;
+
+    void <init>(androidx.core.app.JobIntentService$JobServiceEngineImpl, android.app.job.JobWorkItem)
+    {
+        androidx.core.app.JobIntentService$JobServiceEngineImpl$WrapperWorkItem r0;
+        androidx.core.app.JobIntentService$JobServiceEngineImpl $r1;
+        android.app.job.JobWorkItem $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        r0.mJobWork = $r2;
+
+        return;
+    }
+
+    public void complete()
+    {
+        java.lang.Throwable $r5;
+        androidx.core.app.JobIntentService$JobServiceEngineImpl$WrapperWorkItem r0;
+        androidx.core.app.JobIntentService$JobServiceEngineImpl $r2;
+        android.app.job.JobParameters $r4;
+        java.lang.Object $r3;
+        android.app.job.JobWorkItem $r1;
+
+        r0 := @this;
+
+        $r2 = r0.this$0;
+
+        $r3 = $r2.mLock;
+
+        entermonitor $r3;
+
+     label1:
+        $r2 = r0.this$0;
+
+        $r4 = $r2.mParams;
+
+        if $r4 == null goto label2;
+
+        $r2 = r0.this$0;
+
+        $r4 = $r2.mParams;
+
+        $r1 = r0.mJobWork;
+
+        virtualinvoke $r4.completeWork($r1);
+
+     label2:
+        exitmonitor $r3;
+
+     label3:
+        return;
+
+     label4:
+        $r5 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label5:
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public android.content.Intent getIntent()
+    {
+        androidx.core.app.JobIntentService$JobServiceEngineImpl$WrapperWorkItem r0;
+        android.content.Intent $r1;
+        android.app.job.JobWorkItem $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mJobWork;
+
+        $r1 = virtualinvoke $r2.getIntent();
+
+        return $r1;
+    }
+}

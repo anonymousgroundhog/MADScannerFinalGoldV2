@@ -1,0 +1,208 @@
+final class com.google.android.gms.common.api.internal.zaz extends java.lang.Object implements com.google.android.gms.common.api.internal.zabz
+{
+    final com.google.android.gms.common.api.internal.zaaa zaa;
+
+    void <init>(com.google.android.gms.common.api.internal.zaaa, com.google.android.gms.common.api.internal.zay)
+    {
+        com.google.android.gms.common.api.internal.zaaa $r1;
+        com.google.android.gms.common.api.internal.zay $r2;
+        com.google.android.gms.common.api.internal.zaz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zaa = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zaa(com.google.android.gms.common.ConnectionResult)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.common.api.internal.zaaa $r2;
+        java.util.concurrent.locks.Lock $r3;
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.lock();
+
+     label1:
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaa.zal($r2, $r1);
+
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaa.zap($r2);
+
+     label2:
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zab(android.os.Bundle)
+    {
+        java.lang.Throwable $r5;
+        com.google.android.gms.common.api.internal.zaaa $r2;
+        java.util.concurrent.locks.Lock $r3;
+        android.os.Bundle $r1;
+        com.google.android.gms.common.ConnectionResult $r4;
+        com.google.android.gms.common.api.internal.zaz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.lock();
+
+     label1:
+        $r2 = r0.zaa;
+
+        $r4 = com.google.android.gms.common.ConnectionResult.RESULT_SUCCESS;
+
+        com.google.android.gms.common.api.internal.zaaa.zal($r2, $r4);
+
+        $r2 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaa.zap($r2);
+
+     label2:
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r2 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zaj($r2);
+
+        interfaceinvoke $r3.unlock();
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zac(int, boolean)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.common.api.internal.zaaa $r1;
+        com.google.android.gms.common.api.internal.zaz r0;
+        java.util.concurrent.locks.Lock $r2;
+        int $i0;
+        com.google.android.gms.common.api.internal.zabi $r3;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r1 = r0.zaa;
+
+        $r2 = com.google.android.gms.common.api.internal.zaaa.zaj($r1);
+
+        interfaceinvoke $r2.lock();
+
+     label1:
+        $r1 = r0.zaa;
+
+        $z1 = com.google.android.gms.common.api.internal.zaaa.zav($r1);
+
+     label2:
+        if $z1 == 0 goto label6;
+
+     label3:
+        com.google.android.gms.common.api.internal.zaaa.zam($r1, 0);
+
+        $r1 = r0.zaa;
+
+        com.google.android.gms.common.api.internal.zaaa.zan($r1, $i0, $z0);
+
+     label4:
+        $r1 = r0.zaa;
+
+        $r2 = com.google.android.gms.common.api.internal.zaaa.zaj($r1);
+
+     label5:
+        interfaceinvoke $r2.unlock();
+
+        return;
+
+     label6:
+        com.google.android.gms.common.api.internal.zaaa.zam($r1, 1);
+
+        $r1 = r0.zaa;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaa.zah($r1);
+
+        virtualinvoke $r3.onConnectionSuspended($i0);
+
+     label7:
+        $r1 = r0.zaa;
+
+        $r2 = com.google.android.gms.common.api.internal.zaaa.zaj($r1);
+
+        goto label5;
+
+     label8:
+        $r4 := @caughtexception;
+
+        $r1 = r0.zaa;
+
+        $r2 = com.google.android.gms.common.api.internal.zaaa.zaj($r1);
+
+        interfaceinvoke $r2.unlock();
+
+        goto label9;
+
+     label9:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label8;
+        catch java.lang.Throwable from label3 to label4 with label8;
+        catch java.lang.Throwable from label6 to label7 with label8;
+    }
+}

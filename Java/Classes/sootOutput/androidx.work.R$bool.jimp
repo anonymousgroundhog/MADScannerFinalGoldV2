@@ -1,0 +1,18 @@
+public final class androidx.work.R$bool extends java.lang.Object
+{
+    public static final int enable_system_alarm_service_default;
+    public static final int enable_system_foreground_service_default;
+    public static final int enable_system_job_service_default;
+    public static final int workmanager_test_configuration;
+
+    private void <init>()
+    {
+        androidx.work.R$bool r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

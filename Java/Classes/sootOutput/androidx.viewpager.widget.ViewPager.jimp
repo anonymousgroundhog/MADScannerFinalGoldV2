@@ -1,0 +1,7706 @@
+public class androidx.viewpager.widget.ViewPager extends android.view.ViewGroup
+{
+    private static final int CLOSE_ENOUGH;
+    private static final java.util.Comparator COMPARATOR;
+    private static final boolean DEBUG;
+    private static final int DEFAULT_GUTTER_SIZE;
+    private static final int DEFAULT_OFFSCREEN_PAGES;
+    private static final int DRAW_ORDER_DEFAULT;
+    private static final int DRAW_ORDER_FORWARD;
+    private static final int DRAW_ORDER_REVERSE;
+    private static final int INVALID_POINTER;
+    static final int[] LAYOUT_ATTRS;
+    private static final int MAX_SETTLE_DURATION;
+    private static final int MIN_DISTANCE_FOR_FLING;
+    private static final int MIN_FLING_VELOCITY;
+    public static final int SCROLL_STATE_DRAGGING;
+    public static final int SCROLL_STATE_IDLE;
+    public static final int SCROLL_STATE_SETTLING;
+    private static final java.lang.String TAG;
+    private static final boolean USE_CACHE;
+    private static final android.view.animation.Interpolator sInterpolator;
+    private static final androidx.viewpager.widget.ViewPager$ViewPositionComparator sPositionComparator;
+    private int mActivePointerId;
+    androidx.viewpager.widget.PagerAdapter mAdapter;
+    private java.util.List mAdapterChangeListeners;
+    private int mBottomPageBounds;
+    private boolean mCalledSuper;
+    private int mChildHeightMeasureSpec;
+    private int mChildWidthMeasureSpec;
+    private int mCloseEnough;
+    int mCurItem;
+    private int mDecorChildCount;
+    private int mDefaultGutterSize;
+    private int mDrawingOrder;
+    private java.util.ArrayList mDrawingOrderedChildren;
+    private final java.lang.Runnable mEndScrollRunnable;
+    private int mExpectedAdapterCount;
+    private long mFakeDragBeginTime;
+    private boolean mFakeDragging;
+    private boolean mFirstLayout;
+    private float mFirstOffset;
+    private int mFlingDistance;
+    private int mGutterSize;
+    private boolean mInLayout;
+    private float mInitialMotionX;
+    private float mInitialMotionY;
+    private androidx.viewpager.widget.ViewPager$OnPageChangeListener mInternalPageChangeListener;
+    private boolean mIsBeingDragged;
+    private boolean mIsScrollStarted;
+    private boolean mIsUnableToDrag;
+    private final java.util.ArrayList mItems;
+    private float mLastMotionX;
+    private float mLastMotionY;
+    private float mLastOffset;
+    private android.widget.EdgeEffect mLeftEdge;
+    private android.graphics.drawable.Drawable mMarginDrawable;
+    private int mMaximumVelocity;
+    private int mMinimumVelocity;
+    private boolean mNeedCalculatePageOffsets;
+    private androidx.viewpager.widget.ViewPager$PagerObserver mObserver;
+    private int mOffscreenPageLimit;
+    private androidx.viewpager.widget.ViewPager$OnPageChangeListener mOnPageChangeListener;
+    private java.util.List mOnPageChangeListeners;
+    private int mPageMargin;
+    private androidx.viewpager.widget.ViewPager$PageTransformer mPageTransformer;
+    private int mPageTransformerLayerType;
+    private boolean mPopulatePending;
+    private android.os.Parcelable mRestoredAdapterState;
+    private java.lang.ClassLoader mRestoredClassLoader;
+    private int mRestoredCurItem;
+    private android.widget.EdgeEffect mRightEdge;
+    private int mScrollState;
+    private android.widget.Scroller mScroller;
+    private boolean mScrollingCacheEnabled;
+    private final androidx.viewpager.widget.ViewPager$ItemInfo mTempItem;
+    private final android.graphics.Rect mTempRect;
+    private int mTopPageBounds;
+    private int mTouchSlop;
+    private android.view.VelocityTracker mVelocityTracker;
+
+    static void <clinit>()
+    {
+        androidx.viewpager.widget.ViewPager$1 $r1;
+        androidx.viewpager.widget.ViewPager$2 $r2;
+        int[] $r0;
+        androidx.viewpager.widget.ViewPager$ViewPositionComparator $r3;
+
+        $r0 = newarray (int)[1];
+
+        $r0[0] = 16842931;
+
+        androidx.viewpager.widget.ViewPager.LAYOUT_ATTRS = $r0;
+
+        $r1 = new androidx.viewpager.widget.ViewPager$1;
+
+        specialinvoke $r1.<init>();
+
+        androidx.viewpager.widget.ViewPager.COMPARATOR = $r1;
+
+        $r2 = new androidx.viewpager.widget.ViewPager$2;
+
+        specialinvoke $r2.<init>();
+
+        androidx.viewpager.widget.ViewPager.sInterpolator = $r2;
+
+        $r3 = new androidx.viewpager.widget.ViewPager$ViewPositionComparator;
+
+        specialinvoke $r3.<init>();
+
+        androidx.viewpager.widget.ViewPager.sPositionComparator = $r3;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        android.graphics.Rect $r4;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$3 $r5;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<init>();
+
+        r0.mItems = $r2;
+
+        $r3 = new androidx.viewpager.widget.ViewPager$ItemInfo;
+
+        specialinvoke $r3.<init>();
+
+        r0.mTempItem = $r3;
+
+        $r4 = new android.graphics.Rect;
+
+        specialinvoke $r4.<init>();
+
+        r0.mTempRect = $r4;
+
+        r0.mRestoredCurItem = -1;
+
+        r0.mRestoredAdapterState = null;
+
+        r0.mRestoredClassLoader = null;
+
+        r0.mFirstOffset = -3.4028235E38F;
+
+        r0.mLastOffset = 3.4028235E38F;
+
+        r0.mOffscreenPageLimit = 1;
+
+        r0.mActivePointerId = -1;
+
+        r0.mFirstLayout = 1;
+
+        r0.mNeedCalculatePageOffsets = 0;
+
+        $r5 = new androidx.viewpager.widget.ViewPager$3;
+
+        specialinvoke $r5.<init>(r0);
+
+        r0.mEndScrollRunnable = $r5;
+
+        r0.mScrollState = 0;
+
+        virtualinvoke r0.initViewPager();
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        android.graphics.Rect $r5;
+        android.util.AttributeSet $r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r4;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$3 $r6;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<init>();
+
+        r0.mItems = $r3;
+
+        $r4 = new androidx.viewpager.widget.ViewPager$ItemInfo;
+
+        specialinvoke $r4.<init>();
+
+        r0.mTempItem = $r4;
+
+        $r5 = new android.graphics.Rect;
+
+        specialinvoke $r5.<init>();
+
+        r0.mTempRect = $r5;
+
+        r0.mRestoredCurItem = -1;
+
+        r0.mRestoredAdapterState = null;
+
+        r0.mRestoredClassLoader = null;
+
+        r0.mFirstOffset = -3.4028235E38F;
+
+        r0.mLastOffset = 3.4028235E38F;
+
+        r0.mOffscreenPageLimit = 1;
+
+        r0.mActivePointerId = -1;
+
+        r0.mFirstLayout = 1;
+
+        r0.mNeedCalculatePageOffsets = 0;
+
+        $r6 = new androidx.viewpager.widget.ViewPager$3;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mEndScrollRunnable = $r6;
+
+        r0.mScrollState = 0;
+
+        virtualinvoke r0.initViewPager();
+
+        return;
+    }
+
+    private void calculatePageOffsets(androidx.viewpager.widget.ViewPager$ItemInfo, int, androidx.viewpager.widget.ViewPager$ItemInfo)
+    {
+        androidx.viewpager.widget.PagerAdapter r3;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList $r4;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r1, $r2;
+        int $i0, $i1, $i2, i3, $i4, i5;
+        float f0, f1, f2, f3;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        r3 = r0.mAdapter;
+
+        $i1 = virtualinvoke r3.getCount();
+
+        $i2 = specialinvoke r0.getClientWidth();
+
+        if $i2 <= 0 goto label01;
+
+        i3 = r0.mPageMargin;
+
+        f0 = (float) i3;
+
+        f1 = (float) $i2;
+
+        f0 = f0 / f1;
+
+        goto label02;
+
+     label01:
+        f0 = 0.0F;
+
+     label02:
+        if $r2 == null goto label12;
+
+        i3 = $r2.position;
+
+        $i2 = $r1.position;
+
+        if i3 >= $i2 goto label07;
+
+        $i2 = 0;
+
+        f1 = $r2.offset;
+
+        f2 = $r2.widthFactor;
+
+        f1 = f1 + f2;
+
+        f1 = f1 + f0;
+
+        i3 = i3 + 1;
+
+     label03:
+        $i4 = $r1.position;
+
+        if i3 > $i4 goto label12;
+
+        $r4 = r0.mItems;
+
+        $i4 = virtualinvoke $r4.size();
+
+        if $i2 >= $i4 goto label12;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i2);
+
+        $r2 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+     label04:
+        $i4 = $r2.position;
+
+        if i3 <= $i4 goto label05;
+
+        $r4 = r0.mItems;
+
+        $i4 = virtualinvoke $r4.size();
+
+        i5 = -1;
+
+        $i4 = $i4 + i5;
+
+        if $i2 >= $i4 goto label05;
+
+        $i2 = $i2 + 1;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i2);
+
+        $r2 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        goto label04;
+
+     label05:
+        $i4 = $r2.position;
+
+        if i3 >= $i4 goto label06;
+
+        r3 = r0.mAdapter;
+
+        f2 = virtualinvoke r3.getPageWidth(i3);
+
+        f2 = f2 + f0;
+
+        f1 = f1 + f2;
+
+        i3 = i3 + 1;
+
+        goto label05;
+
+     label06:
+        $r2.offset = f1;
+
+        f2 = $r2.widthFactor;
+
+        f2 = f2 + f0;
+
+        f1 = f1 + f2;
+
+        i3 = i3 + 1;
+
+        goto label03;
+
+     label07:
+        $i2 = $r1.position;
+
+        if i3 <= $i2 goto label12;
+
+        $r4 = r0.mItems;
+
+        $i2 = virtualinvoke $r4.size();
+
+        $i2 = $i2 + -1;
+
+        f1 = $r2.offset;
+
+        i3 = i3 + -1;
+
+     label08:
+        $i4 = $r1.position;
+
+        if i3 < $i4 goto label12;
+
+        if $i2 < 0 goto label12;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i2);
+
+        $r2 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+     label09:
+        $i4 = $r2.position;
+
+        if i3 >= $i4 goto label10;
+
+        if $i2 <= 0 goto label10;
+
+        $i2 = $i2 + -1;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i2);
+
+        $r2 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        goto label09;
+
+     label10:
+        $i4 = $r2.position;
+
+        if i3 <= $i4 goto label11;
+
+        r3 = r0.mAdapter;
+
+        f2 = virtualinvoke r3.getPageWidth(i3);
+
+        f2 = f2 + f0;
+
+        f1 = f1 - f2;
+
+        i3 = i3 + -1;
+
+        goto label10;
+
+     label11:
+        f2 = $r2.widthFactor;
+
+        f2 = f2 + f0;
+
+        f1 = f1 - f2;
+
+        $r2.offset = f1;
+
+        i3 = i3 + -1;
+
+        goto label08;
+
+     label12:
+        $r4 = r0.mItems;
+
+        $i2 = virtualinvoke $r4.size();
+
+        f1 = $r1.offset;
+
+        i3 = $r1.position;
+
+        i3 = i3 + -1;
+
+        $i4 = $r1.position;
+
+        if $i4 != 0 goto label13;
+
+        f2 = $r1.offset;
+
+        goto label14;
+
+     label13:
+        f2 = -3.4028235E38F;
+
+     label14:
+        r0.mFirstOffset = f2;
+
+        $i4 = $r1.position;
+
+        i5 = -1;
+
+        i5 = $i1 + i5;
+
+        if $i4 != i5 goto label15;
+
+        f2 = $r1.offset;
+
+        f3 = $r1.widthFactor;
+
+        f2 = f2 + f3;
+
+        f2 = f2 - 1.0F;
+
+        goto label16;
+
+     label15:
+        f2 = 3.4028235E38F;
+
+     label16:
+        r0.mLastOffset = f2;
+
+        $i4 = $i0 + -1;
+
+     label17:
+        if $i4 < 0 goto label21;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i4);
+
+        $r2 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+     label18:
+        i5 = $r2.position;
+
+        if i3 <= i5 goto label19;
+
+        r3 = r0.mAdapter;
+
+        i5 = -1;
+
+        f2 = virtualinvoke r3.getPageWidth(i3);
+
+        f2 = f2 + f0;
+
+        f1 = f1 - f2;
+
+        i3 = i3 + i5;
+
+        goto label18;
+
+     label19:
+        f2 = $r2.widthFactor;
+
+        f2 = f2 + f0;
+
+        f1 = f1 - f2;
+
+        $r2.offset = f1;
+
+        i5 = $r2.position;
+
+        if i5 != 0 goto label20;
+
+        r0.mFirstOffset = f1;
+
+     label20:
+        i5 = -1;
+
+        $i4 = $i4 + i5;
+
+        i5 = -1;
+
+        i3 = i3 + i5;
+
+        goto label17;
+
+     label21:
+        f1 = $r1.offset;
+
+        f2 = $r1.widthFactor;
+
+        f1 = f1 + f2;
+
+        f1 = f1 + f0;
+
+        i3 = $r1.position;
+
+        i3 = i3 + 1;
+
+        $i0 = $i0 + 1;
+
+     label22:
+        if $i0 >= $i2 goto label26;
+
+        $r4 = r0.mItems;
+
+        $r5 = virtualinvoke $r4.get($i0);
+
+        $r1 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+     label23:
+        $i4 = $r1.position;
+
+        if i3 >= $i4 goto label24;
+
+        r3 = r0.mAdapter;
+
+        f2 = virtualinvoke r3.getPageWidth(i3);
+
+        f2 = f2 + f0;
+
+        f1 = f1 + f2;
+
+        i3 = i3 + 1;
+
+        goto label23;
+
+     label24:
+        $i4 = $r1.position;
+
+        i5 = -1;
+
+        i5 = $i1 + i5;
+
+        if $i4 != i5 goto label25;
+
+        f2 = $r1.widthFactor;
+
+        f2 = f2 + f1;
+
+        f2 = f2 - 1.0F;
+
+        r0.mLastOffset = f2;
+
+     label25:
+        $r1.offset = f1;
+
+        f2 = $r1.widthFactor;
+
+        f2 = f2 + f0;
+
+        f1 = f1 + f2;
+
+        $i0 = $i0 + 1;
+
+        i3 = i3 + 1;
+
+        goto label22;
+
+     label26:
+        r0.mNeedCalculatePageOffsets = 0;
+
+        return;
+    }
+
+    private void completeScroll(boolean)
+    {
+        android.widget.Scroller r1;
+        androidx.viewpager.widget.ViewPager r0;
+        java.lang.Runnable r5;
+        java.util.ArrayList r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo r4;
+        int i0, $i1, $i2, $i3;
+        java.lang.Object $r3;
+        boolean $z0, z1, $z2;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        i0 = r0.mScrollState;
+
+        if i0 != 2 goto label1;
+
+        z1 = 1;
+
+        goto label2;
+
+     label1:
+        z1 = 0;
+
+     label2:
+        if z1 == 0 goto label4;
+
+        specialinvoke r0.setScrollingCacheEnabled(0);
+
+        r1 = r0.mScroller;
+
+        $z2 = virtualinvoke r1.isFinished();
+
+        $z2 = $z2 ^ 1;
+
+        if $z2 == 0 goto label4;
+
+        r1 = r0.mScroller;
+
+        virtualinvoke r1.abortAnimation();
+
+        i0 = virtualinvoke r0.getScrollX();
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        r1 = r0.mScroller;
+
+        $i2 = virtualinvoke r1.getCurrX();
+
+        r1 = r0.mScroller;
+
+        $i3 = virtualinvoke r1.getCurrY();
+
+        if i0 != $i2 goto label3;
+
+        if $i1 == $i3 goto label4;
+
+     label3:
+        virtualinvoke r0.scrollTo($i2, $i3);
+
+        if $i2 == i0 goto label4;
+
+        specialinvoke r0.pageScrolled($i2);
+
+     label4:
+        r0.mPopulatePending = 0;
+
+        i0 = 0;
+
+     label5:
+        r2 = r0.mItems;
+
+        $i1 = virtualinvoke r2.size();
+
+        if i0 >= $i1 goto label7;
+
+        r2 = r0.mItems;
+
+        $r3 = virtualinvoke r2.get(i0);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r3;
+
+        $z2 = r4.scrolling;
+
+        if $z2 == 0 goto label6;
+
+        z1 = 1;
+
+        r4.scrolling = 0;
+
+     label6:
+        i0 = i0 + 1;
+
+        goto label5;
+
+     label7:
+        if z1 == 0 goto label9;
+
+        if $z0 == 0 goto label8;
+
+        r5 = r0.mEndScrollRunnable;
+
+        androidx.core.view.ViewCompat.postOnAnimation(r0, r5);
+
+        return;
+
+     label8:
+        r5 = r0.mEndScrollRunnable;
+
+        interfaceinvoke r5.run();
+
+     label9:
+        return;
+    }
+
+    private int determineTargetPage(int, float, int, int)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        androidx.viewpager.widget.ViewPager$ItemInfo r3, r4;
+        int $i0, $i1, $i2, i3;
+        float $f0, f1;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i2 = java.lang.Math.abs($i2);
+
+        i3 = r0.mFlingDistance;
+
+        if $i2 <= i3 goto label3;
+
+        $i2 = java.lang.Math.abs($i1);
+
+        i3 = r0.mMinimumVelocity;
+
+        if $i2 <= i3 goto label3;
+
+        if $i1 <= 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $i0 = $i0 + 1;
+
+     label2:
+        goto label6;
+
+     label3:
+        $i1 = r0.mCurItem;
+
+        if $i0 < $i1 goto label4;
+
+        f1 = 0.4F;
+
+        goto label5;
+
+     label4:
+        f1 = 0.6F;
+
+     label5:
+        $f0 = $f0 + f1;
+
+        $i1 = (int) $f0;
+
+        $i0 = $i1 + $i0;
+
+     label6:
+        r1 = r0.mItems;
+
+        $i1 = virtualinvoke r1.size();
+
+        if $i1 <= 0 goto label7;
+
+        r1 = r0.mItems;
+
+        $r2 = virtualinvoke r1.get(0);
+
+        r3 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        r1 = r0.mItems;
+
+        $i1 = virtualinvoke r1.size();
+
+        $i1 = $i1 + -1;
+
+        $r2 = virtualinvoke r1.get($i1);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        $i1 = r3.position;
+
+        $i2 = r4.position;
+
+        $i0 = java.lang.Math.min($i0, $i2);
+
+        $i0 = java.lang.Math.max($i1, $i0);
+
+     label7:
+        return $i0;
+    }
+
+    private void dispatchOnPageScrolled(int, float, int)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.List r2;
+        int $i0, $i1, i2, $i3;
+        float $f0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener r1;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        r1 = r0.mOnPageChangeListener;
+
+        if r1 == null goto label1;
+
+        interfaceinvoke r1.onPageScrolled($i0, $f0, $i1);
+
+     label1:
+        r2 = r0.mOnPageChangeListeners;
+
+        if r2 == null goto label4;
+
+        i2 = 0;
+
+        $i3 = interfaceinvoke r2.size();
+
+     label2:
+        if i2 >= $i3 goto label4;
+
+        r2 = r0.mOnPageChangeListeners;
+
+        $r3 = interfaceinvoke r2.get(i2);
+
+        r1 = (androidx.viewpager.widget.ViewPager$OnPageChangeListener) $r3;
+
+        if r1 == null goto label3;
+
+        interfaceinvoke r1.onPageScrolled($i0, $f0, $i1);
+
+     label3:
+        i2 = i2 + 1;
+
+        goto label2;
+
+     label4:
+        r1 = r0.mInternalPageChangeListener;
+
+        if r1 == null goto label5;
+
+        interfaceinvoke r1.onPageScrolled($i0, $f0, $i1);
+
+     label5:
+        return;
+    }
+
+    private void dispatchOnPageSelected(int)
+    {
+        java.util.List r2;
+        int $i0, i1, $i2;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener r1;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mOnPageChangeListener;
+
+        if r1 == null goto label1;
+
+        interfaceinvoke r1.onPageSelected($i0);
+
+     label1:
+        r2 = r0.mOnPageChangeListeners;
+
+        if r2 == null goto label4;
+
+        i1 = 0;
+
+        $i2 = interfaceinvoke r2.size();
+
+     label2:
+        if i1 >= $i2 goto label4;
+
+        r2 = r0.mOnPageChangeListeners;
+
+        $r3 = interfaceinvoke r2.get(i1);
+
+        r1 = (androidx.viewpager.widget.ViewPager$OnPageChangeListener) $r3;
+
+        if r1 == null goto label3;
+
+        interfaceinvoke r1.onPageSelected($i0);
+
+     label3:
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label4:
+        r1 = r0.mInternalPageChangeListener;
+
+        if r1 == null goto label5;
+
+        interfaceinvoke r1.onPageSelected($i0);
+
+     label5:
+        return;
+    }
+
+    private void dispatchOnScrollStateChanged(int)
+    {
+        java.util.List r2;
+        int $i0, i1, $i2;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener r1;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mOnPageChangeListener;
+
+        if r1 == null goto label1;
+
+        interfaceinvoke r1.onPageScrollStateChanged($i0);
+
+     label1:
+        r2 = r0.mOnPageChangeListeners;
+
+        if r2 == null goto label4;
+
+        i1 = 0;
+
+        $i2 = interfaceinvoke r2.size();
+
+     label2:
+        if i1 >= $i2 goto label4;
+
+        r2 = r0.mOnPageChangeListeners;
+
+        $r3 = interfaceinvoke r2.get(i1);
+
+        r1 = (androidx.viewpager.widget.ViewPager$OnPageChangeListener) $r3;
+
+        if r1 == null goto label3;
+
+        interfaceinvoke r1.onPageScrollStateChanged($i0);
+
+     label3:
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label4:
+        r1 = r0.mInternalPageChangeListener;
+
+        if r1 == null goto label5;
+
+        interfaceinvoke r1.onPageScrollStateChanged($i0);
+
+     label5:
+        return;
+    }
+
+    private void enableLayers(boolean)
+    {
+        int $i0, i1, i2;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 = virtualinvoke r0.getChildCount();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= $i0 goto label4;
+
+        if $z0 == 0 goto label2;
+
+        i2 = r0.mPageTransformerLayerType;
+
+        goto label3;
+
+     label2:
+        i2 = 0;
+
+     label3:
+        $r1 = virtualinvoke r0.getChildAt(i1);
+
+        virtualinvoke $r1.setLayerType(i2, null);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    private void endDrag()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.VelocityTracker $r1;
+
+        r0 := @this;
+
+        r0.mIsBeingDragged = 0;
+
+        r0.mIsUnableToDrag = 0;
+
+        $r1 = r0.mVelocityTracker;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.recycle();
+
+        r0.mVelocityTracker = null;
+
+     label1:
+        return;
+    }
+
+    private android.graphics.Rect getChildRectInPagerCoordinates(android.graphics.Rect, android.view.View)
+    {
+        android.graphics.Rect $r2;
+        android.view.ViewParent $r3;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.ViewGroup r4;
+        int $i0, $i1;
+        android.view.View $r1;
+        boolean z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r2 != null goto label1;
+
+        $r2 = new android.graphics.Rect;
+
+        specialinvoke $r2.<init>();
+
+     label1:
+        if $r1 != null goto label2;
+
+        virtualinvoke $r2.set(0, 0, 0, 0);
+
+        return $r2;
+
+     label2:
+        $i0 = virtualinvoke $r1.getLeft();
+
+        $r2.left = $i0;
+
+        $i0 = virtualinvoke $r1.getRight();
+
+        $r2.right = $i0;
+
+        $i0 = virtualinvoke $r1.getTop();
+
+        $r2.top = $i0;
+
+        $i0 = virtualinvoke $r1.getBottom();
+
+        $r2.bottom = $i0;
+
+        $r3 = virtualinvoke $r1.getParent();
+
+     label3:
+        z0 = $r3 instanceof android.view.ViewGroup;
+
+        if z0 == 0 goto label4;
+
+        if $r3 == r0 goto label4;
+
+        r4 = (android.view.ViewGroup) $r3;
+
+        $i0 = $r2.left;
+
+        $i1 = virtualinvoke r4.getLeft();
+
+        $i0 = $i0 + $i1;
+
+        $r2.left = $i0;
+
+        $i0 = $r2.right;
+
+        $i1 = virtualinvoke r4.getRight();
+
+        $i0 = $i0 + $i1;
+
+        $r2.right = $i0;
+
+        $i0 = $r2.top;
+
+        $i1 = virtualinvoke r4.getTop();
+
+        $i0 = $i0 + $i1;
+
+        $r2.top = $i0;
+
+        $i0 = $r2.bottom;
+
+        $i1 = virtualinvoke r4.getBottom();
+
+        $i0 = $i0 + $i1;
+
+        $r2.bottom = $i0;
+
+        $r3 = virtualinvoke r4.getParent();
+
+        goto label3;
+
+     label4:
+        return $r2;
+    }
+
+    private int getClientWidth()
+    {
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 = virtualinvoke r0.getMeasuredWidth();
+
+        $i1 = virtualinvoke r0.getPaddingLeft();
+
+        $i0 = $i0 - $i1;
+
+        $i1 = virtualinvoke r0.getPaddingRight();
+
+        $i0 = $i0 - $i1;
+
+        return $i0;
+    }
+
+    private androidx.viewpager.widget.ViewPager$ItemInfo infoForCurrentScrollPosition()
+    {
+        androidx.viewpager.widget.PagerAdapter r5;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo r1, r4;
+        byte $b4;
+        int $i0, $i1, $i2, i3;
+        boolean z0;
+        float f0, f1, f2, f3;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $i0 = specialinvoke r0.getClientWidth();
+
+        f0 = 0.0F;
+
+        if $i0 <= 0 goto label01;
+
+        $i1 = virtualinvoke r0.getScrollX();
+
+        f1 = (float) $i1;
+
+        f2 = (float) $i0;
+
+        f1 = f1 / f2;
+
+        goto label02;
+
+     label01:
+        f1 = 0.0F;
+
+     label02:
+        if $i0 <= 0 goto label03;
+
+        $i1 = r0.mPageMargin;
+
+        f0 = (float) $i1;
+
+        f2 = (float) $i0;
+
+        f0 = f0 / f2;
+
+     label03:
+        $i1 = -1;
+
+        f2 = 0.0F;
+
+        f3 = 0.0F;
+
+        z0 = 1;
+
+        r1 = null;
+
+        $i0 = 0;
+
+     label04:
+        r2 = r0.mItems;
+
+        $i2 = virtualinvoke r2.size();
+
+        if $i0 >= $i2 goto label10;
+
+        r2 = r0.mItems;
+
+        $r3 = virtualinvoke r2.get($i0);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r3;
+
+        if z0 != 0 goto label05;
+
+        $i2 = r4.position;
+
+        i3 = $i1 + 1;
+
+        if $i2 == i3 goto label05;
+
+        r4 = r0.mTempItem;
+
+        f2 = f2 + f3;
+
+        f2 = f2 + f0;
+
+        r4.offset = f2;
+
+        $i1 = $i1 + 1;
+
+        r4.position = $i1;
+
+        r5 = r0.mAdapter;
+
+        $i1 = r4.position;
+
+        f2 = virtualinvoke r5.getPageWidth($i1);
+
+        r4.widthFactor = f2;
+
+        $i0 = $i0 + -1;
+
+     label05:
+        f2 = r4.offset;
+
+        f3 = r4.widthFactor;
+
+        f3 = f3 + f2;
+
+        f3 = f3 + f0;
+
+        if z0 != 0 goto label07;
+
+        $b4 = f1 cmpl f2;
+
+        $i1 = (int) $b4;
+
+        if $i1 < 0 goto label06;
+
+        goto label07;
+
+     label06:
+        return r1;
+
+     label07:
+        $b4 = f1 cmpg f3;
+
+        $i1 = (int) $b4;
+
+        if $i1 < 0 goto label09;
+
+        r2 = r0.mItems;
+
+        $i1 = virtualinvoke r2.size();
+
+        $i1 = $i1 + -1;
+
+        if $i0 != $i1 goto label08;
+
+        return r4;
+
+     label08:
+        z0 = 0;
+
+        $i1 = r4.position;
+
+        f3 = r4.widthFactor;
+
+        r1 = r4;
+
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label09:
+        return r4;
+
+     label10:
+        return r1;
+    }
+
+    private static boolean isDecorView(android.view.View)
+    {
+        java.lang.annotation.Annotation $r2;
+        android.view.View $r0;
+        java.lang.Class $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.getClass();
+
+        $r2 = virtualinvoke $r1.getAnnotation(class "Landroidx/viewpager/widget/ViewPager$DecorView;");
+
+        if $r2 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private boolean isGutterDrag(float, float)
+    {
+        byte $b2;
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+        float $f0, $f1, $f2;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $f1 := @parameter1;
+
+        $i0 = r0.mGutterSize;
+
+        $f2 = (float) $i0;
+
+        $b2 = $f0 cmpg $f2;
+
+        $i0 = (int) $b2;
+
+        if $i0 >= 0 goto label1;
+
+        $b2 = $f1 cmpl 0.0F;
+
+        $i0 = (int) $b2;
+
+        if $i0 > 0 goto label2;
+
+     label1:
+        $i1 = virtualinvoke r0.getWidth();
+
+        $i0 = r0.mGutterSize;
+
+        $i0 = $i1 - $i0;
+
+        $f2 = (float) $i0;
+
+        $b2 = $f0 cmpl $f2;
+
+        $i0 = (int) $b2;
+
+        if $i0 <= 0 goto label3;
+
+        $b2 = $f1 cmpg 0.0F;
+
+        $i0 = (int) $b2;
+
+        if $i0 >= 0 goto label3;
+
+     label2:
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    private void onSecondaryPointerUp(android.view.MotionEvent)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.VelocityTracker $r2;
+        byte b3;
+        android.view.MotionEvent $r1;
+        int $i0, $i1, i2;
+        float $f0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getActionIndex();
+
+        $i1 = virtualinvoke $r1.getPointerId($i0);
+
+        i2 = r0.mActivePointerId;
+
+        if $i1 != i2 goto label3;
+
+        if $i0 != 0 goto label1;
+
+        b3 = 1;
+
+        goto label2;
+
+     label1:
+        b3 = 0;
+
+     label2:
+        $f0 = virtualinvoke $r1.getX(b3);
+
+        r0.mLastMotionX = $f0;
+
+        $i0 = virtualinvoke $r1.getPointerId(b3);
+
+        r0.mActivePointerId = $i0;
+
+        $r2 = r0.mVelocityTracker;
+
+        if $r2 == null goto label3;
+
+        virtualinvoke $r2.clear();
+
+     label3:
+        return;
+    }
+
+    private boolean pageScrolled(int)
+    {
+        java.lang.IllegalStateException r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, i1, $i2, i3;
+        float f0, f1, f2;
+        boolean z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mItems;
+
+        i1 = virtualinvoke r1.size();
+
+        if i1 != 0 goto label3;
+
+        z0 = r0.mFirstLayout;
+
+        if z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        r0.mCalledSuper = 0;
+
+        virtualinvoke r0.onPageScrolled(0, 0.0F, 0);
+
+        z0 = r0.mCalledSuper;
+
+        if z0 == 0 goto label2;
+
+        return 0;
+
+     label2:
+        r2 = new java.lang.IllegalStateException;
+
+        specialinvoke r2.<init>("onPageScrolled did not call superclass implementation");
+
+        throw r2;
+
+     label3:
+        $r3 = specialinvoke r0.infoForCurrentScrollPosition();
+
+        $i2 = specialinvoke r0.getClientWidth();
+
+        i3 = r0.mPageMargin;
+
+        i1 = $i2 + i3;
+
+        f0 = (float) i3;
+
+        f1 = (float) $i2;
+
+        f0 = f0 / f1;
+
+        i3 = $r3.position;
+
+        f1 = (float) $i0;
+
+        f2 = (float) $i2;
+
+        f1 = f1 / f2;
+
+        f2 = $r3.offset;
+
+        f1 = f1 - f2;
+
+        f2 = $r3.widthFactor;
+
+        f0 = f2 + f0;
+
+        f0 = f1 / f0;
+
+        f1 = (float) i1;
+
+        f1 = f1 * f0;
+
+        $i0 = (int) f1;
+
+        r0.mCalledSuper = 0;
+
+        virtualinvoke r0.onPageScrolled(i3, f0, $i0);
+
+        z0 = r0.mCalledSuper;
+
+        if z0 == 0 goto label4;
+
+        return 1;
+
+     label4:
+        r2 = new java.lang.IllegalStateException;
+
+        specialinvoke r2.<init>("onPageScrolled did not call superclass implementation");
+
+        throw r2;
+    }
+
+    private boolean performDrag(float)
+    {
+        androidx.viewpager.widget.PagerAdapter $r5;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        androidx.viewpager.widget.ViewPager$ItemInfo r3, r4;
+        byte b3;
+        int $i0, $i1, $i2;
+        android.widget.EdgeEffect $r6;
+        boolean z0, z1, z2;
+        float $f0, f1, f2, f3;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        z0 = 0;
+
+        f1 = r0.mLastMotionX;
+
+        f1 = f1 - $f0;
+
+        r0.mLastMotionX = $f0;
+
+        $i0 = virtualinvoke r0.getScrollX();
+
+        $f0 = (float) $i0;
+
+        $f0 = $f0 + f1;
+
+        $i0 = specialinvoke r0.getClientWidth();
+
+        f1 = (float) $i0;
+
+        f2 = r0.mFirstOffset;
+
+        f1 = f1 * f2;
+
+        f2 = (float) $i0;
+
+        f3 = r0.mLastOffset;
+
+        f2 = f2 * f3;
+
+        z1 = 1;
+
+        z2 = 1;
+
+        r1 = r0.mItems;
+
+        $r2 = virtualinvoke r1.get(0);
+
+        r3 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        r1 = r0.mItems;
+
+        $i1 = virtualinvoke r1.size();
+
+        $i1 = $i1 + -1;
+
+        $r2 = virtualinvoke r1.get($i1);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        $i1 = r3.position;
+
+        if $i1 == 0 goto label1;
+
+        z1 = 0;
+
+        f1 = r3.offset;
+
+        f3 = (float) $i0;
+
+        f1 = f1 * f3;
+
+     label1:
+        $i1 = r4.position;
+
+        $r5 = r0.mAdapter;
+
+        $i2 = virtualinvoke $r5.getCount();
+
+        $i2 = $i2 + -1;
+
+        if $i1 == $i2 goto label2;
+
+        z2 = 0;
+
+        f2 = r4.offset;
+
+        f3 = (float) $i0;
+
+        f2 = f2 * f3;
+
+     label2:
+        b3 = $f0 cmpg f1;
+
+        $i1 = (int) b3;
+
+        if $i1 >= 0 goto label4;
+
+        if z1 == 0 goto label3;
+
+        $f0 = f1 - $f0;
+
+        $r6 = r0.mLeftEdge;
+
+        $f0 = java.lang.Math.abs($f0);
+
+        f2 = (float) $i0;
+
+        $f0 = $f0 / f2;
+
+        virtualinvoke $r6.onPull($f0);
+
+        z0 = 1;
+
+     label3:
+        $f0 = f1;
+
+        goto label6;
+
+     label4:
+        b3 = $f0 cmpl f2;
+
+        $i1 = (int) b3;
+
+        if $i1 <= 0 goto label6;
+
+        if z2 == 0 goto label5;
+
+        $f0 = $f0 - f2;
+
+        $r6 = r0.mRightEdge;
+
+        $f0 = java.lang.Math.abs($f0);
+
+        f1 = (float) $i0;
+
+        $f0 = $f0 / f1;
+
+        virtualinvoke $r6.onPull($f0);
+
+        z0 = 1;
+
+     label5:
+        $f0 = f2;
+
+     label6:
+        f1 = r0.mLastMotionX;
+
+        $i0 = (int) $f0;
+
+        f2 = (float) $i0;
+
+        f2 = $f0 - f2;
+
+        f1 = f1 + f2;
+
+        r0.mLastMotionX = f1;
+
+        $i0 = (int) $f0;
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        virtualinvoke r0.scrollTo($i0, $i1);
+
+        $i0 = (int) $f0;
+
+        specialinvoke r0.pageScrolled($i0);
+
+        return z0;
+    }
+
+    private void recomputeScrollPosition(int, int, int, int)
+    {
+        android.widget.Scroller r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, $i1, $i2, $i3, $i4;
+        float f0, f1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        if $i1 <= 0 goto label2;
+
+        r1 = r0.mItems;
+
+        $z0 = virtualinvoke r1.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        r2 = r0.mScroller;
+
+        $z0 = virtualinvoke r2.isFinished();
+
+        if $z0 != 0 goto label1;
+
+        r2 = r0.mScroller;
+
+        $i0 = virtualinvoke r0.getCurrentItem();
+
+        $i1 = specialinvoke r0.getClientWidth();
+
+        $i0 = $i0 * $i1;
+
+        virtualinvoke r2.setFinalX($i0);
+
+        return;
+
+     label1:
+        $i4 = virtualinvoke r0.getPaddingLeft();
+
+        $i0 = $i0 - $i4;
+
+        $i4 = virtualinvoke r0.getPaddingRight();
+
+        $i0 = $i0 - $i4;
+
+        $i0 = $i0 + $i2;
+
+        $i2 = virtualinvoke r0.getPaddingLeft();
+
+        $i1 = $i1 - $i2;
+
+        $i2 = virtualinvoke r0.getPaddingRight();
+
+        $i1 = $i1 - $i2;
+
+        $i1 = $i1 + $i3;
+
+        $i2 = virtualinvoke r0.getScrollX();
+
+        f0 = (float) $i2;
+
+        f1 = (float) $i1;
+
+        f0 = f0 / f1;
+
+        f1 = (float) $i0;
+
+        f0 = f1 * f0;
+
+        $i0 = (int) f0;
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        virtualinvoke r0.scrollTo($i0, $i1);
+
+        return;
+
+     label2:
+        $i1 = r0.mCurItem;
+
+        $r3 = virtualinvoke r0.infoForPosition($i1);
+
+        if $r3 == null goto label3;
+
+        f0 = $r3.offset;
+
+        f1 = r0.mLastOffset;
+
+        f0 = java.lang.Math.min(f0, f1);
+
+        goto label4;
+
+     label3:
+        f0 = 0.0F;
+
+     label4:
+        $i1 = virtualinvoke r0.getPaddingLeft();
+
+        $i0 = $i0 - $i1;
+
+        $i1 = virtualinvoke r0.getPaddingRight();
+
+        $i0 = $i0 - $i1;
+
+        f1 = (float) $i0;
+
+        f0 = f1 * f0;
+
+        $i0 = (int) f0;
+
+        $i1 = virtualinvoke r0.getScrollX();
+
+        if $i0 == $i1 goto label5;
+
+        specialinvoke r0.completeScroll(0);
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        virtualinvoke r0.scrollTo($i0, $i1);
+
+     label5:
+        return;
+    }
+
+    private void removeNonDecorViews()
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r3;
+        android.view.ViewGroup$LayoutParams $r2;
+        int i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        i0 = 0;
+
+     label1:
+        $i1 = virtualinvoke r0.getChildCount();
+
+        if i0 >= $i1 goto label3;
+
+        $r1 = virtualinvoke r0.getChildAt(i0);
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        $z0 = r3.isDecor;
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke r0.removeViewAt(i0);
+
+        i0 = i0 + -1;
+
+     label2:
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    private void requestParentDisallowInterceptTouchEvent(boolean)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.ViewParent $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getParent();
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.requestDisallowInterceptTouchEvent($z0);
+
+     label1:
+        return;
+    }
+
+    private boolean resetTouch()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.widget.EdgeEffect r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        r0.mActivePointerId = -1;
+
+        specialinvoke r0.endDrag();
+
+        r1 = r0.mLeftEdge;
+
+        virtualinvoke r1.onRelease();
+
+        r1 = r0.mRightEdge;
+
+        virtualinvoke r1.onRelease();
+
+        r1 = r0.mLeftEdge;
+
+        $z0 = virtualinvoke r1.isFinished();
+
+        if $z0 != 0 goto label2;
+
+        r1 = r0.mRightEdge;
+
+        $z0 = virtualinvoke r1.isFinished();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    private void scrollToItem(int, boolean, int, boolean)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r1;
+        int $i0, $i1, i2;
+        float $f0, $f1, $f2, $f3;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $z1 := @parameter3;
+
+        $r1 = virtualinvoke r0.infoForPosition($i0);
+
+        i2 = 0;
+
+        if $r1 == null goto label1;
+
+        i2 = specialinvoke r0.getClientWidth();
+
+        $f1 = (float) i2;
+
+        $f2 = r0.mFirstOffset;
+
+        $f3 = $r1.offset;
+
+        $f0 = r0.mLastOffset;
+
+        $f0 = java.lang.Math.min($f3, $f0);
+
+        $f2 = java.lang.Math.max($f2, $f0);
+
+        $f1 = $f1 * $f2;
+
+        i2 = (int) $f1;
+
+     label1:
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.smoothScrollTo(i2, 0, $i1);
+
+        if $z1 == 0 goto label4;
+
+        specialinvoke r0.dispatchOnPageSelected($i0);
+
+        return;
+
+     label2:
+        if $z1 == 0 goto label3;
+
+        specialinvoke r0.dispatchOnPageSelected($i0);
+
+     label3:
+        specialinvoke r0.completeScroll(0);
+
+        virtualinvoke r0.scrollTo(i2, 0);
+
+        specialinvoke r0.pageScrolled(i2);
+
+     label4:
+        return;
+    }
+
+    private void setScrollingCacheEnabled(boolean)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 = r0.mScrollingCacheEnabled;
+
+        if $z1 == $z0 goto label1;
+
+        r0.mScrollingCacheEnabled = $z0;
+
+     label1:
+        return;
+    }
+
+    private void sortChildDrawingOrder()
+    {
+        int i0, i1;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r2;
+        androidx.viewpager.widget.ViewPager$ViewPositionComparator r3;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        i0 = r0.mDrawingOrder;
+
+        if i0 == 0 goto label5;
+
+        $r1 = r0.mDrawingOrderedChildren;
+
+        if $r1 != null goto label1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.mDrawingOrderedChildren = $r1;
+
+        goto label2;
+
+     label1:
+        virtualinvoke $r1.clear();
+
+     label2:
+        i0 = virtualinvoke r0.getChildCount();
+
+        i1 = 0;
+
+     label3:
+        if i1 >= i0 goto label4;
+
+        $r2 = virtualinvoke r0.getChildAt(i1);
+
+        $r1 = r0.mDrawingOrderedChildren;
+
+        virtualinvoke $r1.add($r2);
+
+        i1 = i1 + 1;
+
+        goto label3;
+
+     label4:
+        $r1 = r0.mDrawingOrderedChildren;
+
+        r3 = androidx.viewpager.widget.ViewPager.sPositionComparator;
+
+        java.util.Collections.sort($r1, r3);
+
+     label5:
+        return;
+    }
+
+    public void addFocusables(java.util.ArrayList, int, int)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, $i1, $i2, $i3, $i4, $i5, i6;
+        android.view.View $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i4 = virtualinvoke r1.size();
+
+        $i5 = virtualinvoke r0.getDescendantFocusability();
+
+        if $i5 == 393216 goto label3;
+
+        i6 = 0;
+
+     label1:
+        $i2 = virtualinvoke r0.getChildCount();
+
+        if i6 >= $i2 goto label3;
+
+        $r2 = virtualinvoke r0.getChildAt(i6);
+
+        $i2 = virtualinvoke $r2.getVisibility();
+
+        if $i2 != 0 goto label2;
+
+        $r3 = virtualinvoke r0.infoForChild($r2);
+
+        if $r3 == null goto label2;
+
+        $i2 = $r3.position;
+
+        $i3 = r0.mCurItem;
+
+        if $i2 != $i3 goto label2;
+
+        virtualinvoke $r2.addFocusables(r1, $i0, $i1);
+
+     label2:
+        i6 = i6 + 1;
+
+        goto label1;
+
+     label3:
+        if $i5 != 262144 goto label4;
+
+        $i0 = virtualinvoke r1.size();
+
+        if $i4 != $i0 goto label7;
+
+     label4:
+        $z0 = virtualinvoke r0.isFocusable();
+
+        if $z0 != 0 goto label5;
+
+        return;
+
+     label5:
+        $i0 = $i1 & 1;
+
+        if $i0 != 1 goto label6;
+
+        $z0 = virtualinvoke r0.isInTouchMode();
+
+        if $z0 == 0 goto label6;
+
+        $z0 = virtualinvoke r0.isFocusableInTouchMode();
+
+        if $z0 != 0 goto label6;
+
+        return;
+
+     label6:
+        if r1 == null goto label7;
+
+        virtualinvoke r1.add(r0);
+
+     label7:
+        return;
+    }
+
+    androidx.viewpager.widget.ViewPager$ItemInfo addNewItem(int, int)
+    {
+        androidx.viewpager.widget.PagerAdapter $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList $r4;
+        androidx.viewpager.widget.ViewPager$ItemInfo r1;
+        int $i0, $i1;
+        float $f0;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        r1 = new androidx.viewpager.widget.ViewPager$ItemInfo;
+
+        specialinvoke r1.<init>();
+
+        r1.position = $i0;
+
+        $r2 = r0.mAdapter;
+
+        $r3 = virtualinvoke $r2.instantiateItem(r0, $i0);
+
+        r1.object = $r3;
+
+        $r2 = r0.mAdapter;
+
+        $f0 = virtualinvoke $r2.getPageWidth($i0);
+
+        r1.widthFactor = $f0;
+
+        if $i1 < 0 goto label2;
+
+        $r4 = r0.mItems;
+
+        $i0 = virtualinvoke $r4.size();
+
+        if $i1 < $i0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r4 = r0.mItems;
+
+        virtualinvoke $r4.add($i1, r1);
+
+        return r1;
+
+     label2:
+        $r4 = r0.mItems;
+
+        virtualinvoke $r4.add(r1);
+
+        return r1;
+    }
+
+    public void addOnAdapterChangeListener(androidx.viewpager.widget.ViewPager$OnAdapterChangeListener)
+    {
+        java.util.List $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnAdapterChangeListener $r1;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mAdapterChangeListeners;
+
+        if $r2 != null goto label1;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<init>();
+
+        r0.mAdapterChangeListeners = $r3;
+
+     label1:
+        $r2 = r0.mAdapterChangeListeners;
+
+        interfaceinvoke $r2.add($r1);
+
+        return;
+    }
+
+    public void addOnPageChangeListener(androidx.viewpager.widget.ViewPager$OnPageChangeListener)
+    {
+        java.util.List $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener $r1;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mOnPageChangeListeners;
+
+        if $r2 != null goto label1;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<init>();
+
+        r0.mOnPageChangeListeners = $r3;
+
+     label1:
+        $r2 = r0.mOnPageChangeListeners;
+
+        interfaceinvoke $r2.add($r1);
+
+        return;
+    }
+
+    public void addTouchables(java.util.ArrayList)
+    {
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, $i1, i2;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r2;
+        java.util.ArrayList r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        i2 = 0;
+
+     label1:
+        $i0 = virtualinvoke r0.getChildCount();
+
+        if i2 >= $i0 goto label3;
+
+        $r2 = virtualinvoke r0.getChildAt(i2);
+
+        $i0 = virtualinvoke $r2.getVisibility();
+
+        if $i0 != 0 goto label2;
+
+        $r3 = virtualinvoke r0.infoForChild($r2);
+
+        if $r3 == null goto label2;
+
+        $i0 = $r3.position;
+
+        $i1 = r0.mCurItem;
+
+        if $i0 != $i1 goto label2;
+
+        virtualinvoke $r2.addTouchables(r1);
+
+     label2:
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    public void addView(android.view.View, int, android.view.ViewGroup$LayoutParams)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r3;
+        java.lang.IllegalStateException $r4;
+        android.view.ViewGroup$LayoutParams $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0;
+        android.view.View $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z0 = virtualinvoke r0.checkLayoutParams($r2);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = virtualinvoke r0.generateLayoutParams($r2);
+
+     label1:
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        $z0 = r3.isDecor;
+
+        $z1 = androidx.viewpager.widget.ViewPager.isDecorView($r1);
+
+        $z0 = $z0 | $z1;
+
+        r3.isDecor = $z0;
+
+        $z0 = r0.mInLayout;
+
+        if $z0 == 0 goto label4;
+
+        if r3 == null goto label3;
+
+        $z0 = r3.isDecor;
+
+        if $z0 != 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $r4 = new java.lang.IllegalStateException;
+
+        specialinvoke $r4.<init>("Cannot add pager decor view during layout");
+
+        throw $r4;
+
+     label3:
+        r3.needsMeasure = 1;
+
+        virtualinvoke r0.addViewInLayout($r1, $i0, $r2);
+
+        return;
+
+     label4:
+        specialinvoke r0.addView($r1, $i0, $r2);
+
+        return;
+    }
+
+    public boolean arrowScroll(int)
+    {
+        android.graphics.Rect r9;
+        android.view.ViewParent $r3;
+        android.view.FocusFinder $r8;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0, i1, i2;
+        android.view.View $r1, r2;
+        java.lang.StringBuilder r4, $r7;
+        java.lang.Class $r5;
+        java.lang.String $r6;
+        boolean z0, z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.findFocus();
+
+        r2 = $r1;
+
+        if $r1 != r0 goto label01;
+
+        r2 = null;
+
+        goto label07;
+
+     label01:
+        if $r1 == null goto label07;
+
+        z0 = 0;
+
+        $r3 = virtualinvoke $r1.getParent();
+
+     label02:
+        z1 = $r3 instanceof android.view.ViewGroup;
+
+        if z1 == 0 goto label04;
+
+        if $r3 != r0 goto label03;
+
+        z0 = 1;
+
+        goto label04;
+
+     label03:
+        $r3 = interfaceinvoke $r3.getParent();
+
+        goto label02;
+
+     label04:
+        if z0 != 0 goto label07;
+
+        r4 = new java.lang.StringBuilder;
+
+        specialinvoke r4.<init>();
+
+        $r5 = virtualinvoke $r1.getClass();
+
+        $r6 = virtualinvoke $r5.getSimpleName();
+
+        virtualinvoke r4.append($r6);
+
+        $r3 = virtualinvoke $r1.getParent();
+
+     label05:
+        z0 = $r3 instanceof android.view.ViewGroup;
+
+        if z0 == 0 goto label06;
+
+        $r7 = virtualinvoke r4.append(" => ");
+
+        $r5 = virtualinvoke $r3.getClass();
+
+        $r6 = virtualinvoke $r5.getSimpleName();
+
+        virtualinvoke $r7.append($r6);
+
+        $r3 = interfaceinvoke $r3.getParent();
+
+        goto label05;
+
+     label06:
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        $r7 = virtualinvoke $r7.append("arrowScroll tried to find focus based on non-child current focused view ");
+
+        $r6 = virtualinvoke r4.toString();
+
+        r4 = virtualinvoke $r7.append($r6);
+
+        $r6 = virtualinvoke r4.toString();
+
+        android.util.Log.e("ViewPager", $r6);
+
+        r2 = null;
+
+     label07:
+        z0 = 0;
+
+        $r8 = android.view.FocusFinder.getInstance();
+
+        $r1 = virtualinvoke $r8.findNextFocus(r0, r2, $i0);
+
+        if $r1 == null goto label13;
+
+        if $r1 == r2 goto label13;
+
+        if $i0 != 17 goto label10;
+
+        r9 = r0.mTempRect;
+
+        r9 = specialinvoke r0.getChildRectInPagerCoordinates(r9, $r1);
+
+        i1 = r9.left;
+
+        r9 = r0.mTempRect;
+
+        r9 = specialinvoke r0.getChildRectInPagerCoordinates(r9, r2);
+
+        i2 = r9.left;
+
+        if r2 == null goto label08;
+
+        if i1 < i2 goto label08;
+
+        z0 = virtualinvoke r0.pageLeft();
+
+        goto label09;
+
+     label08:
+        z0 = virtualinvoke $r1.requestFocus();
+
+     label09:
+        goto label17;
+
+     label10:
+        if $i0 != 66 goto label09;
+
+        r9 = r0.mTempRect;
+
+        r9 = specialinvoke r0.getChildRectInPagerCoordinates(r9, $r1);
+
+        i1 = r9.left;
+
+        r9 = r0.mTempRect;
+
+        r9 = specialinvoke r0.getChildRectInPagerCoordinates(r9, r2);
+
+        i2 = r9.left;
+
+        if r2 == null goto label11;
+
+        if i1 > i2 goto label11;
+
+        z0 = virtualinvoke r0.pageRight();
+
+        goto label12;
+
+     label11:
+        z0 = virtualinvoke $r1.requestFocus();
+
+     label12:
+        goto label17;
+
+     label13:
+        if $i0 == 17 goto label16;
+
+        if $i0 != 1 goto label14;
+
+        goto label16;
+
+     label14:
+        if $i0 == 66 goto label15;
+
+        if $i0 != 2 goto label17;
+
+     label15:
+        z0 = virtualinvoke r0.pageRight();
+
+        goto label17;
+
+     label16:
+        z0 = virtualinvoke r0.pageLeft();
+
+     label17:
+        if z0 == 0 goto label18;
+
+        $i0 = android.view.SoundEffectConstants.getContantForFocusDirection($i0);
+
+        virtualinvoke r0.playSoundEffect($i0);
+
+     label18:
+        return z0;
+    }
+
+    public boolean beginFakeDrag()
+    {
+        android.view.VelocityTracker r1;
+        android.view.MotionEvent $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        long $l0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mIsBeingDragged;
+
+        if $z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        r0.mFakeDragging = 1;
+
+        virtualinvoke r0.setScrollState(1);
+
+        r0.mLastMotionX = 0.0F;
+
+        r0.mInitialMotionX = 0.0F;
+
+        r1 = r0.mVelocityTracker;
+
+        if r1 != null goto label2;
+
+        r1 = android.view.VelocityTracker.obtain();
+
+        r0.mVelocityTracker = r1;
+
+        goto label3;
+
+     label2:
+        virtualinvoke r1.clear();
+
+     label3:
+        $l0 = android.os.SystemClock.uptimeMillis();
+
+        $r2 = android.view.MotionEvent.obtain($l0, $l0, 0, 0.0F, 0.0F, 0);
+
+        r1 = r0.mVelocityTracker;
+
+        virtualinvoke r1.addMovement($r2);
+
+        virtualinvoke $r2.recycle();
+
+        r0.mFakeDragBeginTime = $l0;
+
+        return 1;
+    }
+
+    protected boolean canScroll(android.view.View, boolean, int, int, int)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.ViewGroup r2;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8;
+        android.view.View $r1, $r3;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        $i2 := @parameter4;
+
+        z1 = $r1 instanceof android.view.ViewGroup;
+
+        if z1 == 0 goto label3;
+
+        r2 = (android.view.ViewGroup) $r1;
+
+        $i5 = virtualinvoke $r1.getScrollX();
+
+        $i6 = virtualinvoke $r1.getScrollY();
+
+        $i7 = virtualinvoke r2.getChildCount();
+
+        $i7 = $i7 + -1;
+
+     label1:
+        if $i7 < 0 goto label3;
+
+        $r3 = virtualinvoke r2.getChildAt($i7);
+
+        $i3 = $i1 + $i5;
+
+        $i4 = virtualinvoke $r3.getLeft();
+
+        if $i3 < $i4 goto label2;
+
+        $i3 = $i1 + $i5;
+
+        $i4 = virtualinvoke $r3.getRight();
+
+        if $i3 >= $i4 goto label2;
+
+        $i3 = $i2 + $i6;
+
+        $i4 = virtualinvoke $r3.getTop();
+
+        if $i3 < $i4 goto label2;
+
+        $i3 = $i2 + $i6;
+
+        $i4 = virtualinvoke $r3.getBottom();
+
+        if $i3 >= $i4 goto label2;
+
+        $i3 = $i1 + $i5;
+
+        $i4 = virtualinvoke $r3.getLeft();
+
+        $i3 = $i3 - $i4;
+
+        $i4 = $i2 + $i6;
+
+        $i8 = virtualinvoke $r3.getTop();
+
+        $i4 = $i4 - $i8;
+
+        z1 = virtualinvoke r0.canScroll($r3, 1, $i0, $i3, $i4);
+
+        if z1 == 0 goto label2;
+
+        return 1;
+
+     label2:
+        $i7 = $i7 + -1;
+
+        goto label1;
+
+     label3:
+        if $z0 == 0 goto label4;
+
+        $i0 = neg $i0;
+
+        $z0 = virtualinvoke $r1.canScrollHorizontally($i0);
+
+        if $z0 == 0 goto label4;
+
+        return 1;
+
+     label4:
+        return 0;
+    }
+
+    public boolean canScrollHorizontally(int)
+    {
+        androidx.viewpager.widget.PagerAdapter r1;
+        int $i0, $i1, $i2;
+        androidx.viewpager.widget.ViewPager r0;
+        float $f0, $f1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mAdapter;
+
+        if r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $i1 = specialinvoke r0.getClientWidth();
+
+        $i2 = virtualinvoke r0.getScrollX();
+
+        if $i0 >= 0 goto label2;
+
+        $f0 = (float) $i1;
+
+        $f1 = r0.mFirstOffset;
+
+        $f0 = $f0 * $f1;
+
+        $i0 = (int) $f0;
+
+        if $i2 <= $i0 goto label3;
+
+        return 1;
+
+     label2:
+        if $i0 <= 0 goto label3;
+
+        $f0 = (float) $i1;
+
+        $f1 = r0.mLastOffset;
+
+        $f0 = $f0 * $f1;
+
+        $i0 = (int) $f0;
+
+        if $i2 >= $i0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    protected boolean checkLayoutParams(android.view.ViewGroup$LayoutParams)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.ViewGroup$LayoutParams $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof androidx.viewpager.widget.ViewPager$LayoutParams;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = specialinvoke r0.checkLayoutParams($r1);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void clearOnPageChangeListeners()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.List $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mOnPageChangeListeners;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.clear();
+
+     label1:
+        return;
+    }
+
+    public void computeScroll()
+    {
+        android.widget.Scroller r1;
+        int $i0, $i1, $i2, $i3;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        r0.mIsScrollStarted = 1;
+
+        r1 = r0.mScroller;
+
+        $z0 = virtualinvoke r1.isFinished();
+
+        if $z0 != 0 goto label3;
+
+        r1 = r0.mScroller;
+
+        $z0 = virtualinvoke r1.computeScrollOffset();
+
+        if $z0 == 0 goto label3;
+
+        $i0 = virtualinvoke r0.getScrollX();
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        r1 = r0.mScroller;
+
+        $i2 = virtualinvoke r1.getCurrX();
+
+        r1 = r0.mScroller;
+
+        $i3 = virtualinvoke r1.getCurrY();
+
+        if $i0 != $i2 goto label1;
+
+        if $i1 == $i3 goto label2;
+
+     label1:
+        virtualinvoke r0.scrollTo($i2, $i3);
+
+        $z0 = specialinvoke r0.pageScrolled($i2);
+
+        if $z0 != 0 goto label2;
+
+        r1 = r0.mScroller;
+
+        virtualinvoke r1.abortAnimation();
+
+        virtualinvoke r0.scrollTo(0, $i3);
+
+     label2:
+        androidx.core.view.ViewCompat.postInvalidateOnAnimation(r0);
+
+        return;
+
+     label3:
+        specialinvoke r0.completeScroll(1);
+
+        return;
+    }
+
+    void dataSetChanged()
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r8;
+        androidx.viewpager.widget.PagerAdapter r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r3;
+        androidx.viewpager.widget.ViewPager$ItemInfo r4;
+        int $i0, $i1, i2, $i3, $i4, $i5;
+        android.view.View $r6;
+        boolean z0, z1;
+        android.view.ViewGroup$LayoutParams $r7;
+        java.lang.Object $r1;
+        java.util.Comparator r5;
+
+        r0 := @this;
+
+        r2 = r0.mAdapter;
+
+        $i0 = virtualinvoke r2.getCount();
+
+        r0.mExpectedAdapterCount = $i0;
+
+        r3 = r0.mItems;
+
+        $i1 = virtualinvoke r3.size();
+
+        i2 = r0.mOffscreenPageLimit;
+
+        i2 = i2 * 2;
+
+        i2 = i2 + 1;
+
+        if $i1 >= i2 goto label01;
+
+        r3 = r0.mItems;
+
+        $i1 = virtualinvoke r3.size();
+
+        if $i1 >= $i0 goto label01;
+
+        z0 = 1;
+
+        goto label02;
+
+     label01:
+        z0 = 0;
+
+     label02:
+        i2 = r0.mCurItem;
+
+        z1 = 0;
+
+        $i1 = 0;
+
+     label03:
+        r3 = r0.mItems;
+
+        $i3 = virtualinvoke r3.size();
+
+        if $i1 >= $i3 goto label09;
+
+        r3 = r0.mItems;
+
+        $r1 = virtualinvoke r3.get($i1);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r1;
+
+        r2 = r0.mAdapter;
+
+        $r1 = r4.object;
+
+        $i3 = virtualinvoke r2.getItemPosition($r1);
+
+        if $i3 != -1 goto label04;
+
+        goto label08;
+
+     label04:
+        if $i3 != -2 goto label06;
+
+        r3 = r0.mItems;
+
+        virtualinvoke r3.remove($i1);
+
+        $i1 = $i1 + -1;
+
+        if z1 != 0 goto label05;
+
+        r2 = r0.mAdapter;
+
+        virtualinvoke r2.startUpdate(r0);
+
+        z1 = 1;
+
+     label05:
+        r2 = r0.mAdapter;
+
+        $i3 = r4.position;
+
+        $r1 = r4.object;
+
+        virtualinvoke r2.destroyItem(r0, $i3, $r1);
+
+        z0 = 1;
+
+        $i3 = r0.mCurItem;
+
+        $i4 = r4.position;
+
+        if $i3 != $i4 goto label08;
+
+        i2 = r0.mCurItem;
+
+        $i3 = $i0 + -1;
+
+        i2 = java.lang.Math.min(i2, $i3);
+
+        i2 = java.lang.Math.max(0, i2);
+
+        z0 = 1;
+
+        goto label08;
+
+     label06:
+        $i4 = r4.position;
+
+        if $i4 == $i3 goto label08;
+
+        $i4 = r4.position;
+
+        $i5 = r0.mCurItem;
+
+        if $i4 != $i5 goto label07;
+
+        i2 = $i3;
+
+     label07:
+        r4.position = $i3;
+
+        z0 = 1;
+
+     label08:
+        $i1 = $i1 + 1;
+
+        goto label03;
+
+     label09:
+        if z1 == 0 goto label10;
+
+        r2 = r0.mAdapter;
+
+        virtualinvoke r2.finishUpdate(r0);
+
+     label10:
+        r3 = r0.mItems;
+
+        r5 = androidx.viewpager.widget.ViewPager.COMPARATOR;
+
+        java.util.Collections.sort(r3, r5);
+
+        if z0 == 0 goto label14;
+
+        $i0 = virtualinvoke r0.getChildCount();
+
+        $i1 = 0;
+
+     label11:
+        if $i1 >= $i0 goto label13;
+
+        $r6 = virtualinvoke r0.getChildAt($i1);
+
+        $r7 = virtualinvoke $r6.getLayoutParams();
+
+        r8 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r7;
+
+        z0 = r8.isDecor;
+
+        if z0 != 0 goto label12;
+
+        r8.widthFactor = 0.0F;
+
+     label12:
+        $i1 = $i1 + 1;
+
+        goto label11;
+
+     label13:
+        virtualinvoke r0.setCurrentItemInternal(i2, 0, 1);
+
+        virtualinvoke r0.requestLayout();
+
+     label14:
+        return;
+    }
+
+    public boolean dispatchKeyEvent(android.view.KeyEvent)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.KeyEvent $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.dispatchKeyEvent($r1);
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke r0.executeKeyEvent($r1);
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, $i1, i2, $i3;
+        android.view.View $r2;
+        android.view.accessibility.AccessibilityEvent $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i1 = virtualinvoke $r1.getEventType();
+
+        if $i1 != 4096 goto label1;
+
+        $z0 = specialinvoke r0.dispatchPopulateAccessibilityEvent($r1);
+
+        return $z0;
+
+     label1:
+        $i1 = virtualinvoke r0.getChildCount();
+
+        i2 = 0;
+
+     label2:
+        if i2 >= $i1 goto label4;
+
+        $r2 = virtualinvoke r0.getChildAt(i2);
+
+        $i0 = virtualinvoke $r2.getVisibility();
+
+        if $i0 != 0 goto label3;
+
+        $r3 = virtualinvoke r0.infoForChild($r2);
+
+        if $r3 == null goto label3;
+
+        $i3 = $r3.position;
+
+        $i0 = r0.mCurItem;
+
+        if $i3 != $i0 goto label3;
+
+        $z0 = virtualinvoke $r2.dispatchPopulateAccessibilityEvent($r1);
+
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        i2 = i2 + 1;
+
+        goto label2;
+
+     label4:
+        return 0;
+    }
+
+    float distanceInfluenceForSnapDuration(float)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        float $f0;
+        double $d0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $f0 = $f0 - 0.5F;
+
+        $f0 = $f0 * 0.47123894F;
+
+        $d0 = (double) $f0;
+
+        $d0 = java.lang.Math.sin($d0);
+
+        $f0 = (float) $d0;
+
+        return $f0;
+    }
+
+    public void draw(android.graphics.Canvas)
+    {
+        androidx.viewpager.widget.PagerAdapter r2;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0, $i1, $i2, $i3, $i4;
+        float $f0, $f1, $f2;
+        android.graphics.Canvas $r1;
+        android.widget.EdgeEffect r3;
+        boolean z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.draw($r1);
+
+        z0 = 0;
+
+        $i0 = virtualinvoke r0.getOverScrollMode();
+
+        if $i0 == 0 goto label2;
+
+        if $i0 != 1 goto label1;
+
+        r2 = r0.mAdapter;
+
+        if r2 == null goto label1;
+
+        $i0 = virtualinvoke r2.getCount();
+
+        if $i0 <= 1 goto label1;
+
+        goto label2;
+
+     label1:
+        r3 = r0.mLeftEdge;
+
+        virtualinvoke r3.finish();
+
+        r3 = r0.mRightEdge;
+
+        virtualinvoke r3.finish();
+
+        goto label4;
+
+     label2:
+        r3 = r0.mLeftEdge;
+
+        $z1 = virtualinvoke r3.isFinished();
+
+        if $z1 != 0 goto label3;
+
+        $i0 = virtualinvoke $r1.save();
+
+        $i1 = virtualinvoke r0.getHeight();
+
+        $i2 = virtualinvoke r0.getPaddingTop();
+
+        $i1 = $i1 - $i2;
+
+        $i2 = virtualinvoke r0.getPaddingBottom();
+
+        $i1 = $i1 - $i2;
+
+        $i2 = virtualinvoke r0.getWidth();
+
+        virtualinvoke $r1.rotate(270.0F);
+
+        $i3 = neg $i1;
+
+        $i4 = virtualinvoke r0.getPaddingTop();
+
+        $i3 = $i3 + $i4;
+
+        $f0 = (float) $i3;
+
+        $f1 = r0.mFirstOffset;
+
+        $f2 = (float) $i2;
+
+        $f1 = $f1 * $f2;
+
+        virtualinvoke $r1.translate($f0, $f1);
+
+        r3 = r0.mLeftEdge;
+
+        virtualinvoke r3.setSize($i1, $i2);
+
+        r3 = r0.mLeftEdge;
+
+        z0 = virtualinvoke r3.draw($r1);
+
+        virtualinvoke $r1.restoreToCount($i0);
+
+     label3:
+        r3 = r0.mRightEdge;
+
+        $z1 = virtualinvoke r3.isFinished();
+
+        if $z1 != 0 goto label4;
+
+        $i0 = virtualinvoke $r1.save();
+
+        $i1 = virtualinvoke r0.getWidth();
+
+        $i2 = virtualinvoke r0.getHeight();
+
+        $i3 = virtualinvoke r0.getPaddingTop();
+
+        $i2 = $i2 - $i3;
+
+        $i3 = virtualinvoke r0.getPaddingBottom();
+
+        $i2 = $i2 - $i3;
+
+        virtualinvoke $r1.rotate(90.0F);
+
+        $i3 = virtualinvoke r0.getPaddingTop();
+
+        $i3 = neg $i3;
+
+        $f0 = (float) $i3;
+
+        $f1 = r0.mLastOffset;
+
+        $f1 = $f1 + 1.0F;
+
+        $f1 = neg $f1;
+
+        $f2 = (float) $i1;
+
+        $f1 = $f1 * $f2;
+
+        virtualinvoke $r1.translate($f0, $f1);
+
+        r3 = r0.mRightEdge;
+
+        virtualinvoke r3.setSize($i2, $i1);
+
+        r3 = r0.mRightEdge;
+
+        $z1 = virtualinvoke r3.draw($r1);
+
+        z0 = z0 | $z1;
+
+        virtualinvoke $r1.restoreToCount($i0);
+
+     label4:
+        if z0 == 0 goto label5;
+
+        androidx.core.view.ViewCompat.postInvalidateOnAnimation(r0);
+
+     label5:
+        return;
+    }
+
+    protected void drawableStateChanged()
+    {
+        int[] $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        android.graphics.drawable.Drawable r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        specialinvoke r0.drawableStateChanged();
+
+        r1 = r0.mMarginDrawable;
+
+        if r1 == null goto label1;
+
+        $z0 = virtualinvoke r1.isStateful();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke r0.getDrawableState();
+
+        virtualinvoke r1.setState($r2);
+
+     label1:
+        return;
+    }
+
+    public void endFakeDrag()
+    {
+        java.lang.IllegalStateException r4;
+        androidx.viewpager.widget.PagerAdapter r1;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.VelocityTracker r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int i0, i1, $i2, $i3;
+        float f0, f1, f2;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mFakeDragging;
+
+        if z0 == 0 goto label2;
+
+        r1 = r0.mAdapter;
+
+        if r1 == null goto label1;
+
+        r2 = r0.mVelocityTracker;
+
+        i1 = r0.mMaximumVelocity;
+
+        f0 = (float) i1;
+
+        virtualinvoke r2.computeCurrentVelocity(1000, f0);
+
+        i1 = r0.mActivePointerId;
+
+        f0 = virtualinvoke r2.getXVelocity(i1);
+
+        i1 = (int) f0;
+
+        r0.mPopulatePending = 1;
+
+        $i2 = specialinvoke r0.getClientWidth();
+
+        $i3 = virtualinvoke r0.getScrollX();
+
+        $r3 = specialinvoke r0.infoForCurrentScrollPosition();
+
+        i0 = $r3.position;
+
+        f0 = (float) $i3;
+
+        f1 = (float) $i2;
+
+        f0 = f0 / f1;
+
+        f1 = $r3.offset;
+
+        f0 = f0 - f1;
+
+        f1 = $r3.widthFactor;
+
+        f0 = f0 / f1;
+
+        f1 = r0.mLastMotionX;
+
+        f2 = r0.mInitialMotionX;
+
+        f1 = f1 - f2;
+
+        $i2 = (int) f1;
+
+        i0 = specialinvoke r0.determineTargetPage(i0, f0, i1, $i2);
+
+        virtualinvoke r0.setCurrentItemInternal(i0, 1, 1, i1);
+
+     label1:
+        specialinvoke r0.endDrag();
+
+        r0.mFakeDragging = 0;
+
+        return;
+
+     label2:
+        r4 = new java.lang.IllegalStateException;
+
+        specialinvoke r4.<init>("No fake drag in progress. Call beginFakeDrag first.");
+
+        throw r4;
+    }
+
+    public boolean executeKeyEvent(android.view.KeyEvent)
+    {
+        android.view.KeyEvent $r1;
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getAction();
+
+        if $i0 != 0 goto label8;
+
+        $i0 = virtualinvoke $r1.getKeyCode();
+
+        lookupswitch($i0)
+        {
+            case 21: goto label6;
+            case 22: goto label4;
+            case 61: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $z0 = virtualinvoke $r1.hasNoModifiers();
+
+        if $z0 == 0 goto label3;
+
+        $z0 = virtualinvoke r0.arrowScroll(2);
+
+        return $z0;
+
+     label3:
+        $z0 = virtualinvoke $r1.hasModifiers(1);
+
+        if $z0 == 0 goto label8;
+
+        $z0 = virtualinvoke r0.arrowScroll(1);
+
+        return $z0;
+
+     label4:
+        $z0 = virtualinvoke $r1.hasModifiers(2);
+
+        if $z0 == 0 goto label5;
+
+        $z0 = virtualinvoke r0.pageRight();
+
+        return $z0;
+
+     label5:
+        $z0 = virtualinvoke r0.arrowScroll(66);
+
+        return $z0;
+
+     label6:
+        $z0 = virtualinvoke $r1.hasModifiers(2);
+
+        if $z0 == 0 goto label7;
+
+        $z0 = virtualinvoke r0.pageLeft();
+
+        return $z0;
+
+     label7:
+        $z0 = virtualinvoke r0.arrowScroll(17);
+
+        return $z0;
+
+     label8:
+        return 0;
+    }
+
+    public void fakeDragBy(float)
+    {
+        java.lang.IllegalStateException $r8;
+        androidx.viewpager.widget.PagerAdapter r1;
+        androidx.viewpager.widget.ViewPager r0;
+        long $l4, $l5;
+        java.util.ArrayList r2;
+        android.view.VelocityTracker $r7;
+        androidx.viewpager.widget.ViewPager$ItemInfo r4, r5;
+        byte b3;
+        android.view.MotionEvent $r6;
+        int $i0, $i1, $i2;
+        boolean z0;
+        float $f0, f1, f2, f3;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        z0 = r0.mFakeDragging;
+
+        if z0 == 0 goto label6;
+
+        r1 = r0.mAdapter;
+
+        if r1 != null goto label1;
+
+        return;
+
+     label1:
+        f1 = r0.mLastMotionX;
+
+        f1 = f1 + $f0;
+
+        r0.mLastMotionX = f1;
+
+        $i0 = virtualinvoke r0.getScrollX();
+
+        f1 = (float) $i0;
+
+        $f0 = f1 - $f0;
+
+        $i0 = specialinvoke r0.getClientWidth();
+
+        f1 = (float) $i0;
+
+        f2 = r0.mFirstOffset;
+
+        f1 = f1 * f2;
+
+        f2 = (float) $i0;
+
+        f3 = r0.mLastOffset;
+
+        f2 = f2 * f3;
+
+        r2 = r0.mItems;
+
+        $r3 = virtualinvoke r2.get(0);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r3;
+
+        r2 = r0.mItems;
+
+        $i1 = virtualinvoke r2.size();
+
+        $i1 = $i1 + -1;
+
+        $r3 = virtualinvoke r2.get($i1);
+
+        r5 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r3;
+
+        $i1 = r4.position;
+
+        if $i1 == 0 goto label2;
+
+        f1 = r4.offset;
+
+        f3 = (float) $i0;
+
+        f1 = f1 * f3;
+
+     label2:
+        $i1 = r5.position;
+
+        r1 = r0.mAdapter;
+
+        $i2 = virtualinvoke r1.getCount();
+
+        $i2 = $i2 + -1;
+
+        if $i1 == $i2 goto label3;
+
+        f2 = r5.offset;
+
+        f3 = (float) $i0;
+
+        f2 = f2 * f3;
+
+     label3:
+        b3 = $f0 cmpg f1;
+
+        $i0 = (int) b3;
+
+        if $i0 >= 0 goto label4;
+
+        $f0 = f1;
+
+        goto label5;
+
+     label4:
+        b3 = $f0 cmpl f2;
+
+        $i0 = (int) b3;
+
+        if $i0 <= 0 goto label5;
+
+        $f0 = f2;
+
+     label5:
+        f1 = r0.mLastMotionX;
+
+        $i0 = (int) $f0;
+
+        f2 = (float) $i0;
+
+        f2 = $f0 - f2;
+
+        f1 = f1 + f2;
+
+        r0.mLastMotionX = f1;
+
+        $i0 = (int) $f0;
+
+        $i1 = virtualinvoke r0.getScrollY();
+
+        virtualinvoke r0.scrollTo($i0, $i1);
+
+        $i0 = (int) $f0;
+
+        specialinvoke r0.pageScrolled($i0);
+
+        $l4 = android.os.SystemClock.uptimeMillis();
+
+        $l5 = r0.mFakeDragBeginTime;
+
+        $f0 = r0.mLastMotionX;
+
+        $r6 = android.view.MotionEvent.obtain($l5, $l4, 2, $f0, 0.0F, 0);
+
+        $r7 = r0.mVelocityTracker;
+
+        virtualinvoke $r7.addMovement($r6);
+
+        virtualinvoke $r6.recycle();
+
+        return;
+
+     label6:
+        $r8 = new java.lang.IllegalStateException;
+
+        specialinvoke $r8.<init>("No fake drag in progress. Call beginFakeDrag first.");
+
+        throw $r8;
+    }
+
+    protected android.view.ViewGroup$LayoutParams generateDefaultLayoutParams()
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams $r1;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $r1 = new androidx.viewpager.widget.ViewPager$LayoutParams;
+
+        specialinvoke $r1.<init>();
+
+        return $r1;
+    }
+
+    public android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams $r2;
+        android.content.Context $r3;
+        android.util.AttributeSet $r1;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new androidx.viewpager.widget.ViewPager$LayoutParams;
+
+        $r3 = virtualinvoke r0.getContext();
+
+        specialinvoke $r2.<init>($r3, $r1);
+
+        return $r2;
+    }
+
+    protected android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.ViewGroup$LayoutParams $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r1 = virtualinvoke r0.generateDefaultLayoutParams();
+
+        return $r1;
+    }
+
+    public androidx.viewpager.widget.PagerAdapter getAdapter()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.PagerAdapter r1;
+
+        r0 := @this;
+
+        r1 = r0.mAdapter;
+
+        return r1;
+    }
+
+    protected int getChildDrawingOrder(int, int)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r5;
+        android.view.ViewGroup$LayoutParams $r4;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r1;
+        int $i0, $i1, i2;
+        android.view.View r3;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        i2 = r0.mDrawingOrder;
+
+        if i2 != 2 goto label1;
+
+        i2 = -1;
+
+        $i0 = $i0 + i2;
+
+        $i0 = $i0 - $i1;
+
+        goto label2;
+
+     label1:
+        $i0 = $i1;
+
+     label2:
+        r1 = r0.mDrawingOrderedChildren;
+
+        $r2 = virtualinvoke r1.get($i0);
+
+        r3 = (android.view.View) $r2;
+
+        $r4 = virtualinvoke r3.getLayoutParams();
+
+        r5 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r4;
+
+        $i0 = r5.childIndex;
+
+        return $i0;
+    }
+
+    public int getCurrentItem()
+    {
+        int i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        i0 = r0.mCurItem;
+
+        return i0;
+    }
+
+    public int getOffscreenPageLimit()
+    {
+        int i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        i0 = r0.mOffscreenPageLimit;
+
+        return i0;
+    }
+
+    public int getPageMargin()
+    {
+        int i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        i0 = r0.mPageMargin;
+
+        return i0;
+    }
+
+    androidx.viewpager.widget.ViewPager$ItemInfo infoForAnyChild(android.view.View)
+    {
+        android.view.ViewParent $r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+     label1:
+        $r2 = virtualinvoke $r1.getParent();
+
+        if $r2 == r0 goto label4;
+
+        if $r2 == null goto label3;
+
+        $z0 = $r2 instanceof android.view.View;
+
+        if $z0 != 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $r1 = (android.view.View) $r2;
+
+        goto label1;
+
+     label3:
+        return null;
+
+     label4:
+        $r3 = virtualinvoke r0.infoForChild($r1);
+
+        return $r3;
+    }
+
+    androidx.viewpager.widget.ViewPager$ItemInfo infoForChild(android.view.View)
+    {
+        androidx.viewpager.widget.PagerAdapter $r5;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r3;
+        androidx.viewpager.widget.ViewPager$ItemInfo r4;
+        int i0, $i1;
+        android.view.View $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        i0 = 0;
+
+     label1:
+        r3 = r0.mItems;
+
+        $i1 = virtualinvoke r3.size();
+
+        if i0 >= $i1 goto label3;
+
+        r3 = r0.mItems;
+
+        $r2 = virtualinvoke r3.get(i0);
+
+        r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        $r5 = r0.mAdapter;
+
+        $r2 = r4.object;
+
+        $z0 = virtualinvoke $r5.isViewFromObject($r1, $r2);
+
+        if $z0 == 0 goto label2;
+
+        return r4;
+
+     label2:
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    androidx.viewpager.widget.ViewPager$ItemInfo infoForPosition(int)
+    {
+        androidx.viewpager.widget.ViewPager$ItemInfo r3;
+        int $i0, $i1, i2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.lang.Object $r2;
+        java.util.ArrayList r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        i2 = 0;
+
+     label1:
+        r1 = r0.mItems;
+
+        $i1 = virtualinvoke r1.size();
+
+        if i2 >= $i1 goto label3;
+
+        r1 = r0.mItems;
+
+        $r2 = virtualinvoke r1.get(i2);
+
+        r3 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        $i1 = r3.position;
+
+        if $i1 != $i0 goto label2;
+
+        return r3;
+
+     label2:
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    void initViewPager()
+    {
+        android.content.Context $r1;
+        android.widget.Scroller r2;
+        androidx.viewpager.widget.ViewPager$MyAccessibilityDelegate $r8;
+        android.view.animation.Interpolator r3;
+        androidx.viewpager.widget.ViewPager r0;
+        android.util.DisplayMetrics $r6;
+        androidx.viewpager.widget.ViewPager$4 $r9;
+        android.view.ViewConfiguration $r4;
+        int $i0;
+        float f0, $f1;
+        android.widget.EdgeEffect $r7;
+        android.content.res.Resources $r5;
+
+        r0 := @this;
+
+        virtualinvoke r0.setWillNotDraw(0);
+
+        virtualinvoke r0.setDescendantFocusability(262144);
+
+        virtualinvoke r0.setFocusable(1);
+
+        $r1 = virtualinvoke r0.getContext();
+
+        r2 = new android.widget.Scroller;
+
+        r3 = androidx.viewpager.widget.ViewPager.sInterpolator;
+
+        specialinvoke r2.<init>($r1, r3);
+
+        r0.mScroller = r2;
+
+        $r4 = android.view.ViewConfiguration.get($r1);
+
+        $r5 = virtualinvoke $r1.getResources();
+
+        $r6 = virtualinvoke $r5.getDisplayMetrics();
+
+        f0 = $r6.density;
+
+        $i0 = virtualinvoke $r4.getScaledPagingTouchSlop();
+
+        r0.mTouchSlop = $i0;
+
+        $f1 = 400.0F * f0;
+
+        $i0 = (int) $f1;
+
+        r0.mMinimumVelocity = $i0;
+
+        $i0 = virtualinvoke $r4.getScaledMaximumFlingVelocity();
+
+        r0.mMaximumVelocity = $i0;
+
+        $r7 = new android.widget.EdgeEffect;
+
+        specialinvoke $r7.<init>($r1);
+
+        r0.mLeftEdge = $r7;
+
+        $r7 = new android.widget.EdgeEffect;
+
+        specialinvoke $r7.<init>($r1);
+
+        r0.mRightEdge = $r7;
+
+        $f1 = 25.0F * f0;
+
+        $i0 = (int) $f1;
+
+        r0.mFlingDistance = $i0;
+
+        $f1 = 2.0F * f0;
+
+        $i0 = (int) $f1;
+
+        r0.mCloseEnough = $i0;
+
+        f0 = 16.0F * f0;
+
+        $i0 = (int) f0;
+
+        r0.mDefaultGutterSize = $i0;
+
+        $r8 = new androidx.viewpager.widget.ViewPager$MyAccessibilityDelegate;
+
+        specialinvoke $r8.<init>(r0);
+
+        androidx.core.view.ViewCompat.setAccessibilityDelegate(r0, $r8);
+
+        $i0 = androidx.core.view.ViewCompat.getImportantForAccessibility(r0);
+
+        if $i0 != 0 goto label1;
+
+        androidx.core.view.ViewCompat.setImportantForAccessibility(r0, 1);
+
+     label1:
+        $r9 = new androidx.viewpager.widget.ViewPager$4;
+
+        specialinvoke $r9.<init>(r0);
+
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(r0, $r9);
+
+        return;
+    }
+
+    public boolean isFakeDragging()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mFakeDragging;
+
+        return z0;
+    }
+
+    protected void onAttachedToWindow()
+    {
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        specialinvoke r0.onAttachedToWindow();
+
+        r0.mFirstLayout = 1;
+
+        return;
+    }
+
+    protected void onDetachedFromWindow()
+    {
+        android.widget.Scroller $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.lang.Runnable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mEndScrollRunnable;
+
+        virtualinvoke r0.removeCallbacks($r1);
+
+        $r2 = r0.mScroller;
+
+        if $r2 == null goto label1;
+
+        $z0 = virtualinvoke $r2.isFinished();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = r0.mScroller;
+
+        virtualinvoke $r2.abortAnimation();
+
+     label1:
+        specialinvoke r0.onDetachedFromWindow();
+
+        return;
+    }
+
+    protected void onDraw(android.graphics.Canvas)
+    {
+        androidx.viewpager.widget.PagerAdapter r4;
+        androidx.viewpager.widget.ViewPager r0;
+        android.graphics.drawable.Drawable r2;
+        java.util.ArrayList r3;
+        androidx.viewpager.widget.ViewPager$ItemInfo r6, r7;
+        byte b7;
+        int i0, $i1, i2, $i3, i4, $i5, i6, $i8, $i9, i10;
+        android.graphics.Canvas $r1;
+        float f0, f1, f2, $f3, $f4;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.onDraw($r1);
+
+        i2 = r0.mPageMargin;
+
+        if i2 <= 0 goto label8;
+
+        r2 = r0.mMarginDrawable;
+
+        if r2 == null goto label8;
+
+        r3 = r0.mItems;
+
+        i2 = virtualinvoke r3.size();
+
+        if i2 <= 0 goto label8;
+
+        r4 = r0.mAdapter;
+
+        if r4 == null goto label8;
+
+        i2 = virtualinvoke r0.getScrollX();
+
+        $i3 = virtualinvoke r0.getWidth();
+
+        i4 = r0.mPageMargin;
+
+        f0 = (float) i4;
+
+        f1 = (float) $i3;
+
+        f0 = f0 / f1;
+
+        i4 = 0;
+
+        r3 = r0.mItems;
+
+        $r5 = virtualinvoke r3.get(0);
+
+        r6 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        f1 = r6.offset;
+
+        r3 = r0.mItems;
+
+        $i5 = virtualinvoke r3.size();
+
+        i0 = r6.position;
+
+        r3 = r0.mItems;
+
+        i6 = -1;
+
+        i6 = $i5 + i6;
+
+        $r5 = virtualinvoke r3.get(i6);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        i6 = r7.position;
+
+     label1:
+        if i0 >= i6 goto label8;
+
+     label2:
+        $i1 = r6.position;
+
+        if i0 <= $i1 goto label3;
+
+        if i4 >= $i5 goto label3;
+
+        r3 = r0.mItems;
+
+        i4 = i4 + 1;
+
+        $r5 = virtualinvoke r3.get(i4);
+
+        r6 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        goto label2;
+
+     label3:
+        $i1 = r6.position;
+
+        if i0 != $i1 goto label4;
+
+        f1 = r6.offset;
+
+        f2 = r6.widthFactor;
+
+        f1 = f1 + f2;
+
+        f2 = (float) $i3;
+
+        f2 = f1 * f2;
+
+        f1 = r6.offset;
+
+        $f3 = r6.widthFactor;
+
+        f1 = f1 + $f3;
+
+        f1 = f1 + f0;
+
+        goto label5;
+
+     label4:
+        r4 = r0.mAdapter;
+
+        f2 = virtualinvoke r4.getPageWidth(i0);
+
+        $f3 = f1 + f2;
+
+        $f4 = (float) $i3;
+
+        f2 = f2 + f0;
+
+        f1 = f1 + f2;
+
+        f2 = $f3 * $f4;
+
+     label5:
+        $i1 = r0.mPageMargin;
+
+        $f3 = (float) $i1;
+
+        $f3 = $f3 + f2;
+
+        $f4 = (float) i2;
+
+        b7 = $f3 cmpl $f4;
+
+        $i1 = (int) b7;
+
+        if $i1 <= 0 goto label6;
+
+        r2 = r0.mMarginDrawable;
+
+        $i8 = java.lang.Math.round(f2);
+
+        $i1 = r0.mTopPageBounds;
+
+        $i9 = r0.mPageMargin;
+
+        $f3 = (float) $i9;
+
+        $f3 = $f3 + f2;
+
+        $i9 = java.lang.Math.round($f3);
+
+        i10 = r0.mBottomPageBounds;
+
+        virtualinvoke r2.setBounds($i8, $i1, $i9, i10);
+
+        r2 = r0.mMarginDrawable;
+
+        virtualinvoke r2.draw($r1);
+
+        goto label6;
+
+     label6:
+        $i1 = i2 + $i3;
+
+        $f3 = (float) $i1;
+
+        b7 = f2 cmpl $f3;
+
+        $i1 = (int) b7;
+
+        if $i1 <= 0 goto label7;
+
+        return;
+
+     label7:
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label8:
+        return;
+    }
+
+    public boolean onInterceptTouchEvent(android.view.MotionEvent)
+    {
+        android.widget.Scroller $r2;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.VelocityTracker $r3;
+        byte $b2;
+        android.view.MotionEvent $r1;
+        int $i0, $i1, $i3;
+        float f0, $f1, $f2, $f3, $f4, $f5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getAction();
+
+        $i0 = $i0 & 255;
+
+        if $i0 == 3 goto label18;
+
+        if $i0 != 1 goto label01;
+
+        goto label18;
+
+     label01:
+        if $i0 == 0 goto label03;
+
+        $z0 = r0.mIsBeingDragged;
+
+        if $z0 == 0 goto label02;
+
+        return 1;
+
+     label02:
+        $z0 = r0.mIsUnableToDrag;
+
+        if $z0 == 0 goto label03;
+
+        return 0;
+
+     label03:
+        lookupswitch($i0)
+        {
+            case 0: goto label14;
+            case 2: goto label06;
+            case 6: goto label05;
+            default: goto label04;
+        };
+
+     label04:
+        goto label16;
+
+     label05:
+        specialinvoke r0.onSecondaryPointerUp($r1);
+
+        goto label16;
+
+     label06:
+        $i0 = r0.mActivePointerId;
+
+        if $i0 != -1 goto label07;
+
+        goto label16;
+
+     label07:
+        $i0 = virtualinvoke $r1.findPointerIndex($i0);
+
+        $f1 = virtualinvoke $r1.getX($i0);
+
+        $f2 = r0.mLastMotionX;
+
+        f0 = $f1 - $f2;
+
+        $f3 = java.lang.Math.abs(f0);
+
+        $f4 = virtualinvoke $r1.getY($i0);
+
+        $f2 = r0.mInitialMotionY;
+
+        $f2 = $f4 - $f2;
+
+        $f5 = java.lang.Math.abs($f2);
+
+        $b2 = f0 cmpl 0.0F;
+
+        if $b2 == 0 goto label08;
+
+        $f2 = r0.mLastMotionX;
+
+        $z0 = specialinvoke r0.isGutterDrag($f2, f0);
+
+        if $z0 != 0 goto label08;
+
+        $i0 = (int) f0;
+
+        $i1 = (int) $f1;
+
+        $i3 = (int) $f4;
+
+        $f2 = $f4;
+
+        $z0 = virtualinvoke r0.canScroll(r0, 0, $i0, $i1, $i3);
+
+        if $z0 == 0 goto label09;
+
+        r0.mLastMotionX = $f1;
+
+        r0.mLastMotionY = $f4;
+
+        r0.mIsUnableToDrag = 1;
+
+        return 0;
+
+     label08:
+        $f2 = $f4;
+
+     label09:
+        $i0 = r0.mTouchSlop;
+
+        $f4 = (float) $i0;
+
+        $b2 = $f3 cmpl $f4;
+
+        $i1 = (int) $b2;
+
+        if $i1 <= 0 goto label12;
+
+        $f3 = 0.5F * $f3;
+
+        $b2 = $f3 cmpl $f5;
+
+        $i1 = (int) $b2;
+
+        if $i1 <= 0 goto label12;
+
+        r0.mIsBeingDragged = 1;
+
+        specialinvoke r0.requestParentDisallowInterceptTouchEvent(1);
+
+        virtualinvoke r0.setScrollState(1);
+
+        $b2 = f0 cmpl 0.0F;
+
+        $i0 = (int) $b2;
+
+        if $i0 <= 0 goto label10;
+
+        f0 = r0.mInitialMotionX;
+
+        $i0 = r0.mTouchSlop;
+
+        $f3 = (float) $i0;
+
+        f0 = f0 + $f3;
+
+        goto label11;
+
+     label10:
+        f0 = r0.mInitialMotionX;
+
+        $i0 = r0.mTouchSlop;
+
+        $f3 = (float) $i0;
+
+        f0 = f0 - $f3;
+
+     label11:
+        r0.mLastMotionX = f0;
+
+        r0.mLastMotionY = $f2;
+
+        specialinvoke r0.setScrollingCacheEnabled(1);
+
+        goto label13;
+
+     label12:
+        $f2 = (float) $i0;
+
+        $b2 = $f5 cmpl $f2;
+
+        $i0 = (int) $b2;
+
+        if $i0 <= 0 goto label13;
+
+        r0.mIsUnableToDrag = 1;
+
+     label13:
+        $z0 = r0.mIsBeingDragged;
+
+        if $z0 == 0 goto label16;
+
+        $z0 = specialinvoke r0.performDrag($f1);
+
+        if $z0 == 0 goto label16;
+
+        androidx.core.view.ViewCompat.postInvalidateOnAnimation(r0);
+
+        goto label16;
+
+     label14:
+        $f1 = virtualinvoke $r1.getX();
+
+        r0.mInitialMotionX = $f1;
+
+        r0.mLastMotionX = $f1;
+
+        $f1 = virtualinvoke $r1.getY();
+
+        r0.mInitialMotionY = $f1;
+
+        r0.mLastMotionY = $f1;
+
+        $i0 = virtualinvoke $r1.getPointerId(0);
+
+        r0.mActivePointerId = $i0;
+
+        r0.mIsUnableToDrag = 0;
+
+        r0.mIsScrollStarted = 1;
+
+        $r2 = r0.mScroller;
+
+        virtualinvoke $r2.computeScrollOffset();
+
+        $i0 = r0.mScrollState;
+
+        if $i0 != 2 goto label15;
+
+        $r2 = r0.mScroller;
+
+        $i0 = virtualinvoke $r2.getFinalX();
+
+        $r2 = r0.mScroller;
+
+        $i1 = virtualinvoke $r2.getCurrX();
+
+        $i0 = $i0 - $i1;
+
+        $i0 = java.lang.Math.abs($i0);
+
+        $i1 = r0.mCloseEnough;
+
+        if $i0 <= $i1 goto label15;
+
+        $r2 = r0.mScroller;
+
+        virtualinvoke $r2.abortAnimation();
+
+        r0.mPopulatePending = 0;
+
+        virtualinvoke r0.populate();
+
+        r0.mIsBeingDragged = 1;
+
+        specialinvoke r0.requestParentDisallowInterceptTouchEvent(1);
+
+        virtualinvoke r0.setScrollState(1);
+
+        goto label16;
+
+     label15:
+        specialinvoke r0.completeScroll(0);
+
+        r0.mIsBeingDragged = 0;
+
+     label16:
+        $r3 = r0.mVelocityTracker;
+
+        if $r3 != null goto label17;
+
+        $r3 = android.view.VelocityTracker.obtain();
+
+        r0.mVelocityTracker = $r3;
+
+     label17:
+        $r3 = r0.mVelocityTracker;
+
+        virtualinvoke $r3.addMovement($r1);
+
+        $z0 = r0.mIsBeingDragged;
+
+        return $z0;
+
+     label18:
+        specialinvoke r0.resetTouch();
+
+        return 0;
+    }
+
+    protected void onLayout(boolean, int, int, int, int)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r3;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r4;
+        int $i0, $i1, $i2, $i3, $i4, i5, i6, i7, i8, $i9, i10, $i11, i12, $i13, $i14;
+        android.view.View $r1;
+        boolean $z0;
+        android.view.ViewGroup$LayoutParams $r2;
+        float f0, f1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i4 = virtualinvoke r0.getChildCount();
+
+        i5 = $i4;
+
+        i6 = $i2 - $i0;
+
+        $i0 = $i3 - $i1;
+
+        i7 = virtualinvoke r0.getPaddingLeft();
+
+        $i1 = virtualinvoke r0.getPaddingTop();
+
+        i8 = virtualinvoke r0.getPaddingRight();
+
+        $i3 = virtualinvoke r0.getPaddingBottom();
+
+        $i9 = virtualinvoke r0.getScrollX();
+
+        $i2 = 0;
+
+        i10 = 0;
+
+     label01:
+        if i10 >= $i4 goto label13;
+
+        $r1 = virtualinvoke r0.getChildAt(i10);
+
+        $i11 = virtualinvoke $r1.getVisibility();
+
+        if $i11 == 8 goto label12;
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        $z0 = r3.isDecor;
+
+        if $z0 == 0 goto label12;
+
+        $i11 = r3.gravity;
+
+        $i11 = $i11 & 7;
+
+        i12 = r3.gravity;
+
+        i12 = i12 & 112;
+
+        lookupswitch($i11)
+        {
+            case 1: goto label05;
+            case 2: goto label02;
+            case 3: goto label04;
+            case 4: goto label02;
+            case 5: goto label03;
+            default: goto label02;
+        };
+
+     label02:
+        $i11 = i7;
+
+        goto label06;
+
+     label03:
+        $i11 = i6 - i8;
+
+        $i13 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i11 = $i11 - $i13;
+
+        $i13 = virtualinvoke $r1.getMeasuredWidth();
+
+        i8 = i8 + $i13;
+
+        goto label06;
+
+     label04:
+        $i11 = i7;
+
+        $i13 = virtualinvoke $r1.getMeasuredWidth();
+
+        i7 = i7 + $i13;
+
+        goto label06;
+
+     label05:
+        $i11 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i11 = i6 - $i11;
+
+        $i11 = $i11 / 2;
+
+        $i11 = java.lang.Math.max($i11, i7);
+
+     label06:
+        lookupswitch(i12)
+        {
+            case 16: goto label10;
+            case 48: goto label09;
+            case 80: goto label08;
+            default: goto label07;
+        };
+
+     label07:
+        i12 = $i1;
+
+        goto label11;
+
+     label08:
+        i12 = $i0 - $i3;
+
+        $i13 = virtualinvoke $r1.getMeasuredHeight();
+
+        i12 = i12 - $i13;
+
+        $i13 = virtualinvoke $r1.getMeasuredHeight();
+
+        $i3 = $i3 + $i13;
+
+        goto label11;
+
+     label09:
+        i12 = $i1;
+
+        $i13 = virtualinvoke $r1.getMeasuredHeight();
+
+        $i1 = $i1 + $i13;
+
+        goto label11;
+
+     label10:
+        i12 = virtualinvoke $r1.getMeasuredHeight();
+
+        i12 = $i0 - i12;
+
+        i12 = i12 / 2;
+
+        i12 = java.lang.Math.max(i12, $i1);
+
+     label11:
+        $i11 = $i11 + $i9;
+
+        $i13 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i13 = $i11 + $i13;
+
+        $i14 = virtualinvoke $r1.getMeasuredHeight();
+
+        $i14 = i12 + $i14;
+
+        virtualinvoke $r1.layout($i11, i12, $i13, $i14);
+
+        $i2 = $i2 + 1;
+
+        goto label12;
+
+     label12:
+        i10 = i10 + 1;
+
+        goto label01;
+
+     label13:
+        $i4 = i6 - i7;
+
+        $i4 = $i4 - i8;
+
+        i6 = 0;
+
+     label14:
+        if i6 >= i5 goto label19;
+
+        $r1 = virtualinvoke r0.getChildAt(i6);
+
+        i8 = virtualinvoke $r1.getVisibility();
+
+        if i8 == 8 goto label18;
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        $z0 = r3.isDecor;
+
+        if $z0 != 0 goto label17;
+
+        $r4 = virtualinvoke r0.infoForChild($r1);
+
+        if $r4 == null goto label16;
+
+        f0 = (float) $i4;
+
+        f1 = $r4.offset;
+
+        f0 = f0 * f1;
+
+        i8 = (int) f0;
+
+        i8 = i7 + i8;
+
+        $i9 = $i1;
+
+        $z0 = r3.needsMeasure;
+
+        if $z0 == 0 goto label15;
+
+        r3.needsMeasure = 0;
+
+        f0 = (float) $i4;
+
+        f1 = r3.widthFactor;
+
+        f0 = f0 * f1;
+
+        i10 = (int) f0;
+
+        i10 = android.view.View$MeasureSpec.makeMeasureSpec(i10, 1073741824);
+
+        $i11 = $i0 - $i1;
+
+        $i11 = $i11 - $i3;
+
+        $i11 = android.view.View$MeasureSpec.makeMeasureSpec($i11, 1073741824);
+
+        virtualinvoke $r1.measure(i10, $i11);
+
+        goto label15;
+
+     label15:
+        i10 = virtualinvoke $r1.getMeasuredWidth();
+
+        i10 = i10 + i8;
+
+        $i11 = virtualinvoke $r1.getMeasuredHeight();
+
+        $i11 = $i11 + $i9;
+
+        virtualinvoke $r1.layout(i8, $i9, i10, $i11);
+
+        goto label18;
+
+     label16:
+        goto label18;
+
+     label17:
+        goto label18;
+
+     label18:
+        i6 = i6 + 1;
+
+        goto label14;
+
+     label19:
+        r0.mTopPageBounds = $i1;
+
+        $i0 = $i0 - $i3;
+
+        r0.mBottomPageBounds = $i0;
+
+        r0.mDecorChildCount = $i2;
+
+        $z0 = r0.mFirstLayout;
+
+        if $z0 == 0 goto label20;
+
+        $i0 = r0.mCurItem;
+
+        specialinvoke r0.scrollToItem($i0, 0, 0, 0);
+
+        goto label20;
+
+     label20:
+        r0.mFirstLayout = 0;
+
+        return;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r3;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0, $i1, i2, i3, $i4, i5, i6, i7, i8;
+        android.view.View $r1;
+        boolean z0, z1;
+        android.view.ViewGroup$LayoutParams $r2;
+        float f0, f1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i0 = androidx.viewpager.widget.ViewPager.getDefaultSize(0, $i0);
+
+        $i1 = androidx.viewpager.widget.ViewPager.getDefaultSize(0, $i1);
+
+        virtualinvoke r0.setMeasuredDimension($i0, $i1);
+
+        $i0 = virtualinvoke r0.getMeasuredWidth();
+
+        $i1 = $i0 / 10;
+
+        i2 = r0.mDefaultGutterSize;
+
+        $i1 = java.lang.Math.min($i1, i2);
+
+        r0.mGutterSize = $i1;
+
+        $i1 = virtualinvoke r0.getPaddingLeft();
+
+        $i0 = $i0 - $i1;
+
+        $i1 = virtualinvoke r0.getPaddingRight();
+
+        $i0 = $i0 - $i1;
+
+        $i1 = virtualinvoke r0.getMeasuredHeight();
+
+        i2 = virtualinvoke r0.getPaddingTop();
+
+        $i1 = $i1 - i2;
+
+        i2 = virtualinvoke r0.getPaddingBottom();
+
+        $i1 = $i1 - i2;
+
+        i2 = virtualinvoke r0.getChildCount();
+
+        i3 = 0;
+
+     label01:
+        if i3 >= i2 goto label18;
+
+        $r1 = virtualinvoke r0.getChildAt(i3);
+
+        $i4 = virtualinvoke $r1.getVisibility();
+
+        if $i4 == 8 goto label17;
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        if r3 == null goto label16;
+
+        z0 = r3.isDecor;
+
+        if z0 == 0 goto label16;
+
+        $i4 = r3.gravity;
+
+        i5 = $i4 & 7;
+
+        $i4 = r3.gravity;
+
+        i6 = $i4 & 112;
+
+        $i4 = -2147483648;
+
+        i7 = -2147483648;
+
+        if i6 == 48 goto label03;
+
+        if i6 != 80 goto label02;
+
+        goto label03;
+
+     label02:
+        z0 = 0;
+
+        goto label04;
+
+     label03:
+        z0 = 1;
+
+     label04:
+        if i5 == 3 goto label06;
+
+        if i5 != 5 goto label05;
+
+        goto label06;
+
+     label05:
+        z1 = 0;
+
+        goto label07;
+
+     label06:
+        z1 = 1;
+
+     label07:
+        if z0 == 0 goto label08;
+
+        $i4 = 1073741824;
+
+        goto label09;
+
+     label08:
+        if z1 == 0 goto label09;
+
+        i7 = 1073741824;
+
+     label09:
+        i5 = $i1;
+
+        i6 = r3.width;
+
+        i8 = -2;
+
+        if i6 == i8 goto label11;
+
+        $i4 = 1073741824;
+
+        i6 = r3.width;
+
+        i8 = -1;
+
+        if i6 == i8 goto label10;
+
+        i6 = r3.width;
+
+        goto label12;
+
+     label10:
+        i6 = $i0;
+
+        goto label12;
+
+     label11:
+        i6 = $i0;
+
+     label12:
+        i8 = r3.height;
+
+        if i8 == -2 goto label14;
+
+        i7 = r3.height;
+
+        i8 = -1;
+
+        if i7 == i8 goto label13;
+
+        i5 = r3.height;
+
+        i7 = 1073741824;
+
+        goto label14;
+
+     label13:
+        i7 = 1073741824;
+
+        goto label14;
+
+     label14:
+        $i4 = android.view.View$MeasureSpec.makeMeasureSpec(i6, $i4);
+
+        i5 = android.view.View$MeasureSpec.makeMeasureSpec(i5, i7);
+
+        virtualinvoke $r1.measure($i4, i5);
+
+        if z0 == 0 goto label15;
+
+        $i4 = virtualinvoke $r1.getMeasuredHeight();
+
+        $i1 = $i1 - $i4;
+
+        goto label17;
+
+     label15:
+        if z1 == 0 goto label17;
+
+        $i4 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i0 = $i0 - $i4;
+
+        goto label17;
+
+     label16:
+        goto label17;
+
+     label17:
+        i3 = i3 + 1;
+
+        goto label01;
+
+     label18:
+        i2 = android.view.View$MeasureSpec.makeMeasureSpec($i0, 1073741824);
+
+        r0.mChildWidthMeasureSpec = i2;
+
+        $i1 = android.view.View$MeasureSpec.makeMeasureSpec($i1, 1073741824);
+
+        r0.mChildHeightMeasureSpec = $i1;
+
+        r0.mInLayout = 1;
+
+        virtualinvoke r0.populate();
+
+        r0.mInLayout = 0;
+
+        $i1 = virtualinvoke r0.getChildCount();
+
+        i2 = 0;
+
+     label19:
+        if i2 >= $i1 goto label22;
+
+        $r1 = virtualinvoke r0.getChildAt(i2);
+
+        i3 = virtualinvoke $r1.getVisibility();
+
+        if i3 == 8 goto label21;
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        if r3 == null goto label20;
+
+        z0 = r3.isDecor;
+
+        if z0 != 0 goto label21;
+
+     label20:
+        f0 = (float) $i0;
+
+        f1 = r3.widthFactor;
+
+        f0 = f0 * f1;
+
+        i3 = (int) f0;
+
+        i3 = android.view.View$MeasureSpec.makeMeasureSpec(i3, 1073741824);
+
+        $i4 = r0.mChildHeightMeasureSpec;
+
+        virtualinvoke $r1.measure(i3, $i4);
+
+     label21:
+        i2 = i2 + 1;
+
+        goto label19;
+
+     label22:
+        return;
+    }
+
+    protected void onPageScrolled(int, float, int)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r3;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0, $i1, i2, $i3, $i4, $i5, $i6, i7, i8, $i9;
+        android.view.View $r1;
+        boolean z0;
+        android.view.ViewGroup$LayoutParams $r2;
+        androidx.viewpager.widget.ViewPager$PageTransformer r4;
+        float $f0, f1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        i2 = r0.mDecorChildCount;
+
+        if i2 <= 0 goto label09;
+
+        i2 = virtualinvoke r0.getScrollX();
+
+        $i3 = virtualinvoke r0.getPaddingLeft();
+
+        $i4 = virtualinvoke r0.getPaddingRight();
+
+        $i5 = virtualinvoke r0.getWidth();
+
+        $i6 = virtualinvoke r0.getChildCount();
+
+        i7 = 0;
+
+     label01:
+        if i7 >= $i6 goto label09;
+
+        $r1 = virtualinvoke r0.getChildAt(i7);
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        z0 = r3.isDecor;
+
+        if z0 != 0 goto label02;
+
+        goto label08;
+
+     label02:
+        i8 = r3.gravity;
+
+        i8 = i8 & 7;
+
+        lookupswitch(i8)
+        {
+            case 1: goto label06;
+            case 2: goto label03;
+            case 3: goto label05;
+            case 4: goto label03;
+            case 5: goto label04;
+            default: goto label03;
+        };
+
+     label03:
+        i8 = $i3;
+
+        goto label07;
+
+     label04:
+        i8 = $i5 - $i4;
+
+        $i9 = virtualinvoke $r1.getMeasuredWidth();
+
+        i8 = i8 - $i9;
+
+        $i9 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i4 = $i4 + $i9;
+
+        goto label07;
+
+     label05:
+        i8 = $i3;
+
+        $i9 = virtualinvoke $r1.getWidth();
+
+        $i3 = $i3 + $i9;
+
+        goto label07;
+
+     label06:
+        i8 = virtualinvoke $r1.getMeasuredWidth();
+
+        i8 = $i5 - i8;
+
+        i8 = i8 / 2;
+
+        i8 = java.lang.Math.max(i8, $i3);
+
+     label07:
+        i8 = i8 + i2;
+
+        $i9 = virtualinvoke $r1.getLeft();
+
+        i8 = i8 - $i9;
+
+        if i8 == 0 goto label08;
+
+        virtualinvoke $r1.offsetLeftAndRight(i8);
+
+     label08:
+        i7 = i7 + 1;
+
+        goto label01;
+
+     label09:
+        specialinvoke r0.dispatchOnPageScrolled($i0, $f0, $i1);
+
+        r4 = r0.mPageTransformer;
+
+        if r4 == null goto label13;
+
+        $i0 = virtualinvoke r0.getScrollX();
+
+        $i1 = virtualinvoke r0.getChildCount();
+
+        i2 = 0;
+
+     label10:
+        if i2 >= $i1 goto label13;
+
+        $r1 = virtualinvoke r0.getChildAt(i2);
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r2;
+
+        z0 = r3.isDecor;
+
+        if z0 == 0 goto label11;
+
+        goto label12;
+
+     label11:
+        $i3 = virtualinvoke $r1.getLeft();
+
+        $i3 = $i3 - $i0;
+
+        $f0 = (float) $i3;
+
+        $i3 = specialinvoke r0.getClientWidth();
+
+        f1 = (float) $i3;
+
+        $f0 = $f0 / f1;
+
+        r4 = r0.mPageTransformer;
+
+        interfaceinvoke r4.transformPage($r1, $f0);
+
+     label12:
+        i2 = i2 + 1;
+
+        goto label10;
+
+     label13:
+        r0.mCalledSuper = 1;
+
+        return;
+    }
+
+    protected boolean onRequestFocusInDescendants(int, android.graphics.Rect)
+    {
+        android.graphics.Rect $r1;
+        androidx.viewpager.widget.ViewPager r0;
+        byte b4;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3;
+        int $i0, $i1, $i2, i3, $i5;
+        android.view.View $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i2 = virtualinvoke r0.getChildCount();
+
+        i3 = $i0 & 2;
+
+        if i3 == 0 goto label1;
+
+        i3 = 0;
+
+        b4 = 1;
+
+        goto label2;
+
+     label1:
+        i3 = -1;
+
+        i3 = $i2 + i3;
+
+        b4 = -1;
+
+        $i2 = -1;
+
+     label2:
+        if i3 == $i2 goto label4;
+
+        $r2 = virtualinvoke r0.getChildAt(i3);
+
+        $i1 = virtualinvoke $r2.getVisibility();
+
+        if $i1 != 0 goto label3;
+
+        $r3 = virtualinvoke r0.infoForChild($r2);
+
+        if $r3 == null goto label3;
+
+        $i5 = $r3.position;
+
+        $i1 = r0.mCurItem;
+
+        if $i5 != $i1 goto label3;
+
+        $z0 = virtualinvoke $r2.requestFocus($i0, $r1);
+
+        if $z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        i3 = i3 + b4;
+
+        goto label2;
+
+     label4:
+        return 0;
+    }
+
+    public void onRestoreInstanceState(android.os.Parcelable)
+    {
+        android.os.Parcelable $r1;
+        androidx.viewpager.widget.ViewPager$SavedState r2;
+        androidx.viewpager.widget.PagerAdapter $r3;
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        java.lang.ClassLoader $r4;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        z0 = $r1 instanceof androidx.viewpager.widget.ViewPager$SavedState;
+
+        if z0 != 0 goto label1;
+
+        specialinvoke r0.onRestoreInstanceState($r1);
+
+        return;
+
+     label1:
+        r2 = (androidx.viewpager.widget.ViewPager$SavedState) $r1;
+
+        $r1 = virtualinvoke r2.getSuperState();
+
+        specialinvoke r0.onRestoreInstanceState($r1);
+
+        $r3 = r0.mAdapter;
+
+        if $r3 == null goto label2;
+
+        $r1 = r2.adapterState;
+
+        $r4 = r2.loader;
+
+        virtualinvoke $r3.restoreState($r1, $r4);
+
+        $i0 = r2.position;
+
+        virtualinvoke r0.setCurrentItemInternal($i0, 0, 1);
+
+        return;
+
+     label2:
+        $i0 = r2.position;
+
+        r0.mRestoredCurItem = $i0;
+
+        $r1 = r2.adapterState;
+
+        r0.mRestoredAdapterState = $r1;
+
+        $r4 = r2.loader;
+
+        r0.mRestoredClassLoader = $r4;
+
+        return;
+    }
+
+    public android.os.Parcelable onSaveInstanceState()
+    {
+        androidx.viewpager.widget.ViewPager$SavedState r1;
+        android.os.Parcelable $r2;
+        androidx.viewpager.widget.PagerAdapter $r3;
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $r2 = specialinvoke r0.onSaveInstanceState();
+
+        r1 = new androidx.viewpager.widget.ViewPager$SavedState;
+
+        specialinvoke r1.<init>($r2);
+
+        $i0 = r0.mCurItem;
+
+        r1.position = $i0;
+
+        $r3 = r0.mAdapter;
+
+        if $r3 == null goto label1;
+
+        $r2 = virtualinvoke $r3.saveState();
+
+        r1.adapterState = $r2;
+
+     label1:
+        return r1;
+    }
+
+    protected void onSizeChanged(int, int, int, int)
+    {
+        int $i0, $i1, $i2, $i3;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        specialinvoke r0.onSizeChanged($i0, $i1, $i2, $i3);
+
+        if $i0 == $i2 goto label1;
+
+        $i1 = r0.mPageMargin;
+
+        specialinvoke r0.recomputeScrollPosition($i0, $i2, $i1, $i1);
+
+     label1:
+        return;
+    }
+
+    public boolean onTouchEvent(android.view.MotionEvent)
+    {
+        android.view.ViewParent $r4;
+        androidx.viewpager.widget.PagerAdapter r2;
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.VelocityTracker r3;
+        byte b1;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r5;
+        android.view.MotionEvent $r1;
+        int $i0, $i2, $i3, i4;
+        boolean z0, z1;
+        android.widget.Scroller r6;
+        float $f0, $f1, $f2, f3, f4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        z0 = r0.mFakeDragging;
+
+        if z0 == 0 goto label01;
+
+        return 1;
+
+     label01:
+        $i0 = virtualinvoke $r1.getAction();
+
+        if $i0 != 0 goto label02;
+
+        $i0 = virtualinvoke $r1.getEdgeFlags();
+
+        if $i0 == 0 goto label02;
+
+        return 0;
+
+     label02:
+        r2 = r0.mAdapter;
+
+        if r2 == null goto label20;
+
+        $i0 = virtualinvoke r2.getCount();
+
+        if $i0 != 0 goto label03;
+
+        return 0;
+
+     label03:
+        r3 = r0.mVelocityTracker;
+
+        if r3 != null goto label04;
+
+        r3 = android.view.VelocityTracker.obtain();
+
+        r0.mVelocityTracker = r3;
+
+     label04:
+        r3 = r0.mVelocityTracker;
+
+        virtualinvoke r3.addMovement($r1);
+
+        $i0 = virtualinvoke $r1.getAction();
+
+        z0 = 0;
+
+        $i0 = $i0 & 255;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label18;
+            case 1: goto label16;
+            case 2: goto label10;
+            case 3: goto label08;
+            case 4: goto label05;
+            case 5: goto label07;
+            case 6: goto label06;
+            default: goto label05;
+        };
+
+     label05:
+        goto label19;
+
+     label06:
+        specialinvoke r0.onSecondaryPointerUp($r1);
+
+        $i0 = r0.mActivePointerId;
+
+        $i0 = virtualinvoke $r1.findPointerIndex($i0);
+
+        $f0 = virtualinvoke $r1.getX($i0);
+
+        r0.mLastMotionX = $f0;
+
+        goto label19;
+
+     label07:
+        $i0 = virtualinvoke $r1.getActionIndex();
+
+        $f0 = virtualinvoke $r1.getX($i0);
+
+        r0.mLastMotionX = $f0;
+
+        $i0 = virtualinvoke $r1.getPointerId($i0);
+
+        r0.mActivePointerId = $i0;
+
+        goto label19;
+
+     label08:
+        z1 = r0.mIsBeingDragged;
+
+        if z1 == 0 goto label09;
+
+        $i0 = r0.mCurItem;
+
+        specialinvoke r0.scrollToItem($i0, 1, 0, 0);
+
+        z0 = specialinvoke r0.resetTouch();
+
+        goto label19;
+
+     label09:
+        goto label19;
+
+     label10:
+        z1 = r0.mIsBeingDragged;
+
+        if z1 != 0 goto label14;
+
+        $i0 = r0.mActivePointerId;
+
+        $i0 = virtualinvoke $r1.findPointerIndex($i0);
+
+        i4 = -1;
+
+        if $i0 != i4 goto label11;
+
+        z0 = specialinvoke r0.resetTouch();
+
+        goto label19;
+
+     label11:
+        $f1 = virtualinvoke $r1.getX($i0);
+
+        $f0 = r0.mLastMotionX;
+
+        $f0 = $f1 - $f0;
+
+        $f2 = java.lang.Math.abs($f0);
+
+        $f0 = virtualinvoke $r1.getY($i0);
+
+        f3 = r0.mLastMotionY;
+
+        f3 = $f0 - f3;
+
+        f3 = java.lang.Math.abs(f3);
+
+        $i0 = r0.mTouchSlop;
+
+        f4 = (float) $i0;
+
+        b1 = $f2 cmpl f4;
+
+        $i0 = (int) b1;
+
+        if $i0 <= 0 goto label14;
+
+        b1 = $f2 cmpl f3;
+
+        $i0 = (int) b1;
+
+        if $i0 <= 0 goto label14;
+
+        r0.mIsBeingDragged = 1;
+
+        specialinvoke r0.requestParentDisallowInterceptTouchEvent(1);
+
+        $f2 = r0.mInitialMotionX;
+
+        $f1 = $f1 - $f2;
+
+        b1 = $f1 cmpl 0.0F;
+
+        $i0 = (int) b1;
+
+        if $i0 <= 0 goto label12;
+
+        $i0 = r0.mTouchSlop;
+
+        $f1 = (float) $i0;
+
+        $f1 = $f2 + $f1;
+
+        goto label13;
+
+     label12:
+        $i0 = r0.mTouchSlop;
+
+        $f1 = (float) $i0;
+
+        $f1 = $f2 - $f1;
+
+     label13:
+        r0.mLastMotionX = $f1;
+
+        r0.mLastMotionY = $f0;
+
+        virtualinvoke r0.setScrollState(1);
+
+        specialinvoke r0.setScrollingCacheEnabled(1);
+
+        $r4 = virtualinvoke r0.getParent();
+
+        if $r4 == null goto label14;
+
+        interfaceinvoke $r4.requestDisallowInterceptTouchEvent(1);
+
+     label14:
+        z1 = r0.mIsBeingDragged;
+
+        if z1 == 0 goto label15;
+
+        $i0 = r0.mActivePointerId;
+
+        $i0 = virtualinvoke $r1.findPointerIndex($i0);
+
+        $f0 = virtualinvoke $r1.getX($i0);
+
+        z0 = specialinvoke r0.performDrag($f0);
+
+        goto label19;
+
+     label15:
+        goto label19;
+
+     label16:
+        z1 = r0.mIsBeingDragged;
+
+        if z1 == 0 goto label17;
+
+        r3 = r0.mVelocityTracker;
+
+        $i0 = r0.mMaximumVelocity;
+
+        $f0 = (float) $i0;
+
+        virtualinvoke r3.computeCurrentVelocity(1000, $f0);
+
+        $i0 = r0.mActivePointerId;
+
+        $f0 = virtualinvoke r3.getXVelocity($i0);
+
+        $i0 = (int) $f0;
+
+        r0.mPopulatePending = 1;
+
+        $i2 = specialinvoke r0.getClientWidth();
+
+        $i3 = virtualinvoke r0.getScrollX();
+
+        $r5 = specialinvoke r0.infoForCurrentScrollPosition();
+
+        i4 = r0.mPageMargin;
+
+        $f0 = (float) i4;
+
+        $f1 = (float) $i2;
+
+        $f0 = $f0 / $f1;
+
+        i4 = $r5.position;
+
+        $f1 = (float) $i3;
+
+        $f2 = (float) $i2;
+
+        $f1 = $f1 / $f2;
+
+        $f2 = $r5.offset;
+
+        $f1 = $f1 - $f2;
+
+        $f2 = $r5.widthFactor;
+
+        $f0 = $f2 + $f0;
+
+        $f0 = $f1 / $f0;
+
+        $i2 = r0.mActivePointerId;
+
+        $i2 = virtualinvoke $r1.findPointerIndex($i2);
+
+        $f1 = virtualinvoke $r1.getX($i2);
+
+        $f2 = r0.mInitialMotionX;
+
+        $f1 = $f1 - $f2;
+
+        $i2 = (int) $f1;
+
+        i4 = specialinvoke r0.determineTargetPage(i4, $f0, $i0, $i2);
+
+        virtualinvoke r0.setCurrentItemInternal(i4, 1, 1, $i0);
+
+        z0 = specialinvoke r0.resetTouch();
+
+        goto label19;
+
+     label17:
+        goto label19;
+
+     label18:
+        r6 = r0.mScroller;
+
+        virtualinvoke r6.abortAnimation();
+
+        r0.mPopulatePending = 0;
+
+        virtualinvoke r0.populate();
+
+        $f0 = virtualinvoke $r1.getX();
+
+        r0.mInitialMotionX = $f0;
+
+        r0.mLastMotionX = $f0;
+
+        $f0 = virtualinvoke $r1.getY();
+
+        r0.mInitialMotionY = $f0;
+
+        r0.mLastMotionY = $f0;
+
+        $i0 = virtualinvoke $r1.getPointerId(0);
+
+        r0.mActivePointerId = $i0;
+
+     label19:
+        if z0 == 0 goto label21;
+
+        androidx.core.view.ViewCompat.postInvalidateOnAnimation(r0);
+
+        return 1;
+
+     label20:
+        return 0;
+
+     label21:
+        return 1;
+    }
+
+    boolean pageLeft()
+    {
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 = r0.mCurItem;
+
+        if $i0 <= 0 goto label1;
+
+        $i0 = $i0 - 1;
+
+        virtualinvoke r0.setCurrentItem($i0, 1);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    boolean pageRight()
+    {
+        androidx.viewpager.widget.PagerAdapter $r1;
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $r1 = r0.mAdapter;
+
+        if $r1 == null goto label1;
+
+        $i0 = r0.mCurItem;
+
+        $i1 = virtualinvoke $r1.getCount();
+
+        $i1 = $i1 - 1;
+
+        if $i0 >= $i1 goto label1;
+
+        $i0 = r0.mCurItem;
+
+        $i0 = $i0 + 1;
+
+        virtualinvoke r0.setCurrentItem($i0, 1);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    void populate()
+    {
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 = r0.mCurItem;
+
+        virtualinvoke r0.populate($i0);
+
+        return;
+    }
+
+    void populate(int)
+    {
+        androidx.viewpager.widget.ViewPager$LayoutParams r10;
+        java.lang.IllegalStateException $r17;
+        android.os.IBinder $r3;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r1, r4, r7;
+        byte b7;
+        android.view.View $r8;
+        boolean z0;
+        android.view.ViewGroup$LayoutParams $r9;
+        android.content.res.Resources$NotFoundException r13;
+        float f0, f1, f2, f3;
+        java.lang.StringBuilder r14, $r16;
+        androidx.viewpager.widget.PagerAdapter r2;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r5;
+        int $i0, i1, $i2, i3, i4, i5, $i6, i8;
+        java.lang.String $r12;
+        java.lang.Object $r6;
+        java.lang.Class $r15;
+        android.content.res.Resources $r11;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        i1 = r0.mCurItem;
+
+        if i1 == $i0 goto label01;
+
+        $r1 = virtualinvoke r0.infoForPosition(i1);
+
+        r0.mCurItem = $i0;
+
+        goto label02;
+
+     label01:
+        $r1 = null;
+
+     label02:
+        r2 = r0.mAdapter;
+
+        if r2 != null goto label03;
+
+        specialinvoke r0.sortChildDrawingOrder();
+
+        return;
+
+     label03:
+        z0 = r0.mPopulatePending;
+
+        if z0 == 0 goto label04;
+
+        specialinvoke r0.sortChildDrawingOrder();
+
+        return;
+
+     label04:
+        $r3 = virtualinvoke r0.getWindowToken();
+
+        if $r3 != null goto label05;
+
+        return;
+
+     label05:
+        r2 = r0.mAdapter;
+
+        virtualinvoke r2.startUpdate(r0);
+
+        i1 = r0.mOffscreenPageLimit;
+
+        $i0 = r0.mCurItem;
+
+        $i0 = $i0 - i1;
+
+        $i2 = java.lang.Math.max(0, $i0);
+
+        r2 = r0.mAdapter;
+
+        $i0 = virtualinvoke r2.getCount();
+
+        i3 = -1;
+
+        i3 = $i0 + i3;
+
+        i4 = r0.mCurItem;
+
+        i1 = i4 + i1;
+
+        i1 = java.lang.Math.min(i3, i1);
+
+        i3 = r0.mExpectedAdapterCount;
+
+        if $i0 != i3 goto label52;
+
+        r4 = null;
+
+        i3 = 0;
+
+     label06:
+        r5 = r0.mItems;
+
+        i4 = virtualinvoke r5.size();
+
+        if i3 >= i4 goto label08;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get(i3);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        i4 = r7.position;
+
+        i5 = r0.mCurItem;
+
+        if i4 < i5 goto label07;
+
+        i4 = r7.position;
+
+        i5 = r0.mCurItem;
+
+        if i4 != i5 goto label08;
+
+        r4 = r7;
+
+        goto label08;
+
+     label07:
+        i3 = i3 + 1;
+
+        goto label06;
+
+     label08:
+        if r4 != null goto label09;
+
+        if $i0 <= 0 goto label09;
+
+        i4 = r0.mCurItem;
+
+        r4 = virtualinvoke r0.addNewItem(i4, i3);
+
+     label09:
+        if r4 == null goto label42;
+
+        f0 = 0.0F;
+
+        i4 = -1;
+
+        i5 = i3 + i4;
+
+        if i5 < 0 goto label10;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get(i5);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label11;
+
+     label10:
+        r7 = null;
+
+     label11:
+        i4 = specialinvoke r0.getClientWidth();
+
+        if i4 > 0 goto label12;
+
+        f1 = 0.0F;
+
+        goto label13;
+
+     label12:
+        f1 = r4.widthFactor;
+
+        f1 = 2.0F - f1;
+
+        $i6 = virtualinvoke r0.getPaddingLeft();
+
+        f2 = (float) $i6;
+
+        f3 = (float) i4;
+
+        f2 = f2 / f3;
+
+        f1 = f1 + f2;
+
+     label13:
+        $i6 = r0.mCurItem;
+
+        i8 = -1;
+
+        $i6 = $i6 + i8;
+
+     label14:
+        if $i6 < 0 goto label24;
+
+        b7 = f0 cmpl f1;
+
+        i8 = (int) b7;
+
+        if i8 < 0 goto label18;
+
+        if $i6 >= $i2 goto label18;
+
+        if r7 != null goto label15;
+
+        goto label24;
+
+     label15:
+        i8 = r7.position;
+
+        if $i6 != i8 goto label23;
+
+        z0 = r7.scrolling;
+
+        if z0 != 0 goto label23;
+
+        r5 = r0.mItems;
+
+        virtualinvoke r5.remove(i5);
+
+        r2 = r0.mAdapter;
+
+        $r6 = r7.object;
+
+        virtualinvoke r2.destroyItem(r0, $i6, $r6);
+
+        i8 = -1;
+
+        i5 = i5 + i8;
+
+        i8 = -1;
+
+        i3 = i3 + i8;
+
+        if i5 < 0 goto label16;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get(i5);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label17;
+
+     label16:
+        r7 = null;
+
+     label17:
+        goto label23;
+
+     label18:
+        if r7 == null goto label21;
+
+        i8 = r7.position;
+
+        if $i6 != i8 goto label21;
+
+        f2 = r7.widthFactor;
+
+        f0 = f0 + f2;
+
+        i8 = -1;
+
+        i5 = i5 + i8;
+
+        if i5 < 0 goto label19;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get(i5);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label20;
+
+     label19:
+        r7 = null;
+
+     label20:
+        goto label23;
+
+     label21:
+        i8 = i5 + 1;
+
+        r7 = virtualinvoke r0.addNewItem($i6, i8);
+
+        f2 = r7.widthFactor;
+
+        f0 = f0 + f2;
+
+        i3 = i3 + 1;
+
+        if i5 < 0 goto label22;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get(i5);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label23;
+
+     label22:
+        r7 = null;
+
+     label23:
+        i8 = -1;
+
+        $i6 = $i6 + i8;
+
+        goto label14;
+
+     label24:
+        f0 = r4.widthFactor;
+
+        $i2 = i3 + 1;
+
+        b7 = f0 cmpg 2.0F;
+
+        i5 = (int) b7;
+
+        if i5 >= 0 goto label41;
+
+        r5 = r0.mItems;
+
+        i5 = virtualinvoke r5.size();
+
+        if $i2 >= i5 goto label25;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get($i2);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label26;
+
+     label25:
+        r7 = null;
+
+     label26:
+        if i4 > 0 goto label27;
+
+        f1 = 0.0F;
+
+        goto label28;
+
+     label27:
+        i5 = virtualinvoke r0.getPaddingRight();
+
+        f1 = (float) i5;
+
+        f2 = (float) i4;
+
+        f1 = f1 / f2;
+
+        f1 = f1 + 2.0F;
+
+     label28:
+        i4 = r0.mCurItem;
+
+        i4 = i4 + 1;
+
+     label29:
+        if i4 >= $i0 goto label40;
+
+        b7 = f0 cmpl f1;
+
+        i5 = (int) b7;
+
+        if i5 < 0 goto label34;
+
+        if i4 <= i1 goto label34;
+
+        if r7 != null goto label30;
+
+        goto label40;
+
+     label30:
+        i5 = r7.position;
+
+        if i4 != i5 goto label33;
+
+        z0 = r7.scrolling;
+
+        if z0 != 0 goto label33;
+
+        r5 = r0.mItems;
+
+        virtualinvoke r5.remove($i2);
+
+        r2 = r0.mAdapter;
+
+        $r6 = r7.object;
+
+        virtualinvoke r2.destroyItem(r0, i4, $r6);
+
+        r5 = r0.mItems;
+
+        i5 = virtualinvoke r5.size();
+
+        if $i2 >= i5 goto label31;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get($i2);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label32;
+
+     label31:
+        r7 = null;
+
+     label32:
+        goto label39;
+
+     label33:
+        goto label39;
+
+     label34:
+        if r7 == null goto label37;
+
+        i5 = r7.position;
+
+        if i4 != i5 goto label37;
+
+        f2 = r7.widthFactor;
+
+        f0 = f0 + f2;
+
+        $i2 = $i2 + 1;
+
+        r5 = r0.mItems;
+
+        i5 = virtualinvoke r5.size();
+
+        if $i2 >= i5 goto label35;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get($i2);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label36;
+
+     label35:
+        r7 = null;
+
+     label36:
+        goto label39;
+
+     label37:
+        r7 = virtualinvoke r0.addNewItem(i4, $i2);
+
+        $i2 = $i2 + 1;
+
+        f2 = r7.widthFactor;
+
+        f0 = f0 + f2;
+
+        r5 = r0.mItems;
+
+        i5 = virtualinvoke r5.size();
+
+        if $i2 >= i5 goto label38;
+
+        r5 = r0.mItems;
+
+        $r6 = virtualinvoke r5.get($i2);
+
+        r7 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r6;
+
+        goto label39;
+
+     label38:
+        r7 = null;
+
+     label39:
+        i4 = i4 + 1;
+
+        goto label29;
+
+     label40:
+        goto label41;
+
+     label41:
+        specialinvoke r0.calculatePageOffsets(r4, i3, $r1);
+
+        r2 = r0.mAdapter;
+
+        $i0 = r0.mCurItem;
+
+        $r6 = r4.object;
+
+        virtualinvoke r2.setPrimaryItem(r0, $i0, $r6);
+
+        goto label42;
+
+     label42:
+        r2 = r0.mAdapter;
+
+        virtualinvoke r2.finishUpdate(r0);
+
+        $i0 = virtualinvoke r0.getChildCount();
+
+        i1 = 0;
+
+     label43:
+        if i1 >= $i0 goto label45;
+
+        $r8 = virtualinvoke r0.getChildAt(i1);
+
+        $r9 = virtualinvoke $r8.getLayoutParams();
+
+        r10 = (androidx.viewpager.widget.ViewPager$LayoutParams) $r9;
+
+        r10.childIndex = i1;
+
+        z0 = r10.isDecor;
+
+        if z0 != 0 goto label44;
+
+        f0 = r10.widthFactor;
+
+        b7 = f0 cmpl 0.0F;
+
+        if b7 != 0 goto label44;
+
+        $r1 = virtualinvoke r0.infoForChild($r8);
+
+        if $r1 == null goto label44;
+
+        f0 = $r1.widthFactor;
+
+        r10.widthFactor = f0;
+
+        i3 = $r1.position;
+
+        r10.position = i3;
+
+        goto label44;
+
+     label44:
+        i1 = i1 + 1;
+
+        goto label43;
+
+     label45:
+        specialinvoke r0.sortChildDrawingOrder();
+
+        z0 = virtualinvoke r0.hasFocus();
+
+        if z0 == 0 goto label51;
+
+        $r8 = virtualinvoke r0.findFocus();
+
+        if $r8 == null goto label46;
+
+        $r1 = virtualinvoke r0.infoForAnyChild($r8);
+
+        goto label47;
+
+     label46:
+        $r1 = null;
+
+     label47:
+        if $r1 == null goto label48;
+
+        $i0 = $r1.position;
+
+        i1 = r0.mCurItem;
+
+        if $i0 == i1 goto label57;
+
+     label48:
+        $i0 = 0;
+
+     label49:
+        i1 = virtualinvoke r0.getChildCount();
+
+        if $i0 >= i1 goto label57;
+
+        $r8 = virtualinvoke r0.getChildAt($i0);
+
+        $r1 = virtualinvoke r0.infoForChild($r8);
+
+        if $r1 == null goto label50;
+
+        i1 = $r1.position;
+
+        i3 = r0.mCurItem;
+
+        if i1 != i3 goto label50;
+
+        z0 = virtualinvoke $r8.requestFocus(2);
+
+        if z0 == 0 goto label50;
+
+        return;
+
+     label50:
+        $i0 = $i0 + 1;
+
+        goto label49;
+
+     label51:
+        return;
+
+     label52:
+        $r11 = virtualinvoke r0.getResources();
+
+        i1 = virtualinvoke r0.getId();
+
+        $r12 = virtualinvoke $r11.getResourceName(i1);
+
+     label53:
+        goto label55;
+
+     label54:
+        r13 := @caughtexception;
+
+        i1 = virtualinvoke r0.getId();
+
+        $r12 = java.lang.Integer.toHexString(i1);
+
+     label55:
+        $r17 = new java.lang.IllegalStateException;
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<init>();
+
+        r14 = virtualinvoke $r16.append("The application\'s PagerAdapter changed the adapter\'s contents without calling PagerAdapter#notifyDataSetChanged! Expected adapter item count: ");
+
+        i1 = r0.mExpectedAdapterCount;
+
+        r14 = virtualinvoke r14.append(i1);
+
+        r14 = virtualinvoke r14.append(", found: ");
+
+        r14 = virtualinvoke r14.append($i0);
+
+        r14 = virtualinvoke r14.append(" Pager id: ");
+
+        r14 = virtualinvoke r14.append($r12);
+
+        r14 = virtualinvoke r14.append(" Pager class: ");
+
+        $r15 = virtualinvoke r0.getClass();
+
+        r14 = virtualinvoke r14.append($r15);
+
+        r14 = virtualinvoke r14.append(" Problematic adapter: ");
+
+        r2 = r0.mAdapter;
+
+        $r15 = virtualinvoke r2.getClass();
+
+        r14 = virtualinvoke r14.append($r15);
+
+        $r12 = virtualinvoke r14.toString();
+
+        specialinvoke $r17.<init>($r12);
+
+        goto label56;
+
+     label56:
+        throw $r17;
+
+     label57:
+        return;
+
+        catch android.content.res.Resources$NotFoundException from label52 to label53 with label54;
+    }
+
+    public void removeOnAdapterChangeListener(androidx.viewpager.widget.ViewPager$OnAdapterChangeListener)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.List $r2;
+        androidx.viewpager.widget.ViewPager$OnAdapterChangeListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mAdapterChangeListeners;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.remove($r1);
+
+     label1:
+        return;
+    }
+
+    public void removeOnPageChangeListener(androidx.viewpager.widget.ViewPager$OnPageChangeListener)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener $r1;
+        java.util.List $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mOnPageChangeListeners;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.remove($r1);
+
+     label1:
+        return;
+    }
+
+    public void removeView(android.view.View)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.mInLayout;
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.removeViewInLayout($r1);
+
+        return;
+
+     label1:
+        specialinvoke r0.removeView($r1);
+
+        return;
+    }
+
+    public void setAdapter(androidx.viewpager.widget.PagerAdapter)
+    {
+        androidx.viewpager.widget.ViewPager$PagerObserver r7, $r12;
+        androidx.viewpager.widget.PagerAdapter $r1, r3, r8;
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnAdapterChangeListener r11;
+        java.util.ArrayList r4;
+        androidx.viewpager.widget.ViewPager$ItemInfo r6;
+        int i0, $i1;
+        boolean z0;
+        android.os.Parcelable $r9;
+        java.util.List r10;
+        java.lang.Object $r5;
+        java.lang.ClassLoader $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r3 = r0.mAdapter;
+
+        if r3 == null goto label3;
+
+        virtualinvoke r3.setViewPagerObserver(null);
+
+        r3 = r0.mAdapter;
+
+        virtualinvoke r3.startUpdate(r0);
+
+        i0 = 0;
+
+     label1:
+        r4 = r0.mItems;
+
+        $i1 = virtualinvoke r4.size();
+
+        if i0 >= $i1 goto label2;
+
+        r4 = r0.mItems;
+
+        $r5 = virtualinvoke r4.get(i0);
+
+        r6 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r5;
+
+        r3 = r0.mAdapter;
+
+        $i1 = r6.position;
+
+        $r5 = r6.object;
+
+        virtualinvoke r3.destroyItem(r0, $i1, $r5);
+
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label2:
+        r3 = r0.mAdapter;
+
+        virtualinvoke r3.finishUpdate(r0);
+
+        r4 = r0.mItems;
+
+        virtualinvoke r4.clear();
+
+        specialinvoke r0.removeNonDecorViews();
+
+        r0.mCurItem = 0;
+
+        virtualinvoke r0.scrollTo(0, 0);
+
+     label3:
+        r3 = r0.mAdapter;
+
+        r0.mAdapter = $r1;
+
+        r0.mExpectedAdapterCount = 0;
+
+        if $r1 == null goto label7;
+
+        r7 = r0.mObserver;
+
+        if r7 != null goto label4;
+
+        $r12 = new androidx.viewpager.widget.ViewPager$PagerObserver;
+
+        specialinvoke $r12.<init>(r0);
+
+        r0.mObserver = $r12;
+
+     label4:
+        r8 = r0.mAdapter;
+
+        r7 = r0.mObserver;
+
+        virtualinvoke r8.setViewPagerObserver(r7);
+
+        r0.mPopulatePending = 0;
+
+        z0 = r0.mFirstLayout;
+
+        r0.mFirstLayout = 1;
+
+        r8 = r0.mAdapter;
+
+        i0 = virtualinvoke r8.getCount();
+
+        r0.mExpectedAdapterCount = i0;
+
+        i0 = r0.mRestoredCurItem;
+
+        if i0 < 0 goto label5;
+
+        r8 = r0.mAdapter;
+
+        $r9 = r0.mRestoredAdapterState;
+
+        $r2 = r0.mRestoredClassLoader;
+
+        virtualinvoke r8.restoreState($r9, $r2);
+
+        i0 = r0.mRestoredCurItem;
+
+        virtualinvoke r0.setCurrentItemInternal(i0, 0, 1);
+
+        i0 = -1;
+
+        r0.mRestoredCurItem = i0;
+
+        r0.mRestoredAdapterState = null;
+
+        r0.mRestoredClassLoader = null;
+
+        goto label7;
+
+     label5:
+        if z0 != 0 goto label6;
+
+        virtualinvoke r0.populate();
+
+        goto label7;
+
+     label6:
+        virtualinvoke r0.requestLayout();
+
+     label7:
+        r10 = r0.mAdapterChangeListeners;
+
+        if r10 == null goto label9;
+
+        z0 = interfaceinvoke r10.isEmpty();
+
+        if z0 != 0 goto label9;
+
+        i0 = 0;
+
+        r10 = r0.mAdapterChangeListeners;
+
+        $i1 = interfaceinvoke r10.size();
+
+     label8:
+        if i0 >= $i1 goto label9;
+
+        r10 = r0.mAdapterChangeListeners;
+
+        $r5 = interfaceinvoke r10.get(i0);
+
+        r11 = (androidx.viewpager.widget.ViewPager$OnAdapterChangeListener) $r5;
+
+        interfaceinvoke r11.onAdapterChanged(r0, r3, $r1);
+
+        i0 = i0 + 1;
+
+        goto label8;
+
+     label9:
+        return;
+    }
+
+    public void setCurrentItem(int)
+    {
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mPopulatePending = 0;
+
+        $z0 = r0.mFirstLayout;
+
+        $z0 = $z0 ^ 1;
+
+        virtualinvoke r0.setCurrentItemInternal($i0, $z0, 0);
+
+        return;
+    }
+
+    public void setCurrentItem(int, boolean)
+    {
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        r0.mPopulatePending = 0;
+
+        virtualinvoke r0.setCurrentItemInternal($i0, $z0, 0);
+
+        return;
+    }
+
+    void setCurrentItemInternal(int, boolean, boolean)
+    {
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        virtualinvoke r0.setCurrentItemInternal($i0, $z0, $z1, 0);
+
+        return;
+    }
+
+    void setCurrentItemInternal(int, boolean, boolean, int)
+    {
+        androidx.viewpager.widget.PagerAdapter r1;
+        androidx.viewpager.widget.ViewPager r0;
+        java.util.ArrayList r2;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r4;
+        int $i0, $i1, $i2, i3, $i4;
+        java.lang.Object $r3;
+        boolean $z0, $z1, $z2;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $i0 := @parameter3;
+
+        r1 = r0.mAdapter;
+
+        $z2 = 0;
+
+        if r1 == null goto label11;
+
+        $i2 = virtualinvoke r1.getCount();
+
+        if $i2 > 0 goto label01;
+
+        goto label11;
+
+     label01:
+        if $z1 != 0 goto label02;
+
+        $i2 = r0.mCurItem;
+
+        if $i2 != $i1 goto label02;
+
+        r2 = r0.mItems;
+
+        $i2 = virtualinvoke r2.size();
+
+        if $i2 == 0 goto label02;
+
+        specialinvoke r0.setScrollingCacheEnabled(0);
+
+        return;
+
+     label02:
+        if $i1 >= 0 goto label03;
+
+        $i1 = 0;
+
+        goto label04;
+
+     label03:
+        r1 = r0.mAdapter;
+
+        $i2 = virtualinvoke r1.getCount();
+
+        if $i1 < $i2 goto label04;
+
+        r1 = r0.mAdapter;
+
+        $i1 = virtualinvoke r1.getCount();
+
+        $i1 = $i1 + -1;
+
+     label04:
+        $i2 = r0.mOffscreenPageLimit;
+
+        i3 = r0.mCurItem;
+
+        $i4 = i3 + $i2;
+
+        if $i1 > $i4 goto label05;
+
+        $i2 = i3 - $i2;
+
+        if $i1 >= $i2 goto label07;
+
+     label05:
+        $i2 = 0;
+
+     label06:
+        r2 = r0.mItems;
+
+        i3 = virtualinvoke r2.size();
+
+        if $i2 >= i3 goto label07;
+
+        r2 = r0.mItems;
+
+        $r3 = virtualinvoke r2.get($i2);
+
+        $r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r3;
+
+        $r4.scrolling = 1;
+
+        $i2 = $i2 + 1;
+
+        goto label06;
+
+     label07:
+        $i2 = r0.mCurItem;
+
+        if $i2 == $i1 goto label08;
+
+        $z2 = 1;
+
+     label08:
+        $z1 = r0.mFirstLayout;
+
+        if $z1 == 0 goto label10;
+
+        r0.mCurItem = $i1;
+
+        if $z2 == 0 goto label09;
+
+        specialinvoke r0.dispatchOnPageSelected($i1);
+
+     label09:
+        virtualinvoke r0.requestLayout();
+
+        return;
+
+     label10:
+        virtualinvoke r0.populate($i1);
+
+        specialinvoke r0.scrollToItem($i1, $z0, $i0, $z2);
+
+        return;
+
+     label11:
+        specialinvoke r0.setScrollingCacheEnabled(0);
+
+        return;
+    }
+
+    androidx.viewpager.widget.ViewPager$OnPageChangeListener setInternalPageChangeListener(androidx.viewpager.widget.ViewPager$OnPageChangeListener)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener $r1, r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mInternalPageChangeListener;
+
+        r0.mInternalPageChangeListener = $r1;
+
+        return r2;
+    }
+
+    public void setOffscreenPageLimit(int)
+    {
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 >= 1 goto label1;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("Requested offscreen page limit ");
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append(" too small; defaulting to ");
+
+        $r1 = virtualinvoke $r1.append(1);
+
+        $r2 = virtualinvoke $r1.toString();
+
+        android.util.Log.w("ViewPager", $r2);
+
+        $i0 = 1;
+
+     label1:
+        $i1 = r0.mOffscreenPageLimit;
+
+        if $i0 == $i1 goto label2;
+
+        r0.mOffscreenPageLimit = $i0;
+
+        virtualinvoke r0.populate();
+
+     label2:
+        return;
+    }
+
+    public void setOnPageChangeListener(androidx.viewpager.widget.ViewPager$OnPageChangeListener)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        androidx.viewpager.widget.ViewPager$OnPageChangeListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mOnPageChangeListener = $r1;
+
+        return;
+    }
+
+    public void setPageMargin(int)
+    {
+        int $i0, i1, $i2;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        i1 = r0.mPageMargin;
+
+        r0.mPageMargin = $i0;
+
+        $i2 = virtualinvoke r0.getWidth();
+
+        specialinvoke r0.recomputeScrollPosition($i2, $i2, $i0, i1);
+
+        virtualinvoke r0.requestLayout();
+
+        return;
+    }
+
+    public void setPageMarginDrawable(int)
+    {
+        android.content.Context $r1;
+        int $i0;
+        androidx.viewpager.widget.ViewPager r0;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = androidx.core.content.ContextCompat.getDrawable($r1, $i0);
+
+        virtualinvoke r0.setPageMarginDrawable($r2);
+
+        return;
+    }
+
+    public void setPageMarginDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mMarginDrawable = $r1;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke r0.refreshDrawableState();
+
+     label1:
+        if $r1 != null goto label2;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        virtualinvoke r0.setWillNotDraw($z0);
+
+        virtualinvoke r0.invalidate();
+
+        return;
+    }
+
+    public void setPageTransformer(boolean, androidx.viewpager.widget.ViewPager$PageTransformer)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+        androidx.viewpager.widget.ViewPager$PageTransformer $r1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        virtualinvoke r0.setPageTransformer($z0, $r1, 2);
+
+        return;
+    }
+
+    public void setPageTransformer(boolean, androidx.viewpager.widget.ViewPager$PageTransformer, int)
+    {
+        androidx.viewpager.widget.ViewPager$PageTransformer $r1, r2;
+        androidx.viewpager.widget.ViewPager r0;
+        byte $b1;
+        int $i0;
+        boolean $z0, z1, z2;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $b1 = 1;
+
+        if $r1 == null goto label01;
+
+        z1 = 1;
+
+        goto label02;
+
+     label01:
+        z1 = 0;
+
+     label02:
+        r2 = r0.mPageTransformer;
+
+        if r2 == null goto label03;
+
+        z2 = 1;
+
+        goto label04;
+
+     label03:
+        z2 = 0;
+
+     label04:
+        if z1 == z2 goto label05;
+
+        z2 = 1;
+
+        goto label06;
+
+     label05:
+        z2 = 0;
+
+     label06:
+        r0.mPageTransformer = $r1;
+
+        virtualinvoke r0.setChildrenDrawingOrderEnabled(z1);
+
+        if z1 == 0 goto label08;
+
+        if $z0 == 0 goto label07;
+
+        $b1 = 2;
+
+     label07:
+        r0.mDrawingOrder = $b1;
+
+        r0.mPageTransformerLayerType = $i0;
+
+        goto label09;
+
+     label08:
+        r0.mDrawingOrder = 0;
+
+     label09:
+        if z2 == 0 goto label10;
+
+        virtualinvoke r0.populate();
+
+     label10:
+        return;
+    }
+
+    void setScrollState(int)
+    {
+        androidx.viewpager.widget.ViewPager$PageTransformer $r1;
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.mScrollState;
+
+        if $i1 != $i0 goto label1;
+
+        return;
+
+     label1:
+        r0.mScrollState = $i0;
+
+        $r1 = r0.mPageTransformer;
+
+        if $r1 == null goto label4;
+
+        if $i0 == 0 goto label2;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        specialinvoke r0.enableLayers($z0);
+
+     label4:
+        specialinvoke r0.dispatchOnScrollStateChanged($i0);
+
+        return;
+    }
+
+    void smoothScrollTo(int, int)
+    {
+        int $i0, $i1;
+        androidx.viewpager.widget.ViewPager r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        virtualinvoke r0.smoothScrollTo($i0, $i1, 0);
+
+        return;
+    }
+
+    void smoothScrollTo(int, int, int)
+    {
+        android.widget.Scroller r1;
+        androidx.viewpager.widget.PagerAdapter r2;
+        androidx.viewpager.widget.ViewPager r0;
+        int $i0, $i1, $i2, i3, $i4, $i5, $i6, $i7;
+        float f0, f1, $f2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i4 = virtualinvoke r0.getChildCount();
+
+        if $i4 != 0 goto label01;
+
+        specialinvoke r0.setScrollingCacheEnabled(0);
+
+        return;
+
+     label01:
+        r1 = r0.mScroller;
+
+        if r1 == null goto label02;
+
+        $z0 = virtualinvoke r1.isFinished();
+
+        if $z0 != 0 goto label02;
+
+        $z0 = 1;
+
+        goto label03;
+
+     label02:
+        $z0 = 0;
+
+     label03:
+        if $z0 == 0 goto label06;
+
+        $z0 = r0.mIsScrollStarted;
+
+        if $z0 == 0 goto label04;
+
+        r1 = r0.mScroller;
+
+        $i4 = virtualinvoke r1.getCurrX();
+
+        goto label05;
+
+     label04:
+        r1 = r0.mScroller;
+
+        $i4 = virtualinvoke r1.getStartX();
+
+     label05:
+        r1 = r0.mScroller;
+
+        virtualinvoke r1.abortAnimation();
+
+        specialinvoke r0.setScrollingCacheEnabled(0);
+
+        goto label07;
+
+     label06:
+        $i4 = virtualinvoke r0.getScrollX();
+
+     label07:
+        $i5 = virtualinvoke r0.getScrollY();
+
+        $i0 = $i0 - $i4;
+
+        $i1 = $i1 - $i5;
+
+        if $i0 != 0 goto label08;
+
+        if $i1 != 0 goto label08;
+
+        specialinvoke r0.completeScroll(0);
+
+        virtualinvoke r0.populate();
+
+        virtualinvoke r0.setScrollState(0);
+
+        return;
+
+     label08:
+        specialinvoke r0.setScrollingCacheEnabled(1);
+
+        virtualinvoke r0.setScrollState(2);
+
+        $i6 = specialinvoke r0.getClientWidth();
+
+        i3 = $i6 / 2;
+
+        $i7 = java.lang.Math.abs($i0);
+
+        f0 = (float) $i7;
+
+        f0 = f0 * 1.0F;
+
+        f1 = (float) $i6;
+
+        f0 = f0 / f1;
+
+        $f2 = java.lang.Math.min(1.0F, f0);
+
+        f0 = (float) i3;
+
+        f1 = (float) i3;
+
+        $f2 = virtualinvoke r0.distanceInfluenceForSnapDuration($f2);
+
+        f1 = f1 * $f2;
+
+        f0 = f0 + f1;
+
+        $i2 = java.lang.Math.abs($i2);
+
+        if $i2 <= 0 goto label09;
+
+        f1 = (float) $i2;
+
+        f0 = f0 / f1;
+
+        f0 = java.lang.Math.abs(f0);
+
+        f0 = f0 * 1000.0F;
+
+        $i2 = java.lang.Math.round(f0);
+
+        $i2 = $i2 * 4;
+
+        goto label10;
+
+     label09:
+        f0 = (float) $i6;
+
+        r2 = r0.mAdapter;
+
+        $i2 = r0.mCurItem;
+
+        f1 = virtualinvoke r2.getPageWidth($i2);
+
+        f1 = f0 * f1;
+
+        $i2 = java.lang.Math.abs($i0);
+
+        f0 = (float) $i2;
+
+        $i2 = r0.mPageMargin;
+
+        $f2 = (float) $i2;
+
+        f1 = $f2 + f1;
+
+        f0 = f0 / f1;
+
+        f0 = 1.0F + f0;
+
+        f0 = f0 * 100.0F;
+
+        $i2 = (int) f0;
+
+     label10:
+        $i2 = java.lang.Math.min($i2, 600);
+
+        r0.mIsScrollStarted = 0;
+
+        r1 = r0.mScroller;
+
+        virtualinvoke r1.startScroll($i4, $i5, $i0, $i1, $i2);
+
+        androidx.core.view.ViewCompat.postInvalidateOnAnimation(r0);
+
+        return;
+    }
+
+    protected boolean verifyDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.viewpager.widget.ViewPager r0;
+        android.graphics.drawable.Drawable $r1, $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.verifyDrawable($r1);
+
+        if $z0 != 0 goto label2;
+
+        $r2 = r0.mMarginDrawable;
+
+        if $r1 != $r2 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+}

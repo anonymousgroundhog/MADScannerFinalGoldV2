@@ -1,0 +1,116 @@
+public final class com.google.android.gms.common.util.Base64Utils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.common.util.Base64Utils r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static byte[] decode(java.lang.String)
+    {
+        byte[] $r0;
+        java.lang.String $r1;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.decode($r1, 0);
+
+        return $r0;
+    }
+
+    public static byte[] decodeUrlSafe(java.lang.String)
+    {
+        byte[] $r0;
+        java.lang.String $r1;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.decode($r1, 10);
+
+        return $r0;
+    }
+
+    public static byte[] decodeUrlSafeNoPadding(java.lang.String)
+    {
+        byte[] $r0;
+        java.lang.String $r1;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.decode($r1, 11);
+
+        return $r0;
+    }
+
+    public static java.lang.String encode(byte[])
+    {
+        byte[] $r1;
+        java.lang.String $r0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.encodeToString($r1, 0);
+
+        return $r0;
+    }
+
+    public static java.lang.String encodeUrlSafe(byte[])
+    {
+        byte[] $r1;
+        java.lang.String $r0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.encodeToString($r1, 10);
+
+        return $r0;
+    }
+
+    public static java.lang.String encodeUrlSafeNoPadding(byte[])
+    {
+        byte[] $r1;
+        java.lang.String $r0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = android.util.Base64.encodeToString($r1, 11);
+
+        return $r0;
+    }
+}

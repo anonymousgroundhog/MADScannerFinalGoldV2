@@ -1,0 +1,119 @@
+class androidx.cursoradapter.widget.CursorFilter extends android.widget.Filter
+{
+    androidx.cursoradapter.widget.CursorFilter$CursorFilterClient mClient;
+
+    void <init>(androidx.cursoradapter.widget.CursorFilter$CursorFilterClient)
+    {
+        androidx.cursoradapter.widget.CursorFilter$CursorFilterClient $r1;
+        androidx.cursoradapter.widget.CursorFilter r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mClient = $r1;
+
+        return;
+    }
+
+    public java.lang.CharSequence convertResultToString(java.lang.Object)
+    {
+        java.lang.CharSequence $r2;
+        androidx.cursoradapter.widget.CursorFilter$CursorFilterClient $r3;
+        androidx.cursoradapter.widget.CursorFilter r0;
+        java.lang.Object $r1;
+        android.database.Cursor $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r3 = r0.mClient;
+
+        $r4 = (android.database.Cursor) $r1;
+
+        $r2 = interfaceinvoke $r3.convertToString($r4);
+
+        return $r2;
+    }
+
+    protected android.widget.Filter$FilterResults performFiltering(java.lang.CharSequence)
+    {
+        java.lang.CharSequence $r1;
+        android.widget.Filter$FilterResults r2;
+        androidx.cursoradapter.widget.CursorFilter$CursorFilterClient r3;
+        int $i0;
+        androidx.cursoradapter.widget.CursorFilter r0;
+        android.database.Cursor $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r3 = r0.mClient;
+
+        $r4 = interfaceinvoke r3.runQueryOnBackgroundThread($r1);
+
+        r2 = new android.widget.Filter$FilterResults;
+
+        specialinvoke r2.<init>();
+
+        if $r4 == null goto label1;
+
+        $i0 = interfaceinvoke $r4.getCount();
+
+        r2.count = $i0;
+
+        r2.values = $r4;
+
+        return r2;
+
+     label1:
+        r2.count = 0;
+
+        r2.values = null;
+
+        return r2;
+    }
+
+    protected void publishResults(java.lang.CharSequence, android.widget.Filter$FilterResults)
+    {
+        java.lang.CharSequence $r1;
+        android.widget.Filter$FilterResults $r2;
+        androidx.cursoradapter.widget.CursorFilter$CursorFilterClient r4;
+        androidx.cursoradapter.widget.CursorFilter r0;
+        java.lang.Object $r5;
+        android.database.Cursor $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r4 = r0.mClient;
+
+        $r3 = interfaceinvoke r4.getCursor();
+
+        $r5 = $r2.values;
+
+        if $r5 == null goto label1;
+
+        $r5 = $r2.values;
+
+        if $r5 == $r3 goto label1;
+
+        r4 = r0.mClient;
+
+        $r5 = $r2.values;
+
+        $r3 = (android.database.Cursor) $r5;
+
+        interfaceinvoke r4.changeCursor($r3);
+
+     label1:
+        return;
+    }
+}

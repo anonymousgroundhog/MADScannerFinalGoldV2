@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzenl extends java.lang.Object implements com.google.android.gms.internal.ads.zzepn
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzenl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzenl r0;
+
+        r0 := @this;
+
+        return 52;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zzb()
+    {
+        com.google.android.gms.internal.ads.zzfut $r1;
+        com.google.android.gms.internal.ads.zzenm $r2;
+        com.google.android.gms.internal.ads.zzenl r0;
+
+        r0 := @this;
+
+        $r2 = new com.google.android.gms.internal.ads.zzenm;
+
+        specialinvoke $r2.<init>();
+
+        $r1 = com.google.android.gms.internal.ads.zzfuj.zzh($r2);
+
+        return $r1;
+    }
+}

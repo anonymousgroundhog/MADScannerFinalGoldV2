@@ -1,0 +1,109 @@
+public final enum class com.google.android.gms.internal.ads.zzffp extends java.lang.Enum
+{
+    public static final enum com.google.android.gms.internal.ads.zzffp zza;
+    public static final enum com.google.android.gms.internal.ads.zzffp zzb;
+    public static final enum com.google.android.gms.internal.ads.zzffp zzc;
+    public static final enum com.google.android.gms.internal.ads.zzffp zzd;
+    public static final enum com.google.android.gms.internal.ads.zzffp zze;
+    private static final com.google.android.gms.internal.ads.zzffp[] zzf;
+    private final java.lang.String zzg;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzffp $r0, $r1, $r2, $r3, $r4;
+        com.google.android.gms.internal.ads.zzffp[] $r5;
+
+        $r0 = new com.google.android.gms.internal.ads.zzffp;
+
+        specialinvoke $r0.<init>("DEFINED_BY_JAVASCRIPT", 0, "definedByJavaScript");
+
+        com.google.android.gms.internal.ads.zzffp.zza = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzffp;
+
+        specialinvoke $r1.<init>("HTML_DISPLAY", 1, "htmlDisplay");
+
+        com.google.android.gms.internal.ads.zzffp.zzb = $r1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzffp;
+
+        specialinvoke $r2.<init>("NATIVE_DISPLAY", 2, "nativeDisplay");
+
+        com.google.android.gms.internal.ads.zzffp.zzc = $r2;
+
+        $r3 = new com.google.android.gms.internal.ads.zzffp;
+
+        specialinvoke $r3.<init>("VIDEO", 3, "video");
+
+        com.google.android.gms.internal.ads.zzffp.zzd = $r3;
+
+        $r4 = new com.google.android.gms.internal.ads.zzffp;
+
+        specialinvoke $r4.<init>("AUDIO", 4, "audio");
+
+        com.google.android.gms.internal.ads.zzffp.zze = $r4;
+
+        $r5 = newarray (com.google.android.gms.internal.ads.zzffp)[5];
+
+        $r5[0] = $r0;
+
+        $r5[1] = $r1;
+
+        $r5[2] = $r2;
+
+        $r5[3] = $r3;
+
+        $r5[4] = $r4;
+
+        com.google.android.gms.internal.ads.zzffp.zzf = $r5;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzffp r0;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        r0.zzg = $r2;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzffp[] values()
+    {
+        java.lang.Object $r0;
+        com.google.android.gms.internal.ads.zzffp[] $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzffp.zzf;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (com.google.android.gms.internal.ads.zzffp[]) $r0;
+
+        return $r1;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzffp r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zzg;
+
+        return r1;
+    }
+}

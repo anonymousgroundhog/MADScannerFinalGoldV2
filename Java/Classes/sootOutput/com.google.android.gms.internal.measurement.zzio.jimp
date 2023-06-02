@@ -1,0 +1,49 @@
+final class com.google.android.gms.internal.measurement.zzio extends java.lang.Object
+{
+    public int zza;
+    public long zzb;
+    public java.lang.Object zzc;
+    public final com.google.android.gms.internal.measurement.zzjo zzd;
+
+    void <init>()
+    {
+        com.google.android.gms.internal.measurement.zzjo $r1;
+        com.google.android.gms.internal.measurement.zzio r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = com.google.android.gms.internal.measurement.zzjo.zza();
+
+        r0.zzd = $r1;
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.measurement.zzjo)
+    {
+        com.google.android.gms.internal.measurement.zzjo $r1;
+        java.lang.NullPointerException r2;
+        com.google.android.gms.internal.measurement.zzio r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        if $r1 == null goto label1;
+
+        r0.zzd = $r1;
+
+        return;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+}

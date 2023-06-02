@@ -1,0 +1,350 @@
+public final class com.google.android.gms.internal.ads.zzeyf extends java.lang.Object
+{
+    public final java.util.List zza;
+    public final java.lang.String zzb;
+    public final int zzc;
+    public final java.lang.String zzd;
+    public final int zze;
+    public final long zzf;
+    public final boolean zzg;
+    public final java.lang.String zzh;
+    public final com.google.android.gms.internal.ads.zzeye zzi;
+    public final android.os.Bundle zzj;
+    public final java.lang.String zzk;
+    public final java.lang.String zzl;
+
+    void <init>(android.util.JsonReader) throws java.lang.IllegalStateException, java.io.IOException, org.json.JSONException, java.lang.NumberFormatException
+    {
+        java.lang.IllegalStateException $r20;
+        android.util.JsonReader $r1;
+        android.os.Bundle $r3, $r19;
+        long $l0;
+        com.google.android.gms.internal.ads.zzeyf r0;
+        com.google.android.gms.internal.ads.zzeye $r6;
+        org.json.JSONException $r22;
+        org.json.JSONObject $r18;
+        int $i1, $i2;
+        java.lang.Boolean $r15;
+        java.lang.String $r4, $r5, $r7, $r8, $r9, $r10, $r11;
+        boolean $z0, $z1;
+        android.util.JsonToken $r16, $r17;
+        java.io.IOException $r21;
+        com.google.android.gms.internal.ads.zzbap $r13;
+        java.util.List $r2;
+        java.lang.Object $r14;
+        com.google.android.gms.internal.ads.zzbaj $r12;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = java.util.Collections.emptyList();
+
+        $r3 = new android.os.Bundle;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r1.beginObject();
+
+        $r4 = "";
+
+        $r5 = "";
+
+        $r6 = null;
+
+        $l0 = 0L;
+
+        $i1 = 0;
+
+        $i2 = 0;
+
+        $z0 = 0;
+
+        $r7 = "";
+
+        $r8 = "";
+
+        $r9 = "";
+
+     label01:
+        $z1 = virtualinvoke $r1.hasNext();
+
+        if $z1 == 0 goto label25;
+
+        $r10 = virtualinvoke $r1.nextName();
+
+        $r11 = "nofill_urls";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label02;
+
+        $r2 = com.google.android.gms.ads.internal.util.zzbu.zzd($r1);
+
+        goto label24;
+
+     label02:
+        $r11 = "refresh_interval";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label03;
+
+        $i1 = virtualinvoke $r1.nextInt();
+
+        goto label24;
+
+     label03:
+        $r11 = "gws_query_id";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label04;
+
+        $r4 = virtualinvoke $r1.nextString();
+
+        goto label24;
+
+     label04:
+        $r11 = "analytics_query_ad_event_id";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label05;
+
+        $r7 = virtualinvoke $r1.nextString();
+
+        goto label24;
+
+     label05:
+        $r11 = "is_idless";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label06;
+
+        $z0 = virtualinvoke $r1.nextBoolean();
+
+        goto label24;
+
+     label06:
+        $r11 = "response_code";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label07;
+
+        $i2 = virtualinvoke $r1.nextInt();
+
+        goto label24;
+
+     label07:
+        $r11 = "latency";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label08;
+
+        $l0 = virtualinvoke $r1.nextLong();
+
+        goto label24;
+
+     label08:
+        $r12 = com.google.android.gms.internal.ads.zzbar.zzhF;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r15 = (java.lang.Boolean) $r14;
+
+        $z1 = virtualinvoke $r15.booleanValue();
+
+        if $z1 == 0 goto label11;
+
+        $r11 = "public_error";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label10;
+
+        $r16 = virtualinvoke $r1.peek();
+
+        $r17 = android.util.JsonToken.BEGIN_OBJECT;
+
+        if $r16 != $r17 goto label09;
+
+        $r6 = new com.google.android.gms.internal.ads.zzeye;
+
+        specialinvoke $r6.<init>($r1);
+
+        goto label24;
+
+     label09:
+        goto label11;
+
+     label10:
+        goto label11;
+
+     label11:
+        $r11 = "bidding_data";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label12;
+
+        $r8 = virtualinvoke $r1.nextString();
+
+        goto label24;
+
+     label12:
+        $r11 = "response_info_extras";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label19;
+
+        $r12 = com.google.android.gms.internal.ads.zzbar.zzgs;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r15 = (java.lang.Boolean) $r14;
+
+        $z1 = virtualinvoke $r15.booleanValue();
+
+        if $z1 == 0 goto label18;
+
+     label13:
+        $r18 = com.google.android.gms.ads.internal.util.zzbu.zzh($r1);
+
+        $r19 = com.google.android.gms.ads.internal.util.zzbu.zza($r18);
+
+     label14:
+        if $r19 == null goto label24;
+
+        $r3 = $r19;
+
+        goto label24;
+
+     label15:
+        $r20 := @caughtexception;
+
+        virtualinvoke $r1.skipValue();
+
+        goto label24;
+
+     label16:
+        $r21 := @caughtexception;
+
+        goto label24;
+
+     label17:
+        $r22 := @caughtexception;
+
+        goto label24;
+
+     label18:
+        virtualinvoke $r1.skipValue();
+
+        goto label24;
+
+     label19:
+        $r11 = "adRequestPostBody";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label21;
+
+        $r12 = com.google.android.gms.internal.ads.zzbar.zziy;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r15 = (java.lang.Boolean) $r14;
+
+        $z1 = virtualinvoke $r15.booleanValue();
+
+        if $z1 == 0 goto label20;
+
+        $r5 = virtualinvoke $r1.nextString();
+
+        goto label24;
+
+     label20:
+        virtualinvoke $r1.skipValue();
+
+        goto label24;
+
+     label21:
+        $r11 = "adRequestUrl";
+
+        $z1 = virtualinvoke $r11.equals($r10);
+
+        if $z1 == 0 goto label23;
+
+        $r12 = com.google.android.gms.internal.ads.zzbar.zziy;
+
+        $r13 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r14 = virtualinvoke $r13.zzb($r12);
+
+        $r15 = (java.lang.Boolean) $r14;
+
+        $z1 = virtualinvoke $r15.booleanValue();
+
+        if $z1 == 0 goto label22;
+
+        $r9 = virtualinvoke $r1.nextString();
+
+        goto label24;
+
+     label22:
+        virtualinvoke $r1.skipValue();
+
+        goto label24;
+
+     label23:
+        virtualinvoke $r1.skipValue();
+
+     label24:
+        goto label01;
+
+     label25:
+        virtualinvoke $r1.endObject();
+
+        r0.zza = $r2;
+
+        r0.zzc = $i1;
+
+        r0.zzb = $r4;
+
+        r0.zzd = $r7;
+
+        r0.zze = $i2;
+
+        r0.zzf = $l0;
+
+        r0.zzi = $r6;
+
+        r0.zzg = $z0;
+
+        r0.zzh = $r8;
+
+        r0.zzj = $r3;
+
+        r0.zzk = $r9;
+
+        r0.zzl = $r5;
+
+        return;
+
+        catch org.json.JSONException from label13 to label14 with label17;
+        catch java.io.IOException from label13 to label14 with label16;
+        catch java.lang.IllegalStateException from label13 to label14 with label15;
+    }
+}

@@ -1,0 +1,273 @@
+public final class com.google.android.gms.internal.ads.zzgbc extends com.google.android.gms.internal.ads.zzgdy
+{
+    private static final byte[] zza;
+
+    static void <clinit>()
+    {
+        byte[] $r0;
+
+        $r0 = newarray (byte)[0];
+
+        com.google.android.gms.internal.ads.zzgbc.zza = $r0;
+
+        return;
+    }
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgds[] $r1;
+        com.google.android.gms.internal.ads.zzgbc r0;
+        com.google.android.gms.internal.ads.zzgba $r2;
+
+        r0 := @this;
+
+        $r1 = newarray (com.google.android.gms.internal.ads.zzgds)[1];
+
+        $r2 = new com.google.android.gms.internal.ads.zzgba;
+
+        specialinvoke $r2.<init>(class "Lcom/google/android/gms/internal/ads/zzfvv;");
+
+        $r1[0] = $r2;
+
+        specialinvoke r0.<init>(class "Lcom/google/android/gms/internal/ads/zzgjm;", class "Lcom/google/android/gms/internal/ads/zzgjp;", $r1);
+
+        return;
+    }
+
+    static volatile byte[] zzg()
+    {
+        byte[] r0;
+
+        r0 = com.google.android.gms.internal.ads.zzgbc.zza;
+
+        return r0;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzgcs zzh(int, int, int, com.google.android.gms.internal.ads.zzfwh, byte[], int)
+    {
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzgme $r10;
+        com.google.android.gms.internal.ads.zzgqm $r6;
+        com.google.android.gms.internal.ads.zzfwh $r0;
+        com.google.android.gms.internal.ads.zzgjs $r7;
+        com.google.android.gms.internal.ads.zzgjr $r4;
+        int $i0, $i1, $i2, $i3;
+        java.lang.String $r9;
+        com.google.android.gms.internal.ads.zzgjj $r15;
+        com.google.android.gms.internal.ads.zzgjd $r13;
+        com.google.android.gms.internal.ads.zzgjc $r12;
+        com.google.android.gms.internal.ads.zzgld $r11;
+        com.google.android.gms.internal.ads.zzgji $r14;
+        com.google.android.gms.internal.ads.zzgjg $r16;
+        com.google.android.gms.internal.ads.zzgjf $r3;
+        com.google.android.gms.internal.ads.zzgcs $r17;
+        com.google.android.gms.internal.ads.zzglc $r8;
+        com.google.android.gms.internal.ads.zzgpe $r5;
+
+        $i1 := @parameter0;
+
+        $i2 := @parameter1;
+
+        $i3 := @parameter2;
+
+        $r0 := @parameter3;
+
+        $r1 := @parameter4;
+
+        $i0 := @parameter5;
+
+        $r17 = new com.google.android.gms.internal.ads.zzgcs;
+
+        $r3 = com.google.android.gms.internal.ads.zzgjg.zza();
+
+        $r4 = com.google.android.gms.internal.ads.zzgjs.zza();
+
+        virtualinvoke $r4.zzb(4);
+
+        virtualinvoke $r4.zzc(5);
+
+        $r5 = com.google.android.gms.internal.ads.zzgpe.zzv($r1);
+
+        virtualinvoke $r4.zza($r5);
+
+        $r6 = virtualinvoke $r4.zzal();
+
+        $r7 = (com.google.android.gms.internal.ads.zzgjs) $r6;
+
+        $r8 = com.google.android.gms.internal.ads.zzgld.zza();
+
+        $r9 = virtualinvoke $r0.zzb();
+
+        virtualinvoke $r8.zzb($r9);
+
+        $r1 = virtualinvoke $r0.zzc();
+
+        $r5 = com.google.android.gms.internal.ads.zzgpe.zzv($r1);
+
+        virtualinvoke $r8.zzc($r5);
+
+        $i1 = virtualinvoke $r0.zzd();
+
+        $i1 = $i1 + -1;
+
+        lookupswitch($i1)
+        {
+            case 0: goto label4;
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        $r10 = com.google.android.gms.internal.ads.zzgme.zze;
+
+        goto label5;
+
+     label2:
+        $r10 = com.google.android.gms.internal.ads.zzgme.zzd;
+
+        goto label5;
+
+     label3:
+        $r10 = com.google.android.gms.internal.ads.zzgme.zzc;
+
+        goto label5;
+
+     label4:
+        $r10 = com.google.android.gms.internal.ads.zzgme.zzb;
+
+     label5:
+        virtualinvoke $r8.zza($r10);
+
+        $r6 = virtualinvoke $r8.zzal();
+
+        $r11 = (com.google.android.gms.internal.ads.zzgld) $r6;
+
+        $r12 = com.google.android.gms.internal.ads.zzgjd.zza();
+
+        virtualinvoke $r12.zza($r11);
+
+        $r6 = virtualinvoke $r12.zzal();
+
+        $r13 = (com.google.android.gms.internal.ads.zzgjd) $r6;
+
+        $r14 = com.google.android.gms.internal.ads.zzgjj.zzc();
+
+        virtualinvoke $r14.zzb($r7);
+
+        virtualinvoke $r14.zza($r13);
+
+        virtualinvoke $r14.zzc($i3);
+
+        $r6 = virtualinvoke $r14.zzal();
+
+        $r15 = (com.google.android.gms.internal.ads.zzgjj) $r6;
+
+        virtualinvoke $r3.zza($r15);
+
+        $r6 = virtualinvoke $r3.zzal();
+
+        $r16 = (com.google.android.gms.internal.ads.zzgjg) $r6;
+
+        specialinvoke $r17.<init>($r16, $i0);
+
+        return $r17;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgct zza()
+    {
+        com.google.android.gms.internal.ads.zzgbc r0;
+        com.google.android.gms.internal.ads.zzgbb $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbb;
+
+        specialinvoke $r1.<init>(r0, class "Lcom/google/android/gms/internal/ads/zzgjg;");
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgkx zzb()
+    {
+        com.google.android.gms.internal.ads.zzgbc r0;
+        com.google.android.gms.internal.ads.zzgkx r1;
+
+        r0 := @this;
+
+        r1 = com.google.android.gms.internal.ads.zzgkx.zzc;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgrw zzc(com.google.android.gms.internal.ads.zzgpe) throws com.google.android.gms.internal.ads.zzgqy
+    {
+        com.google.android.gms.internal.ads.zzgpy $r2;
+        com.google.android.gms.internal.ads.zzgjm $r3;
+        com.google.android.gms.internal.ads.zzgbc r0;
+        com.google.android.gms.internal.ads.zzgpe $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = com.google.android.gms.internal.ads.zzgpy.zza();
+
+        $r3 = com.google.android.gms.internal.ads.zzgjm.zze($r1, $r2);
+
+        return $r3;
+    }
+
+    public final java.lang.String zzd()
+    {
+        com.google.android.gms.internal.ads.zzgbc r0;
+
+        r0 := @this;
+
+        return "type.googleapis.com/google.crypto.tink.EciesAeadHkdfPrivateKey";
+    }
+
+    public final volatile void zze(com.google.android.gms.internal.ads.zzgrw) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgpe $r3;
+        java.security.GeneralSecurityException $r6;
+        com.google.android.gms.internal.ads.zzgjm $r2;
+        int $i0;
+        com.google.android.gms.internal.ads.zzgbc r0;
+        com.google.android.gms.internal.ads.zzgjj $r5;
+        com.google.android.gms.internal.ads.zzgjp $r4;
+        com.google.android.gms.internal.ads.zzgrw $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (com.google.android.gms.internal.ads.zzgjm) $r1;
+
+        $r3 = virtualinvoke $r2.zzg();
+
+        $z0 = virtualinvoke $r3.zzD();
+
+        if $z0 != 0 goto label1;
+
+        $i0 = virtualinvoke $r2.zza();
+
+        com.google.android.gms.internal.ads.zzgog.zzb($i0, 0);
+
+        $r4 = virtualinvoke $r2.zzf();
+
+        $r5 = virtualinvoke $r4.zzc();
+
+        com.google.android.gms.internal.ads.zzgbk.zza($r5);
+
+        return;
+
+     label1:
+        $r6 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r6.<init>("invalid ECIES private key");
+
+        throw $r6;
+    }
+}

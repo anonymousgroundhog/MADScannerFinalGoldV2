@@ -1,0 +1,116 @@
+public final class com.google.android.gms.internal.ads.zzcbd extends java.lang.Object
+{
+    private final long zza;
+    private long zzb;
+    private boolean zzc;
+
+    void <init>()
+    {
+        java.util.concurrent.TimeUnit $r1;
+        com.google.android.gms.internal.ads.zzbap $r3;
+        com.google.android.gms.internal.ads.zzcbd r0;
+        java.lang.Long $r5;
+        java.lang.Object $r4;
+        long $l0;
+        com.google.android.gms.internal.ads.zzbaj $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = java.util.concurrent.TimeUnit.MILLISECONDS;
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzB;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Long) $r4;
+
+        $l0 = virtualinvoke $r5.longValue();
+
+        $l0 = virtualinvoke $r1.toNanos($l0);
+
+        r0.zza = $l0;
+
+        r0.zzc = 1;
+
+        return;
+    }
+
+    public final void zza(android.graphics.SurfaceTexture, com.google.android.gms.internal.ads.zzcao)
+    {
+        android.graphics.SurfaceTexture $r2;
+        com.google.android.gms.internal.ads.zzcbd r0;
+        com.google.android.gms.internal.ads.zzcbc $r4;
+        long $l0, $l1, $l2;
+        com.google.android.gms.internal.ads.zzcao $r1;
+        byte $b3;
+        int $i4;
+        com.google.android.gms.internal.ads.zzfkr $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $l1 = virtualinvoke $r2.getTimestamp();
+
+        $z0 = r0.zzc;
+
+        if $z0 != 0 goto label3;
+
+        $l0 = r0.zzb;
+
+        $l0 = $l1 - $l0;
+
+        $l2 = java.lang.Math.abs($l0);
+
+        $l0 = r0.zza;
+
+        $b3 = $l2 cmp $l0;
+
+        $i4 = (int) $b3;
+
+        if $i4 < 0 goto label2;
+
+        goto label3;
+
+     label2:
+        return;
+
+     label3:
+        r0.zzc = 0;
+
+        r0.zzb = $l1;
+
+        $r3 = com.google.android.gms.ads.internal.util.zzs.zza;
+
+        $r4 = new com.google.android.gms.internal.ads.zzcbc;
+
+        specialinvoke $r4.<init>($r1);
+
+        virtualinvoke $r3.post($r4);
+
+        return;
+    }
+
+    public final void zzb()
+    {
+        com.google.android.gms.internal.ads.zzcbd r0;
+
+        r0 := @this;
+
+        r0.zzc = 1;
+
+        return;
+    }
+}

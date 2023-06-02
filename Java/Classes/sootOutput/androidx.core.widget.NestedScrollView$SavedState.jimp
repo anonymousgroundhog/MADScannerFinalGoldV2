@@ -1,0 +1,106 @@
+class androidx.core.widget.NestedScrollView$SavedState extends android.view.View$BaseSavedState
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public int scrollPosition;
+
+    static void <clinit>()
+    {
+        androidx.core.widget.NestedScrollView$SavedState$1 $r0;
+
+        $r0 = new androidx.core.widget.NestedScrollView$SavedState$1;
+
+        specialinvoke $r0.<init>();
+
+        androidx.core.widget.NestedScrollView$SavedState.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel)
+    {
+        int $i0;
+        androidx.core.widget.NestedScrollView$SavedState r0;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        r0.scrollPosition = $i0;
+
+        return;
+    }
+
+    void <init>(android.os.Parcelable)
+    {
+        androidx.core.widget.NestedScrollView$SavedState r0;
+        android.os.Parcelable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.core.widget.NestedScrollView$SavedState r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("HorizontalScrollView.SavedState{");
+
+        $i0 = java.lang.System.identityHashCode(r0);
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(" scrollPosition=");
+
+        $i0 = r0.scrollPosition;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append("}");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        int $i0;
+        androidx.core.widget.NestedScrollView$SavedState r0;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.writeToParcel($r1, $i0);
+
+        $i0 = r0.scrollPosition;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        return;
+    }
+}

@@ -1,0 +1,84 @@
+public final class com.google.android.gms.internal.consent_sdk.zzj extends java.lang.Exception
+{
+    private final int zza;
+
+    public void <init>(int, java.lang.String)
+    {
+        int $i0;
+        java.lang.String $r1;
+        com.google.android.gms.internal.consent_sdk.zzj r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.zza = $i0;
+
+        return;
+    }
+
+    public void <init>(int, java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable $r2;
+        int $i0;
+        java.lang.String $r1;
+        com.google.android.gms.internal.consent_sdk.zzj r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.zza = $i0;
+
+        return;
+    }
+
+    public final com.google.android.ump.FormError zza()
+    {
+        java.lang.Throwable $r1;
+        int $i0;
+        java.lang.String $r2;
+        com.google.android.gms.internal.consent_sdk.zzj r0;
+        com.google.android.ump.FormError $r3;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getCause();
+
+        if $r1 != null goto label1;
+
+        $r2 = virtualinvoke r0.getMessage();
+
+        android.util.Log.w("UserMessagingPlatform", $r2);
+
+        goto label2;
+
+     label1:
+        $r2 = virtualinvoke r0.getMessage();
+
+        $r1 = virtualinvoke r0.getCause();
+
+        android.util.Log.w("UserMessagingPlatform", $r2, $r1);
+
+     label2:
+        $r3 = new com.google.android.ump.FormError;
+
+        $i0 = r0.zza;
+
+        $r2 = virtualinvoke r0.getMessage();
+
+        specialinvoke $r3.<init>($i0, $r2);
+
+        return $r3;
+    }
+}

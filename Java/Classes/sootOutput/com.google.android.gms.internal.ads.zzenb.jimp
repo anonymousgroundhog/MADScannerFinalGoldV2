@@ -1,0 +1,72 @@
+public final class com.google.android.gms.internal.ads.zzenb extends java.lang.Object implements com.google.android.gms.internal.ads.zzepn
+{
+    private final com.google.android.gms.internal.ads.zzfuu zza;
+    private final com.google.android.gms.internal.ads.zzeyb zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfuu, com.google.android.gms.internal.ads.zzeyb)
+    {
+        com.google.android.gms.internal.ads.zzenb r0;
+        com.google.android.gms.internal.ads.zzfuu $r1;
+        com.google.android.gms.internal.ads.zzeyb $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzenb r0;
+
+        r0 := @this;
+
+        return 25;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zzb()
+    {
+        com.google.android.gms.internal.ads.zzfuu $r3;
+        com.google.android.gms.internal.ads.zzfut $r2;
+        com.google.android.gms.internal.ads.zzenb r0;
+        com.google.android.gms.internal.ads.zzena $r1;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r1 = new com.google.android.gms.internal.ads.zzena;
+
+        specialinvoke $r1.<init>(r0);
+
+        $r2 = interfaceinvoke $r3.zzb($r1);
+
+        return $r2;
+    }
+
+    final com.google.android.gms.internal.ads.zzenc zzc() throws java.lang.Exception
+    {
+        com.google.android.gms.internal.ads.zzenc $r1;
+        com.google.android.gms.internal.ads.zzenb r0;
+        com.google.android.gms.internal.ads.zzeyb $r2;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzenc;
+
+        $r2 = r0.zzb;
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+}

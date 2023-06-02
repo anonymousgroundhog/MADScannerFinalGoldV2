@@ -1,0 +1,76 @@
+final class com.google.android.gms.internal.consent_sdk.zzb extends java.lang.Object
+{
+    private final android.app.Application zza;
+
+    public void <init>(android.app.Application)
+    {
+        android.app.Application $r1;
+        com.google.android.gms.internal.consent_sdk.zzb r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.consent_sdk.zza zza()
+    {
+        com.google.android.gms.ads.identifier.AdvertisingIdClient$Info $r2;
+        android.app.Application $r1;
+        com.google.android.gms.internal.consent_sdk.zzb r0;
+        com.google.android.gms.internal.consent_sdk.zza $r3;
+        java.lang.String $r4;
+        java.lang.Exception $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+     label1:
+        $r2 = com.google.android.gms.ads.identifier.AdvertisingIdClient.getAdvertisingIdInfo($r1);
+
+     label2:
+        $r3 = new com.google.android.gms.internal.consent_sdk.zza;
+
+     label3:
+        $r4 = virtualinvoke $r2.getId();
+
+        $z0 = virtualinvoke $r2.isLimitAdTrackingEnabled();
+
+        specialinvoke $r3.<init>($r4, $z0);
+
+     label4:
+        return $r3;
+
+     label5:
+        $r5 := @caughtexception;
+
+        goto label8;
+
+     label6:
+        $r5 := @caughtexception;
+
+        goto label8;
+
+     label7:
+        $r5 := @caughtexception;
+
+     label8:
+        android.util.Log.d("UserMessagingPlatform", "Failed to get ad id.", $r5);
+
+        return null;
+
+        catch java.io.IOException from label1 to label2 with label7;
+        catch java.io.IOException from label3 to label4 with label7;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label1 to label2 with label6;
+        catch com.google.android.gms.common.GooglePlayServicesNotAvailableException from label3 to label4 with label6;
+        catch com.google.android.gms.common.GooglePlayServicesRepairableException from label1 to label2 with label5;
+        catch com.google.android.gms.common.GooglePlayServicesRepairableException from label3 to label4 with label5;
+    }
+}

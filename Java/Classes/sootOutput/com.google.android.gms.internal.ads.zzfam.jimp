@@ -1,0 +1,187 @@
+final class com.google.android.gms.internal.ads.zzfam extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzfal zza;
+    private int zzb;
+    private int zzc;
+    private int zzd;
+    private int zze;
+    private int zzf;
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        com.google.android.gms.internal.ads.zzfal $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.internal.ads.zzfal;
+
+        specialinvoke $r1.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfal zza()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        com.google.android.gms.internal.ads.zzfal $r1, $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zza();
+
+        $r1 = r0.zza;
+
+        $r1.zza = 0;
+
+        $r1.zzb = 0;
+
+        return $r2;
+    }
+
+    public final java.lang.String zzb()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>();
+
+        virtualinvoke $r2.append("\n\tPool does not exist: ");
+
+        $i0 = r0.zzd;
+
+        virtualinvoke $r2.append($i0);
+
+        virtualinvoke $r2.append("\n\tNew pools created: ");
+
+        $i0 = r0.zzb;
+
+        virtualinvoke $r2.append($i0);
+
+        virtualinvoke $r2.append("\n\tPools removed: ");
+
+        $i0 = r0.zzc;
+
+        virtualinvoke $r2.append($i0);
+
+        virtualinvoke $r2.append("\n\tEntries added: ");
+
+        $i0 = r0.zzf;
+
+        virtualinvoke $r2.append($i0);
+
+        virtualinvoke $r2.append("\n\tNo entries retrieved: ");
+
+        $i0 = r0.zze;
+
+        virtualinvoke $r2.append($i0);
+
+        virtualinvoke $r2.append("\n");
+
+        $r1 = virtualinvoke $r2.toString();
+
+        return $r1;
+    }
+
+    public final void zzc()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = r0.zzf;
+
+        $i0 = $i0 + 1;
+
+        r0.zzf = $i0;
+
+        return;
+    }
+
+    public final void zzd()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfal $r1;
+
+        r0 := @this;
+
+        $i0 = r0.zzb;
+
+        $i0 = $i0 + 1;
+
+        r0.zzb = $i0;
+
+        $r1 = r0.zza;
+
+        $r1.zza = 1;
+
+        return;
+    }
+
+    public final void zze()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = r0.zze;
+
+        $i0 = $i0 + 1;
+
+        r0.zze = $i0;
+
+        return;
+    }
+
+    public final void zzf()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = r0.zzd;
+
+        $i0 = $i0 + 1;
+
+        r0.zzd = $i0;
+
+        return;
+    }
+
+    public final void zzg()
+    {
+        com.google.android.gms.internal.ads.zzfam r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfal $r1;
+
+        r0 := @this;
+
+        $i0 = r0.zzc;
+
+        $i0 = $i0 + 1;
+
+        r0.zzc = $i0;
+
+        $r1 = r0.zza;
+
+        $r1.zzb = 1;
+
+        return;
+    }
+}

@@ -1,0 +1,74 @@
+public final class com.google.android.gms.internal.ads.zzgfr extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzgfr zza;
+    public static final com.google.android.gms.internal.ads.zzgfr zzb;
+    public static final com.google.android.gms.internal.ads.zzgfr zzc;
+    public static final com.google.android.gms.internal.ads.zzgfr zzd;
+    public static final com.google.android.gms.internal.ads.zzgfr zze;
+    private final java.lang.String zzf;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgfr $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfr;
+
+        specialinvoke $r0.<init>("SHA1");
+
+        com.google.android.gms.internal.ads.zzgfr.zza = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfr;
+
+        specialinvoke $r0.<init>("SHA224");
+
+        com.google.android.gms.internal.ads.zzgfr.zzb = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfr;
+
+        specialinvoke $r0.<init>("SHA256");
+
+        com.google.android.gms.internal.ads.zzgfr.zzc = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfr;
+
+        specialinvoke $r0.<init>("SHA384");
+
+        com.google.android.gms.internal.ads.zzgfr.zzd = $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfr;
+
+        specialinvoke $r0.<init>("SHA512");
+
+        com.google.android.gms.internal.ads.zzgfr.zze = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String)
+    {
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzgfr r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zzf = $r1;
+
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        java.lang.String r1;
+        com.google.android.gms.internal.ads.zzgfr r0;
+
+        r0 := @this;
+
+        r1 = r0.zzf;
+
+        return r1;
+    }
+}

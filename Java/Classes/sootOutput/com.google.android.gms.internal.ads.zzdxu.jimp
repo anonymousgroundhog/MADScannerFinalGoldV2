@@ -1,0 +1,60 @@
+public final class com.google.android.gms.internal.ads.zzdxu extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public static final com.google.android.gms.internal.ads.zzdxu zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdxu $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdxu;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdxu.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdxu r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzdxu r0;
+        byte[] $r6;
+        com.google.android.gms.internal.ads.zzfut $r7;
+        org.json.JSONObject $r4;
+        java.io.ByteArrayInputStream $r1;
+        java.nio.charset.Charset $r2;
+        java.lang.Object $r3;
+        java.lang.String $r5;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 = (org.json.JSONObject) $r3;
+
+        $r1 = new java.io.ByteArrayInputStream;
+
+        $r5 = virtualinvoke $r4.toString();
+
+        $r2 = java.nio.charset.StandardCharsets.UTF_8;
+
+        $r6 = virtualinvoke $r5.getBytes($r2);
+
+        specialinvoke $r1.<init>($r6);
+
+        $r7 = com.google.android.gms.internal.ads.zzfuj.zzh($r1);
+
+        return $r7;
+    }
+}

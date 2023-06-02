@@ -1,0 +1,14 @@
+public final class androidx.lifecycle.livedata.R extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.lifecycle.livedata.R r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

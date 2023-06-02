@@ -1,0 +1,101 @@
+public final class com.google.android.gms.internal.ads.zzbhq extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+    private final com.google.android.gms.internal.ads.zzbhr zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzbhr, byte[])
+    {
+        byte[] $r2;
+        com.google.android.gms.internal.ads.zzbhr $r1;
+        com.google.android.gms.internal.ads.zzbhq r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final volatile void zza(java.lang.Object, java.util.Map)
+    {
+        java.lang.NumberFormatException $r5;
+        java.util.Map $r2;
+        float $f0, $f1;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzcei $r3;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzbhr $r6;
+        com.google.android.gms.internal.ads.zzbhq r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = (com.google.android.gms.internal.ads.zzcei) $r1;
+
+        $r1 = interfaceinvoke $r2.get("transparentBackground");
+
+        $r4 = "1";
+
+        $z0 = virtualinvoke $r4.equals($r1);
+
+        $r1 = interfaceinvoke $r2.get("blur");
+
+        $z1 = virtualinvoke $r4.equals($r1);
+
+        $f0 = 0.0F;
+
+     label1:
+        $r1 = interfaceinvoke $r2.get("blurRadius");
+
+     label2:
+        if $r1 == null goto label7;
+
+     label3:
+        $r1 = interfaceinvoke $r2.get("blurRadius");
+
+     label4:
+        $r4 = (java.lang.String) $r1;
+
+     label5:
+        $f1 = java.lang.Float.parseFloat($r4);
+
+     label6:
+        $f0 = $f1;
+
+        goto label9;
+
+     label7:
+        goto label9;
+
+     label8:
+        $r5 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Fail to parse float", $r5);
+
+     label9:
+        $r6 = r0.zza;
+
+        virtualinvoke $r6.zzc($z0);
+
+        $r6 = r0.zza;
+
+        virtualinvoke $r6.zzb($z1, $f0);
+
+        interfaceinvoke $r3.zzat($z0);
+
+        return;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label8;
+        catch java.lang.NumberFormatException from label3 to label4 with label8;
+        catch java.lang.NumberFormatException from label5 to label6 with label8;
+    }
+}

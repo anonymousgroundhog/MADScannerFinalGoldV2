@@ -1,0 +1,139 @@
+public class androidx.work.impl.background.systemalarm.SystemAlarmScheduler extends java.lang.Object implements androidx.work.impl.Scheduler
+{
+    private static final java.lang.String TAG;
+    private final android.content.Context mContext;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = androidx.work.Logger.tagWithPrefix("SystemAlarmScheduler");
+
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler.TAG = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler r0;
+        android.content.Context $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r1 = virtualinvoke $r1.getApplicationContext();
+
+        r0.mContext = $r1;
+
+        return;
+    }
+
+    private void scheduleWorkSpec(androidx.work.impl.model.WorkSpec)
+    {
+        android.content.Context r7;
+        java.lang.Object[] $r4;
+        android.content.Intent $r8;
+        androidx.work.impl.model.WorkSpec $r1;
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler r0;
+        androidx.work.Logger $r2;
+        java.lang.Throwable[] $r6;
+        java.lang.String $r3, $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.background.systemalarm.SystemAlarmScheduler.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r5 = $r1.id;
+
+        $r4[0] = $r5;
+
+        $r5 = java.lang.String.format("Scheduling work with workSpecId %s", $r4);
+
+        $r6 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.debug($r3, $r5, $r6);
+
+        r7 = r0.mContext;
+
+        $r3 = $r1.id;
+
+        $r8 = androidx.work.impl.background.systemalarm.CommandHandler.createScheduleWorkIntent(r7, $r3);
+
+        r7 = r0.mContext;
+
+        virtualinvoke r7.startService($r8);
+
+        return;
+    }
+
+    public void cancel(java.lang.String)
+    {
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler r0;
+        android.content.Context $r2;
+        android.content.Intent $r3;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mContext;
+
+        $r3 = androidx.work.impl.background.systemalarm.CommandHandler.createStopWorkIntent($r2, $r1);
+
+        $r2 = r0.mContext;
+
+        virtualinvoke $r2.startService($r3);
+
+        return;
+    }
+
+    public boolean hasLimitedSchedulingSlots()
+    {
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+
+    public transient void schedule(androidx.work.impl.model.WorkSpec[])
+    {
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler r0;
+        int $i0, $i1;
+        androidx.work.impl.model.WorkSpec r2;
+        androidx.work.impl.model.WorkSpec[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = lengthof $r1;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        r2 = $r1[$i1];
+
+        specialinvoke r0.scheduleWorkSpec(r2);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

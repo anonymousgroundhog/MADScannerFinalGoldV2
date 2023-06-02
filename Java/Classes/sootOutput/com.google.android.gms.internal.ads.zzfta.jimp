@@ -1,0 +1,35 @@
+public final class com.google.android.gms.internal.ads.zzfta extends java.lang.Object
+{
+
+    public static boolean zza(sun.misc.Unsafe, java.lang.Object, long, java.lang.Object, java.lang.Object)
+    {
+        sun.misc.Unsafe $r3;
+        java.lang.Object $r0, $r1, $r2, $r4;
+        long $l0;
+        boolean $z0;
+
+        $r3 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $r1 := @parameter3;
+
+        $r2 := @parameter4;
+
+     label1:
+        $z0 = com.google.android.gms.internal.ads.zzfta$$ExternalSyntheticBackportWithForwarding0.m($r3, $r0, $l0, $r1, $r2);
+
+        if $z0 == 0 goto label2;
+
+        return 1;
+
+     label2:
+        $r4 = virtualinvoke $r3.getObject($r0, $l0);
+
+        if $r4 == $r1 goto label1;
+
+        return 0;
+    }
+}

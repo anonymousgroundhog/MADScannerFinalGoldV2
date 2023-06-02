@@ -1,0 +1,124 @@
+public final class com.google.android.gms.internal.ads.zzdkr extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+    private final com.google.android.gms.internal.ads.zzbfb zza;
+    private final com.google.android.gms.internal.ads.zzdlf zzb;
+    private final com.google.android.gms.internal.ads.zzgws zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdgt, com.google.android.gms.internal.ads.zzdgi, com.google.android.gms.internal.ads.zzdlf, com.google.android.gms.internal.ads.zzgws)
+    {
+        com.google.android.gms.internal.ads.zzdgt $r3;
+        com.google.android.gms.internal.ads.zzdgi $r4;
+        com.google.android.gms.internal.ads.zzgws $r2;
+        java.lang.String $r5;
+        com.google.android.gms.internal.ads.zzdlf $r1;
+        com.google.android.gms.internal.ads.zzbfb $r6;
+        com.google.android.gms.internal.ads.zzdkr r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        $r5 = virtualinvoke $r4.zzz();
+
+        $r6 = virtualinvoke $r3.zzc($r5);
+
+        r0.zza = $r6;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        return;
+    }
+
+    public final void zza(java.lang.Object, java.util.Map)
+    {
+        com.google.android.gms.internal.ads.zzgws $r5;
+        android.os.RemoteException $r7;
+        com.google.android.gms.internal.ads.zzbfb $r4;
+        com.google.android.gms.internal.ads.zzber $r6;
+        java.util.Map $r2;
+        java.lang.Object $r1;
+        java.lang.StringBuilder $r8;
+        java.lang.String $r3;
+        com.google.android.gms.internal.ads.zzdkr r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r1 = interfaceinvoke $r2.get("asset");
+
+        $r3 = (java.lang.String) $r1;
+
+        $r4 = r0.zza;
+
+        $r5 = r0.zzc;
+
+     label1:
+        $r1 = interfaceinvoke $r5.zzb();
+
+     label2:
+        $r6 = (com.google.android.gms.internal.ads.zzber) $r1;
+
+     label3:
+        interfaceinvoke $r4.zze($r6, $r3);
+
+     label4:
+        return;
+
+     label5:
+        $r7 := @caughtexception;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        virtualinvoke $r8.append("Failed to call onCustomClick for asset ");
+
+        virtualinvoke $r8.append($r3);
+
+        virtualinvoke $r8.append(".");
+
+        $r3 = virtualinvoke $r8.toString();
+
+        com.google.android.gms.internal.ads.zzbza.zzk($r3, $r7);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label5;
+        catch android.os.RemoteException from label3 to label4 with label5;
+    }
+
+    public final void zzb()
+    {
+        com.google.android.gms.internal.ads.zzbfb $r1;
+        com.google.android.gms.internal.ads.zzdlf $r2;
+        com.google.android.gms.internal.ads.zzdkr r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r2 = r0.zzb;
+
+        virtualinvoke $r2.zzi("/nativeAdCustomClick", r0);
+
+        return;
+    }
+}

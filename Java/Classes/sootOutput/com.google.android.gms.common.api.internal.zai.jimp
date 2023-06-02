@@ -1,0 +1,63 @@
+public abstract class com.google.android.gms.common.api.internal.zai extends java.lang.Object
+{
+    public final int zac;
+
+    public void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.internal.zai r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zac = $i0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.common.api.Status zah(android.os.RemoteException)
+    {
+        android.os.RemoteException $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        com.google.android.gms.common.api.Status $r4;
+        java.lang.String $r3;
+
+        $r0 := @parameter0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = virtualinvoke $r0.getClass();
+
+        $r3 = virtualinvoke $r2.getSimpleName();
+
+        virtualinvoke $r1.append($r3);
+
+        virtualinvoke $r1.append(": ");
+
+        $r3 = virtualinvoke $r0.getLocalizedMessage();
+
+        virtualinvoke $r1.append($r3);
+
+        $r4 = new com.google.android.gms.common.api.Status;
+
+        $r3 = virtualinvoke $r1.toString();
+
+        specialinvoke $r4.<init>(19, $r3);
+
+        return $r4;
+    }
+
+    public abstract void zad(com.google.android.gms.common.api.Status);
+
+    public abstract void zae(java.lang.Exception);
+
+    public abstract void zaf(com.google.android.gms.common.api.internal.zabq) throws android.os.DeadObjectException;
+
+    public abstract void zag(com.google.android.gms.common.api.internal.zaad, boolean);
+}

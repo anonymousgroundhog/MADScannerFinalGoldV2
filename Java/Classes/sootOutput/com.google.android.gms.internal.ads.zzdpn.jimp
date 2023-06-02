@@ -1,0 +1,51 @@
+public final class com.google.android.gms.internal.ads.zzdpn extends com.google.android.gms.internal.ads.zzdpp
+{
+    private final com.google.android.gms.internal.ads.zzfds zzf;
+
+    public void <init>(java.util.concurrent.Executor, com.google.android.gms.internal.ads.zzbzf, com.google.android.gms.internal.ads.zzfds, com.google.android.gms.internal.ads.zzfdu)
+    {
+        com.google.android.gms.internal.ads.zzdpn r0;
+        com.google.android.gms.internal.ads.zzfds $r2;
+        java.util.concurrent.Executor $r4;
+        java.util.Map $r5;
+        com.google.android.gms.internal.ads.zzfdu $r3;
+        com.google.android.gms.internal.ads.zzbzf $r1;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        specialinvoke r0.<init>($r4, $r1, $r3);
+
+        r0.zzf = $r2;
+
+        $r5 = r0.zzb;
+
+        virtualinvoke $r2.zza($r5);
+
+        return;
+    }
+
+    public final java.util.Map zza()
+    {
+        com.google.android.gms.internal.ads.zzdpn r0;
+        java.util.HashMap $r1;
+        java.util.Map $r2;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashMap;
+
+        $r2 = r0.zzb;
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+}

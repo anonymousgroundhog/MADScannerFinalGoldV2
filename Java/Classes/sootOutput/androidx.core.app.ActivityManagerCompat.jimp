@@ -1,0 +1,26 @@
+public final class androidx.core.app.ActivityManagerCompat extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.app.ActivityManagerCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static boolean isLowRamDevice(android.app.ActivityManager)
+    {
+        android.app.ActivityManager $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = virtualinvoke $r0.isLowRamDevice();
+
+        return $z0;
+    }
+}

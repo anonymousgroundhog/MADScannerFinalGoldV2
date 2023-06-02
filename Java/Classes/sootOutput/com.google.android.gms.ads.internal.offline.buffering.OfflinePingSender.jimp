@@ -1,0 +1,63 @@
+public class com.google.android.gms.ads.internal.offline.buffering.OfflinePingSender extends androidx.work.Worker
+{
+    private final com.google.android.gms.internal.ads.zzbqv zza;
+
+    public void <init>(android.content.Context, androidx.work.WorkerParameters)
+    {
+        android.content.Context $r2;
+        com.google.android.gms.ads.internal.offline.buffering.OfflinePingSender r0;
+        com.google.android.gms.ads.internal.client.zzaw $r4;
+        androidx.work.WorkerParameters $r3;
+        com.google.android.gms.internal.ads.zzbnc $r1;
+        com.google.android.gms.internal.ads.zzbqv $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        specialinvoke r0.<init>($r2, $r3);
+
+        $r4 = com.google.android.gms.ads.internal.client.zzay.zza();
+
+        $r1 = new com.google.android.gms.internal.ads.zzbnc;
+
+        specialinvoke $r1.<init>();
+
+        $r5 = virtualinvoke $r4.zzm($r2, $r1);
+
+        r0.zza = $r5;
+
+        return;
+    }
+
+    public final androidx.work.ListenableWorker$Result doWork()
+    {
+        androidx.work.ListenableWorker$Result $r2;
+        com.google.android.gms.ads.internal.offline.buffering.OfflinePingSender r0;
+        android.os.RemoteException $r3;
+        com.google.android.gms.internal.ads.zzbqv $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+     label1:
+        interfaceinvoke $r1.zzf();
+
+        $r2 = androidx.work.ListenableWorker$Result.success();
+
+     label2:
+        return $r2;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r2 = androidx.work.ListenableWorker$Result.failure();
+
+        return $r2;
+
+        catch android.os.RemoteException from label1 to label2 with label3;
+    }
+}

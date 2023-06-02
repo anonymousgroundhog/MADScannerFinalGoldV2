@@ -1,0 +1,59 @@
+class androidx.core.view.WindowInsetsControllerCompat$Impl30$2 extends java.lang.Object implements android.view.WindowInsetsController$OnControllableInsetsChangedListener
+{
+    final androidx.core.view.WindowInsetsControllerCompat$Impl30 this$0;
+    final androidx.core.view.WindowInsetsControllerCompat$OnControllableInsetsChangedListener val$listener;
+
+    void <init>(androidx.core.view.WindowInsetsControllerCompat$Impl30, androidx.core.view.WindowInsetsControllerCompat$OnControllableInsetsChangedListener)
+    {
+        androidx.core.view.WindowInsetsControllerCompat$Impl30 $r1;
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$2 r0;
+        androidx.core.view.WindowInsetsControllerCompat$OnControllableInsetsChangedListener $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        r0.val$listener = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onControllableInsetsChanged(android.view.WindowInsetsController, int)
+    {
+        android.view.WindowInsetsController $r1, $r3;
+        androidx.core.view.WindowInsetsControllerCompat$Impl30 $r2;
+        androidx.core.view.WindowInsetsControllerCompat$Impl30$2 r0;
+        androidx.core.view.WindowInsetsControllerCompat$OnControllableInsetsChangedListener $r4;
+        int $i0;
+        androidx.core.view.WindowInsetsControllerCompat $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.this$0;
+
+        $r3 = $r2.mInsetsController;
+
+        if $r3 != $r1 goto label1;
+
+        $r4 = r0.val$listener;
+
+        $r2 = r0.this$0;
+
+        $r5 = $r2.mCompatController;
+
+        interfaceinvoke $r4.onControllableInsetsChanged($r5, $i0);
+
+     label1:
+        return;
+    }
+}

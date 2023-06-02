@@ -1,0 +1,15 @@
+public final class com.google.android.gms.internal.ads.zzbca extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzb("gads:device_info_caching_expiry_ms:expiry", 300000L);
+
+        com.google.android.gms.internal.ads.zzbca.zza = $r0;
+
+        return;
+    }
+}

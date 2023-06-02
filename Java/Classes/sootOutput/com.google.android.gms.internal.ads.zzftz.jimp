@@ -1,0 +1,14 @@
+class com.google.android.gms.internal.ads.zzftz extends com.google.android.gms.internal.ads.zzfua implements com.google.android.gms.internal.ads.zzfsx$zzh
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzftz r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

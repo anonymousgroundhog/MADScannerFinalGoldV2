@@ -1,0 +1,75 @@
+public final class com.google.android.gms.internal.ads.zzxa extends java.lang.Object
+{
+    private final int zza;
+    private final long zzb;
+
+    void <init>(int, long, com.google.android.gms.internal.ads.zzwz)
+    {
+        com.google.android.gms.internal.ads.zzxa r0;
+        int $i0;
+        long $l1;
+        com.google.android.gms.internal.ads.zzwz $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $l1;
+
+        return;
+    }
+
+    static volatile int zza(com.google.android.gms.internal.ads.zzxa)
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzxa $r0;
+
+        $r0 := @parameter0;
+
+        i0 = $r0.zza;
+
+        return i0;
+    }
+
+    static volatile long zzb(com.google.android.gms.internal.ads.zzxa)
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzxa $r0;
+
+        $r0 := @parameter0;
+
+        l0 = $r0.zzb;
+
+        return l0;
+    }
+
+    public final boolean zzc()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzxa r0;
+
+        r0 := @this;
+
+        $i0 = r0.zza;
+
+        if $i0 == 0 goto label2;
+
+        if $i0 != 1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+}

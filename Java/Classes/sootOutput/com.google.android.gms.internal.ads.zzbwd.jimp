@@ -1,0 +1,431 @@
+public final class com.google.android.gms.internal.ads.zzbwd extends java.lang.Object implements android.content.SharedPreferences$OnSharedPreferenceChangeListener
+{
+    private final android.content.Context zza;
+    private final android.content.SharedPreferences zzb;
+    private final com.google.android.gms.ads.internal.util.zzg zzc;
+    private final com.google.android.gms.internal.ads.zzbxf zzd;
+    private java.lang.String zze;
+    private int zzf;
+
+    void <init>(android.content.Context, com.google.android.gms.ads.internal.util.zzg, com.google.android.gms.internal.ads.zzbxf)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzbxf $r3;
+        com.google.android.gms.internal.ads.zzbwd r0;
+        android.content.SharedPreferences $r4;
+        com.google.android.gms.ads.internal.util.zzg $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zze = "-1";
+
+        r0.zzf = -1;
+
+        $r4 = android.preference.PreferenceManager.getDefaultSharedPreferences($r1);
+
+        r0.zzb = $r4;
+
+        r0.zzc = $r2;
+
+        r0.zza = $r1;
+
+        r0.zzd = $r3;
+
+        return;
+    }
+
+    private final void zzb(java.lang.String, int)
+    {
+        android.content.Context $r7;
+        char $c1;
+        com.google.android.gms.ads.internal.util.zzg $r6;
+        com.google.android.gms.internal.ads.zzbap $r3;
+        com.google.android.gms.internal.ads.zzbxf $r8;
+        com.google.android.gms.internal.ads.zzbwd r0;
+        int $i0;
+        java.lang.Boolean $r5;
+        java.lang.Object $r4;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbaj $r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzat;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        $z1 = 0;
+
+        if $z0 == 0 goto label3;
+
+        if $i0 == 0 goto label2;
+
+        $z0 = virtualinvoke $r1.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        $c1 = virtualinvoke $r1.charAt(0);
+
+        $i0 = (int) $c1;
+
+        if $i0 == 49 goto label1;
+
+        $z0 = virtualinvoke $r1.equals("-1");
+
+        if $z0 != 0 goto label1;
+
+        $z1 = 1;
+
+        goto label5;
+
+     label1:
+        goto label5;
+
+     label2:
+        $z1 = 1;
+
+        goto label5;
+
+     label3:
+        $z0 = virtualinvoke $r1.isEmpty();
+
+        if $z0 != 0 goto label4;
+
+        $c1 = virtualinvoke $r1.charAt(0);
+
+        $i0 = (int) $c1;
+
+        if $i0 == 49 goto label5;
+
+     label4:
+        $z1 = 1;
+
+     label5:
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzar;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label6;
+
+        $r6 = r0.zzc;
+
+        interfaceinvoke $r6.zzH($z1);
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzfL;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label6;
+
+        if $z1 == 0 goto label6;
+
+        $r7 = r0.zza;
+
+        if $r7 == null goto label6;
+
+        virtualinvoke $r7.deleteDatabase("OfflineUpload.db");
+
+     label6:
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzam;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z1 = virtualinvoke $r5.booleanValue();
+
+        if $z1 == 0 goto label7;
+
+        $r8 = r0.zzd;
+
+        virtualinvoke $r8.zzt();
+
+     label7:
+        return;
+    }
+
+    public final void onSharedPreferenceChanged(android.content.SharedPreferences, java.lang.String)
+    {
+        com.google.android.gms.ads.internal.util.zzg $r7;
+        com.google.android.gms.internal.ads.zzbap $r4;
+        com.google.android.gms.internal.ads.zzbwd r0;
+        android.content.SharedPreferences $r1;
+        byte $b0;
+        int $i1, $i2;
+        java.lang.Boolean $r6;
+        java.lang.Object $r5;
+        java.lang.String $r2, $r8, $r9;
+        com.google.android.gms.internal.ads.zzbaj $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzav;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Boolean) $r5;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        $b0 = 1;
+
+        if $z0 == 0 goto label06;
+
+        $z0 = com.google.android.gms.internal.ads.zzbwc.zza($r2, "gad_has_consent_for_cookies");
+
+        if $z0 == 0 goto label03;
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzat;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Boolean) $r5;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 != 0 goto label01;
+
+        return;
+
+     label01:
+        $i1 = interfaceinvoke $r1.getInt("gad_has_consent_for_cookies", -1);
+
+        $r7 = r0.zzc;
+
+        $i2 = interfaceinvoke $r7.zzb();
+
+        if $i1 == $i2 goto label02;
+
+        $r7 = r0.zzc;
+
+        interfaceinvoke $r7.zzH(1);
+
+     label02:
+        $r7 = r0.zzc;
+
+        interfaceinvoke $r7.zzE($i1);
+
+        return;
+
+     label03:
+        $z0 = com.google.android.gms.internal.ads.zzbwc.zza($r2, "IABTCF_gdprApplies");
+
+        if $z0 != 0 goto label04;
+
+        $z0 = com.google.android.gms.internal.ads.zzbwc.zza($r2, "IABTCF_TCString");
+
+        if $z0 != 0 goto label04;
+
+        $z0 = com.google.android.gms.internal.ads.zzbwc.zza($r2, "IABTCF_PurposeConsents");
+
+        if $z0 == 0 goto label15;
+
+     label04:
+        $r8 = interfaceinvoke $r1.getString($r2, "-1");
+
+        if $r8 == null goto label05;
+
+        $r7 = r0.zzc;
+
+        $r9 = interfaceinvoke $r7.zzn($r2);
+
+        $z0 = virtualinvoke $r8.equals($r9);
+
+        if $z0 != 0 goto label05;
+
+        $r7 = r0.zzc;
+
+        interfaceinvoke $r7.zzH(1);
+
+     label05:
+        $r7 = r0.zzc;
+
+        interfaceinvoke $r7.zzF($r2, $r8);
+
+        return;
+
+     label06:
+        $r8 = interfaceinvoke $r1.getString("IABTCF_PurposeConsents", "-1");
+
+        $i1 = interfaceinvoke $r1.getInt("gad_has_consent_for_cookies", -1);
+
+        $r2 = java.lang.String.valueOf($r2);
+
+        $i2 = virtualinvoke $r2.hashCode();
+
+        lookupswitch($i2)
+        {
+            case -2004976699: goto label09;
+            case -527267622: goto label08;
+            default: goto label07;
+        };
+
+     label07:
+        goto label10;
+
+     label08:
+        $z0 = virtualinvoke $r2.equals("gad_has_consent_for_cookies");
+
+        if $z0 == 0 goto label07;
+
+        goto label11;
+
+     label09:
+        $z0 = virtualinvoke $r2.equals("IABTCF_PurposeConsents");
+
+        if $z0 == 0 goto label07;
+
+        $b0 = 0;
+
+        goto label11;
+
+     label10:
+        $b0 = -1;
+
+     label11:
+        lookupswitch($b0)
+        {
+            case 0: goto label14;
+            case 1: goto label13;
+            default: goto label12;
+        };
+
+     label12:
+        return;
+
+     label13:
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzat;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Boolean) $r5;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 == 0 goto label15;
+
+        if $i1 == -1 goto label15;
+
+        $i2 = r0.zzf;
+
+        if $i2 == $i1 goto label15;
+
+        r0.zzf = $i1;
+
+        specialinvoke r0.zzb($r8, $i1);
+
+        return;
+
+     label14:
+        $z0 = virtualinvoke $r8.equals("-1");
+
+        if $z0 != 0 goto label15;
+
+        $r2 = r0.zze;
+
+        $z0 = virtualinvoke $r2.equals($r8);
+
+        if $z0 != 0 goto label15;
+
+        r0.zze = $r8;
+
+        specialinvoke r0.zzb($r8, $i1);
+
+     label15:
+        return;
+    }
+
+    final void zza()
+    {
+        com.google.android.gms.internal.ads.zzbap $r3;
+        com.google.android.gms.internal.ads.zzbwd r0;
+        android.content.SharedPreferences $r1;
+        java.lang.Boolean $r5;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.ads.zzbaj $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        interfaceinvoke $r1.registerOnSharedPreferenceChangeListener(r0);
+
+        $r1 = r0.zzb;
+
+        virtualinvoke r0.onSharedPreferenceChanged($r1, "gad_has_consent_for_cookies");
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zzav;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.zzb;
+
+        virtualinvoke r0.onSharedPreferenceChanged($r1, "IABTCF_gdprApplies");
+
+        $r1 = r0.zzb;
+
+        virtualinvoke r0.onSharedPreferenceChanged($r1, "IABTCF_TCString");
+
+        return;
+
+     label1:
+        $r1 = r0.zzb;
+
+        virtualinvoke r0.onSharedPreferenceChanged($r1, "IABTCF_PurposeConsents");
+
+        return;
+    }
+}

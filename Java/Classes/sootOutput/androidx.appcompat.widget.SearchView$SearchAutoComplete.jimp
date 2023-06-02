@@ -1,0 +1,520 @@
+public class androidx.appcompat.widget.SearchView$SearchAutoComplete extends androidx.appcompat.widget.AppCompatAutoCompleteTextView
+{
+    private boolean mHasPendingShowSoftInputRequest;
+    final java.lang.Runnable mRunShowSoftInputIfNecessary;
+    private androidx.appcompat.widget.SearchView mSearchView;
+    private int mThreshold;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.util.AttributeSet $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 = androidx.appcompat.R$attr.autoCompleteTextViewStyle;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.util.AttributeSet $r2;
+        int $i0;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete$1 $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        $r3 = new androidx.appcompat.widget.SearchView$SearchAutoComplete$1;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mRunShowSoftInputIfNecessary = $r3;
+
+        $i0 = virtualinvoke r0.getThreshold();
+
+        r0.mThreshold = $i0;
+
+        return;
+    }
+
+    private int getSearchViewTextMinWidthDp()
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.content.res.Configuration $r2;
+        int i0, i1, $i2;
+        android.content.res.Resources $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getResources();
+
+        $r2 = virtualinvoke $r1.getConfiguration();
+
+        i0 = $r2.screenWidthDp;
+
+        i1 = $r2.screenHeightDp;
+
+        if i0 < 960 goto label1;
+
+        if i1 < 720 goto label1;
+
+        $i2 = $r2.orientation;
+
+        if $i2 != 2 goto label1;
+
+        return 256;
+
+     label1:
+        if i0 >= 600 goto label3;
+
+        if i0 < 640 goto label2;
+
+        if i1 < 480 goto label2;
+
+        goto label3;
+
+     label2:
+        return 160;
+
+     label3:
+        return 192;
+    }
+
+    public boolean enoughToFilter()
+    {
+        int $i0;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 = r0.mThreshold;
+
+        if $i0 <= 0 goto label2;
+
+        $z0 = specialinvoke r0.enoughToFilter();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    void ensureImeVisible()
+    {
+        androidx.appcompat.widget.SearchView$PreQAutoCompleteTextViewReflector $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 29 goto label1;
+
+        virtualinvoke r0.setInputMethodMode(1);
+
+        $z0 = virtualinvoke r0.enoughToFilter();
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.showDropDown();
+
+        return;
+
+     label1:
+        $r1 = androidx.appcompat.widget.SearchView.PRE_API_29_HIDDEN_METHOD_INVOKER;
+
+        virtualinvoke $r1.ensureImeVisible(r0);
+
+     label2:
+        return;
+    }
+
+    boolean isEmpty()
+    {
+        int $i0;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.text.Editable $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getText();
+
+        $i0 = android.text.TextUtils.getTrimmedLength($r1);
+
+        if $i0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public android.view.inputmethod.InputConnection onCreateInputConnection(android.view.inputmethod.EditorInfo)
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.view.inputmethod.InputConnection $r2;
+        android.view.inputmethod.EditorInfo $r1;
+        java.lang.Runnable $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = specialinvoke r0.onCreateInputConnection($r1);
+
+        $z0 = r0.mHasPendingShowSoftInputRequest;
+
+        if $z0 == 0 goto label1;
+
+        $r3 = r0.mRunShowSoftInputIfNecessary;
+
+        virtualinvoke r0.removeCallbacks($r3);
+
+        $r3 = r0.mRunShowSoftInputIfNecessary;
+
+        virtualinvoke r0.post($r3);
+
+     label1:
+        return $r2;
+    }
+
+    protected void onFinishInflate()
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        int $i0;
+        float $f0;
+        android.util.DisplayMetrics $r2;
+        android.content.res.Resources $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onFinishInflate();
+
+        $r1 = virtualinvoke r0.getResources();
+
+        $r2 = virtualinvoke $r1.getDisplayMetrics();
+
+        $i0 = specialinvoke r0.getSearchViewTextMinWidthDp();
+
+        $f0 = (float) $i0;
+
+        $f0 = android.util.TypedValue.applyDimension(1, $f0, $r2);
+
+        $i0 = (int) $f0;
+
+        virtualinvoke r0.setMinWidth($i0);
+
+        return;
+    }
+
+    protected void onFocusChanged(boolean, int, android.graphics.Rect)
+    {
+        android.graphics.Rect $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        int $i0;
+        androidx.appcompat.widget.SearchView $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        specialinvoke r0.onFocusChanged($z0, $i0, $r1);
+
+        $r2 = r0.mSearchView;
+
+        virtualinvoke $r2.onTextFocusChanged();
+
+        return;
+    }
+
+    public boolean onKeyPreIme(int, android.view.KeyEvent)
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        android.view.KeyEvent $r1;
+        int $i0, $i1;
+        androidx.appcompat.widget.SearchView $r3;
+        android.view.KeyEvent$DispatcherState $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $i0 != 4 goto label3;
+
+        $i1 = virtualinvoke $r1.getAction();
+
+        if $i1 != 0 goto label1;
+
+        $i1 = virtualinvoke $r1.getRepeatCount();
+
+        if $i1 != 0 goto label1;
+
+        $r2 = virtualinvoke r0.getKeyDispatcherState();
+
+        if $r2 == null goto label4;
+
+        virtualinvoke $r2.startTracking($r1, r0);
+
+        return 1;
+
+     label1:
+        $i1 = virtualinvoke $r1.getAction();
+
+        if $i1 != 1 goto label3;
+
+        $r2 = virtualinvoke r0.getKeyDispatcherState();
+
+        if $r2 == null goto label2;
+
+        virtualinvoke $r2.handleUpEvent($r1);
+
+     label2:
+        $z0 = virtualinvoke $r1.isTracking();
+
+        if $z0 == 0 goto label3;
+
+        $z0 = virtualinvoke $r1.isCanceled();
+
+        if $z0 != 0 goto label3;
+
+        $r3 = r0.mSearchView;
+
+        virtualinvoke $r3.clearFocus();
+
+        virtualinvoke r0.setImeVisibility(0);
+
+        return 1;
+
+     label3:
+        $z0 = specialinvoke r0.onKeyPreIme($i0, $r1);
+
+        return $z0;
+
+     label4:
+        return 1;
+    }
+
+    public void onWindowFocusChanged(boolean)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        int $i0;
+        androidx.appcompat.widget.SearchView $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        specialinvoke r0.onWindowFocusChanged($z0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.mSearchView;
+
+        $z0 = virtualinvoke $r1.hasFocus();
+
+        if $z0 == 0 goto label1;
+
+        $i0 = virtualinvoke r0.getVisibility();
+
+        if $i0 != 0 goto label1;
+
+        r0.mHasPendingShowSoftInputRequest = 1;
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $z0 = androidx.appcompat.widget.SearchView.isLandscapeMode($r2);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.ensureImeVisible();
+
+     label1:
+        return;
+    }
+
+    public void performCompletion()
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    protected void replaceText(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    void setImeVisibility(boolean)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        java.lang.Object $r2;
+        java.lang.Runnable $r4;
+        android.os.IBinder $r5;
+        boolean $z0;
+        android.view.inputmethod.InputMethodManager r3;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = virtualinvoke $r1.getSystemService("input_method");
+
+        r3 = (android.view.inputmethod.InputMethodManager) $r2;
+
+        if $z0 != 0 goto label1;
+
+        r0.mHasPendingShowSoftInputRequest = 0;
+
+        $r4 = r0.mRunShowSoftInputIfNecessary;
+
+        virtualinvoke r0.removeCallbacks($r4);
+
+        $r5 = virtualinvoke r0.getWindowToken();
+
+        virtualinvoke r3.hideSoftInputFromWindow($r5, 0);
+
+        return;
+
+     label1:
+        $z0 = virtualinvoke r3.isActive(r0);
+
+        if $z0 == 0 goto label2;
+
+        r0.mHasPendingShowSoftInputRequest = 0;
+
+        $r4 = r0.mRunShowSoftInputIfNecessary;
+
+        virtualinvoke r0.removeCallbacks($r4);
+
+        virtualinvoke r3.showSoftInput(r0, 0);
+
+        return;
+
+     label2:
+        r0.mHasPendingShowSoftInputRequest = 1;
+
+        return;
+    }
+
+    void setSearchView(androidx.appcompat.widget.SearchView)
+    {
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        androidx.appcompat.widget.SearchView $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSearchView = $r1;
+
+        return;
+    }
+
+    public void setThreshold(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.setThreshold($i0);
+
+        r0.mThreshold = $i0;
+
+        return;
+    }
+
+    void showSoftInputIfNecessary()
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.SearchView$SearchAutoComplete r0;
+        java.lang.Object $r2;
+        boolean z0;
+        android.view.inputmethod.InputMethodManager r3;
+
+        r0 := @this;
+
+        z0 = r0.mHasPendingShowSoftInputRequest;
+
+        if z0 == 0 goto label1;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = virtualinvoke $r1.getSystemService("input_method");
+
+        r3 = (android.view.inputmethod.InputMethodManager) $r2;
+
+        virtualinvoke r3.showSoftInput(r0, 0);
+
+        r0.mHasPendingShowSoftInputRequest = 0;
+
+     label1:
+        return;
+    }
+}

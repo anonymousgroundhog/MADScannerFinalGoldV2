@@ -1,0 +1,45 @@
+public final class com.google.android.gms.internal.ads.zzevh extends java.lang.Object
+{
+
+    public static void zza(java.util.concurrent.atomic.AtomicReference, com.google.android.gms.internal.ads.zzevg)
+    {
+        com.google.android.gms.internal.ads.zzevg $r2;
+        java.lang.Object $r0;
+        android.os.RemoteException $r4;
+        java.util.concurrent.atomic.AtomicReference $r1;
+        java.lang.NullPointerException $r3;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r0 = virtualinvoke $r1.get();
+
+        if $r0 != null goto label1;
+
+        return;
+
+     label1:
+        interfaceinvoke $r2.zza($r0);
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzk("NullPointerException occurs when invoking a method from a delegating listener.", $r3);
+
+        return;
+
+     label4:
+        $r4 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzl("#007 Could not call remote method.", $r4);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label4;
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzfwq extends java.lang.Object
+{
+
+    public abstract boolean zza();
+
+    public abstract com.google.android.gms.internal.ads.zzfvo zzb() throws java.security.GeneralSecurityException;
+}

@@ -1,0 +1,62 @@
+final class com.google.android.gms.internal.ads.zzcho extends java.lang.Object implements com.google.android.gms.internal.ads.zzeqt
+{
+    private final com.google.android.gms.internal.ads.zzchy zza;
+    private com.google.android.gms.internal.ads.zzesa zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzchy, com.google.android.gms.internal.ads.zzchn)
+    {
+        com.google.android.gms.internal.ads.zzcho r0;
+        com.google.android.gms.internal.ads.zzchn $r2;
+        com.google.android.gms.internal.ads.zzchy $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzeqt zza(com.google.android.gms.internal.ads.zzesa)
+    {
+        com.google.android.gms.internal.ads.zzcho r0;
+        com.google.android.gms.internal.ads.zzesa $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzb = $r1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzequ zzb()
+    {
+        com.google.android.gms.internal.ads.zzchy $r3;
+        com.google.android.gms.internal.ads.zzesa $r1;
+        com.google.android.gms.internal.ads.zzcho r0;
+        com.google.android.gms.internal.ads.zzchq $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzgxg.zzc($r1, class "Lcom/google/android/gms/internal/ads/zzesa;");
+
+        $r2 = new com.google.android.gms.internal.ads.zzchq;
+
+        $r3 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        specialinvoke $r2.<init>($r3, $r1, null);
+
+        return $r2;
+    }
+}

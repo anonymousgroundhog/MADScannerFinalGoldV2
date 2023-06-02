@@ -1,0 +1,48 @@
+class androidx.core.content.ContextCompat$Api16Impl extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.content.ContextCompat$Api16Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void startActivities(android.content.Context, android.content.Intent[], android.os.Bundle)
+    {
+        android.content.Context $r0;
+        android.content.Intent[] $r1;
+        android.os.Bundle $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        virtualinvoke $r0.startActivities($r1, $r2);
+
+        return;
+    }
+
+    static void startActivity(android.content.Context, android.content.Intent, android.os.Bundle)
+    {
+        android.content.Context $r0;
+        android.content.Intent $r1;
+        android.os.Bundle $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        virtualinvoke $r0.startActivity($r1, $r2);
+
+        return;
+    }
+}

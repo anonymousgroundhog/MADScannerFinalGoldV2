@@ -1,0 +1,17 @@
+public interface  com.google.android.gms.common.api.Api$ApiOptions extends java.lang.Object
+{
+    public static final com.google.android.gms.common.api.Api$ApiOptions$NoOptions NO_OPTIONS;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.api.Api$ApiOptions$NoOptions $r0;
+
+        $r0 = new com.google.android.gms.common.api.Api$ApiOptions$NoOptions;
+
+        specialinvoke $r0.<init>(null);
+
+        com.google.android.gms.common.api.Api$ApiOptions.NO_OPTIONS = $r0;
+
+        return;
+    }
+}

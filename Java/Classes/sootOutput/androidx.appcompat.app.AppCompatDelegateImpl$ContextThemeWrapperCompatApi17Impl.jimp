@@ -1,0 +1,28 @@
+class androidx.appcompat.app.AppCompatDelegateImpl$ContextThemeWrapperCompatApi17Impl extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.appcompat.app.AppCompatDelegateImpl$ContextThemeWrapperCompatApi17Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void applyOverrideConfiguration(android.view.ContextThemeWrapper, android.content.res.Configuration)
+    {
+        android.view.ContextThemeWrapper $r0;
+        android.content.res.Configuration $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        virtualinvoke $r0.applyOverrideConfiguration($r1);
+
+        return;
+    }
+}

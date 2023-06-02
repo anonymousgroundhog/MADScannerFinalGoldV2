@@ -1,0 +1,62 @@
+public final class com.google.android.gms.internal.ads.zzbyw extends java.lang.Object implements com.google.android.gms.internal.ads.zzbyy
+{
+    public final java.lang.String zza;
+    public final java.lang.String zzb;
+    public final java.util.Map zzc;
+    public final byte[] zzd;
+
+    public void <init>(java.lang.String, java.lang.String, java.util.Map, byte[])
+    {
+        byte[] $r4;
+        com.google.android.gms.internal.ads.zzbyw r0;
+        java.util.Map $r3;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        r0.zzd = $r4;
+
+        return;
+    }
+
+    public final void zza(android.util.JsonWriter)
+    {
+        byte[] $r5;
+        com.google.android.gms.internal.ads.zzbyw r0;
+        android.util.JsonWriter $r1;
+        java.util.Map $r4;
+        java.lang.String $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        $r4 = r0.zzc;
+
+        $r5 = r0.zzd;
+
+        com.google.android.gms.internal.ads.zzbyz.zza($r2, $r3, $r4, $r5, $r1);
+
+        return;
+    }
+}

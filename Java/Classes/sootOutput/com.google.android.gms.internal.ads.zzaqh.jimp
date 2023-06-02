@@ -1,0 +1,40 @@
+final class com.google.android.gms.internal.ads.zzaqh extends java.lang.Object implements com.google.android.gms.internal.ads.zzaql
+{
+    final android.app.Activity zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzaqm, android.app.Activity)
+    {
+        com.google.android.gms.internal.ads.zzaqh r0;
+        com.google.android.gms.internal.ads.zzaqm $r1;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(android.app.Application$ActivityLifecycleCallbacks)
+    {
+        android.app.Application$ActivityLifecycleCallbacks $r1;
+        com.google.android.gms.internal.ads.zzaqh r0;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r1.onActivityPaused($r2);
+
+        return;
+    }
+}

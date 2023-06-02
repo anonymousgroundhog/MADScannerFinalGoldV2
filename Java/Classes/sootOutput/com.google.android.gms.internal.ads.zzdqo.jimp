@@ -1,0 +1,1081 @@
+public final class com.google.android.gms.internal.ads.zzdqo extends com.google.android.gms.internal.ads.zzbio
+{
+    private final com.google.android.gms.internal.ads.zzdqr zza;
+    private final com.google.android.gms.internal.ads.zzdqm zzb;
+    private final java.util.Map zzc;
+
+    void <init>(com.google.android.gms.internal.ads.zzdqr, com.google.android.gms.internal.ads.zzdqm)
+    {
+        com.google.android.gms.internal.ads.zzdqo r0;
+        com.google.android.gms.internal.ads.zzdqm $r2;
+        com.google.android.gms.internal.ads.zzdqr $r1;
+        java.util.HashMap $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<init>();
+
+        r0.zzc = $r3;
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    private static com.google.android.gms.ads.internal.client.zzl zzc(java.util.Map)
+    {
+        android.os.Bundle $r10, $r13, $r16;
+        byte $b3;
+        java.util.Map $r0;
+        boolean $z0, $z1, $z2;
+        java.util.List $r1, $r17, $r22;
+        android.location.Location $r15;
+        android.util.JsonReader $r7;
+        long $l0;
+        java.util.ArrayList $r9;
+        int $i1, $i2, $i4, $i5, $i6;
+        java.lang.String $r2, $r11, $r18, $r19, $r21, $r23;
+        com.google.android.gms.ads.internal.client.zzfh $r3;
+        com.google.android.gms.ads.internal.client.zzm $r4;
+        java.io.IOException $r12;
+        com.google.android.gms.ads.internal.client.zzl $r6, $r14;
+        java.io.StringReader $r8;
+        com.google.android.gms.ads.internal.client.zzc $r20;
+        java.lang.Object $r5;
+
+        $r0 := @parameter0;
+
+        $r4 = new com.google.android.gms.ads.internal.client.zzm;
+
+        specialinvoke $r4.<init>();
+
+        $r5 = interfaceinvoke $r0.get("ad_request");
+
+        $r2 = (java.lang.String) $r5;
+
+        if $r2 != null goto label01;
+
+        $r6 = virtualinvoke $r4.zza();
+
+        return $r6;
+
+     label01:
+        $r2 = android.net.Uri.decode($r2);
+
+        $r7 = new android.util.JsonReader;
+
+        $r8 = new java.io.StringReader;
+
+        specialinvoke $r8.<init>($r2);
+
+        specialinvoke $r7.<init>($r8);
+
+     label02:
+        virtualinvoke $r7.beginObject();
+
+     label03:
+        $z0 = virtualinvoke $r7.hasNext();
+
+     label04:
+        if $z0 == 0 goto label59;
+
+     label05:
+        $r2 = virtualinvoke $r7.nextName();
+
+        $i1 = virtualinvoke $r2.hashCode();
+
+     label06:
+        lookupswitch($i1)
+        {
+            case -1289032093: goto label14;
+            case -839117230: goto label13;
+            case -733436947: goto label12;
+            case -99890337: goto label11;
+            case 523149226: goto label10;
+            case 597632527: goto label09;
+            case 1411582723: goto label08;
+            default: goto label07;
+        };
+
+     label07:
+        goto label15;
+
+     label08:
+        $z0 = virtualinvoke $r2.equals("tagForChildDirectedTreatment");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 3;
+
+        goto label16;
+
+     label09:
+        $z0 = virtualinvoke $r2.equals("maxAdContentRating");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 5;
+
+        goto label16;
+
+     label10:
+        $z0 = virtualinvoke $r2.equals("keywords");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 1;
+
+        goto label16;
+
+     label11:
+        $z0 = virtualinvoke $r2.equals("httpTimeoutMillis");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 6;
+
+        goto label16;
+
+     label12:
+        $z0 = virtualinvoke $r2.equals("tagForUnderAgeOfConsent");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 4;
+
+        goto label16;
+
+     label13:
+        $z0 = virtualinvoke $r2.equals("isTestDevice");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 2;
+
+        goto label16;
+
+     label14:
+        $z0 = virtualinvoke $r2.equals("extras");
+
+        if $z0 == 0 goto label07;
+
+        $b3 = 0;
+
+        goto label16;
+
+     label15:
+        $b3 = -1;
+
+     label16:
+        lookupswitch($b3)
+        {
+            case 0: goto label50;
+            case 1: goto label41;
+            case 2: goto label39;
+            case 3: goto label33;
+            case 4: goto label27;
+            case 5: goto label21;
+            case 6: goto label19;
+            default: goto label17;
+        };
+
+     label17:
+        virtualinvoke $r7.skipValue();
+
+     label18:
+        goto label03;
+
+     label19:
+        $i1 = virtualinvoke $r7.nextInt();
+
+        virtualinvoke $r4.zzc($i1);
+
+     label20:
+        goto label03;
+
+     label21:
+        $r2 = virtualinvoke $r7.nextString();
+
+     label22:
+        $r1 = com.google.android.gms.ads.RequestConfiguration.zza;
+
+     label23:
+        $z0 = interfaceinvoke $r1.contains($r2);
+
+     label24:
+        if $z0 == 0 goto label03;
+
+     label25:
+        virtualinvoke $r4.zzf($r2);
+
+     label26:
+        goto label03;
+
+     label27:
+        $z0 = virtualinvoke $r7.nextBoolean();
+
+     label28:
+        if $z0 == 0 goto label31;
+
+     label29:
+        virtualinvoke $r4.zzh(1);
+
+     label30:
+        goto label03;
+
+     label31:
+        virtualinvoke $r4.zzh(0);
+
+     label32:
+        goto label03;
+
+     label33:
+        $z0 = virtualinvoke $r7.nextBoolean();
+
+     label34:
+        if $z0 == 0 goto label37;
+
+     label35:
+        virtualinvoke $r4.zzg(1);
+
+     label36:
+        goto label03;
+
+     label37:
+        virtualinvoke $r4.zzg(0);
+
+     label38:
+        goto label03;
+
+     label39:
+        $z0 = virtualinvoke $r7.nextBoolean();
+
+        virtualinvoke $r4.zzd($z0);
+
+     label40:
+        goto label03;
+
+     label41:
+        virtualinvoke $r7.beginArray();
+
+     label42:
+        $r9 = new java.util.ArrayList;
+
+     label43:
+        specialinvoke $r9.<init>();
+
+     label44:
+        $z0 = virtualinvoke $r7.hasNext();
+
+     label45:
+        if $z0 == 0 goto label48;
+
+     label46:
+        $r2 = virtualinvoke $r7.nextString();
+
+        virtualinvoke $r9.add($r2);
+
+     label47:
+        goto label44;
+
+     label48:
+        virtualinvoke $r7.endArray();
+
+        virtualinvoke $r4.zze($r9);
+
+     label49:
+        goto label03;
+
+     label50:
+        virtualinvoke $r7.beginObject();
+
+     label51:
+        $r10 = new android.os.Bundle;
+
+     label52:
+        specialinvoke $r10.<init>();
+
+     label53:
+        $z0 = virtualinvoke $r7.hasNext();
+
+     label54:
+        if $z0 == 0 goto label57;
+
+     label55:
+        $r2 = virtualinvoke $r7.nextName();
+
+        $r11 = virtualinvoke $r7.nextString();
+
+        virtualinvoke $r10.putString($r2, $r11);
+
+     label56:
+        goto label53;
+
+     label57:
+        virtualinvoke $r7.endObject();
+
+        virtualinvoke $r4.zzb($r10);
+
+     label58:
+        goto label03;
+
+     label59:
+        virtualinvoke $r7.endObject();
+
+     label60:
+        goto label62;
+
+     label61:
+        $r12 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Ad Request json was malformed, parsing ended early.");
+
+     label62:
+        $r6 = virtualinvoke $r4.zza();
+
+        $r10 = $r6.zzm;
+
+        $r10 = virtualinvoke $r10.getBundle("com.google.ads.mediation.admob.AdMobAdapter");
+
+        if $r10 != null goto label63;
+
+        $r10 = $r6.zzc;
+
+        $r13 = $r6.zzm;
+
+        virtualinvoke $r13.putBundle("com.google.ads.mediation.admob.AdMobAdapter", $r10);
+
+        goto label63;
+
+     label63:
+        $r14 = new com.google.android.gms.ads.internal.client.zzl;
+
+        $i4 = $r6.zza;
+
+        $l0 = $r6.zzb;
+
+        $i1 = $r6.zzd;
+
+        $r1 = $r6.zze;
+
+        $z0 = $r6.zzf;
+
+        $i2 = $r6.zzg;
+
+        $z1 = $r6.zzh;
+
+        $r2 = $r6.zzi;
+
+        $r3 = $r6.zzj;
+
+        $r15 = $r6.zzk;
+
+        $r11 = $r6.zzl;
+
+        $r13 = $r6.zzm;
+
+        $r16 = $r6.zzn;
+
+        $r17 = $r6.zzo;
+
+        $r18 = $r6.zzp;
+
+        $r19 = $r6.zzq;
+
+        $z2 = $r6.zzr;
+
+        $r20 = $r6.zzs;
+
+        $i5 = $r6.zzt;
+
+        $r21 = $r6.zzu;
+
+        $r22 = $r6.zzv;
+
+        $i6 = $r6.zzw;
+
+        $r23 = $r6.zzx;
+
+        specialinvoke $r14.<init>($i4, $l0, $r10, $i1, $r1, $z0, $i2, $z1, $r2, $r3, $r15, $r11, $r13, $r16, $r17, $r18, $r19, $z2, $r20, $i5, $r21, $r22, $i6, $r23);
+
+        return $r14;
+
+        catch java.io.IOException from label02 to label04 with label61;
+        catch java.io.IOException from label05 to label06 with label61;
+        catch java.io.IOException from label17 to label18 with label61;
+        catch java.io.IOException from label19 to label20 with label61;
+        catch java.io.IOException from label21 to label22 with label61;
+        catch java.io.IOException from label23 to label24 with label61;
+        catch java.io.IOException from label25 to label26 with label61;
+        catch java.io.IOException from label27 to label28 with label61;
+        catch java.io.IOException from label29 to label30 with label61;
+        catch java.io.IOException from label31 to label32 with label61;
+        catch java.io.IOException from label33 to label34 with label61;
+        catch java.io.IOException from label35 to label36 with label61;
+        catch java.io.IOException from label37 to label38 with label61;
+        catch java.io.IOException from label39 to label40 with label61;
+        catch java.io.IOException from label41 to label42 with label61;
+        catch java.io.IOException from label43 to label45 with label61;
+        catch java.io.IOException from label46 to label47 with label61;
+        catch java.io.IOException from label48 to label49 with label61;
+        catch java.io.IOException from label50 to label51 with label61;
+        catch java.io.IOException from label52 to label54 with label61;
+        catch java.io.IOException from label55 to label56 with label61;
+        catch java.io.IOException from label57 to label58 with label61;
+        catch java.io.IOException from label59 to label60 with label61;
+    }
+
+    public final void zze()
+    {
+        com.google.android.gms.internal.ads.zzdqo r0;
+        java.util.Map $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzc;
+
+        interfaceinvoke $r1.clear();
+
+        return;
+    }
+
+    public final void zzf(java.lang.String) throws android.os.RemoteException
+    {
+        com.google.android.gms.internal.ads.zzdqo r0;
+        com.google.android.gms.internal.ads.zzdqm $r13;
+        com.google.android.gms.internal.ads.zzdqr $r19;
+        android.net.Uri $r8;
+        java.lang.Integer $r18;
+        com.google.android.gms.internal.ads.zzdqj $r21;
+        com.google.android.gms.internal.ads.zzdqi $r20;
+        java.lang.NullPointerException $r24;
+        com.google.android.gms.internal.ads.zzdqh $r12;
+        byte $b1, $b2;
+        java.lang.Long $r14;
+        java.util.Map $r9, $r16;
+        boolean $z0;
+        java.util.Collection $r10;
+        com.google.android.gms.internal.ads.zzbap $r3;
+        java.lang.StringBuilder $r15;
+        com.google.android.gms.internal.ads.zzdqt $r23;
+        com.google.android.gms.internal.ads.zzbaj $r2;
+        com.google.android.gms.internal.ads.zzdqx $r22;
+        long $l3;
+        int $i0, $i4;
+        java.lang.Boolean $r5;
+        java.lang.String $r1, $r6, $r7;
+        java.util.Iterator $r11;
+        java.lang.NumberFormatException $r25;
+        com.google.android.gms.ads.internal.client.zzl $r17;
+        java.lang.Object $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zziO;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 != 0 goto label01;
+
+        return;
+
+     label01:
+        $r6 = java.lang.String.valueOf($r1);
+
+        $r7 = "Received H5 gmsg: ";
+
+        $r6 = virtualinvoke $r7.concat($r6);
+
+        com.google.android.gms.ads.internal.util.zze.zza($r6);
+
+        $r8 = android.net.Uri.parse($r1);
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r9 = com.google.android.gms.ads.internal.util.zzs.zzL($r8);
+
+        $r4 = interfaceinvoke $r9.get("action");
+
+        $r1 = (java.lang.String) $r4;
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        if $z0 == 0 goto label02;
+
+        com.google.android.gms.internal.ads.zzbza.zze("H5 gmsg did not contain an action");
+
+        return;
+
+     label02:
+        $i0 = virtualinvoke $r1.hashCode();
+
+        $b1 = 0;
+
+        lookupswitch($i0)
+        {
+            case 579053441: goto label05;
+            case 871091088: goto label04;
+            default: goto label03;
+        };
+
+     label03:
+        goto label06;
+
+     label04:
+        $z0 = virtualinvoke $r1.equals("initialize");
+
+        if $z0 == 0 goto label03;
+
+        $b2 = 0;
+
+        goto label07;
+
+     label05:
+        $z0 = virtualinvoke $r1.equals("dispose_all");
+
+        if $z0 == 0 goto label03;
+
+        $b2 = 1;
+
+        goto label07;
+
+     label06:
+        $b2 = -1;
+
+     label07:
+        lookupswitch($b2)
+        {
+            case 0: goto label12;
+            case 1: goto label09;
+            default: goto label08;
+        };
+
+     label08:
+        $r4 = interfaceinvoke $r9.get("obj_id");
+
+        $r6 = (java.lang.String) $r4;
+
+        goto label13;
+
+     label09:
+        $r9 = r0.zzc;
+
+        $r10 = interfaceinvoke $r9.values();
+
+        $r11 = interfaceinvoke $r10.iterator();
+
+     label10:
+        $z0 = interfaceinvoke $r11.hasNext();
+
+        if $z0 == 0 goto label11;
+
+        $r4 = interfaceinvoke $r11.next();
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        interfaceinvoke $r12.zza();
+
+        goto label10;
+
+     label11:
+        $r9 = r0.zzc;
+
+        interfaceinvoke $r9.clear();
+
+        return;
+
+     label12:
+        $r9 = r0.zzc;
+
+        interfaceinvoke $r9.clear();
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zza();
+
+        return;
+
+     label13:
+        virtualinvoke $r6.getClass();
+
+        $l3 = java.lang.Long.parseLong($r6);
+
+     label14:
+        $i0 = virtualinvoke $r1.hashCode();
+
+        lookupswitch($i0)
+        {
+            case -1790951212: goto label22;
+            case -1266374734: goto label21;
+            case -257098725: goto label20;
+            case 393881811: goto label19;
+            case 585513149: goto label18;
+            case 1671767583: goto label17;
+            case 2109237041: goto label16;
+            default: goto label15;
+        };
+
+     label15:
+        goto label23;
+
+     label16:
+        $z0 = virtualinvoke $r1.equals("create_rewarded_ad");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 3;
+
+        goto label24;
+
+     label17:
+        $z0 = virtualinvoke $r1.equals("dispose");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 6;
+
+        goto label24;
+
+     label18:
+        $z0 = virtualinvoke $r1.equals("load_interstitial_ad");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 1;
+
+        goto label24;
+
+     label19:
+        $z0 = virtualinvoke $r1.equals("create_interstitial_ad");
+
+        if $z0 == 0 goto label15;
+
+        goto label24;
+
+     label20:
+        $z0 = virtualinvoke $r1.equals("load_rewarded_ad");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 4;
+
+        goto label24;
+
+     label21:
+        $z0 = virtualinvoke $r1.equals("show_rewarded_ad");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 5;
+
+        goto label24;
+
+     label22:
+        $z0 = virtualinvoke $r1.equals("show_interstitial_ad");
+
+        if $z0 == 0 goto label15;
+
+        $b1 = 2;
+
+        goto label24;
+
+     label23:
+        $b1 = -1;
+
+     label24:
+        lookupswitch($b1)
+        {
+            case 0: goto label40;
+            case 1: goto label38;
+            case 2: goto label36;
+            case 3: goto label32;
+            case 4: goto label30;
+            case 5: goto label28;
+            case 6: goto label26;
+            default: goto label25;
+        };
+
+     label25:
+        $r1 = java.lang.String.valueOf($r1);
+
+        $r6 = "H5 gmsg contained invalid action: ";
+
+        $r1 = virtualinvoke $r6.concat($r1);
+
+        com.google.android.gms.internal.ads.zzbza.zze($r1);
+
+        return;
+
+     label26:
+        $r9 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $r4 = interfaceinvoke $r9.get($r14);
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        if $r12 != null goto label27;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not dispose H5 ad, object ID does not exist");
+
+        return;
+
+     label27:
+        interfaceinvoke $r12.zza();
+
+        $r9 = r0.zzc;
+
+        interfaceinvoke $r9.remove($r14);
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<init>();
+
+        virtualinvoke $r15.append("Disposed H5 ad #");
+
+        virtualinvoke $r15.append($l3);
+
+        $r1 = virtualinvoke $r15.toString();
+
+        com.google.android.gms.ads.internal.util.zze.zza($r1);
+
+        return;
+
+     label28:
+        $r9 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $r4 = interfaceinvoke $r9.get($r14);
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        if $r12 != null goto label29;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not show H5 ad, object ID does not exist");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzq($l3);
+
+        return;
+
+     label29:
+        interfaceinvoke $r12.zzc();
+
+        return;
+
+     label30:
+        $r16 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $r4 = interfaceinvoke $r16.get($r14);
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        if $r12 != null goto label31;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not load H5 ad, object ID does not exist");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzq($l3);
+
+        return;
+
+     label31:
+        $r17 = com.google.android.gms.internal.ads.zzdqo.zzc($r9);
+
+        interfaceinvoke $r12.zzb($r17);
+
+        return;
+
+     label32:
+        $r16 = r0.zzc;
+
+        $i0 = interfaceinvoke $r16.size();
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zziP;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r18 = (java.lang.Integer) $r4;
+
+        $i4 = virtualinvoke $r18.intValue();
+
+        if $i0 < $i4 goto label33;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not create H5 ad, too many existing objects");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label33:
+        $r16 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $z0 = interfaceinvoke $r16.containsKey($r14);
+
+        if $z0 == 0 goto label34;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not create H5 ad, object ID already exists");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label34:
+        $r4 = interfaceinvoke $r9.get("ad_unit");
+
+        $r1 = (java.lang.String) $r4;
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        if $z0 == 0 goto label35;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not create H5 ad, missing ad unit id");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label35:
+        $r19 = r0.zza;
+
+        $r20 = interfaceinvoke $r19.zzb();
+
+        interfaceinvoke $r20.zzb($l3);
+
+        interfaceinvoke $r20.zza($r1);
+
+        $r21 = interfaceinvoke $r20.zzc();
+
+        $r22 = interfaceinvoke $r21.zzb();
+
+        $r9 = r0.zzc;
+
+        interfaceinvoke $r9.put($r14, $r22);
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzh($l3);
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<init>();
+
+        virtualinvoke $r15.append("Created H5 rewarded #");
+
+        virtualinvoke $r15.append($l3);
+
+        virtualinvoke $r15.append(" with ad unit ");
+
+        virtualinvoke $r15.append($r1);
+
+        $r1 = virtualinvoke $r15.toString();
+
+        com.google.android.gms.ads.internal.util.zze.zza($r1);
+
+        return;
+
+     label36:
+        $r9 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $r4 = interfaceinvoke $r9.get($r14);
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        if $r12 != null goto label37;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not show H5 ad, object ID does not exist");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzf($l3);
+
+        return;
+
+     label37:
+        interfaceinvoke $r12.zzc();
+
+        return;
+
+     label38:
+        $r16 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $r4 = interfaceinvoke $r16.get($r14);
+
+        $r12 = (com.google.android.gms.internal.ads.zzdqh) $r4;
+
+        if $r12 != null goto label39;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not load H5 ad, object ID does not exist");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzf($l3);
+
+        return;
+
+     label39:
+        $r17 = com.google.android.gms.internal.ads.zzdqo.zzc($r9);
+
+        interfaceinvoke $r12.zzb($r17);
+
+        return;
+
+     label40:
+        $r16 = r0.zzc;
+
+        $i0 = interfaceinvoke $r16.size();
+
+        $r2 = com.google.android.gms.internal.ads.zzbar.zziP;
+
+        $r3 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r3.zzb($r2);
+
+        $r18 = (java.lang.Integer) $r4;
+
+        $i4 = virtualinvoke $r18.intValue();
+
+        if $i0 < $i4 goto label41;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not create H5 ad, too many existing objects");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label41:
+        $r16 = r0.zzc;
+
+        $r14 = java.lang.Long.valueOf($l3);
+
+        $z0 = interfaceinvoke $r16.containsKey($r14);
+
+        if $z0 == 0 goto label42;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Could not create H5 ad, object ID already exists");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label42:
+        $r4 = interfaceinvoke $r9.get("ad_unit");
+
+        $r1 = (java.lang.String) $r4;
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        if $z0 == 0 goto label43;
+
+        com.google.android.gms.internal.ads.zzbza.zzj("Could not create H5 ad, missing ad unit id");
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzi($l3);
+
+        return;
+
+     label43:
+        $r19 = r0.zza;
+
+        $r20 = interfaceinvoke $r19.zzb();
+
+        interfaceinvoke $r20.zzb($l3);
+
+        interfaceinvoke $r20.zza($r1);
+
+        $r21 = interfaceinvoke $r20.zzc();
+
+        $r23 = interfaceinvoke $r21.zza();
+
+        $r9 = r0.zzc;
+
+        interfaceinvoke $r9.put($r14, $r23);
+
+        $r13 = r0.zzb;
+
+        virtualinvoke $r13.zzh($l3);
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<init>();
+
+        virtualinvoke $r15.append("Created H5 interstitial #");
+
+        virtualinvoke $r15.append($l3);
+
+        virtualinvoke $r15.append(" with ad unit ");
+
+        virtualinvoke $r15.append($r1);
+
+        $r1 = virtualinvoke $r15.toString();
+
+        com.google.android.gms.ads.internal.util.zze.zza($r1);
+
+        return;
+
+     label44:
+        $r24 := @caughtexception;
+
+        goto label46;
+
+     label45:
+        $r25 := @caughtexception;
+
+     label46:
+        $r1 = java.lang.String.valueOf($r6);
+
+        $r6 = "H5 gmsg did not contain a valid object id: ";
+
+        $r1 = virtualinvoke $r6.concat($r1);
+
+        com.google.android.gms.internal.ads.zzbza.zze($r1);
+
+        return;
+
+        catch java.lang.NumberFormatException from label13 to label14 with label45;
+        catch java.lang.NullPointerException from label13 to label14 with label44;
+    }
+}

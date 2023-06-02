@@ -1,0 +1,341 @@
+public final class com.google.android.gms.ads.admanager.AdManagerAdView extends com.google.android.gms.ads.BaseAdView
+{
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, 0);
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Context cannot be null");
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        android.util.AttributeSet $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2, 1);
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Context cannot be null");
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        int $i0;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2, $i0, 0, 1);
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Context cannot be null");
+
+        return;
+    }
+
+    public com.google.android.gms.ads.AdSize[] getAdSizes()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+        com.google.android.gms.ads.AdSize[] $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzB();
+
+        return $r1;
+    }
+
+    public com.google.android.gms.ads.admanager.AppEventListener getAppEventListener()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.admanager.AppEventListener $r1;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzh();
+
+        return $r1;
+    }
+
+    public com.google.android.gms.ads.VideoController getVideoController()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+        com.google.android.gms.ads.VideoController $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzf();
+
+        return $r1;
+    }
+
+    public com.google.android.gms.ads.VideoOptions getVideoOptions()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.VideoOptions $r1;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.zzg();
+
+        return $r1;
+    }
+
+    public void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)
+    {
+        android.content.Context $r2;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.internal.ads.zzbbw $r3;
+        com.google.android.gms.ads.internal.client.zzea $r10;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest $r1;
+        com.google.android.gms.ads.admanager.zzb $r9;
+        com.google.android.gms.internal.ads.zzbap $r7;
+        com.google.android.gms.ads.internal.client.zzdx $r11;
+        java.lang.Boolean $r5;
+        java.lang.Object $r4;
+        java.util.concurrent.ExecutorService $r8;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzbaj $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkMainThread("#008 Must be called on the main UI thread.");
+
+        $r2 = virtualinvoke r0.getContext();
+
+        com.google.android.gms.internal.ads.zzbar.zzc($r2);
+
+        $r3 = com.google.android.gms.internal.ads.zzbci.zzf;
+
+        $r4 = virtualinvoke $r3.zze();
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $r6 = com.google.android.gms.internal.ads.zzbar.zzjw;
+
+        $r7 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r4 = virtualinvoke $r7.zzb($r6);
+
+        $r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $r8 = com.google.android.gms.internal.ads.zzbyp.zzb;
+
+        $r9 = new com.google.android.gms.ads.admanager.zzb;
+
+        specialinvoke $r9.<init>(r0, $r1);
+
+        interfaceinvoke $r8.execute($r9);
+
+        return;
+
+     label1:
+        $r10 = r0.zza;
+
+        $r11 = virtualinvoke $r1.zza();
+
+        virtualinvoke $r10.zzm($r11);
+
+        return;
+    }
+
+    public void recordManualImpression()
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.zzo();
+
+        return;
+    }
+
+    public transient void setAdSizes(com.google.android.gms.ads.AdSize[])
+    {
+        int $i0;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+        java.lang.IllegalArgumentException $r3;
+        com.google.android.gms.ads.AdSize[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $i0 = lengthof $r1;
+
+        if $i0 <= 0 goto label1;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zzt($r1);
+
+        return;
+
+     label1:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<init>("The supported ad sizes must contain at least one valid ad size.");
+
+        throw $r3;
+    }
+
+    public void setAppEventListener(com.google.android.gms.ads.admanager.AppEventListener)
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.admanager.AppEventListener $r1;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zzv($r1);
+
+        return;
+    }
+
+    public void setManualImpressionsEnabled(boolean)
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.zzw($z0);
+
+        return;
+    }
+
+    public void setVideoOptions(com.google.android.gms.ads.VideoOptions)
+    {
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.VideoOptions $r1;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.zzy($r1);
+
+        return;
+    }
+
+    final void zza(com.google.android.gms.ads.admanager.AdManagerAdRequest)
+    {
+        java.lang.IllegalStateException $r4;
+        android.content.Context $r5;
+        com.google.android.gms.ads.internal.client.zzdx $r3;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.internal.ads.zzbsh $r6;
+        com.google.android.gms.ads.internal.client.zzea $r2;
+        com.google.android.gms.ads.admanager.AdManagerAdRequest $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+     label1:
+        $r3 = virtualinvoke $r1.zza();
+
+        virtualinvoke $r2.zzm($r3);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r5 = virtualinvoke r0.getContext();
+
+        $r6 = com.google.android.gms.internal.ads.zzbsf.zza($r5);
+
+        interfaceinvoke $r6.zzf($r4, "AdManagerAdView.loadAd");
+
+        return;
+
+        catch java.lang.IllegalStateException from label1 to label2 with label3;
+    }
+
+    public final boolean zzb(com.google.android.gms.ads.internal.client.zzbu)
+    {
+        com.google.android.gms.ads.internal.client.zzbu $r2;
+        com.google.android.gms.ads.admanager.AdManagerAdView r0;
+        com.google.android.gms.ads.internal.client.zzea $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.zzz($r2);
+
+        return $z0;
+    }
+}

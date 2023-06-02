@@ -1,0 +1,136 @@
+public final class com.google.android.gms.internal.ads.zzef extends java.lang.Object
+{
+    private int zza;
+    private long[] zzb;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzef r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(32);
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        int $i0;
+        long[] $r1;
+        com.google.android.gms.internal.ads.zzef r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r1 = newarray (long)[32];
+
+        r0.zzb = $r1;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzef r0;
+
+        r0 := @this;
+
+        i0 = r0.zza;
+
+        return i0;
+    }
+
+    public final long zzb(int)
+    {
+        java.lang.IndexOutOfBoundsException $r4;
+        long $l2;
+        com.google.android.gms.internal.ads.zzef r0;
+        long[] $r3;
+        int $i0, $i1;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 < 0 goto label1;
+
+        $i1 = r0.zza;
+
+        if $i0 >= $i1 goto label1;
+
+        $r3 = r0.zzb;
+
+        $l2 = $r3[$i0];
+
+        return $l2;
+
+     label1:
+        $r4 = new java.lang.IndexOutOfBoundsException;
+
+        $i1 = r0.zza;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("Invalid index ");
+
+        virtualinvoke $r1.append($i0);
+
+        virtualinvoke $r1.append(", size is ");
+
+        virtualinvoke $r1.append($i1);
+
+        $r2 = virtualinvoke $r1.toString();
+
+        specialinvoke $r4.<init>($r2);
+
+        throw $r4;
+    }
+
+    public final void zzc(long)
+    {
+        long[] $r1;
+        int $i1, $i2;
+        long $l0;
+        com.google.android.gms.internal.ads.zzef r0;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $i1 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $i2 = lengthof $r1;
+
+        if $i1 != $i2 goto label1;
+
+        $i1 = $i1 + $i1;
+
+        $r1 = java.util.Arrays.copyOf($r1, $i1);
+
+        r0.zzb = $r1;
+
+     label1:
+        $r1 = r0.zzb;
+
+        $i1 = r0.zza;
+
+        $i2 = $i1 + 1;
+
+        r0.zza = $i2;
+
+        $r1[$i1] = $l0;
+
+        return;
+    }
+}

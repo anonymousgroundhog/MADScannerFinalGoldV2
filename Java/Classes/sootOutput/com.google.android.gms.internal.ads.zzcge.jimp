@@ -1,0 +1,95 @@
+public final class com.google.android.gms.internal.ads.zzcge extends java.lang.Object
+{
+    private com.google.android.gms.internal.ads.zzbzg zza;
+    private android.content.Context zzb;
+    private java.lang.ref.WeakReference zzc;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzcge r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static volatile android.content.Context zza(com.google.android.gms.internal.ads.zzcge)
+    {
+        com.google.android.gms.internal.ads.zzcge $r0;
+        android.content.Context r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzbzg zzb(com.google.android.gms.internal.ads.zzcge)
+    {
+        com.google.android.gms.internal.ads.zzcge $r0;
+        com.google.android.gms.internal.ads.zzbzg r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    static volatile java.lang.ref.WeakReference zze(com.google.android.gms.internal.ads.zzcge)
+    {
+        com.google.android.gms.internal.ads.zzcge $r0;
+        java.lang.ref.WeakReference r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzc;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzcge zzc(android.content.Context)
+    {
+        com.google.android.gms.internal.ads.zzcge r0;
+        android.content.Context $r1, $r3;
+        java.lang.ref.WeakReference $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.zzc = $r2;
+
+        $r3 = virtualinvoke $r1.getApplicationContext();
+
+        if $r3 == null goto label1;
+
+        $r1 = virtualinvoke $r1.getApplicationContext();
+
+     label1:
+        r0.zzb = $r1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzcge zzd(com.google.android.gms.internal.ads.zzbzg)
+    {
+        com.google.android.gms.internal.ads.zzcge r0;
+        com.google.android.gms.internal.ads.zzbzg $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        return r0;
+    }
+}

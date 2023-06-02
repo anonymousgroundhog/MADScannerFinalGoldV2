@@ -1,0 +1,62 @@
+public class com.google.android.gms.ads.AdService extends android.app.IntentService
+{
+    public static final java.lang.String CLASS_NAME;
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.AdService r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>("AdService");
+
+        return;
+    }
+
+    protected final void onHandleIntent(android.content.Intent)
+    {
+        android.content.Intent $r2;
+        android.os.RemoteException $r5;
+        com.google.android.gms.internal.ads.zzbnc $r1;
+        com.google.android.gms.ads.internal.client.zzaw $r3;
+        com.google.android.gms.internal.ads.zzbqv $r4;
+        java.lang.String $r6, $r7;
+        com.google.android.gms.ads.AdService r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+     label1:
+        $r3 = com.google.android.gms.ads.internal.client.zzay.zza();
+
+     label2:
+        $r1 = new com.google.android.gms.internal.ads.zzbnc;
+
+     label3:
+        specialinvoke $r1.<init>();
+
+        $r4 = virtualinvoke $r3.zzm(r0, $r1);
+
+        interfaceinvoke $r4.zze($r2);
+
+     label4:
+        return;
+
+     label5:
+        $r5 := @caughtexception;
+
+        $r6 = virtualinvoke $r5.toString();
+
+        $r7 = "RemoteException calling handleNotificationIntent: ";
+
+        $r6 = virtualinvoke $r7.concat($r6);
+
+        com.google.android.gms.internal.ads.zzbza.zzg($r6);
+
+        return;
+
+        catch android.os.RemoteException from label1 to label2 with label5;
+        catch android.os.RemoteException from label3 to label4 with label5;
+    }
+}

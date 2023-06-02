@@ -1,0 +1,45 @@
+final class com.google.android.gms.common.api.internal.zaba extends java.lang.Object implements com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener
+{
+    final com.google.android.gms.common.api.internal.StatusPendingResult zaa;
+
+    void <init>(com.google.android.gms.common.api.internal.zabe, com.google.android.gms.common.api.internal.StatusPendingResult)
+    {
+        com.google.android.gms.common.api.internal.zaba r0;
+        com.google.android.gms.common.api.internal.StatusPendingResult $r2;
+        com.google.android.gms.common.api.internal.zabe $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zaa = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.api.internal.zaba r0;
+        com.google.android.gms.common.ConnectionResult $r2;
+        com.google.android.gms.common.api.Status $r1;
+        com.google.android.gms.common.api.internal.StatusPendingResult $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zaa;
+
+        $r1 = new com.google.android.gms.common.api.Status;
+
+        specialinvoke $r1.<init>(8);
+
+        virtualinvoke $r3.setResult($r1);
+
+        return;
+    }
+}

@@ -1,0 +1,102 @@
+class androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 extends android.hardware.fingerprint.FingerprintManager$AuthenticationCallback
+{
+    final androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback val$callback;
+
+    void <init>(androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback)
+    {
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback $r1;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.val$callback = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onAuthenticationError(int, java.lang.CharSequence)
+    {
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback $r2;
+        java.lang.CharSequence $r1;
+        int $i0;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.val$callback;
+
+        virtualinvoke $r2.onAuthenticationError($i0, $r1);
+
+        return;
+    }
+
+    public void onAuthenticationFailed()
+    {
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback $r1;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 r0;
+
+        r0 := @this;
+
+        $r1 = r0.val$callback;
+
+        virtualinvoke $r1.onAuthenticationFailed();
+
+        return;
+    }
+
+    public void onAuthenticationHelp(int, java.lang.CharSequence)
+    {
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback $r2;
+        java.lang.CharSequence $r1;
+        int $i0;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.val$callback;
+
+        virtualinvoke $r2.onAuthenticationHelp($i0, $r1);
+
+        return;
+    }
+
+    public void onAuthenticationSucceeded(android.hardware.fingerprint.FingerprintManager$AuthenticationResult)
+    {
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationCallback $r2;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationResult $r3;
+        android.hardware.fingerprint.FingerprintManager$AuthenticationResult $r1;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$CryptoObject $r5;
+        android.hardware.fingerprint.FingerprintManager$CryptoObject $r4;
+        androidx.core.hardware.fingerprint.FingerprintManagerCompat$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$callback;
+
+        $r3 = new androidx.core.hardware.fingerprint.FingerprintManagerCompat$AuthenticationResult;
+
+        $r4 = virtualinvoke $r1.getCryptoObject();
+
+        $r5 = androidx.core.hardware.fingerprint.FingerprintManagerCompat.unwrapCryptoObject($r4);
+
+        specialinvoke $r3.<init>($r5);
+
+        virtualinvoke $r2.onAuthenticationSucceeded($r3);
+
+        return;
+    }
+}

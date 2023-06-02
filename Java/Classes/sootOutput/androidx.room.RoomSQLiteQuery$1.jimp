@@ -1,0 +1,140 @@
+final class androidx.room.RoomSQLiteQuery$1 extends java.lang.Object implements androidx.sqlite.db.SupportSQLiteProgram
+{
+    final androidx.room.RoomSQLiteQuery val$query;
+
+    void <init>(androidx.room.RoomSQLiteQuery)
+    {
+        androidx.room.RoomSQLiteQuery $r1;
+        androidx.room.RoomSQLiteQuery$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.val$query = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void bindBlob(int, byte[])
+    {
+        byte[] $r1;
+        androidx.room.RoomSQLiteQuery $r2;
+        androidx.room.RoomSQLiteQuery$1 r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.val$query;
+
+        virtualinvoke $r2.bindBlob($i0, $r1);
+
+        return;
+    }
+
+    public void bindDouble(int, double)
+    {
+        androidx.room.RoomSQLiteQuery $r1;
+        androidx.room.RoomSQLiteQuery$1 r0;
+        int $i0;
+        double $d0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $d0 := @parameter1;
+
+        $r1 = r0.val$query;
+
+        virtualinvoke $r1.bindDouble($i0, $d0);
+
+        return;
+    }
+
+    public void bindLong(int, long)
+    {
+        androidx.room.RoomSQLiteQuery $r1;
+        androidx.room.RoomSQLiteQuery$1 r0;
+        int $i0;
+        long $l1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        $r1 = r0.val$query;
+
+        virtualinvoke $r1.bindLong($i0, $l1);
+
+        return;
+    }
+
+    public void bindNull(int)
+    {
+        int $i0;
+        androidx.room.RoomSQLiteQuery $r1;
+        androidx.room.RoomSQLiteQuery$1 r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.val$query;
+
+        virtualinvoke $r1.bindNull($i0);
+
+        return;
+    }
+
+    public void bindString(int, java.lang.String)
+    {
+        androidx.room.RoomSQLiteQuery $r2;
+        androidx.room.RoomSQLiteQuery$1 r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.val$query;
+
+        virtualinvoke $r2.bindString($i0, $r1);
+
+        return;
+    }
+
+    public void clearBindings()
+    {
+        androidx.room.RoomSQLiteQuery $r1;
+        androidx.room.RoomSQLiteQuery$1 r0;
+
+        r0 := @this;
+
+        $r1 = r0.val$query;
+
+        virtualinvoke $r1.clearBindings();
+
+        return;
+    }
+
+    public void close()
+    {
+        androidx.room.RoomSQLiteQuery$1 r0;
+
+        r0 := @this;
+
+        return;
+    }
+}

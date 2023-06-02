@@ -1,0 +1,531 @@
+public final class com.google.android.gms.internal.ads.zzbok extends com.google.android.gms.internal.ads.zzbnt
+{
+    private final com.google.android.gms.ads.mediation.UnifiedNativeAdMapper zza;
+
+    public void <init>(com.google.android.gms.ads.mediation.UnifiedNativeAdMapper)
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final boolean zzA()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.getOverrideClickHandling();
+
+        return $z0;
+    }
+
+    public final boolean zzB()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $z0 = virtualinvoke $r1.getOverrideImpressionRecording();
+
+        return $z0;
+    }
+
+    public final double zze()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        java.lang.Double $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+        double $d0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getStarRating();
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getStarRating();
+
+        $d0 = virtualinvoke $r2.doubleValue();
+
+        return $d0;
+
+     label1:
+        return -1.0;
+    }
+
+    public final float zzf()
+    {
+        float $f0;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $f0 = virtualinvoke $r1.getMediaContentAspectRatio();
+
+        return $f0;
+    }
+
+    public final float zzg()
+    {
+        float $f0;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $f0 = virtualinvoke $r1.getCurrentTime();
+
+        return $f0;
+    }
+
+    public final float zzh()
+    {
+        float $f0;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $f0 = virtualinvoke $r1.getDuration();
+
+        return $f0;
+    }
+
+    public final android.os.Bundle zzi()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        android.os.Bundle $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getExtras();
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.ads.internal.client.zzdq zzj()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+        com.google.android.gms.ads.VideoController $r2;
+        com.google.android.gms.ads.internal.client.zzdq $r3;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzb();
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzb();
+
+        $r3 = virtualinvoke $r2.zza();
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbdp zzk()
+    {
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbdx zzl()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        com.google.android.gms.ads.formats.NativeAd$Image $r3;
+        android.net.Uri $r5;
+        com.google.android.gms.internal.ads.zzbok r0;
+        android.graphics.drawable.Drawable $r4;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzbdj $r1;
+        double $d0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke $r2.getIcon();
+
+        if $r3 == null goto label1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzbdj;
+
+        $r4 = virtualinvoke $r3.getDrawable();
+
+        $r5 = virtualinvoke $r3.getUri();
+
+        $d0 = virtualinvoke $r3.getScale();
+
+        $i0 = virtualinvoke $r3.zzb();
+
+        $i1 = virtualinvoke $r3.zza();
+
+        specialinvoke $r1.<init>($r4, $r5, $d0, $i0, $i1);
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzm()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        android.view.View $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.getAdChoicesContent();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzn()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        android.view.View $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zza();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzo()
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = virtualinvoke $r1.zzc();
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        return $r3;
+    }
+
+    public final java.lang.String zzp()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getAdvertiser();
+
+        return $r1;
+    }
+
+    public final java.lang.String zzq()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getBody();
+
+        return $r1;
+    }
+
+    public final java.lang.String zzr()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getCallToAction();
+
+        return $r1;
+    }
+
+    public final java.lang.String zzs()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getHeadline();
+
+        return $r1;
+    }
+
+    public final java.lang.String zzt()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getPrice();
+
+        return $r1;
+    }
+
+    public final java.lang.String zzu()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r2;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = virtualinvoke $r2.getStore();
+
+        return $r1;
+    }
+
+    public final java.util.List zzv()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r3;
+        com.google.android.gms.ads.formats.NativeAd$Image $r7;
+        java.util.Iterator $r5;
+        android.net.Uri $r9;
+        com.google.android.gms.internal.ads.zzbok r0;
+        android.graphics.drawable.Drawable $r8;
+        java.util.ArrayList $r1;
+        java.util.List $r4;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzbdj $r2;
+        java.lang.Object $r6;
+        boolean $z0;
+        double $d0;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r4 = virtualinvoke $r3.getImages();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        if $r4 != null goto label1;
+
+        return $r1;
+
+     label1:
+        $r5 = interfaceinvoke $r4.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r5.hasNext();
+
+        if $z0 == 0 goto label3;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        $r7 = (com.google.android.gms.ads.formats.NativeAd$Image) $r6;
+
+        $r2 = new com.google.android.gms.internal.ads.zzbdj;
+
+        $r8 = virtualinvoke $r7.getDrawable();
+
+        $r9 = virtualinvoke $r7.getUri();
+
+        $d0 = virtualinvoke $r7.getScale();
+
+        $i0 = virtualinvoke $r7.zzb();
+
+        $i1 = virtualinvoke $r7.zza();
+
+        specialinvoke $r2.<init>($r8, $r9, $d0, $i0, $i1);
+
+        interfaceinvoke $r1.add($r2);
+
+        goto label2;
+
+     label3:
+        return $r1;
+    }
+
+    public final void zzw(com.google.android.gms.dynamic.IObjectWrapper)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        android.view.View $r4;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r3);
+
+        $r4 = (android.view.View) $r2;
+
+        virtualinvoke $r1.handleClick($r4);
+
+        return;
+    }
+
+    public final void zzx()
+    {
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.recordImpression();
+
+        return;
+    }
+
+    public final void zzy(com.google.android.gms.dynamic.IObjectWrapper, com.google.android.gms.dynamic.IObjectWrapper, com.google.android.gms.dynamic.IObjectWrapper)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r2, $r3, $r4;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        java.util.HashMap $r6, $r7;
+        com.google.android.gms.internal.ads.zzbok r0;
+        android.view.View $r8;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 := @parameter2;
+
+        $r5 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r3);
+
+        $r6 = (java.util.HashMap) $r5;
+
+        $r5 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r4);
+
+        $r7 = (java.util.HashMap) $r5;
+
+        $r1 = r0.zza;
+
+        $r5 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r2);
+
+        $r8 = (android.view.View) $r5;
+
+        virtualinvoke $r1.trackViews($r8, $r6, $r7);
+
+        return;
+    }
+
+    public final void zzz(com.google.android.gms.dynamic.IObjectWrapper)
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.mediation.UnifiedNativeAdMapper $r1;
+        android.view.View $r4;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzbok r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r3);
+
+        $r4 = (android.view.View) $r2;
+
+        virtualinvoke $r1.untrackView($r4);
+
+        return;
+    }
+}

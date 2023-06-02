@@ -1,0 +1,51 @@
+public final class com.google.android.gms.internal.ads.zzbyv extends java.lang.Object implements com.google.android.gms.internal.ads.zzbyy
+{
+    public final java.lang.String zza;
+
+    public void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzbyv r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final void zza(android.util.JsonWriter)
+    {
+        com.google.android.gms.internal.ads.zzbyv r0;
+        android.util.JsonWriter $r1, $r3;
+        int $i0;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $i0 = com.google.android.gms.internal.ads.zzbyz.zza;
+
+        $r3 = virtualinvoke $r1.name("params");
+
+        virtualinvoke $r3.beginObject();
+
+        if $r2 == null goto label1;
+
+        $r3 = virtualinvoke $r1.name("error_description");
+
+        virtualinvoke $r3.value($r2);
+
+     label1:
+        virtualinvoke $r1.endObject();
+
+        return;
+    }
+}

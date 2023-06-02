@@ -1,0 +1,76 @@
+final class com.google.android.gms.internal.ads.zzavl extends java.lang.Object implements com.google.android.gms.common.internal.BaseGmsClient$BaseOnConnectionFailedListener
+{
+    final com.google.android.gms.internal.ads.zzavm zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzavm)
+    {
+        com.google.android.gms.internal.ads.zzavm $r1;
+        com.google.android.gms.internal.ads.zzavl r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+    {
+        java.lang.Throwable $r6;
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.internal.ads.zzavm $r2;
+        java.lang.Object $r3, $r5;
+        com.google.android.gms.internal.ads.zzavl r0;
+        com.google.android.gms.internal.ads.zzavp $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = com.google.android.gms.internal.ads.zzavm.zze($r2);
+
+        entermonitor $r3;
+
+     label1:
+        $r2 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzavm.zzk($r2, null);
+
+        $r2 = r0.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzavm.zzc($r2);
+
+        if $r4 == null goto label2;
+
+        com.google.android.gms.internal.ads.zzavm.zzf($r2, null);
+
+     label2:
+        $r2 = r0.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzavm.zze($r2);
+
+        virtualinvoke $r5.notifyAll();
+
+        exitmonitor $r3;
+
+     label3:
+        return;
+
+     label4:
+        $r6 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label5:
+        throw $r6;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+}

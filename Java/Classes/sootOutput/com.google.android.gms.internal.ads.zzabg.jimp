@@ -1,0 +1,58 @@
+public final class com.google.android.gms.internal.ads.zzabg extends java.lang.Object
+{
+    public final int zza;
+    public final int zzb;
+    public final int zzc;
+    public final int zzd;
+    public final int zze;
+    public final int zzf;
+    public final byte[] zzg;
+
+    public void <init>(int, int, int, int, int, int, int, int, boolean, byte[])
+    {
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzabg r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $i4 := @parameter4;
+
+        $i5 := @parameter5;
+
+        $i6 := @parameter6;
+
+        $i7 := @parameter7;
+
+        $z0 := @parameter8;
+
+        $r1 := @parameter9;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i1;
+
+        r0.zzb = $i2;
+
+        r0.zzc = $i3;
+
+        r0.zzd = $i4;
+
+        r0.zze = $i6;
+
+        r0.zzf = $i7;
+
+        r0.zzg = $r1;
+
+        return;
+    }
+}

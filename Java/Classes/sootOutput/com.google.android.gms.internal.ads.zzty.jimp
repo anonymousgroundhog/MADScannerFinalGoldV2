@@ -1,0 +1,107 @@
+public final class com.google.android.gms.internal.ads.zzty extends java.lang.Object implements com.google.android.gms.internal.ads.zzte
+{
+    private final com.google.android.gms.internal.ads.zzff zzc;
+    private int zzd;
+    private final com.google.android.gms.internal.ads.zztx zze;
+    private final com.google.android.gms.internal.ads.zzwx zzf;
+    private final com.google.android.gms.internal.ads.zzpq zzg;
+
+    public void <init>(com.google.android.gms.internal.ads.zzff, com.google.android.gms.internal.ads.zztx, byte[])
+    {
+        com.google.android.gms.internal.ads.zzff $r2;
+        byte[] $r3;
+        com.google.android.gms.internal.ads.zzty r0;
+        com.google.android.gms.internal.ads.zztx $r1;
+        com.google.android.gms.internal.ads.zzpq $r4;
+        com.google.android.gms.internal.ads.zzwx $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 = new com.google.android.gms.internal.ads.zzpq;
+
+        specialinvoke $r4.<init>();
+
+        $r5 = new com.google.android.gms.internal.ads.zzwx;
+
+        specialinvoke $r5.<init>(-1);
+
+        specialinvoke r0.<init>();
+
+        r0.zzc = $r2;
+
+        r0.zze = $r1;
+
+        r0.zzg = $r4;
+
+        r0.zzf = $r5;
+
+        r0.zzd = 1048576;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzty zza(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzty r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.zzd = $i0;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzua zzb(com.google.android.gms.internal.ads.zzbg)
+    {
+        com.google.android.gms.internal.ads.zzff $r1;
+        com.google.android.gms.internal.ads.zzty r0;
+        com.google.android.gms.internal.ads.zzbg $r5;
+        com.google.android.gms.internal.ads.zztx $r2;
+        com.google.android.gms.internal.ads.zzwx $r4;
+        java.lang.NullPointerException r8;
+        com.google.android.gms.internal.ads.zzua $r7;
+        com.google.android.gms.internal.ads.zzpz $r3;
+        int $i0;
+        com.google.android.gms.internal.ads.zzay $r6;
+
+        r0 := @this;
+
+        $r5 := @parameter0;
+
+        $r6 = $r5.zzd;
+
+        if $r6 == null goto label1;
+
+        $r7 = new com.google.android.gms.internal.ads.zzua;
+
+        $r1 = r0.zzc;
+
+        $r2 = r0.zze;
+
+        $r3 = com.google.android.gms.internal.ads.zzpz.zza;
+
+        $r4 = r0.zzf;
+
+        $i0 = r0.zzd;
+
+        specialinvoke $r7.<init>($r5, $r1, $r2, $r3, $r4, $i0, null, null);
+
+        return $r7;
+
+     label1:
+        r8 = new java.lang.NullPointerException;
+
+        specialinvoke r8.<init>("Null throw statement replaced by Soot");
+
+        throw r8;
+    }
+}

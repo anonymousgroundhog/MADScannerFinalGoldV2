@@ -1,0 +1,173 @@
+public final class com.google.android.gms.internal.ads.zzkq extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzkq zza;
+    public static final com.google.android.gms.internal.ads.zzkq zzb;
+    public static final com.google.android.gms.internal.ads.zzkq zzc;
+    public static final com.google.android.gms.internal.ads.zzkq zzd;
+    public static final com.google.android.gms.internal.ads.zzkq zze;
+    public final long zzf;
+    public final long zzg;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzkq $r0, $r1;
+
+        $r0 = new com.google.android.gms.internal.ads.zzkq;
+
+        specialinvoke $r0.<init>(0L, 0L);
+
+        com.google.android.gms.internal.ads.zzkq.zza = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzkq;
+
+        specialinvoke $r1.<init>(9223372036854775807L, 9223372036854775807L);
+
+        com.google.android.gms.internal.ads.zzkq.zzb = $r1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzkq;
+
+        specialinvoke $r1.<init>(9223372036854775807L, 0L);
+
+        com.google.android.gms.internal.ads.zzkq.zzc = $r1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzkq;
+
+        specialinvoke $r1.<init>(0L, 9223372036854775807L);
+
+        com.google.android.gms.internal.ads.zzkq.zzd = $r1;
+
+        com.google.android.gms.internal.ads.zzkq.zze = $r0;
+
+        return;
+    }
+
+    public void <init>(long, long)
+    {
+        byte $b2;
+        int $i3;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzkq r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $z0 = 1;
+
+        $b2 = $l0 cmp 0L;
+
+        $i3 = (int) $b2;
+
+        if $i3 < 0 goto label1;
+
+        $z1 = 1;
+
+        goto label2;
+
+     label1:
+        $z1 = 0;
+
+     label2:
+        com.google.android.gms.internal.ads.zzdl.zzd($z1);
+
+        $b2 = $l1 cmp 0L;
+
+        $i3 = (int) $b2;
+
+        if $i3 < 0 goto label3;
+
+        goto label4;
+
+     label3:
+        $z0 = 0;
+
+     label4:
+        com.google.android.gms.internal.ads.zzdl.zzd($z0);
+
+        r0.zzf = $l0;
+
+        r0.zzg = $l1;
+
+        return;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        long $l1, $l2;
+        com.google.android.gms.internal.ads.zzkq r0, $r4;
+        byte $b0;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label3;
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 == $r3 goto label2;
+
+        return 0;
+
+     label2:
+        $r4 = (com.google.android.gms.internal.ads.zzkq) $r1;
+
+        $l1 = r0.zzf;
+
+        $l2 = $r4.zzf;
+
+        $b0 = $l1 cmp $l2;
+
+        if $b0 != 0 goto label3;
+
+        $l1 = r0.zzg;
+
+        $l2 = $r4.zzg;
+
+        $b0 = $l1 cmp $l2;
+
+        if $b0 != 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public final int hashCode()
+    {
+        int $i1, $i2;
+        long $l0;
+        com.google.android.gms.internal.ads.zzkq r0;
+
+        r0 := @this;
+
+        $l0 = r0.zzf;
+
+        $i1 = (int) $l0;
+
+        $l0 = r0.zzg;
+
+        $i2 = (int) $l0;
+
+        $i1 = $i1 * 31;
+
+        $i2 = $i1 + $i2;
+
+        return $i2;
+    }
+}

@@ -1,0 +1,83 @@
+public final enum class com.google.android.gms.internal.ads.zzdse extends java.lang.Enum
+{
+    public static final enum com.google.android.gms.internal.ads.zzdse zza;
+    public static final enum com.google.android.gms.internal.ads.zzdse zzb;
+    public static final enum com.google.android.gms.internal.ads.zzdse zzc;
+    public static final enum com.google.android.gms.internal.ads.zzdse zzd;
+    private static final com.google.android.gms.internal.ads.zzdse[] zze;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdse $r0, $r1, $r2, $r3;
+        com.google.android.gms.internal.ads.zzdse[] $r4;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdse;
+
+        specialinvoke $r0.<init>("UNKNOWN", 0);
+
+        com.google.android.gms.internal.ads.zzdse.zza = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzdse;
+
+        specialinvoke $r1.<init>("API", 1);
+
+        com.google.android.gms.internal.ads.zzdse.zzb = $r1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzdse;
+
+        specialinvoke $r2.<init>("GESTURE", 2);
+
+        com.google.android.gms.internal.ads.zzdse.zzc = $r2;
+
+        $r3 = new com.google.android.gms.internal.ads.zzdse;
+
+        specialinvoke $r3.<init>("DEBUG_MENU", 3);
+
+        com.google.android.gms.internal.ads.zzdse.zzd = $r3;
+
+        $r4 = newarray (com.google.android.gms.internal.ads.zzdse)[4];
+
+        $r4[0] = $r0;
+
+        $r4[1] = $r1;
+
+        $r4[2] = $r2;
+
+        $r4[3] = $r3;
+
+        com.google.android.gms.internal.ads.zzdse.zze = $r4;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzdse r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzdse[] values()
+    {
+        com.google.android.gms.internal.ads.zzdse[] $r1;
+        java.lang.Object $r0;
+
+        $r1 = com.google.android.gms.internal.ads.zzdse.zze;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (com.google.android.gms.internal.ads.zzdse[]) $r0;
+
+        return $r1;
+    }
+}

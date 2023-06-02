@@ -1,0 +1,87 @@
+public final class com.google.android.gms.internal.ads.zzfva extends java.lang.Object
+{
+
+    public static com.google.android.gms.internal.ads.zzfuu zza(java.util.concurrent.ExecutorService)
+    {
+        com.google.android.gms.internal.ads.zzfuu $r1;
+        java.util.concurrent.ScheduledExecutorService $r3;
+        com.google.android.gms.internal.ads.zzfuw $r4;
+        java.util.concurrent.ExecutorService $r0;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzfuz $r2;
+
+        $r0 := @parameter0;
+
+        $z0 = $r0 instanceof com.google.android.gms.internal.ads.zzfuu;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = (com.google.android.gms.internal.ads.zzfuu) $r0;
+
+        return $r1;
+
+     label1:
+        $z0 = $r0 instanceof java.util.concurrent.ScheduledExecutorService;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = new com.google.android.gms.internal.ads.zzfuz;
+
+        $r3 = (java.util.concurrent.ScheduledExecutorService) $r0;
+
+        specialinvoke $r2.<init>($r3);
+
+        return $r2;
+
+     label2:
+        $r4 = new com.google.android.gms.internal.ads.zzfuw;
+
+        specialinvoke $r4.<init>($r0);
+
+        return $r4;
+    }
+
+    public static java.util.concurrent.Executor zzb()
+    {
+        com.google.android.gms.internal.ads.zzftx r0;
+
+        r0 = com.google.android.gms.internal.ads.zzftx.zza;
+
+        return r0;
+    }
+
+    static java.util.concurrent.Executor zzc(java.util.concurrent.Executor, com.google.android.gms.internal.ads.zzfsx)
+    {
+        java.util.concurrent.Executor $r1;
+        com.google.android.gms.internal.ads.zzftx $r2;
+        com.google.android.gms.internal.ads.zzfuv $r3;
+        java.lang.NullPointerException r4;
+        com.google.android.gms.internal.ads.zzfsx $r0;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        if $r1 == null goto label2;
+
+        $r2 = com.google.android.gms.internal.ads.zzftx.zza;
+
+        if $r1 != $r2 goto label1;
+
+        return $r1;
+
+     label1:
+        $r3 = new com.google.android.gms.internal.ads.zzfuv;
+
+        specialinvoke $r3.<init>($r1, $r0);
+
+        return $r3;
+
+     label2:
+        r4 = new java.lang.NullPointerException;
+
+        specialinvoke r4.<init>("Null throw statement replaced by Soot");
+
+        throw r4;
+    }
+}

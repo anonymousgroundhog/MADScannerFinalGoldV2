@@ -1,0 +1,30 @@
+final class com.google.android.gms.internal.ads.zzfnm extends java.lang.Object
+{
+    java.lang.Object zza;
+    com.google.android.gms.internal.ads.zzfnm zzb;
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfnm r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzfnl)
+    {
+        com.google.android.gms.internal.ads.zzfnm r0;
+        com.google.android.gms.internal.ads.zzfnl $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

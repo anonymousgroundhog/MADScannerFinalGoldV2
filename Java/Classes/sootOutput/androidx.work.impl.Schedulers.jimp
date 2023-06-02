@@ -1,0 +1,325 @@
+public class androidx.work.impl.Schedulers extends java.lang.Object
+{
+    public static final java.lang.String GCM_SCHEDULER;
+    private static final java.lang.String TAG;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = androidx.work.Logger.tagWithPrefix("Schedulers");
+
+        androidx.work.impl.Schedulers.TAG = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        androidx.work.impl.Schedulers r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static androidx.work.impl.Scheduler createBestAvailableBackgroundScheduler(android.content.Context, androidx.work.impl.WorkManagerImpl)
+    {
+        android.content.Context $r0;
+        androidx.work.impl.background.systemjob.SystemJobScheduler r2;
+        androidx.work.impl.background.systemalarm.SystemAlarmScheduler $r7;
+        androidx.work.Logger $r3;
+        java.lang.Throwable[] $r5;
+        int i0;
+        androidx.work.impl.Scheduler $r6;
+        androidx.work.impl.WorkManagerImpl $r1;
+        java.lang.String $r4;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label1;
+
+        r2 = new androidx.work.impl.background.systemjob.SystemJobScheduler;
+
+        specialinvoke r2.<init>($r0, $r1);
+
+        androidx.work.impl.utils.PackageManagerHelper.setComponentEnabled($r0, class "Landroidx/work/impl/background/systemjob/SystemJobService;", 1);
+
+        $r3 = androidx.work.Logger.get();
+
+        $r4 = androidx.work.impl.Schedulers.TAG;
+
+        $r5 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug($r4, "Created SystemJobScheduler and enabled SystemJobService", $r5);
+
+        return r2;
+
+     label1:
+        $r6 = androidx.work.impl.Schedulers.tryCreateGcmBasedScheduler($r0);
+
+        if $r6 != null goto label2;
+
+        $r7 = new androidx.work.impl.background.systemalarm.SystemAlarmScheduler;
+
+        specialinvoke $r7.<init>($r0);
+
+        androidx.work.impl.utils.PackageManagerHelper.setComponentEnabled($r0, class "Landroidx/work/impl/background/systemalarm/SystemAlarmService;", 1);
+
+        $r3 = androidx.work.Logger.get();
+
+        $r4 = androidx.work.impl.Schedulers.TAG;
+
+        $r5 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug($r4, "Created SystemAlarmScheduler", $r5);
+
+        return $r7;
+
+     label2:
+        return $r6;
+    }
+
+    public static void schedule(androidx.work.Configuration, androidx.work.impl.WorkDatabase, java.util.List)
+    {
+        java.lang.Throwable r13;
+        java.lang.Object[] $r11;
+        long $l1;
+        androidx.work.impl.model.WorkSpec r9;
+        androidx.work.Configuration $r0;
+        androidx.work.impl.WorkDatabase $r1;
+        int $i0;
+        java.lang.String $r3;
+        boolean $z0;
+        java.util.Iterator $r7;
+        androidx.work.impl.model.WorkSpecDao $r4;
+        java.util.List r2, $r5, $r6;
+        androidx.work.impl.Scheduler r12;
+        java.lang.Object $r8;
+        androidx.work.impl.model.WorkSpec[] r10;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 := @parameter2;
+
+        if r2 == null goto label18;
+
+        $i0 = interfaceinvoke r2.size();
+
+        if $i0 != 0 goto label01;
+
+        return;
+
+     label01:
+        $r4 = virtualinvoke $r1.workSpecDao();
+
+        virtualinvoke $r1.beginTransaction();
+
+     label02:
+        $i0 = virtualinvoke $r0.getMaxSchedulerLimit();
+
+        $r5 = interfaceinvoke $r4.getEligibleWorkForScheduling($i0);
+
+        $r6 = interfaceinvoke $r4.getAllEligibleWorkSpecsForScheduling(200);
+
+     label03:
+        if $r5 == null goto label11;
+
+     label04:
+        $i0 = interfaceinvoke $r5.size();
+
+     label05:
+        if $i0 <= 0 goto label11;
+
+     label06:
+        $l1 = java.lang.System.currentTimeMillis();
+
+        $r7 = interfaceinvoke $r5.iterator();
+
+     label07:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+     label08:
+        if $z0 == 0 goto label11;
+
+     label09:
+        $r8 = interfaceinvoke $r7.next();
+
+        r9 = (androidx.work.impl.model.WorkSpec) $r8;
+
+        $r3 = r9.id;
+
+        interfaceinvoke $r4.markWorkSpecScheduled($r3, $l1);
+
+     label10:
+        goto label07;
+
+     label11:
+        virtualinvoke $r1.setTransactionSuccessful();
+
+     label12:
+        virtualinvoke $r1.endTransaction();
+
+        if $r5 == null goto label14;
+
+        $i0 = interfaceinvoke $r5.size();
+
+        if $i0 <= 0 goto label14;
+
+        $i0 = interfaceinvoke $r5.size();
+
+        r10 = newarray (androidx.work.impl.model.WorkSpec)[$i0];
+
+        $r11 = interfaceinvoke $r5.toArray(r10);
+
+        r10 = (androidx.work.impl.model.WorkSpec[]) $r11;
+
+        $r7 = interfaceinvoke r2.iterator();
+
+     label13:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+        if $z0 == 0 goto label14;
+
+        $r8 = interfaceinvoke $r7.next();
+
+        r12 = (androidx.work.impl.Scheduler) $r8;
+
+        $z0 = interfaceinvoke r12.hasLimitedSchedulingSlots();
+
+        if $z0 == 0 goto label13;
+
+        interfaceinvoke r12.schedule(r10);
+
+        goto label13;
+
+     label14:
+        if $r6 == null goto label16;
+
+        $i0 = interfaceinvoke $r6.size();
+
+        if $i0 <= 0 goto label18;
+
+        $i0 = interfaceinvoke $r6.size();
+
+        r10 = newarray (androidx.work.impl.model.WorkSpec)[$i0];
+
+        $r11 = interfaceinvoke $r6.toArray(r10);
+
+        r10 = (androidx.work.impl.model.WorkSpec[]) $r11;
+
+        $r7 = interfaceinvoke r2.iterator();
+
+     label15:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+        if $z0 == 0 goto label18;
+
+        $r8 = interfaceinvoke $r7.next();
+
+        r12 = (androidx.work.impl.Scheduler) $r8;
+
+        $z0 = interfaceinvoke r12.hasLimitedSchedulingSlots();
+
+        if $z0 != 0 goto label15;
+
+        interfaceinvoke r12.schedule(r10);
+
+        goto label15;
+
+     label16:
+        return;
+
+     label17:
+        r13 := @caughtexception;
+
+        virtualinvoke $r1.endTransaction();
+
+        throw r13;
+
+     label18:
+        return;
+
+        catch java.lang.Throwable from label02 to label03 with label17;
+        catch java.lang.Throwable from label04 to label05 with label17;
+        catch java.lang.Throwable from label06 to label08 with label17;
+        catch java.lang.Throwable from label09 to label10 with label17;
+        catch java.lang.Throwable from label11 to label12 with label17;
+    }
+
+    private static androidx.work.impl.Scheduler tryCreateGcmBasedScheduler(android.content.Context)
+    {
+        java.lang.Throwable r11;
+        android.content.Context $r0;
+        java.lang.Object[] $r2;
+        java.lang.Class[] r4;
+        java.lang.reflect.Constructor $r5;
+        androidx.work.Logger $r8;
+        java.lang.Throwable[] $r10;
+        androidx.work.impl.Scheduler r7;
+        java.lang.Class $r3;
+        java.lang.Object $r6;
+        java.lang.String $r1, $r9;
+
+        $r0 := @parameter0;
+
+     label1:
+        $r3 = java.lang.Class.forName("androidx.work.impl.background.gcm.GcmScheduler");
+
+        r4 = newarray (java.lang.Class)[1];
+
+        r4[0] = class "Landroid/content/Context;";
+
+        $r5 = virtualinvoke $r3.getConstructor(r4);
+
+        $r2 = newarray (java.lang.Object)[1];
+
+        $r2[0] = $r0;
+
+        $r6 = virtualinvoke $r5.newInstance($r2);
+
+        r7 = (androidx.work.impl.Scheduler) $r6;
+
+        $r8 = androidx.work.Logger.get();
+
+        $r1 = androidx.work.impl.Schedulers.TAG;
+
+        $r2 = newarray (java.lang.Object)[1];
+
+        $r2[0] = "androidx.work.impl.background.gcm.GcmScheduler";
+
+        $r9 = java.lang.String.format("Created %s", $r2);
+
+        $r10 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r8.debug($r1, $r9, $r10);
+
+     label2:
+        return r7;
+
+     label3:
+        r11 := @caughtexception;
+
+        $r8 = androidx.work.Logger.get();
+
+        $r1 = androidx.work.impl.Schedulers.TAG;
+
+        $r10 = newarray (java.lang.Throwable)[1];
+
+        $r10[0] = r11;
+
+        virtualinvoke $r8.debug($r1, "Unable to create GCM Scheduler", $r10);
+
+        return null;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

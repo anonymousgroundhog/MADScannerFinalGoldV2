@@ -1,0 +1,74 @@
+public final class com.google.android.gms.internal.ads.zzfgc extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzfgc zza;
+    private android.content.Context zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzfgc $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfgc;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfgc.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfgc r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzfgc zzb()
+    {
+        com.google.android.gms.internal.ads.zzfgc r0;
+
+        r0 = com.google.android.gms.internal.ads.zzfgc.zza;
+
+        return r0;
+    }
+
+    public final android.content.Context zza()
+    {
+        com.google.android.gms.internal.ads.zzfgc r0;
+        android.content.Context r1;
+
+        r0 := @this;
+
+        r1 = r0.zzb;
+
+        return r1;
+    }
+
+    public final void zzc(android.content.Context)
+    {
+        com.google.android.gms.internal.ads.zzfgc r0;
+        android.content.Context $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $r1 = virtualinvoke $r1.getApplicationContext();
+
+        goto label2;
+
+     label1:
+        $r1 = null;
+
+     label2:
+        r0.zzb = $r1;
+
+        return;
+    }
+}

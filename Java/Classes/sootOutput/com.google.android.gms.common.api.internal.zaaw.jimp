@@ -1,0 +1,1504 @@
+public final class com.google.android.gms.common.api.internal.zaaw extends java.lang.Object implements com.google.android.gms.common.api.internal.zabf
+{
+    private final com.google.android.gms.common.api.internal.zabi zaa;
+    private final java.util.concurrent.locks.Lock zab;
+    private final android.content.Context zac;
+    private final com.google.android.gms.common.GoogleApiAvailabilityLight zad;
+    private com.google.android.gms.common.ConnectionResult zae;
+    private int zaf;
+    private int zag;
+    private int zah;
+    private final android.os.Bundle zai;
+    private final java.util.Set zaj;
+    private com.google.android.gms.signin.zae zak;
+    private boolean zal;
+    private boolean zam;
+    private boolean zan;
+    private com.google.android.gms.common.internal.IAccountAccessor zao;
+    private boolean zap;
+    private boolean zaq;
+    private final com.google.android.gms.common.internal.ClientSettings zar;
+    private final java.util.Map zas;
+    private final com.google.android.gms.common.api.Api$AbstractClientBuilder zat;
+    private final java.util.ArrayList zau;
+
+    public void <init>(com.google.android.gms.common.api.internal.zabi, com.google.android.gms.common.internal.ClientSettings, java.util.Map, com.google.android.gms.common.GoogleApiAvailabilityLight, com.google.android.gms.common.api.Api$AbstractClientBuilder, java.util.concurrent.locks.Lock, android.content.Context)
+    {
+        android.content.Context $r7;
+        android.os.Bundle $r8;
+        com.google.android.gms.common.GoogleApiAvailabilityLight $r4;
+        java.util.ArrayList $r10;
+        java.util.HashSet $r9;
+        java.util.concurrent.locks.Lock $r6;
+        com.google.android.gms.common.internal.ClientSettings $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r3;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        com.google.android.gms.common.api.Api$AbstractClientBuilder $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $r5 := @parameter4;
+
+        $r6 := @parameter5;
+
+        $r7 := @parameter6;
+
+        specialinvoke r0.<init>();
+
+        r0.zag = 0;
+
+        $r8 = new android.os.Bundle;
+
+        specialinvoke $r8.<init>();
+
+        r0.zai = $r8;
+
+        $r9 = new java.util.HashSet;
+
+        specialinvoke $r9.<init>();
+
+        r0.zaj = $r9;
+
+        $r10 = new java.util.ArrayList;
+
+        specialinvoke $r10.<init>();
+
+        r0.zau = $r10;
+
+        r0.zaa = $r1;
+
+        r0.zar = $r2;
+
+        r0.zas = $r3;
+
+        r0.zad = $r4;
+
+        r0.zat = $r5;
+
+        r0.zab = $r6;
+
+        r0.zac = $r7;
+
+        return;
+    }
+
+    private final void zaA()
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        java.util.Iterator $r5;
+        com.google.android.gms.common.api.internal.zabe $r3;
+        java.util.Set $r4;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r8;
+        java.lang.Object $r6;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        com.google.android.gms.common.api.Api$AnyClientKey $r7;
+        boolean $z0;
+
+        r0 := @this;
+
+        r0.zam = 0;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zag;
+
+        $r4 = java.util.Collections.emptySet();
+
+        $r3.zad = $r4;
+
+        $r4 = r0.zaj;
+
+        $r5 = interfaceinvoke $r4.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r5.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        $r7 = (com.google.android.gms.common.api.Api$AnyClientKey) $r6;
+
+        $r2 = r0.zaa;
+
+        $r8 = $r2.zab;
+
+        $z0 = interfaceinvoke $r8.containsKey($r7);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = r0.zaa;
+
+        $r8 = $r2.zab;
+
+        $r1 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r1.<init>(17, null);
+
+        interfaceinvoke $r8.put($r7, $r1);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private final void zaB(boolean)
+    {
+        com.google.android.gms.common.internal.ClientSettings $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.lang.Object $r3;
+        com.google.android.gms.signin.zae $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.zak;
+
+        if $r1 == null goto label2;
+
+        $z1 = interfaceinvoke $r1.isConnected();
+
+        if $z1 == 0 goto label1;
+
+        if $z0 == 0 goto label1;
+
+        interfaceinvoke $r1.zaa();
+
+     label1:
+        interfaceinvoke $r1.disconnect();
+
+        $r2 = r0.zar;
+
+        $r3 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        $r2 = (com.google.android.gms.common.internal.ClientSettings) $r3;
+
+        r0.zao = null;
+
+     label2:
+        return;
+    }
+
+    private final void zaC()
+    {
+        android.os.Bundle $r12;
+        java.util.Iterator $r9;
+        com.google.android.gms.common.api.Api$Client $r11;
+        com.google.android.gms.common.internal.IAccountAccessor $r5;
+        java.util.Set $r8;
+        com.google.android.gms.common.api.internal.zabz $r13;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r7;
+        com.google.android.gms.common.api.internal.zaak $r3;
+        java.lang.Object $r6;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        com.google.android.gms.signin.zae $r4;
+        java.util.concurrent.ExecutorService $r2;
+        com.google.android.gms.common.api.Api$AnyClientKey $r10;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.zaa;
+
+        virtualinvoke $r1.zai();
+
+        $r2 = com.google.android.gms.common.api.internal.zabj.zaa();
+
+        $r3 = new com.google.android.gms.common.api.internal.zaak;
+
+        specialinvoke $r3.<init>(r0);
+
+        interfaceinvoke $r2.execute($r3);
+
+        $r4 = r0.zak;
+
+        if $r4 == null goto label2;
+
+        $z0 = r0.zap;
+
+        if $z0 == 0 goto label1;
+
+        $r5 = r0.zao;
+
+        $r6 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r5);
+
+        $r5 = (com.google.android.gms.common.internal.IAccountAccessor) $r6;
+
+        $z0 = r0.zaq;
+
+        interfaceinvoke $r4.zac($r5, $z0);
+
+     label1:
+        specialinvoke r0.zaB(0);
+
+     label2:
+        $r1 = r0.zaa;
+
+        $r7 = $r1.zab;
+
+        $r8 = interfaceinvoke $r7.keySet();
+
+        $r9 = interfaceinvoke $r8.iterator();
+
+     label3:
+        $z0 = interfaceinvoke $r9.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r6 = interfaceinvoke $r9.next();
+
+        $r10 = (com.google.android.gms.common.api.Api$AnyClientKey) $r6;
+
+        $r1 = r0.zaa;
+
+        $r7 = $r1.zaa;
+
+        $r6 = interfaceinvoke $r7.get($r10);
+
+        $r11 = (com.google.android.gms.common.api.Api$Client) $r6;
+
+        $r6 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r11);
+
+        $r11 = (com.google.android.gms.common.api.Api$Client) $r6;
+
+        interfaceinvoke $r11.disconnect();
+
+        goto label3;
+
+     label4:
+        $r12 = r0.zai;
+
+        $z0 = virtualinvoke $r12.isEmpty();
+
+        if $z0 == 0 goto label5;
+
+        $r12 = null;
+
+        goto label6;
+
+     label5:
+        $r12 = r0.zai;
+
+     label6:
+        $r1 = r0.zaa;
+
+        $r13 = $r1.zah;
+
+        interfaceinvoke $r13.zab($r12);
+
+        return;
+    }
+
+    private final void zaD(com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        com.google.android.gms.common.api.internal.zabz $r3;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zaz();
+
+        $z0 = virtualinvoke $r1.hasResolution();
+
+        $z0 = $z0 ^ 1;
+
+        specialinvoke r0.zaB($z0);
+
+        $r2 = r0.zaa;
+
+        virtualinvoke $r2.zak($r1);
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zah;
+
+        interfaceinvoke $r3.zaa($r1);
+
+        return;
+    }
+
+    private final void zaE(com.google.android.gms.common.ConnectionResult, com.google.android.gms.common.api.Api, boolean)
+    {
+        com.google.android.gms.common.ConnectionResult $r1, $r6;
+        com.google.android.gms.common.GoogleApiAvailabilityLight $r4;
+        android.content.Intent $r5;
+        com.google.android.gms.common.api.Api $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r8;
+        int $i0, $i1;
+        com.google.android.gms.common.api.internal.zabi $r7;
+        com.google.android.gms.common.api.Api$BaseClientBuilder $r3;
+        com.google.android.gms.common.api.Api$AnyClientKey $r9;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $r3 = virtualinvoke $r2.zac();
+
+        $i0 = virtualinvoke $r3.getPriority();
+
+        if $z0 == 0 goto label2;
+
+        $z0 = virtualinvoke $r1.hasResolution();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r4 = r0.zad;
+
+        $i1 = virtualinvoke $r1.getErrorCode();
+
+        $r5 = virtualinvoke $r4.getErrorResolutionIntent($i1);
+
+        if $r5 == null goto label4;
+
+     label2:
+        $r6 = r0.zae;
+
+        if $r6 == null goto label3;
+
+        $i1 = r0.zaf;
+
+        if $i0 >= $i1 goto label4;
+
+     label3:
+        r0.zae = $r1;
+
+        r0.zaf = $i0;
+
+     label4:
+        $r7 = r0.zaa;
+
+        $r8 = $r7.zab;
+
+        $r9 = virtualinvoke $r2.zab();
+
+        interfaceinvoke $r8.put($r9, $r1);
+
+        return;
+    }
+
+    private final void zaF()
+    {
+        java.util.Iterator $r5;
+        com.google.android.gms.common.api.Api$Client $r8;
+        java.util.Set $r4;
+        java.util.ArrayList $r1, $r9;
+        java.util.concurrent.Future $r12;
+        com.google.android.gms.common.api.internal.zaap $r11;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r3;
+        int $i0;
+        java.lang.Object $r6;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        com.google.android.gms.common.api.Api$AnyClientKey $r7;
+        java.util.concurrent.ExecutorService $r10;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 = r0.zah;
+
+        if $i0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $z0 = r0.zam;
+
+        if $z0 == 0 goto label2;
+
+        $z0 = r0.zan;
+
+        if $z0 == 0 goto label6;
+
+     label2:
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.zag = 1;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zaa;
+
+        $i0 = interfaceinvoke $r3.size();
+
+        r0.zah = $i0;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zaa;
+
+        $r4 = interfaceinvoke $r3.keySet();
+
+        $r5 = interfaceinvoke $r4.iterator();
+
+     label3:
+        $z0 = interfaceinvoke $r5.hasNext();
+
+        if $z0 == 0 goto label5;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        $r7 = (com.google.android.gms.common.api.Api$AnyClientKey) $r6;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zab;
+
+        $z0 = interfaceinvoke $r3.containsKey($r7);
+
+        if $z0 == 0 goto label4;
+
+        $z0 = specialinvoke r0.zaH();
+
+        if $z0 == 0 goto label3;
+
+        specialinvoke r0.zaC();
+
+        goto label3;
+
+     label4:
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zaa;
+
+        $r6 = interfaceinvoke $r3.get($r7);
+
+        $r8 = (com.google.android.gms.common.api.Api$Client) $r6;
+
+        virtualinvoke $r1.add($r8);
+
+        goto label3;
+
+     label5:
+        $z0 = virtualinvoke $r1.isEmpty();
+
+        if $z0 != 0 goto label6;
+
+        $r9 = r0.zau;
+
+        $r10 = com.google.android.gms.common.api.internal.zabj.zaa();
+
+        $r11 = new com.google.android.gms.common.api.internal.zaap;
+
+        specialinvoke $r11.<init>(r0, $r1);
+
+        $r12 = interfaceinvoke $r10.submit($r11);
+
+        virtualinvoke $r9.add($r12);
+
+     label6:
+        return;
+    }
+
+    private final boolean zaG(int)
+    {
+        com.google.android.gms.common.ConnectionResult $r7;
+        com.google.android.gms.common.api.internal.zabe $r2;
+        java.lang.Exception $r6;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        int $i0, $i1;
+        java.lang.StringBuilder $r5;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        java.lang.String $r3, $r4;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.zag;
+
+        if $i1 == $i0 goto label1;
+
+        $r1 = r0.zaa;
+
+        $r2 = $r1.zag;
+
+        $r3 = virtualinvoke $r2.zaf();
+
+        android.util.Log.w("GACConnecting", $r3);
+
+        $r3 = virtualinvoke r0.toString();
+
+        $r4 = "Unexpected callback in ";
+
+        $r3 = virtualinvoke $r4.concat($r3);
+
+        android.util.Log.w("GACConnecting", $r3);
+
+        $i1 = r0.zah;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>(33);
+
+        virtualinvoke $r5.append("mRemainingConnections=");
+
+        virtualinvoke $r5.append($i1);
+
+        $r3 = virtualinvoke $r5.toString();
+
+        android.util.Log.w("GACConnecting", $r3);
+
+        $i1 = r0.zag;
+
+        $r3 = com.google.android.gms.common.api.internal.zaaw.zaJ($i1);
+
+        $r4 = com.google.android.gms.common.api.internal.zaaw.zaJ($i0);
+
+        $r5 = new java.lang.StringBuilder;
+
+        $i0 = virtualinvoke $r3.length();
+
+        $i0 = $i0 + 70;
+
+        $i1 = virtualinvoke $r4.length();
+
+        $i0 = $i0 + $i1;
+
+        specialinvoke $r5.<init>($i0);
+
+        virtualinvoke $r5.append("GoogleApiClient connecting is in step ");
+
+        virtualinvoke $r5.append($r3);
+
+        virtualinvoke $r5.append(" but received callback for step ");
+
+        virtualinvoke $r5.append($r4);
+
+        $r6 = new java.lang.Exception;
+
+        specialinvoke $r6.<init>();
+
+        $r3 = virtualinvoke $r5.toString();
+
+        android.util.Log.e("GACConnecting", $r3, $r6);
+
+        $r7 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r7.<init>(8, null);
+
+        specialinvoke r0.zaD($r7);
+
+        return 0;
+
+     label1:
+        return 1;
+    }
+
+    private final boolean zaH()
+    {
+        com.google.android.gms.common.ConnectionResult $r4, $r6;
+        com.google.android.gms.common.api.internal.zabe $r3;
+        java.lang.Exception $r5;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        int $i0;
+        java.lang.String $r1;
+        com.google.android.gms.common.api.internal.zabi $r2;
+
+        r0 := @this;
+
+        $i0 = r0.zah;
+
+        $i0 = $i0 + -1;
+
+        r0.zah = $i0;
+
+        if $i0 <= 0 goto label1;
+
+        return 0;
+
+     label1:
+        if $i0 >= 0 goto label2;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zag;
+
+        $r1 = virtualinvoke $r3.zaf();
+
+        android.util.Log.w("GACConnecting", $r1);
+
+        $r5 = new java.lang.Exception;
+
+        specialinvoke $r5.<init>();
+
+        android.util.Log.wtf("GACConnecting", "GoogleApiClient received too many callbacks for the given step. Clients may be in an unexpected state; GoogleApiClient will now disconnect.", $r5);
+
+        $r6 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r6.<init>(8, null);
+
+        specialinvoke r0.zaD($r6);
+
+        return 0;
+
+     label2:
+        $r4 = r0.zae;
+
+        if $r4 == null goto label3;
+
+        $r2 = r0.zaa;
+
+        $i0 = r0.zaf;
+
+        $r2.zaf = $i0;
+
+        specialinvoke r0.zaD($r4);
+
+        return 0;
+
+     label3:
+        return 1;
+    }
+
+    private final boolean zaI(com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.zal;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke $r1.hasResolution();
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private static final java.lang.String zaJ(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return "STEP_GETTING_REMOTE_SERVICE";
+
+     label2:
+        return "STEP_SERVICE_BINDINGS_AND_SIGN_IN";
+    }
+
+    static volatile android.content.Context zac(com.google.android.gms.common.api.internal.zaaw)
+    {
+        android.content.Context r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zac;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.common.GoogleApiAvailabilityLight zaf(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        com.google.android.gms.common.GoogleApiAvailabilityLight r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zad;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.common.api.internal.zabi zak(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zabi r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zaa;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.common.internal.ClientSettings zal(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.internal.ClientSettings r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zar;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.common.internal.IAccountAccessor zam(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.internal.IAccountAccessor r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zao;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.signin.zae zan(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        com.google.android.gms.signin.zae r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zak;
+
+        return r1;
+    }
+
+    static volatile java.util.Set zao(com.google.android.gms.common.api.internal.zaaw)
+    {
+        java.util.Iterator $r5;
+        java.util.Set $r3;
+        com.google.android.gms.common.api.Api $r7;
+        java.util.HashSet $r0;
+        com.google.android.gms.common.internal.ClientSettings $r2;
+        com.google.android.gms.common.api.internal.zaaw $r1;
+        java.util.Map $r4, $r9;
+        java.lang.Object $r6;
+        com.google.android.gms.common.api.internal.zabi $r8;
+        com.google.android.gms.common.api.Api$AnyClientKey $r10;
+        boolean $z0;
+        com.google.android.gms.common.internal.zab $r11;
+
+        $r1 := @parameter0;
+
+        $r2 = $r1.zar;
+
+        if $r2 != null goto label1;
+
+        $r3 = java.util.Collections.emptySet();
+
+        return $r3;
+
+     label1:
+        $r0 = new java.util.HashSet;
+
+        $r3 = virtualinvoke $r2.getRequiredScopes();
+
+        specialinvoke $r0.<init>($r3);
+
+        $r2 = $r1.zar;
+
+        $r4 = virtualinvoke $r2.zad();
+
+        $r3 = interfaceinvoke $r4.keySet();
+
+        $r5 = interfaceinvoke $r3.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r5.hasNext();
+
+        if $z0 == 0 goto label3;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        $r7 = (com.google.android.gms.common.api.Api) $r6;
+
+        $r8 = $r1.zaa;
+
+        $r9 = $r8.zab;
+
+        $r10 = virtualinvoke $r7.zab();
+
+        $z0 = interfaceinvoke $r9.containsKey($r10);
+
+        if $z0 != 0 goto label2;
+
+        $r6 = interfaceinvoke $r4.get($r7);
+
+        $r11 = (com.google.android.gms.common.internal.zab) $r6;
+
+        $r3 = $r11.zaa;
+
+        interfaceinvoke $r0.addAll($r3);
+
+        goto label2;
+
+     label3:
+        return $r0;
+    }
+
+    static volatile java.util.concurrent.locks.Lock zap(com.google.android.gms.common.api.internal.zaaw)
+    {
+        java.util.concurrent.locks.Lock r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zab;
+
+        return r1;
+    }
+
+    static volatile void zaq(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        specialinvoke $r0.zaA();
+
+        return;
+    }
+
+    static volatile void zar(com.google.android.gms.common.api.internal.zaaw, com.google.android.gms.signin.internal.zak)
+    {
+        com.google.android.gms.common.ConnectionResult $r2;
+        com.google.android.gms.common.internal.zav $r3;
+        com.google.android.gms.common.internal.IAccountAccessor $r8;
+        java.lang.Exception $r7;
+        com.google.android.gms.signin.internal.zak $r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        java.lang.Object $r4;
+        java.lang.String $r5, $r6;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = specialinvoke $r0.zaG(0);
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = virtualinvoke $r1.zaa();
+
+        $z0 = virtualinvoke $r2.isSuccess();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = virtualinvoke $r1.zab();
+
+        $r4 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r3 = (com.google.android.gms.common.internal.zav) $r4;
+
+        $r2 = virtualinvoke $r3.zaa();
+
+        $z0 = virtualinvoke $r2.isSuccess();
+
+        if $z0 != 0 goto label2;
+
+        $r5 = java.lang.String.valueOf($r2);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        virtualinvoke $r6.length();
+
+        $r7 = new java.lang.Exception;
+
+        specialinvoke $r7.<init>();
+
+        $r6 = "Sign-in succeeded with resolve account failure: ";
+
+        $r5 = java.lang.String.valueOf($r5);
+
+        $r5 = virtualinvoke $r6.concat($r5);
+
+        android.util.Log.wtf("GACConnecting", $r5, $r7);
+
+        specialinvoke $r0.zaD($r2);
+
+        return;
+
+     label2:
+        $r0.zan = 1;
+
+        $r8 = virtualinvoke $r3.zab();
+
+        $r4 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r8);
+
+        $r8 = (com.google.android.gms.common.internal.IAccountAccessor) $r4;
+
+        $r0.zao = $r8;
+
+        $z0 = virtualinvoke $r3.zac();
+
+        $r0.zap = $z0;
+
+        $z0 = virtualinvoke $r3.zad();
+
+        $r0.zaq = $z0;
+
+        specialinvoke $r0.zaF();
+
+        return;
+
+     label3:
+        $z0 = specialinvoke $r0.zaI($r2);
+
+        if $z0 == 0 goto label4;
+
+        specialinvoke $r0.zaA();
+
+        specialinvoke $r0.zaF();
+
+        return;
+
+     label4:
+        specialinvoke $r0.zaD($r2);
+
+        return;
+    }
+
+    static volatile void zas(com.google.android.gms.common.api.internal.zaaw, com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke $r0.zaD($r1);
+
+        return;
+    }
+
+    static volatile void zat(com.google.android.gms.common.api.internal.zaaw, com.google.android.gms.common.ConnectionResult, com.google.android.gms.common.api.Api, boolean)
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        com.google.android.gms.common.api.Api $r2;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z0 := @parameter3;
+
+        specialinvoke $r0.zaE($r1, $r2, $z0);
+
+        return;
+    }
+
+    static volatile void zau(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+
+        $r0 := @parameter0;
+
+        specialinvoke $r0.zaF();
+
+        return;
+    }
+
+    static volatile boolean zav(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        boolean z0;
+
+        $r0 := @parameter0;
+
+        z0 = $r0.zam;
+
+        return z0;
+    }
+
+    static volatile boolean zaw(com.google.android.gms.common.api.internal.zaaw, int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $z0 = specialinvoke $r0.zaG(0);
+
+        return $z0;
+    }
+
+    static volatile boolean zax(com.google.android.gms.common.api.internal.zaaw)
+    {
+        com.google.android.gms.common.api.internal.zaaw $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = specialinvoke $r0.zaH();
+
+        return $z0;
+    }
+
+    static volatile boolean zay(com.google.android.gms.common.api.internal.zaaw, com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.ConnectionResult $r0;
+        com.google.android.gms.common.api.internal.zaaw $r1;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $z0 = specialinvoke $r1.zaI($r0);
+
+        return $z0;
+    }
+
+    private final void zaz()
+    {
+        java.util.concurrent.Future $r3;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        int $i0, $i1;
+        java.lang.Object $r2;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zau;
+
+        $i0 = interfaceinvoke $r1.size();
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r2 = interfaceinvoke $r1.get($i1);
+
+        $r3 = (java.util.concurrent.Future) $r2;
+
+        interfaceinvoke $r3.cancel(1);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r1 = r0.zau;
+
+        virtualinvoke $r1.clear();
+
+        return;
+    }
+
+    public final com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl zaa(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
+    {
+        com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl $r1;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        com.google.android.gms.common.api.internal.zabe $r3;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        java.util.Queue $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zag;
+
+        $r4 = $r3.zaa;
+
+        interfaceinvoke $r4.add($r1);
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl zab(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
+    {
+        com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl $r1;
+        java.lang.IllegalStateException $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("GoogleApiClient is not connected yet.");
+
+        throw $r2;
+    }
+
+    public final void zad()
+    {
+        android.content.Context $r17;
+        com.google.android.gms.common.api.Api$Client $r9;
+        java.util.HashMap $r23;
+        java.lang.Integer $r15;
+        java.util.ArrayList $r20;
+        java.util.concurrent.Future $r22;
+        com.google.android.gms.common.internal.ClientSettings $r12;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        java.util.Map $r3;
+        android.os.Looper $r18;
+        com.google.android.gms.common.api.internal.zaat $r25;
+        int $i0;
+        java.lang.Boolean $r11;
+        com.google.android.gms.common.api.Api$BaseClientBuilder $r10;
+        com.google.android.gms.common.api.Api$AbstractClientBuilder $r13;
+        com.google.android.gms.common.api.internal.zaao $r26;
+        java.util.concurrent.ExecutorService $r21;
+        boolean $z0, $z1, $z2;
+        com.google.android.gms.common.api.internal.zaal $r24;
+        java.util.Iterator $r5;
+        com.google.android.gms.common.api.internal.zabe $r14;
+        java.util.Set $r4;
+        com.google.android.gms.common.api.Api $r7;
+        com.google.android.gms.signin.SignInOptions $r19;
+        java.lang.Object $r6;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        com.google.android.gms.signin.zae $r27;
+        com.google.android.gms.common.api.Api$AnyClientKey $r8;
+
+        r0 := @this;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zab;
+
+        interfaceinvoke $r3.clear();
+
+        r0.zam = 0;
+
+        r0.zae = null;
+
+        r0.zag = 0;
+
+        r0.zal = 1;
+
+        r0.zan = 0;
+
+        r0.zap = 0;
+
+        $r23 = new java.util.HashMap;
+
+        specialinvoke $r23.<init>();
+
+        $r3 = r0.zas;
+
+        $r4 = interfaceinvoke $r3.keySet();
+
+        $r5 = interfaceinvoke $r4.iterator();
+
+        $z0 = 0;
+
+     label1:
+        $z1 = interfaceinvoke $r5.hasNext();
+
+        if $z1 == 0 goto label6;
+
+        $r6 = interfaceinvoke $r5.next();
+
+        $r7 = (com.google.android.gms.common.api.Api) $r6;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zaa;
+
+        $r8 = virtualinvoke $r7.zab();
+
+        $r6 = interfaceinvoke $r3.get($r8);
+
+        $r9 = (com.google.android.gms.common.api.Api$Client) $r6;
+
+        $r6 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r9);
+
+        $r9 = (com.google.android.gms.common.api.Api$Client) $r6;
+
+        $r10 = virtualinvoke $r7.zac();
+
+        $i0 = virtualinvoke $r10.getPriority();
+
+        if $i0 != 1 goto label2;
+
+        $z1 = 1;
+
+        goto label3;
+
+     label2:
+        $z1 = 0;
+
+     label3:
+        $z0 = $z0 | $z1;
+
+        $r3 = r0.zas;
+
+        $r6 = interfaceinvoke $r3.get($r7);
+
+        $r11 = (java.lang.Boolean) $r6;
+
+        $z1 = virtualinvoke $r11.booleanValue();
+
+        $z2 = interfaceinvoke $r9.requiresSignIn();
+
+        if $z2 == 0 goto label5;
+
+        r0.zam = 1;
+
+        if $z1 == 0 goto label4;
+
+        $r4 = r0.zaj;
+
+        $r8 = virtualinvoke $r7.zab();
+
+        interfaceinvoke $r4.add($r8);
+
+        goto label5;
+
+     label4:
+        r0.zal = 0;
+
+     label5:
+        $r24 = new com.google.android.gms.common.api.internal.zaal;
+
+        specialinvoke $r24.<init>(r0, $r7, $z1);
+
+        interfaceinvoke $r23.put($r9, $r24);
+
+        goto label1;
+
+     label6:
+        if $z0 == 0 goto label7;
+
+        r0.zam = 0;
+
+     label7:
+        $z0 = r0.zam;
+
+        if $z0 == 0 goto label8;
+
+        $r12 = r0.zar;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r12);
+
+        $r13 = r0.zat;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r13);
+
+        $r12 = r0.zar;
+
+        $r2 = r0.zaa;
+
+        $r14 = $r2.zag;
+
+        $i0 = java.lang.System.identityHashCode($r14);
+
+        $r15 = java.lang.Integer.valueOf($i0);
+
+        virtualinvoke $r12.zae($r15);
+
+        $r25 = new com.google.android.gms.common.api.internal.zaat;
+
+        specialinvoke $r25.<init>(r0, null);
+
+        $r13 = r0.zat;
+
+        $r17 = r0.zac;
+
+        $r2 = r0.zaa;
+
+        $r14 = $r2.zag;
+
+        $r18 = virtualinvoke $r14.getLooper();
+
+        $r12 = r0.zar;
+
+        $r19 = virtualinvoke $r12.zaa();
+
+        $r9 = virtualinvoke $r13.buildClient($r17, $r18, $r12, $r19, $r25, $r25);
+
+        $r27 = (com.google.android.gms.signin.zae) $r9;
+
+        r0.zak = $r27;
+
+     label8:
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zaa;
+
+        $i0 = interfaceinvoke $r3.size();
+
+        r0.zah = $i0;
+
+        $r20 = r0.zau;
+
+        $r21 = com.google.android.gms.common.api.internal.zabj.zaa();
+
+        $r26 = new com.google.android.gms.common.api.internal.zaao;
+
+        specialinvoke $r26.<init>(r0, $r23);
+
+        $r22 = interfaceinvoke $r21.submit($r26);
+
+        virtualinvoke $r20.add($r22);
+
+        return;
+    }
+
+    public final void zae()
+    {
+        com.google.android.gms.common.api.internal.zaaw r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public final void zag(android.os.Bundle)
+    {
+        android.os.Bundle $r1, $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.zaG(1);
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        if $r1 == null goto label2;
+
+        $r2 = r0.zai;
+
+        virtualinvoke $r2.putAll($r1);
+
+     label2:
+        $z0 = specialinvoke r0.zaH();
+
+        if $z0 == 0 goto label3;
+
+        specialinvoke r0.zaC();
+
+     label3:
+        return;
+    }
+
+    public final void zah(com.google.android.gms.common.ConnectionResult, com.google.android.gms.common.api.Api, boolean)
+    {
+        com.google.android.gms.common.ConnectionResult $r2;
+        com.google.android.gms.common.api.internal.zaaw r0;
+        com.google.android.gms.common.api.Api $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 = specialinvoke r0.zaG(1);
+
+        if $z1 != 0 goto label1;
+
+        return;
+
+     label1:
+        specialinvoke r0.zaE($r2, $r1, $z0);
+
+        $z0 = specialinvoke r0.zaH();
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke r0.zaC();
+
+     label2:
+        return;
+    }
+
+    public final void zai(int)
+    {
+        int $i0;
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaw r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r1.<init>(8, null);
+
+        specialinvoke r0.zaD($r1);
+
+        return;
+    }
+
+    public final boolean zaj()
+    {
+        com.google.android.gms.common.api.internal.zabi $r1;
+        com.google.android.gms.common.api.internal.zaaw r0;
+
+        r0 := @this;
+
+        specialinvoke r0.zaz();
+
+        specialinvoke r0.zaB(1);
+
+        $r1 = r0.zaa;
+
+        virtualinvoke $r1.zak(null);
+
+        return 1;
+    }
+}

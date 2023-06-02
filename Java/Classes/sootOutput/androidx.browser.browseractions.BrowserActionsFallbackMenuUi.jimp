@@ -1,0 +1,380 @@
+class androidx.browser.browseractions.BrowserActionsFallbackMenuUi extends java.lang.Object implements android.widget.AdapterView$OnItemClickListener
+{
+    private static final java.lang.String TAG;
+    private androidx.browser.browseractions.BrowserActionsFallbackMenuDialog mBrowserActionsDialog;
+    final android.content.Context mContext;
+    private final java.util.List mMenuItems;
+    androidx.browser.browseractions.BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener mMenuUiListener;
+    final android.net.Uri mUri;
+
+    void <init>(android.content.Context, android.net.Uri, java.util.List)
+    {
+        android.content.Context $r1;
+        java.util.List r3;
+        android.net.Uri $r2;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.mContext = $r1;
+
+        r0.mUri = $r2;
+
+        r3 = specialinvoke r0.buildFallbackMenuItemList(r3);
+
+        r0.mMenuItems = r3;
+
+        return;
+    }
+
+    private java.lang.Runnable buildCopyAction()
+    {
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$1 $r1;
+
+        r0 := @this;
+
+        $r1 = new androidx.browser.browseractions.BrowserActionsFallbackMenuUi$1;
+
+        specialinvoke $r1.<init>(r0);
+
+        return $r1;
+    }
+
+    private java.util.List buildFallbackMenuItemList(java.util.List)
+    {
+        android.content.Context $r4;
+        androidx.browser.browseractions.BrowserActionItem $r3;
+        android.app.PendingIntent $r6;
+        java.lang.Runnable $r7;
+        java.util.ArrayList r2;
+        java.util.List r1;
+        int $i0;
+        java.lang.String $r5;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        r2 = new java.util.ArrayList;
+
+        specialinvoke r2.<init>();
+
+        $r3 = new androidx.browser.browseractions.BrowserActionItem;
+
+        $r4 = r0.mContext;
+
+        $i0 = androidx.browser.R$string.fallback_menu_item_open_in_browser;
+
+        $r5 = virtualinvoke $r4.getString($i0);
+
+        $r6 = specialinvoke r0.buildOpenInBrowserAction();
+
+        specialinvoke $r3.<init>($r5, $r6);
+
+        interfaceinvoke r2.add($r3);
+
+        $r3 = new androidx.browser.browseractions.BrowserActionItem;
+
+        $r4 = r0.mContext;
+
+        $i0 = androidx.browser.R$string.fallback_menu_item_copy_link;
+
+        $r5 = virtualinvoke $r4.getString($i0);
+
+        $r7 = specialinvoke r0.buildCopyAction();
+
+        specialinvoke $r3.<init>($r5, $r7);
+
+        interfaceinvoke r2.add($r3);
+
+        $r3 = new androidx.browser.browseractions.BrowserActionItem;
+
+        $r4 = r0.mContext;
+
+        $i0 = androidx.browser.R$string.fallback_menu_item_share_link;
+
+        $r5 = virtualinvoke $r4.getString($i0);
+
+        $r6 = specialinvoke r0.buildShareAction();
+
+        specialinvoke $r3.<init>($r5, $r6);
+
+        interfaceinvoke r2.add($r3);
+
+        interfaceinvoke r2.addAll(r1);
+
+        return r2;
+    }
+
+    private android.app.PendingIntent buildOpenInBrowserAction()
+    {
+        android.content.Context $r4;
+        android.net.Uri $r3;
+        android.content.Intent r1;
+        android.app.PendingIntent $r2;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+
+        r0 := @this;
+
+        r1 = new android.content.Intent;
+
+        $r3 = r0.mUri;
+
+        specialinvoke r1.<init>("android.intent.action.VIEW", $r3);
+
+        $r4 = r0.mContext;
+
+        $r2 = android.app.PendingIntent.getActivity($r4, 0, r1, 67108864);
+
+        return $r2;
+    }
+
+    private android.app.PendingIntent buildShareAction()
+    {
+        android.content.Context $r4;
+        android.net.Uri $r2;
+        android.content.Intent r1;
+        java.lang.String $r3;
+        android.app.PendingIntent $r5;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+
+        r0 := @this;
+
+        r1 = new android.content.Intent;
+
+        specialinvoke r1.<init>("android.intent.action.SEND");
+
+        $r2 = r0.mUri;
+
+        $r3 = virtualinvoke $r2.toString();
+
+        virtualinvoke r1.putExtra("android.intent.extra.TEXT", $r3);
+
+        virtualinvoke r1.setType("text/plain");
+
+        $r4 = r0.mContext;
+
+        $r5 = android.app.PendingIntent.getActivity($r4, 0, r1, 67108864);
+
+        return $r5;
+    }
+
+    private androidx.browser.browseractions.BrowserActionsFallbackMenuView initMenuView(android.view.View)
+    {
+        android.content.Context $r4;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuView r6;
+        android.net.Uri r8;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$3 r10;
+        java.util.List $r3;
+        android.widget.TextView r7;
+        int i0;
+        android.view.View $r1, $r5;
+        java.lang.String $r9;
+        android.widget.ListView r11;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuAdapter r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        i0 = androidx.browser.R$id.browser_actions_menu_view;
+
+        $r5 = virtualinvoke $r1.findViewById(i0);
+
+        r6 = (androidx.browser.browseractions.BrowserActionsFallbackMenuView) $r5;
+
+        i0 = androidx.browser.R$id.browser_actions_header_text;
+
+        $r5 = virtualinvoke $r1.findViewById(i0);
+
+        r7 = (android.widget.TextView) $r5;
+
+        r8 = r0.mUri;
+
+        $r9 = virtualinvoke r8.toString();
+
+        virtualinvoke r7.setText($r9);
+
+        r10 = new androidx.browser.browseractions.BrowserActionsFallbackMenuUi$3;
+
+        specialinvoke r10.<init>(r0, r7);
+
+        virtualinvoke r7.setOnClickListener(r10);
+
+        i0 = androidx.browser.R$id.browser_actions_menu_items;
+
+        $r1 = virtualinvoke $r1.findViewById(i0);
+
+        r11 = (android.widget.ListView) $r1;
+
+        r2 = new androidx.browser.browseractions.BrowserActionsFallbackMenuAdapter;
+
+        $r3 = r0.mMenuItems;
+
+        $r4 = r0.mContext;
+
+        specialinvoke r2.<init>($r3, $r4);
+
+        virtualinvoke r11.setAdapter(r2);
+
+        virtualinvoke r11.setOnItemClickListener(r0);
+
+        return r6;
+    }
+
+    public void displayMenu()
+    {
+        android.content.Context r1;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuView $r5;
+        android.view.LayoutInflater $r2;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuDialog $r4;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$2 $r7;
+        int $i0;
+        android.view.View $r3;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener $r6;
+
+        r0 := @this;
+
+        r1 = r0.mContext;
+
+        $r2 = android.view.LayoutInflater.from(r1);
+
+        $i0 = androidx.browser.R$layout.browser_actions_context_menu_page;
+
+        $r3 = virtualinvoke $r2.inflate($i0, null);
+
+        $r4 = new androidx.browser.browseractions.BrowserActionsFallbackMenuDialog;
+
+        r1 = r0.mContext;
+
+        $r5 = specialinvoke r0.initMenuView($r3);
+
+        specialinvoke $r4.<init>(r1, $r5);
+
+        r0.mBrowserActionsDialog = $r4;
+
+        virtualinvoke $r4.setContentView($r3);
+
+        $r6 = r0.mMenuUiListener;
+
+        if $r6 == null goto label1;
+
+        $r4 = r0.mBrowserActionsDialog;
+
+        $r7 = new androidx.browser.browseractions.BrowserActionsFallbackMenuUi$2;
+
+        specialinvoke $r7.<init>(r0, $r3);
+
+        virtualinvoke $r4.setOnShowListener($r7);
+
+     label1:
+        $r4 = r0.mBrowserActionsDialog;
+
+        virtualinvoke $r4.show();
+
+        return;
+    }
+
+    public void onItemClick(android.widget.AdapterView, android.view.View, int, long)
+    {
+        androidx.browser.browseractions.BrowserActionItem r5;
+        android.app.PendingIntent$CanceledException r7;
+        long $l1;
+        android.app.PendingIntent $r6;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuDialog r9;
+        java.lang.Runnable $r8;
+        java.util.List r3;
+        int $i0;
+        android.view.View $r2;
+        java.lang.Object $r4;
+        android.widget.AdapterView r1;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $l1 := @parameter3;
+
+        r3 = r0.mMenuItems;
+
+        $r4 = interfaceinvoke r3.get($i0);
+
+        r5 = (androidx.browser.browseractions.BrowserActionItem) $r4;
+
+        $r6 = virtualinvoke r5.getAction();
+
+        if $r6 == null goto label5;
+
+     label1:
+        $r6 = virtualinvoke r5.getAction();
+
+        virtualinvoke $r6.send();
+
+     label2:
+        goto label4;
+
+     label3:
+        r7 := @caughtexception;
+
+        android.util.Log.e("BrowserActionskMenuUi", "Failed to send custom item action", r7);
+
+     label4:
+        goto label6;
+
+     label5:
+        $r8 = virtualinvoke r5.getRunnableAction();
+
+        if $r8 == null goto label6;
+
+        $r8 = virtualinvoke r5.getRunnableAction();
+
+        interfaceinvoke $r8.run();
+
+     label6:
+        r9 = r0.mBrowserActionsDialog;
+
+        if r9 != null goto label7;
+
+        android.util.Log.e("BrowserActionskMenuUi", "Cannot dismiss dialog, it has already been dismissed.");
+
+        return;
+
+     label7:
+        virtualinvoke r9.dismiss();
+
+        return;
+
+        catch android.app.PendingIntent$CanceledException from label1 to label2 with label3;
+    }
+
+    void setMenuUiListener(androidx.browser.browseractions.BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener)
+    {
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi r0;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$BrowserActionsFallMenuUiListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mMenuUiListener = $r1;
+
+        return;
+    }
+}

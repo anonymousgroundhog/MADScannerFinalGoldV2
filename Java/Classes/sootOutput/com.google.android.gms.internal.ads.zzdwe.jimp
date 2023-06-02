@@ -1,0 +1,132 @@
+public final class com.google.android.gms.internal.ads.zzdwe extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzfuu zza;
+    private final com.google.android.gms.internal.ads.zzfuu zzb;
+    private final com.google.android.gms.internal.ads.zzdww zzc;
+
+    void <init>(com.google.android.gms.internal.ads.zzfuu, com.google.android.gms.internal.ads.zzfuu, com.google.android.gms.internal.ads.zzdww)
+    {
+        com.google.android.gms.internal.ads.zzdwe r0;
+        com.google.android.gms.internal.ads.zzfuu $r1, $r2;
+        com.google.android.gms.internal.ads.zzdww $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        return;
+    }
+
+    final com.google.android.gms.internal.ads.zzfut zza(com.google.android.gms.internal.ads.zzbsr) throws java.lang.Exception
+    {
+        com.google.android.gms.internal.ads.zzbsr $r2;
+        com.google.android.gms.internal.ads.zzfut $r7;
+        com.google.android.gms.internal.ads.zzdww $r1;
+        long $l0;
+        com.google.android.gms.internal.ads.zzdwe r0;
+        com.google.android.gms.internal.ads.zzbap $r4;
+        java.lang.Long $r6;
+        java.lang.Object $r5;
+        com.google.android.gms.internal.ads.zzbaj $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = r0.zzc;
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzjH;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Long) $r5;
+
+        $l0 = virtualinvoke $r6.longValue();
+
+        $r7 = virtualinvoke $r1.zza($r2, $l0);
+
+        return $r7;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zzb(com.google.android.gms.internal.ads.zzbsr)
+    {
+        com.google.android.gms.internal.ads.zzbsr $r1;
+        com.google.android.gms.internal.ads.zzfuu $r6;
+        com.google.android.gms.internal.ads.zzfut $r4;
+        com.google.android.gms.internal.ads.zzdvi $r3;
+        com.google.android.gms.internal.ads.zzdwe r0;
+        com.google.android.gms.internal.ads.zzfua $r8;
+        com.google.android.gms.internal.ads.zzdwd $r10;
+        com.google.android.gms.internal.ads.zzdwc $r9;
+        com.google.android.gms.internal.ads.zzdwb $r7;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzdwa $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = $r1.zzb;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $z0 = com.google.android.gms.ads.internal.util.zzs.zzy($r2);
+
+        if $z0 == 0 goto label1;
+
+        $r3 = new com.google.android.gms.internal.ads.zzdvi;
+
+        specialinvoke $r3.<init>(1, "Ads signal service force local");
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzg($r3);
+
+        goto label2;
+
+     label1:
+        $r5 = new com.google.android.gms.internal.ads.zzdwa;
+
+        specialinvoke $r5.<init>(r0, $r1);
+
+        $r6 = r0.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzk($r5, $r6);
+
+        $r7 = com.google.android.gms.internal.ads.zzdwb.zza;
+
+        $r6 = r0.zzb;
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzf($r4, class "Ljava/util/concurrent/ExecutionException;", $r7, $r6);
+
+     label2:
+        $r8 = com.google.android.gms.internal.ads.zzfua.zzv($r4);
+
+        $r9 = com.google.android.gms.internal.ads.zzdwc.zza;
+
+        $r6 = r0.zzb;
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzf($r8, class "Lcom/google/android/gms/internal/ads/zzdvi;", $r9, $r6);
+
+        $r10 = com.google.android.gms.internal.ads.zzdwd.zza;
+
+        $r6 = r0.zzb;
+
+        $r4 = com.google.android.gms.internal.ads.zzfuj.zzm($r4, $r10, $r6);
+
+        return $r4;
+    }
+}

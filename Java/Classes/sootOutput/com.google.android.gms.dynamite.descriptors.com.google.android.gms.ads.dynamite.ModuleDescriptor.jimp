@@ -1,0 +1,16 @@
+public class com.google.android.gms.dynamite.descriptors.com.google.android.gms.ads.dynamite.ModuleDescriptor extends java.lang.Object
+{
+    public static final java.lang.String MODULE_ID;
+    public static final int MODULE_VERSION;
+
+    public void <init>()
+    {
+        com.google.android.gms.dynamite.descriptors.com.google.android.gms.ads.dynamite.ModuleDescriptor r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

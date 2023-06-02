@@ -1,0 +1,86 @@
+public final class com.google.android.gms.internal.ads.zzasg extends com.google.android.gms.internal.ads.zzasm
+{
+    private final com.google.android.gms.internal.ads.zzarf zzi;
+    private long zzj;
+
+    public void <init>(com.google.android.gms.internal.ads.zzaqx, java.lang.String, java.lang.String, com.google.android.gms.internal.ads.zzamv, int, int, com.google.android.gms.internal.ads.zzarf)
+    {
+        long $l2;
+        com.google.android.gms.internal.ads.zzasg r0;
+        com.google.android.gms.internal.ads.zzarf $r4;
+        com.google.android.gms.internal.ads.zzamv $r3;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzaqx $r5;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r5 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $i0 := @parameter4;
+
+        $i1 := @parameter5;
+
+        $r4 := @parameter6;
+
+        specialinvoke r0.<init>($r5, "5go+5dJzPwtL428hPcvMvoz2IsnUZf/hKfz19p3YdYFOxVa6hNCHvBHHDAKylvFa", "8BESx6lpu/rT8vpssHW7TVG8DbeYQulEHs4g7WxmlH0=", $r3, $i0, 53);
+
+        r0.zzi = $r4;
+
+        if $r4 == null goto label1;
+
+        $l2 = virtualinvoke $r4.zza();
+
+        r0.zzj = $l2;
+
+     label1:
+        return;
+    }
+
+    protected final void zza() throws java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException
+    {
+        java.lang.Object[] $r4;
+        long $l0;
+        com.google.android.gms.internal.ads.zzasg r0;
+        com.google.android.gms.internal.ads.zzarf $r1;
+        java.lang.Long $r5;
+        com.google.android.gms.internal.ads.zzamv $r2;
+        java.lang.Object $r6;
+        java.lang.reflect.Method $r3;
+
+        r0 := @this;
+
+        $r1 = r0.zzi;
+
+        if $r1 == null goto label1;
+
+        $r2 = r0.zze;
+
+        $r3 = r0.zzf;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $l0 = r0.zzj;
+
+        $r5 = java.lang.Long.valueOf($l0);
+
+        $r4[0] = $r5;
+
+        $r6 = virtualinvoke $r3.invoke(null, $r4);
+
+        $r5 = (java.lang.Long) $r6;
+
+        $l0 = virtualinvoke $r5.longValue();
+
+        virtualinvoke $r2.zzP($l0);
+
+     label1:
+        return;
+    }
+}

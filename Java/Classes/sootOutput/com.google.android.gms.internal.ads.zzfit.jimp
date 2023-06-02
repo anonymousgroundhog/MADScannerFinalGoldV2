@@ -1,0 +1,17 @@
+public final class com.google.android.gms.internal.ads.zzfit extends java.lang.Exception
+{
+
+    public void <init>(java.lang.Throwable)
+    {
+        java.lang.Throwable $r1;
+        com.google.android.gms.internal.ads.zzfit r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+}

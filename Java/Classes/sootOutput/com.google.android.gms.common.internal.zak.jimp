@@ -1,0 +1,922 @@
+public final class com.google.android.gms.common.internal.zak extends java.lang.Object implements android.os.Handler$Callback
+{
+    final java.util.ArrayList zaa;
+    private final com.google.android.gms.common.internal.zaj zab;
+    private final java.util.ArrayList zac;
+    private final java.util.ArrayList zad;
+    private volatile boolean zae;
+    private final java.util.concurrent.atomic.AtomicInteger zaf;
+    private boolean zag;
+    private final android.os.Handler zah;
+    private final java.lang.Object zai;
+
+    public void <init>(android.os.Looper, com.google.android.gms.common.internal.zaj)
+    {
+        com.google.android.gms.common.internal.zak r0;
+        java.util.concurrent.atomic.AtomicInteger $r2;
+        android.os.Looper $r1;
+        com.google.android.gms.common.internal.zaj $r3;
+        java.lang.Object $r5;
+        java.util.ArrayList $r4;
+        com.google.android.gms.internal.base.zaq $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r3 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.zac = $r4;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.zaa = $r4;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.zad = $r4;
+
+        r0.zae = 0;
+
+        $r2 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r2.<init>(0);
+
+        r0.zaf = $r2;
+
+        r0.zag = 0;
+
+        $r5 = new java.lang.Object;
+
+        specialinvoke $r5.<init>();
+
+        r0.zai = $r5;
+
+        r0.zab = $r3;
+
+        $r6 = new com.google.android.gms.internal.base.zaq;
+
+        specialinvoke $r6.<init>($r1, r0);
+
+        r0.zah = $r6;
+
+        return;
+    }
+
+    public final boolean handleMessage(android.os.Message)
+    {
+        java.lang.Throwable $r6;
+        java.lang.Exception $r8;
+        java.util.ArrayList $r5;
+        com.google.android.gms.common.internal.zak r0;
+        android.os.Message $r1;
+        com.google.android.gms.common.internal.zaj $r4;
+        int $i0;
+        java.lang.Object $r2;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r9;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = $r1.what;
+
+        if $i0 != 1 goto label6;
+
+        $r2 = $r1.obj;
+
+        $r3 = (com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks) $r2;
+
+        $r2 = r0.zai;
+
+        entermonitor $r2;
+
+     label1:
+        $z0 = r0.zae;
+
+        if $z0 == 0 goto label2;
+
+        $r4 = r0.zab;
+
+        $z0 = interfaceinvoke $r4.isConnected();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = r0.zac;
+
+        $z0 = virtualinvoke $r5.contains($r3);
+
+        if $z0 == 0 goto label2;
+
+        interfaceinvoke $r3.onConnected(null);
+
+     label2:
+        exitmonitor $r2;
+
+     label3:
+        return 1;
+
+     label4:
+        $r6 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label5:
+        throw $r6;
+
+     label6:
+        $i0 = $r1.what;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>(45);
+
+        virtualinvoke $r7.append("Don\'t know how to handle message: ");
+
+        virtualinvoke $r7.append($i0);
+
+        $r8 = new java.lang.Exception;
+
+        specialinvoke $r8.<init>();
+
+        $r9 = virtualinvoke $r7.toString();
+
+        android.util.Log.wtf("GmsClientEvents", $r9, $r8);
+
+        return 0;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public final void zaa()
+    {
+        com.google.android.gms.common.internal.zak r0;
+        java.util.concurrent.atomic.AtomicInteger $r1;
+
+        r0 := @this;
+
+        r0.zae = 0;
+
+        $r1 = r0.zaf;
+
+        virtualinvoke $r1.incrementAndGet();
+
+        return;
+    }
+
+    public final void zab()
+    {
+        com.google.android.gms.common.internal.zak r0;
+
+        r0 := @this;
+
+        r0.zae = 1;
+
+        return;
+    }
+
+    public final void zac(com.google.android.gms.common.ConnectionResult)
+    {
+        java.lang.Throwable $r10;
+        com.google.android.gms.common.ConnectionResult $r1;
+        java.util.Iterator $r7;
+        java.util.ArrayList $r4, $r5;
+        com.google.android.gms.common.internal.zak r0;
+        java.util.concurrent.atomic.AtomicInteger $r6;
+        android.os.Handler $r2;
+        com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener $r9;
+        int $i0, $i1;
+        java.lang.Object $r3, $r8;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zah;
+
+        com.google.android.gms.common.internal.Preconditions.checkHandlerThread($r2, "onConnectionFailure must only be called on the Handler thread");
+
+        $r2 = r0.zah;
+
+        virtualinvoke $r2.removeMessages(1);
+
+        $r3 = r0.zai;
+
+        entermonitor $r3;
+
+     label01:
+        $r4 = new java.util.ArrayList;
+
+        $r5 = r0.zad;
+
+        specialinvoke $r4.<init>($r5);
+
+        $r6 = r0.zaf;
+
+        $i0 = virtualinvoke $r6.get();
+
+        $r7 = virtualinvoke $r4.iterator();
+
+     label02:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+        if $z0 == 0 goto label06;
+
+        $r8 = interfaceinvoke $r7.next();
+
+        $r9 = (com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener) $r8;
+
+        $z0 = r0.zae;
+
+        if $z0 == 0 goto label04;
+
+        $r6 = r0.zaf;
+
+        $i1 = virtualinvoke $r6.get();
+
+        if $i1 == $i0 goto label03;
+
+        goto label04;
+
+     label03:
+        $r4 = r0.zad;
+
+        $z0 = virtualinvoke $r4.contains($r9);
+
+        if $z0 == 0 goto label02;
+
+        interfaceinvoke $r9.onConnectionFailed($r1);
+
+        goto label02;
+
+     label04:
+        exitmonitor $r3;
+
+     label05:
+        return;
+
+     label06:
+        exitmonitor $r3;
+
+     label07:
+        return;
+
+     label08:
+        $r10 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label09:
+        goto label10;
+
+     label10:
+        throw $r10;
+
+        catch java.lang.Throwable from label01 to label05 with label08;
+        catch java.lang.Throwable from label06 to label07 with label08;
+        catch java.lang.Throwable from label08 to label09 with label08;
+    }
+
+    public final void zad(android.os.Bundle)
+    {
+        java.lang.Throwable $r11;
+        android.os.Bundle $r1;
+        java.util.Iterator $r7;
+        java.util.ArrayList $r4, $r5;
+        com.google.android.gms.common.internal.zak r0;
+        java.util.concurrent.atomic.AtomicInteger $r6;
+        android.os.Handler $r2;
+        com.google.android.gms.common.internal.zaj $r10;
+        int $i0, $i1;
+        java.lang.Object $r3, $r8;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r9;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zah;
+
+        com.google.android.gms.common.internal.Preconditions.checkHandlerThread($r2, "onConnectionSuccess must only be called on the Handler thread");
+
+        $r3 = r0.zai;
+
+        entermonitor $r3;
+
+     label1:
+        $z0 = r0.zag;
+
+        $z0 = $z0 ^ 1;
+
+        com.google.android.gms.common.internal.Preconditions.checkState($z0);
+
+        $r2 = r0.zah;
+
+        virtualinvoke $r2.removeMessages(1);
+
+        r0.zag = 1;
+
+        $r4 = r0.zaa;
+
+        $z0 = virtualinvoke $r4.isEmpty();
+
+        com.google.android.gms.common.internal.Preconditions.checkState($z0);
+
+        $r4 = new java.util.ArrayList;
+
+        $r5 = r0.zac;
+
+        specialinvoke $r4.<init>($r5);
+
+        $r6 = r0.zaf;
+
+        $i0 = virtualinvoke $r6.get();
+
+        $r7 = virtualinvoke $r4.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r7.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r8 = interfaceinvoke $r7.next();
+
+        $r9 = (com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks) $r8;
+
+        $z0 = r0.zae;
+
+        if $z0 == 0 goto label4;
+
+        $r10 = r0.zab;
+
+        $z0 = interfaceinvoke $r10.isConnected();
+
+        if $z0 == 0 goto label4;
+
+        $r6 = r0.zaf;
+
+        $i1 = virtualinvoke $r6.get();
+
+        if $i1 == $i0 goto label3;
+
+        goto label4;
+
+     label3:
+        $r4 = r0.zaa;
+
+        $z0 = virtualinvoke $r4.contains($r9);
+
+        if $z0 != 0 goto label2;
+
+        interfaceinvoke $r9.onConnected($r1);
+
+        goto label2;
+
+     label4:
+        $r4 = r0.zaa;
+
+        virtualinvoke $r4.clear();
+
+        r0.zag = 0;
+
+        exitmonitor $r3;
+
+     label5:
+        return;
+
+     label6:
+        $r11 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label7:
+        goto label8;
+
+     label8:
+        throw $r11;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+        catch java.lang.Throwable from label6 to label7 with label6;
+    }
+
+    public final void zae(int)
+    {
+        java.lang.Throwable $r9;
+        java.util.Iterator $r6;
+        java.util.ArrayList $r3, $r4;
+        com.google.android.gms.common.internal.zak r0;
+        java.util.concurrent.atomic.AtomicInteger $r5;
+        android.os.Handler $r1;
+        int $i0, $i1, $i2;
+        java.lang.Object $r2, $r7;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r8;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zah;
+
+        com.google.android.gms.common.internal.Preconditions.checkHandlerThread($r1, "onUnintentionalDisconnection must only be called on the Handler thread");
+
+        $r1 = r0.zah;
+
+        virtualinvoke $r1.removeMessages(1);
+
+        $r2 = r0.zai;
+
+        entermonitor $r2;
+
+     label1:
+        r0.zag = 1;
+
+        $r3 = new java.util.ArrayList;
+
+        $r4 = r0.zac;
+
+        specialinvoke $r3.<init>($r4);
+
+        $r5 = r0.zaf;
+
+        $i1 = virtualinvoke $r5.get();
+
+        $r6 = virtualinvoke $r3.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r6.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r7 = interfaceinvoke $r6.next();
+
+        $r8 = (com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks) $r7;
+
+        $z0 = r0.zae;
+
+        if $z0 == 0 goto label4;
+
+        $r5 = r0.zaf;
+
+        $i2 = virtualinvoke $r5.get();
+
+        if $i2 == $i1 goto label3;
+
+        goto label4;
+
+     label3:
+        $r3 = r0.zac;
+
+        $z0 = virtualinvoke $r3.contains($r8);
+
+        if $z0 == 0 goto label2;
+
+        interfaceinvoke $r8.onConnectionSuspended($i0);
+
+        goto label2;
+
+     label4:
+        $r3 = r0.zaa;
+
+        virtualinvoke $r3.clear();
+
+        r0.zag = 0;
+
+        exitmonitor $r2;
+
+     label5:
+        return;
+
+     label6:
+        $r9 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label7:
+        goto label8;
+
+     label8:
+        throw $r9;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+        catch java.lang.Throwable from label6 to label7 with label6;
+    }
+
+    public final void zaf(com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks)
+    {
+        java.lang.Throwable $r10;
+        java.util.ArrayList $r4;
+        com.google.android.gms.common.internal.zak r0;
+        android.os.Message $r9;
+        com.google.android.gms.common.internal.zaj $r7;
+        android.os.Handler $r8;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.Object $r3;
+        java.lang.String $r5, $r6;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        $r3 = r0.zai;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = r0.zac;
+
+        $z0 = virtualinvoke $r4.contains($r2);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = java.lang.String.valueOf($r2);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        $i0 = virtualinvoke $r6.length();
+
+        $i0 = $i0 + 62;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>($i0);
+
+        virtualinvoke $r1.append("registerConnectionCallbacks(): listener ");
+
+        virtualinvoke $r1.append($r5);
+
+        virtualinvoke $r1.append(" is already registered");
+
+        $r5 = virtualinvoke $r1.toString();
+
+        android.util.Log.w("GmsClientEvents", $r5);
+
+        goto label3;
+
+     label2:
+        $r4 = r0.zac;
+
+        virtualinvoke $r4.add($r2);
+
+     label3:
+        exitmonitor $r3;
+
+     label4:
+        $r7 = r0.zab;
+
+        $z0 = interfaceinvoke $r7.isConnected();
+
+        if $z0 == 0 goto label8;
+
+        $r8 = r0.zah;
+
+        $r9 = virtualinvoke $r8.obtainMessage(1, $r2);
+
+        virtualinvoke $r8.sendMessage($r9);
+
+        return;
+
+     label5:
+        $r10 := @caughtexception;
+
+     label6:
+        exitmonitor $r3;
+
+     label7:
+        throw $r10;
+
+     label8:
+        return;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label6 to label7 with label5;
+    }
+
+    public final void zag(com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener)
+    {
+        java.lang.Throwable $r7;
+        java.util.ArrayList $r4;
+        com.google.android.gms.common.internal.zak r0;
+        com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener $r3;
+        int $i0;
+        java.lang.Object $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r5, $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r1 = r0.zai;
+
+        entermonitor $r1;
+
+     label1:
+        $r4 = r0.zad;
+
+        $z0 = virtualinvoke $r4.contains($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = java.lang.String.valueOf($r3);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        $i0 = virtualinvoke $r6.length();
+
+        $i0 = $i0 + 67;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>($i0);
+
+        virtualinvoke $r2.append("registerConnectionFailedListener(): listener ");
+
+        virtualinvoke $r2.append($r5);
+
+        virtualinvoke $r2.append(" is already registered");
+
+        $r5 = virtualinvoke $r2.toString();
+
+        android.util.Log.w("GmsClientEvents", $r5);
+
+        goto label3;
+
+     label2:
+        $r4 = r0.zad;
+
+        virtualinvoke $r4.add($r3);
+
+     label3:
+        exitmonitor $r1;
+
+     label4:
+        return;
+
+     label5:
+        $r7 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label6:
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public final void zah(com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks)
+    {
+        java.lang.Throwable $r7;
+        java.util.ArrayList $r4;
+        com.google.android.gms.common.internal.zak r0;
+        int $i0;
+        java.lang.Object $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r5, $r6;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r1 = r0.zai;
+
+        entermonitor $r1;
+
+     label1:
+        $r4 = r0.zac;
+
+        $z0 = virtualinvoke $r4.remove($r3);
+
+        if $z0 != 0 goto label2;
+
+        $r5 = java.lang.String.valueOf($r3);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        $i0 = virtualinvoke $r6.length();
+
+        $i0 = $i0 + 52;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>($i0);
+
+        virtualinvoke $r2.append("unregisterConnectionCallbacks(): listener ");
+
+        virtualinvoke $r2.append($r5);
+
+        virtualinvoke $r2.append(" not found");
+
+        $r5 = virtualinvoke $r2.toString();
+
+        android.util.Log.w("GmsClientEvents", $r5);
+
+        goto label3;
+
+     label2:
+        $z0 = r0.zag;
+
+        if $z0 == 0 goto label3;
+
+        $r4 = r0.zaa;
+
+        virtualinvoke $r4.add($r3);
+
+     label3:
+        exitmonitor $r1;
+
+     label4:
+        return;
+
+     label5:
+        $r7 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label6:
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public final void zai(com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener)
+    {
+        java.lang.Throwable $r7;
+        java.util.ArrayList $r4;
+        com.google.android.gms.common.internal.zak r0;
+        com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener $r3;
+        int $i0;
+        java.lang.Object $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r5, $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r1 = r0.zai;
+
+        entermonitor $r1;
+
+     label1:
+        $r4 = r0.zad;
+
+        $z0 = virtualinvoke $r4.remove($r3);
+
+        if $z0 != 0 goto label2;
+
+        $r5 = java.lang.String.valueOf($r3);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        $i0 = virtualinvoke $r6.length();
+
+        $i0 = $i0 + 57;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>($i0);
+
+        virtualinvoke $r2.append("unregisterConnectionFailedListener(): listener ");
+
+        virtualinvoke $r2.append($r5);
+
+        virtualinvoke $r2.append(" not found");
+
+        $r5 = virtualinvoke $r2.toString();
+
+        android.util.Log.w("GmsClientEvents", $r5);
+
+     label2:
+        exitmonitor $r1;
+
+     label3:
+        return;
+
+     label4:
+        $r7 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label5:
+        throw $r7;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public final boolean zaj(com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.common.internal.zak r0;
+        java.lang.Object $r1;
+        com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks $r3;
+        java.util.ArrayList $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r1 = r0.zai;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = r0.zac;
+
+        $z0 = virtualinvoke $r2.contains($r3);
+
+        exitmonitor $r1;
+
+     label2:
+        return $z0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public final boolean zak(com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.common.internal.zak r0;
+        com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener $r3;
+        java.lang.Object $r1;
+        java.util.ArrayList $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r1 = r0.zai;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = r0.zad;
+
+        $z0 = virtualinvoke $r2.contains($r3);
+
+        exitmonitor $r1;
+
+     label2:
+        return $z0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+}

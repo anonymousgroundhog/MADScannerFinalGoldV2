@@ -1,0 +1,680 @@
+public final class com.google.android.gms.internal.ads.zzzk extends java.lang.Object implements com.google.android.gms.internal.ads.zzzv
+{
+    private final byte[] zza;
+    private final com.google.android.gms.internal.ads.zzr zzb;
+    private final long zzc;
+    private long zzd;
+    private byte[] zze;
+    private int zzf;
+    private int zzg;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbh.zzb("media3.extractor");
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.internal.ads.zzr, long, long)
+    {
+        byte[] $r2;
+        com.google.android.gms.internal.ads.zzr $r1;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $l1 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = $r1;
+
+        r0.zzd = $l0;
+
+        r0.zzc = $l1;
+
+        $r2 = newarray (byte)[65536];
+
+        r0.zze = $r2;
+
+        $r2 = newarray (byte)[4096];
+
+        r0.zza = $r2;
+
+        return;
+    }
+
+    private final int zzp(byte[], int, int)
+    {
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 = r0.zzg;
+
+        if $i2 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $i1 = java.lang.Math.min($i2, $i1);
+
+        $r2 = r0.zze;
+
+        java.lang.System.arraycopy($r2, 0, $r1, $i0, $i1);
+
+        specialinvoke r0.zzu($i1);
+
+        return $i1;
+    }
+
+    private final int zzq(byte[], int, int, int, boolean) throws java.io.IOException
+    {
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzr $r2;
+        java.io.EOFException $r3;
+        java.io.InterruptedIOException $r4;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $z0 := @parameter4;
+
+        $z1 = java.lang.Thread.interrupted();
+
+        if $z1 != 0 goto label3;
+
+        $r2 = r0.zzb;
+
+        $i0 = $i0 + $i2;
+
+        $i1 = $i1 - $i2;
+
+        $i0 = interfaceinvoke $r2.zza($r1, $i0, $i1);
+
+        if $i0 != -1 goto label2;
+
+        if $i2 != 0 goto label1;
+
+        if $z0 == 0 goto label1;
+
+        return -1;
+
+     label1:
+        $r3 = new java.io.EOFException;
+
+        specialinvoke $r3.<init>();
+
+        throw $r3;
+
+     label2:
+        $i0 = $i2 + $i0;
+
+        return $i0;
+
+     label3:
+        $r4 = new java.io.InterruptedIOException;
+
+        specialinvoke $r4.<init>();
+
+        throw $r4;
+    }
+
+    private final int zzr(int)
+    {
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $i0 = r0.zzg;
+
+        $i1 = java.lang.Math.min($i0, $i1);
+
+        specialinvoke r0.zzu($i1);
+
+        return $i1;
+    }
+
+    private final void zzs(int)
+    {
+        int $i0;
+        long $l1, $l2;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 == -1 goto label1;
+
+        $l2 = r0.zzd;
+
+        $l1 = (long) $i0;
+
+        $l1 = $l2 + $l1;
+
+        r0.zzd = $l1;
+
+     label1:
+        return;
+    }
+
+    private final void zzt(int)
+    {
+        byte[] $r1;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.zzf;
+
+        $i2 = $i1 + $i0;
+
+        $r1 = r0.zze;
+
+        $i1 = lengthof $r1;
+
+        if $i2 <= $i1 goto label1;
+
+        $i0 = 65536 + $i2;
+
+        $i2 = $i2 + 524288;
+
+        $i1 = $i1 + $i1;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zzf($i1, $i0, $i2);
+
+        $r1 = r0.zze;
+
+        $r1 = java.util.Arrays.copyOf($r1, $i0);
+
+        r0.zze = $r1;
+
+     label1:
+        return;
+    }
+
+    private final void zzu(int)
+    {
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = r0.zzg;
+
+        $i1 = $i1 - $i0;
+
+        r0.zzg = $i1;
+
+        r0.zzf = 0;
+
+        $r1 = r0.zze;
+
+        $i2 = lengthof $r1;
+
+        $i2 = $i2 + -524288;
+
+        if $i1 >= $i2 goto label1;
+
+        $i2 = 65536 + $i1;
+
+        $r2 = newarray (byte)[$i2];
+
+        goto label2;
+
+     label1:
+        $r2 = $r1;
+
+     label2:
+        java.lang.System.arraycopy($r1, $i0, $r2, 0, $i1);
+
+        r0.zze = $r2;
+
+        return;
+    }
+
+    public final int zza(byte[], int, int) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 = specialinvoke r0.zzp($r1, $i0, $i1);
+
+        $i3 = $i2;
+
+        if $i2 != 0 goto label1;
+
+        $i3 = specialinvoke r0.zzq($r1, $i0, $i1, 0, 1);
+
+        goto label1;
+
+     label1:
+        specialinvoke r0.zzs($i3);
+
+        return $i3;
+    }
+
+    public final int zzb(byte[], int, int) throws java.io.IOException
+    {
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i2 := @parameter2;
+
+        specialinvoke r0.zzt($i2);
+
+        $i3 = r0.zzg;
+
+        $i1 = r0.zzf;
+
+        $i3 = $i3 - $i1;
+
+        if $i3 != 0 goto label2;
+
+        $r1 = r0.zze;
+
+        $i1 = specialinvoke r0.zzq($r1, $i1, $i2, 0, 1);
+
+        $i2 = $i1;
+
+        if $i1 != -1 goto label1;
+
+        return -1;
+
+     label1:
+        $i3 = r0.zzg;
+
+        $i1 = $i3 + $i1;
+
+        r0.zzg = $i1;
+
+        goto label3;
+
+     label2:
+        $i2 = java.lang.Math.min($i2, $i3);
+
+     label3:
+        $r1 = r0.zze;
+
+        $i1 = r0.zzf;
+
+        java.lang.System.arraycopy($r1, $i1, $r2, $i0, $i2);
+
+        $i0 = r0.zzf;
+
+        $i0 = $i0 + $i2;
+
+        r0.zzf = $i0;
+
+        return $i2;
+    }
+
+    public final int zzc(int) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i0 = specialinvoke r0.zzr(1);
+
+        $i1 = $i0;
+
+        if $i0 != 0 goto label1;
+
+        $r1 = r0.zza;
+
+        $i0 = java.lang.Math.min(1, 4096);
+
+        $i1 = specialinvoke r0.zzq($r1, 0, $i0, 0, 1);
+
+     label1:
+        specialinvoke r0.zzs($i1);
+
+        return $i1;
+    }
+
+    public final long zzd()
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        l0 = r0.zzc;
+
+        return l0;
+    }
+
+    public final long zze()
+    {
+        int $i1;
+        long $l0, $l2;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $l0 = r0.zzd;
+
+        $i1 = r0.zzf;
+
+        $l2 = (long) $i1;
+
+        $l0 = $l0 + $l2;
+
+        return $l0;
+    }
+
+    public final long zzf()
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        l0 = r0.zzd;
+
+        return l0;
+    }
+
+    public final void zzg(int) throws java.io.IOException
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.zzl($i0, 0);
+
+        return;
+    }
+
+    public final void zzh(byte[], int, int) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        virtualinvoke r0.zzm($r1, $i0, $i1, 0);
+
+        return;
+    }
+
+    public final void zzi(byte[], int, int) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        virtualinvoke r0.zzn($r1, $i0, $i1, 0);
+
+        return;
+    }
+
+    public final void zzj()
+    {
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        r0.zzf = 0;
+
+        return;
+    }
+
+    public final void zzk(int) throws java.io.IOException
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzzk r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.zzo($i0, 0);
+
+        return;
+    }
+
+    public final boolean zzl(int, boolean) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzzk r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        specialinvoke r0.zzt($i1);
+
+        $i2 = r0.zzg;
+
+        $i0 = r0.zzf;
+
+        $i2 = $i2 - $i0;
+
+     label1:
+        if $i2 >= $i1 goto label3;
+
+        $r1 = r0.zze;
+
+        $i0 = r0.zzf;
+
+        $i0 = specialinvoke r0.zzq($r1, $i0, $i1, $i2, $z0);
+
+        $i2 = $i0;
+
+        if $i0 != -1 goto label2;
+
+        return 0;
+
+     label2:
+        $i3 = r0.zzf;
+
+        $i0 = $i3 + $i0;
+
+        r0.zzg = $i0;
+
+        goto label1;
+
+     label3:
+        $i2 = r0.zzf;
+
+        $i1 = $i2 + $i1;
+
+        r0.zzf = $i1;
+
+        return 1;
+    }
+
+    public final boolean zzm(byte[], int, int, boolean) throws java.io.IOException
+    {
+        byte[] $r1, $r2;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $z0 := @parameter3;
+
+        $z0 = virtualinvoke r0.zzl($i1, $z0);
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r2 = r0.zze;
+
+        $i2 = r0.zzf;
+
+        $i2 = $i2 - $i1;
+
+        java.lang.System.arraycopy($r2, $i2, $r1, $i0, $i1);
+
+        return 1;
+    }
+
+    public final boolean zzn(byte[], int, int, boolean) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1, $i2;
+        com.google.android.gms.internal.ads.zzzk r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $z0 := @parameter3;
+
+        $i2 = specialinvoke r0.zzp($r1, $i0, $i1);
+
+     label1:
+        if $i2 >= $i1 goto label2;
+
+        if $i2 == -1 goto label2;
+
+        $i2 = specialinvoke r0.zzq($r1, $i0, $i1, $i2, $z0);
+
+        goto label1;
+
+     label2:
+        specialinvoke r0.zzs($i2);
+
+        if $i2 == -1 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public final boolean zzo(int, boolean) throws java.io.IOException
+    {
+        byte[] $r1;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzzk r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i2 = specialinvoke r0.zzr($i1);
+
+     label1:
+        if $i2 >= $i1 goto label2;
+
+        if $i2 == -1 goto label2;
+
+        $i0 = $i2 + 4096;
+
+        $i3 = java.lang.Math.min($i1, $i0);
+
+        $r1 = r0.zza;
+
+        $i0 = neg $i2;
+
+        $i2 = specialinvoke r0.zzq($r1, $i0, $i3, $i2, 0);
+
+        goto label1;
+
+     label2:
+        specialinvoke r0.zzs($i2);
+
+        if $i2 == -1 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+}

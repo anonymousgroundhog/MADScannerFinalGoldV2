@@ -1,0 +1,92 @@
+class androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback extends android.net.ConnectivityManager$NetworkCallback
+{
+    final androidx.work.impl.constraints.trackers.NetworkStateTracker this$0;
+
+    void <init>(androidx.work.impl.constraints.trackers.NetworkStateTracker)
+    {
+        androidx.work.impl.constraints.trackers.NetworkStateTracker $r1;
+        androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onCapabilitiesChanged(android.net.Network, android.net.NetworkCapabilities)
+    {
+        androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback r0;
+        java.lang.Object[] $r5;
+        androidx.work.impl.constraints.trackers.NetworkStateTracker $r8;
+        android.net.NetworkCapabilities $r2;
+        android.net.Network $r1;
+        androidx.work.Logger $r3;
+        androidx.work.impl.constraints.NetworkState $r9;
+        java.lang.Throwable[] $r7;
+        java.lang.String $r4, $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = androidx.work.Logger.get();
+
+        $r4 = androidx.work.impl.constraints.trackers.NetworkStateTracker.TAG;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r5[0] = $r2;
+
+        $r6 = java.lang.String.format("Network capabilities changed: %s", $r5);
+
+        $r7 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug($r4, $r6, $r7);
+
+        $r8 = r0.this$0;
+
+        $r9 = virtualinvoke $r8.getActiveNetworkState();
+
+        virtualinvoke $r8.setState($r9);
+
+        return;
+    }
+
+    public void onLost(android.net.Network)
+    {
+        androidx.work.impl.constraints.trackers.NetworkStateTracker$NetworkStateCallback r0;
+        androidx.work.Logger $r2;
+        androidx.work.impl.constraints.NetworkState $r6;
+        java.lang.Throwable[] $r4;
+        androidx.work.impl.constraints.trackers.NetworkStateTracker $r5;
+        java.lang.String $r3;
+        android.net.Network $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.constraints.trackers.NetworkStateTracker.TAG;
+
+        $r4 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.debug($r3, "Network connection lost", $r4);
+
+        $r5 = r0.this$0;
+
+        $r6 = virtualinvoke $r5.getActiveNetworkState();
+
+        virtualinvoke $r5.setState($r6);
+
+        return;
+    }
+}

@@ -1,0 +1,45 @@
+public final class com.google.android.gms.internal.ads.zzbct extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+    public static final com.google.android.gms.internal.ads.zzbbw zzd;
+    public static final com.google.android.gms.internal.ads.zzbbw zze;
+    public static final com.google.android.gms.internal.ads.zzbbw zzf;
+    public static final com.google.android.gms.internal.ads.zzbbw zzg;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzb("gads:dynamite_load:fail:sample_rate", 10000L);
+
+        com.google.android.gms.internal.ads.zzbct.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:report_dynamite_crash_in_background_thread", 0);
+
+        com.google.android.gms.internal.ads.zzbct.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzc("gads:public_beta:traffic_multiplier", "1.0");
+
+        com.google.android.gms.internal.ads.zzbct.zzc = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzc("gads:sdk_crash_report_class_prefix", "com.google.");
+
+        com.google.android.gms.internal.ads.zzbct.zzd = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:sdk_crash_report_enabled", 0);
+
+        com.google.android.gms.internal.ads.zzbct.zze = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:sdk_crash_report_full_stacktrace", 0);
+
+        com.google.android.gms.internal.ads.zzbct.zzf = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zza("gads:trapped_exception_sample_rate", 0.01);
+
+        com.google.android.gms.internal.ads.zzbct.zzg = $r0;
+
+        return;
+    }
+}

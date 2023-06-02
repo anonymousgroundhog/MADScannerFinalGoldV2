@@ -1,0 +1,74 @@
+final class com.google.android.gms.internal.ads.zzccr extends java.lang.Object implements java.lang.Runnable
+{
+    final java.lang.String zza;
+    final java.lang.String zzb;
+    final int zzc;
+    final com.google.android.gms.internal.ads.zzccu zzd;
+
+    void <init>(com.google.android.gms.internal.ads.zzccu, java.lang.String, java.lang.String, int)
+    {
+        com.google.android.gms.internal.ads.zzccr r0;
+        com.google.android.gms.internal.ads.zzccu $r1;
+        int $i0;
+        java.lang.String $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        r0.zzd = $r1;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        r0.zzc = $i0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.google.android.gms.internal.ads.zzccr r0;
+        com.google.android.gms.internal.ads.zzccu $r3;
+        int $i0;
+        java.util.HashMap $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<init>();
+
+        interfaceinvoke $r1.put("event", "precacheComplete");
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r1.put("src", $r2);
+
+        $r2 = r0.zzb;
+
+        interfaceinvoke $r1.put("cachedSrc", $r2);
+
+        $i0 = r0.zzc;
+
+        $r2 = java.lang.Integer.toString($i0);
+
+        interfaceinvoke $r1.put("totalBytes", $r2);
+
+        $r3 = r0.zzd;
+
+        com.google.android.gms.internal.ads.zzccu.zze($r3, "onPrecacheEvent", $r1);
+
+        return;
+    }
+}

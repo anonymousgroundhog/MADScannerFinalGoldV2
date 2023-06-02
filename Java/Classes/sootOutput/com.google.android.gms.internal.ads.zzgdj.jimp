@@ -1,0 +1,73 @@
+public class com.google.android.gms.internal.ads.zzgdj extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzgoj zza;
+    private final java.lang.Class zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzgoj, java.lang.Class, com.google.android.gms.internal.ads.zzgdi)
+    {
+        com.google.android.gms.internal.ads.zzgoj $r1;
+        java.lang.Class $r2;
+        com.google.android.gms.internal.ads.zzgdj r0;
+        com.google.android.gms.internal.ads.zzgdi $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzgdj zza(com.google.android.gms.internal.ads.zzgdh, com.google.android.gms.internal.ads.zzgoj, java.lang.Class)
+    {
+        com.google.android.gms.internal.ads.zzgoj $r1;
+        com.google.android.gms.internal.ads.zzgdg $r3;
+        java.lang.Class $r2;
+        com.google.android.gms.internal.ads.zzgdh $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = new com.google.android.gms.internal.ads.zzgdg;
+
+        specialinvoke $r3.<init>($r1, $r2, $r0);
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgoj zzb()
+    {
+        com.google.android.gms.internal.ads.zzgoj r1;
+        com.google.android.gms.internal.ads.zzgdj r0;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public final java.lang.Class zzc()
+    {
+        java.lang.Class r1;
+        com.google.android.gms.internal.ads.zzgdj r0;
+
+        r0 := @this;
+
+        r1 = r0.zzb;
+
+        return r1;
+    }
+}

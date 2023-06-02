@@ -1,0 +1,46 @@
+public final class com.google.android.gms.internal.ads.zzaga extends java.lang.Object implements com.google.android.gms.internal.ads.zzfnj
+{
+    public static final com.google.android.gms.internal.ads.zzaga zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzaga $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzaga;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzaga.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzaga r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object apply(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzaab $r1;
+        com.google.android.gms.internal.ads.zzagg $r3;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzaga r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (com.google.android.gms.internal.ads.zzagg) $r2;
+
+        $r1 = com.google.android.gms.internal.ads.zzagc.zza;
+
+        return $r3;
+    }
+}

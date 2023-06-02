@@ -1,0 +1,35 @@
+public final class com.google.android.gms.internal.ads.zzenh extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final com.google.android.gms.internal.ads.zzeni zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzeni)
+    {
+        com.google.android.gms.internal.ads.zzeni $r1;
+        com.google.android.gms.internal.ads.zzenh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.internal.ads.zzenj $r1;
+        com.google.android.gms.internal.ads.zzeni $r2;
+        com.google.android.gms.internal.ads.zzenh r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzeni.zzc($r2);
+
+        return $r1;
+    }
+}

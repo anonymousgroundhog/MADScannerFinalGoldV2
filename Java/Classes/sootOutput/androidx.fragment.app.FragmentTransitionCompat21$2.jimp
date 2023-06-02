@@ -1,0 +1,124 @@
+class androidx.fragment.app.FragmentTransitionCompat21$2 extends java.lang.Object implements android.transition.Transition$TransitionListener
+{
+    final androidx.fragment.app.FragmentTransitionCompat21 this$0;
+    final java.util.ArrayList val$exitingViews;
+    final android.view.View val$fragmentView;
+
+    void <init>(androidx.fragment.app.FragmentTransitionCompat21, android.view.View, java.util.ArrayList)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        androidx.fragment.app.FragmentTransitionCompat21 $r1;
+        android.view.View $r2;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.this$0 = $r1;
+
+        r0.val$fragmentView = $r2;
+
+        r0.val$exitingViews = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onTransitionCancel(android.transition.Transition)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        android.transition.Transition $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onTransitionEnd(android.transition.Transition)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        int $i0, i1;
+        android.view.View r2;
+        java.lang.Object $r4;
+        android.transition.Transition $r1;
+        java.util.ArrayList r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke $r1.removeListener(r0);
+
+        r2 = r0.val$fragmentView;
+
+        virtualinvoke r2.setVisibility(8);
+
+        r3 = r0.val$exitingViews;
+
+        $i0 = virtualinvoke r3.size();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= $i0 goto label2;
+
+        r3 = r0.val$exitingViews;
+
+        $r4 = virtualinvoke r3.get(i1);
+
+        r2 = (android.view.View) $r4;
+
+        virtualinvoke r2.setVisibility(0);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void onTransitionPause(android.transition.Transition)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        android.transition.Transition $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onTransitionResume(android.transition.Transition)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        android.transition.Transition $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onTransitionStart(android.transition.Transition)
+    {
+        androidx.fragment.app.FragmentTransitionCompat21$2 r0;
+        android.transition.Transition $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

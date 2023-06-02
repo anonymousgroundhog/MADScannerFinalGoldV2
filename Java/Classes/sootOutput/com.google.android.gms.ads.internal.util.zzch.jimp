@@ -1,0 +1,440 @@
+public final class com.google.android.gms.ads.internal.util.zzch extends java.lang.Object
+{
+    private static final java.util.Map zza;
+    private static java.util.List zzb;
+    private static final java.lang.Object zzc;
+
+    static void <clinit>()
+    {
+        java.util.HashMap $r0;
+        java.lang.Object $r1;
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.ads.internal.util.zzch.zza = $r0;
+
+        $r1 = new java.lang.Object;
+
+        specialinvoke $r1.<init>();
+
+        com.google.android.gms.ads.internal.util.zzch.zzc = $r1;
+
+        return;
+    }
+
+    public static java.util.List zza(java.lang.String)
+    {
+        android.media.MediaCodecInfo$CodecProfileLevel $r16;
+        java.lang.Throwable $r21, $r22, $r24;
+        android.media.MediaCodecInfo[] $r6;
+        android.util.Range $r20;
+        android.media.MediaCodecInfo$VideoCapabilities $r19;
+        java.lang.String[] $r10;
+        java.util.HashMap $r11;
+        java.lang.Integer $r18;
+        java.util.ArrayList $r7, $r14;
+        android.media.MediaCodecInfo$CodecProfileLevel[] $r15;
+        android.media.MediaCodecInfo $r8;
+        java.util.Map $r2;
+        int $i0, $i1, $i2;
+        android.media.MediaCodecList $r5;
+        java.lang.String $r1, $r12;
+        boolean $z0;
+        java.util.Iterator $r9;
+        java.util.List $r4;
+        java.lang.Object $r0, $r3;
+        android.media.MediaCodecInfo$CodecCapabilities $r13;
+        java.lang.Class $r23;
+        java.lang.Integer[] $r17;
+
+        $r1 := @parameter0;
+
+        $r0 = com.google.android.gms.ads.internal.util.zzch.zzc;
+
+        entermonitor $r0;
+
+     label01:
+        $r2 = com.google.android.gms.ads.internal.util.zzch.zza;
+
+        $z0 = interfaceinvoke $r2.containsKey($r1);
+
+        if $z0 == 0 goto label03;
+
+        $r3 = interfaceinvoke $r2.get($r1);
+
+        $r4 = (java.util.List) $r3;
+
+        exitmonitor $r0;
+
+     label02:
+        return $r4;
+
+     label03:
+        entermonitor $r0;
+
+     label04:
+        $r4 = com.google.android.gms.ads.internal.util.zzch.zzb;
+
+        if $r4 == null goto label06;
+
+        exitmonitor $r0;
+
+     label05:
+        goto label10;
+
+     label06:
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label07;
+
+        $r5 = new android.media.MediaCodecList;
+
+        specialinvoke $r5.<init>(0);
+
+        $r6 = virtualinvoke $r5.getCodecInfos();
+
+        $r4 = java.util.Arrays.asList($r6);
+
+        com.google.android.gms.ads.internal.util.zzch.zzb = $r4;
+
+        goto label09;
+
+     label07:
+        $i0 = android.media.MediaCodecList.getCodecCount();
+
+        $r7 = new java.util.ArrayList;
+
+        specialinvoke $r7.<init>($i0);
+
+        com.google.android.gms.ads.internal.util.zzch.zzb = $r7;
+
+        $i1 = 0;
+
+     label08:
+        if $i1 >= $i0 goto label09;
+
+        $r8 = android.media.MediaCodecList.getCodecInfoAt($i1);
+
+        $r4 = com.google.android.gms.ads.internal.util.zzch.zzb;
+
+        interfaceinvoke $r4.add($r8);
+
+        $i1 = $i1 + 1;
+
+        goto label08;
+
+     label09:
+        exitmonitor $r0;
+
+     label10:
+        $r7 = new java.util.ArrayList;
+
+     label11:
+        specialinvoke $r7.<init>();
+
+     label12:
+        $r4 = com.google.android.gms.ads.internal.util.zzch.zzb;
+
+     label13:
+        $r9 = interfaceinvoke $r4.iterator();
+
+     label14:
+        $z0 = interfaceinvoke $r9.hasNext();
+
+     label15:
+        if $z0 == 0 goto label49;
+
+     label16:
+        $r3 = interfaceinvoke $r9.next();
+
+     label17:
+        $r8 = (android.media.MediaCodecInfo) $r3;
+
+     label18:
+        $z0 = virtualinvoke $r8.isEncoder();
+
+     label19:
+        if $z0 != 0 goto label14;
+
+     label20:
+        $r10 = virtualinvoke $r8.getSupportedTypes();
+
+        $r4 = java.util.Arrays.asList($r10);
+
+        $z0 = interfaceinvoke $r4.contains($r1);
+
+     label21:
+        if $z0 == 0 goto label14;
+
+     label22:
+        $r11 = new java.util.HashMap;
+
+     label23:
+        specialinvoke $r11.<init>();
+
+        $r12 = virtualinvoke $r8.getName();
+
+        interfaceinvoke $r11.put("codecName", $r12);
+
+        $r13 = virtualinvoke $r8.getCapabilitiesForType($r1);
+
+     label24:
+        $r14 = new java.util.ArrayList;
+
+     label25:
+        specialinvoke $r14.<init>();
+
+     label26:
+        $r15 = $r13.profileLevels;
+
+     label27:
+        $i0 = lengthof $r15;
+
+     label28:
+        $i1 = 0;
+
+     label29:
+        if $i1 >= $i0 goto label40;
+
+     label30:
+        $r16 = $r15[$i1];
+
+     label31:
+        $r17 = newarray (java.lang.Integer)[2];
+
+     label32:
+        $i2 = $r16.profile;
+
+     label33:
+        $r18 = java.lang.Integer.valueOf($i2);
+
+     label34:
+        $r17[0] = $r18;
+
+     label35:
+        $i2 = $r16.level;
+
+     label36:
+        $r18 = java.lang.Integer.valueOf($i2);
+
+     label37:
+        $r17[1] = $r18;
+
+     label38:
+        virtualinvoke $r14.add($r17);
+
+     label39:
+        $i1 = $i1 + 1;
+
+        goto label29;
+
+     label40:
+        interfaceinvoke $r11.put("profileLevels", $r14);
+
+     label41:
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+     label42:
+        if $i0 < 21 goto label44;
+
+     label43:
+        $r19 = virtualinvoke $r13.getVideoCapabilities();
+
+        $r20 = virtualinvoke $r19.getBitrateRange();
+
+        $r17 = com.google.android.gms.ads.internal.util.zzch.zzb($r20);
+
+        interfaceinvoke $r11.put("bitRatesBps", $r17);
+
+        $i0 = virtualinvoke $r19.getWidthAlignment();
+
+        $r18 = java.lang.Integer.valueOf($i0);
+
+        interfaceinvoke $r11.put("widthAlignment", $r18);
+
+        $i0 = virtualinvoke $r19.getHeightAlignment();
+
+        $r18 = java.lang.Integer.valueOf($i0);
+
+        interfaceinvoke $r11.put("heightAlignment", $r18);
+
+        $r20 = virtualinvoke $r19.getSupportedFrameRates();
+
+        $r17 = com.google.android.gms.ads.internal.util.zzch.zzb($r20);
+
+        interfaceinvoke $r11.put("frameRates", $r17);
+
+        $r20 = virtualinvoke $r19.getSupportedWidths();
+
+        $r17 = com.google.android.gms.ads.internal.util.zzch.zzb($r20);
+
+        interfaceinvoke $r11.put("widths", $r17);
+
+        $r20 = virtualinvoke $r19.getSupportedHeights();
+
+        $r17 = com.google.android.gms.ads.internal.util.zzch.zzb($r20);
+
+        interfaceinvoke $r11.put("heights", $r17);
+
+     label44:
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+     label45:
+        if $i0 < 23 goto label47;
+
+     label46:
+        $i0 = virtualinvoke $r13.getMaxSupportedInstances();
+
+        $r18 = java.lang.Integer.valueOf($i0);
+
+        interfaceinvoke $r11.put("instancesLimit", $r18);
+
+     label47:
+        virtualinvoke $r7.add($r11);
+
+     label48:
+        goto label14;
+
+     label49:
+        $r2 = com.google.android.gms.ads.internal.util.zzch.zza;
+
+     label50:
+        interfaceinvoke $r2.put($r1, $r7);
+
+     label51:
+        exitmonitor $r0;
+
+     label52:
+        return $r7;
+
+     label53:
+        $r21 := @caughtexception;
+
+     label54:
+        exitmonitor $r0;
+
+     label55:
+        throw $r21;
+
+     label56:
+        $r22 := @caughtexception;
+
+        goto label58;
+
+     label57:
+        $r22 := @caughtexception;
+
+     label58:
+        $r11 = new java.util.HashMap;
+
+        specialinvoke $r11.<init>();
+
+        $r23 = virtualinvoke $r22.getClass();
+
+        $r12 = virtualinvoke $r23.getSimpleName();
+
+        interfaceinvoke $r11.put("error", $r12);
+
+        $r7 = new java.util.ArrayList;
+
+        specialinvoke $r7.<init>();
+
+        virtualinvoke $r7.add($r11);
+
+        $r2 = com.google.android.gms.ads.internal.util.zzch.zza;
+
+        interfaceinvoke $r2.put($r1, $r7);
+
+        exitmonitor $r0;
+
+     label59:
+        return $r7;
+
+     label60:
+        $r24 := @caughtexception;
+
+        exitmonitor $r0;
+
+     label61:
+        goto label62;
+
+     label62:
+        throw $r24;
+
+        catch java.lang.Throwable from label01 to label02 with label60;
+        catch java.lang.RuntimeException from label03 to label04 with label57;
+        catch java.lang.Throwable from label03 to label04 with label60;
+        catch java.lang.Throwable from label04 to label05 with label53;
+        catch java.lang.Throwable from label06 to label10 with label53;
+        catch java.lang.RuntimeException from label11 to label12 with label57;
+        catch java.lang.RuntimeException from label13 to label15 with label57;
+        catch java.lang.RuntimeException from label16 to label19 with label57;
+        catch java.lang.RuntimeException from label20 to label21 with label57;
+        catch java.lang.RuntimeException from label23 to label24 with label57;
+        catch java.lang.RuntimeException from label25 to label28 with label57;
+        catch java.lang.RuntimeException from label30 to label31 with label57;
+        catch java.lang.RuntimeException from label32 to label39 with label57;
+        catch java.lang.RuntimeException from label40 to label41 with label57;
+        catch java.lang.RuntimeException from label43 to label44 with label57;
+        catch java.lang.RuntimeException from label46 to label48 with label57;
+        catch java.lang.RuntimeException from label50 to label51 with label57;
+        catch java.lang.LinkageError from label10 to label15 with label56;
+        catch java.lang.LinkageError from label16 to label19 with label56;
+        catch java.lang.LinkageError from label20 to label21 with label56;
+        catch java.lang.LinkageError from label22 to label27 with label56;
+        catch java.lang.LinkageError from label31 to label34 with label56;
+        catch java.lang.LinkageError from label35 to label37 with label56;
+        catch java.lang.LinkageError from label38 to label39 with label56;
+        catch java.lang.LinkageError from label40 to label42 with label56;
+        catch java.lang.LinkageError from label43 to label45 with label56;
+        catch java.lang.LinkageError from label46 to label48 with label56;
+        catch java.lang.LinkageError from label49 to label51 with label56;
+        catch java.lang.Throwable from label10 to label15 with label60;
+        catch java.lang.Throwable from label16 to label17 with label60;
+        catch java.lang.Throwable from label18 to label19 with label60;
+        catch java.lang.Throwable from label20 to label21 with label60;
+        catch java.lang.Throwable from label22 to label26 with label60;
+        catch java.lang.Throwable from label33 to label34 with label60;
+        catch java.lang.Throwable from label36 to label37 with label60;
+        catch java.lang.Throwable from label38 to label39 with label60;
+        catch java.lang.Throwable from label40 to label42 with label60;
+        catch java.lang.Throwable from label43 to label45 with label60;
+        catch java.lang.Throwable from label46 to label48 with label60;
+        catch java.lang.Throwable from label49 to label51 with label60;
+        catch java.lang.Throwable from label51 to label52 with label60;
+        catch java.lang.Throwable from label54 to label55 with label53;
+        catch java.lang.RuntimeException from label55 to label56 with label57;
+        catch java.lang.LinkageError from label55 to label56 with label56;
+        catch java.lang.Throwable from label55 to label56 with label60;
+        catch java.lang.Throwable from label58 to label59 with label60;
+        catch java.lang.Throwable from label60 to label61 with label60;
+    }
+
+    private static java.lang.Integer[] zzb(android.util.Range)
+    {
+        android.util.Range $r0;
+        java.lang.Comparable $r2;
+        java.lang.Integer $r3;
+        java.lang.Integer[] $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = newarray (java.lang.Integer)[2];
+
+        $r2 = virtualinvoke $r0.getLower();
+
+        $r3 = (java.lang.Integer) $r2;
+
+        $r1[0] = $r3;
+
+        $r2 = virtualinvoke $r0.getUpper();
+
+        $r3 = (java.lang.Integer) $r2;
+
+        $r1[1] = $r3;
+
+        return $r1;
+    }
+}

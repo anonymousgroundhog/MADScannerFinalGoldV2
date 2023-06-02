@@ -1,0 +1,148 @@
+public final class com.google.android.gms.internal.ads.zzgwp extends java.util.AbstractList
+{
+    private static final com.google.android.gms.internal.ads.zzgwq zzc;
+    final java.util.List zza;
+    final java.util.Iterator zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgwq $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzgwq.zzb(class "Lcom/google/android/gms/internal/ads/zzgwp;");
+
+        com.google.android.gms.internal.ads.zzgwp.zzc = $r0;
+
+        return;
+    }
+
+    public void <init>(java.util.List, java.util.Iterator)
+    {
+        com.google.android.gms.internal.ads.zzgwp r0;
+        java.util.List $r1;
+        java.util.Iterator $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final java.lang.Object get(int)
+    {
+        com.google.android.gms.internal.ads.zzgwp r0;
+        java.util.Iterator $r3;
+        java.util.List $r1;
+        int $i0, $i1;
+        java.lang.Object $r2;
+        java.util.NoSuchElementException $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $i1 = interfaceinvoke $r1.size();
+
+        if $i1 <= $i0 goto label1;
+
+        $r1 = r0.zza;
+
+        $r2 = interfaceinvoke $r1.get($i0);
+
+        return $r2;
+
+     label1:
+        $r3 = r0.zzb;
+
+        $z0 = interfaceinvoke $r3.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        $r2 = interfaceinvoke $r3.next();
+
+        interfaceinvoke $r1.add($r2);
+
+        $r2 = virtualinvoke r0.get($i0);
+
+        return $r2;
+
+     label2:
+        $r4 = new java.util.NoSuchElementException;
+
+        specialinvoke $r4.<init>();
+
+        throw $r4;
+    }
+
+    public final java.util.Iterator iterator()
+    {
+        com.google.android.gms.internal.ads.zzgwp r0;
+        com.google.android.gms.internal.ads.zzgwo $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgwo;
+
+        specialinvoke $r1.<init>(r0);
+
+        return $r1;
+    }
+
+    public final int size()
+    {
+        com.google.android.gms.internal.ads.zzgwq $r1;
+        com.google.android.gms.internal.ads.zzgwp r0;
+        java.util.List $r3;
+        java.util.Iterator $r2;
+        int $i0;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.internal.ads.zzgwp.zzc;
+
+        virtualinvoke $r1.zza("potentially expensive size() call");
+
+        virtualinvoke $r1.zza("blowup running");
+
+     label1:
+        $r2 = r0.zzb;
+
+        $z0 = interfaceinvoke $r2.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r4 = interfaceinvoke $r2.next();
+
+        interfaceinvoke $r3.add($r4);
+
+        goto label1;
+
+     label2:
+        $r3 = r0.zza;
+
+        $i0 = interfaceinvoke $r3.size();
+
+        return $i0;
+    }
+}

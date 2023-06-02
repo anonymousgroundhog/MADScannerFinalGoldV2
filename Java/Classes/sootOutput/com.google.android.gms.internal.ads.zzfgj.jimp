@@ -1,0 +1,203 @@
+public final class com.google.android.gms.internal.ads.zzfgj extends java.lang.Object implements com.google.android.gms.internal.ads.zzfgh
+{
+    private final com.google.android.gms.internal.ads.zzfgh zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfgh)
+    {
+        com.google.android.gms.internal.ads.zzfgj r0;
+        com.google.android.gms.internal.ads.zzfgh $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final org.json.JSONObject zza(android.view.View)
+    {
+        com.google.android.gms.internal.ads.zzfgj r0;
+        android.view.View $r1;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+
+    public final void zzb(android.view.View, org.json.JSONObject, com.google.android.gms.internal.ads.zzfgg, boolean, boolean)
+    {
+        android.view.ViewParent $r12;
+        com.google.android.gms.internal.ads.zzfgg $r2;
+        com.google.android.gms.internal.ads.zzffz $r5;
+        java.util.ArrayList $r14;
+        org.json.JSONObject $r1;
+        com.google.android.gms.internal.ads.zzffo $r10;
+        byte $b1;
+        int $i0, $i2, $i3;
+        android.view.View $r3, $r11;
+        boolean $z0, $z1;
+        java.util.IdentityHashMap $r15;
+        java.util.Iterator $r8;
+        java.util.Collection $r6;
+        com.google.android.gms.internal.ads.zzfgj r0;
+        float $f0, $f1;
+        java.lang.Object $r9;
+        com.google.android.gms.internal.ads.zzfgh $r13;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z1 := @parameter3;
+
+        $z0 := @parameter4;
+
+        $r14 = new java.util.ArrayList;
+
+        specialinvoke $r14.<init>();
+
+        $r5 = com.google.android.gms.internal.ads.zzffz.zza();
+
+        if $r5 == null goto label7;
+
+        $r6 = virtualinvoke $r5.zzb();
+
+        $i0 = interfaceinvoke $r6.size();
+
+        $i0 = $i0 + $i0;
+
+        $r15 = new java.util.IdentityHashMap;
+
+        $i0 = $i0 + 3;
+
+        specialinvoke $r15.<init>($i0);
+
+        $r8 = interfaceinvoke $r6.iterator();
+
+     label1:
+        $z1 = interfaceinvoke $r8.hasNext();
+
+        if $z1 == 0 goto label7;
+
+        $r9 = interfaceinvoke $r8.next();
+
+        $r10 = (com.google.android.gms.internal.ads.zzffo) $r9;
+
+        $r3 = virtualinvoke $r10.zzf();
+
+        if $r3 == null goto label1;
+
+        $z1 = virtualinvoke $r3.isAttachedToWindow();
+
+        if $z1 == 0 goto label1;
+
+        $z1 = virtualinvoke $r3.isShown();
+
+        if $z1 == 0 goto label1;
+
+        $r11 = $r3;
+
+     label2:
+        if $r11 == null goto label4;
+
+        $f0 = virtualinvoke $r11.getAlpha();
+
+        $b1 = $f0 cmpl 0.0F;
+
+        if $b1 == 0 goto label1;
+
+        $r12 = virtualinvoke $r11.getParent();
+
+        $z1 = $r12 instanceof android.view.View;
+
+        if $z1 == 0 goto label3;
+
+        $r11 = (android.view.View) $r12;
+
+        goto label2;
+
+     label3:
+        $r11 = null;
+
+        goto label2;
+
+     label4:
+        $r3 = virtualinvoke $r3.getRootView();
+
+        if $r3 == null goto label1;
+
+        $z1 = virtualinvoke $r15.containsKey($r3);
+
+        if $z1 != 0 goto label1;
+
+        virtualinvoke $r15.put($r3, $r3);
+
+        $f0 = com.google.android.gms.internal.ads.zzfgs.zza($r3);
+
+        $i0 = virtualinvoke $r14.size();
+
+     label5:
+        if $i0 <= 0 goto label6;
+
+        $i2 = $i0 + -1;
+
+        $r9 = virtualinvoke $r14.get($i2);
+
+        $r11 = (android.view.View) $r9;
+
+        $f1 = com.google.android.gms.internal.ads.zzfgs.zza($r11);
+
+        $b1 = $f1 cmpl $f0;
+
+        $i3 = (int) $b1;
+
+        if $i3 <= 0 goto label6;
+
+        $i0 = $i2;
+
+        goto label5;
+
+     label6:
+        virtualinvoke $r14.add($i0, $r3);
+
+        goto label1;
+
+     label7:
+        $i0 = interfaceinvoke $r14.size();
+
+        $i2 = 0;
+
+     label8:
+        if $i2 >= $i0 goto label9;
+
+        $r9 = interfaceinvoke $r14.get($i2);
+
+        $r3 = (android.view.View) $r9;
+
+        $r13 = r0.zza;
+
+        interfaceinvoke $r2.zza($r3, $r13, $r1, $z0);
+
+        $i2 = $i2 + 1;
+
+        goto label8;
+
+     label9:
+        return;
+    }
+}

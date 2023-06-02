@@ -1,0 +1,26 @@
+public final class com.google.android.gms.internal.ads.zzzb extends java.lang.Object implements com.google.android.gms.internal.ads.zzzd
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzzb r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final long zza(long)
+    {
+        com.google.android.gms.internal.ads.zzzb r0;
+        long $l0;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        return $l0;
+    }
+}

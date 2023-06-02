@@ -1,0 +1,646 @@
+public abstract class androidx.lifecycle.LiveData extends java.lang.Object
+{
+    static final java.lang.Object NOT_SET;
+    static final int START_VERSION;
+    int mActiveCount;
+    private volatile java.lang.Object mData;
+    final java.lang.Object mDataLock;
+    private boolean mDispatchInvalidated;
+    private boolean mDispatchingValue;
+    private androidx.arch.core.internal.SafeIterableMap mObservers;
+    volatile java.lang.Object mPendingData;
+    private final java.lang.Runnable mPostValueRunnable;
+    private int mVersion;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<init>();
+
+        androidx.lifecycle.LiveData.NOT_SET = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.arch.core.internal.SafeIterableMap $r3;
+        java.lang.Object $r1, $r2;
+        androidx.lifecycle.LiveData$1 $r4;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.lang.Object;
+
+        specialinvoke $r2.<init>();
+
+        r0.mDataLock = $r2;
+
+        $r3 = new androidx.arch.core.internal.SafeIterableMap;
+
+        specialinvoke $r3.<init>();
+
+        r0.mObservers = $r3;
+
+        r0.mActiveCount = 0;
+
+        $r1 = androidx.lifecycle.LiveData.NOT_SET;
+
+        r0.mPendingData = $r1;
+
+        $r4 = new androidx.lifecycle.LiveData$1;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mPostValueRunnable = $r4;
+
+        r0.mData = $r1;
+
+        r0.mVersion = -1;
+
+        return;
+    }
+
+    public void <init>(java.lang.Object)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.arch.core.internal.SafeIterableMap $r3;
+        java.lang.Object r1, $r2;
+        androidx.lifecycle.LiveData$1 $r4;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.lang.Object;
+
+        specialinvoke $r2.<init>();
+
+        r0.mDataLock = $r2;
+
+        $r3 = new androidx.arch.core.internal.SafeIterableMap;
+
+        specialinvoke $r3.<init>();
+
+        r0.mObservers = $r3;
+
+        r0.mActiveCount = 0;
+
+        $r2 = androidx.lifecycle.LiveData.NOT_SET;
+
+        r0.mPendingData = $r2;
+
+        $r4 = new androidx.lifecycle.LiveData$1;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mPostValueRunnable = $r4;
+
+        r0.mData = r1;
+
+        r0.mVersion = 0;
+
+        return;
+    }
+
+    static void assertMainThread(java.lang.String)
+    {
+        java.lang.IllegalStateException $r2;
+        androidx.arch.core.executor.ArchTaskExecutor $r1;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = androidx.arch.core.executor.ArchTaskExecutor.getInstance();
+
+        $z0 = virtualinvoke $r1.isMainThread();
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        $r3 = virtualinvoke $r3.append("Cannot invoke ");
+
+        $r3 = virtualinvoke $r3.append($r0);
+
+        $r3 = virtualinvoke $r3.append(" on a background thread");
+
+        $r0 = virtualinvoke $r3.toString();
+
+        specialinvoke $r2.<init>($r0);
+
+        throw $r2;
+    }
+
+    private void considerNotify(androidx.lifecycle.LiveData$ObserverWrapper)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.LiveData$ObserverWrapper r1;
+        androidx.lifecycle.Observer $r2;
+        int $i0, $i1;
+        java.lang.Object $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $z0 = r1.mActive;
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $z0 = virtualinvoke r1.shouldBeActive();
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke r1.activeStateChanged(0);
+
+        return;
+
+     label2:
+        $i0 = r1.mLastVersion;
+
+        $i1 = r0.mVersion;
+
+        if $i0 < $i1 goto label3;
+
+        return;
+
+     label3:
+        r1.mLastVersion = $i1;
+
+        $r2 = r1.mObserver;
+
+        $r3 = r0.mData;
+
+        interfaceinvoke $r2.onChanged($r3);
+
+        return;
+    }
+
+    void dispatchingValue(androidx.lifecycle.LiveData$ObserverWrapper)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.LiveData$ObserverWrapper r1, $r6;
+        java.util.Map$Entry $r5;
+        androidx.arch.core.internal.SafeIterableMap r2;
+        androidx.arch.core.internal.SafeIterableMap$IteratorWithAdditions $r3;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $z0 = r0.mDispatchingValue;
+
+        if $z0 == 0 goto label1;
+
+        r0.mDispatchInvalidated = 1;
+
+        return;
+
+     label1:
+        r0.mDispatchingValue = 1;
+
+     label2:
+        r0.mDispatchInvalidated = 0;
+
+        if r1 == null goto label3;
+
+        specialinvoke r0.considerNotify(r1);
+
+        r1 = null;
+
+        goto label5;
+
+     label3:
+        r2 = r0.mObservers;
+
+        $r3 = virtualinvoke r2.iteratorWithAdditions();
+
+     label4:
+        $z0 = interfaceinvoke $r3.hasNext();
+
+        if $z0 == 0 goto label5;
+
+        $r4 = interfaceinvoke $r3.next();
+
+        $r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke $r5.getValue();
+
+        $r6 = (androidx.lifecycle.LiveData$ObserverWrapper) $r4;
+
+        specialinvoke r0.considerNotify($r6);
+
+        $z0 = r0.mDispatchInvalidated;
+
+        if $z0 == 0 goto label4;
+
+     label5:
+        $z0 = r0.mDispatchInvalidated;
+
+        if $z0 != 0 goto label2;
+
+        r0.mDispatchingValue = 0;
+
+        return;
+    }
+
+    public java.lang.Object getValue()
+    {
+        androidx.lifecycle.LiveData r0;
+        java.lang.Object r1, $r2;
+
+        r0 := @this;
+
+        r1 = r0.mData;
+
+        $r2 = androidx.lifecycle.LiveData.NOT_SET;
+
+        if r1 == $r2 goto label1;
+
+        return r1;
+
+     label1:
+        return null;
+    }
+
+    int getVersion()
+    {
+        int i0;
+        androidx.lifecycle.LiveData r0;
+
+        r0 := @this;
+
+        i0 = r0.mVersion;
+
+        return i0;
+    }
+
+    public boolean hasActiveObservers()
+    {
+        int $i0;
+        androidx.lifecycle.LiveData r0;
+
+        r0 := @this;
+
+        $i0 = r0.mActiveCount;
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean hasObservers()
+    {
+        int $i0;
+        androidx.lifecycle.LiveData r0;
+        androidx.arch.core.internal.SafeIterableMap $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mObservers;
+
+        $i0 = virtualinvoke $r1.size();
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void observe(androidx.lifecycle.LifecycleOwner, androidx.lifecycle.Observer)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.LiveData$LifecycleBoundObserver r6;
+        androidx.lifecycle.LiveData$ObserverWrapper r9;
+        androidx.arch.core.internal.SafeIterableMap r7;
+        java.lang.IllegalArgumentException $r10;
+        androidx.lifecycle.Lifecycle $r3;
+        androidx.lifecycle.Observer r2;
+        androidx.lifecycle.Lifecycle$State $r4, r5;
+        androidx.lifecycle.LifecycleOwner $r1;
+        java.lang.Object $r8;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 := @parameter1;
+
+        androidx.lifecycle.LiveData.assertMainThread("observe");
+
+        $r3 = interfaceinvoke $r1.getLifecycle();
+
+        $r4 = virtualinvoke $r3.getCurrentState();
+
+        r5 = androidx.lifecycle.Lifecycle$State.DESTROYED;
+
+        if $r4 != r5 goto label1;
+
+        return;
+
+     label1:
+        r6 = new androidx.lifecycle.LiveData$LifecycleBoundObserver;
+
+        specialinvoke r6.<init>(r0, $r1, r2);
+
+        r7 = r0.mObservers;
+
+        $r8 = virtualinvoke r7.putIfAbsent(r2, r6);
+
+        r9 = (androidx.lifecycle.LiveData$ObserverWrapper) $r8;
+
+        if r9 == null goto label3;
+
+        $z0 = virtualinvoke r9.isAttachedTo($r1);
+
+        if $z0 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $r10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r10.<init>("Cannot add the same observer with different lifecycles");
+
+        throw $r10;
+
+     label3:
+        if r9 == null goto label4;
+
+        return;
+
+     label4:
+        $r3 = interfaceinvoke $r1.getLifecycle();
+
+        virtualinvoke $r3.addObserver(r6);
+
+        return;
+    }
+
+    public void observeForever(androidx.lifecycle.Observer)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.LiveData$ObserverWrapper r5;
+        androidx.arch.core.internal.SafeIterableMap r4;
+        java.lang.IllegalArgumentException $r6;
+        androidx.lifecycle.Observer r1;
+        androidx.lifecycle.LiveData$AlwaysActiveObserver r3;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        androidx.lifecycle.LiveData.assertMainThread("observeForever");
+
+        r3 = new androidx.lifecycle.LiveData$AlwaysActiveObserver;
+
+        specialinvoke r3.<init>(r0, r1);
+
+        r4 = r0.mObservers;
+
+        $r2 = virtualinvoke r4.putIfAbsent(r1, r3);
+
+        r5 = (androidx.lifecycle.LiveData$ObserverWrapper) $r2;
+
+        $z0 = r5 instanceof androidx.lifecycle.LiveData$LifecycleBoundObserver;
+
+        if $z0 != 0 goto label2;
+
+        if r5 == null goto label1;
+
+        return;
+
+     label1:
+        virtualinvoke r3.activeStateChanged(1);
+
+        return;
+
+     label2:
+        $r6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r6.<init>("Cannot add the same observer with different lifecycles");
+
+        throw $r6;
+    }
+
+    protected void onActive()
+    {
+        androidx.lifecycle.LiveData r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    protected void onInactive()
+    {
+        androidx.lifecycle.LiveData r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    protected void postValue(java.lang.Object)
+    {
+        java.lang.Throwable r7;
+        androidx.lifecycle.LiveData r0;
+        java.lang.Runnable $r6;
+        androidx.arch.core.executor.ArchTaskExecutor $r2;
+        java.lang.Object r1, $r3, r4, $r5;
+        boolean z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r3 = r0.mDataLock;
+
+        entermonitor $r3;
+
+     label1:
+        r4 = r0.mPendingData;
+
+        $r5 = androidx.lifecycle.LiveData.NOT_SET;
+
+        if r4 != $r5 goto label2;
+
+        z0 = 1;
+
+        goto label3;
+
+     label2:
+        z0 = 0;
+
+     label3:
+        r0.mPendingData = r1;
+
+        exitmonitor $r3;
+
+     label4:
+        if z0 != 0 goto label5;
+
+        return;
+
+     label5:
+        $r2 = androidx.arch.core.executor.ArchTaskExecutor.getInstance();
+
+        $r6 = r0.mPostValueRunnable;
+
+        virtualinvoke $r2.postToMainThread($r6);
+
+        return;
+
+     label6:
+        r7 := @caughtexception;
+
+     label7:
+        exitmonitor $r3;
+
+     label8:
+        throw r7;
+
+        catch java.lang.Throwable from label1 to label4 with label6;
+        catch java.lang.Throwable from label7 to label8 with label6;
+    }
+
+    public void removeObserver(androidx.lifecycle.Observer)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.Observer r1;
+        androidx.lifecycle.LiveData$ObserverWrapper r4;
+        androidx.arch.core.internal.SafeIterableMap r3;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        androidx.lifecycle.LiveData.assertMainThread("removeObserver");
+
+        r3 = r0.mObservers;
+
+        $r2 = virtualinvoke r3.remove(r1);
+
+        r4 = (androidx.lifecycle.LiveData$ObserverWrapper) $r2;
+
+        if r4 != null goto label1;
+
+        return;
+
+     label1:
+        virtualinvoke r4.detachObserver();
+
+        virtualinvoke r4.activeStateChanged(0);
+
+        return;
+    }
+
+    public void removeObservers(androidx.lifecycle.LifecycleOwner)
+    {
+        androidx.lifecycle.LiveData r0;
+        java.util.Map$Entry r5;
+        androidx.lifecycle.LiveData$ObserverWrapper $r6;
+        java.util.Iterator $r3;
+        androidx.arch.core.internal.SafeIterableMap $r2;
+        androidx.lifecycle.Observer $r7;
+        androidx.lifecycle.LifecycleOwner $r1;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        androidx.lifecycle.LiveData.assertMainThread("removeObservers");
+
+        $r2 = r0.mObservers;
+
+        $r3 = virtualinvoke $r2.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r3.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r3.next();
+
+        r5 = (java.util.Map$Entry) $r4;
+
+        $r4 = interfaceinvoke r5.getValue();
+
+        $r6 = (androidx.lifecycle.LiveData$ObserverWrapper) $r4;
+
+        $z0 = virtualinvoke $r6.isAttachedTo($r1);
+
+        if $z0 == 0 goto label1;
+
+        $r4 = interfaceinvoke r5.getKey();
+
+        $r7 = (androidx.lifecycle.Observer) $r4;
+
+        virtualinvoke r0.removeObserver($r7);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    protected void setValue(java.lang.Object)
+    {
+        int $i0;
+        androidx.lifecycle.LiveData r0;
+        java.lang.Object r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        androidx.lifecycle.LiveData.assertMainThread("setValue");
+
+        $i0 = r0.mVersion;
+
+        $i0 = $i0 + 1;
+
+        r0.mVersion = $i0;
+
+        r0.mData = r1;
+
+        virtualinvoke r0.dispatchingValue(null);
+
+        return;
+    }
+}

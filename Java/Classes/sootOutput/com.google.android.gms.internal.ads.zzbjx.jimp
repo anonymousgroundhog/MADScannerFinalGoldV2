@@ -1,0 +1,86 @@
+public final class com.google.android.gms.internal.ads.zzbjx extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public final int zza;
+    public final int zzb;
+    public final java.lang.String zzc;
+    public final int zzd;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbjy $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbjy;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbjx.CREATOR = $r0;
+
+        return;
+    }
+
+    public void <init>(int, int, java.lang.String, int)
+    {
+        com.google.android.gms.internal.ads.zzbjx r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $i1;
+
+        r0.zzc = $r1;
+
+        r0.zzd = $i2;
+
+        return;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.internal.ads.zzbjx r0;
+        int $i0, $i1;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $i1 = r0.zzb;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1, $i1);
+
+        $r2 = r0.zzc;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 2, $r2, 0);
+
+        $i1 = r0.zzd;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 3, $i1);
+
+        $i1 = r0.zza;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1000, $i1);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i0);
+
+        return;
+    }
+}

@@ -1,0 +1,30 @@
+public final class com.google.android.gms.internal.ads.zzxq extends java.lang.Object
+{
+    public final int zza;
+    public final int zzb;
+    public final int zzc;
+
+    public void <init>(int, int, int)
+    {
+        com.google.android.gms.internal.ads.zzxq r0;
+        int $i0, $i1, $i2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $i1;
+
+        r0.zzc = $i2;
+
+        return;
+    }
+}

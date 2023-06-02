@@ -1,0 +1,107 @@
+public abstract class com.google.android.gms.internal.ads.zzbeg extends com.google.android.gms.internal.ads.zzasw implements com.google.android.gms.internal.ads.zzbeh
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzbeg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>("com.google.android.gms.ads.internal.formats.client.INativeAdViewHolderDelegate");
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzbeh zze(android.os.IBinder)
+    {
+        com.google.android.gms.internal.ads.zzbeh $r2;
+        android.os.IInterface $r0;
+        com.google.android.gms.internal.ads.zzbef $r3;
+        android.os.IBinder $r1;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = interfaceinvoke $r1.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.INativeAdViewHolderDelegate");
+
+        $z0 = $r0 instanceof com.google.android.gms.internal.ads.zzbeh;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (com.google.android.gms.internal.ads.zzbeh) $r0;
+
+        return $r2;
+
+     label2:
+        $r3 = new com.google.android.gms.internal.ads.zzbef;
+
+        specialinvoke $r3.<init>($r1);
+
+        return $r3;
+    }
+
+    protected final boolean zzbE(int, android.os.Parcel, android.os.Parcel, int) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r4;
+        com.google.android.gms.internal.ads.zzbeg r0;
+        int $i0, $i1;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r3;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 := @parameter3;
+
+        lookupswitch($i1)
+        {
+            case 1: goto label4;
+            case 2: goto label3;
+            case 3: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $r3 = virtualinvoke $r1.readStrongBinder();
+
+        $r4 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r3);
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        virtualinvoke r0.zzb($r4);
+
+        goto label5;
+
+     label3:
+        virtualinvoke r0.zzd();
+
+        goto label5;
+
+     label4:
+        $r3 = virtualinvoke $r1.readStrongBinder();
+
+        $r4 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r3);
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        virtualinvoke r0.zzc($r4);
+
+     label5:
+        virtualinvoke $r2.writeNoException();
+
+        return 1;
+    }
+}

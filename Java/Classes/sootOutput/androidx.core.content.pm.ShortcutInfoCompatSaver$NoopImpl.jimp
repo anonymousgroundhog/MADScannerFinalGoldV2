@@ -1,0 +1,89 @@
+public class androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl extends androidx.core.content.pm.ShortcutInfoCompatSaver
+{
+
+    public void <init>()
+    {
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public volatile java.lang.Object addShortcuts(java.util.List)
+    {
+        java.lang.Void $r1;
+        java.util.List $r2;
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.addShortcuts($r2);
+
+        return $r1;
+    }
+
+    public java.lang.Void addShortcuts(java.util.List)
+    {
+        java.util.List r1;
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        return null;
+    }
+
+    public volatile java.lang.Object removeAllShortcuts()
+    {
+        java.lang.Void $r1;
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.removeAllShortcuts();
+
+        return $r1;
+    }
+
+    public java.lang.Void removeAllShortcuts()
+    {
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public volatile java.lang.Object removeShortcuts(java.util.List)
+    {
+        java.lang.Void $r1;
+        java.util.List $r2;
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.removeShortcuts($r2);
+
+        return $r1;
+    }
+
+    public java.lang.Void removeShortcuts(java.util.List)
+    {
+        java.util.List r1;
+        androidx.core.content.pm.ShortcutInfoCompatSaver$NoopImpl r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        return null;
+    }
+}

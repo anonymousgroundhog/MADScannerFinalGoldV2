@@ -1,0 +1,73 @@
+class androidx.work.impl.utils.StatusRunnable$2 extends androidx.work.impl.utils.StatusRunnable
+{
+    final java.util.UUID val$id;
+    final androidx.work.impl.WorkManagerImpl val$workManager;
+
+    void <init>(androidx.work.impl.WorkManagerImpl, java.util.UUID)
+    {
+        androidx.work.impl.utils.StatusRunnable$2 r0;
+        androidx.work.impl.WorkManagerImpl $r1;
+        java.util.UUID $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.val$workManager = $r1;
+
+        r0.val$id = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    androidx.work.WorkInfo runInternal()
+    {
+        androidx.work.impl.utils.StatusRunnable$2 r0;
+        androidx.work.impl.model.WorkSpec$WorkInfoPojo $r6;
+        androidx.work.impl.model.WorkSpecDao $r3;
+        java.util.UUID $r4;
+        androidx.work.WorkInfo $r7;
+        androidx.work.impl.WorkDatabase $r2;
+        androidx.work.impl.WorkManagerImpl r1;
+        java.lang.String $r5;
+
+        r0 := @this;
+
+        r1 = r0.val$workManager;
+
+        $r2 = virtualinvoke r1.getWorkDatabase();
+
+        $r3 = virtualinvoke $r2.workSpecDao();
+
+        $r4 = r0.val$id;
+
+        $r5 = virtualinvoke $r4.toString();
+
+        $r6 = interfaceinvoke $r3.getWorkStatusPojoForId($r5);
+
+        if $r6 == null goto label1;
+
+        $r7 = virtualinvoke $r6.toWorkInfo();
+
+        return $r7;
+
+     label1:
+        return null;
+    }
+
+    volatile java.lang.Object runInternal()
+    {
+        androidx.work.impl.utils.StatusRunnable$2 r0;
+        androidx.work.WorkInfo $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.runInternal();
+
+        return $r1;
+    }
+}

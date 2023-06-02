@@ -1,0 +1,158 @@
+final class com.google.android.gms.ads.internal.client.zzai extends com.google.android.gms.ads.internal.client.zzax
+{
+    final android.content.Context zza;
+    final com.google.android.gms.internal.ads.zzbnf zzb;
+    final com.google.android.gms.ads.h5.OnH5AdsEventListener zzc;
+
+    void <init>(com.google.android.gms.ads.internal.client.zzaw, android.content.Context, com.google.android.gms.internal.ads.zzbnf, com.google.android.gms.ads.h5.OnH5AdsEventListener)
+    {
+        com.google.android.gms.ads.h5.OnH5AdsEventListener $r4;
+        android.content.Context $r2;
+        com.google.android.gms.ads.internal.client.zzaw $r1;
+        com.google.android.gms.ads.internal.client.zzai r0;
+        com.google.android.gms.internal.ads.zzbnf $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        r0.zzc = $r4;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    protected final java.lang.Object zza()
+    {
+        com.google.android.gms.ads.internal.client.zzai r0;
+        com.google.android.gms.internal.ads.zzbiw $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzbiw;
+
+        specialinvoke $r1.<init>();
+
+        return $r1;
+    }
+
+    public final volatile java.lang.Object zzb(com.google.android.gms.ads.internal.client.zzce) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r5;
+        com.google.android.gms.ads.h5.OnH5AdsEventListener $r6;
+        android.content.Context $r4;
+        com.google.android.gms.ads.internal.client.zzce $r3;
+        com.google.android.gms.internal.ads.zzbij $r2;
+        com.google.android.gms.internal.ads.zzbnf $r1;
+        com.google.android.gms.ads.internal.client.zzai r0;
+        com.google.android.gms.internal.ads.zzbip $r7;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 = r0.zza;
+
+        $r5 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r4);
+
+        $r1 = r0.zzb;
+
+        $r2 = new com.google.android.gms.internal.ads.zzbij;
+
+        $r6 = r0.zzc;
+
+        specialinvoke $r2.<init>($r6);
+
+        $r7 = interfaceinvoke $r3.zzk($r5, $r1, 230500000, $r2);
+
+        return $r7;
+    }
+
+    public final volatile java.lang.Object zzc() throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r2;
+        com.google.android.gms.ads.h5.OnH5AdsEventListener $r8;
+        android.content.Context $r1;
+        com.google.android.gms.ads.internal.client.zzah $r3;
+        com.google.android.gms.internal.ads.zzbij $r7;
+        com.google.android.gms.internal.ads.zzbnf $r6;
+        android.os.RemoteException $r11;
+        java.lang.NullPointerException $r10;
+        com.google.android.gms.ads.internal.client.zzai r0;
+        com.google.android.gms.internal.ads.zzbip $r9;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.ads.zzbis $r5;
+        com.google.android.gms.internal.ads.zzbzd $r12;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r1);
+
+     label01:
+        $r1 = r0.zza;
+
+     label02:
+        $r3 = com.google.android.gms.ads.internal.client.zzah.zza;
+
+     label03:
+        $r4 = com.google.android.gms.internal.ads.zzbze.zzb($r1, "com.google.android.gms.ads.DynamiteH5AdsManagerCreatorImpl", $r3);
+
+     label04:
+        $r5 = (com.google.android.gms.internal.ads.zzbis) $r4;
+
+     label05:
+        $r6 = r0.zzb;
+
+     label06:
+        $r7 = new com.google.android.gms.internal.ads.zzbij;
+
+     label07:
+        $r8 = r0.zzc;
+
+     label08:
+        specialinvoke $r7.<init>($r8);
+
+        $r9 = interfaceinvoke $r5.zze($r2, $r6, 230500000, $r7);
+
+     label09:
+        return $r9;
+
+     label10:
+        $r10 := @caughtexception;
+
+        goto label13;
+
+     label11:
+        $r11 := @caughtexception;
+
+        goto label13;
+
+     label12:
+        $r12 := @caughtexception;
+
+     label13:
+        return null;
+
+        catch com.google.android.gms.internal.ads.zzbzd from label03 to label04 with label12;
+        catch com.google.android.gms.internal.ads.zzbzd from label08 to label09 with label12;
+        catch android.os.RemoteException from label03 to label04 with label11;
+        catch android.os.RemoteException from label08 to label09 with label11;
+        catch java.lang.NullPointerException from label01 to label02 with label10;
+        catch java.lang.NullPointerException from label03 to label04 with label10;
+        catch java.lang.NullPointerException from label05 to label06 with label10;
+        catch java.lang.NullPointerException from label07 to label09 with label10;
+    }
+}

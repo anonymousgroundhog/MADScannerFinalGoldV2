@@ -1,0 +1,62 @@
+final class com.google.android.gms.internal.ads.zzfel extends java.lang.Object implements com.google.android.gms.internal.ads.zzfuf
+{
+    final com.google.android.gms.internal.ads.zzfen zza;
+    final com.google.android.gms.internal.ads.zzfec zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzfen, com.google.android.gms.internal.ads.zzfec)
+    {
+        com.google.android.gms.internal.ads.zzfen $r1;
+        com.google.android.gms.internal.ads.zzfel r0;
+        com.google.android.gms.internal.ads.zzfec $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Throwable)
+    {
+        java.lang.Throwable $r3;
+        com.google.android.gms.internal.ads.zzfen $r1;
+        com.google.android.gms.internal.ads.zzfec $r2;
+        com.google.android.gms.internal.ads.zzfel r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        interfaceinvoke $r2.zzg($r3);
+
+        interfaceinvoke $r2.zzf(0);
+
+        virtualinvoke $r1.zza($r2);
+
+        return;
+    }
+
+    public final void zzb(java.lang.Object)
+    {
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfel r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

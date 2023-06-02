@@ -1,0 +1,204 @@
+public final class com.google.android.gms.internal.ads.zzgei extends java.lang.Object
+{
+    private final java.util.Map zza;
+    private final java.util.Map zzb;
+    private final java.util.Map zzc;
+    private final java.util.Map zzd;
+
+    void <init>(com.google.android.gms.internal.ads.zzgec, com.google.android.gms.internal.ads.zzgeh)
+    {
+        com.google.android.gms.internal.ads.zzgec $r1;
+        java.util.Map $r4;
+        com.google.android.gms.internal.ads.zzgeh $r2;
+        java.util.HashMap $r3;
+        com.google.android.gms.internal.ads.zzgei r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new java.util.HashMap;
+
+        $r4 = com.google.android.gms.internal.ads.zzgec.zzf($r1);
+
+        specialinvoke $r3.<init>($r4);
+
+        r0.zza = $r3;
+
+        $r3 = new java.util.HashMap;
+
+        $r4 = com.google.android.gms.internal.ads.zzgec.zze($r1);
+
+        specialinvoke $r3.<init>($r4);
+
+        r0.zzb = $r3;
+
+        $r3 = new java.util.HashMap;
+
+        $r4 = com.google.android.gms.internal.ads.zzgec.zzh($r1);
+
+        specialinvoke $r3.<init>($r4);
+
+        r0.zzc = $r3;
+
+        $r3 = new java.util.HashMap;
+
+        $r4 = com.google.android.gms.internal.ads.zzgec.zzg($r1);
+
+        specialinvoke $r3.<init>($r4);
+
+        r0.zzd = $r3;
+
+        return;
+    }
+
+    static volatile java.util.Map zzb(com.google.android.gms.internal.ads.zzgei)
+    {
+        com.google.android.gms.internal.ads.zzgei $r0;
+        java.util.Map r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile java.util.Map zzc(com.google.android.gms.internal.ads.zzgei)
+    {
+        com.google.android.gms.internal.ads.zzgei $r0;
+        java.util.Map r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    static volatile java.util.Map zzd(com.google.android.gms.internal.ads.zzgei)
+    {
+        com.google.android.gms.internal.ads.zzgei $r0;
+        java.util.Map r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzd;
+
+        return r1;
+    }
+
+    static volatile java.util.Map zze(com.google.android.gms.internal.ads.zzgei)
+    {
+        com.google.android.gms.internal.ads.zzgei $r0;
+        java.util.Map r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzc;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfvx zza(com.google.android.gms.internal.ads.zzgeb, com.google.android.gms.internal.ads.zzfxg) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgoj $r5;
+        com.google.android.gms.internal.ads.zzgeb $r1;
+        com.google.android.gms.internal.ads.zzgcn $r8;
+        java.security.GeneralSecurityException $r10;
+        com.google.android.gms.internal.ads.zzfxg $r2;
+        java.util.Map $r6;
+        java.lang.Class $r4;
+        java.lang.Object $r7;
+        com.google.android.gms.internal.ads.zzfvx $r9;
+        java.lang.StringBuilder $r12;
+        com.google.android.gms.internal.ads.zzgee $r3;
+        java.lang.String $r11;
+        com.google.android.gms.internal.ads.zzgei r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = new com.google.android.gms.internal.ads.zzgee;
+
+        $r4 = virtualinvoke $r1.getClass();
+
+        $r5 = interfaceinvoke $r1.zzd();
+
+        specialinvoke $r3.<init>($r4, $r5, null);
+
+        $r6 = r0.zzb;
+
+        $z0 = interfaceinvoke $r6.containsKey($r3);
+
+        if $z0 == 0 goto label1;
+
+        $r6 = r0.zzb;
+
+        $r7 = interfaceinvoke $r6.get($r3);
+
+        $r8 = (com.google.android.gms.internal.ads.zzgcn) $r7;
+
+        $r9 = virtualinvoke $r8.zza($r1, $r2);
+
+        return $r9;
+
+     label1:
+        $r10 = new java.security.GeneralSecurityException;
+
+        $r11 = virtualinvoke $r3.toString();
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<init>();
+
+        virtualinvoke $r12.append("No Key Parser for requested key type ");
+
+        virtualinvoke $r12.append($r11);
+
+        virtualinvoke $r12.append(" available");
+
+        $r11 = virtualinvoke $r12.toString();
+
+        specialinvoke $r10.<init>($r11);
+
+        throw $r10;
+    }
+
+    public final boolean zzf(com.google.android.gms.internal.ads.zzgeb)
+    {
+        com.google.android.gms.internal.ads.zzgoj $r4;
+        com.google.android.gms.internal.ads.zzgeb $r2;
+        java.util.Map $r5;
+        java.lang.Class $r3;
+        com.google.android.gms.internal.ads.zzgee $r1;
+        com.google.android.gms.internal.ads.zzgei r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgee;
+
+        $r3 = virtualinvoke $r2.getClass();
+
+        $r4 = interfaceinvoke $r2.zzd();
+
+        specialinvoke $r1.<init>($r3, $r4, null);
+
+        $r5 = r0.zzb;
+
+        $z0 = interfaceinvoke $r5.containsKey($r1);
+
+        return $z0;
+    }
+}

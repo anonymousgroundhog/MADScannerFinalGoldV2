@@ -1,0 +1,424 @@
+class androidx.core.view.WindowInsetsCompat$Impl extends java.lang.Object
+{
+    static final androidx.core.view.WindowInsetsCompat CONSUMED;
+    final androidx.core.view.WindowInsetsCompat mHost;
+
+    static void <clinit>()
+    {
+        androidx.core.view.WindowInsetsCompat$Builder $r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        $r0 = new androidx.core.view.WindowInsetsCompat$Builder;
+
+        specialinvoke $r0.<init>();
+
+        $r1 = virtualinvoke $r0.build();
+
+        $r1 = virtualinvoke $r1.consumeDisplayCutout();
+
+        $r1 = virtualinvoke $r1.consumeStableInsets();
+
+        $r1 = virtualinvoke $r1.consumeSystemWindowInsets();
+
+        androidx.core.view.WindowInsetsCompat$Impl.CONSUMED = $r1;
+
+        return;
+    }
+
+    void <init>(androidx.core.view.WindowInsetsCompat)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mHost = $r1;
+
+        return;
+    }
+
+    androidx.core.view.WindowInsetsCompat consumeDisplayCutout()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat r1;
+
+        r0 := @this;
+
+        r1 = r0.mHost;
+
+        return r1;
+    }
+
+    androidx.core.view.WindowInsetsCompat consumeStableInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat r1;
+
+        r0 := @this;
+
+        r1 = r0.mHost;
+
+        return r1;
+    }
+
+    androidx.core.view.WindowInsetsCompat consumeSystemWindowInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat r1;
+
+        r0 := @this;
+
+        r1 = r0.mHost;
+
+        return r1;
+    }
+
+    void copyRootViewBounds(android.view.View)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    void copyWindowDataInto(androidx.core.view.WindowInsetsCompat)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0, r2;
+        androidx.core.view.DisplayCutoutCompat $r5, $r6;
+        java.lang.Object $r1;
+        androidx.core.graphics.Insets $r3, $r4;
+        boolean z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        z0 = $r1 instanceof androidx.core.view.WindowInsetsCompat$Impl;
+
+        if z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        r2 = (androidx.core.view.WindowInsetsCompat$Impl) $r1;
+
+        z0 = virtualinvoke r0.isRound();
+
+        $z1 = virtualinvoke r2.isRound();
+
+        if z0 != $z1 goto label3;
+
+        z0 = virtualinvoke r0.isConsumed();
+
+        $z1 = virtualinvoke r2.isConsumed();
+
+        if z0 != $z1 goto label3;
+
+        $r3 = virtualinvoke r0.getSystemWindowInsets();
+
+        $r4 = virtualinvoke r2.getSystemWindowInsets();
+
+        z0 = androidx.core.util.ObjectsCompat.equals($r3, $r4);
+
+        if z0 == 0 goto label3;
+
+        $r3 = virtualinvoke r0.getStableInsets();
+
+        $r4 = virtualinvoke r2.getStableInsets();
+
+        z0 = androidx.core.util.ObjectsCompat.equals($r3, $r4);
+
+        if z0 == 0 goto label3;
+
+        $r5 = virtualinvoke r0.getDisplayCutout();
+
+        $r6 = virtualinvoke r2.getDisplayCutout();
+
+        z0 = androidx.core.util.ObjectsCompat.equals($r5, $r6);
+
+        if z0 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    androidx.core.view.DisplayCutoutCompat getDisplayCutout()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    androidx.core.graphics.Insets getInsets(int)
+    {
+        int $i0;
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = androidx.core.graphics.Insets.NONE;
+
+        return r1;
+    }
+
+    androidx.core.graphics.Insets getInsetsIgnoringVisibility(int)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        int $i0;
+        java.lang.IllegalArgumentException $r1;
+        androidx.core.graphics.Insets r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i0 = $i0 & 8;
+
+        if $i0 != 0 goto label1;
+
+        r2 = androidx.core.graphics.Insets.NONE;
+
+        return r2;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<init>("Unable to query the maximum insets for IME");
+
+        throw $r1;
+    }
+
+    androidx.core.graphics.Insets getMandatorySystemGestureInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getSystemWindowInsets();
+
+        return $r1;
+    }
+
+    androidx.core.graphics.Insets getStableInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets r1;
+
+        r0 := @this;
+
+        r1 = androidx.core.graphics.Insets.NONE;
+
+        return r1;
+    }
+
+    androidx.core.graphics.Insets getSystemGestureInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getSystemWindowInsets();
+
+        return $r1;
+    }
+
+    androidx.core.graphics.Insets getSystemWindowInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets r1;
+
+        r0 := @this;
+
+        r1 = androidx.core.graphics.Insets.NONE;
+
+        return r1;
+    }
+
+    androidx.core.graphics.Insets getTappableElementInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getSystemWindowInsets();
+
+        return $r1;
+    }
+
+    public int hashCode()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        java.lang.Object[] $r1;
+        androidx.core.view.DisplayCutoutCompat $r4;
+        int $i0;
+        java.lang.Boolean $r2;
+        androidx.core.graphics.Insets $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = newarray (java.lang.Object)[5];
+
+        $z0 = virtualinvoke r0.isRound();
+
+        $r2 = java.lang.Boolean.valueOf($z0);
+
+        $r1[0] = $r2;
+
+        $z0 = virtualinvoke r0.isConsumed();
+
+        $r2 = java.lang.Boolean.valueOf($z0);
+
+        $r1[1] = $r2;
+
+        $r3 = virtualinvoke r0.getSystemWindowInsets();
+
+        $r1[2] = $r3;
+
+        $r3 = virtualinvoke r0.getStableInsets();
+
+        $r1[3] = $r3;
+
+        $r4 = virtualinvoke r0.getDisplayCutout();
+
+        $r1[4] = $r4;
+
+        $i0 = androidx.core.util.ObjectsCompat.hash($r1);
+
+        return $i0;
+    }
+
+    androidx.core.view.WindowInsetsCompat inset(int, int, int, int)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.view.WindowInsetsCompat r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        r1 = androidx.core.view.WindowInsetsCompat$Impl.CONSUMED;
+
+        return r1;
+    }
+
+    boolean isConsumed()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    boolean isRound()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    boolean isVisible(int)
+    {
+        int $i0;
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return 1;
+    }
+
+    public void setOverriddenInsets(androidx.core.graphics.Insets[])
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    void setRootViewData(androidx.core.graphics.Insets)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    void setRootWindowInsets(androidx.core.view.WindowInsetsCompat)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void setStableInsets(androidx.core.graphics.Insets)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

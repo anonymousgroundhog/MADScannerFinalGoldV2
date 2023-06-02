@@ -1,0 +1,51 @@
+public final class com.google.android.gms.internal.ads.zzejp extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public static final com.google.android.gms.internal.ads.zzejp zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzejp $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzejp;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzejp.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzejp r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfut $r2;
+        com.google.android.gms.internal.ads.zzejo $r1;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzejp r0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 = (java.lang.String) $r3;
+
+        $r1 = new com.google.android.gms.internal.ads.zzejo;
+
+        specialinvoke $r1.<init>($r4);
+
+        $r2 = com.google.android.gms.internal.ads.zzfuj.zzh($r1);
+
+        return $r2;
+    }
+}

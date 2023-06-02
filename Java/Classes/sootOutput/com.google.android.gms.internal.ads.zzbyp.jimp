@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzbyp extends java.lang.Object
+{
+    public static final java.util.concurrent.ThreadPoolExecutor zza;
+    public static final java.util.concurrent.ExecutorService zzb;
+
+    static void <clinit>()
+    {
+        java.util.concurrent.TimeUnit $r0;
+        java.util.concurrent.SynchronousQueue $r1;
+        java.util.concurrent.ThreadPoolExecutor $r3;
+        com.google.android.gms.internal.ads.zzbyo $r2;
+        java.util.concurrent.ExecutorService $r4;
+
+        $r3 = new java.util.concurrent.ThreadPoolExecutor;
+
+        $r0 = java.util.concurrent.TimeUnit.SECONDS;
+
+        $r1 = new java.util.concurrent.SynchronousQueue;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = new com.google.android.gms.internal.ads.zzbyo;
+
+        specialinvoke $r2.<init>("ClientDefault");
+
+        specialinvoke $r3.<init>(2, 2147483647, 10L, $r0, $r1, $r2);
+
+        com.google.android.gms.internal.ads.zzbyp.zza = $r3;
+
+        $r2 = new com.google.android.gms.internal.ads.zzbyo;
+
+        specialinvoke $r2.<init>("ClientSingle");
+
+        $r4 = java.util.concurrent.Executors.newSingleThreadExecutor($r2);
+
+        com.google.android.gms.internal.ads.zzbyp.zzb = $r4;
+
+        return;
+    }
+}

@@ -1,0 +1,33 @@
+public final class androidx.core.content.IntentCompat extends java.lang.Object
+{
+    public static final java.lang.String ACTION_CREATE_REMINDER;
+    public static final java.lang.String CATEGORY_LEANBACK_LAUNCHER;
+    public static final java.lang.String EXTRA_HTML_TEXT;
+    public static final java.lang.String EXTRA_START_PLAYBACK;
+    public static final java.lang.String EXTRA_TIME;
+
+    private void <init>()
+    {
+        androidx.core.content.IntentCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static android.content.Intent makeMainSelectorActivity(java.lang.String, java.lang.String)
+    {
+        android.content.Intent $r2;
+        java.lang.String $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = android.content.Intent.makeMainSelectorActivity($r0, $r1);
+
+        return $r2;
+    }
+}

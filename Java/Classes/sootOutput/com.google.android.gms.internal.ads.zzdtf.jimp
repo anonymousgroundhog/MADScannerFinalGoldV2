@@ -1,0 +1,73 @@
+public class com.google.android.gms.internal.ads.zzdtf extends java.lang.Exception
+{
+    private final int zza;
+
+    public void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzdtf r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        return;
+    }
+
+    public void <init>(int, java.lang.String)
+    {
+        int $i0;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzdtf r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.zza = $i0;
+
+        return;
+    }
+
+    public void <init>(int, java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.ads.zzdtf r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.zza = 1;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzdtf r0;
+
+        r0 := @this;
+
+        i0 = r0.zza;
+
+        return i0;
+    }
+}

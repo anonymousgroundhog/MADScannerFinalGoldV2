@@ -1,0 +1,31 @@
+public class androidx.browser.trusted.TrustedWebActivityDisplayMode$DefaultMode extends java.lang.Object implements androidx.browser.trusted.TrustedWebActivityDisplayMode
+{
+    private static final int ID;
+
+    public void <init>()
+    {
+        androidx.browser.trusted.TrustedWebActivityDisplayMode$DefaultMode r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public android.os.Bundle toBundle()
+    {
+        android.os.Bundle r1;
+        androidx.browser.trusted.TrustedWebActivityDisplayMode$DefaultMode r0;
+
+        r0 := @this;
+
+        r1 = new android.os.Bundle;
+
+        specialinvoke r1.<init>();
+
+        virtualinvoke r1.putInt("androidx.browser.trusted.displaymode.KEY_ID", 0);
+
+        return r1;
+    }
+}

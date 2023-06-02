@@ -1,0 +1,32 @@
+public final class com.google.android.gms.internal.ads.zzcoh extends java.lang.Object
+{
+    private final android.view.ViewGroup zza;
+
+    public void <init>(android.view.ViewGroup)
+    {
+        com.google.android.gms.internal.ads.zzcoh r0;
+        android.view.ViewGroup $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final android.view.ViewGroup zza()
+    {
+        com.google.android.gms.internal.ads.zzcoh r0;
+        android.view.ViewGroup r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

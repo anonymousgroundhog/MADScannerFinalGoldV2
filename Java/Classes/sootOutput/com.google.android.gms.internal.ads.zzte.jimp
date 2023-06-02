@@ -1,0 +1,17 @@
+public interface  com.google.android.gms.internal.ads.zzte extends java.lang.Object implements com.google.android.gms.internal.ads.zzsr
+{
+    public static final com.google.android.gms.internal.ads.zzte zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zztd $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zztd;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzte.zzb = $r0;
+
+        return;
+    }
+}

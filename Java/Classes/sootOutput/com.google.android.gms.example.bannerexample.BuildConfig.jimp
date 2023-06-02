@@ -1,0 +1,30 @@
+public final class com.google.android.gms.example.bannerexample.BuildConfig extends java.lang.Object
+{
+    public static final java.lang.String APPLICATION_ID;
+    public static final java.lang.String BUILD_TYPE;
+    public static final boolean DEBUG;
+    public static final int VERSION_CODE;
+    public static final java.lang.String VERSION_NAME;
+
+    static void <clinit>()
+    {
+        boolean $z0;
+
+        $z0 = java.lang.Boolean.parseBoolean("true");
+
+        com.google.android.gms.example.bannerexample.BuildConfig.DEBUG = $z0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.android.gms.example.bannerexample.BuildConfig r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

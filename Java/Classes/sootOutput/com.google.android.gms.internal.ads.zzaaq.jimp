@@ -1,0 +1,66 @@
+public final class com.google.android.gms.internal.ads.zzaaq extends java.lang.Object
+{
+    public final int zza;
+    public final int zzb;
+    public final int zzc;
+    public final int zzd;
+    public final int zze;
+    public final int zzf;
+    public final float zzg;
+
+    public void <init>(int, int, int, int, int, int, int, float, boolean, boolean, int, int, int, boolean)
+    {
+        com.google.android.gms.internal.ads.zzaaq r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9;
+        float $f0;
+        boolean $z0, $z1, $z2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $i4 := @parameter4;
+
+        $i5 := @parameter5;
+
+        $i6 := @parameter6;
+
+        $f0 := @parameter7;
+
+        $z0 := @parameter8;
+
+        $z1 := @parameter9;
+
+        $i7 := @parameter10;
+
+        $i8 := @parameter11;
+
+        $i9 := @parameter12;
+
+        $z2 := @parameter13;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $i1;
+
+        r0.zzc = $i2;
+
+        r0.zzd = $i3;
+
+        r0.zze = $i5;
+
+        r0.zzf = $i6;
+
+        r0.zzg = $f0;
+
+        return;
+    }
+}

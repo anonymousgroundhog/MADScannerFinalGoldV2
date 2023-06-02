@@ -1,0 +1,34 @@
+public final class com.google.android.gms.internal.ads.zzams extends com.google.android.gms.internal.ads.zzgqi implements com.google.android.gms.internal.ads.zzgrx
+{
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzamt $r1;
+        com.google.android.gms.internal.ads.zzams r0;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.internal.ads.zzamt.zza();
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzamm)
+    {
+        com.google.android.gms.internal.ads.zzamm $r2;
+        com.google.android.gms.internal.ads.zzamt $r1;
+        com.google.android.gms.internal.ads.zzams r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = com.google.android.gms.internal.ads.zzamt.zza();
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+}

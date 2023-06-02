@@ -1,0 +1,33 @@
+public abstract class com.google.android.gms.internal.ads.zzfrm extends java.lang.Object
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfrm r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    abstract java.util.Map zza();
+
+    public final com.google.android.gms.internal.ads.zzfrk zzb(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfrm r0;
+        com.google.android.gms.internal.ads.zzfrl $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfrl;
+
+        specialinvoke $r1.<init>(r0, 2);
+
+        return $r1;
+    }
+}

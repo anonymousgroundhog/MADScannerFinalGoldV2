@@ -1,0 +1,103 @@
+public final class androidx.core.text.HtmlCompat extends java.lang.Object
+{
+    public static final int FROM_HTML_MODE_COMPACT;
+    public static final int FROM_HTML_MODE_LEGACY;
+    public static final int FROM_HTML_OPTION_USE_CSS_COLORS;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_BLOCKQUOTE;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_DIV;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_HEADING;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_LIST;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
+    public static final int FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH;
+    public static final int TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
+    public static final int TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
+
+    private void <init>()
+    {
+        androidx.core.text.HtmlCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static android.text.Spanned fromHtml(java.lang.String, int)
+    {
+        android.text.Spanned $r1;
+        int $i0, $i1;
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 24 goto label1;
+
+        $r1 = android.text.Html.fromHtml($r0, $i0);
+
+        return $r1;
+
+     label1:
+        $r1 = android.text.Html.fromHtml($r0);
+
+        return $r1;
+    }
+
+    public static android.text.Spanned fromHtml(java.lang.String, int, android.text.Html$ImageGetter, android.text.Html$TagHandler)
+    {
+        android.text.Spanned $r3;
+        int $i0, $i1;
+        android.text.Html$ImageGetter $r1;
+        java.lang.String $r0;
+        android.text.Html$TagHandler $r2;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 24 goto label1;
+
+        $r3 = android.text.Html.fromHtml($r0, $i0, $r1, $r2);
+
+        return $r3;
+
+     label1:
+        $r3 = android.text.Html.fromHtml($r0, $r1, $r2);
+
+        return $r3;
+    }
+
+    public static java.lang.String toHtml(android.text.Spanned, int)
+    {
+        android.text.Spanned $r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 24 goto label1;
+
+        $r1 = android.text.Html.toHtml($r0, $i0);
+
+        return $r1;
+
+     label1:
+        $r1 = android.text.Html.toHtml($r0);
+
+        return $r1;
+    }
+}

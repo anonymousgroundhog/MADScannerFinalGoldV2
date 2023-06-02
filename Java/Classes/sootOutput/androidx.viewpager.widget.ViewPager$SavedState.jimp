@@ -1,0 +1,131 @@
+public class androidx.viewpager.widget.ViewPager$SavedState extends androidx.customview.view.AbsSavedState
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    android.os.Parcelable adapterState;
+    java.lang.ClassLoader loader;
+    int position;
+
+    static void <clinit>()
+    {
+        androidx.viewpager.widget.ViewPager$SavedState$1 $r0;
+
+        $r0 = new androidx.viewpager.widget.ViewPager$SavedState$1;
+
+        specialinvoke $r0.<init>();
+
+        androidx.viewpager.widget.ViewPager$SavedState.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel, java.lang.ClassLoader)
+    {
+        androidx.viewpager.widget.ViewPager$SavedState r0;
+        android.os.Parcelable $r4;
+        int $i0;
+        java.lang.Class $r3;
+        java.lang.ClassLoader $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        if $r2 != null goto label1;
+
+        $r3 = virtualinvoke r0.getClass();
+
+        $r2 = virtualinvoke $r3.getClassLoader();
+
+     label1:
+        $i0 = virtualinvoke $r1.readInt();
+
+        r0.position = $i0;
+
+        $r4 = virtualinvoke $r1.readParcelable($r2);
+
+        r0.adapterState = $r4;
+
+        r0.loader = $r2;
+
+        return;
+    }
+
+    public void <init>(android.os.Parcelable)
+    {
+        androidx.viewpager.widget.ViewPager$SavedState r0;
+        android.os.Parcelable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.viewpager.widget.ViewPager$SavedState r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("FragmentPager.SavedState{");
+
+        $i0 = java.lang.System.identityHashCode(r0);
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(" position=");
+
+        $i0 = r0.position;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append("}");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        androidx.viewpager.widget.ViewPager$SavedState r0;
+        android.os.Parcelable $r2;
+        int $i0, $i1;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.writeToParcel($r1, $i0);
+
+        $i1 = r0.position;
+
+        virtualinvoke $r1.writeInt($i1);
+
+        $r2 = r0.adapterState;
+
+        virtualinvoke $r1.writeParcelable($r2, $i0);
+
+        return;
+    }
+}

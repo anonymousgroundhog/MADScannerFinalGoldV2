@@ -1,0 +1,97 @@
+public final class androidx.core.view.GravityCompat extends java.lang.Object
+{
+    public static final int END;
+    public static final int RELATIVE_HORIZONTAL_GRAVITY_MASK;
+    public static final int RELATIVE_LAYOUT_DIRECTION;
+    public static final int START;
+
+    private void <init>()
+    {
+        androidx.core.view.GravityCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void apply(int, int, int, android.graphics.Rect, int, int, android.graphics.Rect, int)
+    {
+        android.graphics.Rect $r0, $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $r0 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i4 := @parameter5;
+
+        $r1 := @parameter6;
+
+        $i5 := @parameter7;
+
+        android.view.Gravity.apply($i0, $i1, $i2, $r0, $i3, $i4, $r1, $i5);
+
+        return;
+    }
+
+    public static void apply(int, int, int, android.graphics.Rect, android.graphics.Rect, int)
+    {
+        android.graphics.Rect $r0, $r1;
+        int $i0, $i1, $i2, $i3;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $r0 := @parameter3;
+
+        $r1 := @parameter4;
+
+        $i3 := @parameter5;
+
+        android.view.Gravity.apply($i0, $i1, $i2, $r0, $r1, $i3);
+
+        return;
+    }
+
+    public static void applyDisplay(int, android.graphics.Rect, android.graphics.Rect, int)
+    {
+        android.graphics.Rect $r0, $r1;
+        int $i0, $i1;
+
+        $i0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i1 := @parameter3;
+
+        android.view.Gravity.applyDisplay($i0, $r0, $r1, $i1);
+
+        return;
+    }
+
+    public static int getAbsoluteGravity(int, int)
+    {
+        int $i0, $i1;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i0 = android.view.Gravity.getAbsoluteGravity($i0, $i1);
+
+        return $i0;
+    }
+}

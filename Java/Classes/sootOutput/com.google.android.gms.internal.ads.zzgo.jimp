@@ -1,0 +1,189 @@
+public final class com.google.android.gms.internal.ads.zzgo extends java.lang.Object
+{
+    public byte[] zza;
+    public byte[] zzb;
+    public int zzc;
+    public int[] zzd;
+    public int[] zze;
+    public int zzf;
+    public int zzg;
+    public int zzh;
+    private final android.media.MediaCodec$CryptoInfo zzi;
+    private final com.google.android.gms.internal.ads.zzgn zzj;
+
+    public void <init>()
+    {
+        android.media.MediaCodec$CryptoInfo $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzgn $r2;
+        com.google.android.gms.internal.ads.zzgo r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new android.media.MediaCodec$CryptoInfo;
+
+        specialinvoke $r1.<init>();
+
+        r0.zzi = $r1;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        $r2 = null;
+
+        if $i0 < 24 goto label1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzgn;
+
+        specialinvoke $r2.<init>($r1, null);
+
+     label1:
+        r0.zzj = $r2;
+
+        return;
+    }
+
+    public final android.media.MediaCodec$CryptoInfo zza()
+    {
+        com.google.android.gms.internal.ads.zzgo r0;
+        android.media.MediaCodec$CryptoInfo r1;
+
+        r0 := @this;
+
+        r1 = r0.zzi;
+
+        return r1;
+    }
+
+    public final void zzb(int)
+    {
+        int[] $r1;
+        android.media.MediaCodec$CryptoInfo $r2;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzgo r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = r0.zzd;
+
+        if $r1 != null goto label2;
+
+        $r1 = newarray (int)[1];
+
+        r0.zzd = $r1;
+
+        $r2 = r0.zzi;
+
+        $r2.numBytesOfClearData = $r1;
+
+     label2:
+        $r1 = r0.zzd;
+
+        $i1 = $r1[0];
+
+        $i0 = $i1 + $i0;
+
+        $r1[0] = $i0;
+
+        return;
+    }
+
+    public final void zzc(int, int[], int[], byte[], byte[], int, int, int)
+    {
+        byte[] $r2, $r3;
+        com.google.android.gms.internal.ads.zzgn $r6;
+        com.google.android.gms.internal.ads.zzgo r0;
+        java.lang.NullPointerException r7;
+        int[] $r1, $r5;
+        android.media.MediaCodec$CryptoInfo $r4;
+        int $i0, $i1, $i2, $i3;
+
+        r0 := @this;
+
+        $i3 := @parameter0;
+
+        $r5 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $i0 := @parameter5;
+
+        $i1 := @parameter6;
+
+        $i2 := @parameter7;
+
+        r0.zzf = $i3;
+
+        r0.zzd = $r5;
+
+        r0.zze = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zza = $r3;
+
+        r0.zzc = $i0;
+
+        r0.zzg = $i1;
+
+        r0.zzh = $i2;
+
+        $r4 = r0.zzi;
+
+        $r4.numSubSamples = $i3;
+
+        $r4 = r0.zzi;
+
+        $r4.numBytesOfClearData = $r5;
+
+        $r4 = r0.zzi;
+
+        $r4.numBytesOfEncryptedData = $r1;
+
+        $r4 = r0.zzi;
+
+        $r4.key = $r2;
+
+        $r4 = r0.zzi;
+
+        $r4.iv = $r3;
+
+        $r4 = r0.zzi;
+
+        $r4.mode = $i0;
+
+        $i3 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i3 < 24 goto label2;
+
+        $r6 = r0.zzj;
+
+        if $r6 == null goto label1;
+
+        com.google.android.gms.internal.ads.zzgn.zza($r6, $i1, $i2);
+
+        return;
+
+     label1:
+        r7 = new java.lang.NullPointerException;
+
+        specialinvoke r7.<init>("Null throw statement replaced by Soot");
+
+        throw r7;
+
+     label2:
+        return;
+    }
+}

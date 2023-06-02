@@ -1,0 +1,1011 @@
+public class androidx.appcompat.widget.ScrollingTabContainerView extends android.widget.HorizontalScrollView implements android.widget.AdapterView$OnItemSelectedListener
+{
+    private static final int FADE_DURATION;
+    private static final java.lang.String TAG;
+    private static final android.view.animation.Interpolator sAlphaInterpolator;
+    private boolean mAllowCollapse;
+    private int mContentHeight;
+    int mMaxTabWidth;
+    private int mSelectedTabIndex;
+    int mStackedTabMaxWidth;
+    private androidx.appcompat.widget.ScrollingTabContainerView$TabClickListener mTabClickListener;
+    androidx.appcompat.widget.LinearLayoutCompat mTabLayout;
+    java.lang.Runnable mTabSelector;
+    private android.widget.Spinner mTabSpinner;
+    protected final androidx.appcompat.widget.ScrollingTabContainerView$VisibilityAnimListener mVisAnimListener;
+    protected android.view.ViewPropertyAnimator mVisibilityAnim;
+
+    static void <clinit>()
+    {
+        android.view.animation.DecelerateInterpolator $r0;
+
+        $r0 = new android.view.animation.DecelerateInterpolator;
+
+        specialinvoke $r0.<init>();
+
+        androidx.appcompat.widget.ScrollingTabContainerView.sAlphaInterpolator = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        android.view.ViewGroup$LayoutParams $r5;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$VisibilityAnimListener $r4;
+        androidx.appcompat.view.ActionBarPolicy $r2;
+        androidx.appcompat.widget.LinearLayoutCompat $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $r4 = new androidx.appcompat.widget.ScrollingTabContainerView$VisibilityAnimListener;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mVisAnimListener = $r4;
+
+        virtualinvoke r0.setHorizontalScrollBarEnabled(0);
+
+        $r2 = androidx.appcompat.view.ActionBarPolicy.get($r1);
+
+        $i0 = virtualinvoke $r2.getTabContainerHeight();
+
+        virtualinvoke r0.setContentHeight($i0);
+
+        $i0 = virtualinvoke $r2.getStackedTabMaxWidth();
+
+        r0.mStackedTabMaxWidth = $i0;
+
+        $r3 = specialinvoke r0.createTabLayout();
+
+        r0.mTabLayout = $r3;
+
+        $r5 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r5.<init>(-2, -1);
+
+        virtualinvoke r0.addView($r3, $r5);
+
+        return;
+    }
+
+    private android.widget.Spinner createSpinner()
+    {
+        androidx.appcompat.widget.AppCompatSpinner r1, $r3;
+        android.content.Context $r2;
+        androidx.appcompat.widget.LinearLayoutCompat$LayoutParams $r4;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+
+        r0 := @this;
+
+        $r3 = new androidx.appcompat.widget.AppCompatSpinner;
+
+        r1 = $r3;
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $i0 = androidx.appcompat.R$attr.actionDropDownStyle;
+
+        specialinvoke $r3.<init>($r2, null, $i0);
+
+        $r4 = new androidx.appcompat.widget.LinearLayoutCompat$LayoutParams;
+
+        specialinvoke $r4.<init>(-2, -1);
+
+        virtualinvoke r1.setLayoutParams($r4);
+
+        virtualinvoke r1.setOnItemSelectedListener(r0);
+
+        return r1;
+    }
+
+    private androidx.appcompat.widget.LinearLayoutCompat createTabLayout()
+    {
+        android.content.Context $r2;
+        androidx.appcompat.widget.LinearLayoutCompat$LayoutParams $r4;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.LinearLayoutCompat r1, $r3;
+
+        r0 := @this;
+
+        $r3 = new androidx.appcompat.widget.LinearLayoutCompat;
+
+        r1 = $r3;
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $i0 = androidx.appcompat.R$attr.actionBarTabBarStyle;
+
+        specialinvoke $r3.<init>($r2, null, $i0);
+
+        virtualinvoke r1.setMeasureWithLargestChildEnabled(1);
+
+        virtualinvoke r1.setGravity(17);
+
+        $r4 = new androidx.appcompat.widget.LinearLayoutCompat$LayoutParams;
+
+        specialinvoke $r4.<init>(-2, -1);
+
+        virtualinvoke r1.setLayoutParams($r4);
+
+        return r1;
+    }
+
+    private boolean isCollapsed()
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        android.view.ViewParent $r1;
+        android.widget.Spinner $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mTabSpinner;
+
+        if $r2 == null goto label1;
+
+        $r1 = virtualinvoke $r2.getParent();
+
+        if $r1 != r0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private void performCollapse()
+    {
+        android.widget.SpinnerAdapter $r3;
+        android.view.ViewGroup$LayoutParams $r5;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r6;
+        java.lang.Runnable $r4;
+        android.widget.Spinner $r1;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = specialinvoke r0.isCollapsed();
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = r0.mTabSpinner;
+
+        if $r1 != null goto label2;
+
+        $r1 = specialinvoke r0.createSpinner();
+
+        r0.mTabSpinner = $r1;
+
+     label2:
+        $r2 = r0.mTabLayout;
+
+        virtualinvoke r0.removeView($r2);
+
+        $r1 = r0.mTabSpinner;
+
+        $r5 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r5.<init>(-2, -1);
+
+        virtualinvoke r0.addView($r1, $r5);
+
+        $r1 = r0.mTabSpinner;
+
+        $r3 = virtualinvoke $r1.getAdapter();
+
+        if $r3 != null goto label3;
+
+        $r1 = r0.mTabSpinner;
+
+        $r6 = new androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter;
+
+        specialinvoke $r6.<init>(r0);
+
+        virtualinvoke $r1.setAdapter($r6);
+
+     label3:
+        $r4 = r0.mTabSelector;
+
+        if $r4 == null goto label4;
+
+        virtualinvoke r0.removeCallbacks($r4);
+
+        r0.mTabSelector = null;
+
+     label4:
+        $r1 = r0.mTabSpinner;
+
+        $i0 = r0.mSelectedTabIndex;
+
+        virtualinvoke $r1.setSelection($i0);
+
+        return;
+    }
+
+    private boolean performExpand()
+    {
+        android.view.ViewGroup$LayoutParams $r3;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        boolean $z0;
+        android.widget.Spinner $r1;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+
+        r0 := @this;
+
+        $z0 = specialinvoke r0.isCollapsed();
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = r0.mTabSpinner;
+
+        virtualinvoke r0.removeView($r1);
+
+        $r2 = r0.mTabLayout;
+
+        $r3 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r3.<init>(-2, -1);
+
+        virtualinvoke r0.addView($r2, $r3);
+
+        $r1 = r0.mTabSpinner;
+
+        $i0 = virtualinvoke $r1.getSelectedItemPosition();
+
+        virtualinvoke r0.setTabSelected($i0);
+
+        return 0;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab, int, boolean)
+    {
+        android.widget.SpinnerAdapter $r5;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        androidx.appcompat.widget.LinearLayoutCompat$LayoutParams $r7;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r6;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabView $r3;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+        android.widget.Spinner $r4;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $r3 = virtualinvoke r0.createTabView($r1, 0);
+
+        $r2 = r0.mTabLayout;
+
+        $r7 = new androidx.appcompat.widget.LinearLayoutCompat$LayoutParams;
+
+        specialinvoke $r7.<init>(0, -1, 1.0F);
+
+        virtualinvoke $r2.addView($r3, $i0, $r7);
+
+        $r4 = r0.mTabSpinner;
+
+        if $r4 == null goto label1;
+
+        $r5 = virtualinvoke $r4.getAdapter();
+
+        $r6 = (androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter) $r5;
+
+        virtualinvoke $r6.notifyDataSetChanged();
+
+     label1:
+        if $z0 == 0 goto label2;
+
+        virtualinvoke $r3.setSelected(1);
+
+     label2:
+        $z0 = r0.mAllowCollapse;
+
+        if $z0 == 0 goto label3;
+
+        virtualinvoke r0.requestLayout();
+
+     label3:
+        return;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab, boolean)
+    {
+        android.widget.SpinnerAdapter $r5;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        androidx.appcompat.widget.LinearLayoutCompat$LayoutParams $r7;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r6;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabView $r3;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+        android.widget.Spinner $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r3 = virtualinvoke r0.createTabView($r1, 0);
+
+        $r2 = r0.mTabLayout;
+
+        $r7 = new androidx.appcompat.widget.LinearLayoutCompat$LayoutParams;
+
+        specialinvoke $r7.<init>(0, -1, 1.0F);
+
+        virtualinvoke $r2.addView($r3, $r7);
+
+        $r4 = r0.mTabSpinner;
+
+        if $r4 == null goto label1;
+
+        $r5 = virtualinvoke $r4.getAdapter();
+
+        $r6 = (androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter) $r5;
+
+        virtualinvoke $r6.notifyDataSetChanged();
+
+     label1:
+        if $z0 == 0 goto label2;
+
+        virtualinvoke $r3.setSelected(1);
+
+     label2:
+        $z0 = r0.mAllowCollapse;
+
+        if $z0 == 0 goto label3;
+
+        virtualinvoke r0.requestLayout();
+
+     label3:
+        return;
+    }
+
+    public void animateToTab(int)
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView$1 $r4;
+        int $i0;
+        android.view.View $r1;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        java.lang.Runnable $r3;
+        androidx.appcompat.widget.LinearLayoutCompat r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r2 = r0.mTabLayout;
+
+        $r1 = virtualinvoke r2.getChildAt($i0);
+
+        $r3 = r0.mTabSelector;
+
+        if $r3 == null goto label1;
+
+        virtualinvoke r0.removeCallbacks($r3);
+
+     label1:
+        $r4 = new androidx.appcompat.widget.ScrollingTabContainerView$1;
+
+        specialinvoke $r4.<init>(r0, $r1);
+
+        r0.mTabSelector = $r4;
+
+        virtualinvoke r0.post($r4);
+
+        return;
+    }
+
+    public void animateToVisibility(int)
+    {
+        android.view.animation.Interpolator $r2;
+        int $i0, $i1;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        android.view.ViewPropertyAnimator $r1;
+        androidx.appcompat.widget.ScrollingTabContainerView$VisibilityAnimListener $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mVisibilityAnim;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.cancel();
+
+     label1:
+        if $i0 != 0 goto label3;
+
+        $i1 = virtualinvoke r0.getVisibility();
+
+        if $i1 == 0 goto label2;
+
+        virtualinvoke r0.setAlpha(0.0F);
+
+     label2:
+        $r1 = virtualinvoke r0.animate();
+
+        $r1 = virtualinvoke $r1.alpha(1.0F);
+
+        virtualinvoke $r1.setDuration(200L);
+
+        $r2 = androidx.appcompat.widget.ScrollingTabContainerView.sAlphaInterpolator;
+
+        virtualinvoke $r1.setInterpolator($r2);
+
+        $r3 = r0.mVisAnimListener;
+
+        $r3 = virtualinvoke $r3.withFinalVisibility($r1, $i0);
+
+        virtualinvoke $r1.setListener($r3);
+
+        virtualinvoke $r1.start();
+
+        return;
+
+     label3:
+        $r1 = virtualinvoke r0.animate();
+
+        $r1 = virtualinvoke $r1.alpha(0.0F);
+
+        virtualinvoke $r1.setDuration(200L);
+
+        $r2 = androidx.appcompat.widget.ScrollingTabContainerView.sAlphaInterpolator;
+
+        virtualinvoke $r1.setInterpolator($r2);
+
+        $r3 = r0.mVisAnimListener;
+
+        $r3 = virtualinvoke $r3.withFinalVisibility($r1, $i0);
+
+        virtualinvoke $r1.setListener($r3);
+
+        virtualinvoke $r1.start();
+
+        return;
+    }
+
+    androidx.appcompat.widget.ScrollingTabContainerView$TabView createTabView(androidx.appcompat.app.ActionBar$Tab, boolean)
+    {
+        android.content.Context $r3;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabView r2, $r5;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabClickListener $r4, $r7;
+        android.widget.AbsListView$LayoutParams $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r5 = new androidx.appcompat.widget.ScrollingTabContainerView$TabView;
+
+        r2 = $r5;
+
+        $r3 = virtualinvoke r0.getContext();
+
+        specialinvoke $r5.<init>(r0, $r3, $r1, $z0);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r2.setBackgroundDrawable(null);
+
+        $r6 = new android.widget.AbsListView$LayoutParams;
+
+        $i0 = r0.mContentHeight;
+
+        specialinvoke $r6.<init>(-1, $i0);
+
+        virtualinvoke r2.setLayoutParams($r6);
+
+        return r2;
+
+     label1:
+        virtualinvoke r2.setFocusable(1);
+
+        $r4 = r0.mTabClickListener;
+
+        if $r4 != null goto label2;
+
+        $r7 = new androidx.appcompat.widget.ScrollingTabContainerView$TabClickListener;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mTabClickListener = $r7;
+
+     label2:
+        $r4 = r0.mTabClickListener;
+
+        virtualinvoke r2.setOnClickListener($r4);
+
+        return r2;
+    }
+
+    public void onAttachedToWindow()
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onAttachedToWindow();
+
+        $r1 = r0.mTabSelector;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke r0.post($r1);
+
+     label1:
+        return;
+    }
+
+    protected void onConfigurationChanged(android.content.res.Configuration)
+    {
+        android.content.Context $r2;
+        android.content.res.Configuration $r1;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.view.ActionBarPolicy $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.onConfigurationChanged($r1);
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $r3 = androidx.appcompat.view.ActionBarPolicy.get($r2);
+
+        $i0 = virtualinvoke $r3.getTabContainerHeight();
+
+        virtualinvoke r0.setContentHeight($i0);
+
+        $i0 = virtualinvoke $r3.getStackedTabMaxWidth();
+
+        r0.mStackedTabMaxWidth = $i0;
+
+        return;
+    }
+
+    public void onDetachedFromWindow()
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onDetachedFromWindow();
+
+        $r1 = r0.mTabSelector;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke r0.removeCallbacks($r1);
+
+     label1:
+        return;
+    }
+
+    public void onItemSelected(android.widget.AdapterView, android.view.View, int, long)
+    {
+        androidx.appcompat.app.ActionBar$Tab $r3;
+        int $i0;
+        android.view.View $r2;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        long $l1;
+        android.widget.AdapterView r1;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabView r4;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $l1 := @parameter3;
+
+        r4 = (androidx.appcompat.widget.ScrollingTabContainerView$TabView) $r2;
+
+        $r3 = virtualinvoke r4.getTab();
+
+        virtualinvoke $r3.select();
+
+        return;
+    }
+
+    public void onMeasure(int, int)
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.LinearLayoutCompat r1;
+        int $i0, $i1, $i2, $i3;
+        float $f0;
+        boolean z0, z1, z2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i1 = android.view.View$MeasureSpec.getMode($i0);
+
+        z0 = 1;
+
+        if $i1 != 1073741824 goto label01;
+
+        z1 = 1;
+
+        goto label02;
+
+     label01:
+        z1 = 0;
+
+     label02:
+        virtualinvoke r0.setFillViewport(z1);
+
+        r1 = r0.mTabLayout;
+
+        $i2 = virtualinvoke r1.getChildCount();
+
+        if $i2 <= 1 goto label06;
+
+        if $i1 == 1073741824 goto label03;
+
+        if $i1 != -2147483648 goto label06;
+
+     label03:
+        if $i2 <= 2 goto label04;
+
+        $i1 = android.view.View$MeasureSpec.getSize($i0);
+
+        $f0 = (float) $i1;
+
+        $f0 = $f0 * 0.4F;
+
+        $i1 = (int) $f0;
+
+        r0.mMaxTabWidth = $i1;
+
+        goto label05;
+
+     label04:
+        $i1 = android.view.View$MeasureSpec.getSize($i0);
+
+        $i1 = $i1 / 2;
+
+        r0.mMaxTabWidth = $i1;
+
+     label05:
+        $i1 = r0.mMaxTabWidth;
+
+        $i2 = r0.mStackedTabMaxWidth;
+
+        $i1 = java.lang.Math.min($i1, $i2);
+
+        r0.mMaxTabWidth = $i1;
+
+        goto label07;
+
+     label06:
+        r0.mMaxTabWidth = -1;
+
+     label07:
+        $i1 = r0.mContentHeight;
+
+        $i1 = android.view.View$MeasureSpec.makeMeasureSpec($i1, 1073741824);
+
+        if z1 != 0 goto label08;
+
+        z2 = r0.mAllowCollapse;
+
+        if z2 == 0 goto label08;
+
+        goto label09;
+
+     label08:
+        z0 = 0;
+
+     label09:
+        if z0 == 0 goto label11;
+
+        r1 = r0.mTabLayout;
+
+        virtualinvoke r1.measure(0, $i1);
+
+        r1 = r0.mTabLayout;
+
+        $i2 = virtualinvoke r1.getMeasuredWidth();
+
+        $i3 = android.view.View$MeasureSpec.getSize($i0);
+
+        if $i2 <= $i3 goto label10;
+
+        specialinvoke r0.performCollapse();
+
+        goto label12;
+
+     label10:
+        specialinvoke r0.performExpand();
+
+        goto label12;
+
+     label11:
+        specialinvoke r0.performExpand();
+
+     label12:
+        $i2 = virtualinvoke r0.getMeasuredWidth();
+
+        specialinvoke r0.onMeasure($i0, $i1);
+
+        $i0 = virtualinvoke r0.getMeasuredWidth();
+
+        if z1 == 0 goto label13;
+
+        if $i2 == $i0 goto label13;
+
+        $i0 = r0.mSelectedTabIndex;
+
+        virtualinvoke r0.setTabSelected($i0);
+
+     label13:
+        return;
+    }
+
+    public void onNothingSelected(android.widget.AdapterView)
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        android.widget.AdapterView r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        return;
+    }
+
+    public void removeAllTabs()
+    {
+        android.widget.SpinnerAdapter $r1;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r4;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+        android.widget.Spinner $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 = r0.mTabLayout;
+
+        virtualinvoke $r2.removeAllViews();
+
+        $r3 = r0.mTabSpinner;
+
+        if $r3 == null goto label1;
+
+        $r1 = virtualinvoke $r3.getAdapter();
+
+        $r4 = (androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter) $r1;
+
+        virtualinvoke $r4.notifyDataSetChanged();
+
+     label1:
+        $z0 = r0.mAllowCollapse;
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.requestLayout();
+
+     label2:
+        return;
+    }
+
+    public void removeTabAt(int)
+    {
+        android.widget.SpinnerAdapter $r1;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r4;
+        androidx.appcompat.widget.LinearLayoutCompat $r2;
+        android.widget.Spinner $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = r0.mTabLayout;
+
+        virtualinvoke $r2.removeViewAt($i0);
+
+        $r3 = r0.mTabSpinner;
+
+        if $r3 == null goto label1;
+
+        $r1 = virtualinvoke $r3.getAdapter();
+
+        $r4 = (androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter) $r1;
+
+        virtualinvoke $r4.notifyDataSetChanged();
+
+     label1:
+        $z0 = r0.mAllowCollapse;
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.requestLayout();
+
+     label2:
+        return;
+    }
+
+    public void setAllowCollapse(boolean)
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mAllowCollapse = $z0;
+
+        return;
+    }
+
+    public void setContentHeight(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mContentHeight = $i0;
+
+        virtualinvoke r0.requestLayout();
+
+        return;
+    }
+
+    public void setTabSelected(int)
+    {
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.LinearLayoutCompat r1;
+        android.widget.Spinner r3;
+        int $i0, $i1, i2;
+        android.view.View $r2;
+        boolean z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mSelectedTabIndex = $i0;
+
+        r1 = r0.mTabLayout;
+
+        $i1 = virtualinvoke r1.getChildCount();
+
+        i2 = 0;
+
+     label1:
+        if i2 >= $i1 goto label5;
+
+        r1 = r0.mTabLayout;
+
+        $r2 = virtualinvoke r1.getChildAt(i2);
+
+        if i2 != $i0 goto label2;
+
+        z0 = 1;
+
+        goto label3;
+
+     label2:
+        z0 = 0;
+
+     label3:
+        virtualinvoke $r2.setSelected(z0);
+
+        if z0 == 0 goto label4;
+
+        virtualinvoke r0.animateToTab($i0);
+
+     label4:
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label5:
+        r3 = r0.mTabSpinner;
+
+        if r3 == null goto label6;
+
+        if $i0 < 0 goto label6;
+
+        virtualinvoke r3.setSelection($i0);
+
+     label6:
+        return;
+    }
+
+    public void updateTab(int)
+    {
+        android.widget.SpinnerAdapter $r5;
+        androidx.appcompat.widget.ScrollingTabContainerView r0;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter $r6;
+        androidx.appcompat.widget.ScrollingTabContainerView$TabView $r3;
+        androidx.appcompat.widget.LinearLayoutCompat $r1;
+        android.widget.Spinner $r4;
+        int $i0;
+        android.view.View $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mTabLayout;
+
+        $r2 = virtualinvoke $r1.getChildAt($i0);
+
+        $r3 = (androidx.appcompat.widget.ScrollingTabContainerView$TabView) $r2;
+
+        virtualinvoke $r3.update();
+
+        $r4 = r0.mTabSpinner;
+
+        if $r4 == null goto label1;
+
+        $r5 = virtualinvoke $r4.getAdapter();
+
+        $r6 = (androidx.appcompat.widget.ScrollingTabContainerView$TabAdapter) $r5;
+
+        virtualinvoke $r6.notifyDataSetChanged();
+
+     label1:
+        $z0 = r0.mAllowCollapse;
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r0.requestLayout();
+
+     label2:
+        return;
+    }
+}

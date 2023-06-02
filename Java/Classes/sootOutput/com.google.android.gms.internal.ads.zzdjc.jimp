@@ -1,0 +1,48 @@
+public final class com.google.android.gms.internal.ads.zzdjc extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public final com.google.android.gms.internal.ads.zzfut zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfut)
+    {
+        com.google.android.gms.internal.ads.zzdjc r0;
+        com.google.android.gms.internal.ads.zzfut $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfut r4;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzcei $r2;
+        com.google.android.gms.internal.ads.zzdjc r0;
+        com.google.android.gms.internal.ads.zzeek $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r4 = r0.zza;
+
+        $r2 = (com.google.android.gms.internal.ads.zzcei) $r1;
+
+        if $r2 == null goto label1;
+
+        return r4;
+
+     label1:
+        $r3 = new com.google.android.gms.internal.ads.zzeek;
+
+        specialinvoke $r3.<init>(1, "Retrieve Web View from image ad response failed.");
+
+        throw $r3;
+    }
+}

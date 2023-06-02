@@ -1,0 +1,370 @@
+class androidx.core.content.FileProvider$SimplePathStrategy extends java.lang.Object implements androidx.core.content.FileProvider$PathStrategy
+{
+    private final java.lang.String mAuthority;
+    private final java.util.HashMap mRoots;
+
+    void <init>(java.lang.String)
+    {
+        java.util.HashMap $r2;
+        java.lang.String $r1;
+        androidx.core.content.FileProvider$SimplePathStrategy r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<init>();
+
+        r0.mRoots = $r2;
+
+        r0.mAuthority = $r1;
+
+        return;
+    }
+
+    void addRoot(java.lang.String, java.io.File)
+    {
+        java.util.HashMap r4;
+        java.io.IOException r5;
+        java.lang.IllegalArgumentException $r6;
+        java.io.File $r2, $r3;
+        androidx.core.content.FileProvider$SimplePathStrategy r0;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        if $z0 != 0 goto label4;
+
+     label1:
+        $r3 = virtualinvoke $r2.getCanonicalFile();
+
+     label2:
+        r4 = r0.mRoots;
+
+        virtualinvoke r4.put($r1, $r3);
+
+        return;
+
+     label3:
+        r5 := @caughtexception;
+
+        $r6 = new java.lang.IllegalArgumentException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        $r7 = virtualinvoke $r7.append("Failed to resolve canonical path for ");
+
+        $r7 = virtualinvoke $r7.append($r2);
+
+        $r1 = virtualinvoke $r7.toString();
+
+        specialinvoke $r6.<init>($r1, r5);
+
+        throw $r6;
+
+     label4:
+        $r6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r6.<init>("Name must not be empty");
+
+        throw $r6;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public java.io.File getFileForUri(android.net.Uri)
+    {
+        android.net.Uri $r1;
+        java.util.HashMap r4;
+        java.io.IOException r10;
+        java.lang.IllegalArgumentException $r11;
+        java.io.File r6, r7, $r8;
+        androidx.core.content.FileProvider$SimplePathStrategy r0;
+        int $i0;
+        java.lang.Object $r5;
+        java.lang.SecurityException r9;
+        java.lang.StringBuilder $r12;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke $r1.getEncodedPath();
+
+        $i0 = virtualinvoke $r2.indexOf(47, 1);
+
+        $r3 = virtualinvoke $r2.substring(1, $i0);
+
+        $r3 = android.net.Uri.decode($r3);
+
+        $i0 = $i0 + 1;
+
+        $r2 = virtualinvoke $r2.substring($i0);
+
+        $r2 = android.net.Uri.decode($r2);
+
+        r4 = r0.mRoots;
+
+        $r5 = virtualinvoke r4.get($r3);
+
+        r6 = (java.io.File) $r5;
+
+        if r6 == null goto label5;
+
+        r7 = new java.io.File;
+
+        specialinvoke r7.<init>(r6, $r2);
+
+     label1:
+        $r8 = virtualinvoke r7.getCanonicalFile();
+
+     label2:
+        $r3 = virtualinvoke $r8.getPath();
+
+        $r2 = virtualinvoke r6.getPath();
+
+        $z0 = virtualinvoke $r3.startsWith($r2);
+
+        if $z0 == 0 goto label3;
+
+        return $r8;
+
+     label3:
+        r9 = new java.lang.SecurityException;
+
+        specialinvoke r9.<init>("Resolved path jumped beyond configured root");
+
+        throw r9;
+
+     label4:
+        r10 := @caughtexception;
+
+        $r11 = new java.lang.IllegalArgumentException;
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<init>();
+
+        $r12 = virtualinvoke $r12.append("Failed to resolve canonical path for ");
+
+        $r12 = virtualinvoke $r12.append(r7);
+
+        $r3 = virtualinvoke $r12.toString();
+
+        specialinvoke $r11.<init>($r3);
+
+        throw $r11;
+
+     label5:
+        $r11 = new java.lang.IllegalArgumentException;
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<init>();
+
+        $r12 = virtualinvoke $r12.append("Unable to find configured root for ");
+
+        $r12 = virtualinvoke $r12.append($r1);
+
+        $r3 = virtualinvoke $r12.toString();
+
+        specialinvoke $r11.<init>($r3);
+
+        throw $r11;
+
+        catch java.io.IOException from label1 to label2 with label4;
+    }
+
+    public android.net.Uri getUriForFile(java.io.File)
+    {
+        android.net.Uri $r12;
+        java.util.HashMap r4;
+        androidx.core.content.FileProvider$SimplePathStrategy r0;
+        int $i0, $i1;
+        java.lang.String $r2, $r9;
+        android.net.Uri$Builder r11;
+        boolean $z0;
+        java.util.Map$Entry r3, r8;
+        java.util.Iterator $r6;
+        java.util.Set $r5;
+        java.io.IOException r14;
+        java.lang.IllegalArgumentException r13;
+        java.io.File $r1;
+        java.lang.Object $r7;
+        java.lang.StringBuilder r10;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+     label01:
+        $r2 = virtualinvoke $r1.getCanonicalPath();
+
+     label02:
+        r3 = null;
+
+        r4 = r0.mRoots;
+
+        $r5 = virtualinvoke r4.entrySet();
+
+        $r6 = interfaceinvoke $r5.iterator();
+
+     label03:
+        $z0 = interfaceinvoke $r6.hasNext();
+
+        if $z0 == 0 goto label05;
+
+        $r7 = interfaceinvoke $r6.next();
+
+        r8 = (java.util.Map$Entry) $r7;
+
+        $r7 = interfaceinvoke r8.getValue();
+
+        $r1 = (java.io.File) $r7;
+
+        $r9 = virtualinvoke $r1.getPath();
+
+        $z0 = virtualinvoke $r2.startsWith($r9);
+
+        if $z0 == 0 goto label03;
+
+        if r3 == null goto label04;
+
+        $i0 = virtualinvoke $r9.length();
+
+        $r7 = interfaceinvoke r3.getValue();
+
+        $r1 = (java.io.File) $r7;
+
+        $r9 = virtualinvoke $r1.getPath();
+
+        $i1 = virtualinvoke $r9.length();
+
+        if $i0 <= $i1 goto label03;
+
+     label04:
+        r3 = r8;
+
+        goto label03;
+
+     label05:
+        if r3 == null goto label08;
+
+        $r7 = interfaceinvoke r3.getValue();
+
+        $r1 = (java.io.File) $r7;
+
+        $r9 = virtualinvoke $r1.getPath();
+
+        $z0 = virtualinvoke $r9.endsWith("/");
+
+        if $z0 == 0 goto label06;
+
+        $i0 = virtualinvoke $r9.length();
+
+        $r2 = virtualinvoke $r2.substring($i0);
+
+        goto label07;
+
+     label06:
+        $i0 = virtualinvoke $r9.length();
+
+        $i0 = $i0 + 1;
+
+        $r2 = virtualinvoke $r2.substring($i0);
+
+     label07:
+        r10 = new java.lang.StringBuilder;
+
+        specialinvoke r10.<init>();
+
+        $r7 = interfaceinvoke r3.getKey();
+
+        $r9 = (java.lang.String) $r7;
+
+        $r9 = android.net.Uri.encode($r9);
+
+        r10 = virtualinvoke r10.append($r9);
+
+        r10 = virtualinvoke r10.append(47);
+
+        $r2 = android.net.Uri.encode($r2, "/");
+
+        r10 = virtualinvoke r10.append($r2);
+
+        $r2 = virtualinvoke r10.toString();
+
+        r11 = new android.net.Uri$Builder;
+
+        specialinvoke r11.<init>();
+
+        r11 = virtualinvoke r11.scheme("content");
+
+        $r9 = r0.mAuthority;
+
+        r11 = virtualinvoke r11.authority($r9);
+
+        r11 = virtualinvoke r11.encodedPath($r2);
+
+        $r12 = virtualinvoke r11.build();
+
+        return $r12;
+
+     label08:
+        r13 = new java.lang.IllegalArgumentException;
+
+        r10 = new java.lang.StringBuilder;
+
+        specialinvoke r10.<init>();
+
+        r10 = virtualinvoke r10.append("Failed to find configured root that contains ");
+
+        r10 = virtualinvoke r10.append($r2);
+
+        $r2 = virtualinvoke r10.toString();
+
+        specialinvoke r13.<init>($r2);
+
+        throw r13;
+
+     label09:
+        r14 := @caughtexception;
+
+        r13 = new java.lang.IllegalArgumentException;
+
+        r10 = new java.lang.StringBuilder;
+
+        specialinvoke r10.<init>();
+
+        r10 = virtualinvoke r10.append("Failed to resolve canonical path for ");
+
+        r10 = virtualinvoke r10.append($r1);
+
+        $r2 = virtualinvoke r10.toString();
+
+        specialinvoke r13.<init>($r2);
+
+        goto label10;
+
+     label10:
+        throw r13;
+
+        catch java.io.IOException from label01 to label02 with label09;
+    }
+}

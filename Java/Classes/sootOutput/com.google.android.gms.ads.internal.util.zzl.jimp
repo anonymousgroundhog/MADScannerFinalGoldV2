@@ -1,0 +1,40 @@
+public final class com.google.android.gms.ads.internal.util.zzl extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final android.net.Uri zza;
+
+    public void <init>(android.net.Uri)
+    {
+        android.net.Uri $r1;
+        com.google.android.gms.ads.internal.util.zzl r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.ads.internal.util.zzl r0;
+        java.util.Map $r2;
+        android.net.Uri $r3;
+        com.google.android.gms.internal.ads.zzfkr $r1;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r1 = com.google.android.gms.ads.internal.util.zzs.zza;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r2 = com.google.android.gms.ads.internal.util.zzs.zzL($r3);
+
+        return $r2;
+    }
+}

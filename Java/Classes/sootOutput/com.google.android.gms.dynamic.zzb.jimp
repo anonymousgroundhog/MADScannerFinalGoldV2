@@ -1,0 +1,17 @@
+public final class com.google.android.gms.dynamic.zzb extends com.google.android.gms.internal.common.zza implements com.google.android.gms.dynamic.IObjectWrapper
+{
+
+    void <init>(android.os.IBinder)
+    {
+        com.google.android.gms.dynamic.zzb r0;
+        android.os.IBinder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, "com.google.android.gms.dynamic.IObjectWrapper");
+
+        return;
+    }
+}

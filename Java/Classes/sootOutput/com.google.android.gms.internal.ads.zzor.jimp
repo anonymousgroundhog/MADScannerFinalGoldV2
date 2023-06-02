@@ -1,0 +1,20 @@
+final class com.google.android.gms.internal.ads.zzor extends java.lang.Object
+{
+    public final android.media.AudioDeviceInfo zza;
+
+    public void <init>(android.media.AudioDeviceInfo)
+    {
+        android.media.AudioDeviceInfo $r1;
+        com.google.android.gms.internal.ads.zzor r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+}

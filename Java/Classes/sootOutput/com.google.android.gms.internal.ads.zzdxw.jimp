@@ -1,0 +1,49 @@
+public final class com.google.android.gms.internal.ads.zzdxw extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public final com.google.android.gms.internal.ads.zzeqw zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzeqw)
+    {
+        com.google.android.gms.internal.ads.zzdxw r0;
+        com.google.android.gms.internal.ads.zzeqw $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        java.lang.Void $r3;
+        org.json.JSONObject $r5;
+        com.google.android.gms.internal.ads.zzepq $r4;
+        com.google.android.gms.internal.ads.zzfut $r6;
+        com.google.android.gms.internal.ads.zzdxw r0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzeqw $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = (java.lang.Void) $r1;
+
+        $r4 = virtualinvoke $r2.zza();
+
+        $r5 = new org.json.JSONObject;
+
+        specialinvoke $r5.<init>();
+
+        $r6 = virtualinvoke $r4.zza($r5);
+
+        return $r6;
+    }
+}

@@ -1,0 +1,74 @@
+public class androidx.core.util.DebugUtils extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.util.DebugUtils r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void buildShortClassTag(java.lang.Object, java.lang.StringBuilder)
+    {
+        int $i0;
+        java.lang.Object $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3, r4;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r0 != null goto label1;
+
+        virtualinvoke $r1.append("null");
+
+        return;
+
+     label1:
+        $r2 = virtualinvoke $r0.getClass();
+
+        $r3 = virtualinvoke $r2.getSimpleName();
+
+        r4 = $r3;
+
+        if $r3 == null goto label2;
+
+        $i0 = virtualinvoke $r3.length();
+
+        if $i0 > 0 goto label3;
+
+     label2:
+        $r2 = virtualinvoke $r0.getClass();
+
+        $r3 = virtualinvoke $r2.getName();
+
+        r4 = $r3;
+
+        $i0 = virtualinvoke $r3.lastIndexOf(46);
+
+        if $i0 <= 0 goto label3;
+
+        $i0 = $i0 + 1;
+
+        r4 = virtualinvoke $r3.substring($i0);
+
+     label3:
+        virtualinvoke $r1.append(r4);
+
+        virtualinvoke $r1.append(123);
+
+        $i0 = java.lang.System.identityHashCode($r0);
+
+        r4 = java.lang.Integer.toHexString($i0);
+
+        virtualinvoke $r1.append(r4);
+
+        return;
+    }
+}

@@ -1,0 +1,1094 @@
+public class androidx.work.impl.Processor extends java.lang.Object implements androidx.work.impl.ExecutionListener, androidx.work.impl.foreground.ForegroundProcessor
+{
+    private static final java.lang.String FOREGROUND_WAKELOCK_TAG;
+    private static final java.lang.String TAG;
+    private android.content.Context mAppContext;
+    private java.util.Set mCancelledIds;
+    private androidx.work.Configuration mConfiguration;
+    private java.util.Map mEnqueuedWorkMap;
+    private android.os.PowerManager$WakeLock mForegroundLock;
+    private java.util.Map mForegroundWorkMap;
+    private final java.lang.Object mLock;
+    private final java.util.List mOuterListeners;
+    private java.util.List mSchedulers;
+    private androidx.work.impl.WorkDatabase mWorkDatabase;
+    private androidx.work.impl.utils.taskexecutor.TaskExecutor mWorkTaskExecutor;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = androidx.work.Logger.tagWithPrefix("Processor");
+
+        androidx.work.impl.Processor.TAG = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, androidx.work.Configuration, androidx.work.impl.utils.taskexecutor.TaskExecutor, androidx.work.impl.WorkDatabase, java.util.List)
+    {
+        android.content.Context $r1;
+        java.util.HashMap $r6;
+        androidx.work.impl.Processor r0;
+        java.util.ArrayList $r8;
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r3;
+        java.util.HashSet $r7;
+        androidx.work.Configuration $r2;
+        java.util.List r5;
+        androidx.work.impl.WorkDatabase $r4;
+        java.lang.Object $r9;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r5 := @parameter4;
+
+        specialinvoke r0.<init>();
+
+        r0.mAppContext = $r1;
+
+        r0.mConfiguration = $r2;
+
+        r0.mWorkTaskExecutor = $r3;
+
+        r0.mWorkDatabase = $r4;
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<init>();
+
+        r0.mEnqueuedWorkMap = $r6;
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<init>();
+
+        r0.mForegroundWorkMap = $r6;
+
+        r0.mSchedulers = r5;
+
+        $r7 = new java.util.HashSet;
+
+        specialinvoke $r7.<init>();
+
+        r0.mCancelledIds = $r7;
+
+        $r8 = new java.util.ArrayList;
+
+        specialinvoke $r8.<init>();
+
+        r0.mOuterListeners = $r8;
+
+        r0.mForegroundLock = null;
+
+        $r9 = new java.lang.Object;
+
+        specialinvoke $r9.<init>();
+
+        r0.mLock = $r9;
+
+        return;
+    }
+
+    private static boolean interrupt(java.lang.String, androidx.work.impl.WorkerWrapper)
+    {
+        androidx.work.Logger $r2;
+        java.lang.Object[] $r4;
+        java.lang.Throwable[] $r5;
+        androidx.work.impl.WorkerWrapper $r1;
+        java.lang.String $r0, $r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.interrupt();
+
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.Processor.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r4[0] = $r0;
+
+        $r0 = java.lang.String.format("WorkerWrapper interrupted for %s", $r4);
+
+        $r5 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.debug($r3, $r0, $r5);
+
+        return 1;
+
+     label1:
+        $r2 = androidx.work.Logger.get();
+
+        $r3 = androidx.work.impl.Processor.TAG;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r4[0] = $r0;
+
+        $r0 = java.lang.String.format("WorkerWrapper could not be found for %s", $r4);
+
+        $r5 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r2.debug($r3, $r0, $r5);
+
+        return 0;
+    }
+
+    private void stopForegroundService()
+    {
+        java.lang.Throwable r6, r10;
+        android.content.Context r4;
+        android.content.Intent $r5;
+        androidx.work.impl.Processor r0;
+        android.os.PowerManager$WakeLock $r9;
+        androidx.work.Logger $r7;
+        java.util.Map r3;
+        java.lang.Throwable[] $r8;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mLock;
+
+        entermonitor $r1;
+
+     label01:
+        r3 = r0.mForegroundWorkMap;
+
+        $z0 = interfaceinvoke r3.isEmpty();
+
+        $z0 = $z0 ^ 1;
+
+        if $z0 != 0 goto label07;
+
+        r4 = r0.mAppContext;
+
+        $r5 = androidx.work.impl.foreground.SystemForegroundDispatcher.createStopForegroundIntent(r4);
+
+     label02:
+        r4 = r0.mAppContext;
+
+        virtualinvoke r4.startService($r5);
+
+     label03:
+        goto label06;
+
+     label04:
+        r6 := @caughtexception;
+
+     label05:
+        $r7 = androidx.work.Logger.get();
+
+        $r2 = androidx.work.impl.Processor.TAG;
+
+        $r8 = newarray (java.lang.Throwable)[1];
+
+        $r8[0] = r6;
+
+        virtualinvoke $r7.error($r2, "Unable to stop foreground service", $r8);
+
+     label06:
+        $r9 = r0.mForegroundLock;
+
+        if $r9 == null goto label07;
+
+        virtualinvoke $r9.release();
+
+        r0.mForegroundLock = null;
+
+     label07:
+        exitmonitor $r1;
+
+     label08:
+        return;
+
+     label09:
+        r10 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label10:
+        throw r10;
+
+        catch java.lang.Throwable from label01 to label02 with label09;
+        catch java.lang.Throwable from label02 to label03 with label04;
+        catch java.lang.Throwable from label05 to label08 with label09;
+        catch java.lang.Throwable from label09 to label10 with label09;
+    }
+
+    public void addExecutionListener(androidx.work.impl.ExecutionListener)
+    {
+        java.lang.Throwable $r4;
+        java.util.List $r3;
+        androidx.work.impl.ExecutionListener $r1;
+        java.lang.Object $r2;
+        androidx.work.impl.Processor r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mOuterListeners;
+
+        interfaceinvoke $r3.add($r1);
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public boolean hasWork()
+    {
+        java.lang.Throwable $r3;
+        java.util.Map $r2;
+        java.lang.Object $r1;
+        androidx.work.impl.Processor r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mLock;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = r0.mEnqueuedWorkMap;
+
+        $z0 = interfaceinvoke $r2.isEmpty();
+
+        if $z0 == 0 goto label3;
+
+        $r2 = r0.mForegroundWorkMap;
+
+        $z0 = interfaceinvoke $r2.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+        goto label4;
+
+     label3:
+        $z0 = 1;
+
+     label4:
+        exitmonitor $r1;
+
+     label5:
+        return $z0;
+
+     label6:
+        $r3 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label7:
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+        catch java.lang.Throwable from label6 to label7 with label6;
+    }
+
+    public boolean isCancelled(java.lang.String)
+    {
+        java.lang.Throwable $r4;
+        java.util.Set $r3;
+        java.lang.Object $r2;
+        java.lang.String $r1;
+        androidx.work.impl.Processor r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mCancelledIds;
+
+        $z0 = interfaceinvoke $r3.contains($r1);
+
+        exitmonitor $r2;
+
+     label2:
+        return $z0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public boolean isEnqueued(java.lang.String)
+    {
+        java.lang.Throwable $r4;
+        java.util.Map $r3;
+        java.lang.Object $r2;
+        java.lang.String $r1;
+        androidx.work.impl.Processor r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mEnqueuedWorkMap;
+
+        $z0 = interfaceinvoke $r3.containsKey($r1);
+
+        if $z0 != 0 goto label3;
+
+        $r3 = r0.mForegroundWorkMap;
+
+        $z0 = interfaceinvoke $r3.containsKey($r1);
+
+        if $z0 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+        goto label4;
+
+     label3:
+        $z0 = 1;
+
+     label4:
+        exitmonitor $r2;
+
+     label5:
+        return $z0;
+
+     label6:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label7:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+        catch java.lang.Throwable from label6 to label7 with label6;
+    }
+
+    public boolean isEnqueuedInForeground(java.lang.String)
+    {
+        java.lang.Throwable $r4;
+        java.util.Map $r3;
+        java.lang.Object $r2;
+        java.lang.String $r1;
+        androidx.work.impl.Processor r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mForegroundWorkMap;
+
+        $z0 = interfaceinvoke $r3.containsKey($r1);
+
+        exitmonitor $r2;
+
+     label2:
+        return $z0;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void onExecuted(java.lang.String, boolean)
+    {
+        java.lang.Throwable $r15;
+        java.lang.Object[] $r6;
+        androidx.work.impl.Processor r0;
+        androidx.work.Logger $r4;
+        java.util.Map $r3;
+        java.lang.Boolean $r9;
+        java.lang.String $r1, r5, $r8;
+        boolean $z0, $z1;
+        java.util.Iterator $r12;
+        java.util.List $r11;
+        java.lang.Throwable[] $r10;
+        java.lang.Object $r2, $r13;
+        java.lang.Class $r7;
+        androidx.work.impl.ExecutionListener r14;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mEnqueuedWorkMap;
+
+        interfaceinvoke $r3.remove($r1);
+
+        $r4 = androidx.work.Logger.get();
+
+        r5 = androidx.work.impl.Processor.TAG;
+
+        $r6 = newarray (java.lang.Object)[3];
+
+        $r7 = virtualinvoke r0.getClass();
+
+        $r8 = virtualinvoke $r7.getSimpleName();
+
+        $r6[0] = $r8;
+
+        $r6[1] = $r1;
+
+        $r9 = java.lang.Boolean.valueOf($z0);
+
+        $r6[2] = $r9;
+
+        $r8 = java.lang.String.format("%s %s executed; reschedule = %s", $r6);
+
+        $r10 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r4.debug(r5, $r8, $r10);
+
+        $r11 = r0.mOuterListeners;
+
+        $r12 = interfaceinvoke $r11.iterator();
+
+     label2:
+        $z1 = interfaceinvoke $r12.hasNext();
+
+        if $z1 == 0 goto label3;
+
+        $r13 = interfaceinvoke $r12.next();
+
+        r14 = (androidx.work.impl.ExecutionListener) $r13;
+
+        interfaceinvoke r14.onExecuted($r1, $z0);
+
+        goto label2;
+
+     label3:
+        exitmonitor $r2;
+
+     label4:
+        return;
+
+     label5:
+        $r15 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label6:
+        goto label7;
+
+     label7:
+        throw $r15;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public void removeExecutionListener(androidx.work.impl.ExecutionListener)
+    {
+        java.lang.Throwable $r4;
+        java.util.List $r3;
+        androidx.work.impl.ExecutionListener $r1;
+        java.lang.Object $r2;
+        androidx.work.impl.Processor r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mOuterListeners;
+
+        interfaceinvoke $r3.remove($r1);
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void startForeground(java.lang.String, androidx.work.ForegroundInfo)
+    {
+        java.lang.Throwable r15;
+        android.content.Context r13;
+        java.lang.Object[] $r6;
+        android.content.Intent $r14;
+        androidx.work.impl.Processor r0;
+        androidx.work.Logger $r4;
+        androidx.work.ForegroundInfo $r2;
+        java.util.Map r9;
+        java.lang.String $r1, r5, $r7;
+        android.os.PowerManager$WakeLock r12;
+        java.lang.Throwable[] $r8;
+        androidx.work.impl.WorkerWrapper r11;
+        java.lang.Object $r3, $r10;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.mLock;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = androidx.work.Logger.get();
+
+        r5 = androidx.work.impl.Processor.TAG;
+
+        $r6 = newarray (java.lang.Object)[1];
+
+        $r6[0] = $r1;
+
+        $r7 = java.lang.String.format("Moving WorkSpec (%s) to the foreground", $r6);
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r4.info(r5, $r7, $r8);
+
+        r9 = r0.mEnqueuedWorkMap;
+
+        $r10 = interfaceinvoke r9.remove($r1);
+
+        r11 = (androidx.work.impl.WorkerWrapper) $r10;
+
+        if r11 == null goto label3;
+
+        r12 = r0.mForegroundLock;
+
+        if r12 != null goto label2;
+
+        r13 = r0.mAppContext;
+
+        r12 = androidx.work.impl.utils.WakeLocks.newWakeLock(r13, "ProcessorForegroundLck");
+
+        r0.mForegroundLock = r12;
+
+        virtualinvoke r12.acquire();
+
+     label2:
+        r9 = r0.mForegroundWorkMap;
+
+        interfaceinvoke r9.put($r1, r11);
+
+        r13 = r0.mAppContext;
+
+        $r14 = androidx.work.impl.foreground.SystemForegroundDispatcher.createStartForegroundIntent(r13, $r1, $r2);
+
+        r13 = r0.mAppContext;
+
+        androidx.core.content.ContextCompat.startForegroundService(r13, $r14);
+
+     label3:
+        exitmonitor $r3;
+
+     label4:
+        return;
+
+     label5:
+        r15 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label6:
+        throw r15;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public boolean startWork(java.lang.String)
+    {
+        java.lang.String $r1;
+        androidx.work.impl.Processor r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke r0.startWork($r1, null);
+
+        return $z0;
+    }
+
+    public boolean startWork(java.lang.String, androidx.work.WorkerParameters$RuntimeExtras)
+    {
+        java.lang.Throwable r22;
+        android.content.Context $r10;
+        java.lang.Object[] $r7;
+        com.google.common.util.concurrent.ListenableFuture $r15;
+        androidx.work.impl.Processor r0;
+        androidx.work.WorkerParameters$RuntimeExtras $r2;
+        androidx.work.Logger $r5;
+        androidx.work.Configuration $r11;
+        androidx.work.impl.WorkDatabase $r3;
+        java.util.Map $r18;
+        java.lang.String $r1, r6, $r21;
+        boolean $z0;
+        androidx.work.impl.WorkerWrapper$Builder r9;
+        java.util.concurrent.Executor $r17;
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r12;
+        java.util.List r13;
+        java.lang.Throwable[] $r8;
+        androidx.work.impl.WorkerWrapper $r14;
+        java.lang.Object $r4;
+        androidx.work.impl.Processor$FutureListener $r16;
+        androidx.work.impl.utils.SerialExecutor $r19;
+        java.lang.Class $r20;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r4 = r0.mLock;
+
+        entermonitor $r4;
+
+     label1:
+        $z0 = virtualinvoke r0.isEnqueued($r1);
+
+        if $z0 == 0 goto label3;
+
+        $r5 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.Processor.TAG;
+
+        $r7 = newarray (java.lang.Object)[1];
+
+        $r7[0] = $r1;
+
+        $r1 = java.lang.String.format("Work %s is already enqueued for processing", $r7);
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r5.debug(r6, $r1, $r8);
+
+        exitmonitor $r4;
+
+     label2:
+        return 0;
+
+     label3:
+        r9 = new androidx.work.impl.WorkerWrapper$Builder;
+
+        $r10 = r0.mAppContext;
+
+        $r11 = r0.mConfiguration;
+
+        $r12 = r0.mWorkTaskExecutor;
+
+        $r3 = r0.mWorkDatabase;
+
+        specialinvoke r9.<init>($r10, $r11, $r12, r0, $r3, $r1);
+
+        r13 = r0.mSchedulers;
+
+        r9 = virtualinvoke r9.withSchedulers(r13);
+
+        r9 = virtualinvoke r9.withRuntimeExtras($r2);
+
+        $r14 = virtualinvoke r9.build();
+
+        $r15 = virtualinvoke $r14.getFuture();
+
+        $r16 = new androidx.work.impl.Processor$FutureListener;
+
+        specialinvoke $r16.<init>(r0, $r1, $r15);
+
+        $r12 = r0.mWorkTaskExecutor;
+
+        $r17 = interfaceinvoke $r12.getMainThreadExecutor();
+
+        interfaceinvoke $r15.addListener($r16, $r17);
+
+        $r18 = r0.mEnqueuedWorkMap;
+
+        interfaceinvoke $r18.put($r1, $r14);
+
+        exitmonitor $r4;
+
+     label4:
+        $r12 = r0.mWorkTaskExecutor;
+
+        $r19 = interfaceinvoke $r12.getBackgroundExecutor();
+
+        virtualinvoke $r19.execute($r14);
+
+        $r5 = androidx.work.Logger.get();
+
+        r6 = androidx.work.impl.Processor.TAG;
+
+        $r7 = newarray (java.lang.Object)[2];
+
+        $r20 = virtualinvoke r0.getClass();
+
+        $r21 = virtualinvoke $r20.getSimpleName();
+
+        $r7[0] = $r21;
+
+        $r7[1] = $r1;
+
+        $r1 = java.lang.String.format("%s: processing %s", $r7);
+
+        $r8 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r5.debug(r6, $r1, $r8);
+
+        return 1;
+
+     label5:
+        r22 := @caughtexception;
+
+     label6:
+        exitmonitor $r4;
+
+     label7:
+        throw r22;
+
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label6 to label7 with label5;
+    }
+
+    public boolean stopAndCancelWork(java.lang.String)
+    {
+        java.lang.Throwable r12;
+        java.lang.Object[] $r5;
+        java.util.Set r8;
+        androidx.work.impl.Processor r0;
+        androidx.work.Logger $r3;
+        java.lang.Throwable[] $r7;
+        java.util.Map r9;
+        androidx.work.impl.WorkerWrapper r11;
+        java.lang.Object $r2, $r10;
+        java.lang.String $r1, r4, $r6;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = androidx.work.Logger.get();
+
+        r4 = androidx.work.impl.Processor.TAG;
+
+        $z0 = 1;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r5[0] = $r1;
+
+        $r6 = java.lang.String.format("Processor cancelling %s", $r5);
+
+        $r7 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug(r4, $r6, $r7);
+
+        r8 = r0.mCancelledIds;
+
+        interfaceinvoke r8.add($r1);
+
+        r9 = r0.mForegroundWorkMap;
+
+        $r10 = interfaceinvoke r9.remove($r1);
+
+        r11 = (androidx.work.impl.WorkerWrapper) $r10;
+
+        if r11 == null goto label2;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        if r11 != null goto label4;
+
+        r9 = r0.mEnqueuedWorkMap;
+
+        $r10 = interfaceinvoke r9.remove($r1);
+
+        r11 = (androidx.work.impl.WorkerWrapper) $r10;
+
+     label4:
+        $z1 = androidx.work.impl.Processor.interrupt($r1, r11);
+
+        if $z0 == 0 goto label5;
+
+        specialinvoke r0.stopForegroundService();
+
+     label5:
+        exitmonitor $r2;
+
+     label6:
+        return $z1;
+
+     label7:
+        r12 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label8:
+        throw r12;
+
+        catch java.lang.Throwable from label1 to label6 with label7;
+        catch java.lang.Throwable from label7 to label8 with label7;
+    }
+
+    public void stopForeground(java.lang.String)
+    {
+        java.lang.Throwable $r4;
+        java.util.Map $r3;
+        java.lang.Object $r2;
+        java.lang.String $r1;
+        androidx.work.impl.Processor r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = r0.mForegroundWorkMap;
+
+        interfaceinvoke $r3.remove($r1);
+
+        specialinvoke r0.stopForegroundService();
+
+        exitmonitor $r2;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public boolean stopForegroundWork(java.lang.String)
+    {
+        java.lang.Throwable r11;
+        java.lang.Object[] $r5;
+        androidx.work.impl.Processor r0;
+        androidx.work.Logger $r3;
+        java.lang.Throwable[] $r7;
+        java.util.Map r8;
+        androidx.work.impl.WorkerWrapper r10;
+        java.lang.Object $r2, $r9;
+        java.lang.String $r1, $r4, $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = androidx.work.Logger.get();
+
+        $r4 = androidx.work.impl.Processor.TAG;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r5[0] = $r1;
+
+        $r6 = java.lang.String.format("Processor stopping foreground work %s", $r5);
+
+        $r7 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug($r4, $r6, $r7);
+
+        r8 = r0.mForegroundWorkMap;
+
+        $r9 = interfaceinvoke r8.remove($r1);
+
+        r10 = (androidx.work.impl.WorkerWrapper) $r9;
+
+        $z0 = androidx.work.impl.Processor.interrupt($r1, r10);
+
+        exitmonitor $r2;
+
+     label2:
+        return $z0;
+
+     label3:
+        r11 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw r11;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public boolean stopWork(java.lang.String)
+    {
+        java.lang.Throwable r11;
+        java.lang.Object[] $r5;
+        androidx.work.impl.Processor r0;
+        androidx.work.Logger $r3;
+        java.lang.Throwable[] $r7;
+        java.util.Map r8;
+        androidx.work.impl.WorkerWrapper r10;
+        java.lang.Object $r2, $r9;
+        java.lang.String $r1, $r4, $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mLock;
+
+        entermonitor $r2;
+
+     label1:
+        $r3 = androidx.work.Logger.get();
+
+        $r4 = androidx.work.impl.Processor.TAG;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r5[0] = $r1;
+
+        $r6 = java.lang.String.format("Processor stopping background work %s", $r5);
+
+        $r7 = newarray (java.lang.Throwable)[0];
+
+        virtualinvoke $r3.debug($r4, $r6, $r7);
+
+        r8 = r0.mEnqueuedWorkMap;
+
+        $r9 = interfaceinvoke r8.remove($r1);
+
+        r10 = (androidx.work.impl.WorkerWrapper) $r9;
+
+        $z0 = androidx.work.impl.Processor.interrupt($r1, r10);
+
+        exitmonitor $r2;
+
+     label2:
+        return $z0;
+
+     label3:
+        r11 := @caughtexception;
+
+        exitmonitor $r2;
+
+     label4:
+        throw r11;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+}

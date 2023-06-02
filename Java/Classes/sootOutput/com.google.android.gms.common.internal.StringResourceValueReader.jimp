@@ -1,0 +1,63 @@
+public class com.google.android.gms.common.internal.StringResourceValueReader extends java.lang.Object
+{
+    private final android.content.res.Resources zza;
+    private final java.lang.String zzb;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        int $i0;
+        com.google.android.gms.common.internal.StringResourceValueReader r0;
+        java.lang.String $r3;
+        android.content.res.Resources $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1);
+
+        $r2 = virtualinvoke $r1.getResources();
+
+        r0.zza = $r2;
+
+        $i0 = com.google.android.gms.common.R$string.common_google_play_services_unknown_issue;
+
+        $r3 = virtualinvoke $r2.getResourcePackageName($i0);
+
+        r0.zzb = $r3;
+
+        return;
+    }
+
+    public java.lang.String getString(java.lang.String)
+    {
+        int $i0;
+        com.google.android.gms.common.internal.StringResourceValueReader r0;
+        java.lang.String $r1, $r2;
+        android.content.res.Resources $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $i0 = virtualinvoke $r3.getIdentifier($r2, "string", $r1);
+
+        if $i0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r3 = r0.zza;
+
+        $r2 = virtualinvoke $r3.getString($i0);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,42 @@
+class androidx.core.view.ViewCompat$Api29Impl extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.view.ViewCompat$Api29Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void saveAttributeDataForStyleable(android.view.View, android.content.Context, int[], android.util.AttributeSet, android.content.res.TypedArray, int, int)
+    {
+        android.content.Context $r1;
+        android.util.AttributeSet $r3;
+        int[] $r2;
+        int $i0, $i1;
+        android.view.View $r0;
+        android.content.res.TypedArray $r4;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 := @parameter4;
+
+        $i0 := @parameter5;
+
+        $i1 := @parameter6;
+
+        virtualinvoke $r0.saveAttributeDataForStyleable($r1, $r2, $r3, $r4, $i0, $i1);
+
+        return;
+    }
+}

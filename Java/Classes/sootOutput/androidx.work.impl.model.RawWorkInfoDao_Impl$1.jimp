@@ -1,0 +1,335 @@
+class androidx.work.impl.model.RawWorkInfoDao_Impl$1 extends java.lang.Object implements java.util.concurrent.Callable
+{
+    final androidx.work.impl.model.RawWorkInfoDao_Impl this$0;
+    final androidx.sqlite.db.SupportSQLiteQuery val$_internalQuery;
+
+    void <init>(androidx.work.impl.model.RawWorkInfoDao_Impl, androidx.sqlite.db.SupportSQLiteQuery)
+    {
+        androidx.work.impl.model.RawWorkInfoDao_Impl$1 r0;
+        androidx.work.impl.model.RawWorkInfoDao_Impl $r1;
+        androidx.sqlite.db.SupportSQLiteQuery $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        r0.val$_internalQuery = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public volatile java.lang.Object call() throws java.lang.Exception
+    {
+        androidx.work.impl.model.RawWorkInfoDao_Impl$1 r0;
+        java.util.List $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.call();
+
+        return $r1;
+    }
+
+    public java.util.List call() throws java.lang.Exception
+    {
+        java.lang.Throwable r16;
+        byte[] $r14;
+        androidx.work.impl.model.RawWorkInfoDao_Impl r3;
+        java.util.ArrayList r9, r10, r11, $r18;
+        int $i0, $i1, $i2, $i3, $i4;
+        androidx.work.impl.model.RawWorkInfoDao_Impl$1 r0;
+        java.lang.String $r7;
+        androidx.work.Data $r15;
+        androidx.collection.ArrayMap r1, r2, $r17;
+        android.database.Cursor $r6;
+        boolean $z0;
+        androidx.work.impl.model.WorkSpec$WorkInfoPojo r12, $r19;
+        androidx.room.RoomDatabase $r4;
+        androidx.sqlite.db.SupportSQLiteQuery r5;
+        androidx.work.WorkInfo$State $r13;
+        java.lang.Object $r8;
+
+        r0 := @this;
+
+        r3 = r0.this$0;
+
+        $r4 = androidx.work.impl.model.RawWorkInfoDao_Impl.access$000(r3);
+
+        r5 = r0.val$_internalQuery;
+
+        $r6 = androidx.room.util.DBUtil.query($r4, r5, 1, null);
+
+     label01:
+        $i0 = androidx.room.util.CursorUtil.getColumnIndex($r6, "id");
+
+        $i1 = androidx.room.util.CursorUtil.getColumnIndex($r6, "state");
+
+        $i2 = androidx.room.util.CursorUtil.getColumnIndex($r6, "output");
+
+        $i3 = androidx.room.util.CursorUtil.getColumnIndex($r6, "run_attempt_count");
+
+        r2 = new androidx.collection.ArrayMap;
+
+     label02:
+        r1 = r2;
+
+     label03:
+        specialinvoke r2.<init>();
+
+        $r17 = new androidx.collection.ArrayMap;
+
+     label04:
+        r2 = $r17;
+
+     label05:
+        specialinvoke $r17.<init>();
+
+     label06:
+        $z0 = interfaceinvoke $r6.moveToNext();
+
+     label07:
+        if $z0 == 0 goto label23;
+
+     label08:
+        $z0 = interfaceinvoke $r6.isNull($i0);
+
+     label09:
+        if $z0 != 0 goto label15;
+
+     label10:
+        $r7 = interfaceinvoke $r6.getString($i0);
+
+        $r8 = virtualinvoke r1.get($r7);
+
+        r9 = (java.util.ArrayList) $r8;
+
+     label11:
+        if r9 != null goto label15;
+
+     label12:
+        r10 = new java.util.ArrayList;
+
+     label13:
+        r9 = r10;
+
+     label14:
+        specialinvoke r10.<init>();
+
+        virtualinvoke r1.put($r7, r9);
+
+     label15:
+        $z0 = interfaceinvoke $r6.isNull($i0);
+
+     label16:
+        if $z0 != 0 goto label06;
+
+     label17:
+        $r7 = interfaceinvoke $r6.getString($i0);
+
+        $r8 = virtualinvoke r2.get($r7);
+
+        r9 = (java.util.ArrayList) $r8;
+
+     label18:
+        if r9 != null goto label06;
+
+     label19:
+        r10 = new java.util.ArrayList;
+
+     label20:
+        r9 = r10;
+
+     label21:
+        specialinvoke r10.<init>();
+
+        virtualinvoke r2.put($r7, r9);
+
+     label22:
+        goto label06;
+
+     label23:
+        interfaceinvoke $r6.moveToPosition(-1);
+
+        r3 = r0.this$0;
+
+        androidx.work.impl.model.RawWorkInfoDao_Impl.access$100(r3, r1);
+
+        r3 = r0.this$0;
+
+        androidx.work.impl.model.RawWorkInfoDao_Impl.access$200(r3, r2);
+
+        r10 = new java.util.ArrayList;
+
+     label24:
+        r9 = r10;
+
+     label25:
+        $i4 = interfaceinvoke $r6.getCount();
+
+        specialinvoke r10.<init>($i4);
+
+     label26:
+        $z0 = interfaceinvoke $r6.moveToNext();
+
+     label27:
+        if $z0 == 0 goto label56;
+
+        r10 = null;
+
+     label28:
+        $z0 = interfaceinvoke $r6.isNull($i0);
+
+     label29:
+        if $z0 != 0 goto label31;
+
+     label30:
+        $r7 = interfaceinvoke $r6.getString($i0);
+
+        $r8 = virtualinvoke r1.get($r7);
+
+        r10 = (java.util.ArrayList) $r8;
+
+     label31:
+        if r10 != null goto label35;
+
+     label32:
+        r11 = new java.util.ArrayList;
+
+     label33:
+        specialinvoke r11.<init>();
+
+     label34:
+        r10 = r11;
+
+     label35:
+        r11 = null;
+
+     label36:
+        $z0 = interfaceinvoke $r6.isNull($i0);
+
+     label37:
+        if $z0 != 0 goto label39;
+
+     label38:
+        $r7 = interfaceinvoke $r6.getString($i0);
+
+        $r8 = virtualinvoke r2.get($r7);
+
+        r11 = (java.util.ArrayList) $r8;
+
+     label39:
+        if r11 != null goto label43;
+
+     label40:
+        $r18 = new java.util.ArrayList;
+
+     label41:
+        specialinvoke $r18.<init>();
+
+     label42:
+        r11 = $r18;
+
+     label43:
+        $r19 = new androidx.work.impl.model.WorkSpec$WorkInfoPojo;
+
+     label44:
+        r12 = $r19;
+
+     label45:
+        specialinvoke $r19.<init>();
+
+     label46:
+        if $i0 == -1 goto label48;
+
+     label47:
+        $r7 = interfaceinvoke $r6.getString($i0);
+
+        r12.id = $r7;
+
+     label48:
+        if $i1 == -1 goto label50;
+
+     label49:
+        $i4 = interfaceinvoke $r6.getInt($i1);
+
+        $r13 = androidx.work.impl.model.WorkTypeConverters.intToState($i4);
+
+        r12.state = $r13;
+
+     label50:
+        if $i2 == -1 goto label52;
+
+     label51:
+        $r14 = interfaceinvoke $r6.getBlob($i2);
+
+        $r15 = androidx.work.Data.fromByteArray($r14);
+
+        r12.output = $r15;
+
+     label52:
+        if $i3 == -1 goto label54;
+
+     label53:
+        $i4 = interfaceinvoke $r6.getInt($i3);
+
+        r12.runAttemptCount = $i4;
+
+     label54:
+        r12.tags = r10;
+
+        r12.progress = r11;
+
+        interfaceinvoke r9.add(r12);
+
+     label55:
+        goto label26;
+
+     label56:
+        interfaceinvoke $r6.close();
+
+        return r9;
+
+     label57:
+        r16 := @caughtexception;
+
+        interfaceinvoke $r6.close();
+
+        goto label58;
+
+     label58:
+        throw r16;
+
+        catch java.lang.Throwable from label01 to label02 with label57;
+        catch java.lang.Throwable from label03 to label04 with label57;
+        catch java.lang.Throwable from label05 to label07 with label57;
+        catch java.lang.Throwable from label08 to label09 with label57;
+        catch java.lang.Throwable from label10 to label11 with label57;
+        catch java.lang.Throwable from label12 to label13 with label57;
+        catch java.lang.Throwable from label14 to label16 with label57;
+        catch java.lang.Throwable from label17 to label18 with label57;
+        catch java.lang.Throwable from label19 to label20 with label57;
+        catch java.lang.Throwable from label21 to label22 with label57;
+        catch java.lang.Throwable from label23 to label24 with label57;
+        catch java.lang.Throwable from label25 to label27 with label57;
+        catch java.lang.Throwable from label28 to label29 with label57;
+        catch java.lang.Throwable from label30 to label31 with label57;
+        catch java.lang.Throwable from label32 to label33 with label57;
+        catch java.lang.Throwable from label33 to label34 with label57;
+        catch java.lang.Throwable from label36 to label37 with label57;
+        catch java.lang.Throwable from label38 to label39 with label57;
+        catch java.lang.Throwable from label40 to label41 with label57;
+        catch java.lang.Throwable from label41 to label42 with label57;
+        catch java.lang.Throwable from label43 to label44 with label57;
+        catch java.lang.Throwable from label45 to label46 with label57;
+        catch java.lang.Throwable from label47 to label48 with label57;
+        catch java.lang.Throwable from label49 to label50 with label57;
+        catch java.lang.Throwable from label51 to label52 with label57;
+        catch java.lang.Throwable from label53 to label55 with label57;
+    }
+}

@@ -1,0 +1,81 @@
+final class com.google.android.gms.internal.ads.zzgoa extends java.lang.ThreadLocal
+{
+    final com.google.android.gms.internal.ads.zzgob zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzgob)
+    {
+        com.google.android.gms.internal.ads.zzgob $r1;
+        com.google.android.gms.internal.ads.zzgoa r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    protected final volatile java.lang.Object initialValue()
+    {
+        com.google.android.gms.internal.ads.zzgoa r0;
+        javax.crypto.Mac $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zza();
+
+        return $r1;
+    }
+
+    protected final javax.crypto.Mac zza()
+    {
+        java.lang.IllegalStateException $r8;
+        com.google.android.gms.internal.ads.zzgob $r2;
+        com.google.android.gms.internal.ads.zzgoa r0;
+        javax.crypto.Mac $r5;
+        java.security.Key $r6;
+        java.security.GeneralSecurityException $r7;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.ads.zzgnn $r1;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.internal.ads.zzgnn.zzb;
+
+        $r2 = r0.zza;
+
+     label1:
+        $r3 = com.google.android.gms.internal.ads.zzgob.zzb($r2);
+
+        $r4 = virtualinvoke $r1.zza($r3);
+
+     label2:
+        $r5 = (javax.crypto.Mac) $r4;
+
+        $r2 = r0.zza;
+
+     label3:
+        $r6 = com.google.android.gms.internal.ads.zzgob.zzc($r2);
+
+        virtualinvoke $r5.init($r6);
+
+     label4:
+        return $r5;
+
+     label5:
+        $r7 := @caughtexception;
+
+        $r8 = new java.lang.IllegalStateException;
+
+        specialinvoke $r8.<init>($r7);
+
+        throw $r8;
+
+        catch java.security.GeneralSecurityException from label1 to label2 with label5;
+        catch java.security.GeneralSecurityException from label3 to label4 with label5;
+    }
+}

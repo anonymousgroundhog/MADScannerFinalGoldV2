@@ -1,0 +1,155 @@
+public class com.google.android.gms.common.internal.RootTelemetryConfiguration extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    private final int zza;
+    private final boolean zzb;
+    private final boolean zzc;
+    private final int zzd;
+    private final int zze;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.internal.zzai $r0;
+
+        $r0 = new com.google.android.gms.common.internal.zzai;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.common.internal.RootTelemetryConfiguration.CREATOR = $r0;
+
+        return;
+    }
+
+    public void <init>(int, boolean, boolean, int, int)
+    {
+        int $i0, $i1, $i2;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $i1 := @parameter3;
+
+        $i2 := @parameter4;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $z0;
+
+        r0.zzc = $z1;
+
+        r0.zzd = $i1;
+
+        r0.zze = $i2;
+
+        return;
+    }
+
+    public int getBatchPeriodMillis()
+    {
+        int i0;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+
+        r0 := @this;
+
+        i0 = r0.zzd;
+
+        return i0;
+    }
+
+    public int getMaxMethodInvocationsInBatch()
+    {
+        int i0;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+
+        r0 := @this;
+
+        i0 = r0.zze;
+
+        return i0;
+    }
+
+    public boolean getMethodInvocationTelemetryEnabled()
+    {
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzb;
+
+        return z0;
+    }
+
+    public boolean getMethodTimingTelemetryEnabled()
+    {
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzc;
+
+        return z0;
+    }
+
+    public int getVersion()
+    {
+        int i0;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+
+        r0 := @this;
+
+        i0 = r0.zza;
+
+        return i0;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        int $i0, $i1;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration r0;
+        android.os.Parcel $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $i1 = virtualinvoke r0.getVersion();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1, $i1);
+
+        $z0 = virtualinvoke r0.getMethodInvocationTelemetryEnabled();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 2, $z0);
+
+        $z0 = virtualinvoke r0.getMethodTimingTelemetryEnabled();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 3, $z0);
+
+        $i1 = virtualinvoke r0.getBatchPeriodMillis();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 4, $i1);
+
+        $i1 = virtualinvoke r0.getMaxMethodInvocationsInBatch();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 5, $i1);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i0);
+
+        return;
+    }
+}

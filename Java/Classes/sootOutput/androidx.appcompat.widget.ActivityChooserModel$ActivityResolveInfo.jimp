@@ -1,0 +1,172 @@
+public final class androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo extends java.lang.Object implements java.lang.Comparable
+{
+    public final android.content.pm.ResolveInfo resolveInfo;
+    public float weight;
+
+    public void <init>(android.content.pm.ResolveInfo)
+    {
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0;
+        android.content.pm.ResolveInfo $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.resolveInfo = $r1;
+
+        return;
+    }
+
+    public int compareTo(androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo)
+    {
+        int $i0, $i1;
+        float $f0;
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0, $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $f0 = $r1.weight;
+
+        $i0 = java.lang.Float.floatToIntBits($f0);
+
+        $f0 = r0.weight;
+
+        $i1 = java.lang.Float.floatToIntBits($f0);
+
+        $i0 = $i0 - $i1;
+
+        return $i0;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r1;
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo) $r1;
+
+        $i0 = virtualinvoke r0.compareTo($r2);
+
+        return $i0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0, r4;
+        int $i0, $i1;
+        float $f0;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 == $r3 goto label3;
+
+        return 0;
+
+     label3:
+        r4 = (androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo) $r1;
+
+        $f0 = r0.weight;
+
+        $i0 = java.lang.Float.floatToIntBits($f0);
+
+        $f0 = r4.weight;
+
+        $i1 = java.lang.Float.floatToIntBits($f0);
+
+        if $i0 == $i1 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public int hashCode()
+    {
+        int $i0;
+        float $f0;
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0;
+
+        r0 := @this;
+
+        $f0 = r0.weight;
+
+        $i0 = java.lang.Float.floatToIntBits($f0);
+
+        $i0 = $i0 + 31;
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.appcompat.widget.ActivityChooserModel$ActivityResolveInfo r0;
+        android.content.pm.ResolveInfo $r3;
+        java.math.BigDecimal $r5;
+        float $f0;
+        java.lang.StringBuilder r1, $r2;
+        java.lang.String $r4;
+        double $d0;
+
+        r0 := @this;
+
+        r1 = new java.lang.StringBuilder;
+
+        specialinvoke r1.<init>();
+
+        virtualinvoke r1.append("[");
+
+        $r2 = virtualinvoke r1.append("resolveInfo:");
+
+        $r3 = r0.resolveInfo;
+
+        $r4 = virtualinvoke $r3.toString();
+
+        virtualinvoke $r2.append($r4);
+
+        $r2 = virtualinvoke r1.append("; weight:");
+
+        $r5 = new java.math.BigDecimal;
+
+        $f0 = r0.weight;
+
+        $d0 = (double) $f0;
+
+        specialinvoke $r5.<init>($d0);
+
+        virtualinvoke $r2.append($r5);
+
+        virtualinvoke r1.append("]");
+
+        $r4 = virtualinvoke r1.toString();
+
+        return $r4;
+    }
+}

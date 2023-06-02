@@ -1,0 +1,104 @@
+final class com.google.android.gms.internal.ads.zzcje extends java.lang.Object implements com.google.android.gms.internal.ads.zzdqq
+{
+    private final com.google.android.gms.internal.ads.zzchy zza;
+    private android.content.Context zzb;
+    private com.google.android.gms.internal.ads.zzbim zzc;
+
+    void <init>(com.google.android.gms.internal.ads.zzchy, com.google.android.gms.internal.ads.zzcjd)
+    {
+        com.google.android.gms.internal.ads.zzcje r0;
+        com.google.android.gms.internal.ads.zzcjd $r2;
+        com.google.android.gms.internal.ads.zzchy $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzdqq zza(com.google.android.gms.internal.ads.zzbim)
+    {
+        com.google.android.gms.internal.ads.zzcje r0;
+        com.google.android.gms.internal.ads.zzbim $r1;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        r0.zzc = $r1;
+
+        return r0;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+
+    public final com.google.android.gms.internal.ads.zzdqq zzb(android.content.Context)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzcje r0;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        r0.zzb = $r1;
+
+        return r0;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+
+    public final com.google.android.gms.internal.ads.zzdqr zzc()
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzcjg $r3;
+        com.google.android.gms.internal.ads.zzbim $r2;
+        com.google.android.gms.internal.ads.zzchy $r4;
+        com.google.android.gms.internal.ads.zzcje r0;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzgxg.zzc($r1, class "Landroid/content/Context;");
+
+        $r2 = r0.zzc;
+
+        com.google.android.gms.internal.ads.zzgxg.zzc($r2, class "Lcom/google/android/gms/internal/ads/zzbim;");
+
+        $r3 = new com.google.android.gms.internal.ads.zzcjg;
+
+        $r4 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $r2 = r0.zzc;
+
+        specialinvoke $r3.<init>($r4, $r1, $r2, null);
+
+        return $r3;
+    }
+}

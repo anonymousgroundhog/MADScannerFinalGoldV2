@@ -1,0 +1,102 @@
+public final class androidx.core.view.WindowCompat extends java.lang.Object
+{
+    public static final int FEATURE_ACTION_BAR;
+    public static final int FEATURE_ACTION_BAR_OVERLAY;
+    public static final int FEATURE_ACTION_MODE_OVERLAY;
+
+    private void <init>()
+    {
+        androidx.core.view.WindowCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static androidx.core.view.WindowInsetsControllerCompat getInsetsController(android.view.Window, android.view.View)
+    {
+        androidx.core.view.WindowInsetsControllerCompat $r2;
+        int $i0;
+        android.view.View $r1;
+        android.view.Window $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 30 goto label1;
+
+        $r2 = androidx.core.view.WindowCompat$Impl30.getInsetsController($r0);
+
+        return $r2;
+
+     label1:
+        $r2 = new androidx.core.view.WindowInsetsControllerCompat;
+
+        specialinvoke $r2.<init>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static android.view.View requireViewById(android.view.Window, int)
+    {
+        int $i0, i1;
+        android.view.View $r1;
+        java.lang.IllegalArgumentException $r2;
+        android.view.Window $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 28 goto label1;
+
+        $r1 = virtualinvoke $r0.requireViewById($i0);
+
+        return $r1;
+
+     label1:
+        $r1 = virtualinvoke $r0.findViewById($i0);
+
+        if $r1 == null goto label2;
+
+        return $r1;
+
+     label2:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<init>("ID does not reference a View inside this Window");
+
+        throw $r2;
+    }
+
+    public static void setDecorFitsSystemWindows(android.view.Window, boolean)
+    {
+        int $i0;
+        android.view.Window $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 30 goto label1;
+
+        androidx.core.view.WindowCompat$Impl30.setDecorFitsSystemWindows($r0, $z0);
+
+        return;
+
+     label1:
+        androidx.core.view.WindowCompat$Impl16.setDecorFitsSystemWindows($r0, $z0);
+
+        return;
+    }
+}

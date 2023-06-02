@@ -1,0 +1,22 @@
+public final class com.google.android.gms.internal.ads.zzfgq extends java.lang.Object
+{
+
+    public static void zza(java.lang.String, java.lang.Exception)
+    {
+        java.lang.Boolean $r2;
+        java.lang.String $r0;
+        java.lang.Exception $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = com.google.android.gms.internal.ads.zzffh.zza;
+
+        virtualinvoke $r2.booleanValue();
+
+        android.util.Log.e("OMIDLIB", $r0, $r1);
+
+        return;
+    }
+}

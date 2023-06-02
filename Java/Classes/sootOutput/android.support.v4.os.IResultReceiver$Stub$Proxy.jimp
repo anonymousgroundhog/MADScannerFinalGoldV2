@@ -1,0 +1,123 @@
+class android.support.v4.os.IResultReceiver$Stub$Proxy extends java.lang.Object implements android.support.v4.os.IResultReceiver
+{
+    public static android.support.v4.os.IResultReceiver sDefaultImpl;
+    private android.os.IBinder mRemote;
+
+    void <init>(android.os.IBinder)
+    {
+        android.support.v4.os.IResultReceiver$Stub$Proxy r0;
+        android.os.IBinder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mRemote = $r1;
+
+        return;
+    }
+
+    public android.os.IBinder asBinder()
+    {
+        android.support.v4.os.IResultReceiver$Stub$Proxy r0;
+        android.os.IBinder r1;
+
+        r0 := @this;
+
+        r1 = r0.mRemote;
+
+        return r1;
+    }
+
+    public java.lang.String getInterfaceDescriptor()
+    {
+        android.support.v4.os.IResultReceiver$Stub$Proxy r0;
+
+        r0 := @this;
+
+        return "android.support.v4.os.IResultReceiver";
+    }
+
+    public void send(int, android.os.Bundle) throws android.os.RemoteException
+    {
+        java.lang.Throwable r5;
+        android.support.v4.os.IResultReceiver $r4;
+        android.os.Bundle $r1;
+        android.support.v4.os.IResultReceiver$Stub$Proxy r0;
+        android.os.Parcel $r2;
+        android.os.IBinder r3;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = android.os.Parcel.obtain();
+
+     label01:
+        virtualinvoke $r2.writeInterfaceToken("android.support.v4.os.IResultReceiver");
+
+        virtualinvoke $r2.writeInt($i0);
+
+     label02:
+        if $r1 == null goto label05;
+
+     label03:
+        virtualinvoke $r2.writeInt(1);
+
+        virtualinvoke $r1.writeToParcel($r2, 0);
+
+     label04:
+        goto label06;
+
+     label05:
+        virtualinvoke $r2.writeInt(0);
+
+     label06:
+        r3 = r0.mRemote;
+
+        $z0 = interfaceinvoke r3.transact(1, $r2, null, 1);
+
+     label07:
+        if $z0 != 0 goto label12;
+
+     label08:
+        $r4 = android.support.v4.os.IResultReceiver$Stub.getDefaultImpl();
+
+     label09:
+        if $r4 == null goto label12;
+
+     label10:
+        $r4 = android.support.v4.os.IResultReceiver$Stub.getDefaultImpl();
+
+        interfaceinvoke $r4.send($i0, $r1);
+
+     label11:
+        virtualinvoke $r2.recycle();
+
+        return;
+
+     label12:
+        virtualinvoke $r2.recycle();
+
+        return;
+
+     label13:
+        r5 := @caughtexception;
+
+        virtualinvoke $r2.recycle();
+
+        throw r5;
+
+        catch java.lang.Throwable from label01 to label02 with label13;
+        catch java.lang.Throwable from label03 to label04 with label13;
+        catch java.lang.Throwable from label05 to label07 with label13;
+        catch java.lang.Throwable from label08 to label09 with label13;
+        catch java.lang.Throwable from label10 to label11 with label13;
+    }
+}

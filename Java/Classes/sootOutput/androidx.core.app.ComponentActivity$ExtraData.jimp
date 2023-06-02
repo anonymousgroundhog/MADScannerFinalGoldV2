@@ -1,0 +1,14 @@
+public class androidx.core.app.ComponentActivity$ExtraData extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        androidx.core.app.ComponentActivity$ExtraData r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

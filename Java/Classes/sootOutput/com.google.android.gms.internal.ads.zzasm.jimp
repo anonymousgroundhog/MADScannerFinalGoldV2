@@ -1,0 +1,161 @@
+public abstract class com.google.android.gms.internal.ads.zzasm extends java.lang.Object implements java.util.concurrent.Callable
+{
+    protected final java.lang.String zza;
+    protected final com.google.android.gms.internal.ads.zzaqx zzb;
+    protected final java.lang.String zzc;
+    protected final java.lang.String zzd;
+    protected final com.google.android.gms.internal.ads.zzamv zze;
+    protected java.lang.reflect.Method zzf;
+    protected final int zzg;
+    protected final int zzh;
+
+    public void <init>(com.google.android.gms.internal.ads.zzaqx, java.lang.String, java.lang.String, com.google.android.gms.internal.ads.zzamv, int, int)
+    {
+        com.google.android.gms.internal.ads.zzasm r0;
+        com.google.android.gms.internal.ads.zzamv $r4;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzaqx $r1;
+        java.lang.Class $r5;
+        java.lang.String $r2, $r3, $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $i0 := @parameter4;
+
+        $i1 := @parameter5;
+
+        specialinvoke r0.<init>();
+
+        $r5 = virtualinvoke r0.getClass();
+
+        $r6 = virtualinvoke $r5.getSimpleName();
+
+        r0.zza = $r6;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        r0.zzd = $r3;
+
+        r0.zze = $r4;
+
+        r0.zzg = $i0;
+
+        r0.zzh = $i1;
+
+        return;
+    }
+
+    public volatile java.lang.Object call() throws java.lang.Exception
+    {
+        com.google.android.gms.internal.ads.zzasm r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.zzk();
+
+        return null;
+    }
+
+    protected abstract void zza() throws java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException;
+
+    public java.lang.Void zzk() throws java.lang.Exception
+    {
+        java.lang.IllegalAccessException $r7;
+        com.google.android.gms.internal.ads.zzapr $r5;
+        long $l1, $l3;
+        com.google.android.gms.internal.ads.zzasm r0;
+        java.lang.reflect.InvocationTargetException $r6;
+        int $i0, $i2;
+        com.google.android.gms.internal.ads.zzaqx $r1;
+        java.lang.String $r2, $r3;
+        java.lang.reflect.Method $r4;
+
+        r0 := @this;
+
+     label01:
+        $l1 = java.lang.System.nanoTime();
+
+     label02:
+        $r1 = r0.zzb;
+
+        $r2 = r0.zzc;
+
+        $r3 = r0.zzd;
+
+     label03:
+        $r4 = virtualinvoke $r1.zzj($r2, $r3);
+
+     label04:
+        r0.zzf = $r4;
+
+        if $r4 != null goto label05;
+
+        return null;
+
+     label05:
+        virtualinvoke r0.zza();
+
+     label06:
+        $r1 = r0.zzb;
+
+     label07:
+        $r5 = virtualinvoke $r1.zzd();
+
+     label08:
+        if $r5 == null goto label15;
+
+        $i0 = r0.zzg;
+
+        if $i0 == -2147483648 goto label15;
+
+        $i2 = r0.zzh;
+
+     label09:
+        $l3 = java.lang.System.nanoTime();
+
+     label10:
+        $l1 = $l3 - $l1;
+
+        $l1 = $l1 / 1000L;
+
+     label11:
+        virtualinvoke $r5.zzc($i2, $i0, $l1, null, null);
+
+     label12:
+        return null;
+
+     label13:
+        $r6 := @caughtexception;
+
+        return null;
+
+     label14:
+        $r7 := @caughtexception;
+
+     label15:
+        return null;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label14;
+        catch java.lang.IllegalAccessException from label03 to label04 with label14;
+        catch java.lang.IllegalAccessException from label05 to label06 with label14;
+        catch java.lang.IllegalAccessException from label07 to label08 with label14;
+        catch java.lang.IllegalAccessException from label09 to label10 with label14;
+        catch java.lang.IllegalAccessException from label11 to label12 with label14;
+        catch java.lang.reflect.InvocationTargetException from label01 to label02 with label13;
+        catch java.lang.reflect.InvocationTargetException from label03 to label04 with label13;
+        catch java.lang.reflect.InvocationTargetException from label05 to label06 with label13;
+        catch java.lang.reflect.InvocationTargetException from label07 to label08 with label13;
+        catch java.lang.reflect.InvocationTargetException from label09 to label10 with label13;
+        catch java.lang.reflect.InvocationTargetException from label11 to label12 with label13;
+    }
+}

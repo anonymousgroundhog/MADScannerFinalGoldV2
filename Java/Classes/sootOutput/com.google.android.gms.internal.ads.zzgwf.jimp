@@ -1,0 +1,299 @@
+public abstract class com.google.android.gms.internal.ads.zzgwf extends java.lang.Object implements com.google.android.gms.internal.ads.zzamb
+{
+    private static final com.google.android.gms.internal.ads.zzgwq zza;
+    protected final java.lang.String zzb;
+    boolean zzc;
+    boolean zzd;
+    long zze;
+    long zzf;
+    com.google.android.gms.internal.ads.zzgwk zzg;
+    private com.google.android.gms.internal.ads.zzamc zzh;
+    private java.nio.ByteBuffer zzi;
+    private java.nio.ByteBuffer zzj;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgwq $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzgwq.zzb(class "Lcom/google/android/gms/internal/ads/zzgwf;");
+
+        com.google.android.gms.internal.ads.zzgwf.zza = $r0;
+
+        return;
+    }
+
+    protected void <init>(java.lang.String)
+    {
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzgwf r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zzf = -1L;
+
+        r0.zzj = null;
+
+        r0.zzb = $r1;
+
+        r0.zzd = 1;
+
+        r0.zzc = 1;
+
+        return;
+    }
+
+    private final void zzd()
+    {
+        java.lang.Throwable $r8;
+        com.google.android.gms.internal.ads.zzgwq $r1;
+        long $l1, $l2;
+        java.io.IOException $r6;
+        java.lang.RuntimeException $r7;
+        java.nio.ByteBuffer $r5;
+        com.google.android.gms.internal.ads.zzgwk $r4;
+        com.google.android.gms.internal.ads.zzgwf r0;
+        int $i0;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label01:
+        $z0 = r0.zzd;
+
+     label02:
+        if $z0 != 0 goto label18;
+
+     label03:
+        $r1 = com.google.android.gms.internal.ads.zzgwf.zza;
+
+        $r2 = "mem mapping ";
+
+        $r3 = r0.zzb;
+
+     label04:
+        $i0 = virtualinvoke $r3.length();
+
+     label05:
+        if $i0 == 0 goto label08;
+
+     label06:
+        $r2 = virtualinvoke $r2.concat($r3);
+
+     label07:
+        goto label10;
+
+     label08:
+        $r2 = new java.lang.String;
+
+     label09:
+        specialinvoke $r2.<init>("mem mapping ");
+
+     label10:
+        virtualinvoke $r1.zza($r2);
+
+     label11:
+        $r4 = r0.zzg;
+
+        $l1 = r0.zze;
+
+        $l2 = r0.zzf;
+
+     label12:
+        $r5 = interfaceinvoke $r4.zzd($l1, $l2);
+
+     label13:
+        r0.zzi = $r5;
+
+     label14:
+        r0.zzd = 1;
+
+     label15:
+        exitmonitor r0;
+
+        return;
+
+     label16:
+        $r6 := @caughtexception;
+
+     label17:
+        $r7 = new java.lang.RuntimeException;
+
+        specialinvoke $r7.<init>($r6);
+
+        throw $r7;
+
+     label18:
+        exitmonitor r0;
+
+        return;
+
+     label19:
+        $r8 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r8;
+
+        catch java.lang.Throwable from label01 to label02 with label19;
+        catch java.io.IOException from label04 to label05 with label16;
+        catch java.io.IOException from label06 to label07 with label16;
+        catch java.io.IOException from label09 to label10 with label16;
+        catch java.io.IOException from label10 to label11 with label16;
+        catch java.io.IOException from label12 to label13 with label16;
+        catch java.lang.Throwable from label03 to label14 with label19;
+        catch java.lang.Throwable from label14 to label15 with label19;
+        catch java.lang.Throwable from label17 to label18 with label19;
+    }
+
+    public final java.lang.String zza()
+    {
+        java.lang.String r1;
+        com.google.android.gms.internal.ads.zzgwf r0;
+
+        r0 := @this;
+
+        r1 = r0.zzb;
+
+        return r1;
+    }
+
+    public final void zzb(com.google.android.gms.internal.ads.zzgwk, java.nio.ByteBuffer, long, com.google.android.gms.internal.ads.zzaly) throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzgwf r0;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzaly $r2;
+        java.nio.ByteBuffer $r1;
+        com.google.android.gms.internal.ads.zzgwk $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $l1 = interfaceinvoke $r3.zzb();
+
+        r0.zze = $l1;
+
+        virtualinvoke $r1.remaining();
+
+        r0.zzf = $l0;
+
+        r0.zzg = $r3;
+
+        $l1 = interfaceinvoke $r3.zzb();
+
+        $l0 = $l1 + $l0;
+
+        interfaceinvoke $r3.zze($l0);
+
+        r0.zzd = 0;
+
+        r0.zzc = 0;
+
+        virtualinvoke r0.zzg();
+
+        return;
+    }
+
+    public final void zzc(com.google.android.gms.internal.ads.zzamc)
+    {
+        com.google.android.gms.internal.ads.zzamc $r1;
+        com.google.android.gms.internal.ads.zzgwf r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzh = $r1;
+
+        return;
+    }
+
+    protected abstract void zzf(java.nio.ByteBuffer);
+
+    public final void zzg()
+    {
+        java.lang.Throwable $r5;
+        com.google.android.gms.internal.ads.zzgwq $r2;
+        com.google.android.gms.internal.ads.zzgwf r0;
+        int $i0;
+        java.lang.String $r1, $r3;
+        java.nio.ByteBuffer $r4;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label1:
+        specialinvoke r0.zzd();
+
+        $r2 = com.google.android.gms.internal.ads.zzgwf.zza;
+
+        $r3 = r0.zzb;
+
+        $i0 = virtualinvoke $r3.length();
+
+        $r1 = "parsing details of ";
+
+        if $i0 == 0 goto label2;
+
+        $r1 = virtualinvoke $r1.concat($r3);
+
+        goto label3;
+
+     label2:
+        $r1 = new java.lang.String;
+
+        specialinvoke $r1.<init>("parsing details of ");
+
+     label3:
+        virtualinvoke $r2.zza($r1);
+
+        $r4 = r0.zzi;
+
+        if $r4 == null goto label5;
+
+        r0.zzc = 1;
+
+        virtualinvoke $r4.rewind();
+
+        virtualinvoke r0.zzf($r4);
+
+        $i0 = virtualinvoke $r4.remaining();
+
+        if $i0 <= 0 goto label4;
+
+        $r4 = virtualinvoke $r4.slice();
+
+        r0.zzj = $r4;
+
+     label4:
+        r0.zzi = null;
+
+     label5:
+        exitmonitor r0;
+
+        return;
+
+     label6:
+        $r5 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label5 with label6;
+    }
+}

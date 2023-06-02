@@ -1,0 +1,39 @@
+class androidx.appcompat.app.AppCompatDelegateImpl$ConfigurationImplApi17 extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.appcompat.app.AppCompatDelegateImpl$ConfigurationImplApi17 r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void generateConfigDelta_densityDpi(android.content.res.Configuration, android.content.res.Configuration, android.content.res.Configuration)
+    {
+        android.content.res.Configuration $r0, $r1, $r2;
+        int $i0, $i1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i1 = $r0.densityDpi;
+
+        $i0 = $r1.densityDpi;
+
+        if $i1 == $i0 goto label1;
+
+        $i0 = $r1.densityDpi;
+
+        $r2.densityDpi = $i0;
+
+     label1:
+        return;
+    }
+}

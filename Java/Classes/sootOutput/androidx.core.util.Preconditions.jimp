@@ -1,0 +1,370 @@
+public final class androidx.core.util.Preconditions extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.util.Preconditions r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void checkArgument(boolean)
+    {
+        java.lang.IllegalArgumentException $r0;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<init>();
+
+        throw $r0;
+    }
+
+    public static void checkArgument(boolean, java.lang.Object)
+    {
+        java.lang.Object $r0;
+        java.lang.String $r2;
+        java.lang.IllegalArgumentException $r1;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r2 = java.lang.String.valueOf($r0);
+
+        specialinvoke $r1.<init>($r2);
+
+        throw $r1;
+    }
+
+    public static int checkArgumentInRange(int, int, int, java.lang.String)
+    {
+        java.lang.Object[] $r3;
+        java.lang.IllegalArgumentException $r1;
+        java.lang.Integer $r4;
+        java.util.Locale $r2;
+        int $i0, $i1, $i2;
+        java.lang.String $r0;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $r0 := @parameter3;
+
+        if $i0 < $i1 goto label2;
+
+        if $i0 > $i2 goto label1;
+
+        return $i0;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r2 = java.util.Locale.US;
+
+        $r3 = newarray (java.lang.Object)[3];
+
+        $r3[0] = $r0;
+
+        $r4 = java.lang.Integer.valueOf($i1);
+
+        $r3[1] = $r4;
+
+        $r4 = java.lang.Integer.valueOf($i2);
+
+        $r3[2] = $r4;
+
+        $r0 = java.lang.String.format($r2, "%s is out of range of [%d, %d] (too high)", $r3);
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+
+     label2:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r2 = java.util.Locale.US;
+
+        $r3 = newarray (java.lang.Object)[3];
+
+        $r3[0] = $r0;
+
+        $r4 = java.lang.Integer.valueOf($i1);
+
+        $r3[1] = $r4;
+
+        $r4 = java.lang.Integer.valueOf($i2);
+
+        $r3[2] = $r4;
+
+        $r0 = java.lang.String.format($r2, "%s is out of range of [%d, %d] (too low)", $r3);
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+    }
+
+    public static int checkArgumentNonnegative(int)
+    {
+        int $i0;
+        java.lang.IllegalArgumentException $r0;
+
+        $i0 := @parameter0;
+
+        if $i0 < 0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<init>();
+
+        throw $r0;
+    }
+
+    public static int checkArgumentNonnegative(int, java.lang.String)
+    {
+        int $i0;
+        java.lang.String $r0;
+        java.lang.IllegalArgumentException $r1;
+
+        $i0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        if $i0 < 0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+    }
+
+    public static int checkFlagsArgument(int, int)
+    {
+        int $i0, $i1, $i2;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        java.lang.IllegalArgumentException $r0;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 = $i0 & $i1;
+
+        if $i2 != $i0 goto label1;
+
+        return $i0;
+
+     label1:
+        $r0 = new java.lang.IllegalArgumentException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("Requested flags 0x");
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(", but only 0x");
+
+        $r2 = java.lang.Integer.toHexString($i1);
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(" are allowed");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        specialinvoke $r0.<init>($r2);
+
+        throw $r0;
+    }
+
+    public static java.lang.Object checkNotNull(java.lang.Object)
+    {
+        java.lang.Object r0;
+        java.lang.NullPointerException $r1;
+
+        r0 := @parameter0;
+
+        if r0 == null goto label1;
+
+        return r0;
+
+     label1:
+        $r1 = new java.lang.NullPointerException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    public static java.lang.Object checkNotNull(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object r0, $r1;
+        java.lang.String $r3;
+        java.lang.NullPointerException $r2;
+
+        r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if r0 == null goto label1;
+
+        return r0;
+
+     label1:
+        $r2 = new java.lang.NullPointerException;
+
+        $r3 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r3);
+
+        throw $r2;
+    }
+
+    public static void checkState(boolean)
+    {
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        androidx.core.util.Preconditions.checkState($z0, null);
+
+        return;
+    }
+
+    public static void checkState(boolean, java.lang.String)
+    {
+        java.lang.IllegalStateException $r1;
+        java.lang.String $r0;
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        $r0 := @parameter1;
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>($r0);
+
+        throw $r1;
+    }
+
+    public static java.lang.CharSequence checkStringNotEmpty(java.lang.CharSequence)
+    {
+        java.lang.CharSequence r0;
+        java.lang.IllegalArgumentException $r1;
+        boolean $z0;
+
+        r0 := @parameter0;
+
+        $z0 = android.text.TextUtils.isEmpty(r0);
+
+        if $z0 != 0 goto label1;
+
+        return r0;
+
+     label1:
+        $r1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    public static java.lang.CharSequence checkStringNotEmpty(java.lang.CharSequence, java.lang.Object)
+    {
+        java.lang.CharSequence r0;
+        java.lang.Object $r1;
+        java.lang.String $r3;
+        java.lang.IllegalArgumentException $r2;
+        boolean $z0;
+
+        r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = android.text.TextUtils.isEmpty(r0);
+
+        if $z0 != 0 goto label1;
+
+        return r0;
+
+     label1:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        $r3 = java.lang.String.valueOf($r1);
+
+        specialinvoke $r2.<init>($r3);
+
+        throw $r2;
+    }
+
+    public static transient java.lang.CharSequence checkStringNotEmpty(java.lang.CharSequence, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r2;
+        java.lang.CharSequence r0;
+        java.lang.String $r1;
+        java.lang.IllegalArgumentException $r3;
+        boolean $z0;
+
+        r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z0 = android.text.TextUtils.isEmpty(r0);
+
+        if $z0 != 0 goto label1;
+
+        return r0;
+
+     label1:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r1 = java.lang.String.format($r1, $r2);
+
+        specialinvoke $r3.<init>($r1);
+
+        throw $r3;
+    }
+}

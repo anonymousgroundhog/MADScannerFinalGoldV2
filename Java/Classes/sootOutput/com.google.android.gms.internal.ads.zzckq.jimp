@@ -1,0 +1,51 @@
+public final class com.google.android.gms.internal.ads.zzckq extends java.lang.Object implements java.lang.Runnable
+{
+    public final com.google.android.gms.internal.ads.zzcks zza;
+    public final java.lang.Runnable zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzcks, java.lang.Runnable)
+    {
+        com.google.android.gms.internal.ads.zzckq r0;
+        java.lang.Runnable $r2;
+        com.google.android.gms.internal.ads.zzcks $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.google.android.gms.internal.ads.zzfuu $r3;
+        com.google.android.gms.internal.ads.zzckr $r4;
+        com.google.android.gms.internal.ads.zzckq r0;
+        java.lang.Runnable $r2;
+        com.google.android.gms.internal.ads.zzcks $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r3 = com.google.android.gms.internal.ads.zzbzn.zze;
+
+        $r4 = new com.google.android.gms.internal.ads.zzckr;
+
+        specialinvoke $r4.<init>($r1, $r2);
+
+        interfaceinvoke $r3.execute($r4);
+
+        return;
+    }
+}

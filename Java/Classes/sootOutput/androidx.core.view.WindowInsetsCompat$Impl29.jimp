@@ -1,0 +1,170 @@
+class androidx.core.view.WindowInsetsCompat$Impl29 extends androidx.core.view.WindowInsetsCompat$Impl28
+{
+    private androidx.core.graphics.Insets mMandatorySystemGestureInsets;
+    private androidx.core.graphics.Insets mSystemGestureInsets;
+    private androidx.core.graphics.Insets mTappableElementInsets;
+
+    void <init>(androidx.core.view.WindowInsetsCompat, android.view.WindowInsets)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+        android.view.WindowInsets $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.mSystemGestureInsets = null;
+
+        r0.mMandatorySystemGestureInsets = null;
+
+        r0.mTappableElementInsets = null;
+
+        return;
+    }
+
+    void <init>(androidx.core.view.WindowInsetsCompat, androidx.core.view.WindowInsetsCompat$Impl29)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0, $r2;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.mSystemGestureInsets = null;
+
+        r0.mMandatorySystemGestureInsets = null;
+
+        r0.mTappableElementInsets = null;
+
+        return;
+    }
+
+    androidx.core.graphics.Insets getMandatorySystemGestureInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        android.view.WindowInsets $r2;
+        android.graphics.Insets $r3;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mMandatorySystemGestureInsets;
+
+        if $r1 != null goto label1;
+
+        $r2 = r0.mPlatformInsets;
+
+        $r3 = virtualinvoke $r2.getMandatorySystemGestureInsets();
+
+        $r1 = androidx.core.graphics.Insets.toCompatInsets($r3);
+
+        r0.mMandatorySystemGestureInsets = $r1;
+
+     label1:
+        $r1 = r0.mMandatorySystemGestureInsets;
+
+        return $r1;
+    }
+
+    androidx.core.graphics.Insets getSystemGestureInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        android.view.WindowInsets $r2;
+        android.graphics.Insets $r3;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mSystemGestureInsets;
+
+        if $r1 != null goto label1;
+
+        $r2 = r0.mPlatformInsets;
+
+        $r3 = virtualinvoke $r2.getSystemGestureInsets();
+
+        $r1 = androidx.core.graphics.Insets.toCompatInsets($r3);
+
+        r0.mSystemGestureInsets = $r1;
+
+     label1:
+        $r1 = r0.mSystemGestureInsets;
+
+        return $r1;
+    }
+
+    androidx.core.graphics.Insets getTappableElementInsets()
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        android.view.WindowInsets $r2;
+        android.graphics.Insets $r3;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mTappableElementInsets;
+
+        if $r1 != null goto label1;
+
+        $r2 = r0.mPlatformInsets;
+
+        $r3 = virtualinvoke $r2.getTappableElementInsets();
+
+        $r1 = androidx.core.graphics.Insets.toCompatInsets($r3);
+
+        r0.mTappableElementInsets = $r1;
+
+     label1:
+        $r1 = r0.mTappableElementInsets;
+
+        return $r1;
+    }
+
+    androidx.core.view.WindowInsetsCompat inset(int, int, int, int)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        android.view.WindowInsets $r1;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.view.WindowInsetsCompat $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $r1 = r0.mPlatformInsets;
+
+        $r1 = virtualinvoke $r1.inset($i0, $i1, $i2, $i3);
+
+        $r2 = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat($r1);
+
+        return $r2;
+    }
+
+    public void setStableInsets(androidx.core.graphics.Insets)
+    {
+        androidx.core.view.WindowInsetsCompat$Impl29 r0;
+        androidx.core.graphics.Insets $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

@@ -1,0 +1,77 @@
+final class com.google.android.gms.internal.ads.zzfql extends java.lang.Object
+{
+    private final java.lang.Object zza;
+    private final java.lang.Object zzb;
+    private final java.lang.Object zzc;
+
+    void <init>(java.lang.Object, java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfql r0;
+        java.lang.Object $r1, $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        return;
+    }
+
+    final java.lang.IllegalArgumentException zza()
+    {
+        com.google.android.gms.internal.ads.zzfql r0;
+        java.lang.StringBuilder $r3;
+        java.lang.Object $r4;
+        java.lang.String $r2;
+        java.lang.IllegalArgumentException $r1;
+
+        r0 := @this;
+
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r3.append("Multiple entries with same key: ");
+
+        $r4 = r0.zza;
+
+        virtualinvoke $r3.append($r4);
+
+        virtualinvoke $r3.append("=");
+
+        $r4 = r0.zzb;
+
+        virtualinvoke $r3.append($r4);
+
+        virtualinvoke $r3.append(" and ");
+
+        $r4 = r0.zza;
+
+        virtualinvoke $r3.append($r4);
+
+        virtualinvoke $r3.append("=");
+
+        $r4 = r0.zzc;
+
+        virtualinvoke $r3.append($r4);
+
+        $r2 = virtualinvoke $r3.toString();
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+}

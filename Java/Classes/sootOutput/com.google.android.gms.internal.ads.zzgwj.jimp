@@ -1,0 +1,375 @@
+public class com.google.android.gms.internal.ads.zzgwj extends java.lang.Object implements java.util.Iterator, java.io.Closeable, com.google.android.gms.internal.ads.zzamc
+{
+    private static final com.google.android.gms.internal.ads.zzamb zza;
+    private static final com.google.android.gms.internal.ads.zzgwq zzb;
+    protected com.google.android.gms.internal.ads.zzaly zzc;
+    protected com.google.android.gms.internal.ads.zzgwk zzd;
+    com.google.android.gms.internal.ads.zzamb zze;
+    long zzf;
+    long zzg;
+    private final java.util.List zzh;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgwq $r0;
+        com.google.android.gms.internal.ads.zzgwi $r1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgwi;
+
+        specialinvoke $r1.<init>("eof ");
+
+        com.google.android.gms.internal.ads.zzgwj.zza = $r1;
+
+        $r0 = com.google.android.gms.internal.ads.zzgwq.zzb(class "Lcom/google/android/gms/internal/ads/zzgwj;");
+
+        com.google.android.gms.internal.ads.zzgwj.zzb = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.zze = null;
+
+        r0.zzf = 0L;
+
+        r0.zzg = 0L;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.zzh = $r1;
+
+        return;
+    }
+
+    public void close() throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public final boolean hasNext()
+    {
+        com.google.android.gms.internal.ads.zzamb $r1, $r2;
+        com.google.android.gms.internal.ads.zzgwj r0;
+        java.util.NoSuchElementException $r3;
+
+        r0 := @this;
+
+        $r1 = r0.zze;
+
+        $r2 = com.google.android.gms.internal.ads.zzgwj.zza;
+
+        if $r1 != $r2 goto label1;
+
+        return 0;
+
+     label1:
+        if $r1 == null goto label2;
+
+        return 1;
+
+     label2:
+        $r1 = virtualinvoke r0.zzd();
+
+     label3:
+        r0.zze = $r1;
+
+        return 1;
+
+     label4:
+        $r3 := @caughtexception;
+
+        $r1 = com.google.android.gms.internal.ads.zzgwj.zza;
+
+        r0.zze = $r1;
+
+        return 0;
+
+        catch java.util.NoSuchElementException from label2 to label3 with label4;
+    }
+
+    public final volatile java.lang.Object next()
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+        com.google.android.gms.internal.ads.zzamb $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzd();
+
+        return $r1;
+    }
+
+    public final void remove()
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        r0 := @this;
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    public java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+        java.util.List $r4;
+        com.google.android.gms.internal.ads.zzamb $r6;
+        int $i0, $i1;
+        java.lang.StringBuilder $r1;
+        java.lang.Class $r2;
+        java.lang.Object $r5;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r2.getSimpleName();
+
+        virtualinvoke $r1.append($r3);
+
+        virtualinvoke $r1.append("[");
+
+        $i0 = 0;
+
+     label1:
+        $r4 = r0.zzh;
+
+        $i1 = interfaceinvoke $r4.size();
+
+        if $i0 >= $i1 goto label3;
+
+        if $i0 <= 0 goto label2;
+
+        virtualinvoke $r1.append(";");
+
+     label2:
+        $r4 = r0.zzh;
+
+        $r5 = interfaceinvoke $r4.get($i0);
+
+        $r6 = (com.google.android.gms.internal.ads.zzamb) $r5;
+
+        $r3 = virtualinvoke $r6.toString();
+
+        virtualinvoke $r1.append($r3);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        virtualinvoke $r1.append("]");
+
+        $r3 = virtualinvoke $r1.toString();
+
+        return $r3;
+    }
+
+    public final com.google.android.gms.internal.ads.zzamb zzd()
+    {
+        java.lang.Throwable $r6;
+        com.google.android.gms.internal.ads.zzgwj r0;
+        long $l0, $l2;
+        java.io.IOException $r7;
+        java.io.EOFException $r8;
+        com.google.android.gms.internal.ads.zzgwk $r3, $r4;
+        byte $b1;
+        com.google.android.gms.internal.ads.zzamb $r1, $r2;
+        int $i3;
+        com.google.android.gms.internal.ads.zzaly $r5;
+        java.util.NoSuchElementException $r9;
+
+        r0 := @this;
+
+        $r1 = r0.zze;
+
+        if $r1 == null goto label2;
+
+        $r2 = com.google.android.gms.internal.ads.zzgwj.zza;
+
+        if $r1 != $r2 goto label1;
+
+        goto label2;
+
+     label1:
+        r0.zze = null;
+
+        return $r1;
+
+     label2:
+        $r3 = r0.zzd;
+
+        if $r3 == null goto label9;
+
+        $l2 = r0.zzf;
+
+        $l0 = r0.zzg;
+
+        $b1 = $l2 cmp $l0;
+
+        $i3 = (int) $b1;
+
+        if $i3 >= 0 goto label9;
+
+        entermonitor $r3;
+
+     label3:
+        $r4 = r0.zzd;
+
+        $l0 = r0.zzf;
+
+        interfaceinvoke $r4.zze($l0);
+
+        $r5 = r0.zzc;
+
+        $r4 = r0.zzd;
+
+        $r1 = interfaceinvoke $r5.zzb($r4, r0);
+
+        $r4 = r0.zzd;
+
+        $l0 = interfaceinvoke $r4.zzb();
+
+        r0.zzf = $l0;
+
+        exitmonitor $r3;
+
+     label4:
+        return $r1;
+
+     label5:
+        $r6 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label6:
+        throw $r6;
+
+     label7:
+        $r7 := @caughtexception;
+
+        $r9 = new java.util.NoSuchElementException;
+
+        specialinvoke $r9.<init>();
+
+        throw $r9;
+
+     label8:
+        $r8 := @caughtexception;
+
+        $r9 = new java.util.NoSuchElementException;
+
+        specialinvoke $r9.<init>();
+
+        throw $r9;
+
+     label9:
+        $r1 = com.google.android.gms.internal.ads.zzgwj.zza;
+
+        r0.zze = $r1;
+
+        $r9 = new java.util.NoSuchElementException;
+
+        specialinvoke $r9.<init>();
+
+        throw $r9;
+
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+        catch java.io.EOFException from label6 to label7 with label8;
+        catch java.io.IOException from label6 to label7 with label7;
+    }
+
+    public final java.util.List zze()
+    {
+        com.google.android.gms.internal.ads.zzgwp $r4;
+        java.util.List $r5;
+        com.google.android.gms.internal.ads.zzamb $r2, $r3;
+        com.google.android.gms.internal.ads.zzgwj r0;
+        com.google.android.gms.internal.ads.zzgwk $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzd;
+
+        if $r1 == null goto label1;
+
+        $r2 = r0.zze;
+
+        $r3 = com.google.android.gms.internal.ads.zzgwj.zza;
+
+        if $r2 == $r3 goto label1;
+
+        $r4 = new com.google.android.gms.internal.ads.zzgwp;
+
+        $r5 = r0.zzh;
+
+        specialinvoke $r4.<init>($r5, r0);
+
+        return $r4;
+
+     label1:
+        $r5 = r0.zzh;
+
+        return $r5;
+    }
+
+    public final void zzf(com.google.android.gms.internal.ads.zzgwk, long, com.google.android.gms.internal.ads.zzaly) throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzgwj r0;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzaly $r1;
+        com.google.android.gms.internal.ads.zzgwk $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $r1 := @parameter2;
+
+        r0.zzd = $r2;
+
+        $l1 = interfaceinvoke $r2.zzb();
+
+        r0.zzf = $l1;
+
+        $l1 = interfaceinvoke $r2.zzb();
+
+        $l0 = $l1 + $l0;
+
+        interfaceinvoke $r2.zze($l0);
+
+        $l0 = interfaceinvoke $r2.zzb();
+
+        r0.zzg = $l0;
+
+        r0.zzc = $r1;
+
+        return;
+    }
+}

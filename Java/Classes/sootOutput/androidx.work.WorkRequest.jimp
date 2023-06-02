@@ -1,0 +1,86 @@
+public abstract class androidx.work.WorkRequest extends java.lang.Object
+{
+    public static final long DEFAULT_BACKOFF_DELAY_MILLIS;
+    public static final long MAX_BACKOFF_MILLIS;
+    public static final long MIN_BACKOFF_MILLIS;
+    private java.util.UUID mId;
+    private java.util.Set mTags;
+    private androidx.work.impl.model.WorkSpec mWorkSpec;
+
+    protected void <init>(java.util.UUID, androidx.work.impl.model.WorkSpec, java.util.Set)
+    {
+        androidx.work.WorkRequest r0;
+        java.util.Set r3;
+        java.util.UUID $r1;
+        androidx.work.impl.model.WorkSpec $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.mId = $r1;
+
+        r0.mWorkSpec = $r2;
+
+        r0.mTags = r3;
+
+        return;
+    }
+
+    public java.util.UUID getId()
+    {
+        java.util.UUID r1;
+        androidx.work.WorkRequest r0;
+
+        r0 := @this;
+
+        r1 = r0.mId;
+
+        return r1;
+    }
+
+    public java.lang.String getStringId()
+    {
+        java.lang.String $r1;
+        java.util.UUID $r2;
+        androidx.work.WorkRequest r0;
+
+        r0 := @this;
+
+        $r2 = r0.mId;
+
+        $r1 = virtualinvoke $r2.toString();
+
+        return $r1;
+    }
+
+    public java.util.Set getTags()
+    {
+        java.util.Set r1;
+        androidx.work.WorkRequest r0;
+
+        r0 := @this;
+
+        r1 = r0.mTags;
+
+        return r1;
+    }
+
+    public androidx.work.impl.model.WorkSpec getWorkSpec()
+    {
+        androidx.work.WorkRequest r0;
+        androidx.work.impl.model.WorkSpec r1;
+
+        r0 := @this;
+
+        r1 = r0.mWorkSpec;
+
+        return r1;
+    }
+}

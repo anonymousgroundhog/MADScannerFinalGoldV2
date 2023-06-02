@@ -1,0 +1,3367 @@
+public class androidx.appcompat.app.WindowDecorActionBar extends androidx.appcompat.app.ActionBar implements androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback
+{
+    private static final long FADE_IN_DURATION_MS;
+    private static final long FADE_OUT_DURATION_MS;
+    private static final int INVALID_POSITION;
+    private static final java.lang.String TAG;
+    private static final android.view.animation.Interpolator sHideInterpolator;
+    private static final android.view.animation.Interpolator sShowInterpolator;
+    androidx.appcompat.app.WindowDecorActionBar$ActionModeImpl mActionMode;
+    private android.app.Activity mActivity;
+    androidx.appcompat.widget.ActionBarContainer mContainerView;
+    boolean mContentAnimations;
+    android.view.View mContentView;
+    android.content.Context mContext;
+    androidx.appcompat.widget.ActionBarContextView mContextView;
+    private int mCurWindowVisibility;
+    androidx.appcompat.view.ViewPropertyAnimatorCompatSet mCurrentShowAnim;
+    androidx.appcompat.widget.DecorToolbar mDecorToolbar;
+    androidx.appcompat.view.ActionMode mDeferredDestroyActionMode;
+    androidx.appcompat.view.ActionMode$Callback mDeferredModeDestroyCallback;
+    private boolean mDisplayHomeAsUpSet;
+    private boolean mHasEmbeddedTabs;
+    boolean mHiddenByApp;
+    boolean mHiddenBySystem;
+    final androidx.core.view.ViewPropertyAnimatorListener mHideListener;
+    boolean mHideOnContentScroll;
+    private boolean mLastMenuVisibility;
+    private java.util.ArrayList mMenuVisibilityListeners;
+    private boolean mNowShowing;
+    androidx.appcompat.widget.ActionBarOverlayLayout mOverlayLayout;
+    private int mSavedTabPosition;
+    private androidx.appcompat.app.WindowDecorActionBar$TabImpl mSelectedTab;
+    private boolean mShowHideAnimationEnabled;
+    final androidx.core.view.ViewPropertyAnimatorListener mShowListener;
+    private boolean mShowingForMode;
+    androidx.appcompat.widget.ScrollingTabContainerView mTabScrollView;
+    private java.util.ArrayList mTabs;
+    private android.content.Context mThemedContext;
+    final androidx.core.view.ViewPropertyAnimatorUpdateListener mUpdateListener;
+
+    static void <clinit>()
+    {
+        android.view.animation.AccelerateInterpolator $r0;
+        android.view.animation.DecelerateInterpolator $r1;
+
+        $r0 = new android.view.animation.AccelerateInterpolator;
+
+        specialinvoke $r0.<init>();
+
+        androidx.appcompat.app.WindowDecorActionBar.sHideInterpolator = $r0;
+
+        $r1 = new android.view.animation.DecelerateInterpolator;
+
+        specialinvoke $r1.<init>();
+
+        androidx.appcompat.app.WindowDecorActionBar.sShowInterpolator = $r1;
+
+        return;
+    }
+
+    public void <init>(android.app.Activity, boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.WindowDecorActionBar$2 $r6;
+        androidx.appcompat.app.WindowDecorActionBar$1 $r5;
+        androidx.appcompat.app.WindowDecorActionBar$3 $r7;
+        java.util.ArrayList $r4;
+        android.view.View $r3;
+        android.app.Activity $r1;
+        android.view.Window $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.mTabs = $r4;
+
+        r0.mSavedTabPosition = -1;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.mMenuVisibilityListeners = $r4;
+
+        r0.mCurWindowVisibility = 0;
+
+        r0.mContentAnimations = 1;
+
+        r0.mNowShowing = 1;
+
+        $r5 = new androidx.appcompat.app.WindowDecorActionBar$1;
+
+        specialinvoke $r5.<init>(r0);
+
+        r0.mHideListener = $r5;
+
+        $r6 = new androidx.appcompat.app.WindowDecorActionBar$2;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mShowListener = $r6;
+
+        $r7 = new androidx.appcompat.app.WindowDecorActionBar$3;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mUpdateListener = $r7;
+
+        r0.mActivity = $r1;
+
+        $r2 = virtualinvoke $r1.getWindow();
+
+        $r3 = virtualinvoke $r2.getDecorView();
+
+        specialinvoke r0.init($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r3 = virtualinvoke $r3.findViewById(16908290);
+
+        r0.mContentView = $r3;
+
+     label1:
+        return;
+    }
+
+    public void <init>(android.app.Dialog)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.app.Dialog $r1;
+        androidx.appcompat.app.WindowDecorActionBar$2 $r6;
+        androidx.appcompat.app.WindowDecorActionBar$1 $r5;
+        androidx.appcompat.app.WindowDecorActionBar$3 $r7;
+        java.util.ArrayList $r4;
+        android.view.View $r3;
+        android.view.Window $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.mTabs = $r4;
+
+        r0.mSavedTabPosition = -1;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<init>();
+
+        r0.mMenuVisibilityListeners = $r4;
+
+        r0.mCurWindowVisibility = 0;
+
+        r0.mContentAnimations = 1;
+
+        r0.mNowShowing = 1;
+
+        $r5 = new androidx.appcompat.app.WindowDecorActionBar$1;
+
+        specialinvoke $r5.<init>(r0);
+
+        r0.mHideListener = $r5;
+
+        $r6 = new androidx.appcompat.app.WindowDecorActionBar$2;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mShowListener = $r6;
+
+        $r7 = new androidx.appcompat.app.WindowDecorActionBar$3;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mUpdateListener = $r7;
+
+        $r2 = virtualinvoke $r1.getWindow();
+
+        $r3 = virtualinvoke $r2.getDecorView();
+
+        specialinvoke r0.init($r3);
+
+        return;
+    }
+
+    public void <init>(android.view.View)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.View $r1;
+        androidx.appcompat.app.WindowDecorActionBar$2 $r4;
+        androidx.appcompat.app.WindowDecorActionBar$1 $r3;
+        androidx.appcompat.app.WindowDecorActionBar$3 $r5;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<init>();
+
+        r0.mTabs = $r2;
+
+        r0.mSavedTabPosition = -1;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<init>();
+
+        r0.mMenuVisibilityListeners = $r2;
+
+        r0.mCurWindowVisibility = 0;
+
+        r0.mContentAnimations = 1;
+
+        r0.mNowShowing = 1;
+
+        $r3 = new androidx.appcompat.app.WindowDecorActionBar$1;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mHideListener = $r3;
+
+        $r4 = new androidx.appcompat.app.WindowDecorActionBar$2;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mShowListener = $r4;
+
+        $r5 = new androidx.appcompat.app.WindowDecorActionBar$3;
+
+        specialinvoke $r5.<init>(r0);
+
+        r0.mUpdateListener = $r5;
+
+        specialinvoke r0.init($r1);
+
+        return;
+    }
+
+    static boolean checkShowingFlags(boolean, boolean, boolean)
+    {
+        boolean $z0, $z1, $z2;
+
+        $z0 := @parameter0;
+
+        $z1 := @parameter1;
+
+        $z2 := @parameter2;
+
+        if $z2 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        if $z0 != 0 goto label3;
+
+        if $z1 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    private void cleanupTabs()
+    {
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ScrollingTabContainerView $r3;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mSelectedTab;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke r0.selectTab(null);
+
+     label1:
+        $r2 = r0.mTabs;
+
+        virtualinvoke $r2.clear();
+
+        $r3 = r0.mTabScrollView;
+
+        if $r3 == null goto label2;
+
+        virtualinvoke $r3.removeAllTabs();
+
+     label2:
+        r0.mSavedTabPosition = -1;
+
+        return;
+    }
+
+    private void configureTab(androidx.appcompat.app.ActionBar$Tab, int)
+    {
+        java.lang.IllegalStateException r6;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        androidx.appcompat.app.ActionBar$TabListener $r3;
+        java.util.ArrayList r4;
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl r2;
+        int $i0, $i1;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        r2 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r1;
+
+        $r3 = virtualinvoke r2.getCallback();
+
+        if $r3 == null goto label3;
+
+        virtualinvoke r2.setPosition($i0);
+
+        r4 = r0.mTabs;
+
+        virtualinvoke r4.add($i0, r2);
+
+        r4 = r0.mTabs;
+
+        $i1 = virtualinvoke r4.size();
+
+        $i0 = $i0 + 1;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        r4 = r0.mTabs;
+
+        $r5 = virtualinvoke r4.get($i0);
+
+        r2 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r5;
+
+        virtualinvoke r2.setPosition($i0);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+
+     label3:
+        r6 = new java.lang.IllegalStateException;
+
+        specialinvoke r6.<init>("Action Bar Tab must have a Callback");
+
+        goto label4;
+
+     label4:
+        throw r6;
+    }
+
+    private void ensureTabsExist()
+    {
+        android.content.Context $r2;
+        androidx.appcompat.widget.DecorToolbar $r3;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r4;
+        androidx.appcompat.widget.ScrollingTabContainerView r1;
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mTabScrollView;
+
+        if r1 == null goto label1;
+
+        return;
+
+     label1:
+        r1 = new androidx.appcompat.widget.ScrollingTabContainerView;
+
+        $r2 = r0.mContext;
+
+        specialinvoke r1.<init>($r2);
+
+        $z0 = r0.mHasEmbeddedTabs;
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke r1.setVisibility(0);
+
+        $r3 = r0.mDecorToolbar;
+
+        interfaceinvoke $r3.setEmbeddedTabView(r1);
+
+        goto label5;
+
+     label2:
+        $i0 = virtualinvoke r0.getNavigationMode();
+
+        if $i0 != 2 goto label3;
+
+        virtualinvoke r1.setVisibility(0);
+
+        $r4 = r0.mOverlayLayout;
+
+        if $r4 == null goto label4;
+
+        androidx.core.view.ViewCompat.requestApplyInsets($r4);
+
+        goto label4;
+
+     label3:
+        virtualinvoke r1.setVisibility(8);
+
+     label4:
+        $r5 = r0.mContainerView;
+
+        virtualinvoke $r5.setTabContainer(r1);
+
+     label5:
+        r0.mTabScrollView = r1;
+
+        return;
+    }
+
+    private androidx.appcompat.widget.DecorToolbar getDecorToolbar(android.view.View)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        java.lang.IllegalStateException $r4;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.View $r1;
+        androidx.appcompat.widget.Toolbar $r3;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6;
+        java.lang.String $r7;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof androidx.appcompat.widget.DecorToolbar;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (androidx.appcompat.widget.DecorToolbar) $r1;
+
+        return $r2;
+
+     label1:
+        $z0 = $r1 instanceof androidx.appcompat.widget.Toolbar;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (androidx.appcompat.widget.Toolbar) $r1;
+
+        $r2 = virtualinvoke $r3.getWrapper();
+
+        return $r2;
+
+     label2:
+        $r4 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        $r5 = virtualinvoke $r5.append("Can\'t make a decor toolbar out of ");
+
+        if $r1 == null goto label3;
+
+        $r6 = virtualinvoke $r1.getClass();
+
+        $r7 = virtualinvoke $r6.getSimpleName();
+
+        goto label4;
+
+     label3:
+        $r7 = "null";
+
+     label4:
+        $r5 = virtualinvoke $r5.append($r7);
+
+        $r7 = virtualinvoke $r5.toString();
+
+        specialinvoke $r4.<init>($r7);
+
+        throw $r4;
+    }
+
+    private void hideForActionMode()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mShowingForMode;
+
+        if $z0 == 0 goto label2;
+
+        r0.mShowingForMode = 0;
+
+        $r1 = r0.mOverlayLayout;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.setShowingForActionMode(0);
+
+     label1:
+        specialinvoke r0.updateVisibility(0);
+
+     label2:
+        return;
+    }
+
+    private void init(android.view.View)
+    {
+        android.content.Context $r7;
+        java.lang.IllegalStateException r11;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.content.res.TypedArray $r10;
+        int[] $r9;
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer r6;
+        android.view.View $r1, $r2;
+        java.lang.String $r14;
+        boolean z0, $z1;
+        androidx.appcompat.widget.DecorToolbar $r4;
+        androidx.appcompat.widget.ActionBarOverlayLayout r3;
+        androidx.appcompat.widget.ActionBarContextView r5;
+        float $f0;
+        java.lang.StringBuilder r12;
+        java.lang.Class $r13;
+        androidx.appcompat.view.ActionBarPolicy $r8;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = androidx.appcompat.R$id.decor_content_parent;
+
+        $r2 = virtualinvoke $r1.findViewById($i0);
+
+        r3 = (androidx.appcompat.widget.ActionBarOverlayLayout) $r2;
+
+        r0.mOverlayLayout = r3;
+
+        if r3 == null goto label01;
+
+        virtualinvoke r3.setActionBarVisibilityCallback(r0);
+
+     label01:
+        $i0 = androidx.appcompat.R$id.action_bar;
+
+        $r2 = virtualinvoke $r1.findViewById($i0);
+
+        $r4 = specialinvoke r0.getDecorToolbar($r2);
+
+        r0.mDecorToolbar = $r4;
+
+        $i0 = androidx.appcompat.R$id.action_context_bar;
+
+        $r2 = virtualinvoke $r1.findViewById($i0);
+
+        r5 = (androidx.appcompat.widget.ActionBarContextView) $r2;
+
+        r0.mContextView = r5;
+
+        $i0 = androidx.appcompat.R$id.action_bar_container;
+
+        $r1 = virtualinvoke $r1.findViewById($i0);
+
+        r6 = (androidx.appcompat.widget.ActionBarContainer) $r1;
+
+        r0.mContainerView = r6;
+
+        $r4 = r0.mDecorToolbar;
+
+        if $r4 == null goto label10;
+
+        r5 = r0.mContextView;
+
+        if r5 == null goto label10;
+
+        if r6 == null goto label10;
+
+        $r7 = interfaceinvoke $r4.getContext();
+
+        r0.mContext = $r7;
+
+        $r4 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r4.getDisplayOptions();
+
+        $i0 = $i0 & 4;
+
+        if $i0 == 0 goto label02;
+
+        z0 = 1;
+
+        goto label03;
+
+     label02:
+        z0 = 0;
+
+     label03:
+        if z0 == 0 goto label04;
+
+        r0.mDisplayHomeAsUpSet = 1;
+
+     label04:
+        $r7 = r0.mContext;
+
+        $r8 = androidx.appcompat.view.ActionBarPolicy.get($r7);
+
+        $z1 = virtualinvoke $r8.enableHomeButtonByDefault();
+
+        if $z1 != 0 goto label06;
+
+        if z0 == 0 goto label05;
+
+        goto label06;
+
+     label05:
+        z0 = 0;
+
+        goto label07;
+
+     label06:
+        z0 = 1;
+
+     label07:
+        virtualinvoke r0.setHomeButtonEnabled(z0);
+
+        z0 = virtualinvoke $r8.hasEmbeddedTabs();
+
+        specialinvoke r0.setHasEmbeddedTabs(z0);
+
+        $r7 = r0.mContext;
+
+        $r9 = androidx.appcompat.R$styleable.ActionBar;
+
+        $i0 = androidx.appcompat.R$attr.actionBarStyle;
+
+        $r10 = virtualinvoke $r7.obtainStyledAttributes(null, $r9, $i0, 0);
+
+        $i0 = androidx.appcompat.R$styleable.ActionBar_hideOnContentScroll;
+
+        z0 = virtualinvoke $r10.getBoolean($i0, 0);
+
+        if z0 == 0 goto label08;
+
+        virtualinvoke r0.setHideOnContentScrollEnabled(1);
+
+     label08:
+        $i0 = androidx.appcompat.R$styleable.ActionBar_elevation;
+
+        $i0 = virtualinvoke $r10.getDimensionPixelSize($i0, 0);
+
+        if $i0 == 0 goto label09;
+
+        $f0 = (float) $i0;
+
+        virtualinvoke r0.setElevation($f0);
+
+     label09:
+        virtualinvoke $r10.recycle();
+
+        return;
+
+     label10:
+        r11 = new java.lang.IllegalStateException;
+
+        r12 = new java.lang.StringBuilder;
+
+        specialinvoke r12.<init>();
+
+        $r13 = virtualinvoke r0.getClass();
+
+        $r14 = virtualinvoke $r13.getSimpleName();
+
+        r12 = virtualinvoke r12.append($r14);
+
+        r12 = virtualinvoke r12.append(" can only be used with a compatible window decor layout");
+
+        $r14 = virtualinvoke r12.toString();
+
+        specialinvoke r11.<init>($r14);
+
+        throw r11;
+    }
+
+    private void setHasEmbeddedTabs(boolean)
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r4;
+        androidx.appcompat.widget.ScrollingTabContainerView $r3;
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer r2;
+        boolean $z0, z1, $z2;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mHasEmbeddedTabs = $z0;
+
+        if $z0 != 0 goto label01;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setEmbeddedTabView(null);
+
+        r2 = r0.mContainerView;
+
+        $r3 = r0.mTabScrollView;
+
+        virtualinvoke r2.setTabContainer($r3);
+
+        goto label02;
+
+     label01:
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setTabContainer(null);
+
+        $r1 = r0.mDecorToolbar;
+
+        $r3 = r0.mTabScrollView;
+
+        interfaceinvoke $r1.setEmbeddedTabView($r3);
+
+     label02:
+        $i0 = virtualinvoke r0.getNavigationMode();
+
+        $z0 = 1;
+
+        if $i0 != 2 goto label03;
+
+        z1 = 1;
+
+        goto label04;
+
+     label03:
+        z1 = 0;
+
+     label04:
+        $r3 = r0.mTabScrollView;
+
+        if $r3 == null goto label06;
+
+        if z1 == 0 goto label05;
+
+        virtualinvoke $r3.setVisibility(0);
+
+        $r4 = r0.mOverlayLayout;
+
+        if $r4 == null goto label06;
+
+        androidx.core.view.ViewCompat.requestApplyInsets($r4);
+
+        goto label06;
+
+     label05:
+        virtualinvoke $r3.setVisibility(8);
+
+     label06:
+        $r1 = r0.mDecorToolbar;
+
+        $z2 = r0.mHasEmbeddedTabs;
+
+        if $z2 != 0 goto label07;
+
+        if z1 == 0 goto label07;
+
+        $z2 = 1;
+
+        goto label08;
+
+     label07:
+        $z2 = 0;
+
+     label08:
+        interfaceinvoke $r1.setCollapsible($z2);
+
+        $r4 = r0.mOverlayLayout;
+
+        $z2 = r0.mHasEmbeddedTabs;
+
+        if $z2 != 0 goto label09;
+
+        if z1 == 0 goto label09;
+
+        goto label10;
+
+     label09:
+        $z0 = 0;
+
+     label10:
+        virtualinvoke $r4.setHasNonEmbeddedTabs($z0);
+
+        return;
+    }
+
+    private boolean shouldAnimateContextView()
+    {
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mContainerView;
+
+        $z0 = androidx.core.view.ViewCompat.isLaidOut($r1);
+
+        return $z0;
+    }
+
+    private void showForActionMode()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mShowingForMode;
+
+        if $z0 != 0 goto label2;
+
+        r0.mShowingForMode = 1;
+
+        $r1 = r0.mOverlayLayout;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.setShowingForActionMode(1);
+
+     label1:
+        specialinvoke r0.updateVisibility(0);
+
+     label2:
+        return;
+    }
+
+    private void updateVisibility(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0, $z1, z2, $z3;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        z2 = r0.mHiddenByApp;
+
+        $z3 = r0.mHiddenBySystem;
+
+        $z1 = r0.mShowingForMode;
+
+        $z1 = androidx.appcompat.app.WindowDecorActionBar.checkShowingFlags(z2, $z3, $z1);
+
+        if $z1 == 0 goto label1;
+
+        $z1 = r0.mNowShowing;
+
+        if $z1 != 0 goto label2;
+
+        r0.mNowShowing = 1;
+
+        virtualinvoke r0.doShow($z0);
+
+        return;
+
+     label1:
+        $z1 = r0.mNowShowing;
+
+        if $z1 == 0 goto label2;
+
+        r0.mNowShowing = 0;
+
+        virtualinvoke r0.doHide($z0);
+
+     label2:
+        return;
+    }
+
+    public void addOnMenuVisibilityListener(androidx.appcompat.app.ActionBar$OnMenuVisibilityListener)
+    {
+        androidx.appcompat.app.ActionBar$OnMenuVisibilityListener $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mMenuVisibilityListeners;
+
+        virtualinvoke $r2.add($r1);
+
+        return;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        boolean $z0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mTabs;
+
+        $z0 = virtualinvoke $r2.isEmpty();
+
+        virtualinvoke r0.addTab($r1, $z0);
+
+        return;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab, int)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        int $i0;
+        boolean $z0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.mTabs;
+
+        $z0 = virtualinvoke $r2.isEmpty();
+
+        virtualinvoke r0.addTab($r1, $i0, $z0);
+
+        return;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab, int, boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        specialinvoke r0.ensureTabsExist();
+
+        $r2 = r0.mTabScrollView;
+
+        virtualinvoke $r2.addTab($r1, $i0, $z0);
+
+        specialinvoke r0.configureTab($r1, $i0);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.selectTab($r1);
+
+     label1:
+        return;
+    }
+
+    public void addTab(androidx.appcompat.app.ActionBar$Tab, boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        int $i0;
+        androidx.appcompat.widget.ScrollingTabContainerView $r2;
+        boolean $z0;
+        java.util.ArrayList $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        specialinvoke r0.ensureTabsExist();
+
+        $r2 = r0.mTabScrollView;
+
+        virtualinvoke $r2.addTab($r1, $z0);
+
+        $r3 = r0.mTabs;
+
+        $i0 = virtualinvoke $r3.size();
+
+        specialinvoke r0.configureTab($r1, $i0);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.selectTab($r1);
+
+     label1:
+        return;
+    }
+
+    public void animateToMode(boolean)
+    {
+        androidx.appcompat.widget.DecorToolbar r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarContextView r3;
+        androidx.core.view.ViewPropertyAnimatorCompat $r2, $r4;
+        androidx.appcompat.view.ViewPropertyAnimatorCompatSet r5;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.showForActionMode();
+
+        goto label2;
+
+     label1:
+        specialinvoke r0.hideForActionMode();
+
+     label2:
+        $z1 = specialinvoke r0.shouldAnimateContextView();
+
+        if $z1 == 0 goto label5;
+
+        if $z0 == 0 goto label3;
+
+        r1 = r0.mDecorToolbar;
+
+        $r2 = interfaceinvoke r1.setupAnimatorToVisibility(4, 100L);
+
+        r3 = r0.mContextView;
+
+        $r4 = virtualinvoke r3.setupAnimatorToVisibility(0, 200L);
+
+        goto label4;
+
+     label3:
+        r1 = r0.mDecorToolbar;
+
+        $r4 = interfaceinvoke r1.setupAnimatorToVisibility(0, 200L);
+
+        r3 = r0.mContextView;
+
+        $r2 = virtualinvoke r3.setupAnimatorToVisibility(8, 100L);
+
+     label4:
+        r5 = new androidx.appcompat.view.ViewPropertyAnimatorCompatSet;
+
+        specialinvoke r5.<init>();
+
+        virtualinvoke r5.playSequentially($r2, $r4);
+
+        virtualinvoke r5.start();
+
+        return;
+
+     label5:
+        if $z0 == 0 goto label6;
+
+        r1 = r0.mDecorToolbar;
+
+        interfaceinvoke r1.setVisibility(4);
+
+        r3 = r0.mContextView;
+
+        virtualinvoke r3.setVisibility(0);
+
+        return;
+
+     label6:
+        r1 = r0.mDecorToolbar;
+
+        interfaceinvoke r1.setVisibility(0);
+
+        r3 = r0.mContextView;
+
+        virtualinvoke r3.setVisibility(8);
+
+        return;
+    }
+
+    public boolean collapseActionView()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.hasExpandedActionView();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.collapseActionView();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    void completeDeferredDestroyActionMode()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.view.ActionMode $r1;
+        androidx.appcompat.view.ActionMode$Callback $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mDeferredModeDestroyCallback;
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.mDeferredDestroyActionMode;
+
+        interfaceinvoke $r2.onDestroyActionMode($r1);
+
+        r0.mDeferredDestroyActionMode = null;
+
+        r0.mDeferredModeDestroyCallback = null;
+
+     label1:
+        return;
+    }
+
+    public void dispatchMenuVisibilityChanged(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$OnMenuVisibilityListener $r3;
+        java.util.ArrayList r1;
+        int $i0, i1;
+        java.lang.Object $r2;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        z1 = r0.mLastMenuVisibility;
+
+        if $z0 != z1 goto label1;
+
+        return;
+
+     label1:
+        r0.mLastMenuVisibility = $z0;
+
+        r1 = r0.mMenuVisibilityListeners;
+
+        $i0 = virtualinvoke r1.size();
+
+        i1 = 0;
+
+     label2:
+        if i1 >= $i0 goto label3;
+
+        r1 = r0.mMenuVisibilityListeners;
+
+        $r2 = virtualinvoke r1.get(i1);
+
+        $r3 = (androidx.appcompat.app.ActionBar$OnMenuVisibilityListener) $r2;
+
+        interfaceinvoke $r3.onMenuVisibilityChanged($z0);
+
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    public void doHide(boolean)
+    {
+        androidx.core.view.ViewPropertyAnimatorListener r8;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.animation.Interpolator r7;
+        androidx.core.view.ViewPropertyAnimatorUpdateListener r5;
+        androidx.core.view.ViewPropertyAnimatorCompat $r4;
+        int[] r3;
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        int i0;
+        float f0, f1;
+        android.view.View r6;
+        androidx.appcompat.view.ViewPropertyAnimatorCompatSet r2;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r2 = r0.mCurrentShowAnim;
+
+        if r2 == null goto label1;
+
+        virtualinvoke r2.cancel();
+
+     label1:
+        i0 = r0.mCurWindowVisibility;
+
+        if i0 != 0 goto label5;
+
+        z1 = r0.mShowHideAnimationEnabled;
+
+        if z1 != 0 goto label2;
+
+        if $z0 == 0 goto label5;
+
+     label2:
+        $r1 = r0.mContainerView;
+
+        virtualinvoke $r1.setAlpha(1.0F);
+
+        $r1 = r0.mContainerView;
+
+        virtualinvoke $r1.setTransitioning(1);
+
+        r2 = new androidx.appcompat.view.ViewPropertyAnimatorCompatSet;
+
+        specialinvoke r2.<init>();
+
+        $r1 = r0.mContainerView;
+
+        i0 = virtualinvoke $r1.getHeight();
+
+        i0 = neg i0;
+
+        f0 = (float) i0;
+
+        if $z0 == 0 goto label3;
+
+        r3 = newarray (int)[2];
+
+        r3[0] = 0;
+
+        r3[1] = 0;
+
+        $r1 = r0.mContainerView;
+
+        virtualinvoke $r1.getLocationInWindow(r3);
+
+        i0 = r3[1];
+
+        f1 = (float) i0;
+
+        f0 = f0 - f1;
+
+     label3:
+        $r1 = r0.mContainerView;
+
+        $r4 = androidx.core.view.ViewCompat.animate($r1);
+
+        $r4 = virtualinvoke $r4.translationY(f0);
+
+        r5 = r0.mUpdateListener;
+
+        virtualinvoke $r4.setUpdateListener(r5);
+
+        virtualinvoke r2.play($r4);
+
+        $z0 = r0.mContentAnimations;
+
+        if $z0 == 0 goto label4;
+
+        r6 = r0.mContentView;
+
+        if r6 == null goto label4;
+
+        $r4 = androidx.core.view.ViewCompat.animate(r6);
+
+        $r4 = virtualinvoke $r4.translationY(f0);
+
+        virtualinvoke r2.play($r4);
+
+     label4:
+        r7 = androidx.appcompat.app.WindowDecorActionBar.sHideInterpolator;
+
+        virtualinvoke r2.setInterpolator(r7);
+
+        virtualinvoke r2.setDuration(250L);
+
+        r8 = r0.mHideListener;
+
+        virtualinvoke r2.setListener(r8);
+
+        r0.mCurrentShowAnim = r2;
+
+        virtualinvoke r2.start();
+
+        return;
+
+     label5:
+        r8 = r0.mHideListener;
+
+        interfaceinvoke r8.onAnimationEnd(null);
+
+        return;
+    }
+
+    public void doShow(boolean)
+    {
+        androidx.core.view.ViewPropertyAnimatorListener $r8;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.animation.Interpolator $r7;
+        androidx.appcompat.widget.ActionBarOverlayLayout r9;
+        androidx.core.view.ViewPropertyAnimatorUpdateListener $r5;
+        androidx.core.view.ViewPropertyAnimatorCompat $r4;
+        int[] r3;
+        androidx.appcompat.widget.ActionBarContainer r2;
+        int i0;
+        float f0, f1;
+        android.view.View $r6;
+        androidx.appcompat.view.ViewPropertyAnimatorCompatSet r1;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r1 = r0.mCurrentShowAnim;
+
+        if r1 == null goto label1;
+
+        virtualinvoke r1.cancel();
+
+     label1:
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setVisibility(0);
+
+        i0 = r0.mCurWindowVisibility;
+
+        if i0 != 0 goto label5;
+
+        z1 = r0.mShowHideAnimationEnabled;
+
+        if z1 != 0 goto label2;
+
+        if $z0 == 0 goto label5;
+
+     label2:
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setTranslationY(0.0F);
+
+        r2 = r0.mContainerView;
+
+        i0 = virtualinvoke r2.getHeight();
+
+        i0 = neg i0;
+
+        f0 = (float) i0;
+
+        if $z0 == 0 goto label3;
+
+        r3 = newarray (int)[2];
+
+        r3[0] = 0;
+
+        r3[1] = 0;
+
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.getLocationInWindow(r3);
+
+        i0 = r3[1];
+
+        f1 = (float) i0;
+
+        f0 = f0 - f1;
+
+     label3:
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setTranslationY(f0);
+
+        r1 = new androidx.appcompat.view.ViewPropertyAnimatorCompatSet;
+
+        specialinvoke r1.<init>();
+
+        r2 = r0.mContainerView;
+
+        $r4 = androidx.core.view.ViewCompat.animate(r2);
+
+        $r4 = virtualinvoke $r4.translationY(0.0F);
+
+        $r5 = r0.mUpdateListener;
+
+        virtualinvoke $r4.setUpdateListener($r5);
+
+        virtualinvoke r1.play($r4);
+
+        $z0 = r0.mContentAnimations;
+
+        if $z0 == 0 goto label4;
+
+        $r6 = r0.mContentView;
+
+        if $r6 == null goto label4;
+
+        virtualinvoke $r6.setTranslationY(f0);
+
+        $r6 = r0.mContentView;
+
+        $r4 = androidx.core.view.ViewCompat.animate($r6);
+
+        $r4 = virtualinvoke $r4.translationY(0.0F);
+
+        virtualinvoke r1.play($r4);
+
+     label4:
+        $r7 = androidx.appcompat.app.WindowDecorActionBar.sShowInterpolator;
+
+        virtualinvoke r1.setInterpolator($r7);
+
+        virtualinvoke r1.setDuration(250L);
+
+        $r8 = r0.mShowListener;
+
+        virtualinvoke r1.setListener($r8);
+
+        r0.mCurrentShowAnim = r1;
+
+        virtualinvoke r1.start();
+
+        goto label7;
+
+     label5:
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setAlpha(1.0F);
+
+        r2 = r0.mContainerView;
+
+        virtualinvoke r2.setTranslationY(0.0F);
+
+        $z0 = r0.mContentAnimations;
+
+        if $z0 == 0 goto label6;
+
+        $r6 = r0.mContentView;
+
+        if $r6 == null goto label6;
+
+        virtualinvoke $r6.setTranslationY(0.0F);
+
+     label6:
+        $r8 = r0.mShowListener;
+
+        interfaceinvoke $r8.onAnimationEnd(null);
+
+     label7:
+        r9 = r0.mOverlayLayout;
+
+        if r9 == null goto label8;
+
+        androidx.core.view.ViewCompat.requestApplyInsets(r9);
+
+     label8:
+        return;
+    }
+
+    public void enableContentAnimations(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mContentAnimations = $z0;
+
+        return;
+    }
+
+    public android.view.View getCustomView()
+    {
+        android.view.View $r1;
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r2 = r0.mDecorToolbar;
+
+        $r1 = interfaceinvoke $r2.getCustomView();
+
+        return $r1;
+    }
+
+    public int getDisplayOptions()
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getDisplayOptions();
+
+        return $i0;
+    }
+
+    public float getElevation()
+    {
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        float $f0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 = r0.mContainerView;
+
+        $f0 = androidx.core.view.ViewCompat.getElevation($r1);
+
+        return $f0;
+    }
+
+    public int getHeight()
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 = r0.mContainerView;
+
+        $i0 = virtualinvoke $r1.getHeight();
+
+        return $i0;
+    }
+
+    public int getHideOffset()
+    {
+        int $i0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mOverlayLayout;
+
+        $i0 = virtualinvoke $r1.getActionBarHideOffset();
+
+        return $i0;
+    }
+
+    public int getNavigationItemCount()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getNavigationMode();
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return 0;
+
+     label2:
+        $r2 = r0.mTabs;
+
+        $i0 = virtualinvoke $r2.size();
+
+        return $i0;
+
+     label3:
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getDropdownItemCount();
+
+        return $i0;
+    }
+
+    public int getNavigationMode()
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getNavigationMode();
+
+        return $i0;
+    }
+
+    public int getSelectedNavigationIndex()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getNavigationMode();
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return -1;
+
+     label2:
+        $r2 = r0.mSelectedTab;
+
+        if $r2 == null goto label4;
+
+        $i0 = virtualinvoke $r2.getPosition();
+
+        return $i0;
+
+     label3:
+        $r1 = r0.mDecorToolbar;
+
+        $i0 = interfaceinvoke $r1.getDropdownSelectedPosition();
+
+        return $i0;
+
+     label4:
+        return -1;
+    }
+
+    public androidx.appcompat.app.ActionBar$Tab getSelectedTab()
+    {
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        r1 = r0.mSelectedTab;
+
+        return r1;
+    }
+
+    public java.lang.CharSequence getSubtitle()
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mDecorToolbar;
+
+        $r1 = interfaceinvoke $r2.getSubtitle();
+
+        return $r1;
+    }
+
+    public androidx.appcompat.app.ActionBar$Tab getTabAt(int)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r3;
+        int $i0;
+        java.lang.Object $r1;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = r0.mTabs;
+
+        $r1 = virtualinvoke $r2.get($i0);
+
+        $r3 = (androidx.appcompat.app.ActionBar$Tab) $r1;
+
+        return $r3;
+    }
+
+    public int getTabCount()
+    {
+        int $i0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mTabs;
+
+        $i0 = virtualinvoke $r1.size();
+
+        return $i0;
+    }
+
+    public android.content.Context getThemedContext()
+    {
+        android.content.Context $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.util.TypedValue r3;
+        int i0;
+        android.view.ContextThemeWrapper $r4;
+        android.content.res.Resources$Theme $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mThemedContext;
+
+        if $r1 != null goto label2;
+
+        r3 = new android.util.TypedValue;
+
+        specialinvoke r3.<init>();
+
+        $r1 = r0.mContext;
+
+        $r2 = virtualinvoke $r1.getTheme();
+
+        i0 = androidx.appcompat.R$attr.actionBarWidgetTheme;
+
+        virtualinvoke $r2.resolveAttribute(i0, r3, 1);
+
+        i0 = r3.resourceId;
+
+        if i0 == 0 goto label1;
+
+        $r4 = new android.view.ContextThemeWrapper;
+
+        $r1 = r0.mContext;
+
+        specialinvoke $r4.<init>($r1, i0);
+
+        r0.mThemedContext = $r4;
+
+        goto label2;
+
+     label1:
+        $r1 = r0.mContext;
+
+        r0.mThemedContext = $r1;
+
+     label2:
+        $r1 = r0.mThemedContext;
+
+        return $r1;
+    }
+
+    public java.lang.CharSequence getTitle()
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r2 = r0.mDecorToolbar;
+
+        $r1 = interfaceinvoke $r2.getTitle();
+
+        return $r1;
+    }
+
+    public boolean hasIcon()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.hasIcon();
+
+        return $z0;
+    }
+
+    public boolean hasLogo()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.hasLogo();
+
+        return $z0;
+    }
+
+    public void hide()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHiddenByApp;
+
+        if $z0 != 0 goto label1;
+
+        r0.mHiddenByApp = 1;
+
+        specialinvoke r0.updateVisibility(0);
+
+     label1:
+        return;
+    }
+
+    public void hideForSystem()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHiddenBySystem;
+
+        if $z0 != 0 goto label1;
+
+        r0.mHiddenBySystem = 1;
+
+        specialinvoke r0.updateVisibility(1);
+
+     label1:
+        return;
+    }
+
+    public boolean isHideOnContentScrollEnabled()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mOverlayLayout;
+
+        $z0 = virtualinvoke $r1.isHideOnContentScrollEnabled();
+
+        return $z0;
+    }
+
+    public boolean isShowing()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0, $i1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 = virtualinvoke r0.getHeight();
+
+        $z0 = r0.mNowShowing;
+
+        if $z0 == 0 goto label2;
+
+        if $i0 == 0 goto label1;
+
+        $i1 = virtualinvoke r0.getHideOffset();
+
+        if $i1 >= $i0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public boolean isTitleTruncated()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mDecorToolbar;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.isTitleTruncated();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public androidx.appcompat.app.ActionBar$Tab newTab()
+    {
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 = new androidx.appcompat.app.WindowDecorActionBar$TabImpl;
+
+        specialinvoke $r1.<init>(r0);
+
+        return $r1;
+    }
+
+    public void onConfigurationChanged(android.content.res.Configuration)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.content.res.Configuration $r1;
+        androidx.appcompat.view.ActionBarPolicy $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mContext;
+
+        $r3 = androidx.appcompat.view.ActionBarPolicy.get($r2);
+
+        $z0 = virtualinvoke $r3.hasEmbeddedTabs();
+
+        specialinvoke r0.setHasEmbeddedTabs($z0);
+
+        return;
+    }
+
+    public void onContentScrollStarted()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.view.ViewPropertyAnimatorCompatSet $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mCurrentShowAnim;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.cancel();
+
+        r0.mCurrentShowAnim = null;
+
+     label1:
+        return;
+    }
+
+    public void onContentScrollStopped()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public boolean onKeyShortcut(int, android.view.KeyEvent)
+    {
+        android.view.KeyEvent $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.WindowDecorActionBar$ActionModeImpl r2;
+        android.view.KeyCharacterMap $r4;
+        int $i0, $i1;
+        android.view.Menu $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 = r0.mActionMode;
+
+        if r2 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r3 = virtualinvoke r2.getMenu();
+
+        if $r3 == null goto label6;
+
+        if $r1 == null goto label2;
+
+        $i1 = virtualinvoke $r1.getDeviceId();
+
+        goto label3;
+
+     label2:
+        $i1 = -1;
+
+     label3:
+        $r4 = android.view.KeyCharacterMap.load($i1);
+
+        $i1 = virtualinvoke $r4.getKeyboardType();
+
+        $z0 = 1;
+
+        if $i1 == 1 goto label4;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        interfaceinvoke $r3.setQwertyMode($z0);
+
+        $z0 = interfaceinvoke $r3.performShortcut($i0, $r1, 0);
+
+        return $z0;
+
+     label6:
+        return 0;
+    }
+
+    public void onWindowVisibilityChanged(int)
+    {
+        int $i0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mCurWindowVisibility = $i0;
+
+        return;
+    }
+
+    public void removeAllTabs()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        specialinvoke r0.cleanupTabs();
+
+        return;
+    }
+
+    public void removeOnMenuVisibilityListener(androidx.appcompat.app.ActionBar$OnMenuVisibilityListener)
+    {
+        androidx.appcompat.app.ActionBar$OnMenuVisibilityListener $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.util.ArrayList $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mMenuVisibilityListeners;
+
+        virtualinvoke $r2.remove($r1);
+
+        return;
+    }
+
+    public void removeTab(androidx.appcompat.app.ActionBar$Tab)
+    {
+        int $i0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getPosition();
+
+        virtualinvoke r0.removeTabAt($i0);
+
+        return;
+    }
+
+    public void removeTabAt(int)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ScrollingTabContainerView r1;
+        java.util.ArrayList r3;
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl r2;
+        int $i0, $i1, $i2, i3;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mTabScrollView;
+
+        if r1 != null goto label1;
+
+        return;
+
+     label1:
+        r2 = r0.mSelectedTab;
+
+        if r2 == null goto label2;
+
+        $i1 = virtualinvoke r2.getPosition();
+
+        goto label3;
+
+     label2:
+        $i1 = r0.mSavedTabPosition;
+
+     label3:
+        r1 = r0.mTabScrollView;
+
+        virtualinvoke r1.removeTabAt($i0);
+
+        r3 = r0.mTabs;
+
+        $r4 = virtualinvoke r3.remove($i0);
+
+        r2 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r4;
+
+        if r2 == null goto label4;
+
+        virtualinvoke r2.setPosition(-1);
+
+     label4:
+        r3 = r0.mTabs;
+
+        $i2 = virtualinvoke r3.size();
+
+        i3 = $i0;
+
+     label5:
+        if i3 >= $i2 goto label6;
+
+        r3 = r0.mTabs;
+
+        $r4 = virtualinvoke r3.get(i3);
+
+        r2 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r4;
+
+        virtualinvoke r2.setPosition(i3);
+
+        i3 = i3 + 1;
+
+        goto label5;
+
+     label6:
+        if $i1 != $i0 goto label9;
+
+        r3 = r0.mTabs;
+
+        $z0 = virtualinvoke r3.isEmpty();
+
+        if $z0 == 0 goto label7;
+
+        r2 = null;
+
+        goto label8;
+
+     label7:
+        r3 = r0.mTabs;
+
+        $i0 = $i0 + -1;
+
+        $i0 = java.lang.Math.max(0, $i0);
+
+        $r4 = virtualinvoke r3.get($i0);
+
+        r2 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r4;
+
+     label8:
+        virtualinvoke r0.selectTab(r2);
+
+     label9:
+        return;
+    }
+
+    public boolean requestFocus()
+    {
+        androidx.appcompat.widget.DecorToolbar r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.ViewGroup $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mDecorToolbar;
+
+        $r2 = interfaceinvoke r1.getViewGroup();
+
+        if $r2 == null goto label1;
+
+        $z0 = virtualinvoke $r2.hasFocus();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r2.requestFocus();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void selectTab(androidx.appcompat.app.ActionBar$Tab)
+    {
+        androidx.appcompat.widget.DecorToolbar r3;
+        androidx.fragment.app.FragmentManager $r6;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r1;
+        androidx.appcompat.widget.ScrollingTabContainerView $r10;
+        androidx.fragment.app.FragmentTransaction $r7;
+        androidx.appcompat.app.ActionBar$TabListener $r9;
+        android.view.ViewGroup $r4;
+        androidx.fragment.app.FragmentActivity r5;
+        androidx.appcompat.app.WindowDecorActionBar$TabImpl $r8;
+        int $i0, $i1;
+        android.app.Activity r2;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke r0.getNavigationMode();
+
+        $i1 = -1;
+
+        if $i0 == 2 goto label2;
+
+        if $r1 == null goto label1;
+
+        $i1 = virtualinvoke $r1.getPosition();
+
+     label1:
+        r0.mSavedTabPosition = $i1;
+
+        return;
+
+     label2:
+        r2 = r0.mActivity;
+
+        z0 = r2 instanceof androidx.fragment.app.FragmentActivity;
+
+        if z0 == 0 goto label3;
+
+        r3 = r0.mDecorToolbar;
+
+        $r4 = interfaceinvoke r3.getViewGroup();
+
+        z0 = virtualinvoke $r4.isInEditMode();
+
+        if z0 != 0 goto label3;
+
+        r2 = r0.mActivity;
+
+        r5 = (androidx.fragment.app.FragmentActivity) r2;
+
+        $r6 = virtualinvoke r5.getSupportFragmentManager();
+
+        $r7 = virtualinvoke $r6.beginTransaction();
+
+        $r7 = virtualinvoke $r7.disallowAddToBackStack();
+
+        goto label4;
+
+     label3:
+        $r7 = null;
+
+     label4:
+        $r8 = r0.mSelectedTab;
+
+        if $r8 != $r1 goto label5;
+
+        if $r8 == null goto label8;
+
+        $r9 = virtualinvoke $r8.getCallback();
+
+        $r8 = r0.mSelectedTab;
+
+        interfaceinvoke $r9.onTabReselected($r8, $r7);
+
+        $r10 = r0.mTabScrollView;
+
+        $i0 = virtualinvoke $r1.getPosition();
+
+        virtualinvoke $r10.animateToTab($i0);
+
+        goto label8;
+
+     label5:
+        $r10 = r0.mTabScrollView;
+
+        if $r1 == null goto label6;
+
+        $i1 = virtualinvoke $r1.getPosition();
+
+     label6:
+        virtualinvoke $r10.setTabSelected($i1);
+
+        $r8 = r0.mSelectedTab;
+
+        if $r8 == null goto label7;
+
+        $r9 = virtualinvoke $r8.getCallback();
+
+        $r8 = r0.mSelectedTab;
+
+        interfaceinvoke $r9.onTabUnselected($r8, $r7);
+
+     label7:
+        $r8 = (androidx.appcompat.app.WindowDecorActionBar$TabImpl) $r1;
+
+        r0.mSelectedTab = $r8;
+
+        if $r8 == null goto label8;
+
+        $r9 = virtualinvoke $r8.getCallback();
+
+        $r8 = r0.mSelectedTab;
+
+        interfaceinvoke $r9.onTabSelected($r8, $r7);
+
+     label8:
+        if $r7 == null goto label9;
+
+        z0 = virtualinvoke $r7.isEmpty();
+
+        if z0 != 0 goto label9;
+
+        virtualinvoke $r7.commit();
+
+     label9:
+        return;
+    }
+
+    public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mContainerView;
+
+        virtualinvoke $r2.setPrimaryBackground($r1);
+
+        return;
+    }
+
+    public void setCustomView(int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.DecorToolbar $r3;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.view.LayoutInflater $r2;
+        int $i0;
+        android.view.View $r5;
+        android.view.ViewGroup $r4;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getThemedContext();
+
+        $r2 = android.view.LayoutInflater.from($r1);
+
+        $r3 = r0.mDecorToolbar;
+
+        $r4 = interfaceinvoke $r3.getViewGroup();
+
+        $r5 = virtualinvoke $r2.inflate($i0, $r4, 0);
+
+        virtualinvoke r0.setCustomView($r5);
+
+        return;
+    }
+
+    public void setCustomView(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setCustomView($r1);
+
+        return;
+    }
+
+    public void setCustomView(android.view.View, androidx.appcompat.app.ActionBar$LayoutParams)
+    {
+        androidx.appcompat.widget.DecorToolbar $r3;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$LayoutParams $r2;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke $r1.setLayoutParams($r2);
+
+        $r3 = r0.mDecorToolbar;
+
+        interfaceinvoke $r3.setCustomView($r1);
+
+        return;
+    }
+
+    public void setDefaultDisplayHomeAsUpEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 = r0.mDisplayHomeAsUpSet;
+
+        if $z1 != 0 goto label1;
+
+        virtualinvoke r0.setDisplayHomeAsUpEnabled($z0);
+
+     label1:
+        return;
+    }
+
+    public void setDisplayHomeAsUpEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        byte $b0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        $b0 = 4;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke r0.setDisplayOptions($b0, 4);
+
+        return;
+    }
+
+    public void setDisplayOptions(int)
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = $i0 & 4;
+
+        if $i1 == 0 goto label1;
+
+        r0.mDisplayHomeAsUpSet = 1;
+
+     label1:
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setDisplayOptions($i0);
+
+        return;
+    }
+
+    public void setDisplayOptions(int, int)
+    {
+        androidx.appcompat.widget.DecorToolbar r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0, $i1, $i2, $i3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        r1 = r0.mDecorToolbar;
+
+        $i2 = interfaceinvoke r1.getDisplayOptions();
+
+        $i3 = $i1 & 4;
+
+        if $i3 == 0 goto label1;
+
+        r0.mDisplayHomeAsUpSet = 1;
+
+     label1:
+        r1 = r0.mDecorToolbar;
+
+        $i0 = $i0 & $i1;
+
+        $i1 = $i1 ^ -1;
+
+        $i1 = $i1 & $i2;
+
+        $i0 = $i0 | $i1;
+
+        interfaceinvoke r1.setDisplayOptions($i0);
+
+        return;
+    }
+
+    public void setDisplayShowCustomEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        byte $b0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        $b0 = 16;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke r0.setDisplayOptions($b0, 16);
+
+        return;
+    }
+
+    public void setDisplayShowHomeEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        byte $b0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        $b0 = 2;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke r0.setDisplayOptions($b0, 2);
+
+        return;
+    }
+
+    public void setDisplayShowTitleEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        byte $b0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label1;
+
+        $b0 = 8;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke r0.setDisplayOptions($b0, 8);
+
+        return;
+    }
+
+    public void setDisplayUseLogoEnabled(boolean)
+    {
+        int $i0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 = (int) $z0;
+
+        virtualinvoke r0.setDisplayOptions($i0, 1);
+
+        return;
+    }
+
+    public void setElevation(float)
+    {
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        float $f0;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $r1 = r0.mContainerView;
+
+        androidx.core.view.ViewCompat.setElevation($r1, $f0);
+
+        return;
+    }
+
+    public void setHideOffset(int)
+    {
+        java.lang.IllegalStateException $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 == 0 goto label2;
+
+        $r1 = r0.mOverlayLayout;
+
+        $z0 = virtualinvoke $r1.isInOverlayMode();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to set a non-zero hide offset");
+
+        throw $r2;
+
+     label2:
+        $r1 = r0.mOverlayLayout;
+
+        virtualinvoke $r1.setActionBarHideOffset($i0);
+
+        return;
+    }
+
+    public void setHideOnContentScrollEnabled(boolean)
+    {
+        java.lang.IllegalStateException $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = r0.mOverlayLayout;
+
+        $z1 = virtualinvoke $r1.isInOverlayMode();
+
+        if $z1 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to enable hide on content scroll");
+
+        throw $r2;
+
+     label2:
+        r0.mHideOnContentScroll = $z0;
+
+        $r1 = r0.mOverlayLayout;
+
+        virtualinvoke $r1.setHideOnContentScrollEnabled($z0);
+
+        return;
+    }
+
+    public void setHomeActionContentDescription(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setNavigationContentDescription($i0);
+
+        return;
+    }
+
+    public void setHomeActionContentDescription(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setNavigationContentDescription($r1);
+
+        return;
+    }
+
+    public void setHomeAsUpIndicator(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setNavigationIcon($i0);
+
+        return;
+    }
+
+    public void setHomeAsUpIndicator(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setNavigationIcon($r1);
+
+        return;
+    }
+
+    public void setHomeButtonEnabled(boolean)
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setHomeButtonEnabled($z0);
+
+        return;
+    }
+
+    public void setIcon(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setIcon($i0);
+
+        return;
+    }
+
+    public void setIcon(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setIcon($r1);
+
+        return;
+    }
+
+    public void setListNavigationCallbacks(android.widget.SpinnerAdapter, androidx.appcompat.app.ActionBar$OnNavigationListener)
+    {
+        android.widget.SpinnerAdapter $r1;
+        androidx.appcompat.widget.DecorToolbar $r3;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.NavItemSelectedListener $r4;
+        androidx.appcompat.app.ActionBar$OnNavigationListener $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.mDecorToolbar;
+
+        $r4 = new androidx.appcompat.app.NavItemSelectedListener;
+
+        specialinvoke $r4.<init>($r2);
+
+        interfaceinvoke $r3.setDropdownParams($r1, $r4);
+
+        return;
+    }
+
+    public void setLogo(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setLogo($i0);
+
+        return;
+    }
+
+    public void setLogo(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setLogo($r1);
+
+        return;
+    }
+
+    public void setNavigationMode(int)
+    {
+        androidx.appcompat.widget.DecorToolbar r1;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout $r3;
+        androidx.appcompat.widget.ScrollingTabContainerView $r2;
+        int $i0, $i1, $i2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mDecorToolbar;
+
+        $i1 = interfaceinvoke r1.getNavigationMode();
+
+        lookupswitch($i1)
+        {
+            case 2: goto label02;
+            default: goto label01;
+        };
+
+     label01:
+        goto label03;
+
+     label02:
+        $i2 = virtualinvoke r0.getSelectedNavigationIndex();
+
+        r0.mSavedTabPosition = $i2;
+
+        virtualinvoke r0.selectTab(null);
+
+        $r2 = r0.mTabScrollView;
+
+        virtualinvoke $r2.setVisibility(8);
+
+     label03:
+        if $i1 == $i0 goto label04;
+
+        $z0 = r0.mHasEmbeddedTabs;
+
+        if $z0 != 0 goto label04;
+
+        $r3 = r0.mOverlayLayout;
+
+        if $r3 == null goto label04;
+
+        androidx.core.view.ViewCompat.requestApplyInsets($r3);
+
+     label04:
+        r1 = r0.mDecorToolbar;
+
+        interfaceinvoke r1.setNavigationMode($i0);
+
+        $z0 = 0;
+
+        lookupswitch($i0)
+        {
+            case 2: goto label06;
+            default: goto label05;
+        };
+
+     label05:
+        goto label07;
+
+     label06:
+        specialinvoke r0.ensureTabsExist();
+
+        $r2 = r0.mTabScrollView;
+
+        virtualinvoke $r2.setVisibility(0);
+
+        $i1 = r0.mSavedTabPosition;
+
+        if $i1 == -1 goto label07;
+
+        virtualinvoke r0.setSelectedNavigationItem($i1);
+
+        r0.mSavedTabPosition = -1;
+
+     label07:
+        r1 = r0.mDecorToolbar;
+
+        if $i0 != 2 goto label08;
+
+        $z1 = r0.mHasEmbeddedTabs;
+
+        if $z1 != 0 goto label08;
+
+        $z1 = 1;
+
+        goto label09;
+
+     label08:
+        $z1 = 0;
+
+     label09:
+        interfaceinvoke r1.setCollapsible($z1);
+
+        $r3 = r0.mOverlayLayout;
+
+        if $i0 != 2 goto label10;
+
+        $z1 = r0.mHasEmbeddedTabs;
+
+        if $z1 != 0 goto label10;
+
+        $z0 = 1;
+
+     label10:
+        virtualinvoke $r3.setHasNonEmbeddedTabs($z0);
+
+        return;
+    }
+
+    public void setSelectedNavigationItem(int)
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        java.lang.IllegalStateException $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.app.ActionBar$Tab $r5;
+        java.util.ArrayList $r3;
+        int $i0, $i1;
+        java.lang.Object $r4;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mDecorToolbar;
+
+        $i1 = interfaceinvoke $r1.getNavigationMode();
+
+        lookupswitch($i1)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("setSelectedNavigationIndex not valid for current navigation mode");
+
+        throw $r2;
+
+     label2:
+        $r3 = r0.mTabs;
+
+        $r4 = virtualinvoke $r3.get($i0);
+
+        $r5 = (androidx.appcompat.app.ActionBar$Tab) $r4;
+
+        virtualinvoke r0.selectTab($r5);
+
+        return;
+
+     label3:
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setDropdownSelectedPosition($i0);
+
+        return;
+    }
+
+    public void setShowHideAnimationEnabled(boolean)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.view.ViewPropertyAnimatorCompatSet $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mShowHideAnimationEnabled = $z0;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = r0.mCurrentShowAnim;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.cancel();
+
+     label1:
+        return;
+    }
+
+    public void setSplitBackgroundDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void setStackedBackgroundDrawable(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mContainerView;
+
+        virtualinvoke $r2.setStackedBackground($r1);
+
+        return;
+    }
+
+    public void setSubtitle(int)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = r0.mContext;
+
+        $r1 = virtualinvoke $r2.getString($i0);
+
+        virtualinvoke r0.setSubtitle($r1);
+
+        return;
+    }
+
+    public void setSubtitle(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setSubtitle($r1);
+
+        return;
+    }
+
+    public void setTitle(int)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r2 = r0.mContext;
+
+        $r1 = virtualinvoke $r2.getString($i0);
+
+        virtualinvoke r0.setTitle($r1);
+
+        return;
+    }
+
+    public void setTitle(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setTitle($r1);
+
+        return;
+    }
+
+    public void setWindowTitle(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setWindowTitle($r1);
+
+        return;
+    }
+
+    public void show()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHiddenByApp;
+
+        if $z0 == 0 goto label1;
+
+        r0.mHiddenByApp = 0;
+
+        specialinvoke r0.updateVisibility(0);
+
+     label1:
+        return;
+    }
+
+    public void showForSystem()
+    {
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHiddenBySystem;
+
+        if $z0 == 0 goto label1;
+
+        r0.mHiddenBySystem = 0;
+
+        specialinvoke r0.updateVisibility(1);
+
+     label1:
+        return;
+    }
+
+    public androidx.appcompat.view.ActionMode startActionMode(androidx.appcompat.view.ActionMode$Callback)
+    {
+        androidx.appcompat.app.WindowDecorActionBar$ActionModeImpl r2;
+        android.content.Context $r5;
+        androidx.appcompat.app.WindowDecorActionBar r0;
+        androidx.appcompat.view.ActionMode$Callback $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r3;
+        androidx.appcompat.widget.ActionBarContextView r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mActionMode;
+
+        if r2 == null goto label1;
+
+        virtualinvoke r2.finish();
+
+     label1:
+        r3 = r0.mOverlayLayout;
+
+        virtualinvoke r3.setHideOnContentScrollEnabled(0);
+
+        r4 = r0.mContextView;
+
+        virtualinvoke r4.killMode();
+
+        r2 = new androidx.appcompat.app.WindowDecorActionBar$ActionModeImpl;
+
+        r4 = r0.mContextView;
+
+        $r5 = virtualinvoke r4.getContext();
+
+        specialinvoke r2.<init>(r0, $r5, $r1);
+
+        $z0 = virtualinvoke r2.dispatchOnCreate();
+
+        if $z0 == 0 goto label2;
+
+        r0.mActionMode = r2;
+
+        virtualinvoke r2.invalidate();
+
+        r4 = r0.mContextView;
+
+        virtualinvoke r4.initForMode(r2);
+
+        virtualinvoke r0.animateToMode(1);
+
+        r4 = r0.mContextView;
+
+        virtualinvoke r4.sendAccessibilityEvent(32);
+
+        return r2;
+
+     label2:
+        return null;
+    }
+}

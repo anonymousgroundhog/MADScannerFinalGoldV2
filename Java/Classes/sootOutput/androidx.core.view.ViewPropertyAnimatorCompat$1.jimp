@@ -1,0 +1,92 @@
+class androidx.core.view.ViewPropertyAnimatorCompat$1 extends android.animation.AnimatorListenerAdapter
+{
+    final androidx.core.view.ViewPropertyAnimatorCompat this$0;
+    final androidx.core.view.ViewPropertyAnimatorListener val$listener;
+    final android.view.View val$view;
+
+    void <init>(androidx.core.view.ViewPropertyAnimatorCompat, androidx.core.view.ViewPropertyAnimatorListener, android.view.View)
+    {
+        androidx.core.view.ViewPropertyAnimatorCompat $r1;
+        androidx.core.view.ViewPropertyAnimatorListener $r2;
+        androidx.core.view.ViewPropertyAnimatorCompat$1 r0;
+        android.view.View $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.this$0 = $r1;
+
+        r0.val$listener = $r2;
+
+        r0.val$view = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onAnimationCancel(android.animation.Animator)
+    {
+        androidx.core.view.ViewPropertyAnimatorListener $r2;
+        androidx.core.view.ViewPropertyAnimatorCompat$1 r0;
+        android.view.View $r3;
+        android.animation.Animator $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$listener;
+
+        $r3 = r0.val$view;
+
+        interfaceinvoke $r2.onAnimationCancel($r3);
+
+        return;
+    }
+
+    public void onAnimationEnd(android.animation.Animator)
+    {
+        androidx.core.view.ViewPropertyAnimatorListener $r2;
+        androidx.core.view.ViewPropertyAnimatorCompat$1 r0;
+        android.view.View $r3;
+        android.animation.Animator $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$listener;
+
+        $r3 = r0.val$view;
+
+        interfaceinvoke $r2.onAnimationEnd($r3);
+
+        return;
+    }
+
+    public void onAnimationStart(android.animation.Animator)
+    {
+        androidx.core.view.ViewPropertyAnimatorListener $r2;
+        androidx.core.view.ViewPropertyAnimatorCompat$1 r0;
+        android.view.View $r3;
+        android.animation.Animator $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$listener;
+
+        $r3 = r0.val$view;
+
+        interfaceinvoke $r2.onAnimationStart($r3);
+
+        return;
+    }
+}

@@ -1,0 +1,881 @@
+public class androidx.core.content.pm.ShortcutInfoCompat extends java.lang.Object
+{
+    private static final java.lang.String EXTRA_LOCUS_ID;
+    private static final java.lang.String EXTRA_LONG_LIVED;
+    private static final java.lang.String EXTRA_PERSON_;
+    private static final java.lang.String EXTRA_PERSON_COUNT;
+    private static final java.lang.String EXTRA_SLICE_URI;
+    android.content.ComponentName mActivity;
+    java.util.Set mCategories;
+    android.content.Context mContext;
+    java.lang.CharSequence mDisabledMessage;
+    int mDisabledReason;
+    android.os.PersistableBundle mExtras;
+    boolean mHasKeyFieldsOnly;
+    androidx.core.graphics.drawable.IconCompat mIcon;
+    java.lang.String mId;
+    android.content.Intent[] mIntents;
+    boolean mIsAlwaysBadged;
+    boolean mIsCached;
+    boolean mIsDeclaredInManifest;
+    boolean mIsDynamic;
+    boolean mIsEnabled;
+    boolean mIsImmutable;
+    boolean mIsLongLived;
+    boolean mIsPinned;
+    java.lang.CharSequence mLabel;
+    long mLastChangedTimestamp;
+    androidx.core.content.LocusIdCompat mLocusId;
+    java.lang.CharSequence mLongLabel;
+    java.lang.String mPackageName;
+    androidx.core.app.Person[] mPersons;
+    int mRank;
+    android.os.UserHandle mUser;
+
+    void <init>()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.mIsEnabled = 1;
+
+        return;
+    }
+
+    private android.os.PersistableBundle buildLegacyExtrasBundle()
+    {
+        androidx.core.app.Person[] r2;
+        androidx.core.app.Person $r5;
+        android.os.PersistableBundle r1, $r6;
+        int $i0, $i1;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        androidx.core.content.LocusIdCompat r7;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mExtras;
+
+        if r1 != null goto label1;
+
+        r1 = new android.os.PersistableBundle;
+
+        specialinvoke r1.<init>();
+
+        r0.mExtras = r1;
+
+     label1:
+        r2 = r0.mPersons;
+
+        if r2 == null goto label3;
+
+        $i0 = lengthof r2;
+
+        if $i0 <= 0 goto label3;
+
+        r1 = r0.mExtras;
+
+        $i0 = lengthof r2;
+
+        virtualinvoke r1.putInt("extraPersonCount", $i0);
+
+        $i0 = 0;
+
+     label2:
+        r2 = r0.mPersons;
+
+        $i1 = lengthof r2;
+
+        if $i0 >= $i1 goto label3;
+
+        r1 = r0.mExtras;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        $r3 = virtualinvoke $r3.append("extraPerson_");
+
+        $i1 = $i0 + 1;
+
+        $r3 = virtualinvoke $r3.append($i1);
+
+        $r4 = virtualinvoke $r3.toString();
+
+        r2 = r0.mPersons;
+
+        $r5 = r2[$i0];
+
+        $r6 = virtualinvoke $r5.toPersistableBundle();
+
+        virtualinvoke r1.putPersistableBundle($r4, $r6);
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label3:
+        r7 = r0.mLocusId;
+
+        if r7 == null goto label4;
+
+        r1 = r0.mExtras;
+
+        $r4 = virtualinvoke r7.getId();
+
+        virtualinvoke r1.putString("extraLocusId", $r4);
+
+     label4:
+        r1 = r0.mExtras;
+
+        $z0 = r0.mIsLongLived;
+
+        virtualinvoke r1.putBoolean("extraLongLived", $z0);
+
+        r1 = r0.mExtras;
+
+        return r1;
+    }
+
+    static java.util.List fromShortcuts(android.content.Context, java.util.List)
+    {
+        android.content.Context $r0;
+        java.util.Iterator $r3;
+        android.content.pm.ShortcutInfo r5;
+        androidx.core.content.pm.ShortcutInfoCompat$Builder $r6;
+        java.util.ArrayList r2;
+        java.util.List r1;
+        int $i0;
+        java.lang.Object $r4;
+        androidx.core.content.pm.ShortcutInfoCompat $r7;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        r2 = new java.util.ArrayList;
+
+        $i0 = interfaceinvoke r1.size();
+
+        specialinvoke r2.<init>($i0);
+
+        $r3 = interfaceinvoke r1.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r3.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r3.next();
+
+        r5 = (android.content.pm.ShortcutInfo) $r4;
+
+        $r6 = new androidx.core.content.pm.ShortcutInfoCompat$Builder;
+
+        specialinvoke $r6.<init>($r0, r5);
+
+        $r7 = virtualinvoke $r6.build();
+
+        interfaceinvoke r2.add($r7);
+
+        goto label1;
+
+     label2:
+        return r2;
+    }
+
+    static androidx.core.content.LocusIdCompat getLocusId(android.content.pm.ShortcutInfo)
+    {
+        android.content.pm.ShortcutInfo $r0;
+        int $i0;
+        android.os.PersistableBundle $r3;
+        android.content.LocusId $r1;
+        androidx.core.content.LocusIdCompat $r2;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 29 goto label2;
+
+        $r1 = virtualinvoke $r0.getLocusId();
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = virtualinvoke $r0.getLocusId();
+
+        $r2 = androidx.core.content.LocusIdCompat.toLocusIdCompat($r1);
+
+        return $r2;
+
+     label2:
+        $r3 = virtualinvoke $r0.getExtras();
+
+        $r2 = androidx.core.content.pm.ShortcutInfoCompat.getLocusIdFromExtra($r3);
+
+        return $r2;
+    }
+
+    private static androidx.core.content.LocusIdCompat getLocusIdFromExtra(android.os.PersistableBundle)
+    {
+        android.os.PersistableBundle $r0;
+        java.lang.String $r1;
+        androidx.core.content.LocusIdCompat $r2;
+
+        $r0 := @parameter0;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = virtualinvoke $r0.getString("extraLocusId");
+
+        if $r1 != null goto label2;
+
+        return null;
+
+     label2:
+        $r2 = new androidx.core.content.LocusIdCompat;
+
+        specialinvoke $r2.<init>($r1);
+
+        return $r2;
+    }
+
+    static boolean getLongLivedFromExtra(android.os.PersistableBundle)
+    {
+        android.os.PersistableBundle $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label2;
+
+        $z0 = virtualinvoke $r0.containsKey("extraLongLived");
+
+        if $z0 != 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $z0 = virtualinvoke $r0.getBoolean("extraLongLived");
+
+        return $z0;
+
+     label2:
+        return 0;
+    }
+
+    static androidx.core.app.Person[] getPersonsFromExtra(android.os.PersistableBundle)
+    {
+        androidx.core.app.Person[] r1;
+        androidx.core.app.Person $r5;
+        android.os.PersistableBundle $r0, $r4;
+        int $i0, i1, $i2;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label4;
+
+        $z0 = virtualinvoke $r0.containsKey("extraPersonCount");
+
+        if $z0 != 0 goto label1;
+
+        goto label4;
+
+     label1:
+        $i0 = virtualinvoke $r0.getInt("extraPersonCount");
+
+        r1 = newarray (androidx.core.app.Person)[$i0];
+
+        i1 = 0;
+
+     label2:
+        if i1 >= $i0 goto label3;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>();
+
+        $r2 = virtualinvoke $r2.append("extraPerson_");
+
+        $i2 = i1 + 1;
+
+        $r2 = virtualinvoke $r2.append($i2);
+
+        $r3 = virtualinvoke $r2.toString();
+
+        $r4 = virtualinvoke $r0.getPersistableBundle($r3);
+
+        $r5 = androidx.core.app.Person.fromPersistableBundle($r4);
+
+        r1[i1] = $r5;
+
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label3:
+        return r1;
+
+     label4:
+        return null;
+    }
+
+    android.content.Intent addToIntent(android.content.Intent)
+    {
+        android.content.Context r8;
+        android.content.pm.PackageManager $r9;
+        android.content.pm.PackageManager$NameNotFoundException $r12;
+        android.content.Intent $r1, r3;
+        android.graphics.drawable.Drawable r7, $r11;
+        int i0;
+        android.content.Intent[] r2;
+        java.lang.String $r5;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+        java.lang.CharSequence r4;
+        android.content.ComponentName $r10;
+        androidx.core.graphics.drawable.IconCompat r6;
+        android.content.pm.ApplicationInfo $r13;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mIntents;
+
+        i0 = lengthof r2;
+
+        i0 = i0 + -1;
+
+        r3 = r2[i0];
+
+        r3 = virtualinvoke $r1.putExtra("android.intent.extra.shortcut.INTENT", r3);
+
+        r4 = r0.mLabel;
+
+        $r5 = interfaceinvoke r4.toString();
+
+        virtualinvoke r3.putExtra("android.intent.extra.shortcut.NAME", $r5);
+
+        r6 = r0.mIcon;
+
+        if r6 == null goto label6;
+
+        r7 = null;
+
+        z0 = r0.mIsAlwaysBadged;
+
+        if z0 == 0 goto label5;
+
+        r8 = r0.mContext;
+
+        $r9 = virtualinvoke r8.getPackageManager();
+
+        $r10 = r0.mActivity;
+
+        if $r10 == null goto label4;
+
+     label1:
+        $r11 = virtualinvoke $r9.getActivityIcon($r10);
+
+     label2:
+        r7 = $r11;
+
+        goto label4;
+
+     label3:
+        $r12 := @caughtexception;
+
+     label4:
+        if r7 != null goto label5;
+
+        r8 = r0.mContext;
+
+        $r13 = virtualinvoke r8.getApplicationInfo();
+
+        r7 = virtualinvoke $r13.loadIcon($r9);
+
+     label5:
+        r6 = r0.mIcon;
+
+        r8 = r0.mContext;
+
+        virtualinvoke r6.addToShortcutIntent($r1, r7, r8);
+
+     label6:
+        return $r1;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label1 to label2 with label3;
+    }
+
+    public android.content.ComponentName getActivity()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        android.content.ComponentName r1;
+
+        r0 := @this;
+
+        r1 = r0.mActivity;
+
+        return r1;
+    }
+
+    public java.util.Set getCategories()
+    {
+        java.util.Set r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mCategories;
+
+        return r1;
+    }
+
+    public java.lang.CharSequence getDisabledMessage()
+    {
+        java.lang.CharSequence r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mDisabledMessage;
+
+        return r1;
+    }
+
+    public int getDisabledReason()
+    {
+        int i0;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        i0 = r0.mDisabledReason;
+
+        return i0;
+    }
+
+    public android.os.PersistableBundle getExtras()
+    {
+        android.os.PersistableBundle r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mExtras;
+
+        return r1;
+    }
+
+    public androidx.core.graphics.drawable.IconCompat getIcon()
+    {
+        androidx.core.graphics.drawable.IconCompat r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mIcon;
+
+        return r1;
+    }
+
+    public java.lang.String getId()
+    {
+        java.lang.String r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mId;
+
+        return r1;
+    }
+
+    public android.content.Intent getIntent()
+    {
+        int $i0;
+        android.content.Intent[] $r1;
+        android.content.Intent $r2;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        $r1 = r0.mIntents;
+
+        $i0 = lengthof $r1;
+
+        $i0 = $i0 + -1;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+
+    public android.content.Intent[] getIntents()
+    {
+        java.lang.Object[] $r1;
+        int $i0;
+        android.content.Intent[] $r2;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        $r2 = r0.mIntents;
+
+        $i0 = lengthof $r2;
+
+        $r1 = java.util.Arrays.copyOf($r2, $i0);
+
+        $r2 = (android.content.Intent[]) $r1;
+
+        return $r2;
+    }
+
+    public long getLastChangedTimestamp()
+    {
+        long l0;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        l0 = r0.mLastChangedTimestamp;
+
+        return l0;
+    }
+
+    public androidx.core.content.LocusIdCompat getLocusId()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        androidx.core.content.LocusIdCompat r1;
+
+        r0 := @this;
+
+        r1 = r0.mLocusId;
+
+        return r1;
+    }
+
+    public java.lang.CharSequence getLongLabel()
+    {
+        java.lang.CharSequence r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mLongLabel;
+
+        return r1;
+    }
+
+    public java.lang.String getPackage()
+    {
+        java.lang.String r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mPackageName;
+
+        return r1;
+    }
+
+    public int getRank()
+    {
+        int i0;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        i0 = r0.mRank;
+
+        return i0;
+    }
+
+    public java.lang.CharSequence getShortLabel()
+    {
+        java.lang.CharSequence r1;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+
+        r0 := @this;
+
+        r1 = r0.mLabel;
+
+        return r1;
+    }
+
+    public android.os.UserHandle getUserHandle()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        android.os.UserHandle r1;
+
+        r0 := @this;
+
+        r1 = r0.mUser;
+
+        return r1;
+    }
+
+    public boolean hasKeyFieldsOnly()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mHasKeyFieldsOnly;
+
+        return z0;
+    }
+
+    public boolean isCached()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsCached;
+
+        return z0;
+    }
+
+    public boolean isDeclaredInManifest()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsDeclaredInManifest;
+
+        return z0;
+    }
+
+    public boolean isDynamic()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsDynamic;
+
+        return z0;
+    }
+
+    public boolean isEnabled()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsEnabled;
+
+        return z0;
+    }
+
+    public boolean isImmutable()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsImmutable;
+
+        return z0;
+    }
+
+    public boolean isPinned()
+    {
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mIsPinned;
+
+        return z0;
+    }
+
+    public android.content.pm.ShortcutInfo toShortcutInfo()
+    {
+        android.content.Context r2;
+        androidx.core.app.Person[] r11;
+        android.app.Person $r14;
+        android.content.pm.ShortcutInfo$Builder r1;
+        androidx.core.app.Person $r13;
+        int i0, $i1;
+        android.os.PersistableBundle r10;
+        android.content.Intent[] r5;
+        java.lang.String r3;
+        android.graphics.drawable.Icon $r7;
+        android.content.LocusId $r16;
+        androidx.core.content.pm.ShortcutInfoCompat r0;
+        boolean $z0;
+        androidx.core.content.LocusIdCompat r15;
+        java.lang.CharSequence r4;
+        android.content.ComponentName r8;
+        android.content.pm.ShortcutInfo $r17;
+        java.util.Set r9;
+        android.app.Person[] r12;
+        androidx.core.graphics.drawable.IconCompat r6;
+
+        r0 := @this;
+
+        r1 = new android.content.pm.ShortcutInfo$Builder;
+
+        r2 = r0.mContext;
+
+        r3 = r0.mId;
+
+        specialinvoke r1.<init>(r2, r3);
+
+        r4 = r0.mLabel;
+
+        r1 = virtualinvoke r1.setShortLabel(r4);
+
+        r5 = r0.mIntents;
+
+        r1 = virtualinvoke r1.setIntents(r5);
+
+        r6 = r0.mIcon;
+
+        if r6 == null goto label01;
+
+        r2 = r0.mContext;
+
+        $r7 = virtualinvoke r6.toIcon(r2);
+
+        virtualinvoke r1.setIcon($r7);
+
+     label01:
+        r4 = r0.mLongLabel;
+
+        $z0 = android.text.TextUtils.isEmpty(r4);
+
+        if $z0 != 0 goto label02;
+
+        r4 = r0.mLongLabel;
+
+        virtualinvoke r1.setLongLabel(r4);
+
+     label02:
+        r4 = r0.mDisabledMessage;
+
+        $z0 = android.text.TextUtils.isEmpty(r4);
+
+        if $z0 != 0 goto label03;
+
+        r4 = r0.mDisabledMessage;
+
+        virtualinvoke r1.setDisabledMessage(r4);
+
+     label03:
+        r8 = r0.mActivity;
+
+        if r8 == null goto label04;
+
+        virtualinvoke r1.setActivity(r8);
+
+     label04:
+        r9 = r0.mCategories;
+
+        if r9 == null goto label05;
+
+        virtualinvoke r1.setCategories(r9);
+
+     label05:
+        i0 = r0.mRank;
+
+        virtualinvoke r1.setRank(i0);
+
+        r10 = r0.mExtras;
+
+        if r10 == null goto label06;
+
+        virtualinvoke r1.setExtras(r10);
+
+     label06:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 29 goto label11;
+
+        r11 = r0.mPersons;
+
+        if r11 == null goto label09;
+
+        i0 = lengthof r11;
+
+        if i0 <= 0 goto label09;
+
+        i0 = lengthof r11;
+
+        r12 = newarray (android.app.Person)[i0];
+
+        i0 = 0;
+
+     label07:
+        $i1 = lengthof r12;
+
+        if i0 >= $i1 goto label08;
+
+        r11 = r0.mPersons;
+
+        $r13 = r11[i0];
+
+        $r14 = virtualinvoke $r13.toAndroidPerson();
+
+        r12[i0] = $r14;
+
+        i0 = i0 + 1;
+
+        goto label07;
+
+     label08:
+        virtualinvoke r1.setPersons(r12);
+
+     label09:
+        r15 = r0.mLocusId;
+
+        if r15 == null goto label10;
+
+        $r16 = virtualinvoke r15.toLocusId();
+
+        virtualinvoke r1.setLocusId($r16);
+
+     label10:
+        $z0 = r0.mIsLongLived;
+
+        virtualinvoke r1.setLongLived($z0);
+
+        goto label12;
+
+     label11:
+        r10 = specialinvoke r0.buildLegacyExtrasBundle();
+
+        virtualinvoke r1.setExtras(r10);
+
+     label12:
+        $r17 = virtualinvoke r1.build();
+
+        return $r17;
+    }
+}

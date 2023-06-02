@@ -1,0 +1,1567 @@
+public final class androidx.collection.ArraySet extends java.lang.Object implements java.util.Collection, java.util.Set
+{
+    private static final int BASE_SIZE;
+    private static final int CACHE_SIZE;
+    private static final boolean DEBUG;
+    private static final int[] INT;
+    private static final java.lang.Object[] OBJECT;
+    private static final java.lang.String TAG;
+    private static java.lang.Object[] sBaseCache;
+    private static int sBaseCacheSize;
+    private static java.lang.Object[] sTwiceBaseCache;
+    private static int sTwiceBaseCacheSize;
+    java.lang.Object[] mArray;
+    private androidx.collection.MapCollections mCollections;
+    private int[] mHashes;
+    int mSize;
+
+    static void <clinit>()
+    {
+        java.lang.Object[] $r1;
+        int[] $r0;
+
+        $r0 = newarray (int)[0];
+
+        androidx.collection.ArraySet.INT = $r0;
+
+        $r1 = newarray (java.lang.Object)[0];
+
+        androidx.collection.ArraySet.OBJECT = $r1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(0);
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        java.lang.Object[] $r2;
+        androidx.collection.ArraySet r0;
+        int[] $r1;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        if $i0 != 0 goto label1;
+
+        $r1 = androidx.collection.ArraySet.INT;
+
+        r0.mHashes = $r1;
+
+        $r2 = androidx.collection.ArraySet.OBJECT;
+
+        r0.mArray = $r2;
+
+        goto label2;
+
+     label1:
+        specialinvoke r0.allocArrays($i0);
+
+     label2:
+        r0.mSize = 0;
+
+        return;
+    }
+
+    public void <init>(androidx.collection.ArraySet)
+    {
+        androidx.collection.ArraySet r0, r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        if r1 == null goto label1;
+
+        virtualinvoke r0.addAll(r1);
+
+     label1:
+        return;
+    }
+
+    public void <init>(java.util.Collection)
+    {
+        androidx.collection.ArraySet r0;
+        java.util.Collection r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        if r1 == null goto label1;
+
+        virtualinvoke r0.addAll(r1);
+
+     label1:
+        return;
+    }
+
+    private void allocArrays(int)
+    {
+        java.lang.Throwable $r5, $r6;
+        java.lang.Object[] r1, $r3;
+        androidx.collection.ArraySet r0;
+        int[] $r4;
+        int $i0;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 != 8 goto label07;
+
+        entermonitor class "Landroidx/collection/ArraySet;";
+
+     label01:
+        r1 = androidx.collection.ArraySet.sTwiceBaseCache;
+
+        if r1 == null goto label03;
+
+        r0.mArray = r1;
+
+        $r2 = r1[0];
+
+        $r3 = (java.lang.Object[]) $r2;
+
+        androidx.collection.ArraySet.sTwiceBaseCache = $r3;
+
+        $r2 = r1[1];
+
+        $r4 = (int[]) $r2;
+
+        r0.mHashes = $r4;
+
+        r1[1] = null;
+
+        r1[0] = null;
+
+        $i0 = androidx.collection.ArraySet.sTwiceBaseCacheSize;
+
+        $i0 = $i0 - 1;
+
+        androidx.collection.ArraySet.sTwiceBaseCacheSize = $i0;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label02:
+        return;
+
+     label03:
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label04:
+        goto label14;
+
+     label05:
+        $r5 := @caughtexception;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label06:
+        throw $r5;
+
+     label07:
+        if $i0 != 4 goto label14;
+
+        entermonitor class "Landroidx/collection/ArraySet;";
+
+     label08:
+        r1 = androidx.collection.ArraySet.sBaseCache;
+
+        if r1 == null goto label10;
+
+        r0.mArray = r1;
+
+        $r2 = r1[0];
+
+        $r3 = (java.lang.Object[]) $r2;
+
+        androidx.collection.ArraySet.sBaseCache = $r3;
+
+        $r2 = r1[1];
+
+        $r4 = (int[]) $r2;
+
+        r0.mHashes = $r4;
+
+        r1[1] = null;
+
+        r1[0] = null;
+
+        $i0 = androidx.collection.ArraySet.sBaseCacheSize;
+
+        $i0 = $i0 - 1;
+
+        androidx.collection.ArraySet.sBaseCacheSize = $i0;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label09:
+        return;
+
+     label10:
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label11:
+        goto label14;
+
+     label12:
+        $r6 := @caughtexception;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label13:
+        throw $r6;
+
+     label14:
+        $r4 = newarray (int)[$i0];
+
+        r0.mHashes = $r4;
+
+        r1 = newarray (java.lang.Object)[$i0];
+
+        r0.mArray = r1;
+
+        return;
+
+        catch java.lang.Throwable from label01 to label02 with label05;
+        catch java.lang.Throwable from label03 to label04 with label05;
+        catch java.lang.Throwable from label05 to label06 with label05;
+        catch java.lang.Throwable from label08 to label09 with label12;
+        catch java.lang.Throwable from label10 to label11 with label12;
+        catch java.lang.Throwable from label12 to label13 with label12;
+    }
+
+    private static void freeArrays(int[], java.lang.Object[], int)
+    {
+        java.lang.Throwable r3, r4;
+        java.lang.Object[] $r1, r2;
+        int[] $r0;
+        int $i0, $i1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 = lengthof $r0;
+
+        if $i1 != 8 goto label08;
+
+        entermonitor class "Landroidx/collection/ArraySet;";
+
+     label01:
+        $i1 = androidx.collection.ArraySet.sTwiceBaseCacheSize;
+
+        if $i1 >= 10 goto label04;
+
+        r2 = androidx.collection.ArraySet.sTwiceBaseCache;
+
+        $r1[0] = r2;
+
+        $r1[1] = $r0;
+
+        $i0 = $i0 + -1;
+
+     label02:
+        if $i0 < 2 goto label03;
+
+        $r1[$i0] = null;
+
+        $i0 = $i0 + -1;
+
+        goto label02;
+
+     label03:
+        androidx.collection.ArraySet.sTwiceBaseCache = $r1;
+
+        $i0 = androidx.collection.ArraySet.sTwiceBaseCacheSize;
+
+        $i0 = $i0 + 1;
+
+        androidx.collection.ArraySet.sTwiceBaseCacheSize = $i0;
+
+     label04:
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label05:
+        return;
+
+     label06:
+        r3 := @caughtexception;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label07:
+        throw r3;
+
+     label08:
+        $i1 = lengthof $r0;
+
+        if $i1 != 4 goto label16;
+
+        entermonitor class "Landroidx/collection/ArraySet;";
+
+     label09:
+        $i1 = androidx.collection.ArraySet.sBaseCacheSize;
+
+        if $i1 >= 10 goto label12;
+
+        r2 = androidx.collection.ArraySet.sBaseCache;
+
+        $r1[0] = r2;
+
+        $r1[1] = $r0;
+
+        $i0 = $i0 + -1;
+
+     label10:
+        if $i0 < 2 goto label11;
+
+        $r1[$i0] = null;
+
+        $i0 = $i0 + -1;
+
+        goto label10;
+
+     label11:
+        androidx.collection.ArraySet.sBaseCache = $r1;
+
+        $i0 = androidx.collection.ArraySet.sBaseCacheSize;
+
+        $i0 = $i0 + 1;
+
+        androidx.collection.ArraySet.sBaseCacheSize = $i0;
+
+     label12:
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label13:
+        return;
+
+     label14:
+        r4 := @caughtexception;
+
+        exitmonitor class "Landroidx/collection/ArraySet;";
+
+     label15:
+        throw r4;
+
+     label16:
+        return;
+
+        catch java.lang.Throwable from label01 to label05 with label06;
+        catch java.lang.Throwable from label06 to label07 with label06;
+        catch java.lang.Throwable from label09 to label13 with label14;
+        catch java.lang.Throwable from label14 to label15 with label14;
+    }
+
+    private androidx.collection.MapCollections getCollection()
+    {
+        androidx.collection.MapCollections $r1;
+        androidx.collection.ArraySet$1 $r2;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        $r1 = r0.mCollections;
+
+        if $r1 != null goto label1;
+
+        $r2 = new androidx.collection.ArraySet$1;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.mCollections = $r2;
+
+     label1:
+        $r1 = r0.mCollections;
+
+        return $r1;
+    }
+
+    private int indexOf(java.lang.Object, int)
+    {
+        java.lang.Object[] r3;
+        androidx.collection.ArraySet r0;
+        int[] r2;
+        int $i0, i1, $i2, i3, i4;
+        java.lang.Object $r1, r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        i1 = r0.mSize;
+
+        if i1 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        r2 = r0.mHashes;
+
+        $i2 = androidx.collection.ContainerHelpers.binarySearch(r2, i1, $i0);
+
+        if $i2 >= 0 goto label2;
+
+        return $i2;
+
+     label2:
+        r3 = r0.mArray;
+
+        r4 = r3[$i2];
+
+        $z0 = virtualinvoke $r1.equals(r4);
+
+        if $z0 == 0 goto label3;
+
+        return $i2;
+
+     label3:
+        i3 = $i2 + 1;
+
+     label4:
+        if i3 >= i1 goto label6;
+
+        r2 = r0.mHashes;
+
+        i4 = r2[i3];
+
+        if i4 != $i0 goto label6;
+
+        r3 = r0.mArray;
+
+        r4 = r3[i3];
+
+        $z0 = virtualinvoke $r1.equals(r4);
+
+        if $z0 == 0 goto label5;
+
+        return i3;
+
+     label5:
+        i3 = i3 + 1;
+
+        goto label4;
+
+     label6:
+        i1 = -1;
+
+        $i2 = $i2 + i1;
+
+     label7:
+        if $i2 < 0 goto label9;
+
+        r2 = r0.mHashes;
+
+        i1 = r2[$i2];
+
+        if i1 != $i0 goto label9;
+
+        r3 = r0.mArray;
+
+        r4 = r3[$i2];
+
+        $z0 = virtualinvoke $r1.equals(r4);
+
+        if $z0 == 0 goto label8;
+
+        return $i2;
+
+     label8:
+        i1 = -1;
+
+        $i2 = $i2 + i1;
+
+        goto label7;
+
+     label9:
+        $i0 = i3 ^ -1;
+
+        return $i0;
+    }
+
+    private int indexOfNull()
+    {
+        java.lang.Object[] r2;
+        androidx.collection.ArraySet r0;
+        int[] r1;
+        int i0, $i1, i2, i3;
+        java.lang.Object r3;
+
+        r0 := @this;
+
+        i0 = r0.mSize;
+
+        if i0 != 0 goto label1;
+
+        i2 = -1;
+
+        return i2;
+
+     label1:
+        r1 = r0.mHashes;
+
+        $i1 = androidx.collection.ContainerHelpers.binarySearch(r1, i0, 0);
+
+        if $i1 >= 0 goto label2;
+
+        return $i1;
+
+     label2:
+        r2 = r0.mArray;
+
+        r3 = r2[$i1];
+
+        if r3 != null goto label3;
+
+        return $i1;
+
+     label3:
+        i2 = $i1 + 1;
+
+     label4:
+        if i2 >= i0 goto label6;
+
+        r1 = r0.mHashes;
+
+        i3 = r1[i2];
+
+        if i3 != 0 goto label6;
+
+        r2 = r0.mArray;
+
+        r3 = r2[i2];
+
+        if r3 != null goto label5;
+
+        return i2;
+
+     label5:
+        i2 = i2 + 1;
+
+        goto label4;
+
+     label6:
+        i0 = -1;
+
+        $i1 = $i1 + i0;
+
+     label7:
+        if $i1 < 0 goto label9;
+
+        r1 = r0.mHashes;
+
+        i0 = r1[$i1];
+
+        if i0 != 0 goto label9;
+
+        r2 = r0.mArray;
+
+        r3 = r2[$i1];
+
+        if r3 != null goto label8;
+
+        return $i1;
+
+     label8:
+        i0 = -1;
+
+        $i1 = $i1 + i0;
+
+        goto label7;
+
+     label9:
+        i2 = i2 ^ -1;
+
+        return i2;
+    }
+
+    public boolean add(java.lang.Object)
+    {
+        java.lang.Object[] r3, $r5;
+        androidx.collection.ArraySet r0;
+        int[] r2, $r4;
+        int i0, $i1, i2, i3;
+        java.lang.Object r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        if r1 != null goto label1;
+
+        i0 = 0;
+
+        $i1 = specialinvoke r0.indexOfNull();
+
+        goto label2;
+
+     label1:
+        $i1 = virtualinvoke r1.hashCode();
+
+        i0 = $i1;
+
+        $i1 = specialinvoke r0.indexOf(r1, $i1);
+
+     label2:
+        if $i1 < 0 goto label3;
+
+        return 0;
+
+     label3:
+        i2 = -1;
+
+        $i1 = $i1 ^ i2;
+
+        i2 = r0.mSize;
+
+        r2 = r0.mHashes;
+
+        i3 = lengthof r2;
+
+        if i2 < i3 goto label8;
+
+        i3 = 8;
+
+        if i2 < 8 goto label4;
+
+        i3 = i2 >> 1;
+
+        i3 = i3 + i2;
+
+        goto label6;
+
+     label4:
+        if i2 < 4 goto label5;
+
+        goto label6;
+
+     label5:
+        i3 = 4;
+
+     label6:
+        r2 = r0.mHashes;
+
+        r3 = r0.mArray;
+
+        specialinvoke r0.allocArrays(i3);
+
+        $r4 = r0.mHashes;
+
+        i2 = lengthof $r4;
+
+        if i2 <= 0 goto label7;
+
+        i2 = lengthof r2;
+
+        java.lang.System.arraycopy(r2, 0, $r4, 0, i2);
+
+        $r5 = r0.mArray;
+
+        i2 = lengthof r3;
+
+        java.lang.System.arraycopy(r3, 0, $r5, 0, i2);
+
+     label7:
+        i2 = r0.mSize;
+
+        androidx.collection.ArraySet.freeArrays(r2, r3, i2);
+
+     label8:
+        i3 = r0.mSize;
+
+        if $i1 >= i3 goto label9;
+
+        r2 = r0.mHashes;
+
+        i2 = $i1 + 1;
+
+        i3 = i3 - $i1;
+
+        java.lang.System.arraycopy(r2, $i1, r2, i2, i3);
+
+        r3 = r0.mArray;
+
+        i2 = $i1 + 1;
+
+        i3 = r0.mSize;
+
+        i3 = i3 - $i1;
+
+        java.lang.System.arraycopy(r3, $i1, r3, i2, i3);
+
+     label9:
+        r2 = r0.mHashes;
+
+        r2[$i1] = i0;
+
+        r3 = r0.mArray;
+
+        r3[$i1] = r1;
+
+        i0 = r0.mSize;
+
+        i0 = i0 + 1;
+
+        r0.mSize = i0;
+
+        return 1;
+    }
+
+    public void addAll(androidx.collection.ArraySet)
+    {
+        java.lang.Object[] r5, $r6;
+        androidx.collection.ArraySet r0, r1;
+        int[] r3, $r4;
+        int i0, i1;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        i0 = r1.mSize;
+
+        i1 = r0.mSize;
+
+        i1 = i1 + i0;
+
+        virtualinvoke r0.ensureCapacity(i1);
+
+        i1 = r0.mSize;
+
+        if i1 != 0 goto label1;
+
+        if i0 <= 0 goto label3;
+
+        r3 = r1.mHashes;
+
+        $r4 = r0.mHashes;
+
+        java.lang.System.arraycopy(r3, 0, $r4, 0, i0);
+
+        r5 = r1.mArray;
+
+        $r6 = r0.mArray;
+
+        java.lang.System.arraycopy(r5, 0, $r6, 0, i0);
+
+        r0.mSize = i0;
+
+        return;
+
+     label1:
+        i1 = 0;
+
+     label2:
+        if i1 >= i0 goto label3;
+
+        $r2 = virtualinvoke r1.valueAt(i1);
+
+        virtualinvoke r0.add($r2);
+
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    public boolean addAll(java.util.Collection)
+    {
+        java.util.Iterator $r2;
+        androidx.collection.ArraySet r0;
+        java.util.Collection r1;
+        int i0, $i1;
+        java.lang.Object $r3;
+        boolean z0, $z1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        i0 = r0.mSize;
+
+        $i1 = interfaceinvoke r1.size();
+
+        i0 = i0 + $i1;
+
+        virtualinvoke r0.ensureCapacity(i0);
+
+        z0 = 0;
+
+        $r2 = interfaceinvoke r1.iterator();
+
+     label1:
+        $z1 = interfaceinvoke $r2.hasNext();
+
+        if $z1 == 0 goto label2;
+
+        $r3 = interfaceinvoke $r2.next();
+
+        $z1 = virtualinvoke r0.add($r3);
+
+        z0 = z0 | $z1;
+
+        goto label1;
+
+     label2:
+        return z0;
+    }
+
+    public void clear()
+    {
+        java.lang.Object[] $r2;
+        androidx.collection.ArraySet r0;
+        int[] $r1;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = r0.mSize;
+
+        if $i0 == 0 goto label1;
+
+        $r1 = r0.mHashes;
+
+        $r2 = r0.mArray;
+
+        androidx.collection.ArraySet.freeArrays($r1, $r2, $i0);
+
+        $r1 = androidx.collection.ArraySet.INT;
+
+        r0.mHashes = $r1;
+
+        $r2 = androidx.collection.ArraySet.OBJECT;
+
+        r0.mArray = $r2;
+
+        r0.mSize = 0;
+
+     label1:
+        return;
+    }
+
+    public boolean contains(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r1;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke r0.indexOf($r1);
+
+        if $i0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean containsAll(java.util.Collection)
+    {
+        java.util.Iterator $r2;
+        androidx.collection.ArraySet r0;
+        java.util.Collection r1;
+        java.lang.Object $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 = interfaceinvoke r1.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r2.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = interfaceinvoke $r2.next();
+
+        $z0 = virtualinvoke r0.contains($r3);
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public void ensureCapacity(int)
+    {
+        java.lang.Object[] r1, $r4;
+        androidx.collection.ArraySet r0;
+        int[] r2, $r3;
+        int $i0, i1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r2 = r0.mHashes;
+
+        i1 = lengthof r2;
+
+        if i1 >= $i0 goto label2;
+
+        r2 = r0.mHashes;
+
+        r1 = r0.mArray;
+
+        specialinvoke r0.allocArrays($i0);
+
+        $i0 = r0.mSize;
+
+        if $i0 <= 0 goto label1;
+
+        $r3 = r0.mHashes;
+
+        java.lang.System.arraycopy(r2, 0, $r3, 0, $i0);
+
+        $r4 = r0.mArray;
+
+        $i0 = r0.mSize;
+
+        java.lang.System.arraycopy(r1, 0, $r4, 0, $i0);
+
+     label1:
+        $i0 = r0.mSize;
+
+        androidx.collection.ArraySet.freeArrays(r2, r1, $i0);
+
+     label2:
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        androidx.collection.ArraySet r0;
+        java.util.Set r2;
+        java.lang.ClassCastException r3;
+        java.lang.NullPointerException r4;
+        int $i0, $i1;
+        java.lang.Object $r1;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        z0 = $r1 instanceof java.util.Set;
+
+        if z0 == 0 goto label11;
+
+        r2 = (java.util.Set) $r1;
+
+        $i0 = virtualinvoke r0.size();
+
+        $i1 = interfaceinvoke r2.size();
+
+        if $i0 == $i1 goto label02;
+
+        return 0;
+
+     label02:
+        $i0 = 0;
+
+     label03:
+        $i1 = r0.mSize;
+
+     label04:
+        if $i0 >= $i1 goto label08;
+
+     label05:
+        $r1 = virtualinvoke r0.valueAt($i0);
+
+        z0 = interfaceinvoke r2.contains($r1);
+
+     label06:
+        if z0 != 0 goto label07;
+
+        return 0;
+
+     label07:
+        $i0 = $i0 + 1;
+
+        goto label03;
+
+     label08:
+        return 1;
+
+     label09:
+        r3 := @caughtexception;
+
+        return 0;
+
+     label10:
+        r4 := @caughtexception;
+
+     label11:
+        return 0;
+
+        catch java.lang.NullPointerException from label03 to label04 with label10;
+        catch java.lang.NullPointerException from label05 to label06 with label10;
+        catch java.lang.ClassCastException from label05 to label06 with label09;
+    }
+
+    public int hashCode()
+    {
+        androidx.collection.ArraySet r0;
+        int[] r1;
+        int i0, $i1, i2, i3;
+
+        r0 := @this;
+
+        r1 = r0.mHashes;
+
+        i2 = 0;
+
+        i3 = 0;
+
+        i0 = r0.mSize;
+
+     label1:
+        if i3 >= i0 goto label2;
+
+        $i1 = r1[i3];
+
+        i2 = i2 + $i1;
+
+        i3 = i3 + 1;
+
+        goto label1;
+
+     label2:
+        return i2;
+    }
+
+    public int indexOf(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r1;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        $i0 = specialinvoke r0.indexOfNull();
+
+        return $i0;
+
+     label1:
+        $i0 = virtualinvoke $r1.hashCode();
+
+        $i0 = specialinvoke r0.indexOf($r1, $i0);
+
+        return $i0;
+    }
+
+    public boolean isEmpty()
+    {
+        int $i0;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        $i0 = r0.mSize;
+
+        if $i0 > 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r3;
+        androidx.collection.ArraySet r0;
+        java.util.Set $r2;
+        androidx.collection.MapCollections $r1;
+
+        r0 := @this;
+
+        $r1 = specialinvoke r0.getCollection();
+
+        $r2 = virtualinvoke $r1.getKeySet();
+
+        $r3 = interfaceinvoke $r2.iterator();
+
+        return $r3;
+    }
+
+    public boolean remove(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object $r1;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke r0.indexOf($r1);
+
+        if $i0 < 0 goto label1;
+
+        virtualinvoke r0.removeAt($i0);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean removeAll(androidx.collection.ArraySet)
+    {
+        androidx.collection.ArraySet r0, r1;
+        int i0, i1, i2;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        i0 = r1.mSize;
+
+        i1 = r0.mSize;
+
+        i2 = 0;
+
+     label1:
+        if i2 >= i0 goto label2;
+
+        $r2 = virtualinvoke r1.valueAt(i2);
+
+        virtualinvoke r0.remove($r2);
+
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label2:
+        i0 = r0.mSize;
+
+        if i1 == i0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public boolean removeAll(java.util.Collection)
+    {
+        java.util.Iterator $r2;
+        androidx.collection.ArraySet r0;
+        java.util.Collection r1;
+        java.lang.Object $r3;
+        boolean z0, $z1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        z0 = 0;
+
+        $r2 = interfaceinvoke r1.iterator();
+
+     label1:
+        $z1 = interfaceinvoke $r2.hasNext();
+
+        if $z1 == 0 goto label2;
+
+        $r3 = interfaceinvoke $r2.next();
+
+        $z1 = virtualinvoke r0.remove($r3);
+
+        z0 = z0 | $z1;
+
+        goto label1;
+
+     label2:
+        return z0;
+    }
+
+    public java.lang.Object removeAt(int)
+    {
+        java.lang.Object[] r2, $r5;
+        androidx.collection.ArraySet r0;
+        int[] $r3, $r4;
+        int $i0, i1, i2, $i3;
+        java.lang.Object r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r2 = r0.mArray;
+
+        r1 = r2[$i0];
+
+        i1 = r0.mSize;
+
+        if i1 > 1 goto label1;
+
+        $r3 = r0.mHashes;
+
+        androidx.collection.ArraySet.freeArrays($r3, r2, i1);
+
+        $r3 = androidx.collection.ArraySet.INT;
+
+        r0.mHashes = $r3;
+
+        r2 = androidx.collection.ArraySet.OBJECT;
+
+        r0.mArray = r2;
+
+        r0.mSize = 0;
+
+        return r1;
+
+     label1:
+        $r3 = r0.mHashes;
+
+        i2 = lengthof $r3;
+
+        $i3 = 8;
+
+        if i2 <= 8 goto label5;
+
+        i2 = lengthof $r3;
+
+        i2 = i2 / 3;
+
+        if i1 >= i2 goto label5;
+
+        if i1 <= 8 goto label2;
+
+        $i3 = i1 >> 1;
+
+        $i3 = i1 + $i3;
+
+     label2:
+        $r3 = r0.mHashes;
+
+        r2 = r0.mArray;
+
+        specialinvoke r0.allocArrays($i3);
+
+        i1 = r0.mSize;
+
+        i1 = i1 - 1;
+
+        r0.mSize = i1;
+
+        if $i0 <= 0 goto label3;
+
+        $r4 = r0.mHashes;
+
+        java.lang.System.arraycopy($r3, 0, $r4, 0, $i0);
+
+        $r5 = r0.mArray;
+
+        java.lang.System.arraycopy(r2, 0, $r5, 0, $i0);
+
+     label3:
+        $i3 = r0.mSize;
+
+        if $i0 >= $i3 goto label4;
+
+        i1 = $i0 + 1;
+
+        $r4 = r0.mHashes;
+
+        $i3 = $i3 - $i0;
+
+        java.lang.System.arraycopy($r3, i1, $r4, $i0, $i3);
+
+        i1 = $i0 + 1;
+
+        $r5 = r0.mArray;
+
+        $i3 = r0.mSize;
+
+        $i3 = $i3 - $i0;
+
+        java.lang.System.arraycopy(r2, i1, $r5, $i0, $i3);
+
+     label4:
+        return r1;
+
+     label5:
+        $i3 = i1 - 1;
+
+        r0.mSize = $i3;
+
+        if $i0 >= $i3 goto label6;
+
+        i1 = $i0 + 1;
+
+        $i3 = $i3 - $i0;
+
+        java.lang.System.arraycopy($r3, i1, $r3, $i0, $i3);
+
+        r2 = r0.mArray;
+
+        i1 = $i0 + 1;
+
+        $i3 = r0.mSize;
+
+        $i3 = $i3 - $i0;
+
+        java.lang.System.arraycopy(r2, i1, r2, $i0, $i3);
+
+     label6:
+        r2 = r0.mArray;
+
+        $i0 = r0.mSize;
+
+        r2[$i0] = null;
+
+        return r1;
+    }
+
+    public boolean retainAll(java.util.Collection)
+    {
+        java.lang.Object[] $r2;
+        androidx.collection.ArraySet r0;
+        java.util.Collection r1;
+        int i0;
+        java.lang.Object $r3;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        z1 = 0;
+
+        i0 = r0.mSize;
+
+        i0 = i0 + -1;
+
+     label1:
+        if i0 < 0 goto label3;
+
+        $r2 = r0.mArray;
+
+        $r3 = $r2[i0];
+
+        $z0 = interfaceinvoke r1.contains($r3);
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke r0.removeAt(i0);
+
+        z1 = 1;
+
+     label2:
+        i0 = i0 + -1;
+
+        goto label1;
+
+     label3:
+        return z1;
+    }
+
+    public int size()
+    {
+        int i0;
+        androidx.collection.ArraySet r0;
+
+        r0 := @this;
+
+        i0 = r0.mSize;
+
+        return i0;
+    }
+
+    public java.lang.Object[] toArray()
+    {
+        java.lang.Object[] r1, $r2;
+        androidx.collection.ArraySet r0;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 = r0.mSize;
+
+        r1 = newarray (java.lang.Object)[$i0];
+
+        $r2 = r0.mArray;
+
+        java.lang.System.arraycopy($r2, 0, r1, 0, $i0);
+
+        return r1;
+    }
+
+    public java.lang.Object[] toArray(java.lang.Object[])
+    {
+        java.lang.Object[] r1, r4;
+        androidx.collection.ArraySet r0;
+        int i0, $i1;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        i0 = lengthof r1;
+
+        $i1 = r0.mSize;
+
+        if i0 >= $i1 goto label1;
+
+        $r2 = virtualinvoke r1.getClass();
+
+        $r2 = virtualinvoke $r2.getComponentType();
+
+        i0 = r0.mSize;
+
+        $r3 = java.lang.reflect.Array.newInstance($r2, i0);
+
+        r1 = (java.lang.Object[]) $r3;
+
+     label1:
+        r4 = r0.mArray;
+
+        i0 = r0.mSize;
+
+        java.lang.System.arraycopy(r4, 0, r1, 0, i0);
+
+        i0 = lengthof r1;
+
+        $i1 = r0.mSize;
+
+        if i0 <= $i1 goto label2;
+
+        r1[$i1] = null;
+
+     label2:
+        return r1;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.collection.ArraySet r0;
+        int i0, i1;
+        java.lang.StringBuilder r1;
+        java.lang.Object $r2;
+        java.lang.String $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isEmpty();
+
+        if $z0 == 0 goto label1;
+
+        return "{}";
+
+     label1:
+        r1 = new java.lang.StringBuilder;
+
+        i0 = r0.mSize;
+
+        i0 = i0 * 14;
+
+        specialinvoke r1.<init>(i0);
+
+        virtualinvoke r1.append(123);
+
+        i0 = 0;
+
+     label2:
+        i1 = r0.mSize;
+
+        if i0 >= i1 goto label6;
+
+        if i0 <= 0 goto label3;
+
+        virtualinvoke r1.append(", ");
+
+     label3:
+        $r2 = virtualinvoke r0.valueAt(i0);
+
+        if $r2 == r0 goto label4;
+
+        virtualinvoke r1.append($r2);
+
+        goto label5;
+
+     label4:
+        virtualinvoke r1.append("(this Set)");
+
+     label5:
+        i0 = i0 + 1;
+
+        goto label2;
+
+     label6:
+        virtualinvoke r1.append(125);
+
+        $r3 = virtualinvoke r1.toString();
+
+        return $r3;
+    }
+
+    public java.lang.Object valueAt(int)
+    {
+        java.lang.Object[] $r1;
+        androidx.collection.ArraySet r0;
+        int $i0;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mArray;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+}

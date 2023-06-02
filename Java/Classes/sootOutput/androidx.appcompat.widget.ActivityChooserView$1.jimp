@@ -1,0 +1,58 @@
+class androidx.appcompat.widget.ActivityChooserView$1 extends android.database.DataSetObserver
+{
+    final androidx.appcompat.widget.ActivityChooserView this$0;
+
+    void <init>(androidx.appcompat.widget.ActivityChooserView)
+    {
+        androidx.appcompat.widget.ActivityChooserView$1 r0;
+        androidx.appcompat.widget.ActivityChooserView $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onChanged()
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter $r2;
+        androidx.appcompat.widget.ActivityChooserView$1 r0;
+        androidx.appcompat.widget.ActivityChooserView $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onChanged();
+
+        $r1 = r0.this$0;
+
+        $r2 = $r1.mAdapter;
+
+        virtualinvoke $r2.notifyDataSetChanged();
+
+        return;
+    }
+
+    public void onInvalidated()
+    {
+        androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter $r2;
+        androidx.appcompat.widget.ActivityChooserView$1 r0;
+        androidx.appcompat.widget.ActivityChooserView $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onInvalidated();
+
+        $r1 = r0.this$0;
+
+        $r2 = $r1.mAdapter;
+
+        virtualinvoke $r2.notifyDataSetInvalidated();
+
+        return;
+    }
+}

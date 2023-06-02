@@ -1,0 +1,51 @@
+public final class com.google.android.gms.internal.ads.zzddo extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzgxl zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgxl)
+    {
+        com.google.android.gms.internal.ads.zzddo r0;
+        com.google.android.gms.internal.ads.zzgxl $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzddo r0;
+        com.google.android.gms.internal.ads.zzfuu $r1;
+        java.util.Set $r6;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.ads.zzdbu $r2;
+        com.google.android.gms.internal.ads.zzdeh $r5;
+        com.google.android.gms.internal.ads.zzgxl $r3;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r4 = interfaceinvoke $r3.zzb();
+
+        $r5 = (com.google.android.gms.internal.ads.zzdeh) $r4;
+
+        $r1 = com.google.android.gms.internal.ads.zzbzn.zzf;
+
+        $r2 = new com.google.android.gms.internal.ads.zzdbu;
+
+        specialinvoke $r2.<init>($r5, $r1);
+
+        $r6 = java.util.Collections.singleton($r2);
+
+        com.google.android.gms.internal.ads.zzgxg.zzb($r6);
+
+        return $r6;
+    }
+}

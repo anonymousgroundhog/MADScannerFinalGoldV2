@@ -1,0 +1,69 @@
+class androidx.work.impl.utils.StatusRunnable$1 extends androidx.work.impl.utils.StatusRunnable
+{
+    final java.util.List val$ids;
+    final androidx.work.impl.WorkManagerImpl val$workManager;
+
+    void <init>(androidx.work.impl.WorkManagerImpl, java.util.List)
+    {
+        androidx.work.impl.WorkManagerImpl $r1;
+        java.util.List $r2;
+        androidx.work.impl.utils.StatusRunnable$1 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.val$workManager = $r1;
+
+        r0.val$ids = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public volatile java.lang.Object runInternal()
+    {
+        java.util.List $r1;
+        androidx.work.impl.utils.StatusRunnable$1 r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.runInternal();
+
+        return $r1;
+    }
+
+    public java.util.List runInternal()
+    {
+        java.util.List $r4;
+        androidx.work.impl.WorkDatabase $r2;
+        androidx.work.impl.model.WorkSpecDao $r3;
+        androidx.work.impl.WorkManagerImpl r1;
+        java.lang.Object $r6;
+        androidx.arch.core.util.Function $r5;
+        androidx.work.impl.utils.StatusRunnable$1 r0;
+
+        r0 := @this;
+
+        r1 = r0.val$workManager;
+
+        $r2 = virtualinvoke r1.getWorkDatabase();
+
+        $r3 = virtualinvoke $r2.workSpecDao();
+
+        $r4 = r0.val$ids;
+
+        $r4 = interfaceinvoke $r3.getWorkStatusPojoForIds($r4);
+
+        $r5 = androidx.work.impl.model.WorkSpec.WORK_INFO_MAPPER;
+
+        $r6 = interfaceinvoke $r5.apply($r4);
+
+        $r4 = (java.util.List) $r6;
+
+        return $r4;
+    }
+}

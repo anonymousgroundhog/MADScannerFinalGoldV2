@@ -1,0 +1,11 @@
+public interface  androidx.work.impl.Scheduler extends java.lang.Object
+{
+    public static final int MAX_GREEDY_SCHEDULER_LIMIT;
+    public static final int MAX_SCHEDULER_LIMIT;
+
+    public abstract void cancel(java.lang.String);
+
+    public abstract boolean hasLimitedSchedulingSlots();
+
+    public abstract transient void schedule(androidx.work.impl.model.WorkSpec[]);
+}

@@ -1,0 +1,42 @@
+class androidx.core.provider.RequestExecutor$DefaultThreadFactory$ProcessPriorityThread extends java.lang.Thread
+{
+    private final int mPriority;
+
+    void <init>(java.lang.Runnable, java.lang.String, int)
+    {
+        androidx.core.provider.RequestExecutor$DefaultThreadFactory$ProcessPriorityThread r0;
+        int $i0;
+        java.lang.String $r2;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.mPriority = $i0;
+
+        return;
+    }
+
+    public void run()
+    {
+        int $i0;
+        androidx.core.provider.RequestExecutor$DefaultThreadFactory$ProcessPriorityThread r0;
+
+        r0 := @this;
+
+        $i0 = r0.mPriority;
+
+        android.os.Process.setThreadPriority($i0);
+
+        specialinvoke r0.run();
+
+        return;
+    }
+}

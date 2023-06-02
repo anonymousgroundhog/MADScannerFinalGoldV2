@@ -1,0 +1,2491 @@
+public class androidx.appcompat.widget.ActionBarOverlayLayout extends android.view.ViewGroup implements androidx.appcompat.widget.DecorContentParent, androidx.core.view.NestedScrollingParent, androidx.core.view.NestedScrollingParent2, androidx.core.view.NestedScrollingParent3
+{
+    private static final int ACTION_BAR_ANIMATE_DELAY;
+    static final int[] ATTRS;
+    private static final java.lang.String TAG;
+    private int mActionBarHeight;
+    androidx.appcompat.widget.ActionBarContainer mActionBarTop;
+    private androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback mActionBarVisibilityCallback;
+    private final java.lang.Runnable mAddActionBarHideOffset;
+    boolean mAnimatingForFling;
+    private final android.graphics.Rect mBaseContentInsets;
+    private androidx.core.view.WindowInsetsCompat mBaseInnerInsets;
+    private final android.graphics.Rect mBaseInnerInsetsRect;
+    private androidx.appcompat.widget.ContentFrameLayout mContent;
+    private final android.graphics.Rect mContentInsets;
+    android.view.ViewPropertyAnimator mCurrentActionBarTopAnimator;
+    private androidx.appcompat.widget.DecorToolbar mDecorToolbar;
+    private android.widget.OverScroller mFlingEstimator;
+    private boolean mHasNonEmbeddedTabs;
+    private boolean mHideOnContentScroll;
+    private int mHideOnContentScrollReference;
+    private boolean mIgnoreWindowContentOverlay;
+    private androidx.core.view.WindowInsetsCompat mInnerInsets;
+    private final android.graphics.Rect mInnerInsetsRect;
+    private final android.graphics.Rect mLastBaseContentInsets;
+    private androidx.core.view.WindowInsetsCompat mLastBaseInnerInsets;
+    private final android.graphics.Rect mLastBaseInnerInsetsRect;
+    private androidx.core.view.WindowInsetsCompat mLastInnerInsets;
+    private final android.graphics.Rect mLastInnerInsetsRect;
+    private int mLastSystemUiVisibility;
+    private boolean mOverlayMode;
+    private final androidx.core.view.NestedScrollingParentHelper mParentHelper;
+    private final java.lang.Runnable mRemoveActionBarHideOffset;
+    final android.animation.AnimatorListenerAdapter mTopAnimatorListener;
+    private android.graphics.drawable.Drawable mWindowContentOverlay;
+    private int mWindowVisibility;
+
+    static void <clinit>()
+    {
+        int $i0;
+        int[] $r0;
+
+        $r0 = newarray (int)[2];
+
+        $i0 = androidx.appcompat.R$attr.actionBarSize;
+
+        $r0[0] = $i0;
+
+        $r0[1] = 16842841;
+
+        androidx.appcompat.widget.ActionBarOverlayLayout.ATTRS = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        androidx.core.view.NestedScrollingParentHelper $r8;
+        android.content.Context $r1;
+        android.graphics.Rect $r3;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$1 $r5;
+        androidx.appcompat.widget.ActionBarOverlayLayout$2 $r6;
+        androidx.appcompat.widget.ActionBarOverlayLayout$3 $r7;
+        android.util.AttributeSet $r2;
+        androidx.core.view.WindowInsetsCompat $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.mWindowVisibility = 0;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mBaseContentInsets = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mLastBaseContentInsets = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mContentInsets = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mBaseInnerInsetsRect = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mLastBaseInnerInsetsRect = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mInnerInsetsRect = $r3;
+
+        $r3 = new android.graphics.Rect;
+
+        specialinvoke $r3.<init>();
+
+        r0.mLastInnerInsetsRect = $r3;
+
+        $r4 = androidx.core.view.WindowInsetsCompat.CONSUMED;
+
+        r0.mBaseInnerInsets = $r4;
+
+        $r4 = androidx.core.view.WindowInsetsCompat.CONSUMED;
+
+        r0.mLastBaseInnerInsets = $r4;
+
+        $r4 = androidx.core.view.WindowInsetsCompat.CONSUMED;
+
+        r0.mInnerInsets = $r4;
+
+        $r4 = androidx.core.view.WindowInsetsCompat.CONSUMED;
+
+        r0.mLastInnerInsets = $r4;
+
+        $r5 = new androidx.appcompat.widget.ActionBarOverlayLayout$1;
+
+        specialinvoke $r5.<init>(r0);
+
+        r0.mTopAnimatorListener = $r5;
+
+        $r6 = new androidx.appcompat.widget.ActionBarOverlayLayout$2;
+
+        specialinvoke $r6.<init>(r0);
+
+        r0.mRemoveActionBarHideOffset = $r6;
+
+        $r7 = new androidx.appcompat.widget.ActionBarOverlayLayout$3;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mAddActionBarHideOffset = $r7;
+
+        specialinvoke r0.init($r1);
+
+        $r8 = new androidx.core.view.NestedScrollingParentHelper;
+
+        specialinvoke $r8.<init>(r0);
+
+        r0.mParentHelper = $r8;
+
+        return;
+    }
+
+    private void addActionBarHideOffset()
+    {
+        java.lang.Runnable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        $r1 = r0.mAddActionBarHideOffset;
+
+        interfaceinvoke $r1.run();
+
+        return;
+    }
+
+    private boolean applyInsets(android.view.View, android.graphics.Rect, boolean, boolean, boolean, boolean)
+    {
+        android.graphics.Rect $r2;
+        android.view.ViewGroup$LayoutParams $r3;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        android.view.View $r1;
+        boolean $z0, $z1, $z2, $z3, z4;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 := @parameter3;
+
+        $z2 := @parameter4;
+
+        $z3 := @parameter5;
+
+        z4 = 0;
+
+        $r3 = virtualinvoke $r1.getLayoutParams();
+
+        r4 = (androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams) $r3;
+
+        if $z0 == 0 goto label1;
+
+        $i0 = r4.leftMargin;
+
+        $i1 = $r2.left;
+
+        if $i0 == $i1 goto label1;
+
+        z4 = 1;
+
+        $i0 = $r2.left;
+
+        r4.leftMargin = $i0;
+
+     label1:
+        if $z1 == 0 goto label2;
+
+        $i0 = r4.topMargin;
+
+        $i1 = $r2.top;
+
+        if $i0 == $i1 goto label2;
+
+        z4 = 1;
+
+        $i0 = $r2.top;
+
+        r4.topMargin = $i0;
+
+     label2:
+        if $z3 == 0 goto label3;
+
+        $i0 = r4.rightMargin;
+
+        $i1 = $r2.right;
+
+        if $i0 == $i1 goto label3;
+
+        z4 = 1;
+
+        $i0 = $r2.right;
+
+        r4.rightMargin = $i0;
+
+     label3:
+        if $z2 == 0 goto label4;
+
+        $i0 = r4.bottomMargin;
+
+        $i1 = $r2.bottom;
+
+        if $i0 == $i1 goto label4;
+
+        $i0 = $r2.bottom;
+
+        r4.bottomMargin = $i0;
+
+        return 1;
+
+     label4:
+        return z4;
+    }
+
+    private androidx.appcompat.widget.DecorToolbar getDecorToolbar(android.view.View)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        java.lang.IllegalStateException $r4;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.View $r1;
+        androidx.appcompat.widget.Toolbar $r3;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6;
+        java.lang.String $r7;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof androidx.appcompat.widget.DecorToolbar;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = (androidx.appcompat.widget.DecorToolbar) $r1;
+
+        return $r2;
+
+     label1:
+        $z0 = $r1 instanceof androidx.appcompat.widget.Toolbar;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (androidx.appcompat.widget.Toolbar) $r1;
+
+        $r2 = virtualinvoke $r3.getWrapper();
+
+        return $r2;
+
+     label2:
+        $r4 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        $r5 = virtualinvoke $r5.append("Can\'t make a decor toolbar out of ");
+
+        $r6 = virtualinvoke $r1.getClass();
+
+        $r7 = virtualinvoke $r6.getSimpleName();
+
+        $r5 = virtualinvoke $r5.append($r7);
+
+        $r7 = virtualinvoke $r5.toString();
+
+        specialinvoke $r4.<init>($r7);
+
+        throw $r4;
+    }
+
+    private void init(android.content.Context)
+    {
+        android.widget.OverScroller $r8;
+        android.content.Context $r1, $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.graphics.drawable.Drawable $r6;
+        android.content.res.TypedArray $r5;
+        int[] $r4;
+        int $i0;
+        android.content.res.Resources$Theme $r3;
+        android.content.pm.ApplicationInfo $r7;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $r3 = virtualinvoke $r2.getTheme();
+
+        $r4 = androidx.appcompat.widget.ActionBarOverlayLayout.ATTRS;
+
+        $r5 = virtualinvoke $r3.obtainStyledAttributes($r4);
+
+        $z0 = 0;
+
+        $i0 = virtualinvoke $r5.getDimensionPixelSize(0, 0);
+
+        r0.mActionBarHeight = $i0;
+
+        $r6 = virtualinvoke $r5.getDrawable(1);
+
+        r0.mWindowContentOverlay = $r6;
+
+        if $r6 != null goto label1;
+
+        $z1 = 1;
+
+        goto label2;
+
+     label1:
+        $z1 = 0;
+
+     label2:
+        virtualinvoke r0.setWillNotDraw($z1);
+
+        virtualinvoke $r5.recycle();
+
+        $r7 = virtualinvoke $r1.getApplicationInfo();
+
+        $i0 = $r7.targetSdkVersion;
+
+        if $i0 >= 19 goto label3;
+
+        $z0 = 1;
+
+     label3:
+        r0.mIgnoreWindowContentOverlay = $z0;
+
+        $r8 = new android.widget.OverScroller;
+
+        specialinvoke $r8.<init>($r1);
+
+        r0.mFlingEstimator = $r8;
+
+        return;
+    }
+
+    private void postAddActionBarHideOffset()
+    {
+        java.lang.Runnable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        $r1 = r0.mAddActionBarHideOffset;
+
+        virtualinvoke r0.postDelayed($r1, 600L);
+
+        return;
+    }
+
+    private void postRemoveActionBarHideOffset()
+    {
+        java.lang.Runnable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        $r1 = r0.mRemoveActionBarHideOffset;
+
+        virtualinvoke r0.postDelayed($r1, 600L);
+
+        return;
+    }
+
+    private void removeActionBarHideOffset()
+    {
+        java.lang.Runnable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        $r1 = r0.mRemoveActionBarHideOffset;
+
+        interfaceinvoke $r1.run();
+
+        return;
+    }
+
+    private boolean shouldHideActionBarOnFling(float)
+    {
+        android.widget.OverScroller r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        float $f0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r1 = r0.mFlingEstimator;
+
+        $i0 = (int) $f0;
+
+        virtualinvoke r1.fling(0, 0, 0, $i0, 0, 0, -2147483648, 2147483647);
+
+        r1 = r0.mFlingEstimator;
+
+        $i0 = virtualinvoke r1.getFinalY();
+
+        $r2 = r0.mActionBarTop;
+
+        $i1 = virtualinvoke $r2.getHeight();
+
+        if $i0 <= $i1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean canShowOverflowMenu()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.canShowOverflowMenu();
+
+        return $z0;
+    }
+
+    protected boolean checkLayoutParams(android.view.ViewGroup$LayoutParams)
+    {
+        android.view.ViewGroup$LayoutParams $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = $r1 instanceof androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams;
+
+        return $z0;
+    }
+
+    public void dismissPopups()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.dismissPopupMenus();
+
+        return;
+    }
+
+    public void draw(android.graphics.Canvas)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.graphics.drawable.Drawable r2, $r4;
+        androidx.appcompat.widget.ActionBarContainer r3;
+        int $i0, $i1, $i2;
+        float f0, $f1;
+        android.graphics.Canvas $r1;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.draw($r1);
+
+        r2 = r0.mWindowContentOverlay;
+
+        if r2 == null goto label3;
+
+        z0 = r0.mIgnoreWindowContentOverlay;
+
+        if z0 != 0 goto label3;
+
+        r3 = r0.mActionBarTop;
+
+        $i0 = virtualinvoke r3.getVisibility();
+
+        if $i0 != 0 goto label1;
+
+        r3 = r0.mActionBarTop;
+
+        $i0 = virtualinvoke r3.getBottom();
+
+        f0 = (float) $i0;
+
+        r3 = r0.mActionBarTop;
+
+        $f1 = virtualinvoke r3.getTranslationY();
+
+        f0 = f0 + $f1;
+
+        f0 = f0 + 0.5F;
+
+        $i0 = (int) f0;
+
+        goto label2;
+
+     label1:
+        $i0 = 0;
+
+     label2:
+        r2 = r0.mWindowContentOverlay;
+
+        $i1 = virtualinvoke r0.getWidth();
+
+        $r4 = r0.mWindowContentOverlay;
+
+        $i2 = virtualinvoke $r4.getIntrinsicHeight();
+
+        $i2 = $i2 + $i0;
+
+        virtualinvoke r2.setBounds(0, $i0, $i1, $i2);
+
+        r2 = r0.mWindowContentOverlay;
+
+        virtualinvoke r2.draw($r1);
+
+     label3:
+        return;
+    }
+
+    protected boolean fitSystemWindows(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1, $r3;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int i0;
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label1;
+
+        $z0 = specialinvoke r0.fitSystemWindows($r1);
+
+        return $z0;
+
+     label1:
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mActionBarTop;
+
+        $z0 = specialinvoke r0.applyInsets($r2, $r1, 1, 1, 0, 1);
+
+        $r3 = r0.mBaseInnerInsetsRect;
+
+        virtualinvoke $r3.set($r1);
+
+        $r1 = r0.mBaseInnerInsetsRect;
+
+        $r3 = r0.mBaseContentInsets;
+
+        androidx.appcompat.widget.ViewUtils.computeFitSystemWindows(r0, $r1, $r3);
+
+        $r1 = r0.mLastBaseInnerInsetsRect;
+
+        $r3 = r0.mBaseInnerInsetsRect;
+
+        $z1 = virtualinvoke $r1.equals($r3);
+
+        if $z1 != 0 goto label2;
+
+        $z0 = 1;
+
+        $r1 = r0.mLastBaseInnerInsetsRect;
+
+        $r3 = r0.mBaseInnerInsetsRect;
+
+        virtualinvoke $r1.set($r3);
+
+     label2:
+        $r1 = r0.mLastBaseContentInsets;
+
+        $r3 = r0.mBaseContentInsets;
+
+        $z1 = virtualinvoke $r1.equals($r3);
+
+        if $z1 != 0 goto label3;
+
+        $z0 = 1;
+
+        $r1 = r0.mLastBaseContentInsets;
+
+        $r3 = r0.mBaseContentInsets;
+
+        virtualinvoke $r1.set($r3);
+
+     label3:
+        if $z0 == 0 goto label4;
+
+        virtualinvoke r0.requestLayout();
+
+     label4:
+        return 1;
+    }
+
+    protected volatile android.view.ViewGroup$LayoutParams generateDefaultLayoutParams()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.generateDefaultLayoutParams();
+
+        return $r1;
+    }
+
+    protected androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams generateDefaultLayoutParams()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams $r1;
+
+        r0 := @this;
+
+        $r1 = new androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams;
+
+        specialinvoke $r1.<init>(-1, -1);
+
+        return $r1;
+    }
+
+    public volatile android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
+    {
+        android.util.AttributeSet $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.generateLayoutParams($r2);
+
+        return $r1;
+    }
+
+    protected android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams)
+    {
+        android.view.ViewGroup$LayoutParams $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams;
+
+        specialinvoke $r2.<init>($r1);
+
+        return $r2;
+    }
+
+    public androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams generateLayoutParams(android.util.AttributeSet)
+    {
+        android.content.Context $r3;
+        android.util.AttributeSet $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams;
+
+        $r3 = virtualinvoke r0.getContext();
+
+        specialinvoke $r2.<init>($r3, $r1);
+
+        return $r2;
+    }
+
+    public int getActionBarHideOffset()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarContainer $r1;
+        int $i0;
+        float $f0;
+
+        r0 := @this;
+
+        $r1 = r0.mActionBarTop;
+
+        if $r1 == null goto label1;
+
+        $f0 = virtualinvoke $r1.getTranslationY();
+
+        $i0 = (int) $f0;
+
+        $i0 = neg $i0;
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public int getNestedScrollAxes()
+    {
+        int $i0;
+        androidx.core.view.NestedScrollingParentHelper $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 = r0.mParentHelper;
+
+        $i0 = virtualinvoke $r1.getNestedScrollAxes();
+
+        return $i0;
+    }
+
+    public java.lang.CharSequence getTitle()
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        java.lang.CharSequence $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        $r1 = interfaceinvoke $r2.getTitle();
+
+        return $r1;
+    }
+
+    void haltActionBarHideOffsetAnimations()
+    {
+        android.view.ViewPropertyAnimator $r2;
+        java.lang.Runnable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 = r0.mRemoveActionBarHideOffset;
+
+        virtualinvoke r0.removeCallbacks($r1);
+
+        $r1 = r0.mAddActionBarHideOffset;
+
+        virtualinvoke r0.removeCallbacks($r1);
+
+        $r2 = r0.mCurrentActionBarTopAnimator;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.cancel();
+
+     label1:
+        return;
+    }
+
+    public boolean hasIcon()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.hasIcon();
+
+        return $z0;
+    }
+
+    public boolean hasLogo()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.hasLogo();
+
+        return $z0;
+    }
+
+    public boolean hideOverflowMenu()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.hideOverflowMenu();
+
+        return $z0;
+    }
+
+    public void initFeature(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        lookupswitch($i0)
+        {
+            case 2: goto label4;
+            case 5: goto label3;
+            case 109: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return;
+
+     label2:
+        virtualinvoke r0.setOverlayMode(1);
+
+        return;
+
+     label3:
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.initIndeterminateProgress();
+
+        return;
+
+     label4:
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.initProgress();
+
+        return;
+    }
+
+    public boolean isHideOnContentScrollEnabled()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mHideOnContentScroll;
+
+        return z0;
+    }
+
+    public boolean isInOverlayMode()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mOverlayMode;
+
+        return z0;
+    }
+
+    public boolean isOverflowMenuShowPending()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.isOverflowMenuShowPending();
+
+        return $z0;
+    }
+
+    public boolean isOverflowMenuShowing()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.isOverflowMenuShowing();
+
+        return $z0;
+    }
+
+    public android.view.WindowInsets onApplyWindowInsets(android.view.WindowInsets)
+    {
+        android.graphics.Rect r2, $r7;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.WindowInsets $r1;
+        int $i0, $i1, $i2, $i3;
+        androidx.appcompat.widget.ActionBarContainer $r4;
+        androidx.core.view.WindowInsetsCompat $r3, $r5, $r6;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r3 = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat($r1);
+
+        r2 = new android.graphics.Rect;
+
+        $i0 = virtualinvoke $r3.getSystemWindowInsetLeft();
+
+        $i1 = virtualinvoke $r3.getSystemWindowInsetTop();
+
+        $i2 = virtualinvoke $r3.getSystemWindowInsetRight();
+
+        $i3 = virtualinvoke $r3.getSystemWindowInsetBottom();
+
+        specialinvoke r2.<init>($i0, $i1, $i2, $i3);
+
+        $r4 = r0.mActionBarTop;
+
+        $z0 = specialinvoke r0.applyInsets($r4, r2, 1, 1, 0, 1);
+
+        r2 = r0.mBaseContentInsets;
+
+        androidx.core.view.ViewCompat.computeSystemWindowInsets(r0, $r3, r2);
+
+        r2 = r0.mBaseContentInsets;
+
+        $i0 = r2.left;
+
+        r2 = r0.mBaseContentInsets;
+
+        $i1 = r2.top;
+
+        r2 = r0.mBaseContentInsets;
+
+        $i2 = r2.right;
+
+        r2 = r0.mBaseContentInsets;
+
+        $i3 = r2.bottom;
+
+        $r5 = virtualinvoke $r3.inset($i0, $i1, $i2, $i3);
+
+        r0.mBaseInnerInsets = $r5;
+
+        $r6 = r0.mLastBaseInnerInsets;
+
+        $z1 = virtualinvoke $r6.equals($r5);
+
+        if $z1 != 0 goto label1;
+
+        $z0 = 1;
+
+        $r5 = r0.mBaseInnerInsets;
+
+        r0.mLastBaseInnerInsets = $r5;
+
+     label1:
+        r2 = r0.mLastBaseContentInsets;
+
+        $r7 = r0.mBaseContentInsets;
+
+        $z1 = virtualinvoke r2.equals($r7);
+
+        if $z1 != 0 goto label2;
+
+        $z0 = 1;
+
+        r2 = r0.mLastBaseContentInsets;
+
+        $r7 = r0.mBaseContentInsets;
+
+        virtualinvoke r2.set($r7);
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        virtualinvoke r0.requestLayout();
+
+     label3:
+        $r3 = virtualinvoke $r3.consumeDisplayCutout();
+
+        $r3 = virtualinvoke $r3.consumeSystemWindowInsets();
+
+        $r3 = virtualinvoke $r3.consumeStableInsets();
+
+        $r1 = virtualinvoke $r3.toWindowInsets();
+
+        return $r1;
+    }
+
+    protected void onConfigurationChanged(android.content.res.Configuration)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.content.res.Configuration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.onConfigurationChanged($r1);
+
+        $r2 = virtualinvoke r0.getContext();
+
+        specialinvoke r0.init($r2);
+
+        androidx.core.view.ViewCompat.requestApplyInsets(r0);
+
+        return;
+    }
+
+    protected void onDetachedFromWindow()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        specialinvoke r0.onDetachedFromWindow();
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        return;
+    }
+
+    protected void onLayout(boolean, int, int, int, int)
+    {
+        android.view.ViewGroup$LayoutParams $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, i6, i7;
+        android.view.View $r1;
+        boolean $z0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams r3;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i0 = virtualinvoke r0.getChildCount();
+
+        $i1 = virtualinvoke r0.getPaddingLeft();
+
+        $i2 = virtualinvoke r0.getPaddingTop();
+
+        $i3 = 0;
+
+     label1:
+        if $i3 >= $i0 goto label3;
+
+        $r1 = virtualinvoke r0.getChildAt($i3);
+
+        $i5 = virtualinvoke $r1.getVisibility();
+
+        if $i5 == 8 goto label2;
+
+        $r2 = virtualinvoke $r1.getLayoutParams();
+
+        r3 = (androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams) $r2;
+
+        $i4 = virtualinvoke $r1.getMeasuredWidth();
+
+        $i5 = virtualinvoke $r1.getMeasuredHeight();
+
+        i6 = r3.leftMargin;
+
+        i6 = i6 + $i1;
+
+        i7 = r3.topMargin;
+
+        i7 = i7 + $i2;
+
+        $i4 = i6 + $i4;
+
+        $i5 = i7 + $i5;
+
+        virtualinvoke $r1.layout(i6, i7, $i4, $i5);
+
+     label2:
+        $i3 = $i3 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        android.graphics.Rect r5, r6;
+        int $i0, $i1, i2, $i3, i4, $i5, $i6, $i7, $i8;
+        androidx.appcompat.widget.ActionBarContainer r1;
+        android.view.View $r4;
+        androidx.core.view.WindowInsetsCompat r7, r11;
+        androidx.core.view.WindowInsetsCompat$Builder r9;
+        boolean z0, z1;
+        androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams r3;
+        android.view.ViewGroup$LayoutParams $r2;
+        androidx.appcompat.widget.ContentFrameLayout r10;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.core.graphics.Insets $r8;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        virtualinvoke r0.pullChildren();
+
+        i2 = 0;
+
+        r1 = r0.mActionBarTop;
+
+        virtualinvoke r0.measureChildWithMargins(r1, $i0, 0, $i1, 0);
+
+        r1 = r0.mActionBarTop;
+
+        $r2 = virtualinvoke r1.getLayoutParams();
+
+        r3 = (androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams) $r2;
+
+        r1 = r0.mActionBarTop;
+
+        $i3 = virtualinvoke r1.getMeasuredWidth();
+
+        i4 = r3.leftMargin;
+
+        $i3 = $i3 + i4;
+
+        i4 = r3.rightMargin;
+
+        $i3 = $i3 + i4;
+
+        $i5 = java.lang.Math.max(0, $i3);
+
+        r1 = r0.mActionBarTop;
+
+        $i3 = virtualinvoke r1.getMeasuredHeight();
+
+        i4 = r3.topMargin;
+
+        $i3 = $i3 + i4;
+
+        i4 = r3.bottomMargin;
+
+        $i3 = $i3 + i4;
+
+        i4 = java.lang.Math.max(0, $i3);
+
+        r1 = r0.mActionBarTop;
+
+        $i3 = virtualinvoke r1.getMeasuredState();
+
+        $i3 = android.view.View.combineMeasuredStates(0, $i3);
+
+        $i6 = androidx.core.view.ViewCompat.getWindowSystemUiVisibility(r0);
+
+        $i6 = $i6 & 256;
+
+        if $i6 == 0 goto label01;
+
+        z1 = 1;
+
+        goto label02;
+
+     label01:
+        z1 = 0;
+
+     label02:
+        z0 = z1;
+
+        if z1 == 0 goto label04;
+
+        i2 = r0.mActionBarHeight;
+
+        z1 = r0.mHasNonEmbeddedTabs;
+
+        if z1 == 0 goto label05;
+
+        r1 = r0.mActionBarTop;
+
+        $r4 = virtualinvoke r1.getTabContainer();
+
+        if $r4 == null goto label03;
+
+        $i6 = r0.mActionBarHeight;
+
+        i2 = i2 + $i6;
+
+     label03:
+        goto label05;
+
+     label04:
+        r1 = r0.mActionBarTop;
+
+        $i6 = virtualinvoke r1.getVisibility();
+
+        if $i6 == 8 goto label05;
+
+        r1 = r0.mActionBarTop;
+
+        i2 = virtualinvoke r1.getMeasuredHeight();
+
+     label05:
+        r5 = r0.mContentInsets;
+
+        r6 = r0.mBaseContentInsets;
+
+        virtualinvoke r5.set(r6);
+
+        $i6 = android.os.Build$VERSION.SDK_INT;
+
+        if $i6 < 21 goto label06;
+
+        r7 = r0.mBaseInnerInsets;
+
+        r0.mInnerInsets = r7;
+
+        goto label07;
+
+     label06:
+        r5 = r0.mInnerInsetsRect;
+
+        r6 = r0.mBaseInnerInsetsRect;
+
+        virtualinvoke r5.set(r6);
+
+     label07:
+        z1 = r0.mOverlayMode;
+
+        if z1 != 0 goto label08;
+
+        if z0 != 0 goto label08;
+
+        r5 = r0.mContentInsets;
+
+        $i6 = r5.top;
+
+        $i6 = $i6 + i2;
+
+        r5.top = $i6;
+
+        r5 = r0.mContentInsets;
+
+        $i6 = r5.bottom;
+
+        r5.bottom = $i6;
+
+        $i6 = android.os.Build$VERSION.SDK_INT;
+
+        if $i6 < 21 goto label10;
+
+        r7 = r0.mInnerInsets;
+
+        r7 = virtualinvoke r7.inset(0, i2, 0, 0);
+
+        r0.mInnerInsets = r7;
+
+        goto label10;
+
+     label08:
+        $i6 = android.os.Build$VERSION.SDK_INT;
+
+        if $i6 < 21 goto label09;
+
+        r7 = r0.mInnerInsets;
+
+        $i6 = virtualinvoke r7.getSystemWindowInsetLeft();
+
+        r7 = r0.mInnerInsets;
+
+        $i7 = virtualinvoke r7.getSystemWindowInsetTop();
+
+        i2 = $i7 + i2;
+
+        r7 = r0.mInnerInsets;
+
+        $i7 = virtualinvoke r7.getSystemWindowInsetRight();
+
+        r7 = r0.mInnerInsets;
+
+        $i8 = virtualinvoke r7.getSystemWindowInsetBottom();
+
+        $r8 = androidx.core.graphics.Insets.of($i6, i2, $i7, $i8);
+
+        r9 = new androidx.core.view.WindowInsetsCompat$Builder;
+
+        r7 = r0.mInnerInsets;
+
+        specialinvoke r9.<init>(r7);
+
+        r9 = virtualinvoke r9.setSystemWindowInsets($r8);
+
+        r7 = virtualinvoke r9.build();
+
+        r0.mInnerInsets = r7;
+
+        goto label10;
+
+     label09:
+        r5 = r0.mInnerInsetsRect;
+
+        $i6 = r5.top;
+
+        i2 = $i6 + i2;
+
+        r5.top = i2;
+
+        r5 = r0.mInnerInsetsRect;
+
+        i2 = r5.bottom;
+
+        r5.bottom = i2;
+
+     label10:
+        r10 = r0.mContent;
+
+        r5 = r0.mContentInsets;
+
+        specialinvoke r0.applyInsets(r10, r5, 1, 1, 1, 1);
+
+        i2 = android.os.Build$VERSION.SDK_INT;
+
+        if i2 < 21 goto label11;
+
+        r7 = r0.mLastInnerInsets;
+
+        r11 = r0.mInnerInsets;
+
+        z0 = virtualinvoke r7.equals(r11);
+
+        if z0 != 0 goto label11;
+
+        r7 = r0.mInnerInsets;
+
+        r0.mLastInnerInsets = r7;
+
+        r10 = r0.mContent;
+
+        androidx.core.view.ViewCompat.dispatchApplyWindowInsets(r10, r7);
+
+        goto label12;
+
+     label11:
+        i2 = android.os.Build$VERSION.SDK_INT;
+
+        if i2 >= 21 goto label12;
+
+        r5 = r0.mLastInnerInsetsRect;
+
+        r6 = r0.mInnerInsetsRect;
+
+        z0 = virtualinvoke r5.equals(r6);
+
+        if z0 != 0 goto label12;
+
+        r5 = r0.mLastInnerInsetsRect;
+
+        r6 = r0.mInnerInsetsRect;
+
+        virtualinvoke r5.set(r6);
+
+        r10 = r0.mContent;
+
+        r5 = r0.mInnerInsetsRect;
+
+        virtualinvoke r10.dispatchFitSystemWindows(r5);
+
+     label12:
+        r10 = r0.mContent;
+
+        virtualinvoke r0.measureChildWithMargins(r10, $i0, 0, $i1, 0);
+
+        r10 = r0.mContent;
+
+        $r2 = virtualinvoke r10.getLayoutParams();
+
+        r3 = (androidx.appcompat.widget.ActionBarOverlayLayout$LayoutParams) $r2;
+
+        r10 = r0.mContent;
+
+        i2 = virtualinvoke r10.getMeasuredWidth();
+
+        $i6 = r3.leftMargin;
+
+        i2 = i2 + $i6;
+
+        $i6 = r3.rightMargin;
+
+        i2 = i2 + $i6;
+
+        $i5 = java.lang.Math.max($i5, i2);
+
+        r10 = r0.mContent;
+
+        i2 = virtualinvoke r10.getMeasuredHeight();
+
+        $i6 = r3.topMargin;
+
+        i2 = i2 + $i6;
+
+        $i6 = r3.bottomMargin;
+
+        i2 = i2 + $i6;
+
+        i4 = java.lang.Math.max(i4, i2);
+
+        r10 = r0.mContent;
+
+        i2 = virtualinvoke r10.getMeasuredState();
+
+        $i3 = android.view.View.combineMeasuredStates($i3, i2);
+
+        i2 = virtualinvoke r0.getPaddingLeft();
+
+        $i6 = virtualinvoke r0.getPaddingRight();
+
+        i2 = i2 + $i6;
+
+        $i5 = $i5 + i2;
+
+        i2 = virtualinvoke r0.getPaddingTop();
+
+        $i6 = virtualinvoke r0.getPaddingBottom();
+
+        i2 = i2 + $i6;
+
+        i4 = i4 + i2;
+
+        i2 = virtualinvoke r0.getSuggestedMinimumHeight();
+
+        i4 = java.lang.Math.max(i4, i2);
+
+        i2 = virtualinvoke r0.getSuggestedMinimumWidth();
+
+        $i5 = java.lang.Math.max($i5, i2);
+
+        $i0 = android.view.View.resolveSizeAndState($i5, $i0, $i3);
+
+        $i3 = $i3 << 16;
+
+        $i1 = android.view.View.resolveSizeAndState(i4, $i1, $i3);
+
+        virtualinvoke r0.setMeasuredDimension($i0, $i1);
+
+        return;
+    }
+
+    public boolean onNestedFling(android.view.View, float, float, boolean)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.View $r1;
+        float $f0, $f1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $f1 := @parameter2;
+
+        $z0 := @parameter3;
+
+        $z1 = r0.mHideOnContentScroll;
+
+        if $z1 == 0 goto label4;
+
+        if $z0 != 0 goto label1;
+
+        goto label4;
+
+     label1:
+        $z0 = specialinvoke r0.shouldHideActionBarOnFling($f1);
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke r0.addActionBarHideOffset();
+
+        goto label3;
+
+     label2:
+        specialinvoke r0.removeActionBarHideOffset();
+
+     label3:
+        r0.mAnimatingForFling = 1;
+
+        return 1;
+
+     label4:
+        return 0;
+    }
+
+    public boolean onNestedPreFling(android.view.View, float, float)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.View $r1;
+        float $f0, $f1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $f1 := @parameter2;
+
+        return 0;
+    }
+
+    public void onNestedPreScroll(android.view.View, int, int, int[])
+    {
+        int[] $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        return;
+    }
+
+    public void onNestedPreScroll(android.view.View, int, int, int[], int)
+    {
+        int[] $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1, $i2;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $i2 := @parameter4;
+
+        if $i2 != 0 goto label1;
+
+        virtualinvoke r0.onNestedPreScroll($r1, $i0, $i1, $r2);
+
+     label1:
+        return;
+    }
+
+    public void onNestedScroll(android.view.View, int, int, int, int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1, $i2, $i3;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i0 = r0.mHideOnContentScrollReference;
+
+        $i0 = $i0 + $i1;
+
+        r0.mHideOnContentScrollReference = $i0;
+
+        virtualinvoke r0.setActionBarHideOffset($i0);
+
+        return;
+    }
+
+    public void onNestedScroll(android.view.View, int, int, int, int, int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1, $i2, $i3, $i4;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i4 := @parameter5;
+
+        if $i4 != 0 goto label1;
+
+        virtualinvoke r0.onNestedScroll($r1, $i0, $i1, $i2, $i3);
+
+     label1:
+        return;
+    }
+
+    public void onNestedScroll(android.view.View, int, int, int, int, int, int[])
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int[] $r2;
+        int $i0, $i1, $i2, $i3, $i4;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i4 := @parameter5;
+
+        $r2 := @parameter6;
+
+        virtualinvoke r0.onNestedScroll($r1, $i0, $i1, $i2, $i3, $i4);
+
+        return;
+    }
+
+    public void onNestedScrollAccepted(android.view.View, android.view.View, int)
+    {
+        androidx.core.view.NestedScrollingParentHelper $r3;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback $r4;
+        int $i0;
+        android.view.View $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r3 = r0.mParentHelper;
+
+        virtualinvoke $r3.onNestedScrollAccepted($r1, $r2, $i0);
+
+        $i0 = virtualinvoke r0.getActionBarHideOffset();
+
+        r0.mHideOnContentScrollReference = $i0;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        $r4 = r0.mActionBarVisibilityCallback;
+
+        if $r4 == null goto label1;
+
+        interfaceinvoke $r4.onContentScrollStarted();
+
+     label1:
+        return;
+    }
+
+    public void onNestedScrollAccepted(android.view.View, android.view.View, int, int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        android.view.View $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        if $i1 != 0 goto label1;
+
+        virtualinvoke r0.onNestedScrollAccepted($r1, $r2, $i0);
+
+     label1:
+        return;
+    }
+
+    public boolean onStartNestedScroll(android.view.View, android.view.View, int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer $r3;
+        android.view.View $r1, $r2;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i0 = $i0 & 2;
+
+        if $i0 == 0 goto label2;
+
+        $r3 = r0.mActionBarTop;
+
+        $i0 = virtualinvoke $r3.getVisibility();
+
+        if $i0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        z0 = r0.mHideOnContentScroll;
+
+        return z0;
+
+     label2:
+        return 0;
+    }
+
+    public boolean onStartNestedScroll(android.view.View, android.view.View, int, int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        android.view.View $r1, $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        if $i1 != 0 goto label1;
+
+        $z0 = virtualinvoke r0.onStartNestedScroll($r1, $r2, $i0);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void onStopNestedScroll(android.view.View)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback $r3;
+        int $i0, $i1;
+        androidx.appcompat.widget.ActionBarContainer $r2;
+        android.view.View $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.mHideOnContentScroll;
+
+        if $z0 == 0 goto label2;
+
+        $z0 = r0.mAnimatingForFling;
+
+        if $z0 != 0 goto label2;
+
+        $i1 = r0.mHideOnContentScrollReference;
+
+        $r2 = r0.mActionBarTop;
+
+        $i0 = virtualinvoke $r2.getHeight();
+
+        if $i1 > $i0 goto label1;
+
+        specialinvoke r0.postRemoveActionBarHideOffset();
+
+        goto label2;
+
+     label1:
+        specialinvoke r0.postAddActionBarHideOffset();
+
+     label2:
+        $r3 = r0.mActionBarVisibilityCallback;
+
+        if $r3 == null goto label3;
+
+        interfaceinvoke $r3.onContentScrollStopped();
+
+     label3:
+        return;
+    }
+
+    public void onStopNestedScroll(android.view.View, int)
+    {
+        int $i0;
+        android.view.View $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        if $i0 != 0 goto label1;
+
+        virtualinvoke r0.onStopNestedScroll($r1);
+
+     label1:
+        return;
+    }
+
+    public void onWindowSystemUiVisibilityChanged(int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback $r1;
+        int $i0, i1, i2;
+        boolean $z0, z1, z2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.onWindowSystemUiVisibilityChanged($i0);
+
+        virtualinvoke r0.pullChildren();
+
+        i1 = r0.mLastSystemUiVisibility;
+
+        i1 = i1 ^ $i0;
+
+        r0.mLastSystemUiVisibility = $i0;
+
+        i2 = $i0 & 4;
+
+        $z0 = 1;
+
+        if i2 != 0 goto label01;
+
+        z1 = 1;
+
+        goto label02;
+
+     label01:
+        z1 = 0;
+
+     label02:
+        $i0 = $i0 & 256;
+
+        if $i0 == 0 goto label03;
+
+        z2 = 1;
+
+        goto label04;
+
+     label03:
+        z2 = 0;
+
+     label04:
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        if $r1 == null goto label09;
+
+        if z2 != 0 goto label05;
+
+        goto label06;
+
+     label05:
+        $z0 = 0;
+
+     label06:
+        interfaceinvoke $r1.enableContentAnimations($z0);
+
+        if z1 != 0 goto label08;
+
+        if z2 != 0 goto label07;
+
+        goto label08;
+
+     label07:
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        interfaceinvoke $r1.hideForSystem();
+
+        goto label09;
+
+     label08:
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        interfaceinvoke $r1.showForSystem();
+
+     label09:
+        $i0 = i1 & 256;
+
+        if $i0 == 0 goto label10;
+
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        if $r1 == null goto label10;
+
+        androidx.core.view.ViewCompat.requestApplyInsets(r0);
+
+     label10:
+        return;
+    }
+
+    protected void onWindowVisibilityChanged(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.onWindowVisibilityChanged($i0);
+
+        r0.mWindowVisibility = $i0;
+
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.onWindowVisibilityChanged($i0);
+
+     label1:
+        return;
+    }
+
+    void pullChildren()
+    {
+        androidx.appcompat.widget.DecorToolbar $r4;
+        androidx.appcompat.widget.ContentFrameLayout $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0;
+        androidx.appcompat.widget.ActionBarContainer $r3;
+        android.view.View $r2;
+
+        r0 := @this;
+
+        $r1 = r0.mContent;
+
+        if $r1 != null goto label1;
+
+        $i0 = androidx.appcompat.R$id.action_bar_activity_content;
+
+        $r2 = virtualinvoke r0.findViewById($i0);
+
+        $r1 = (androidx.appcompat.widget.ContentFrameLayout) $r2;
+
+        r0.mContent = $r1;
+
+        $i0 = androidx.appcompat.R$id.action_bar_container;
+
+        $r2 = virtualinvoke r0.findViewById($i0);
+
+        $r3 = (androidx.appcompat.widget.ActionBarContainer) $r2;
+
+        r0.mActionBarTop = $r3;
+
+        $i0 = androidx.appcompat.R$id.action_bar;
+
+        $r2 = virtualinvoke r0.findViewById($i0);
+
+        $r4 = specialinvoke r0.getDecorToolbar($r2);
+
+        r0.mDecorToolbar = $r4;
+
+     label1:
+        return;
+    }
+
+    public void restoreToolbarHierarchyState(android.util.SparseArray)
+    {
+        android.util.SparseArray r1;
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.restoreHierarchyState(r1);
+
+        return;
+    }
+
+    public void saveToolbarHierarchyState(android.util.SparseArray)
+    {
+        android.util.SparseArray r1;
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.saveHierarchyState(r1);
+
+        return;
+    }
+
+    public void setActionBarHideOffset(int)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0, $i1;
+        androidx.appcompat.widget.ActionBarContainer r1;
+        float $f0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        r1 = r0.mActionBarTop;
+
+        $i1 = virtualinvoke r1.getHeight();
+
+        $i0 = java.lang.Math.min($i0, $i1);
+
+        $i0 = java.lang.Math.max(0, $i0);
+
+        r1 = r0.mActionBarTop;
+
+        $i0 = neg $i0;
+
+        $f0 = (float) $i0;
+
+        virtualinvoke r1.setTranslationY($f0);
+
+        return;
+    }
+
+    public void setActionBarVisibilityCallback(androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback $r1;
+        int $i0;
+        android.os.IBinder $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mActionBarVisibilityCallback = $r1;
+
+        $r2 = virtualinvoke r0.getWindowToken();
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.mActionBarVisibilityCallback;
+
+        $i0 = r0.mWindowVisibility;
+
+        interfaceinvoke $r1.onWindowVisibilityChanged($i0);
+
+        $i0 = r0.mLastSystemUiVisibility;
+
+        if $i0 == 0 goto label1;
+
+        $i0 = r0.mLastSystemUiVisibility;
+
+        virtualinvoke r0.onWindowSystemUiVisibilityChanged($i0);
+
+        androidx.core.view.ViewCompat.requestApplyInsets(r0);
+
+     label1:
+        return;
+    }
+
+    public void setHasNonEmbeddedTabs(boolean)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mHasNonEmbeddedTabs = $z0;
+
+        return;
+    }
+
+    public void setHideOnContentScrollEnabled(boolean)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 = r0.mHideOnContentScroll;
+
+        if $z0 == $z1 goto label1;
+
+        r0.mHideOnContentScroll = $z0;
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke r0.haltActionBarHideOffsetAnimations();
+
+        virtualinvoke r0.setActionBarHideOffset(0);
+
+     label1:
+        return;
+    }
+
+    public void setIcon(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setIcon($i0);
+
+        return;
+    }
+
+    public void setIcon(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        android.graphics.drawable.Drawable $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setIcon($r1);
+
+        return;
+    }
+
+    public void setLogo(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setLogo($i0);
+
+        return;
+    }
+
+    public void setMenu(android.view.Menu, androidx.appcompat.view.menu.MenuPresenter$Callback)
+    {
+        androidx.appcompat.view.menu.MenuPresenter$Callback $r2;
+        androidx.appcompat.widget.DecorToolbar $r3;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.Menu $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.pullChildren();
+
+        $r3 = r0.mDecorToolbar;
+
+        interfaceinvoke $r3.setMenu($r1, $r2);
+
+        return;
+    }
+
+    public void setMenuPrepared()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        interfaceinvoke $r1.setMenuPrepared();
+
+        return;
+    }
+
+    public void setOverlayMode(boolean)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        int $i0;
+        android.content.pm.ApplicationInfo $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mOverlayMode = $z0;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = virtualinvoke $r1.getApplicationInfo();
+
+        $i0 = $r2.targetSdkVersion;
+
+        if $i0 >= 19 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        r0.mIgnoreWindowContentOverlay = $z0;
+
+        return;
+    }
+
+    public void setShowingForActionMode(boolean)
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        return;
+    }
+
+    public void setUiOptions(int)
+    {
+        int $i0;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return;
+    }
+
+    public void setWindowCallback(android.view.Window$Callback)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        android.view.Window$Callback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setWindowCallback($r1);
+
+        return;
+    }
+
+    public void setWindowTitle(java.lang.CharSequence)
+    {
+        androidx.appcompat.widget.DecorToolbar $r2;
+        java.lang.CharSequence $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.pullChildren();
+
+        $r2 = r0.mDecorToolbar;
+
+        interfaceinvoke $r2.setWindowTitle($r1);
+
+        return;
+    }
+
+    public boolean shouldDelayChildPressedState()
+    {
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public boolean showOverflowMenu()
+    {
+        androidx.appcompat.widget.DecorToolbar $r1;
+        androidx.appcompat.widget.ActionBarOverlayLayout r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        virtualinvoke r0.pullChildren();
+
+        $r1 = r0.mDecorToolbar;
+
+        $z0 = interfaceinvoke $r1.showOverflowMenu();
+
+        return $z0;
+    }
+}

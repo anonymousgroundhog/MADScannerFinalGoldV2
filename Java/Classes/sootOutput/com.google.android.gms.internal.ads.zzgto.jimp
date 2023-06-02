@@ -1,0 +1,242 @@
+final class com.google.android.gms.internal.ads.zzgto extends com.google.android.gms.internal.ads.zzgtp
+{
+
+    void <init>(sun.misc.Unsafe)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        sun.misc.Unsafe $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    public final byte zza(long)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        long $l1;
+        byte $b0;
+
+        r0 := @this;
+
+        $l1 := @parameter0;
+
+        $b0 = libcore.io.Memory.peekByte($l1);
+
+        return $b0;
+    }
+
+    public final double zzb(java.lang.Object, long)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        sun.misc.Unsafe $r1;
+        long $l0;
+        java.lang.Object $r2;
+        double $d0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $r1 = r0.zza;
+
+        $l0 = virtualinvoke $r1.getLong($r2, $l0);
+
+        $d0 = java.lang.Double.longBitsToDouble($l0);
+
+        return $d0;
+    }
+
+    public final float zzc(java.lang.Object, long)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        sun.misc.Unsafe $r1;
+        int $i1;
+        float $f0;
+        long $l0;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $r1 = r0.zza;
+
+        $i1 = virtualinvoke $r1.getInt($r2, $l0);
+
+        $f0 = java.lang.Float.intBitsToFloat($i1);
+
+        return $f0;
+    }
+
+    public final void zzd(long, byte[], long, long)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        byte[] $r1;
+        int $i1, $i4;
+        long $l0, $l2, $l3;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $l3 := @parameter2;
+
+        $l2 := @parameter3;
+
+        $i1 = (int) $l3;
+
+        $i4 = (int) $l2;
+
+        libcore.io.Memory.peekByteArray($l0, $r1, $i1, $i4);
+
+        return;
+    }
+
+    public final void zze(java.lang.Object, long, boolean)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        java.lang.Object $r1;
+        long $l0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 = com.google.android.gms.internal.ads.zzgtq.zzb;
+
+        if $z1 == 0 goto label1;
+
+        com.google.android.gms.internal.ads.zzgtq.zzk($r1, $l0, $z0);
+
+        return;
+
+     label1:
+        com.google.android.gms.internal.ads.zzgtq.zzl($r1, $l0, $z0);
+
+        return;
+    }
+
+    public final void zzf(java.lang.Object, long, byte)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        byte $b1;
+        java.lang.Object $r1;
+        long $l0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $b1 := @parameter2;
+
+        $z0 = com.google.android.gms.internal.ads.zzgtq.zzb;
+
+        if $z0 == 0 goto label1;
+
+        com.google.android.gms.internal.ads.zzgtq.zzm($r1, $l0, $b1);
+
+        return;
+
+     label1:
+        com.google.android.gms.internal.ads.zzgtq.zzn($r1, $l0, $b1);
+
+        return;
+    }
+
+    public final void zzg(java.lang.Object, long, double)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        sun.misc.Unsafe $r2;
+        java.lang.Object $r1;
+        long $l0, $l1;
+        double $d0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $d0 := @parameter2;
+
+        $l1 = java.lang.Double.doubleToLongBits($d0);
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.putLong($r1, $l0, $l1);
+
+        return;
+    }
+
+    public final void zzh(java.lang.Object, long, float)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        sun.misc.Unsafe $r2;
+        int $i1;
+        float $f0;
+        java.lang.Object $r1;
+        long $l0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $f0 := @parameter2;
+
+        $i1 = java.lang.Float.floatToIntBits($f0);
+
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.putInt($r1, $l0, $i1);
+
+        return;
+    }
+
+    public final boolean zzi(java.lang.Object, long)
+    {
+        com.google.android.gms.internal.ads.zzgto r0;
+        long $l0;
+        java.lang.Object $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $z0 = com.google.android.gms.internal.ads.zzgtq.zzb;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = com.google.android.gms.internal.ads.zzgtq.zzw($r1, $l0);
+
+        return $z0;
+
+     label1:
+        $z0 = com.google.android.gms.internal.ads.zzgtq.zzx($r1, $l0);
+
+        return $z0;
+    }
+}

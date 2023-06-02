@@ -1,0 +1,209 @@
+public final class com.google.android.gms.internal.ads.zzdiu extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final com.google.android.gms.internal.ads.zzdiw zza;
+    public final com.google.android.gms.internal.ads.zzeyo zzb;
+    public final com.google.android.gms.internal.ads.zzeyc zzc;
+    public final org.json.JSONObject zzd;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdiw, com.google.android.gms.internal.ads.zzeyo, com.google.android.gms.internal.ads.zzeyc, org.json.JSONObject)
+    {
+        com.google.android.gms.internal.ads.zzdiw $r1;
+        com.google.android.gms.internal.ads.zzdiu r0;
+        com.google.android.gms.internal.ads.zzeyc $r3;
+        org.json.JSONObject $r4;
+        com.google.android.gms.internal.ads.zzeyo $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        r0.zzd = $r4;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.internal.ads.zzdgi $r12;
+        com.google.android.gms.internal.ads.zzeyx $r8;
+        com.google.android.gms.internal.ads.zzeyl $r7;
+        com.google.android.gms.internal.ads.zzeyo $r1;
+        java.util.ArrayList $r9;
+        com.google.android.gms.internal.ads.zzeyc $r2;
+        org.json.JSONObject $r3, $r6;
+        int $i0;
+        java.lang.String $r5, $r10;
+        boolean $z0;
+        double $d0;
+        com.google.android.gms.internal.ads.zzdiu r0;
+        java.lang.StringBuilder $r14;
+        com.google.android.gms.internal.ads.zzeek $r13;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        $r2 = r0.zzc;
+
+        $r3 = r0.zzd;
+
+        $r12 = new com.google.android.gms.internal.ads.zzdgi;
+
+        specialinvoke $r12.<init>();
+
+        $i0 = virtualinvoke $r3.optInt("template_id", -1);
+
+        virtualinvoke $r12.zzX($i0);
+
+        $r5 = virtualinvoke $r3.optString("custom_template_id");
+
+        virtualinvoke $r12.zzJ($r5);
+
+        $r6 = virtualinvoke $r3.optJSONObject("omid_settings");
+
+        if $r6 == null goto label1;
+
+        $r5 = virtualinvoke $r6.optString("omid_partner_name");
+
+        goto label2;
+
+     label1:
+        $r5 = null;
+
+     label2:
+        virtualinvoke $r12.zzU($r5);
+
+        $r7 = $r1.zza;
+
+        $r8 = $r7.zza;
+
+        $r9 = $r8.zzg;
+
+        $i0 = virtualinvoke $r12.zzc();
+
+        $r5 = java.lang.Integer.toString($i0);
+
+        $z0 = virtualinvoke $r9.contains($r5);
+
+        if $z0 == 0 goto label7;
+
+        $i0 = virtualinvoke $r12.zzc();
+
+        if $i0 != 3 goto label5;
+
+        $r5 = virtualinvoke $r12.zzz();
+
+        if $r5 == null goto label4;
+
+        $r9 = $r8.zzh;
+
+        $r5 = virtualinvoke $r12.zzz();
+
+        $z0 = virtualinvoke $r9.contains($r5);
+
+        if $z0 == 0 goto label3;
+
+        goto label5;
+
+     label3:
+        $r13 = new com.google.android.gms.internal.ads.zzeek;
+
+        specialinvoke $r13.<init>(1, "Unexpected custom template id in the response.");
+
+        throw $r13;
+
+     label4:
+        $r13 = new com.google.android.gms.internal.ads.zzeek;
+
+        specialinvoke $r13.<init>(1, "No custom template id for custom template ad response.");
+
+        throw $r13;
+
+     label5:
+        $d0 = virtualinvoke $r3.optDouble("rating", -1.0);
+
+        virtualinvoke $r12.zzV($d0);
+
+        $r5 = virtualinvoke $r3.optString("headline", null);
+
+        $r10 = $r5;
+
+        $z0 = $r2.zzN;
+
+        if $z0 == 0 goto label6;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r10 = com.google.android.gms.ads.internal.util.zzs.zzu();
+
+        $r14 = new java.lang.StringBuilder;
+
+        specialinvoke $r14.<init>();
+
+        virtualinvoke $r14.append($r10);
+
+        virtualinvoke $r14.append(" : ");
+
+        virtualinvoke $r14.append($r5);
+
+        $r10 = virtualinvoke $r14.toString();
+
+     label6:
+        virtualinvoke $r12.zzW("headline", $r10);
+
+        $r5 = virtualinvoke $r3.optString("body", null);
+
+        virtualinvoke $r12.zzW("body", $r5);
+
+        $r5 = virtualinvoke $r3.optString("call_to_action", null);
+
+        virtualinvoke $r12.zzW("call_to_action", $r5);
+
+        $r5 = virtualinvoke $r3.optString("store", null);
+
+        virtualinvoke $r12.zzW("store", $r5);
+
+        $r5 = virtualinvoke $r3.optString("price", null);
+
+        virtualinvoke $r12.zzW("price", $r5);
+
+        $r5 = virtualinvoke $r3.optString("advertiser", null);
+
+        virtualinvoke $r12.zzW("advertiser", $r5);
+
+        return $r12;
+
+     label7:
+        $r13 = new com.google.android.gms.internal.ads.zzeek;
+
+        $i0 = virtualinvoke $r12.zzc();
+
+        $r14 = new java.lang.StringBuilder;
+
+        specialinvoke $r14.<init>();
+
+        virtualinvoke $r14.append("Invalid template ID: ");
+
+        virtualinvoke $r14.append($i0);
+
+        $r5 = virtualinvoke $r14.toString();
+
+        specialinvoke $r13.<init>(1, $r5);
+
+        throw $r13;
+    }
+}

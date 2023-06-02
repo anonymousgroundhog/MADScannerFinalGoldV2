@@ -1,0 +1,55 @@
+public class androidx.work.impl.utils.StartWorkRunnable extends java.lang.Object implements java.lang.Runnable
+{
+    private androidx.work.WorkerParameters$RuntimeExtras mRuntimeExtras;
+    private androidx.work.impl.WorkManagerImpl mWorkManagerImpl;
+    private java.lang.String mWorkSpecId;
+
+    public void <init>(androidx.work.impl.WorkManagerImpl, java.lang.String, androidx.work.WorkerParameters$RuntimeExtras)
+    {
+        androidx.work.WorkerParameters$RuntimeExtras $r3;
+        androidx.work.impl.utils.StartWorkRunnable r0;
+        androidx.work.impl.WorkManagerImpl $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.mWorkManagerImpl = $r1;
+
+        r0.mWorkSpecId = $r2;
+
+        r0.mRuntimeExtras = $r3;
+
+        return;
+    }
+
+    public void run()
+    {
+        androidx.work.WorkerParameters$RuntimeExtras $r2;
+        androidx.work.impl.utils.StartWorkRunnable r0;
+        androidx.work.impl.WorkManagerImpl $r4;
+        java.lang.String $r1;
+        androidx.work.impl.Processor $r3;
+
+        r0 := @this;
+
+        $r4 = r0.mWorkManagerImpl;
+
+        $r3 = virtualinvoke $r4.getProcessor();
+
+        $r1 = r0.mWorkSpecId;
+
+        $r2 = r0.mRuntimeExtras;
+
+        virtualinvoke $r3.startWork($r1, $r2);
+
+        return;
+    }
+}

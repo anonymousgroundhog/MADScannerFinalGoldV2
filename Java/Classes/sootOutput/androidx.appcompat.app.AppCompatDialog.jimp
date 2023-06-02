@@ -1,0 +1,444 @@
+public class androidx.appcompat.app.AppCompatDialog extends android.app.Dialog implements androidx.appcompat.app.AppCompatCallback
+{
+    private androidx.appcompat.app.AppCompatDelegate mDelegate;
+    private final androidx.core.view.KeyEventDispatcher$Component mKeyDispatcher;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, 0);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.app.AppCompatDialog$1 r2;
+        int $i0, $i1;
+        androidx.appcompat.app.AppCompatDelegate $r3;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = androidx.appcompat.app.AppCompatDialog.getThemeResId($r1, $i0);
+
+        specialinvoke r0.<init>($r1, $i1);
+
+        r2 = new androidx.appcompat.app.AppCompatDialog$1;
+
+        specialinvoke r2.<init>(r0);
+
+        r0.mKeyDispatcher = r2;
+
+        $r3 = virtualinvoke r0.getDelegate();
+
+        $i0 = androidx.appcompat.app.AppCompatDialog.getThemeResId($r1, $i0);
+
+        virtualinvoke $r3.setTheme($i0);
+
+        virtualinvoke $r3.onCreate(null);
+
+        return;
+    }
+
+    protected void <init>(android.content.Context, boolean, android.content.DialogInterface$OnCancelListener)
+    {
+        android.content.Context $r1;
+        android.content.DialogInterface$OnCancelListener $r2;
+        androidx.appcompat.app.AppCompatDialog$1 $r3;
+        androidx.appcompat.app.AppCompatDialog r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>($r1, $z0, $r2);
+
+        $r3 = new androidx.appcompat.app.AppCompatDialog$1;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mKeyDispatcher = $r3;
+
+        return;
+    }
+
+    private static int getThemeResId(android.content.Context, int)
+    {
+        android.content.Context $r0;
+        android.util.TypedValue r1;
+        int $i0;
+        android.content.res.Resources$Theme $r2;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        if $i0 != 0 goto label1;
+
+        r1 = new android.util.TypedValue;
+
+        specialinvoke r1.<init>();
+
+        $r2 = virtualinvoke $r0.getTheme();
+
+        $i0 = androidx.appcompat.R$attr.dialogTheme;
+
+        virtualinvoke $r2.resolveAttribute($i0, r1, 1);
+
+        $i0 = r1.resourceId;
+
+     label1:
+        return $i0;
+    }
+
+    public void addContentView(android.view.View, android.view.ViewGroup$LayoutParams)
+    {
+        android.view.ViewGroup$LayoutParams $r2;
+        android.view.View $r1;
+        androidx.appcompat.app.AppCompatDelegate $r3;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r3.addContentView($r1, $r2);
+
+        return;
+    }
+
+    public void dismiss()
+    {
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        specialinvoke r0.dismiss();
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r1.onDestroy();
+
+        return;
+    }
+
+    public boolean dispatchKeyEvent(android.view.KeyEvent)
+    {
+        androidx.core.view.KeyEventDispatcher$Component $r4;
+        android.view.KeyEvent $r1;
+        android.view.View $r3;
+        androidx.appcompat.app.AppCompatDialog r0;
+        android.view.Window $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.getWindow();
+
+        $r3 = virtualinvoke $r2.getDecorView();
+
+        $r4 = r0.mKeyDispatcher;
+
+        $z0 = androidx.core.view.KeyEventDispatcher.dispatchKeyEvent($r4, $r3, r0, $r1);
+
+        return $z0;
+    }
+
+    public android.view.View findViewById(int)
+    {
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        android.view.View $r2;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        $r2 = virtualinvoke $r1.findViewById($i0);
+
+        return $r2;
+    }
+
+    public androidx.appcompat.app.AppCompatDelegate getDelegate()
+    {
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 = r0.mDelegate;
+
+        if $r1 != null goto label1;
+
+        $r1 = androidx.appcompat.app.AppCompatDelegate.create(r0, r0);
+
+        r0.mDelegate = $r1;
+
+     label1:
+        $r1 = r0.mDelegate;
+
+        return $r1;
+    }
+
+    public androidx.appcompat.app.ActionBar getSupportActionBar()
+    {
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.ActionBar $r2;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        $r2 = virtualinvoke $r1.getSupportActionBar();
+
+        return $r2;
+    }
+
+    public void invalidateOptionsMenu()
+    {
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r1.invalidateOptionsMenu();
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        androidx.appcompat.app.AppCompatDelegate $r2;
+        androidx.appcompat.app.AppCompatDialog r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r2.installViewFactory();
+
+        specialinvoke r0.onCreate($r1);
+
+        $r2 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r2.onCreate($r1);
+
+        return;
+    }
+
+    protected void onStop()
+    {
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        specialinvoke r0.onStop();
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r1.onStop();
+
+        return;
+    }
+
+    public void onSupportActionModeFinished(androidx.appcompat.view.ActionMode)
+    {
+        androidx.appcompat.app.AppCompatDialog r0;
+        androidx.appcompat.view.ActionMode $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void onSupportActionModeStarted(androidx.appcompat.view.ActionMode)
+    {
+        androidx.appcompat.app.AppCompatDialog r0;
+        androidx.appcompat.view.ActionMode $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public androidx.appcompat.view.ActionMode onWindowStartingSupportActionMode(androidx.appcompat.view.ActionMode$Callback)
+    {
+        androidx.appcompat.app.AppCompatDialog r0;
+        androidx.appcompat.view.ActionMode$Callback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return null;
+    }
+
+    public void setContentView(int)
+    {
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r1.setContentView($i0);
+
+        return;
+    }
+
+    public void setContentView(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.app.AppCompatDelegate $r2;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r2.setContentView($r1);
+
+        return;
+    }
+
+    public void setContentView(android.view.View, android.view.ViewGroup$LayoutParams)
+    {
+        android.view.ViewGroup$LayoutParams $r2;
+        android.view.View $r1;
+        androidx.appcompat.app.AppCompatDelegate $r3;
+        androidx.appcompat.app.AppCompatDialog r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r3.setContentView($r1, $r2);
+
+        return;
+    }
+
+    public void setTitle(int)
+    {
+        android.content.Context $r2;
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+        java.lang.String $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.setTitle($i0);
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        $r2 = virtualinvoke r0.getContext();
+
+        $r3 = virtualinvoke $r2.getString($i0);
+
+        virtualinvoke $r1.setTitle($r3);
+
+        return;
+    }
+
+    public void setTitle(java.lang.CharSequence)
+    {
+        androidx.appcompat.app.AppCompatDelegate $r2;
+        androidx.appcompat.app.AppCompatDialog r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.setTitle($r1);
+
+        $r2 = virtualinvoke r0.getDelegate();
+
+        virtualinvoke $r2.setTitle($r1);
+
+        return;
+    }
+
+    boolean superDispatchKeyEvent(android.view.KeyEvent)
+    {
+        androidx.appcompat.app.AppCompatDialog r0;
+        android.view.KeyEvent $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.dispatchKeyEvent($r1);
+
+        return $z0;
+    }
+
+    public boolean supportRequestWindowFeature(int)
+    {
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegate $r1;
+        androidx.appcompat.app.AppCompatDialog r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getDelegate();
+
+        $z0 = virtualinvoke $r1.requestWindowFeature($i0);
+
+        return $z0;
+    }
+}

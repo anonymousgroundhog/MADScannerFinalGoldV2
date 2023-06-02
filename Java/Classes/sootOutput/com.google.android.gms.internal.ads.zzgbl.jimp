@@ -1,0 +1,403 @@
+final class com.google.android.gms.internal.ads.zzgbl extends java.lang.Object implements com.google.android.gms.internal.ads.zzgmy
+{
+    private final java.lang.String zza;
+    private final int zzb;
+    private com.google.android.gms.internal.ads.zzgid zzc;
+    private com.google.android.gms.internal.ads.zzghf zzd;
+    private int zze;
+    private com.google.android.gms.internal.ads.zzgip zzf;
+
+    void <init>(com.google.android.gms.internal.ads.zzgld) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgid $r8;
+        com.google.android.gms.internal.ads.zzgkc $r14;
+        com.google.android.gms.internal.ads.zzgig $r6;
+        com.google.android.gms.internal.ads.zzgbl r0;
+        com.google.android.gms.internal.ads.zzgpy $r5;
+        java.security.GeneralSecurityException $r10;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzghi $r11;
+        java.lang.String $r2, $r3;
+        com.google.android.gms.internal.ads.zzgho $r13;
+        com.google.android.gms.internal.ads.zzgrw $r7;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzgld $r1;
+        com.google.android.gms.internal.ads.zzghf $r12;
+        com.google.android.gms.internal.ads.zzgpe $r4;
+        com.google.android.gms.internal.ads.zzgis $r16;
+        com.google.android.gms.internal.ads.zzgqy $r9, $r15, $r18;
+        com.google.android.gms.internal.ads.zzgip $r17;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = virtualinvoke $r1.zzg();
+
+        r0.zza = $r2;
+
+        $r3 = com.google.android.gms.internal.ads.zzfxi.zzb;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label06;
+
+     label01:
+        $r4 = virtualinvoke $r1.zzf();
+
+        $r5 = com.google.android.gms.internal.ads.zzgpy.zza();
+
+        $r6 = com.google.android.gms.internal.ads.zzgig.zze($r4, $r5);
+
+        $r7 = com.google.android.gms.internal.ads.zzfxf.zzd($r1);
+
+     label02:
+        $r8 = (com.google.android.gms.internal.ads.zzgid) $r7;
+
+        r0.zzc = $r8;
+
+     label03:
+        $i0 = virtualinvoke $r6.zza();
+
+     label04:
+        r0.zzb = $i0;
+
+        return;
+
+     label05:
+        $r9 := @caughtexception;
+
+        $r10 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r10.<init>("invalid KeyFormat protobuf, expected AesGcmKeyFormat", $r9);
+
+        throw $r10;
+
+     label06:
+        $r3 = com.google.android.gms.internal.ads.zzfxi.zza;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label14;
+
+     label07:
+        $r4 = virtualinvoke $r1.zzf();
+
+        $r5 = com.google.android.gms.internal.ads.zzgpy.zza();
+
+        $r11 = com.google.android.gms.internal.ads.zzghi.zzd($r4, $r5);
+
+        $r7 = com.google.android.gms.internal.ads.zzfxf.zzd($r1);
+
+     label08:
+        $r12 = (com.google.android.gms.internal.ads.zzghf) $r7;
+
+        r0.zzd = $r12;
+
+     label09:
+        $r13 = virtualinvoke $r11.zze();
+
+        $i0 = virtualinvoke $r13.zza();
+
+     label10:
+        r0.zze = $i0;
+
+     label11:
+        $r14 = virtualinvoke $r11.zzf();
+
+        $i0 = virtualinvoke $r14.zza();
+
+     label12:
+        $i1 = r0.zze;
+
+        $i0 = $i1 + $i0;
+
+        r0.zzb = $i0;
+
+        return;
+
+     label13:
+        $r15 := @caughtexception;
+
+        $r10 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r10.<init>("invalid KeyFormat protobuf, expected AesCtrHmacAeadKeyFormat", $r15);
+
+        throw $r10;
+
+     label14:
+        $r3 = com.google.android.gms.internal.ads.zzgax.zza;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label20;
+
+     label15:
+        $r4 = virtualinvoke $r1.zzf();
+
+        $r5 = com.google.android.gms.internal.ads.zzgpy.zza();
+
+        $r16 = com.google.android.gms.internal.ads.zzgis.zze($r4, $r5);
+
+        $r7 = com.google.android.gms.internal.ads.zzfxf.zzd($r1);
+
+     label16:
+        $r17 = (com.google.android.gms.internal.ads.zzgip) $r7;
+
+        r0.zzf = $r17;
+
+     label17:
+        $i0 = virtualinvoke $r16.zza();
+
+     label18:
+        r0.zzb = $i0;
+
+        return;
+
+     label19:
+        $r18 := @caughtexception;
+
+        $r10 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r10.<init>("invalid KeyFormat protobuf, expected AesCtrHmacAeadKeyFormat", $r18);
+
+        throw $r10;
+
+     label20:
+        $r10 = new java.security.GeneralSecurityException;
+
+        $r2 = java.lang.String.valueOf($r2);
+
+        $r3 = "unsupported AEAD DEM key type: ";
+
+        $r2 = virtualinvoke $r3.concat($r2);
+
+        specialinvoke $r10.<init>($r2);
+
+        throw $r10;
+
+        catch com.google.android.gms.internal.ads.zzgqy from label01 to label02 with label05;
+        catch com.google.android.gms.internal.ads.zzgqy from label03 to label04 with label05;
+        catch com.google.android.gms.internal.ads.zzgqy from label07 to label08 with label13;
+        catch com.google.android.gms.internal.ads.zzgqy from label09 to label10 with label13;
+        catch com.google.android.gms.internal.ads.zzgqy from label11 to label12 with label13;
+        catch com.google.android.gms.internal.ads.zzgqy from label15 to label16 with label19;
+        catch com.google.android.gms.internal.ads.zzgqy from label17 to label18 with label19;
+    }
+
+    public final int zza()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzgbl r0;
+
+        r0 := @this;
+
+        i0 = r0.zzb;
+
+        return i0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgch zzb(byte[]) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgid $r5;
+        byte[] $r1, $r11;
+        com.google.android.gms.internal.ads.zzgic $r4;
+        com.google.android.gms.internal.ads.zzgqm $r7;
+        com.google.android.gms.internal.ads.zzgjz $r16;
+        com.google.android.gms.internal.ads.zzgbl r0;
+        java.security.GeneralSecurityException $r21;
+        com.google.android.gms.internal.ads.zzgjy $r15;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzghk $r12;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzghl $r14;
+        com.google.android.gms.internal.ads.zzfvo $r10;
+        com.google.android.gms.internal.ads.zzghf $r13;
+        com.google.android.gms.internal.ads.zzfvu $r20;
+        com.google.android.gms.internal.ads.zzghe $r17;
+        com.google.android.gms.internal.ads.zzgpe $r6;
+        java.lang.Object $r9;
+        com.google.android.gms.internal.ads.zzgip $r19;
+        com.google.android.gms.internal.ads.zzgio $r18;
+        com.google.android.gms.internal.ads.zzgch $r8;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = lengthof $r1;
+
+        $i1 = r0.zzb;
+
+        if $i0 != $i1 goto label4;
+
+        $r2 = r0.zza;
+
+        $r3 = com.google.android.gms.internal.ads.zzfxi.zzb;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label1;
+
+        $r4 = com.google.android.gms.internal.ads.zzgid.zzc();
+
+        $r5 = r0.zzc;
+
+        virtualinvoke $r4.zzaj($r5);
+
+        $i0 = r0.zzb;
+
+        $r6 = com.google.android.gms.internal.ads.zzgpe.zzw($r1, 0, $i0);
+
+        virtualinvoke $r4.zza($r6);
+
+        $r7 = virtualinvoke $r4.zzal();
+
+        $r5 = (com.google.android.gms.internal.ads.zzgid) $r7;
+
+        $r8 = new com.google.android.gms.internal.ads.zzgch;
+
+        $r2 = r0.zza;
+
+        $r9 = com.google.android.gms.internal.ads.zzfxf.zzi($r2, $r5, class "Lcom/google/android/gms/internal/ads/zzfvo;");
+
+        $r10 = (com.google.android.gms.internal.ads.zzfvo) $r9;
+
+        specialinvoke $r8.<init>($r10);
+
+        return $r8;
+
+     label1:
+        $r2 = r0.zza;
+
+        $r3 = com.google.android.gms.internal.ads.zzfxi.zza;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label2;
+
+        $i0 = r0.zze;
+
+        $r11 = java.util.Arrays.copyOfRange($r1, 0, $i0);
+
+        $i0 = r0.zze;
+
+        $i1 = r0.zzb;
+
+        $r1 = java.util.Arrays.copyOfRange($r1, $i0, $i1);
+
+        $r12 = com.google.android.gms.internal.ads.zzghl.zzc();
+
+        $r13 = r0.zzd;
+
+        $r14 = virtualinvoke $r13.zzf();
+
+        virtualinvoke $r12.zzaj($r14);
+
+        $r6 = com.google.android.gms.internal.ads.zzgpe.zzv($r11);
+
+        virtualinvoke $r12.zza($r6);
+
+        $r7 = virtualinvoke $r12.zzal();
+
+        $r14 = (com.google.android.gms.internal.ads.zzghl) $r7;
+
+        $r15 = com.google.android.gms.internal.ads.zzgjz.zzc();
+
+        $r13 = r0.zzd;
+
+        $r16 = virtualinvoke $r13.zzg();
+
+        virtualinvoke $r15.zzaj($r16);
+
+        $r6 = com.google.android.gms.internal.ads.zzgpe.zzv($r1);
+
+        virtualinvoke $r15.zza($r6);
+
+        $r7 = virtualinvoke $r15.zzal();
+
+        $r16 = (com.google.android.gms.internal.ads.zzgjz) $r7;
+
+        $r17 = com.google.android.gms.internal.ads.zzghf.zzc();
+
+        $r13 = r0.zzd;
+
+        $i0 = virtualinvoke $r13.zza();
+
+        virtualinvoke $r17.zzc($i0);
+
+        virtualinvoke $r17.zza($r14);
+
+        virtualinvoke $r17.zzb($r16);
+
+        $r7 = virtualinvoke $r17.zzal();
+
+        $r13 = (com.google.android.gms.internal.ads.zzghf) $r7;
+
+        $r8 = new com.google.android.gms.internal.ads.zzgch;
+
+        $r2 = r0.zza;
+
+        $r9 = com.google.android.gms.internal.ads.zzfxf.zzi($r2, $r13, class "Lcom/google/android/gms/internal/ads/zzfvo;");
+
+        $r10 = (com.google.android.gms.internal.ads.zzfvo) $r9;
+
+        specialinvoke $r8.<init>($r10);
+
+        return $r8;
+
+     label2:
+        $r2 = r0.zza;
+
+        $r3 = com.google.android.gms.internal.ads.zzgax.zza;
+
+        $z0 = virtualinvoke $r2.equals($r3);
+
+        if $z0 == 0 goto label3;
+
+        $r18 = com.google.android.gms.internal.ads.zzgip.zzc();
+
+        $r19 = r0.zzf;
+
+        virtualinvoke $r18.zzaj($r19);
+
+        $i0 = r0.zzb;
+
+        $r6 = com.google.android.gms.internal.ads.zzgpe.zzw($r1, 0, $i0);
+
+        virtualinvoke $r18.zza($r6);
+
+        $r7 = virtualinvoke $r18.zzal();
+
+        $r19 = (com.google.android.gms.internal.ads.zzgip) $r7;
+
+        $r8 = new com.google.android.gms.internal.ads.zzgch;
+
+        $r2 = r0.zza;
+
+        $r9 = com.google.android.gms.internal.ads.zzfxf.zzi($r2, $r19, class "Lcom/google/android/gms/internal/ads/zzfvu;");
+
+        $r20 = (com.google.android.gms.internal.ads.zzfvu) $r9;
+
+        specialinvoke $r8.<init>($r20);
+
+        return $r8;
+
+     label3:
+        $r21 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r21.<init>("unknown DEM key type");
+
+        throw $r21;
+
+     label4:
+        $r21 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r21.<init>("Symmetric key has incorrect length");
+
+        throw $r21;
+    }
+}

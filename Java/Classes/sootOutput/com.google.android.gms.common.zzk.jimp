@@ -1,0 +1,88 @@
+abstract class com.google.android.gms.common.zzk extends com.google.android.gms.common.zzi
+{
+    private static final java.lang.ref.WeakReference zza;
+    private java.lang.ref.WeakReference zzb;
+
+    static void <clinit>()
+    {
+        java.lang.ref.WeakReference $r0;
+
+        $r0 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r0.<init>(null);
+
+        com.google.android.gms.common.zzk.zza = $r0;
+
+        return;
+    }
+
+    void <init>(byte[])
+    {
+        com.google.android.gms.common.zzk r0;
+        byte[] $r1;
+        java.lang.ref.WeakReference $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $r2 = com.google.android.gms.common.zzk.zza;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    protected abstract byte[] zzb();
+
+    final byte[] zzf()
+    {
+        java.lang.Throwable $r5;
+        byte[] $r3, $r4;
+        com.google.android.gms.common.zzk r0;
+        java.lang.Object $r2;
+        java.lang.ref.WeakReference $r1;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label1:
+        $r1 = r0.zzb;
+
+        $r2 = virtualinvoke $r1.get();
+
+        $r3 = (byte[]) $r2;
+
+        if $r3 != null goto label2;
+
+        $r4 = virtualinvoke r0.zzb();
+
+        $r3 = $r4;
+
+        $r1 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r1.<init>($r4);
+
+        r0.zzb = $r1;
+
+     label2:
+        exitmonitor r0;
+
+     label3:
+        return $r3;
+
+     label4:
+        $r5 := @caughtexception;
+
+        exitmonitor r0;
+
+     label5:
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+}

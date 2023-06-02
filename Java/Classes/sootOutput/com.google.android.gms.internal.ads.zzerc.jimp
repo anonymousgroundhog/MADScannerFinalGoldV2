@@ -1,0 +1,41 @@
+public final class com.google.android.gms.internal.ads.zzerc extends java.lang.Object implements com.google.android.gms.internal.ads.zzfnj
+{
+    public final com.google.android.gms.internal.ads.zzerd zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzerd)
+    {
+        com.google.android.gms.internal.ads.zzerd $r1;
+        com.google.android.gms.internal.ads.zzerc r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object apply(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzerc r0;
+        com.google.android.gms.internal.ads.zzere $r2;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzerd $r1;
+        java.lang.Exception $r4;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r4 = (java.lang.Exception) $r3;
+
+        $r2 = virtualinvoke $r1.zzc($r4);
+
+        return $r2;
+    }
+}

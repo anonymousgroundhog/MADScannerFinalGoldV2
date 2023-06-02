@@ -1,0 +1,137 @@
+public final class com.google.android.gms.internal.ads.zzfaa extends java.lang.Object
+{
+    static com.google.android.gms.tasks.Task zza;
+    public static com.google.android.gms.appset.AppSetIdClient zzb;
+    private static final java.lang.Object zzc;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0;
+
+        com.google.android.gms.internal.ads.zzfaa.zza = null;
+
+        com.google.android.gms.internal.ads.zzfaa.zzb = null;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfaa.zzc = $r0;
+
+        return;
+    }
+
+    public static com.google.android.gms.tasks.Task zza(android.content.Context)
+    {
+        java.lang.Throwable $r2;
+        android.content.Context $r0;
+        java.lang.Object $r1;
+        com.google.android.gms.tasks.Task r3;
+
+        $r0 := @parameter0;
+
+        com.google.android.gms.internal.ads.zzfaa.zzb($r0, 0);
+
+        $r1 = com.google.android.gms.internal.ads.zzfaa.zzc;
+
+        entermonitor $r1;
+
+     label1:
+        r3 = com.google.android.gms.internal.ads.zzfaa.zza;
+
+        exitmonitor $r1;
+
+     label2:
+        return r3;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label4:
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public static void zzb(android.content.Context, boolean)
+    {
+        java.lang.Throwable $r5;
+        android.content.Context $r2;
+        com.google.android.gms.appset.AppSetIdClient $r1;
+        com.google.android.gms.tasks.Task $r3;
+        java.lang.Object $r0, $r4;
+        boolean $z0, $z1;
+
+        $r2 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r0 = com.google.android.gms.internal.ads.zzfaa.zzc;
+
+        entermonitor $r0;
+
+     label1:
+        $r1 = com.google.android.gms.internal.ads.zzfaa.zzb;
+
+        if $r1 != null goto label2;
+
+        $r1 = com.google.android.gms.appset.AppSet.getClient($r2);
+
+        com.google.android.gms.internal.ads.zzfaa.zzb = $r1;
+
+     label2:
+        $r3 = com.google.android.gms.internal.ads.zzfaa.zza;
+
+        if $r3 == null goto label4;
+
+        $z1 = virtualinvoke $r3.isComplete();
+
+        if $z1 == 0 goto label3;
+
+        $r3 = com.google.android.gms.internal.ads.zzfaa.zza;
+
+        $z1 = virtualinvoke $r3.isSuccessful();
+
+        if $z1 == 0 goto label4;
+
+     label3:
+        if $z0 == 0 goto label5;
+
+        $r3 = com.google.android.gms.internal.ads.zzfaa.zza;
+
+        $z0 = virtualinvoke $r3.isComplete();
+
+        if $z0 == 0 goto label5;
+
+     label4:
+        $r1 = com.google.android.gms.internal.ads.zzfaa.zzb;
+
+        $r4 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "the appSetIdClient shouldn\'t be null");
+
+        $r1 = (com.google.android.gms.appset.AppSetIdClient) $r4;
+
+        $r3 = interfaceinvoke $r1.getAppSetIdInfo();
+
+        com.google.android.gms.internal.ads.zzfaa.zza = $r3;
+
+     label5:
+        exitmonitor $r0;
+
+     label6:
+        return;
+
+     label7:
+        $r5 := @caughtexception;
+
+        exitmonitor $r0;
+
+     label8:
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label6 with label7;
+        catch java.lang.Throwable from label7 to label8 with label7;
+    }
+}

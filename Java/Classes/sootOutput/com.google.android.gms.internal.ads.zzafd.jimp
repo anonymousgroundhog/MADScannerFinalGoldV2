@@ -1,0 +1,35 @@
+public final class com.google.android.gms.internal.ads.zzafd extends com.google.android.gms.internal.ads.zzaaw implements com.google.android.gms.internal.ads.zzafe
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzafd r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(-9223372036854775807L, 0L);
+
+        return;
+    }
+
+    public final long zzb()
+    {
+        com.google.android.gms.internal.ads.zzafd r0;
+
+        r0 := @this;
+
+        return -1L;
+    }
+
+    public final long zzc(long)
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzafd r0;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        return 0L;
+    }
+}

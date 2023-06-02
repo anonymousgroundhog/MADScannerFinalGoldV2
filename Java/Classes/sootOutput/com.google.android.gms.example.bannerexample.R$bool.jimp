@@ -1,0 +1,21 @@
+public final class com.google.android.gms.example.bannerexample.R$bool extends java.lang.Object
+{
+    public static final int abc_action_bar_embed_tabs;
+    public static final int abc_allow_stacked_button_bar;
+    public static final int abc_config_actionMenuItemAllCaps;
+    public static final int enable_system_alarm_service_default;
+    public static final int enable_system_foreground_service_default;
+    public static final int enable_system_job_service_default;
+    public static final int workmanager_test_configuration;
+
+    private void <init>()
+    {
+        com.google.android.gms.example.bannerexample.R$bool r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

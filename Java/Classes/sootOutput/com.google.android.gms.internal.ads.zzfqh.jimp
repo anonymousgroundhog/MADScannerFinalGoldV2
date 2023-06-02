@@ -1,0 +1,104 @@
+public final class com.google.android.gms.internal.ads.zzfqh extends com.google.android.gms.internal.ads.zzfqd
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(4);
+
+        return;
+    }
+
+    void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>(4);
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfqe zzb(java.lang.Object)
+    {
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zza($r1);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfqh zzf(java.lang.Object)
+    {
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zza($r1);
+
+        return r0;
+    }
+
+    public final transient com.google.android.gms.internal.ads.zzfqh zzg(java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.zzd($r1, 2);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfqh zzh(java.lang.Iterable)
+    {
+        com.google.android.gms.internal.ads.zzfqh r0;
+        java.lang.Iterable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.zzc($r1);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfqk zzi()
+    {
+        com.google.android.gms.internal.ads.zzfqk $r1;
+        java.lang.Object[] $r2;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfqh r0;
+
+        r0 := @this;
+
+        r0.zzc = 1;
+
+        $r2 = r0.zza;
+
+        $i0 = r0.zzb;
+
+        $r1 = com.google.android.gms.internal.ads.zzfqk.zzk($r2, $i0);
+
+        return $r1;
+    }
+}

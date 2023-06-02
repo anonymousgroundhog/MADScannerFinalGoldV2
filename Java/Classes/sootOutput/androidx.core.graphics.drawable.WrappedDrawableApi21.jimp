@@ -1,0 +1,341 @@
+class androidx.core.graphics.drawable.WrappedDrawableApi21 extends androidx.core.graphics.drawable.WrappedDrawableApi14
+{
+    private static final java.lang.String TAG;
+    private static java.lang.reflect.Method sIsProjectedDrawableMethod;
+
+    void <init>(android.graphics.drawable.Drawable)
+    {
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        specialinvoke r0.findAndCacheIsProjectedDrawableMethod();
+
+        return;
+    }
+
+    void <init>(androidx.core.graphics.drawable.WrappedDrawableState, android.content.res.Resources)
+    {
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        androidx.core.graphics.drawable.WrappedDrawableState $r1;
+        android.content.res.Resources $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        specialinvoke r0.findAndCacheIsProjectedDrawableMethod();
+
+        return;
+    }
+
+    private void findAndCacheIsProjectedDrawableMethod()
+    {
+        java.lang.Class[] $r3;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        java.lang.Class r2;
+        java.lang.reflect.Method $r1;
+        java.lang.Exception r4;
+
+        r0 := @this;
+
+        $r1 = androidx.core.graphics.drawable.WrappedDrawableApi21.sIsProjectedDrawableMethod;
+
+        if $r1 != null goto label4;
+
+        r2 = class "Landroid/graphics/drawable/Drawable;";
+
+        $r3 = newarray (java.lang.Class)[0];
+
+     label1:
+        $r1 = virtualinvoke r2.getDeclaredMethod("isProjected", $r3);
+
+     label2:
+        androidx.core.graphics.drawable.WrappedDrawableApi21.sIsProjectedDrawableMethod = $r1;
+
+        return;
+
+     label3:
+        r4 := @caughtexception;
+
+        android.util.Log.w("WrappedDrawableApi21", "Failed to retrieve Drawable#isProjected() method", r4);
+
+     label4:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public android.graphics.Rect getDirtyBounds()
+    {
+        android.graphics.Rect $r1;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mDrawable;
+
+        $r1 = virtualinvoke $r2.getDirtyBounds();
+
+        return $r1;
+    }
+
+    public void getOutline(android.graphics.Outline)
+    {
+        android.graphics.Outline $r1;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mDrawable;
+
+        virtualinvoke $r2.getOutline($r1);
+
+        return;
+    }
+
+    protected boolean isCompatTintEnabled()
+    {
+        int i0;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 != 21 goto label2;
+
+        r1 = r0.mDrawable;
+
+        $z0 = r1 instanceof android.graphics.drawable.GradientDrawable;
+
+        if $z0 != 0 goto label1;
+
+        $z0 = r1 instanceof android.graphics.drawable.DrawableContainer;
+
+        if $z0 != 0 goto label1;
+
+        $z0 = r1 instanceof android.graphics.drawable.InsetDrawable;
+
+        if $z0 != 0 goto label1;
+
+        $z0 = r1 instanceof android.graphics.drawable.RippleDrawable;
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public boolean isProjected()
+    {
+        java.lang.Object[] $r3;
+        android.graphics.drawable.Drawable r1;
+        java.lang.Exception r6;
+        java.lang.Boolean r5;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        java.lang.Object $r4;
+        java.lang.reflect.Method r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = r0.mDrawable;
+
+        if r1 == null goto label6;
+
+        r2 = androidx.core.graphics.drawable.WrappedDrawableApi21.sIsProjectedDrawableMethod;
+
+        if r2 == null goto label6;
+
+     label1:
+        r1 = r0.mDrawable;
+
+     label2:
+        $r3 = newarray (java.lang.Object)[0];
+
+     label3:
+        $r4 = virtualinvoke r2.invoke(r1, $r3);
+
+        r5 = (java.lang.Boolean) $r4;
+
+        $z0 = virtualinvoke r5.booleanValue();
+
+     label4:
+        return $z0;
+
+     label5:
+        r6 := @caughtexception;
+
+        android.util.Log.w("WrappedDrawableApi21", "Error calling Drawable#isProjected() method", r6);
+
+     label6:
+        return 0;
+
+        catch java.lang.Exception from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public void setHotspot(float, float)
+    {
+        float $f0, $f1;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $f1 := @parameter1;
+
+        $r1 = r0.mDrawable;
+
+        virtualinvoke $r1.setHotspot($f0, $f1);
+
+        return;
+    }
+
+    public void setHotspotBounds(int, int, int, int)
+    {
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $r1 = r0.mDrawable;
+
+        virtualinvoke $r1.setHotspotBounds($i0, $i1, $i2, $i3);
+
+        return;
+    }
+
+    public boolean setState(int[])
+    {
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        int[] $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = specialinvoke r0.setState($r1);
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke r0.invalidateSelf();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void setTint(int)
+    {
+        int $i0;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 = virtualinvoke r0.isCompatTintEnabled();
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.setTint($i0);
+
+        return;
+
+     label1:
+        $r1 = r0.mDrawable;
+
+        virtualinvoke $r1.setTint($i0);
+
+        return;
+    }
+
+    public void setTintList(android.content.res.ColorStateList)
+    {
+        android.content.res.ColorStateList $r1;
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke r0.isCompatTintEnabled();
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.setTintList($r1);
+
+        return;
+
+     label1:
+        $r2 = r0.mDrawable;
+
+        virtualinvoke $r2.setTintList($r1);
+
+        return;
+    }
+
+    public void setTintMode(android.graphics.PorterDuff$Mode)
+    {
+        androidx.core.graphics.drawable.WrappedDrawableApi21 r0;
+        android.graphics.drawable.Drawable $r2;
+        android.graphics.PorterDuff$Mode $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke r0.isCompatTintEnabled();
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke r0.setTintMode($r1);
+
+        return;
+
+     label1:
+        $r2 = r0.mDrawable;
+
+        virtualinvoke $r2.setTintMode($r1);
+
+        return;
+    }
+}

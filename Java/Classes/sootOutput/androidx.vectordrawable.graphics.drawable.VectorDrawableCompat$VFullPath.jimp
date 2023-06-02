@@ -1,0 +1,677 @@
+class androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath extends androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath
+{
+    float mFillAlpha;
+    androidx.core.content.res.ComplexColorCompat mFillColor;
+    float mStrokeAlpha;
+    androidx.core.content.res.ComplexColorCompat mStrokeColor;
+    android.graphics.Paint$Cap mStrokeLineCap;
+    android.graphics.Paint$Join mStrokeLineJoin;
+    float mStrokeMiterlimit;
+    float mStrokeWidth;
+    private int[] mThemeAttrs;
+    float mTrimPathEnd;
+    float mTrimPathOffset;
+    float mTrimPathStart;
+
+    void <init>()
+    {
+        android.graphics.Paint$Cap $r1;
+        android.graphics.Paint$Join $r2;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.mStrokeWidth = 0.0F;
+
+        r0.mStrokeAlpha = 1.0F;
+
+        r0.mFillAlpha = 1.0F;
+
+        r0.mTrimPathStart = 0.0F;
+
+        r0.mTrimPathEnd = 1.0F;
+
+        r0.mTrimPathOffset = 0.0F;
+
+        $r1 = android.graphics.Paint$Cap.BUTT;
+
+        r0.mStrokeLineCap = $r1;
+
+        $r2 = android.graphics.Paint$Join.MITER;
+
+        r0.mStrokeLineJoin = $r2;
+
+        r0.mStrokeMiterlimit = 4.0F;
+
+        return;
+    }
+
+    void <init>(androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath)
+    {
+        androidx.core.content.res.ComplexColorCompat $r5;
+        android.graphics.Paint$Join $r3;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0, $r1;
+        android.graphics.Paint$Cap $r2;
+        int[] $r4;
+        int $i0;
+        float $f0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.mStrokeWidth = 0.0F;
+
+        r0.mStrokeAlpha = 1.0F;
+
+        r0.mFillAlpha = 1.0F;
+
+        r0.mTrimPathStart = 0.0F;
+
+        r0.mTrimPathEnd = 1.0F;
+
+        r0.mTrimPathOffset = 0.0F;
+
+        $r2 = android.graphics.Paint$Cap.BUTT;
+
+        r0.mStrokeLineCap = $r2;
+
+        $r3 = android.graphics.Paint$Join.MITER;
+
+        r0.mStrokeLineJoin = $r3;
+
+        r0.mStrokeMiterlimit = 4.0F;
+
+        $r4 = $r1.mThemeAttrs;
+
+        r0.mThemeAttrs = $r4;
+
+        $r5 = $r1.mStrokeColor;
+
+        r0.mStrokeColor = $r5;
+
+        $f0 = $r1.mStrokeWidth;
+
+        r0.mStrokeWidth = $f0;
+
+        $f0 = $r1.mStrokeAlpha;
+
+        r0.mStrokeAlpha = $f0;
+
+        $r5 = $r1.mFillColor;
+
+        r0.mFillColor = $r5;
+
+        $i0 = $r1.mFillRule;
+
+        r0.mFillRule = $i0;
+
+        $f0 = $r1.mFillAlpha;
+
+        r0.mFillAlpha = $f0;
+
+        $f0 = $r1.mTrimPathStart;
+
+        r0.mTrimPathStart = $f0;
+
+        $f0 = $r1.mTrimPathEnd;
+
+        r0.mTrimPathEnd = $f0;
+
+        $f0 = $r1.mTrimPathOffset;
+
+        r0.mTrimPathOffset = $f0;
+
+        $r2 = $r1.mStrokeLineCap;
+
+        r0.mStrokeLineCap = $r2;
+
+        $r3 = $r1.mStrokeLineJoin;
+
+        r0.mStrokeLineJoin = $r3;
+
+        $f0 = $r1.mStrokeMiterlimit;
+
+        r0.mStrokeMiterlimit = $f0;
+
+        return;
+    }
+
+    private android.graphics.Paint$Cap getStrokeLineCap(int, android.graphics.Paint$Cap)
+    {
+        int $i0;
+        android.graphics.Paint$Cap $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label4;
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return $r1;
+
+     label2:
+        $r1 = android.graphics.Paint$Cap.SQUARE;
+
+        return $r1;
+
+     label3:
+        $r1 = android.graphics.Paint$Cap.ROUND;
+
+        return $r1;
+
+     label4:
+        $r1 = android.graphics.Paint$Cap.BUTT;
+
+        return $r1;
+    }
+
+    private android.graphics.Paint$Join getStrokeLineJoin(int, android.graphics.Paint$Join)
+    {
+        int $i0;
+        android.graphics.Paint$Join $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label4;
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return $r1;
+
+     label2:
+        $r1 = android.graphics.Paint$Join.BEVEL;
+
+        return $r1;
+
+     label3:
+        $r1 = android.graphics.Paint$Join.ROUND;
+
+        return $r1;
+
+     label4:
+        $r1 = android.graphics.Paint$Join.MITER;
+
+        return $r1;
+    }
+
+    private void updateStateFromTypedArray(android.content.res.TypedArray, org.xmlpull.v1.XmlPullParser, android.content.res.Resources$Theme)
+    {
+        androidx.core.content.res.ComplexColorCompat $r6;
+        android.graphics.Paint$Join $r8;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+        android.content.res.TypedArray $r1;
+        androidx.core.graphics.PathParser$PathDataNode[] $r5;
+        android.graphics.Paint$Cap r7;
+        int $i0;
+        float f0;
+        java.lang.String $r4;
+        android.content.res.Resources$Theme $r3;
+        org.xmlpull.v1.XmlPullParser $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.mThemeAttrs = null;
+
+        $z0 = androidx.core.content.res.TypedArrayUtils.hasAttribute($r2, "pathData");
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r4 = virtualinvoke $r1.getString(0);
+
+        if $r4 == null goto label2;
+
+        r0.mPathName = $r4;
+
+     label2:
+        $r4 = virtualinvoke $r1.getString(2);
+
+        if $r4 == null goto label3;
+
+        $r5 = androidx.core.graphics.PathParser.createNodesFromPathData($r4);
+
+        r0.mNodes = $r5;
+
+     label3:
+        $r6 = androidx.core.content.res.TypedArrayUtils.getNamedComplexColor($r1, $r2, $r3, "fillColor", 1, 0);
+
+        r0.mFillColor = $r6;
+
+        f0 = r0.mFillAlpha;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "fillAlpha", 12, f0);
+
+        r0.mFillAlpha = f0;
+
+        $i0 = androidx.core.content.res.TypedArrayUtils.getNamedInt($r1, $r2, "strokeLineCap", 8, -1);
+
+        r7 = r0.mStrokeLineCap;
+
+        r7 = specialinvoke r0.getStrokeLineCap($i0, r7);
+
+        r0.mStrokeLineCap = r7;
+
+        $i0 = androidx.core.content.res.TypedArrayUtils.getNamedInt($r1, $r2, "strokeLineJoin", 9, -1);
+
+        $r8 = r0.mStrokeLineJoin;
+
+        $r8 = specialinvoke r0.getStrokeLineJoin($i0, $r8);
+
+        r0.mStrokeLineJoin = $r8;
+
+        f0 = r0.mStrokeMiterlimit;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "strokeMiterLimit", 10, f0);
+
+        r0.mStrokeMiterlimit = f0;
+
+        $r6 = androidx.core.content.res.TypedArrayUtils.getNamedComplexColor($r1, $r2, $r3, "strokeColor", 3, 0);
+
+        r0.mStrokeColor = $r6;
+
+        f0 = r0.mStrokeAlpha;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "strokeAlpha", 11, f0);
+
+        r0.mStrokeAlpha = f0;
+
+        f0 = r0.mStrokeWidth;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "strokeWidth", 4, f0);
+
+        r0.mStrokeWidth = f0;
+
+        f0 = r0.mTrimPathEnd;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "trimPathEnd", 6, f0);
+
+        r0.mTrimPathEnd = f0;
+
+        f0 = r0.mTrimPathOffset;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "trimPathOffset", 7, f0);
+
+        r0.mTrimPathOffset = f0;
+
+        f0 = r0.mTrimPathStart;
+
+        f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r1, $r2, "trimPathStart", 5, f0);
+
+        r0.mTrimPathStart = f0;
+
+        $i0 = r0.mFillRule;
+
+        $i0 = androidx.core.content.res.TypedArrayUtils.getNamedInt($r1, $r2, "fillType", 13, $i0);
+
+        r0.mFillRule = $i0;
+
+        return;
+    }
+
+    public void applyTheme(android.content.res.Resources$Theme)
+    {
+        android.content.res.Resources$Theme $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public boolean canApplyTheme()
+    {
+        int[] $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $r1 = r0.mThemeAttrs;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    float getFillAlpha()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mFillAlpha;
+
+        return f0;
+    }
+
+    int getFillColor()
+    {
+        int $i0;
+        androidx.core.content.res.ComplexColorCompat $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $r1 = r0.mFillColor;
+
+        $i0 = virtualinvoke $r1.getColor();
+
+        return $i0;
+    }
+
+    float getStrokeAlpha()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mStrokeAlpha;
+
+        return f0;
+    }
+
+    int getStrokeColor()
+    {
+        int $i0;
+        androidx.core.content.res.ComplexColorCompat $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $r1 = r0.mStrokeColor;
+
+        $i0 = virtualinvoke $r1.getColor();
+
+        return $i0;
+    }
+
+    float getStrokeWidth()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mStrokeWidth;
+
+        return f0;
+    }
+
+    float getTrimPathEnd()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mTrimPathEnd;
+
+        return f0;
+    }
+
+    float getTrimPathOffset()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mTrimPathOffset;
+
+        return f0;
+    }
+
+    float getTrimPathStart()
+    {
+        float f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        f0 = r0.mTrimPathStart;
+
+        return f0;
+    }
+
+    public void inflate(android.content.res.Resources, android.util.AttributeSet, android.content.res.Resources$Theme, org.xmlpull.v1.XmlPullParser)
+    {
+        android.util.AttributeSet $r2;
+        int[] r6;
+        android.content.res.Resources$Theme $r3;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+        android.content.res.Resources $r1;
+        org.xmlpull.v1.XmlPullParser $r4;
+        android.content.res.TypedArray $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r6 = androidx.vectordrawable.graphics.drawable.AndroidResources.STYLEABLE_VECTOR_DRAWABLE_PATH;
+
+        $r5 = androidx.core.content.res.TypedArrayUtils.obtainAttributes($r1, $r3, $r2, r6);
+
+        specialinvoke r0.updateStateFromTypedArray($r5, $r4, $r3);
+
+        virtualinvoke $r5.recycle();
+
+        return;
+    }
+
+    public boolean isStateful()
+    {
+        androidx.core.content.res.ComplexColorCompat $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mFillColor;
+
+        $z0 = virtualinvoke $r1.isStateful();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = r0.mStrokeColor;
+
+        $z0 = virtualinvoke $r1.isStateful();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean onStateChanged(int[])
+    {
+        androidx.core.content.res.ComplexColorCompat r2;
+        int[] $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mFillColor;
+
+        $z0 = virtualinvoke r2.onStateChanged($r1);
+
+        r2 = r0.mStrokeColor;
+
+        $z1 = virtualinvoke r2.onStateChanged($r1);
+
+        $z0 = $z0 | $z1;
+
+        return $z0;
+    }
+
+    void setFillAlpha(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mFillAlpha = $f0;
+
+        return;
+    }
+
+    void setFillColor(int)
+    {
+        int $i0;
+        androidx.core.content.res.ComplexColorCompat $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mFillColor;
+
+        virtualinvoke $r1.setColor($i0);
+
+        return;
+    }
+
+    void setStrokeAlpha(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mStrokeAlpha = $f0;
+
+        return;
+    }
+
+    void setStrokeColor(int)
+    {
+        int $i0;
+        androidx.core.content.res.ComplexColorCompat $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mStrokeColor;
+
+        virtualinvoke $r1.setColor($i0);
+
+        return;
+    }
+
+    void setStrokeWidth(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mStrokeWidth = $f0;
+
+        return;
+    }
+
+    void setTrimPathEnd(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mTrimPathEnd = $f0;
+
+        return;
+    }
+
+    void setTrimPathOffset(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mTrimPathOffset = $f0;
+
+        return;
+    }
+
+    void setTrimPathStart(float)
+    {
+        float $f0;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VFullPath r0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        r0.mTrimPathStart = $f0;
+
+        return;
+    }
+}

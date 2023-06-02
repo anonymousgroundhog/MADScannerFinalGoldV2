@@ -1,0 +1,33 @@
+abstract class androidx.lifecycle.ViewModelProvider$KeyedFactory extends java.lang.Object implements androidx.lifecycle.ViewModelProvider$Factory
+{
+
+    void <init>()
+    {
+        androidx.lifecycle.ViewModelProvider$KeyedFactory r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public androidx.lifecycle.ViewModel create(java.lang.Class)
+    {
+        java.lang.UnsupportedOperationException $r2;
+        java.lang.Class r1;
+        androidx.lifecycle.ViewModelProvider$KeyedFactory r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r2.<init>("create(String, Class<?>) must be called on implementaions of KeyedFactory");
+
+        throw $r2;
+    }
+
+    public abstract androidx.lifecycle.ViewModel create(java.lang.String, java.lang.Class);
+}

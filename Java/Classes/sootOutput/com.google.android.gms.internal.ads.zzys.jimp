@@ -1,0 +1,387 @@
+public final class com.google.android.gms.internal.ads.zzys extends java.lang.Object
+{
+    public static final int zza;
+    private static final int[] zzb;
+    private static final int[] zzc;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[13];
+
+        $r0[0] = 96000;
+
+        $r0[1] = 88200;
+
+        $r0[2] = 64000;
+
+        $r0[3] = 48000;
+
+        $r0[4] = 44100;
+
+        $r0[5] = 32000;
+
+        $r0[6] = 24000;
+
+        $r0[7] = 22050;
+
+        $r0[8] = 16000;
+
+        $r0[9] = 12000;
+
+        $r0[10] = 11025;
+
+        $r0[11] = 8000;
+
+        $r0[12] = 7350;
+
+        com.google.android.gms.internal.ads.zzys.zzb = $r0;
+
+        $r0 = newarray (int)[16];
+
+        $r0[0] = 0;
+
+        $r0[1] = 1;
+
+        $r0[2] = 2;
+
+        $r0[3] = 3;
+
+        $r0[4] = 4;
+
+        $r0[5] = 5;
+
+        $r0[6] = 6;
+
+        $r0[7] = 8;
+
+        $r0[8] = -1;
+
+        $r0[9] = -1;
+
+        $r0[10] = -1;
+
+        $r0[11] = 7;
+
+        $r0[12] = 8;
+
+        $r0[13] = -1;
+
+        $r0[14] = 8;
+
+        $r0[15] = -1;
+
+        com.google.android.gms.internal.ads.zzys.zzc = $r0;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzyr zza(byte[]) throws com.google.android.gms.internal.ads.zzbu
+    {
+        byte[] $r2;
+        com.google.android.gms.internal.ads.zzyr $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzem $r0;
+
+        $r2 := @parameter0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzem;
+
+        $i0 = lengthof $r2;
+
+        specialinvoke $r0.<init>($r2, $i0);
+
+        $r1 = com.google.android.gms.internal.ads.zzys.zzb($r0, 0);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.internal.ads.zzyr zzb(com.google.android.gms.internal.ads.zzem, boolean) throws com.google.android.gms.internal.ads.zzbu
+    {
+        java.lang.UnsupportedOperationException $r6;
+        com.google.android.gms.internal.ads.zzyr $r7;
+        com.google.android.gms.internal.ads.zzem $r0;
+        int[] $r4;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzbu $r3;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i0 = com.google.android.gms.internal.ads.zzys.zzc($r0);
+
+        $i1 = $i0;
+
+        $i2 = com.google.android.gms.internal.ads.zzys.zzd($r0);
+
+        $i3 = virtualinvoke $r0.zzd(4);
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        virtualinvoke $r5.append("mp4a.40.");
+
+        virtualinvoke $r5.append($i0);
+
+        $r2 = virtualinvoke $r5.toString();
+
+        $i4 = 22;
+
+        if $i0 == 5 goto label01;
+
+        if $i0 != 29 goto label02;
+
+     label01:
+        $i2 = com.google.android.gms.internal.ads.zzys.zzd($r0);
+
+        $i0 = com.google.android.gms.internal.ads.zzys.zzc($r0);
+
+        $i1 = $i0;
+
+        if $i0 != 22 goto label02;
+
+        $i3 = virtualinvoke $r0.zzd(4);
+
+     label02:
+        if $z0 == 0 goto label20;
+
+        lookupswitch($i1)
+        {
+            case 1: goto label04;
+            case 2: goto label04;
+            case 3: goto label04;
+            case 4: goto label04;
+            case 5: goto label03;
+            case 6: goto label04;
+            case 7: goto label04;
+            case 8: goto label03;
+            case 9: goto label03;
+            case 10: goto label03;
+            case 11: goto label03;
+            case 12: goto label03;
+            case 13: goto label03;
+            case 14: goto label03;
+            case 15: goto label03;
+            case 16: goto label03;
+            case 17: goto label04;
+            case 18: goto label03;
+            case 19: goto label04;
+            case 20: goto label04;
+            case 21: goto label04;
+            case 22: goto label04;
+            case 23: goto label04;
+            default: goto label03;
+        };
+
+     label03:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        virtualinvoke $r5.append("Unsupported audio object type: ");
+
+        virtualinvoke $r5.append($i1);
+
+        $r2 = virtualinvoke $r5.toString();
+
+        $r3 = com.google.android.gms.internal.ads.zzbu.zzc($r2);
+
+        throw $r3;
+
+     label04:
+        $z0 = virtualinvoke $r0.zzn();
+
+        if $z0 == 0 goto label05;
+
+        com.google.android.gms.internal.ads.zzee.zze("AacUtil", "Unexpected frameLengthFlag = 1");
+
+     label05:
+        $z0 = virtualinvoke $r0.zzn();
+
+        if $z0 == 0 goto label06;
+
+        virtualinvoke $r0.zzl(14);
+
+     label06:
+        $z0 = virtualinvoke $r0.zzn();
+
+        if $i3 == 0 goto label19;
+
+        $i0 = 3;
+
+        if $i1 == 6 goto label08;
+
+        if $i1 != 20 goto label07;
+
+        $i1 = 20;
+
+        goto label08;
+
+     label07:
+        goto label09;
+
+     label08:
+        virtualinvoke $r0.zzl(3);
+
+     label09:
+        if $z0 == 0 goto label14;
+
+        if $i1 != 22 goto label10;
+
+        virtualinvoke $r0.zzl(16);
+
+        goto label11;
+
+     label10:
+        $i4 = $i1;
+
+     label11:
+        if $i4 == 17 goto label12;
+
+        if $i4 == 19 goto label12;
+
+        if $i4 == 20 goto label12;
+
+        if $i4 != 23 goto label13;
+
+     label12:
+        virtualinvoke $r0.zzl(3);
+
+     label13:
+        virtualinvoke $r0.zzl(1);
+
+     label14:
+        lookupswitch($i1)
+        {
+            case 17: goto label16;
+            case 18: goto label15;
+            case 19: goto label16;
+            case 20: goto label16;
+            case 21: goto label16;
+            case 22: goto label16;
+            case 23: goto label16;
+            default: goto label15;
+        };
+
+     label15:
+        goto label20;
+
+     label16:
+        $i1 = virtualinvoke $r0.zzd(2);
+
+        if $i1 == 2 goto label17;
+
+        if $i1 == 3 goto label18;
+
+        goto label20;
+
+     label17:
+        $i0 = $i1;
+
+     label18:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        virtualinvoke $r5.append("Unsupported epConfig: ");
+
+        virtualinvoke $r5.append($i0);
+
+        $r2 = virtualinvoke $r5.toString();
+
+        $r3 = com.google.android.gms.internal.ads.zzbu.zzc($r2);
+
+        throw $r3;
+
+     label19:
+        $r6 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r6.<init>();
+
+        throw $r6;
+
+     label20:
+        $r4 = com.google.android.gms.internal.ads.zzys.zzc;
+
+        $i1 = $r4[$i3];
+
+        if $i1 == -1 goto label21;
+
+        $r7 = new com.google.android.gms.internal.ads.zzyr;
+
+        specialinvoke $r7.<init>($i2, $i1, $r2, null);
+
+        return $r7;
+
+     label21:
+        $r3 = com.google.android.gms.internal.ads.zzbu.zza(null, null);
+
+        throw $r3;
+    }
+
+    private static int zzc(com.google.android.gms.internal.ads.zzem)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzem $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.zzd(5);
+
+        if $i0 != 31 goto label1;
+
+        $i0 = virtualinvoke $r0.zzd(6);
+
+        $i0 = $i0 + 32;
+
+     label1:
+        return $i0;
+    }
+
+    private static int zzd(com.google.android.gms.internal.ads.zzem) throws com.google.android.gms.internal.ads.zzbu
+    {
+        int[] $r2;
+        int $i0;
+        com.google.android.gms.internal.ads.zzem $r0;
+        com.google.android.gms.internal.ads.zzbu $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.zzd(4);
+
+        if $i0 != 15 goto label2;
+
+        $i0 = virtualinvoke $r0.zza();
+
+        if $i0 < 24 goto label1;
+
+        $i0 = virtualinvoke $r0.zzd(24);
+
+        return $i0;
+
+     label1:
+        $r1 = com.google.android.gms.internal.ads.zzbu.zza("AAC header insufficient data", null);
+
+        throw $r1;
+
+     label2:
+        if $i0 >= 13 goto label3;
+
+        $r2 = com.google.android.gms.internal.ads.zzys.zzb;
+
+        $i0 = $r2[$i0];
+
+        return $i0;
+
+     label3:
+        $r1 = com.google.android.gms.internal.ads.zzbu.zza("AAC header wrong Sampling Frequency Index", null);
+
+        throw $r1;
+    }
+}

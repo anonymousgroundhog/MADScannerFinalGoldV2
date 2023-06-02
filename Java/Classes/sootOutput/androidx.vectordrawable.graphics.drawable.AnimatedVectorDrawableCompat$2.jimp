@@ -1,0 +1,110 @@
+class androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$2 extends android.animation.AnimatorListenerAdapter
+{
+    final androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat this$0;
+
+    void <init>(androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat)
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$2 r0;
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onAnimationEnd(android.animation.Animator)
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$2 r0;
+        android.animation.Animator $r1;
+        androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback $r6;
+        java.util.ArrayList r2, r4;
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat $r3;
+        int $i0, i1;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new java.util.ArrayList;
+
+        $r3 = r0.this$0;
+
+        r4 = $r3.mAnimationCallbacks;
+
+        specialinvoke r2.<init>(r4);
+
+        $i0 = virtualinvoke r2.size();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= $i0 goto label2;
+
+        $r5 = virtualinvoke r2.get(i1);
+
+        $r6 = (androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback) $r5;
+
+        $r3 = r0.this$0;
+
+        virtualinvoke $r6.onAnimationEnd($r3);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void onAnimationStart(android.animation.Animator)
+    {
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$2 r0;
+        android.animation.Animator $r1;
+        androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback $r6;
+        java.util.ArrayList r2, r4;
+        androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat $r3;
+        int $i0, i1;
+        java.lang.Object $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new java.util.ArrayList;
+
+        $r3 = r0.this$0;
+
+        r4 = $r3.mAnimationCallbacks;
+
+        specialinvoke r2.<init>(r4);
+
+        $i0 = virtualinvoke r2.size();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= $i0 goto label2;
+
+        $r5 = virtualinvoke r2.get(i1);
+
+        $r6 = (androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback) $r5;
+
+        $r3 = r0.this$0;
+
+        virtualinvoke $r6.onAnimationStart($r3);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

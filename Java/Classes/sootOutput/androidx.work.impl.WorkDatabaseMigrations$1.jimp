@@ -1,0 +1,39 @@
+class androidx.work.impl.WorkDatabaseMigrations$1 extends androidx.room.migration.Migration
+{
+
+    void <init>(int, int)
+    {
+        int $i0, $i1;
+        androidx.work.impl.WorkDatabaseMigrations$1 r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        specialinvoke r0.<init>($i0, $i1);
+
+        return;
+    }
+
+    public void migrate(androidx.sqlite.db.SupportSQLiteDatabase)
+    {
+        androidx.work.impl.WorkDatabaseMigrations$1 r0;
+        androidx.sqlite.db.SupportSQLiteDatabase $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        interfaceinvoke $r1.execSQL("CREATE TABLE IF NOT EXISTS `SystemIdInfo` (`work_spec_id` TEXT NOT NULL, `system_id` INTEGER NOT NULL, PRIMARY KEY(`work_spec_id`), FOREIGN KEY(`work_spec_id`) REFERENCES `WorkSpec`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )");
+
+        interfaceinvoke $r1.execSQL("INSERT INTO SystemIdInfo(work_spec_id, system_id) SELECT work_spec_id, alarm_id AS system_id FROM alarmInfo");
+
+        interfaceinvoke $r1.execSQL("DROP TABLE IF EXISTS alarmInfo");
+
+        interfaceinvoke $r1.execSQL("INSERT OR IGNORE INTO worktag(tag, work_spec_id) SELECT worker_class_name AS tag, id AS work_spec_id FROM workspec");
+
+        return;
+    }
+}

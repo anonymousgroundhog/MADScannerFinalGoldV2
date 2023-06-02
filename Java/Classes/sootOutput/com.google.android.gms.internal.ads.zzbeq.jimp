@@ -1,0 +1,253 @@
+public abstract class com.google.android.gms.internal.ads.zzbeq extends com.google.android.gms.internal.ads.zzasw implements com.google.android.gms.internal.ads.zzber
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzbeq r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzber zzb(android.os.IBinder)
+    {
+        com.google.android.gms.internal.ads.zzber $r2;
+        android.os.IInterface $r0;
+        com.google.android.gms.internal.ads.zzbep $r3;
+        android.os.IBinder $r1;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = interfaceinvoke $r1.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+
+        $z0 = $r0 instanceof com.google.android.gms.internal.ads.zzber;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (com.google.android.gms.internal.ads.zzber) $r0;
+
+        return $r2;
+
+     label2:
+        $r3 = new com.google.android.gms.internal.ads.zzbep;
+
+        specialinvoke $r3.<init>($r1);
+
+        return $r3;
+    }
+
+    protected final boolean zzbE(int, android.os.Parcel, android.os.Parcel, int) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r5;
+        android.os.Parcel $r1, $r2;
+        android.os.IBinder $r4;
+        java.util.List $r8;
+        com.google.android.gms.internal.ads.zzbdx $r9;
+        com.google.android.gms.internal.ads.zzbdu $r3;
+        int $i0, $i1;
+        java.lang.String $r7;
+        com.google.android.gms.internal.ads.zzbeq r0;
+        com.google.android.gms.ads.internal.client.zzdq $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 := @parameter3;
+
+        lookupswitch($i1)
+        {
+            case 1: goto label17;
+            case 2: goto label16;
+            case 3: goto label15;
+            case 4: goto label14;
+            case 5: goto label13;
+            case 6: goto label12;
+            case 7: goto label11;
+            case 8: goto label10;
+            case 9: goto label09;
+            case 10: goto label08;
+            case 11: goto label07;
+            case 12: goto label06;
+            case 13: goto label05;
+            case 14: goto label04;
+            case 15: goto label03;
+            case 16: goto label02;
+            default: goto label01;
+        };
+
+     label01:
+        return 0;
+
+     label02:
+        $r3 = virtualinvoke r0.zzf();
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r2, $r3);
+
+        goto label18;
+
+     label03:
+        virtualinvoke r0.zzm();
+
+        virtualinvoke $r2.writeNoException();
+
+        goto label18;
+
+     label04:
+        $r4 = virtualinvoke $r1.readStrongBinder();
+
+        $r5 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r4);
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        virtualinvoke r0.zzp($r5);
+
+        virtualinvoke $r2.writeNoException();
+
+        goto label18;
+
+     label05:
+        $z0 = virtualinvoke r0.zzs();
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzd($r2, $z0);
+
+        goto label18;
+
+     label06:
+        $z0 = virtualinvoke r0.zzq();
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzd($r2, $z0);
+
+        goto label18;
+
+     label07:
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r2, null);
+
+        goto label18;
+
+     label08:
+        $r4 = virtualinvoke $r1.readStrongBinder();
+
+        $r5 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r4);
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        $z0 = virtualinvoke r0.zzr($r5);
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzd($r2, $z0);
+
+        goto label18;
+
+     label09:
+        $r5 = virtualinvoke r0.zzh();
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r2, $r5);
+
+        goto label18;
+
+     label10:
+        virtualinvoke r0.zzl();
+
+        virtualinvoke $r2.writeNoException();
+
+        goto label18;
+
+     label11:
+        $r6 = virtualinvoke r0.zze();
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r2, $r6);
+
+        goto label18;
+
+     label12:
+        virtualinvoke r0.zzo();
+
+        virtualinvoke $r2.writeNoException();
+
+        goto label18;
+
+     label13:
+        $r7 = virtualinvoke $r1.readString();
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        virtualinvoke r0.zzn($r7);
+
+        virtualinvoke $r2.writeNoException();
+
+        goto label18;
+
+     label14:
+        $r7 = virtualinvoke r0.zzi();
+
+        virtualinvoke $r2.writeNoException();
+
+        virtualinvoke $r2.writeString($r7);
+
+        goto label18;
+
+     label15:
+        $r8 = virtualinvoke r0.zzk();
+
+        virtualinvoke $r2.writeNoException();
+
+        virtualinvoke $r2.writeStringList($r8);
+
+        goto label18;
+
+     label16:
+        $r7 = virtualinvoke $r1.readString();
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        $r9 = virtualinvoke r0.zzg($r7);
+
+        virtualinvoke $r2.writeNoException();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r2, $r9);
+
+        goto label18;
+
+     label17:
+        $r7 = virtualinvoke $r1.readString();
+
+        com.google.android.gms.internal.ads.zzasx.zzc($r1);
+
+        $r7 = virtualinvoke r0.zzj($r7);
+
+        virtualinvoke $r2.writeNoException();
+
+        virtualinvoke $r2.writeString($r7);
+
+     label18:
+        return 1;
+    }
+}

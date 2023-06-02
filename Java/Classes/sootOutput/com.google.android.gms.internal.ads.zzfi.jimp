@@ -1,0 +1,24 @@
+public final class com.google.android.gms.internal.ads.zzfi extends java.lang.Object
+{
+
+    public static void zza(com.google.android.gms.internal.ads.zzfg)
+    {
+        java.io.IOException $r1;
+        com.google.android.gms.internal.ads.zzfg $r0;
+
+        $r0 := @parameter0;
+
+     label1:
+        interfaceinvoke $r0.zzd();
+
+     label2:
+        return;
+
+     label3:
+        $r1 := @caughtexception;
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+}

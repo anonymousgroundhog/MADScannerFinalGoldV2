@@ -1,0 +1,11 @@
+public interface  com.google.android.gms.internal.ads.zzhu extends java.lang.Object implements com.google.android.gms.internal.ads.zzcg
+{
+
+    public abstract int zzB();
+
+    public abstract void zzC(com.google.android.gms.internal.ads.zzle);
+
+    public abstract void zzD(com.google.android.gms.internal.ads.zzle);
+
+    public abstract void zzE(com.google.android.gms.internal.ads.zzsu);
+}

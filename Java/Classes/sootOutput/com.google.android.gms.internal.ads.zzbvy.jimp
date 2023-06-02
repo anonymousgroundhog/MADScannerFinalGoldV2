@@ -1,0 +1,173 @@
+public final class com.google.android.gms.internal.ads.zzbvy extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public final java.lang.String zza;
+    public final java.lang.String zzb;
+    public final boolean zzc;
+    public final boolean zzd;
+    public final java.util.List zze;
+    public final boolean zzf;
+    public final boolean zzg;
+    public final java.util.List zzh;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbvz $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbvz;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbvy.CREATOR = $r0;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String, boolean, boolean, java.util.List, boolean, boolean, java.util.List)
+    {
+        com.google.android.gms.internal.ads.zzbvy r0;
+        java.util.ArrayList $r5;
+        java.util.List $r3, $r4;
+        java.lang.String $r1, $r2;
+        boolean $z0, $z1, $z2, $z3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $z1 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $z2 := @parameter5;
+
+        $z3 := @parameter6;
+
+        $r4 := @parameter7;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $z0;
+
+        r0.zzd = $z1;
+
+        r0.zze = $r3;
+
+        r0.zzf = $z2;
+
+        r0.zzg = $z3;
+
+        if $r4 != null goto label1;
+
+        $r5 = new java.util.ArrayList;
+
+        $r4 = $r5;
+
+        specialinvoke $r5.<init>();
+
+     label1:
+        r0.zzh = $r4;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzbvy zza(org.json.JSONObject) throws org.json.JSONException
+    {
+        com.google.android.gms.internal.ads.zzbvy $r6;
+        java.util.List $r4, $r5;
+        org.json.JSONObject $r0;
+        java.lang.String $r1, $r2;
+        org.json.JSONArray $r3;
+        boolean $z0, $z1, $z2, $z3;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.optString("click_string", "");
+
+        $r2 = virtualinvoke $r0.optString("report_url", "");
+
+        $z0 = virtualinvoke $r0.optBoolean("rendered_ad_enabled", 0);
+
+        $z1 = virtualinvoke $r0.optBoolean("non_malicious_reporting_enabled", 0);
+
+        $r3 = virtualinvoke $r0.optJSONArray("allowed_headers");
+
+        $r4 = com.google.android.gms.ads.internal.util.zzbu.zzc($r3, null);
+
+        $r3 = virtualinvoke $r0.optJSONArray("webview_permissions");
+
+        $r5 = com.google.android.gms.ads.internal.util.zzbu.zzc($r3, null);
+
+        $z2 = virtualinvoke $r0.optBoolean("protection_enabled", 0);
+
+        $z3 = virtualinvoke $r0.optBoolean("malicious_reporting_enabled", 0);
+
+        $r6 = new com.google.android.gms.internal.ads.zzbvy;
+
+        specialinvoke $r6.<init>($r1, $r2, $z0, $z1, $r4, $z2, $z3, $r5);
+
+        return $r6;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        java.util.List $r3;
+        com.google.android.gms.internal.ads.zzbvy r0;
+        int $i0;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $r2 = r0.zza;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 2, $r2, 0);
+
+        $r2 = r0.zzb;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 3, $r2, 0);
+
+        $z0 = r0.zzc;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 4, $z0);
+
+        $z0 = r0.zzd;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 5, $z0);
+
+        $r3 = r0.zze;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeStringList($r1, 6, $r3, 0);
+
+        $z0 = r0.zzf;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 7, $z0);
+
+        $z0 = r0.zzg;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeBoolean($r1, 8, $z0);
+
+        $r3 = r0.zzh;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeStringList($r1, 9, $r3, 0);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i0);
+
+        return;
+    }
+}

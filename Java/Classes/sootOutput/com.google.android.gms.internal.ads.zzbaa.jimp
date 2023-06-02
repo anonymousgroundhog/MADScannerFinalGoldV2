@@ -1,0 +1,48 @@
+public final class com.google.android.gms.internal.ads.zzbaa extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public static final com.google.android.gms.internal.ads.zzbaa zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbaa $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbaa;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbaa.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzbaa r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.internal.ads.zzbaa r0;
+        java.lang.Boolean $r3;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = "mounted";
+
+        $r2 = android.os.Environment.getExternalStorageState();
+
+        $z0 = virtualinvoke $r1.equals($r2);
+
+        $r3 = java.lang.Boolean.valueOf($z0);
+
+        return $r3;
+    }
+}

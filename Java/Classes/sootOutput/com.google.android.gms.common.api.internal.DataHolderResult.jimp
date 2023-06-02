@@ -1,0 +1,77 @@
+public abstract class com.google.android.gms.common.api.internal.DataHolderResult extends java.lang.Object implements com.google.android.gms.common.api.Result, com.google.android.gms.common.api.Releasable
+{
+    protected final com.google.android.gms.common.data.DataHolder mDataHolder;
+    protected final com.google.android.gms.common.api.Status mStatus;
+
+    protected void <init>(com.google.android.gms.common.data.DataHolder)
+    {
+        com.google.android.gms.common.data.DataHolder $r1;
+        int $i0;
+        com.google.android.gms.common.api.internal.DataHolderResult r0;
+        com.google.android.gms.common.api.Status $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new com.google.android.gms.common.api.Status;
+
+        $i0 = virtualinvoke $r1.getStatusCode();
+
+        specialinvoke $r2.<init>($i0);
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        return;
+    }
+
+    protected void <init>(com.google.android.gms.common.data.DataHolder, com.google.android.gms.common.api.Status)
+    {
+        com.google.android.gms.common.api.internal.DataHolderResult r0;
+        com.google.android.gms.common.data.DataHolder $r1;
+        com.google.android.gms.common.api.Status $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mStatus = $r2;
+
+        r0.mDataHolder = $r1;
+
+        return;
+    }
+
+    public com.google.android.gms.common.api.Status getStatus()
+    {
+        com.google.android.gms.common.api.internal.DataHolderResult r0;
+        com.google.android.gms.common.api.Status r1;
+
+        r0 := @this;
+
+        r1 = r0.mStatus;
+
+        return r1;
+    }
+
+    public void release()
+    {
+        com.google.android.gms.common.api.internal.DataHolderResult r0;
+        com.google.android.gms.common.data.DataHolder $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mDataHolder;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.close();
+
+     label1:
+        return;
+    }
+}

@@ -1,0 +1,16 @@
+public final class com.google.android.gms.internal.ads.zzjo extends java.lang.Object
+{
+    public com.google.android.gms.internal.ads.zzaf zza;
+    public com.google.android.gms.internal.ads.zzqa zzb;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzjo r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

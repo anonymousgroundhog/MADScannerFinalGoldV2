@@ -1,0 +1,22 @@
+public abstract class com.google.android.gms.internal.ads.zzdgj extends com.google.android.gms.internal.ads.zzdgl
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdgj r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract com.google.android.gms.internal.ads.zzdka zzg();
+
+    public abstract com.google.android.gms.internal.ads.zzdkr zzh();
+
+    public abstract com.google.android.gms.internal.ads.zzdlb zzk();
+
+    public abstract com.google.android.gms.internal.ads.zzdlk zzl();
+}

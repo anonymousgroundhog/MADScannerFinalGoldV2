@@ -1,0 +1,529 @@
+public abstract class com.google.ads.mediation.AbstractAdViewAdapter extends java.lang.Object implements com.google.android.gms.ads.mediation.MediationBannerAdapter, com.google.android.gms.ads.mediation.MediationInterstitialAdapter, com.google.android.gms.ads.mediation.MediationNativeAdapter, com.google.android.gms.ads.mediation.OnImmersiveModeUpdatedListener, com.google.android.gms.ads.mediation.zza
+{
+    public static final java.lang.String AD_UNIT_ID_PARAMETER;
+    private com.google.android.gms.ads.AdLoader adLoader;
+    protected com.google.android.gms.ads.AdView mAdView;
+    protected com.google.android.gms.ads.interstitial.InterstitialAd mInterstitialAd;
+
+    public void <init>()
+    {
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    com.google.android.gms.ads.AdRequest buildAdRequest(android.content.Context, com.google.android.gms.ads.mediation.MediationAdRequest, android.os.Bundle, android.os.Bundle)
+    {
+        android.content.Context $r4;
+        android.os.Bundle $r1, $r2;
+        java.util.Iterator $r8;
+        java.util.Date $r6;
+        java.util.Set $r7;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        int $i0;
+        com.google.android.gms.ads.AdRequest $r11;
+        com.google.android.gms.ads.AdRequest$Builder $r12;
+        java.lang.Object $r9;
+        java.lang.String $r10;
+        com.google.android.gms.ads.mediation.MediationAdRequest $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r5 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $r12 = new com.google.android.gms.ads.AdRequest$Builder;
+
+        specialinvoke $r12.<init>();
+
+        $r6 = interfaceinvoke $r5.getBirthday();
+
+        if $r6 == null goto label1;
+
+        virtualinvoke $r12.zzb($r6);
+
+     label1:
+        $i0 = interfaceinvoke $r5.getGender();
+
+        if $i0 == 0 goto label2;
+
+        virtualinvoke $r12.zzc($i0);
+
+     label2:
+        $r7 = interfaceinvoke $r5.getKeywords();
+
+        if $r7 == null goto label4;
+
+        $r8 = interfaceinvoke $r7.iterator();
+
+     label3:
+        $z0 = interfaceinvoke $r8.hasNext();
+
+        if $z0 == 0 goto label4;
+
+        $r9 = interfaceinvoke $r8.next();
+
+        $r10 = (java.lang.String) $r9;
+
+        virtualinvoke $r12.addKeyword($r10);
+
+        goto label3;
+
+     label4:
+        $z0 = interfaceinvoke $r5.isTesting();
+
+        if $z0 == 0 goto label5;
+
+        com.google.android.gms.ads.internal.client.zzay.zzb();
+
+        $r10 = com.google.android.gms.internal.ads.zzbyt.zzz($r4);
+
+        virtualinvoke $r12.zza($r10);
+
+     label5:
+        $i0 = interfaceinvoke $r5.taggedForChildDirectedTreatment();
+
+        if $i0 == -1 goto label8;
+
+        $i0 = interfaceinvoke $r5.taggedForChildDirectedTreatment();
+
+        $z0 = 1;
+
+        if $i0 != 1 goto label6;
+
+        goto label7;
+
+     label6:
+        $z0 = 0;
+
+     label7:
+        virtualinvoke $r12.zze($z0);
+
+     label8:
+        $z0 = interfaceinvoke $r5.isDesignedForFamilies();
+
+        virtualinvoke $r12.zzd($z0);
+
+        $r1 = virtualinvoke r0.buildExtrasBundle($r1, $r2);
+
+        virtualinvoke $r12.addNetworkExtrasBundle(class "Lcom/google/ads/mediation/admob/AdMobAdapter;", $r1);
+
+        $r11 = virtualinvoke $r12.build();
+
+        return $r11;
+    }
+
+    protected abstract android.os.Bundle buildExtrasBundle(android.os.Bundle, android.os.Bundle);
+
+    public java.lang.String getAdUnitId(android.os.Bundle)
+    {
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        java.lang.String $r1;
+        android.os.Bundle $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke $r2.getString("pubid");
+
+        return $r1;
+    }
+
+    public android.view.View getBannerView()
+    {
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdView r1;
+
+        r0 := @this;
+
+        r1 = r0.mAdView;
+
+        return r1;
+    }
+
+    com.google.android.gms.ads.interstitial.InterstitialAd getInterstitialAd()
+    {
+        com.google.android.gms.ads.interstitial.InterstitialAd r1;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+
+        r0 := @this;
+
+        r1 = r0.mInterstitialAd;
+
+        return r1;
+    }
+
+    public com.google.android.gms.ads.internal.client.zzdq getVideoController()
+    {
+        com.google.android.gms.ads.AdView $r1;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.VideoController $r2;
+        com.google.android.gms.ads.internal.client.zzdq $r3;
+
+        r0 := @this;
+
+        $r1 = r0.mAdView;
+
+        if $r1 == null goto label1;
+
+        $r2 = virtualinvoke $r1.zza();
+
+        $r3 = virtualinvoke $r2.zza();
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+
+    com.google.android.gms.ads.AdLoader$Builder newAdLoader(android.content.Context, java.lang.String)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.ads.AdLoader$Builder $r3;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = new com.google.android.gms.ads.AdLoader$Builder;
+
+        specialinvoke $r3.<init>($r1, $r2);
+
+        return $r3;
+    }
+
+    public void onDestroy()
+    {
+        com.google.android.gms.ads.AdView $r1;
+        com.google.android.gms.ads.interstitial.InterstitialAd $r2;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdLoader $r3;
+
+        r0 := @this;
+
+        $r1 = r0.mAdView;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.destroy();
+
+        r0.mAdView = null;
+
+     label1:
+        $r2 = r0.mInterstitialAd;
+
+        if $r2 == null goto label2;
+
+        r0.mInterstitialAd = null;
+
+     label2:
+        $r3 = r0.adLoader;
+
+        if $r3 == null goto label3;
+
+        r0.adLoader = null;
+
+     label3:
+        return;
+    }
+
+    public void onImmersiveModeUpdated(boolean)
+    {
+        com.google.android.gms.ads.interstitial.InterstitialAd $r1;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mInterstitialAd;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.setImmersiveMode($z0);
+
+     label1:
+        return;
+    }
+
+    public void onPause()
+    {
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdView $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mAdView;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.pause();
+
+     label1:
+        return;
+    }
+
+    public void onResume()
+    {
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdView $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mAdView;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.resume();
+
+     label1:
+        return;
+    }
+
+    public void requestBannerAd(android.content.Context, com.google.android.gms.ads.mediation.MediationBannerListener, android.os.Bundle, com.google.android.gms.ads.AdSize, com.google.android.gms.ads.mediation.MediationAdRequest, android.os.Bundle)
+    {
+        android.content.Context $r5;
+        com.google.android.gms.ads.mediation.MediationBannerListener $r6;
+        android.os.Bundle $r1, $r3;
+        com.google.android.gms.ads.AdView $r8;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdSize $r4, $r7;
+        int $i0, $i1;
+        com.google.android.gms.ads.AdRequest $r11;
+        com.google.ads.mediation.zzb $r10;
+        java.lang.String $r9;
+        com.google.android.gms.ads.mediation.MediationAdRequest $r2;
+
+        r0 := @this;
+
+        $r5 := @parameter0;
+
+        $r6 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r7 := @parameter3;
+
+        $r2 := @parameter4;
+
+        $r3 := @parameter5;
+
+        $r8 = new com.google.android.gms.ads.AdView;
+
+        specialinvoke $r8.<init>($r5);
+
+        r0.mAdView = $r8;
+
+        $r4 = new com.google.android.gms.ads.AdSize;
+
+        $i0 = virtualinvoke $r7.getWidth();
+
+        $i1 = virtualinvoke $r7.getHeight();
+
+        specialinvoke $r4.<init>($i0, $i1);
+
+        virtualinvoke $r8.setAdSize($r4);
+
+        $r8 = r0.mAdView;
+
+        $r9 = virtualinvoke r0.getAdUnitId($r1);
+
+        virtualinvoke $r8.setAdUnitId($r9);
+
+        $r8 = r0.mAdView;
+
+        $r10 = new com.google.ads.mediation.zzb;
+
+        specialinvoke $r10.<init>(r0, $r6);
+
+        virtualinvoke $r8.setAdListener($r10);
+
+        $r8 = r0.mAdView;
+
+        $r11 = virtualinvoke r0.buildAdRequest($r5, $r2, $r3, $r1);
+
+        virtualinvoke $r8.loadAd($r11);
+
+        return;
+    }
+
+    public void requestInterstitialAd(android.content.Context, com.google.android.gms.ads.mediation.MediationInterstitialListener, android.os.Bundle, com.google.android.gms.ads.mediation.MediationAdRequest, android.os.Bundle)
+    {
+        android.content.Context $r1;
+        android.os.Bundle $r3, $r4;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.android.gms.ads.AdRequest $r7;
+        java.lang.String $r6;
+        com.google.ads.mediation.zzc $r8;
+        com.google.android.gms.ads.mediation.MediationInterstitialListener $r2;
+        com.google.android.gms.ads.mediation.MediationAdRequest $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r4 := @parameter2;
+
+        $r5 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $r6 = virtualinvoke r0.getAdUnitId($r4);
+
+        $r7 = virtualinvoke r0.buildAdRequest($r1, $r5, $r3, $r4);
+
+        $r8 = new com.google.ads.mediation.zzc;
+
+        specialinvoke $r8.<init>(r0, $r2);
+
+        com.google.android.gms.ads.interstitial.InterstitialAd.load($r1, $r6, $r7, $r8);
+
+        return;
+    }
+
+    public void requestNativeAd(android.content.Context, com.google.android.gms.ads.mediation.MediationNativeListener, android.os.Bundle, com.google.android.gms.ads.mediation.NativeMediationAdRequest, android.os.Bundle)
+    {
+        android.content.Context $r5;
+        android.os.Bundle $r1, $r3;
+        com.google.android.gms.ads.formats.NativeAdOptions $r9;
+        com.google.android.gms.ads.AdLoader$Builder $r8;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+        com.google.ads.mediation.zze $r4, $r16;
+        java.util.Map $r11;
+        com.google.android.gms.ads.AdRequest $r18;
+        java.lang.Boolean $r15;
+        java.lang.String $r7;
+        com.google.android.gms.ads.mediation.MediationNativeListener $r6;
+        com.google.android.gms.ads.AdLoader $r17;
+        boolean $z0;
+        java.util.Iterator $r13;
+        java.util.Set $r12;
+        com.google.android.gms.ads.nativead.NativeAdOptions $r10;
+        java.lang.Object $r14;
+        com.google.android.gms.ads.mediation.NativeMediationAdRequest $r2;
+
+        r0 := @this;
+
+        $r5 := @parameter0;
+
+        $r6 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $r4 = new com.google.ads.mediation.zze;
+
+        specialinvoke $r4.<init>(r0, $r6);
+
+        $r7 = virtualinvoke $r1.getString("pubid");
+
+        $r8 = virtualinvoke r0.newAdLoader($r5, $r7);
+
+        $r8 = virtualinvoke $r8.withAdListener($r4);
+
+        $r9 = interfaceinvoke $r2.getNativeAdOptions();
+
+        virtualinvoke $r8.withNativeAdOptions($r9);
+
+        $r10 = interfaceinvoke $r2.getNativeAdRequestOptions();
+
+        virtualinvoke $r8.withNativeAdOptions($r10);
+
+        $z0 = interfaceinvoke $r2.isUnifiedNativeAdRequested();
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r8.forUnifiedNativeAd($r4);
+
+     label1:
+        $z0 = interfaceinvoke $r2.zzb();
+
+        if $z0 == 0 goto label5;
+
+        $r11 = interfaceinvoke $r2.zza();
+
+        $r12 = interfaceinvoke $r11.keySet();
+
+        $r13 = interfaceinvoke $r12.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r13.hasNext();
+
+        if $z0 == 0 goto label5;
+
+        $r14 = interfaceinvoke $r13.next();
+
+        $r7 = (java.lang.String) $r14;
+
+        $r11 = interfaceinvoke $r2.zza();
+
+        $r14 = interfaceinvoke $r11.get($r7);
+
+        $r15 = (java.lang.Boolean) $r14;
+
+        $z0 = virtualinvoke $r15.booleanValue();
+
+        if 1 == $z0 goto label3;
+
+        $r16 = null;
+
+        goto label4;
+
+     label3:
+        $r16 = $r4;
+
+     label4:
+        virtualinvoke $r8.forCustomTemplateAd($r7, $r4, $r16);
+
+        goto label2;
+
+     label5:
+        $r17 = virtualinvoke $r8.build();
+
+        r0.adLoader = $r17;
+
+        $r18 = virtualinvoke r0.buildAdRequest($r5, $r2, $r3, $r1);
+
+        virtualinvoke $r17.loadAd($r18);
+
+        return;
+    }
+
+    public void showInterstitial()
+    {
+        com.google.android.gms.ads.interstitial.InterstitialAd $r1;
+        com.google.ads.mediation.AbstractAdViewAdapter r0;
+
+        r0 := @this;
+
+        $r1 = r0.mInterstitialAd;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.show(null);
+
+     label1:
+        return;
+    }
+}

@@ -1,0 +1,336 @@
+public final class com.google.android.gms.common.api.internal.zaaj extends java.lang.Object implements com.google.android.gms.common.api.internal.zabf
+{
+    private final com.google.android.gms.common.api.internal.zabi zaa;
+    private boolean zab;
+
+    public void <init>(com.google.android.gms.common.api.internal.zabi)
+    {
+        com.google.android.gms.common.api.internal.zaaj r0;
+        com.google.android.gms.common.api.internal.zabi $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zab = 0;
+
+        r0.zaa = $r1;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.common.api.internal.zabi zac(com.google.android.gms.common.api.internal.zaaj)
+    {
+        com.google.android.gms.common.api.internal.zaaj $r0;
+        com.google.android.gms.common.api.internal.zabi r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zaa;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl zaa(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
+    {
+        com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl $r1;
+        com.google.android.gms.common.api.internal.zaaj r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke r0.zab($r1);
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl zab(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
+    {
+        com.google.android.gms.common.api.internal.zadc $r4;
+        com.google.android.gms.common.api.internal.zabe $r3;
+        com.google.android.gms.common.api.Api$Client $r8;
+        android.os.DeadObjectException $r10;
+        com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl $r1;
+        java.util.Map $r6;
+        com.google.android.gms.common.api.internal.zaaj r0;
+        java.lang.Object $r7;
+        com.google.android.gms.common.api.Status $r9;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        com.google.android.gms.common.api.internal.zaah $r11;
+        com.google.android.gms.common.api.Api$AnyClientKey $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zag;
+
+        $r4 = $r3.zai;
+
+     label01:
+        virtualinvoke $r4.zaa($r1);
+
+     label02:
+        $r2 = r0.zaa;
+
+        $r3 = $r2.zag;
+
+     label03:
+        $r5 = virtualinvoke $r1.getClientKey();
+
+     label04:
+        $r6 = $r3.zac;
+
+     label05:
+        $r7 = interfaceinvoke $r6.get($r5);
+
+     label06:
+        $r8 = (com.google.android.gms.common.api.Api$Client) $r7;
+
+     label07:
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r8, "Appropriate Api was not requested.");
+
+        $z0 = interfaceinvoke $r8.isConnected();
+
+     label08:
+        if $z0 != 0 goto label13;
+
+        $r2 = r0.zaa;
+
+        $r6 = $r2.zab;
+
+     label09:
+        $r5 = virtualinvoke $r1.getClientKey();
+
+        $z0 = interfaceinvoke $r6.containsKey($r5);
+
+     label10:
+        if $z0 == 0 goto label13;
+
+        $r9 = new com.google.android.gms.common.api.Status;
+
+     label11:
+        specialinvoke $r9.<init>(17);
+
+        virtualinvoke $r1.setFailedResult($r9);
+
+     label12:
+        return $r1;
+
+     label13:
+        virtualinvoke $r1.run($r8);
+
+     label14:
+        return $r1;
+
+     label15:
+        $r10 := @caughtexception;
+
+        $r2 = r0.zaa;
+
+        $r11 = new com.google.android.gms.common.api.internal.zaah;
+
+        specialinvoke $r11.<init>(r0, r0);
+
+        virtualinvoke $r2.zal($r11);
+
+        return $r1;
+
+        catch android.os.DeadObjectException from label01 to label02 with label15;
+        catch android.os.DeadObjectException from label03 to label04 with label15;
+        catch android.os.DeadObjectException from label05 to label06 with label15;
+        catch android.os.DeadObjectException from label07 to label08 with label15;
+        catch android.os.DeadObjectException from label09 to label10 with label15;
+        catch android.os.DeadObjectException from label11 to label12 with label15;
+        catch android.os.DeadObjectException from label13 to label14 with label15;
+    }
+
+    public final void zad()
+    {
+        com.google.android.gms.common.api.internal.zaaj r0;
+
+        r0 := @this;
+
+        return;
+    }
+
+    public final void zae()
+    {
+        com.google.android.gms.common.api.internal.zaaj r0;
+        com.google.android.gms.common.api.internal.zaai $r1;
+        com.google.android.gms.common.api.internal.zabi $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zab;
+
+        if $z0 == 0 goto label1;
+
+        r0.zab = 0;
+
+        $r2 = r0.zaa;
+
+        $r1 = new com.google.android.gms.common.api.internal.zaai;
+
+        specialinvoke $r1.<init>(r0, r0);
+
+        virtualinvoke $r2.zal($r1);
+
+     label1:
+        return;
+    }
+
+    final void zaf()
+    {
+        com.google.android.gms.common.api.internal.zadc $r3;
+        com.google.android.gms.common.api.internal.zabe $r2;
+        com.google.android.gms.common.api.internal.zaaj r0;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zab;
+
+        if $z0 == 0 goto label1;
+
+        r0.zab = 0;
+
+        $r1 = r0.zaa;
+
+        $r2 = $r1.zag;
+
+        $r3 = $r2.zai;
+
+        virtualinvoke $r3.zab();
+
+        virtualinvoke r0.zaj();
+
+     label1:
+        return;
+    }
+
+    public final void zag(android.os.Bundle)
+    {
+        com.google.android.gms.common.api.internal.zaaj r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public final void zah(com.google.android.gms.common.ConnectionResult, com.google.android.gms.common.api.Api, boolean)
+    {
+        com.google.android.gms.common.ConnectionResult $r1;
+        com.google.android.gms.common.api.internal.zaaj r0;
+        com.google.android.gms.common.api.Api $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        return;
+    }
+
+    public final void zai(int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.internal.zaaj r0;
+        com.google.android.gms.common.api.internal.zabz $r2;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zaa;
+
+        virtualinvoke $r1.zak(null);
+
+        $r1 = r0.zaa;
+
+        $r2 = $r1.zah;
+
+        $z0 = r0.zab;
+
+        interfaceinvoke $r2.zac($i0, $z0);
+
+        return;
+    }
+
+    public final boolean zaj()
+    {
+        java.util.Iterator $r4;
+        com.google.android.gms.common.api.internal.zabe $r2;
+        java.util.Set $r3;
+        com.google.android.gms.common.api.internal.zada $r6;
+        com.google.android.gms.common.api.internal.zaaj r0;
+        java.lang.Object $r5;
+        com.google.android.gms.common.api.internal.zabi $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.zab;
+
+        if $z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = r0.zaa;
+
+        $r2 = $r1.zag;
+
+        $r3 = $r2.zah;
+
+        if $r3 == null goto label4;
+
+        $z0 = interfaceinvoke $r3.isEmpty();
+
+        if $z0 != 0 goto label4;
+
+        r0.zab = 1;
+
+        $r4 = interfaceinvoke $r3.iterator();
+
+     label2:
+        $z0 = interfaceinvoke $r4.hasNext();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.next();
+
+        $r6 = (com.google.android.gms.common.api.internal.zada) $r5;
+
+        virtualinvoke $r6.zah();
+
+        goto label2;
+
+     label3:
+        return 0;
+
+     label4:
+        $r1 = r0.zaa;
+
+        virtualinvoke $r1.zak(null);
+
+        return 1;
+    }
+}

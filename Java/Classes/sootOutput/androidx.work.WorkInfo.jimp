@@ -1,0 +1,334 @@
+public final class androidx.work.WorkInfo extends java.lang.Object
+{
+    private java.util.UUID mId;
+    private androidx.work.Data mOutputData;
+    private androidx.work.Data mProgress;
+    private int mRunAttemptCount;
+    private androidx.work.WorkInfo$State mState;
+    private java.util.Set mTags;
+
+    public void <init>(java.util.UUID, androidx.work.WorkInfo$State, androidx.work.Data, java.util.List, androidx.work.Data, int)
+    {
+        java.util.UUID $r1;
+        java.util.HashSet $r6;
+        androidx.work.WorkInfo r0;
+        java.util.List r4;
+        androidx.work.WorkInfo$State $r2;
+        int $i0;
+        androidx.work.Data $r3, $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r4 := @parameter3;
+
+        $r5 := @parameter4;
+
+        $i0 := @parameter5;
+
+        specialinvoke r0.<init>();
+
+        r0.mId = $r1;
+
+        r0.mState = $r2;
+
+        r0.mOutputData = $r3;
+
+        $r6 = new java.util.HashSet;
+
+        specialinvoke $r6.<init>(r4);
+
+        r0.mTags = $r6;
+
+        r0.mProgress = $r5;
+
+        r0.mRunAttemptCount = $i0;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        int $i0, $i1;
+        androidx.work.Data $r9, $r10;
+        boolean $z0;
+        java.util.Set $r11, $r12;
+        java.util.UUID $r5, $r6;
+        androidx.work.WorkInfo r0, r4;
+        androidx.work.WorkInfo$State $r7, $r8;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label8;
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 == $r3 goto label2;
+
+        return 0;
+
+     label2:
+        r4 = (androidx.work.WorkInfo) $r1;
+
+        $i0 = r0.mRunAttemptCount;
+
+        $i1 = r4.mRunAttemptCount;
+
+        if $i0 == $i1 goto label3;
+
+        return 0;
+
+     label3:
+        $r5 = r0.mId;
+
+        $r6 = r4.mId;
+
+        $z0 = virtualinvoke $r5.equals($r6);
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        $r7 = r0.mState;
+
+        $r8 = r4.mState;
+
+        if $r7 == $r8 goto label5;
+
+        return 0;
+
+     label5:
+        $r9 = r0.mOutputData;
+
+        $r10 = r4.mOutputData;
+
+        $z0 = virtualinvoke $r9.equals($r10);
+
+        if $z0 != 0 goto label6;
+
+        return 0;
+
+     label6:
+        $r11 = r0.mTags;
+
+        $r12 = r4.mTags;
+
+        $z0 = interfaceinvoke $r11.equals($r12);
+
+        if $z0 != 0 goto label7;
+
+        return 0;
+
+     label7:
+        $r9 = r0.mProgress;
+
+        $r10 = r4.mProgress;
+
+        $z0 = virtualinvoke $r9.equals($r10);
+
+        return $z0;
+
+     label8:
+        return 0;
+    }
+
+    public java.util.UUID getId()
+    {
+        androidx.work.WorkInfo r0;
+        java.util.UUID r1;
+
+        r0 := @this;
+
+        r1 = r0.mId;
+
+        return r1;
+    }
+
+    public androidx.work.Data getOutputData()
+    {
+        androidx.work.WorkInfo r0;
+        androidx.work.Data r1;
+
+        r0 := @this;
+
+        r1 = r0.mOutputData;
+
+        return r1;
+    }
+
+    public androidx.work.Data getProgress()
+    {
+        androidx.work.WorkInfo r0;
+        androidx.work.Data r1;
+
+        r0 := @this;
+
+        r1 = r0.mProgress;
+
+        return r1;
+    }
+
+    public int getRunAttemptCount()
+    {
+        int i0;
+        androidx.work.WorkInfo r0;
+
+        r0 := @this;
+
+        i0 = r0.mRunAttemptCount;
+
+        return i0;
+    }
+
+    public androidx.work.WorkInfo$State getState()
+    {
+        androidx.work.WorkInfo r0;
+        androidx.work.WorkInfo$State r1;
+
+        r0 := @this;
+
+        r1 = r0.mState;
+
+        return r1;
+    }
+
+    public java.util.Set getTags()
+    {
+        java.util.Set r1;
+        androidx.work.WorkInfo r0;
+
+        r0 := @this;
+
+        r1 = r0.mTags;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        androidx.work.WorkInfo r0;
+        androidx.work.WorkInfo$State $r2;
+        int $i0, $i1;
+        java.util.Set $r4;
+        java.util.UUID r1;
+        androidx.work.Data $r3;
+
+        r0 := @this;
+
+        r1 = r0.mId;
+
+        $i0 = virtualinvoke r1.hashCode();
+
+        $i0 = $i0 * 31;
+
+        $r2 = r0.mState;
+
+        $i1 = virtualinvoke $r2.hashCode();
+
+        $i0 = $i0 + $i1;
+
+        $i0 = $i0 * 31;
+
+        $r3 = r0.mOutputData;
+
+        $i1 = virtualinvoke $r3.hashCode();
+
+        $i0 = $i0 + $i1;
+
+        $i0 = $i0 * 31;
+
+        $r4 = r0.mTags;
+
+        $i1 = interfaceinvoke $r4.hashCode();
+
+        $i0 = $i0 + $i1;
+
+        $i0 = $i0 * 31;
+
+        $r3 = r0.mProgress;
+
+        $i1 = virtualinvoke $r3.hashCode();
+
+        $i0 = $i0 + $i1;
+
+        $i0 = $i0 * 31;
+
+        $i1 = r0.mRunAttemptCount;
+
+        $i0 = $i0 + $i1;
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.work.WorkInfo r0;
+        androidx.work.WorkInfo$State $r3;
+        java.util.Set $r5;
+        java.lang.StringBuilder $r1;
+        java.util.UUID $r2;
+        java.lang.String $r6;
+        androidx.work.Data $r4;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("WorkInfo{mId=\'");
+
+        $r2 = r0.mId;
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(39);
+
+        $r1 = virtualinvoke $r1.append(", mState=");
+
+        $r3 = r0.mState;
+
+        $r1 = virtualinvoke $r1.append($r3);
+
+        $r1 = virtualinvoke $r1.append(", mOutputData=");
+
+        $r4 = r0.mOutputData;
+
+        $r1 = virtualinvoke $r1.append($r4);
+
+        $r1 = virtualinvoke $r1.append(", mTags=");
+
+        $r5 = r0.mTags;
+
+        $r1 = virtualinvoke $r1.append($r5);
+
+        $r1 = virtualinvoke $r1.append(", mProgress=");
+
+        $r4 = r0.mProgress;
+
+        $r1 = virtualinvoke $r1.append($r4);
+
+        $r1 = virtualinvoke $r1.append(125);
+
+        $r6 = virtualinvoke $r1.toString();
+
+        return $r6;
+    }
+}

@@ -1,0 +1,9 @@
+public interface  androidx.work.impl.model.WorkTypeConverters$NetworkTypeIds extends java.lang.Object
+{
+    public static final int CONNECTED;
+    public static final int METERED;
+    public static final int NOT_REQUIRED;
+    public static final int NOT_ROAMING;
+    public static final int TEMPORARILY_UNMETERED;
+    public static final int UNMETERED;
+}

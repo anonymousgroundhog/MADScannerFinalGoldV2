@@ -1,0 +1,59 @@
+public final class com.google.android.gms.internal.ads.zzvh extends java.lang.Object implements java.util.Comparator
+{
+    public static final com.google.android.gms.internal.ads.zzvh zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzvh $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzvh;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzvh.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzvh r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final int compare(java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzvw $r5, $r6;
+        java.util.List $r3, $r4;
+        int $i0;
+        java.lang.Object $r1, $r2;
+        com.google.android.gms.internal.ads.zzvh r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = (java.util.List) $r1;
+
+        $r4 = (java.util.List) $r2;
+
+        $r1 = interfaceinvoke $r3.get(0);
+
+        $r5 = (com.google.android.gms.internal.ads.zzvw) $r1;
+
+        $r1 = interfaceinvoke $r4.get(0);
+
+        $r6 = (com.google.android.gms.internal.ads.zzvw) $r1;
+
+        $i0 = virtualinvoke $r5.zza($r6);
+
+        return $i0;
+    }
+}

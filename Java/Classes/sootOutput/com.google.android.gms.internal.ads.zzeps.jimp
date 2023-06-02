@@ -1,0 +1,264 @@
+public final class com.google.android.gms.internal.ads.zzeps extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    public final boolean zza;
+    public final boolean zzb;
+    public final java.lang.String zzc;
+    public final boolean zzd;
+    public final boolean zze;
+    public final boolean zzf;
+    public final java.lang.String zzg;
+    public final java.util.ArrayList zzh;
+    public final java.lang.String zzi;
+    public final java.lang.String zzj;
+    public final java.lang.String zzk;
+    public final boolean zzl;
+    public final java.lang.String zzm;
+    public final long zzn;
+    public final boolean zzo;
+
+    public void <init>(boolean, boolean, java.lang.String, boolean, boolean, boolean, java.lang.String, java.util.ArrayList, java.lang.String, java.lang.String, java.lang.String, boolean, java.lang.String, long, boolean)
+    {
+        long $l0;
+        java.util.ArrayList $r3;
+        com.google.android.gms.internal.ads.zzeps r0;
+        java.lang.String $r1, $r2, $r4, $r5, $r6, $r7;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $z1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $z2 := @parameter3;
+
+        $z3 := @parameter4;
+
+        $z4 := @parameter5;
+
+        $r2 := @parameter6;
+
+        $r3 := @parameter7;
+
+        $r4 := @parameter8;
+
+        $r5 := @parameter9;
+
+        $r6 := @parameter10;
+
+        $z5 := @parameter11;
+
+        $r7 := @parameter12;
+
+        $l0 := @parameter13;
+
+        $z6 := @parameter14;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $z0;
+
+        r0.zzb = $z1;
+
+        r0.zzc = $r1;
+
+        r0.zzd = $z2;
+
+        r0.zze = $z3;
+
+        r0.zzf = $z4;
+
+        r0.zzg = $r2;
+
+        r0.zzh = $r3;
+
+        r0.zzi = $r4;
+
+        r0.zzj = $r5;
+
+        r0.zzk = $r6;
+
+        r0.zzl = $z5;
+
+        r0.zzm = $r7;
+
+        r0.zzn = $l0;
+
+        r0.zzo = $z6;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        android.os.Bundle $r2, $r8, $r9;
+        long $l0;
+        java.util.ArrayList $r7;
+        com.google.android.gms.internal.ads.zzbap $r5;
+        java.lang.Boolean $r6;
+        com.google.android.gms.internal.ads.zzeps r0;
+        java.lang.Object $r1;
+        java.lang.String $r3;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzbaj $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.os.Bundle) $r1;
+
+        $z0 = r0.zza;
+
+        virtualinvoke $r2.putBoolean("cog", $z0);
+
+        $z0 = r0.zzb;
+
+        virtualinvoke $r2.putBoolean("coh", $z0);
+
+        $r3 = r0.zzc;
+
+        virtualinvoke $r2.putString("gl", $r3);
+
+        $z0 = r0.zzd;
+
+        virtualinvoke $r2.putBoolean("simulator", $z0);
+
+        $z0 = r0.zze;
+
+        virtualinvoke $r2.putBoolean("is_latchsky", $z0);
+
+        $r4 = com.google.android.gms.internal.ads.zzbar.zzjp;
+
+        $r5 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r5.zzb($r4);
+
+        $r6 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = r0.zzf;
+
+        virtualinvoke $r2.putBoolean("is_sidewinder", $z0);
+
+     label1:
+        $r3 = r0.zzg;
+
+        virtualinvoke $r2.putString("hl", $r3);
+
+        $r7 = r0.zzh;
+
+        $z0 = virtualinvoke $r7.isEmpty();
+
+        if $z0 != 0 goto label2;
+
+        $r7 = r0.zzh;
+
+        virtualinvoke $r2.putStringArrayList("hl_list", $r7);
+
+     label2:
+        $r3 = r0.zzi;
+
+        virtualinvoke $r2.putString("mv", $r3);
+
+        $r3 = r0.zzm;
+
+        virtualinvoke $r2.putString("submodel", $r3);
+
+        $r8 = com.google.android.gms.internal.ads.zzezi.zza($r2, "device");
+
+        virtualinvoke $r2.putBundle("device", $r8);
+
+        $r3 = r0.zzk;
+
+        virtualinvoke $r8.putString("build", $r3);
+
+        $l0 = r0.zzn;
+
+        virtualinvoke $r8.putLong("remaining_data_partition_space", $l0);
+
+        $r9 = com.google.android.gms.internal.ads.zzezi.zza($r8, "browser");
+
+        virtualinvoke $r8.putBundle("browser", $r9);
+
+        $z0 = r0.zzl;
+
+        virtualinvoke $r9.putBoolean("is_browser_custom_tabs_capable", $z0);
+
+        $r3 = r0.zzj;
+
+        $z0 = android.text.TextUtils.isEmpty($r3);
+
+        if $z0 != 0 goto label3;
+
+        $r9 = com.google.android.gms.internal.ads.zzezi.zza($r8, "play_store");
+
+        virtualinvoke $r8.putBundle("play_store", $r9);
+
+        $r3 = r0.zzj;
+
+        virtualinvoke $r9.putString("package_version", $r3);
+
+     label3:
+        $r4 = com.google.android.gms.internal.ads.zzbar.zzjB;
+
+        $r5 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r5.zzb($r4);
+
+        $r6 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 == 0 goto label4;
+
+        $z0 = r0.zzo;
+
+        virtualinvoke $r2.putBoolean("is_bstar", $z0);
+
+     label4:
+        $r4 = com.google.android.gms.internal.ads.zzbar.zzjz;
+
+        $r5 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r5.zzb($r4);
+
+        $r6 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 == 0 goto label5;
+
+        $r4 = com.google.android.gms.internal.ads.zzbar.zzjw;
+
+        $r5 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r5.zzb($r4);
+
+        $r6 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        com.google.android.gms.internal.ads.zzezi.zzg($r2, "gotmt_l", 1, $z0);
+
+        $r4 = com.google.android.gms.internal.ads.zzbar.zzjv;
+
+        $r5 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r5.zzb($r4);
+
+        $r6 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        com.google.android.gms.internal.ads.zzezi.zzg($r2, "gotmt_i", 1, $z0);
+
+     label5:
+        return;
+    }
+}

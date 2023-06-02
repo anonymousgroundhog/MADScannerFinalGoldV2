@@ -1,0 +1,56 @@
+public class androidx.room.MultiInstanceInvalidationService extends android.app.Service
+{
+    private final androidx.room.IMultiInstanceInvalidationService$Stub mBinder;
+    final android.os.RemoteCallbackList mCallbackList;
+    final java.util.HashMap mClientNames;
+    int mMaxClientId;
+
+    public void <init>()
+    {
+        androidx.room.MultiInstanceInvalidationService$2 $r3;
+        androidx.room.MultiInstanceInvalidationService$1 $r2;
+        java.util.HashMap $r1;
+        androidx.room.MultiInstanceInvalidationService r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.mMaxClientId = 0;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<init>();
+
+        r0.mClientNames = $r1;
+
+        $r2 = new androidx.room.MultiInstanceInvalidationService$1;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.mCallbackList = $r2;
+
+        $r3 = new androidx.room.MultiInstanceInvalidationService$2;
+
+        specialinvoke $r3.<init>(r0);
+
+        r0.mBinder = $r3;
+
+        return;
+    }
+
+    public android.os.IBinder onBind(android.content.Intent)
+    {
+        android.content.Intent $r1;
+        androidx.room.IMultiInstanceInvalidationService$Stub r2;
+        androidx.room.MultiInstanceInvalidationService r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.mBinder;
+
+        return r2;
+    }
+}

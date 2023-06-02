@@ -1,0 +1,16 @@
+public abstract class androidx.browser.trusted.TrustedWebActivityCallback extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        androidx.browser.trusted.TrustedWebActivityCallback r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract void onExtraCallback(java.lang.String, android.os.Bundle);
+}

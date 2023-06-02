@@ -1,0 +1,387 @@
+public final class androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState extends java.lang.Object
+{
+    int background;
+    android.view.View createdPanelView;
+    android.view.ViewGroup decorView;
+    int featureId;
+    android.os.Bundle frozenActionViewState;
+    android.os.Bundle frozenMenuState;
+    int gravity;
+    boolean isHandled;
+    boolean isOpen;
+    boolean isPrepared;
+    androidx.appcompat.view.menu.ListMenuPresenter listMenuPresenter;
+    android.content.Context listPresenterContext;
+    androidx.appcompat.view.menu.MenuBuilder menu;
+    public boolean qwertyMode;
+    boolean refreshDecorView;
+    boolean refreshMenuContent;
+    android.view.View shownPanelView;
+    boolean wasLastOpen;
+    int windowAnimations;
+    int x;
+    int y;
+
+    void <init>(int)
+    {
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.featureId = $i0;
+
+        r0.refreshDecorView = 0;
+
+        return;
+    }
+
+    void applyFrozenState()
+    {
+        android.os.Bundle $r1;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+
+        r0 := @this;
+
+        $r2 = r0.menu;
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.frozenMenuState;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r2.restorePresenterStates($r1);
+
+        r0.frozenMenuState = null;
+
+     label1:
+        return;
+    }
+
+    public void clearMenuPresenters()
+    {
+        androidx.appcompat.view.menu.ListMenuPresenter $r1;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+
+        r0 := @this;
+
+        $r2 = r0.menu;
+
+        if $r2 == null goto label1;
+
+        $r1 = r0.listMenuPresenter;
+
+        virtualinvoke $r2.removeMenuPresenter($r1);
+
+     label1:
+        r0.listMenuPresenter = null;
+
+        return;
+    }
+
+    androidx.appcompat.view.menu.MenuView getListMenuView(androidx.appcompat.view.menu.MenuPresenter$Callback)
+    {
+        android.content.Context $r5;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.menu.MenuBuilder r3;
+        androidx.appcompat.view.menu.MenuView $r2;
+        android.view.ViewGroup $r6;
+        androidx.appcompat.view.menu.MenuPresenter$Callback $r1;
+        int $i0;
+        androidx.appcompat.view.menu.ListMenuPresenter r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r3 = r0.menu;
+
+        if r3 != null goto label1;
+
+        return null;
+
+     label1:
+        r4 = r0.listMenuPresenter;
+
+        if r4 != null goto label2;
+
+        r4 = new androidx.appcompat.view.menu.ListMenuPresenter;
+
+        $r5 = r0.listPresenterContext;
+
+        $i0 = androidx.appcompat.R$layout.abc_list_menu_item_layout;
+
+        specialinvoke r4.<init>($r5, $i0);
+
+        r0.listMenuPresenter = r4;
+
+        virtualinvoke r4.setCallback($r1);
+
+        r3 = r0.menu;
+
+        r4 = r0.listMenuPresenter;
+
+        virtualinvoke r3.addMenuPresenter(r4);
+
+     label2:
+        r4 = r0.listMenuPresenter;
+
+        $r6 = r0.decorView;
+
+        $r2 = virtualinvoke r4.getMenuView($r6);
+
+        return $r2;
+    }
+
+    public boolean hasPanelItems()
+    {
+        android.widget.ListAdapter $r3;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        int $i0;
+        android.view.View $r1;
+        androidx.appcompat.view.menu.ListMenuPresenter $r2;
+
+        r0 := @this;
+
+        $r1 = r0.shownPanelView;
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r1 = r0.createdPanelView;
+
+        if $r1 == null goto label2;
+
+        return 1;
+
+     label2:
+        $r2 = r0.listMenuPresenter;
+
+        $r3 = virtualinvoke $r2.getAdapter();
+
+        $i0 = interfaceinvoke $r3.getCount();
+
+        if $i0 <= 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    void onRestoreInstanceState(android.os.Parcelable)
+    {
+        android.os.Parcelable $r1;
+        android.os.Bundle $r3;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState$SavedState r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = (androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState$SavedState) $r1;
+
+        $i0 = r2.featureId;
+
+        r0.featureId = $i0;
+
+        $z0 = r2.isOpen;
+
+        r0.wasLastOpen = $z0;
+
+        $r3 = r2.menuState;
+
+        r0.frozenMenuState = $r3;
+
+        r0.shownPanelView = null;
+
+        r0.decorView = null;
+
+        return;
+    }
+
+    android.os.Parcelable onSaveInstanceState()
+    {
+        android.os.Bundle $r2;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.menu.MenuBuilder $r3;
+        int $i0;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState$SavedState r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        r1 = new androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState$SavedState;
+
+        specialinvoke r1.<init>();
+
+        $i0 = r0.featureId;
+
+        r1.featureId = $i0;
+
+        $z0 = r0.isOpen;
+
+        r1.isOpen = $z0;
+
+        $r3 = r0.menu;
+
+        if $r3 == null goto label1;
+
+        $r2 = new android.os.Bundle;
+
+        specialinvoke $r2.<init>();
+
+        r1.menuState = $r2;
+
+        $r3 = r0.menu;
+
+        $r2 = r1.menuState;
+
+        virtualinvoke $r3.savePresenterStates($r2);
+
+     label1:
+        return r1;
+    }
+
+    void setMenu(androidx.appcompat.view.menu.MenuBuilder)
+    {
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.menu.MenuBuilder $r1, $r3;
+        androidx.appcompat.view.menu.ListMenuPresenter $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r3 = r0.menu;
+
+        if $r1 != $r3 goto label1;
+
+        return;
+
+     label1:
+        if $r3 == null goto label2;
+
+        $r2 = r0.listMenuPresenter;
+
+        virtualinvoke $r3.removeMenuPresenter($r2);
+
+     label2:
+        r0.menu = $r1;
+
+        if $r1 == null goto label3;
+
+        $r2 = r0.listMenuPresenter;
+
+        if $r2 == null goto label3;
+
+        virtualinvoke $r1.addMenuPresenter($r2);
+
+     label3:
+        return;
+    }
+
+    void setStyle(android.content.Context)
+    {
+        android.content.Context $r2;
+        androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState r0;
+        androidx.appcompat.view.ContextThemeWrapper r6;
+        android.content.res.TypedArray $r8;
+        android.util.TypedValue r1;
+        int[] r7;
+        int i0;
+        android.content.res.Resources$Theme $r4, $r5;
+        android.content.res.Resources $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        r1 = new android.util.TypedValue;
+
+        specialinvoke r1.<init>();
+
+        $r3 = virtualinvoke $r2.getResources();
+
+        $r4 = virtualinvoke $r3.newTheme();
+
+        $r5 = virtualinvoke $r2.getTheme();
+
+        virtualinvoke $r4.setTo($r5);
+
+        i0 = androidx.appcompat.R$attr.actionBarPopupTheme;
+
+        virtualinvoke $r4.resolveAttribute(i0, r1, 1);
+
+        i0 = r1.resourceId;
+
+        if i0 == 0 goto label1;
+
+        i0 = r1.resourceId;
+
+        virtualinvoke $r4.applyStyle(i0, 1);
+
+     label1:
+        i0 = androidx.appcompat.R$attr.panelMenuListTheme;
+
+        virtualinvoke $r4.resolveAttribute(i0, r1, 1);
+
+        i0 = r1.resourceId;
+
+        if i0 == 0 goto label2;
+
+        i0 = r1.resourceId;
+
+        virtualinvoke $r4.applyStyle(i0, 1);
+
+        goto label3;
+
+     label2:
+        i0 = androidx.appcompat.R$style.Theme_AppCompat_CompactMenu;
+
+        virtualinvoke $r4.applyStyle(i0, 1);
+
+     label3:
+        r6 = new androidx.appcompat.view.ContextThemeWrapper;
+
+        specialinvoke r6.<init>($r2, 0);
+
+        $r5 = virtualinvoke r6.getTheme();
+
+        virtualinvoke $r5.setTo($r4);
+
+        r0.listPresenterContext = r6;
+
+        r7 = androidx.appcompat.R$styleable.AppCompatTheme;
+
+        $r8 = virtualinvoke r6.obtainStyledAttributes(r7);
+
+        i0 = androidx.appcompat.R$styleable.AppCompatTheme_panelBackground;
+
+        i0 = virtualinvoke $r8.getResourceId(i0, 0);
+
+        r0.background = i0;
+
+        i0 = androidx.appcompat.R$styleable.AppCompatTheme_android_windowAnimationStyle;
+
+        i0 = virtualinvoke $r8.getResourceId(i0, 0);
+
+        r0.windowAnimations = i0;
+
+        virtualinvoke $r8.recycle();
+
+        return;
+    }
+}

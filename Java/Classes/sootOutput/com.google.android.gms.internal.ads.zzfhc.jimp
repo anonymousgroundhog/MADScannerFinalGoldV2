@@ -1,0 +1,42 @@
+public abstract class com.google.android.gms.internal.ads.zzfhc extends com.google.android.gms.internal.ads.zzfhd
+{
+    protected final java.util.HashSet zza;
+    protected final org.json.JSONObject zzb;
+    protected final long zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfgv, java.util.HashSet, org.json.JSONObject, long, byte[])
+    {
+        java.util.HashSet $r1, $r5;
+        com.google.android.gms.internal.ads.zzfhc r0;
+        byte[] $r4;
+        org.json.JSONObject $r2;
+        com.google.android.gms.internal.ads.zzfgv $r3;
+        long $l0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $l0 := @parameter3;
+
+        $r4 := @parameter4;
+
+        specialinvoke r0.<init>($r3, null);
+
+        $r5 = new java.util.HashSet;
+
+        specialinvoke $r5.<init>($r1);
+
+        r0.zza = $r5;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $l0;
+
+        return;
+    }
+}

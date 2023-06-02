@@ -1,0 +1,15 @@
+public final class com.google.android.gms.example.bannerexample.R$xml extends java.lang.Object
+{
+    public static final int image_share_filepaths;
+
+    private void <init>()
+    {
+        com.google.android.gms.example.bannerexample.R$xml r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

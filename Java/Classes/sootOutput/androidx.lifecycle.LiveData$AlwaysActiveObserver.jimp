@@ -1,0 +1,32 @@
+class androidx.lifecycle.LiveData$AlwaysActiveObserver extends androidx.lifecycle.LiveData$ObserverWrapper
+{
+    final androidx.lifecycle.LiveData this$0;
+
+    void <init>(androidx.lifecycle.LiveData, androidx.lifecycle.Observer)
+    {
+        androidx.lifecycle.LiveData$AlwaysActiveObserver r0;
+        androidx.lifecycle.LiveData $r1;
+        androidx.lifecycle.Observer r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>($r1, r2);
+
+        return;
+    }
+
+    boolean shouldBeActive()
+    {
+        androidx.lifecycle.LiveData$AlwaysActiveObserver r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+}

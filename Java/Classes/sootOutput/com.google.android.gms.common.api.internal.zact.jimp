@@ -1,0 +1,340 @@
+public final class com.google.android.gms.common.api.internal.zact extends com.google.android.gms.signin.internal.zac implements com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks, com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener
+{
+    private static final com.google.android.gms.common.api.Api$AbstractClientBuilder zaa;
+    private final android.content.Context zab;
+    private final android.os.Handler zac;
+    private final com.google.android.gms.common.api.Api$AbstractClientBuilder zad;
+    private final java.util.Set zae;
+    private final com.google.android.gms.common.internal.ClientSettings zaf;
+    private com.google.android.gms.signin.zae zag;
+    private com.google.android.gms.common.api.internal.zacs zah;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.api.Api$AbstractClientBuilder $r0;
+
+        $r0 = com.google.android.gms.signin.zad.zac;
+
+        com.google.android.gms.common.api.internal.zact.zaa = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.os.Handler, com.google.android.gms.common.internal.ClientSettings)
+    {
+        android.content.Context $r4;
+        java.util.Set $r7;
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.common.internal.ClientSettings $r2, $r6;
+        android.os.Handler $r1;
+        java.lang.Object $r5;
+        com.google.android.gms.common.api.Api$AbstractClientBuilder $r3;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = com.google.android.gms.common.api.internal.zact.zaa;
+
+        specialinvoke r0.<init>();
+
+        r0.zab = $r4;
+
+        r0.zac = $r1;
+
+        $r5 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r2, "ClientSettings must not be null");
+
+        $r6 = (com.google.android.gms.common.internal.ClientSettings) $r5;
+
+        r0.zaf = $r6;
+
+        $r7 = virtualinvoke $r2.getRequiredScopes();
+
+        r0.zae = $r7;
+
+        r0.zad = $r3;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.common.api.internal.zacs zac(com.google.android.gms.common.api.internal.zact)
+    {
+        com.google.android.gms.common.api.internal.zact $r0;
+        com.google.android.gms.common.api.internal.zacs r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zah;
+
+        return r1;
+    }
+
+    static volatile void zad(com.google.android.gms.common.api.internal.zact, com.google.android.gms.signin.internal.zak)
+    {
+        com.google.android.gms.common.ConnectionResult $r2;
+        com.google.android.gms.common.internal.zav $r3;
+        com.google.android.gms.common.internal.IAccountAccessor $r10;
+        java.util.Set $r11;
+        java.lang.Exception $r7;
+        com.google.android.gms.signin.internal.zak $r1;
+        com.google.android.gms.common.api.internal.zact $r0;
+        com.google.android.gms.common.api.internal.zacs $r8;
+        java.lang.Object $r4;
+        java.lang.String $r5, $r6;
+        com.google.android.gms.signin.zae $r9;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = virtualinvoke $r1.zaa();
+
+        $z0 = virtualinvoke $r2.isSuccess();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = virtualinvoke $r1.zab();
+
+        $r4 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r3);
+
+        $r3 = (com.google.android.gms.common.internal.zav) $r4;
+
+        $r2 = virtualinvoke $r3.zaa();
+
+        $z0 = virtualinvoke $r2.isSuccess();
+
+        if $z0 != 0 goto label1;
+
+        $r5 = java.lang.String.valueOf($r2);
+
+        $r6 = java.lang.String.valueOf($r5);
+
+        virtualinvoke $r6.length();
+
+        $r7 = new java.lang.Exception;
+
+        specialinvoke $r7.<init>();
+
+        $r6 = "Sign-in succeeded with resolve account failure: ";
+
+        $r5 = java.lang.String.valueOf($r5);
+
+        $r5 = virtualinvoke $r6.concat($r5);
+
+        android.util.Log.wtf("SignInCoordinator", $r5, $r7);
+
+        $r8 = $r0.zah;
+
+        interfaceinvoke $r8.zae($r2);
+
+        $r9 = $r0.zag;
+
+        interfaceinvoke $r9.disconnect();
+
+        return;
+
+     label1:
+        $r8 = $r0.zah;
+
+        $r10 = virtualinvoke $r3.zab();
+
+        $r11 = $r0.zae;
+
+        interfaceinvoke $r8.zaf($r10, $r11);
+
+        goto label3;
+
+     label2:
+        $r8 = $r0.zah;
+
+        interfaceinvoke $r8.zae($r2);
+
+     label3:
+        $r9 = $r0.zag;
+
+        interfaceinvoke $r9.disconnect();
+
+        return;
+    }
+
+    public final void onConnected(android.os.Bundle)
+    {
+        com.google.android.gms.common.api.internal.zact r0;
+        android.os.Bundle $r1;
+        com.google.android.gms.signin.zae $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zag;
+
+        interfaceinvoke $r2.zad(r0);
+
+        return;
+    }
+
+    public final void onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+    {
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.common.api.internal.zacs $r2;
+        com.google.android.gms.common.ConnectionResult $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zah;
+
+        interfaceinvoke $r2.zae($r1);
+
+        return;
+    }
+
+    public final void onConnectionSuspended(int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.signin.zae $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zag;
+
+        interfaceinvoke $r1.disconnect();
+
+        return;
+    }
+
+    public final void zab(com.google.android.gms.signin.internal.zak)
+    {
+        com.google.android.gms.signin.internal.zak $r1;
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.common.api.internal.zacr $r3;
+        android.os.Handler $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zac;
+
+        $r3 = new com.google.android.gms.common.api.internal.zacr;
+
+        specialinvoke $r3.<init>(r0, $r1);
+
+        virtualinvoke $r2.post($r3);
+
+        return;
+    }
+
+    public final void zae(com.google.android.gms.common.api.internal.zacs)
+    {
+        android.content.Context $r2;
+        com.google.android.gms.common.api.Api$Client $r10;
+        java.util.Set $r11;
+        java.lang.Integer $r6;
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.common.api.internal.zacs $r4;
+        com.google.android.gms.signin.SignInOptions $r9;
+        com.google.android.gms.common.internal.ClientSettings $r3;
+        android.os.Handler $r7;
+        android.os.Looper $r8;
+        int $i0;
+        com.google.android.gms.common.api.Api$AbstractClientBuilder $r1;
+        com.google.android.gms.signin.zae $r5;
+        com.google.android.gms.common.api.internal.zacq $r12;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r5 = r0.zag;
+
+        if $r5 == null goto label1;
+
+        interfaceinvoke $r5.disconnect();
+
+     label1:
+        $r3 = r0.zaf;
+
+        $i0 = java.lang.System.identityHashCode(r0);
+
+        $r6 = java.lang.Integer.valueOf($i0);
+
+        virtualinvoke $r3.zae($r6);
+
+        $r1 = r0.zad;
+
+        $r2 = r0.zab;
+
+        $r7 = r0.zac;
+
+        $r8 = virtualinvoke $r7.getLooper();
+
+        $r3 = r0.zaf;
+
+        $r9 = virtualinvoke $r3.zaa();
+
+        $r10 = virtualinvoke $r1.buildClient($r2, $r8, $r3, $r9, r0, r0);
+
+        $r5 = (com.google.android.gms.signin.zae) $r10;
+
+        r0.zag = $r5;
+
+        r0.zah = $r4;
+
+        $r11 = r0.zae;
+
+        if $r11 == null goto label3;
+
+        $z0 = interfaceinvoke $r11.isEmpty();
+
+        if $z0 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $r5 = r0.zag;
+
+        interfaceinvoke $r5.zab();
+
+        return;
+
+     label3:
+        $r7 = r0.zac;
+
+        $r12 = new com.google.android.gms.common.api.internal.zacq;
+
+        specialinvoke $r12.<init>(r0);
+
+        virtualinvoke $r7.post($r12);
+
+        return;
+    }
+
+    public final void zaf()
+    {
+        com.google.android.gms.common.api.internal.zact r0;
+        com.google.android.gms.signin.zae $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zag;
+
+        if $r1 == null goto label1;
+
+        interfaceinvoke $r1.disconnect();
+
+     label1:
+        return;
+    }
+}

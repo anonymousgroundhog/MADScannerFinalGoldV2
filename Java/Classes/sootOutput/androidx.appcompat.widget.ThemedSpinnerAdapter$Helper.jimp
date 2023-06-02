@@ -1,0 +1,114 @@
+public final class androidx.appcompat.widget.ThemedSpinnerAdapter$Helper extends java.lang.Object
+{
+    private final android.content.Context mContext;
+    private android.view.LayoutInflater mDropDownInflater;
+    private final android.view.LayoutInflater mInflater;
+
+    public void <init>(android.content.Context)
+    {
+        androidx.appcompat.widget.ThemedSpinnerAdapter$Helper r0;
+        android.content.Context $r1;
+        android.view.LayoutInflater $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mContext = $r1;
+
+        $r2 = android.view.LayoutInflater.from($r1);
+
+        r0.mInflater = $r2;
+
+        return;
+    }
+
+    public android.view.LayoutInflater getDropDownViewInflater()
+    {
+        androidx.appcompat.widget.ThemedSpinnerAdapter$Helper r0;
+        android.view.LayoutInflater $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mDropDownInflater;
+
+        if $r1 == null goto label1;
+
+        return $r1;
+
+     label1:
+        $r1 = r0.mInflater;
+
+        return $r1;
+    }
+
+    public android.content.res.Resources$Theme getDropDownViewTheme()
+    {
+        android.content.Context $r2;
+        android.view.LayoutInflater $r1;
+        androidx.appcompat.widget.ThemedSpinnerAdapter$Helper r0;
+        android.content.res.Resources$Theme $r3;
+
+        r0 := @this;
+
+        $r1 = r0.mDropDownInflater;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = virtualinvoke $r1.getContext();
+
+        $r3 = virtualinvoke $r2.getTheme();
+
+        return $r3;
+    }
+
+    public void setDropDownViewTheme(android.content.res.Resources$Theme)
+    {
+        android.content.Context r2;
+        android.view.LayoutInflater r4;
+        androidx.appcompat.widget.ThemedSpinnerAdapter$Helper r0;
+        android.content.res.Resources$Theme $r1, $r3;
+        androidx.appcompat.view.ContextThemeWrapper r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        r0.mDropDownInflater = null;
+
+        return;
+
+     label1:
+        r2 = r0.mContext;
+
+        $r3 = virtualinvoke r2.getTheme();
+
+        if $r1 != $r3 goto label2;
+
+        r4 = r0.mInflater;
+
+        r0.mDropDownInflater = r4;
+
+        return;
+
+     label2:
+        r5 = new androidx.appcompat.view.ContextThemeWrapper;
+
+        r2 = r0.mContext;
+
+        specialinvoke r5.<init>(r2, $r1);
+
+        r4 = android.view.LayoutInflater.from(r5);
+
+        r0.mDropDownInflater = r4;
+
+        return;
+    }
+}

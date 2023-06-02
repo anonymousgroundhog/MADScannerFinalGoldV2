@@ -1,0 +1,20 @@
+public final class com.google.android.gms.internal.ads.zzcet extends java.lang.Exception
+{
+
+    public void <init>(java.lang.String, java.lang.Throwable)
+    {
+        com.google.android.gms.internal.ads.zzcet r0;
+        java.lang.Throwable $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>("Webview initialization failed.", $r1);
+
+        return;
+    }
+}

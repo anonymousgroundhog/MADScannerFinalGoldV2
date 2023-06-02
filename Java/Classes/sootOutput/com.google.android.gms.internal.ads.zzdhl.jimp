@@ -1,0 +1,105 @@
+public final class com.google.android.gms.internal.ads.zzdhl extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+    public final com.google.android.gms.internal.ads.zzdhm zza;
+    public final com.google.android.gms.internal.ads.zzbfr zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdhm, com.google.android.gms.internal.ads.zzbfr)
+    {
+        com.google.android.gms.internal.ads.zzdhm $r1;
+        com.google.android.gms.internal.ads.zzdhl r0;
+        com.google.android.gms.internal.ads.zzbfr $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void zza(java.lang.Object, java.util.Map)
+    {
+        long $l0;
+        java.lang.NumberFormatException $r7;
+        android.os.RemoteException $r8;
+        java.lang.Long $r6;
+        java.util.Map $r3;
+        com.google.android.gms.internal.ads.zzdhm $r4;
+        com.google.android.gms.internal.ads.zzdhl r0;
+        java.lang.Object $r2;
+        java.lang.String $r5;
+        com.google.android.gms.internal.ads.zzbfr $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 = r0.zza;
+
+        $r1 = r0.zzb;
+
+     label1:
+        $r2 = interfaceinvoke $r3.get("timestamp");
+
+     label2:
+        $r5 = (java.lang.String) $r2;
+
+     label3:
+        $l0 = java.lang.Long.parseLong($r5);
+
+        $r6 = java.lang.Long.valueOf($l0);
+
+     label4:
+        $r4.zzb = $r6;
+
+        goto label6;
+
+     label5:
+        $r7 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzg("Failed to call parse unconfirmedClickTimestamp.");
+
+     label6:
+        $r2 = interfaceinvoke $r3.get("id");
+
+        $r5 = (java.lang.String) $r2;
+
+        $r4.zza = $r5;
+
+        $r2 = interfaceinvoke $r3.get("asset_id");
+
+        $r5 = (java.lang.String) $r2;
+
+        if $r1 != null goto label7;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Received unconfirmed click but UnconfirmedClickListener is null.");
+
+        return;
+
+     label7:
+        interfaceinvoke $r1.zzf($r5);
+
+     label8:
+        return;
+
+     label9:
+        $r8 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzl("#007 Could not call remote method.", $r8);
+
+        return;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label5;
+        catch java.lang.NumberFormatException from label3 to label4 with label5;
+        catch android.os.RemoteException from label7 to label8 with label9;
+    }
+}

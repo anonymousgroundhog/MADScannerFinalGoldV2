@@ -1,0 +1,66 @@
+public abstract class androidx.loader.app.LoaderManager extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        androidx.loader.app.LoaderManager r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void enableDebugLogging(boolean)
+    {
+        boolean $z0;
+
+        $z0 := @parameter0;
+
+        androidx.loader.app.LoaderManagerImpl.DEBUG = $z0;
+
+        return;
+    }
+
+    public static androidx.loader.app.LoaderManager getInstance(androidx.lifecycle.LifecycleOwner)
+    {
+        androidx.loader.app.LoaderManagerImpl $r1;
+        androidx.lifecycle.ViewModelStore $r2;
+        androidx.lifecycle.LifecycleOwner r0;
+        androidx.lifecycle.ViewModelStoreOwner $r3;
+
+        r0 := @parameter0;
+
+        $r1 = new androidx.loader.app.LoaderManagerImpl;
+
+        $r3 = (androidx.lifecycle.ViewModelStoreOwner) r0;
+
+        $r2 = interfaceinvoke $r3.getViewModelStore();
+
+        specialinvoke $r1.<init>(r0, $r2);
+
+        return $r1;
+    }
+
+    public abstract void destroyLoader(int);
+
+    public abstract void dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[]);
+
+    public abstract androidx.loader.content.Loader getLoader(int);
+
+    public boolean hasRunningLoaders()
+    {
+        androidx.loader.app.LoaderManager r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public abstract androidx.loader.content.Loader initLoader(int, android.os.Bundle, androidx.loader.app.LoaderManager$LoaderCallbacks);
+
+    public abstract void markForRedelivery();
+
+    public abstract androidx.loader.content.Loader restartLoader(int, android.os.Bundle, androidx.loader.app.LoaderManager$LoaderCallbacks);
+}

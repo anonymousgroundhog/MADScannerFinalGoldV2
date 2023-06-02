@@ -1,0 +1,14 @@
+public final class androidx.arch.core.R extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.arch.core.R r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

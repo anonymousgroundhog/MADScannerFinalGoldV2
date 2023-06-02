@@ -1,0 +1,26 @@
+public final class com.google.android.gms.internal.ads.zzfbc extends java.lang.Object
+{
+    public final com.google.android.gms.internal.ads.zzfas zza;
+    public final com.google.android.gms.internal.ads.zzfbe zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfas, com.google.android.gms.internal.ads.zzfbe)
+    {
+        com.google.android.gms.internal.ads.zzfbe $r2;
+        com.google.android.gms.internal.ads.zzfas $r1;
+        com.google.android.gms.internal.ads.zzfbc r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+}

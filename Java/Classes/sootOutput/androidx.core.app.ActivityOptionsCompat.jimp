@@ -1,0 +1,345 @@
+public class androidx.core.app.ActivityOptionsCompat extends java.lang.Object
+{
+    public static final java.lang.String EXTRA_USAGE_TIME_REPORT;
+    public static final java.lang.String EXTRA_USAGE_TIME_REPORT_PACKAGES;
+
+    protected void <init>()
+    {
+        androidx.core.app.ActivityOptionsCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeBasic()
+    {
+        android.app.ActivityOptions $r0;
+        androidx.core.app.ActivityOptionsCompat $r2;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r1;
+        int $i0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 23 goto label1;
+
+        $r1 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r0 = android.app.ActivityOptions.makeBasic();
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+
+     label1:
+        $r2 = new androidx.core.app.ActivityOptionsCompat;
+
+        specialinvoke $r2.<init>();
+
+        return $r2;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeClipRevealAnimation(android.view.View, int, int, int, int)
+    {
+        android.app.ActivityOptions $r1;
+        androidx.core.app.ActivityOptionsCompat $r3;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r2;
+        int $i0, $i1, $i2, $i3, $i4;
+        android.view.View $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $i4 = android.os.Build$VERSION.SDK_INT;
+
+        if $i4 < 23 goto label1;
+
+        $r2 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r1 = android.app.ActivityOptions.makeClipRevealAnimation($r0, $i0, $i1, $i2, $i3);
+
+        specialinvoke $r2.<init>($r1);
+
+        return $r2;
+
+     label1:
+        $r3 = new androidx.core.app.ActivityOptionsCompat;
+
+        specialinvoke $r3.<init>();
+
+        return $r3;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeCustomAnimation(android.content.Context, int, int)
+    {
+        android.content.Context $r0;
+        android.app.ActivityOptions $r2;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r1;
+        int $i0, $i1;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $r1 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r2 = android.app.ActivityOptions.makeCustomAnimation($r0, $i0, $i1);
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeScaleUpAnimation(android.view.View, int, int, int, int)
+    {
+        android.app.ActivityOptions $r2;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r1;
+        int $i0, $i1, $i2, $i3;
+        android.view.View $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        $r1 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r2 = android.app.ActivityOptions.makeScaleUpAnimation($r0, $i0, $i1, $i2, $i3);
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeSceneTransitionAnimation(android.app.Activity, android.view.View, java.lang.String)
+    {
+        android.app.ActivityOptions $r3;
+        androidx.core.app.ActivityOptionsCompat $r5;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r4;
+        int $i0;
+        android.view.View $r1;
+        java.lang.String $r2;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $r4 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r3 = android.app.ActivityOptions.makeSceneTransitionAnimation($r0, $r1, $r2);
+
+        specialinvoke $r4.<init>($r3);
+
+        return $r4;
+
+     label1:
+        $r5 = new androidx.core.app.ActivityOptionsCompat;
+
+        specialinvoke $r5.<init>();
+
+        return $r5;
+    }
+
+    public static transient androidx.core.app.ActivityOptionsCompat makeSceneTransitionAnimation(android.app.Activity, androidx.core.util.Pair[])
+    {
+        android.util.Pair $r7;
+        androidx.core.util.Pair[] r1;
+        android.app.ActivityOptions $r9;
+        androidx.core.app.ActivityOptionsCompat r10;
+        android.util.Pair[] r2;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl r8;
+        int i0, $i1;
+        androidx.core.util.Pair $r3;
+        android.view.View $r5;
+        java.lang.Object $r4;
+        java.lang.String $r6;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label3;
+
+        r2 = null;
+
+        if r1 == null goto label2;
+
+        i0 = lengthof r1;
+
+        r2 = newarray (android.util.Pair)[i0];
+
+        i0 = 0;
+
+     label1:
+        $i1 = lengthof r1;
+
+        if i0 >= $i1 goto label2;
+
+        $r3 = r1[i0];
+
+        $r4 = $r3.first;
+
+        $r5 = (android.view.View) $r4;
+
+        $r3 = r1[i0];
+
+        $r4 = $r3.second;
+
+        $r6 = (java.lang.String) $r4;
+
+        $r7 = android.util.Pair.create($r5, $r6);
+
+        r2[i0] = $r7;
+
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label2:
+        r8 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r9 = android.app.ActivityOptions.makeSceneTransitionAnimation($r0, r2);
+
+        specialinvoke r8.<init>($r9);
+
+        return r8;
+
+     label3:
+        r10 = new androidx.core.app.ActivityOptionsCompat;
+
+        specialinvoke r10.<init>();
+
+        return r10;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeTaskLaunchBehind()
+    {
+        android.app.ActivityOptions $r0;
+        androidx.core.app.ActivityOptionsCompat $r2;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r1;
+        int $i0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $r1 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r0 = android.app.ActivityOptions.makeTaskLaunchBehind();
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+
+     label1:
+        $r2 = new androidx.core.app.ActivityOptionsCompat;
+
+        specialinvoke $r2.<init>();
+
+        return $r2;
+    }
+
+    public static androidx.core.app.ActivityOptionsCompat makeThumbnailScaleUpAnimation(android.view.View, android.graphics.Bitmap, int, int)
+    {
+        android.app.ActivityOptions $r3;
+        androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl $r2;
+        android.graphics.Bitmap $r1;
+        int $i0, $i1;
+        android.view.View $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $i1 := @parameter3;
+
+        $r2 = new androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl;
+
+        $r3 = android.app.ActivityOptions.makeThumbnailScaleUpAnimation($r0, $r1, $i0, $i1);
+
+        specialinvoke $r2.<init>($r3);
+
+        return $r2;
+    }
+
+    public android.graphics.Rect getLaunchBounds()
+    {
+        androidx.core.app.ActivityOptionsCompat r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public void requestUsageTimeReport(android.app.PendingIntent)
+    {
+        androidx.core.app.ActivityOptionsCompat r0;
+        android.app.PendingIntent $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public androidx.core.app.ActivityOptionsCompat setLaunchBounds(android.graphics.Rect)
+    {
+        android.graphics.Rect $r1;
+        androidx.core.app.ActivityOptionsCompat r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return r0;
+    }
+
+    public android.os.Bundle toBundle()
+    {
+        androidx.core.app.ActivityOptionsCompat r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public void update(androidx.core.app.ActivityOptionsCompat)
+    {
+        androidx.core.app.ActivityOptionsCompat r0, $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

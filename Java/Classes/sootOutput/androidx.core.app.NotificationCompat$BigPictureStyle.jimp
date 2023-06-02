@@ -1,0 +1,315 @@
+public class androidx.core.app.NotificationCompat$BigPictureStyle extends androidx.core.app.NotificationCompat$Style
+{
+    private static final java.lang.String TEMPLATE_CLASS_NAME;
+    private androidx.core.graphics.drawable.IconCompat mBigLargeIcon;
+    private boolean mBigLargeIconSet;
+    private android.graphics.Bitmap mPicture;
+
+    public void <init>()
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void <init>(androidx.core.app.NotificationCompat$Builder)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        androidx.core.app.NotificationCompat$Builder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        virtualinvoke r0.setBuilder($r1);
+
+        return;
+    }
+
+    private static androidx.core.graphics.drawable.IconCompat asIconCompat(android.os.Parcelable)
+    {
+        android.os.Parcelable $r0;
+        androidx.core.graphics.drawable.IconCompat $r2;
+        android.graphics.Bitmap $r3;
+        int $i0;
+        android.graphics.drawable.Icon $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        if $r0 == null goto label2;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 23 goto label1;
+
+        $z0 = $r0 instanceof android.graphics.drawable.Icon;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = (android.graphics.drawable.Icon) $r0;
+
+        $r2 = androidx.core.graphics.drawable.IconCompat.createFromIcon($r1);
+
+        return $r2;
+
+     label1:
+        $z0 = $r0 instanceof android.graphics.Bitmap;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (android.graphics.Bitmap) $r0;
+
+        $r2 = androidx.core.graphics.drawable.IconCompat.createWithBitmap($r3);
+
+        return $r2;
+
+     label2:
+        return null;
+    }
+
+    public void apply(androidx.core.app.NotificationBuilderWithBuilderAccessor)
+    {
+        android.content.Context r7;
+        java.lang.CharSequence r4;
+        android.app.Notification$BigPictureStyle r2;
+        android.app.Notification$Builder $r3;
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        androidx.core.app.NotificationBuilderWithBuilderAccessor $r1;
+        androidx.core.graphics.drawable.IconCompat r6;
+        android.graphics.Bitmap r5;
+        androidx.core.app.NotificationCompatBuilder $r8;
+        int i0;
+        android.graphics.drawable.Icon $r9;
+        boolean z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = new android.app.Notification$BigPictureStyle;
+
+        $r3 = interfaceinvoke $r1.getBuilder();
+
+        specialinvoke r2.<init>($r3);
+
+        r4 = r0.mBigContentTitle;
+
+        r2 = virtualinvoke r2.setBigContentTitle(r4);
+
+        r5 = r0.mPicture;
+
+        r2 = virtualinvoke r2.bigPicture(r5);
+
+        z0 = r0.mBigLargeIconSet;
+
+        if z0 == 0 goto label5;
+
+        r6 = r0.mBigLargeIcon;
+
+        if r6 != null goto label1;
+
+        androidx.core.app.NotificationCompat$BigPictureStyle$Api16Impl.setBigLargeIcon(r2, null);
+
+        goto label5;
+
+     label1:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label3;
+
+        r7 = null;
+
+        z0 = $r1 instanceof androidx.core.app.NotificationCompatBuilder;
+
+        if z0 == 0 goto label2;
+
+        $r8 = (androidx.core.app.NotificationCompatBuilder) $r1;
+
+        r7 = virtualinvoke $r8.getContext();
+
+     label2:
+        r6 = r0.mBigLargeIcon;
+
+        $r9 = virtualinvoke r6.toIcon(r7);
+
+        androidx.core.app.NotificationCompat$BigPictureStyle$Api23Impl.setBigLargeIcon(r2, $r9);
+
+        goto label5;
+
+     label3:
+        r6 = r0.mBigLargeIcon;
+
+        i0 = virtualinvoke r6.getType();
+
+        if i0 != 1 goto label4;
+
+        r6 = r0.mBigLargeIcon;
+
+        r5 = virtualinvoke r6.getBitmap();
+
+        androidx.core.app.NotificationCompat$BigPictureStyle$Api16Impl.setBigLargeIcon(r2, r5);
+
+        goto label5;
+
+     label4:
+        androidx.core.app.NotificationCompat$BigPictureStyle$Api16Impl.setBigLargeIcon(r2, null);
+
+     label5:
+        z0 = r0.mSummaryTextSet;
+
+        if z0 == 0 goto label6;
+
+        r4 = r0.mSummaryText;
+
+        androidx.core.app.NotificationCompat$BigPictureStyle$Api16Impl.setSummaryText(r2, r4);
+
+     label6:
+        return;
+    }
+
+    public androidx.core.app.NotificationCompat$BigPictureStyle bigLargeIcon(android.graphics.Bitmap)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        androidx.core.graphics.drawable.IconCompat $r2;
+        android.graphics.Bitmap $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        $r2 = null;
+
+        goto label2;
+
+     label1:
+        $r2 = androidx.core.graphics.drawable.IconCompat.createWithBitmap($r1);
+
+     label2:
+        r0.mBigLargeIcon = $r2;
+
+        r0.mBigLargeIconSet = 1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$BigPictureStyle bigPicture(android.graphics.Bitmap)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        android.graphics.Bitmap $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mPicture = $r1;
+
+        return r0;
+    }
+
+    protected void clearCompatExtraKeys(android.os.Bundle)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.clearCompatExtraKeys($r1);
+
+        virtualinvoke $r1.remove("android.largeIcon.big");
+
+        virtualinvoke $r1.remove("android.picture");
+
+        return;
+    }
+
+    protected java.lang.String getClassName()
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+
+        r0 := @this;
+
+        return "androidx.core.app.NotificationCompat$BigPictureStyle";
+    }
+
+    protected void restoreFromCompatExtras(android.os.Bundle)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        android.os.Bundle $r1;
+        android.os.Parcelable $r2;
+        androidx.core.graphics.drawable.IconCompat $r3;
+        android.graphics.Bitmap $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.restoreFromCompatExtras($r1);
+
+        $z0 = virtualinvoke $r1.containsKey("android.largeIcon.big");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke $r1.getParcelable("android.largeIcon.big");
+
+        $r3 = androidx.core.app.NotificationCompat$BigPictureStyle.asIconCompat($r2);
+
+        r0.mBigLargeIcon = $r3;
+
+        r0.mBigLargeIconSet = 1;
+
+     label1:
+        $r2 = virtualinvoke $r1.getParcelable("android.picture");
+
+        $r4 = (android.graphics.Bitmap) $r2;
+
+        r0.mPicture = $r4;
+
+        return;
+    }
+
+    public androidx.core.app.NotificationCompat$BigPictureStyle setBigContentTitle(java.lang.CharSequence)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r1 = androidx.core.app.NotificationCompat$Builder.limitCharSequenceLength($r1);
+
+        r0.mBigContentTitle = $r1;
+
+        return r0;
+    }
+
+    public androidx.core.app.NotificationCompat$BigPictureStyle setSummaryText(java.lang.CharSequence)
+    {
+        androidx.core.app.NotificationCompat$BigPictureStyle r0;
+        java.lang.CharSequence $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r1 = androidx.core.app.NotificationCompat$Builder.limitCharSequenceLength($r1);
+
+        r0.mSummaryText = $r1;
+
+        r0.mSummaryTextSet = 1;
+
+        return r0;
+    }
+}

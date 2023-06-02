@@ -1,0 +1,99 @@
+public final class com.google.android.gms.ads.VideoOptions extends java.lang.Object
+{
+    private final boolean zza;
+    private final boolean zzb;
+    private final boolean zzc;
+
+    void <init>(com.google.android.gms.ads.VideoOptions$Builder, com.google.android.gms.ads.zzi)
+    {
+        com.google.android.gms.ads.zzi $r2;
+        com.google.android.gms.ads.VideoOptions r0;
+        com.google.android.gms.ads.VideoOptions$Builder $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $z0 = com.google.android.gms.ads.VideoOptions$Builder.zzc($r1);
+
+        r0.zza = $z0;
+
+        $z0 = com.google.android.gms.ads.VideoOptions$Builder.zzb($r1);
+
+        r0.zzb = $z0;
+
+        $z0 = com.google.android.gms.ads.VideoOptions$Builder.zza($r1);
+
+        r0.zzc = $z0;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.ads.internal.client.zzfl)
+    {
+        com.google.android.gms.ads.VideoOptions r0;
+        com.google.android.gms.ads.internal.client.zzfl $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $z0 = $r1.zza;
+
+        r0.zza = $z0;
+
+        $z0 = $r1.zzb;
+
+        r0.zzb = $z0;
+
+        $z0 = $r1.zzc;
+
+        r0.zzc = $z0;
+
+        return;
+    }
+
+    public boolean getClickToExpandRequested()
+    {
+        com.google.android.gms.ads.VideoOptions r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzc;
+
+        return z0;
+    }
+
+    public boolean getCustomControlsRequested()
+    {
+        com.google.android.gms.ads.VideoOptions r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zzb;
+
+        return z0;
+    }
+
+    public boolean getStartMuted()
+    {
+        com.google.android.gms.ads.VideoOptions r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.zza;
+
+        return z0;
+    }
+}

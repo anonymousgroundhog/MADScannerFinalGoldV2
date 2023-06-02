@@ -1,0 +1,91 @@
+public final class com.google.android.gms.internal.ads.zzeok extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final java.util.List zza;
+    public final android.os.Bundle zzb;
+
+    public void <init>(java.util.List, android.os.Bundle)
+    {
+        com.google.android.gms.internal.ads.zzeok r0;
+        java.util.List $r1;
+        android.os.Bundle $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.internal.ads.zzeok r0;
+        android.os.Bundle $r1;
+        java.util.Iterator $r4;
+        com.google.android.gms.internal.ads.zzfut $r6;
+        com.google.android.gms.internal.ads.zzeoo $r8;
+        java.util.List $r2;
+        org.json.JSONObject $r7;
+        int $i0;
+        java.lang.Object $r5;
+        java.lang.String $r9;
+        org.json.JSONArray $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $r3 = new org.json.JSONArray;
+
+        specialinvoke $r3.<init>();
+
+        $r4 = interfaceinvoke $r2.iterator();
+
+     label1:
+        $z0 = interfaceinvoke $r4.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $r5 = interfaceinvoke $r4.next();
+
+        $r6 = (com.google.android.gms.internal.ads.zzfut) $r5;
+
+        $r5 = interfaceinvoke $r6.get();
+
+        $r7 = (org.json.JSONObject) $r5;
+
+        if $r7 == null goto label1;
+
+        $r5 = interfaceinvoke $r6.get();
+
+        virtualinvoke $r3.put($r5);
+
+        goto label1;
+
+     label2:
+        $i0 = virtualinvoke $r3.length();
+
+        if $i0 != 0 goto label3;
+
+        return null;
+
+     label3:
+        $r8 = new com.google.android.gms.internal.ads.zzeoo;
+
+        $r9 = virtualinvoke $r3.toString();
+
+        specialinvoke $r8.<init>($r9, $r1);
+
+        return $r8;
+    }
+}

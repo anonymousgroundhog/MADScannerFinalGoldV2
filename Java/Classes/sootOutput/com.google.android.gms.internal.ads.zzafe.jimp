@@ -1,0 +1,7 @@
+interface  com.google.android.gms.internal.ads.zzafe extends java.lang.Object implements com.google.android.gms.internal.ads.zzaax
+{
+
+    public abstract long zzb();
+
+    public abstract long zzc(long);
+}

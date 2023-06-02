@@ -1,0 +1,101 @@
+public final class com.google.android.gms.internal.ads.zzavs extends com.google.android.gms.internal.ads.zzasv implements android.os.IInterface
+{
+
+    void <init>(android.os.IBinder)
+    {
+        com.google.android.gms.internal.ads.zzavs r0;
+        android.os.IBinder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, "com.google.android.gms.ads.internal.cache.ICacheService");
+
+        return;
+    }
+
+    public final long zze(com.google.android.gms.internal.ads.zzavq) throws android.os.RemoteException
+    {
+        long $l0;
+        com.google.android.gms.internal.ads.zzavs r0;
+        com.google.android.gms.internal.ads.zzavq $r1;
+        android.os.Parcel $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zze($r2, $r1);
+
+        $r2 = virtualinvoke r0.zzbg(3, $r2);
+
+        $l0 = virtualinvoke $r2.readLong();
+
+        virtualinvoke $r2.recycle();
+
+        return $l0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzavn zzf(com.google.android.gms.internal.ads.zzavq) throws android.os.RemoteException
+    {
+        android.os.Parcelable $r4;
+        com.google.android.gms.internal.ads.zzavn $r5;
+        com.google.android.gms.internal.ads.zzavs r0;
+        android.os.Parcelable$Creator $r3;
+        com.google.android.gms.internal.ads.zzavq $r1;
+        android.os.Parcel $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zze($r2, $r1);
+
+        $r2 = virtualinvoke r0.zzbg(1, $r2);
+
+        $r3 = com.google.android.gms.internal.ads.zzavn.CREATOR;
+
+        $r4 = com.google.android.gms.internal.ads.zzasx.zza($r2, $r3);
+
+        $r5 = (com.google.android.gms.internal.ads.zzavn) $r4;
+
+        virtualinvoke $r2.recycle();
+
+        return $r5;
+    }
+
+    public final com.google.android.gms.internal.ads.zzavn zzg(com.google.android.gms.internal.ads.zzavq) throws android.os.RemoteException
+    {
+        android.os.Parcelable $r4;
+        com.google.android.gms.internal.ads.zzavn $r5;
+        com.google.android.gms.internal.ads.zzavs r0;
+        android.os.Parcelable$Creator $r3;
+        com.google.android.gms.internal.ads.zzavq $r1;
+        android.os.Parcel $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zze($r2, $r1);
+
+        $r2 = virtualinvoke r0.zzbg(2, $r2);
+
+        $r3 = com.google.android.gms.internal.ads.zzavn.CREATOR;
+
+        $r4 = com.google.android.gms.internal.ads.zzasx.zza($r2, $r3);
+
+        $r5 = (com.google.android.gms.internal.ads.zzavn) $r4;
+
+        virtualinvoke $r2.recycle();
+
+        return $r5;
+    }
+}

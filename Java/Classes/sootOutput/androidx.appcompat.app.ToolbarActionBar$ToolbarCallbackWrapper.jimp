@@ -1,0 +1,98 @@
+class androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper extends androidx.appcompat.view.WindowCallbackWrapper
+{
+    final androidx.appcompat.app.ToolbarActionBar this$0;
+
+    public void <init>(androidx.appcompat.app.ToolbarActionBar, android.view.Window$Callback)
+    {
+        androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper r0;
+        androidx.appcompat.app.ToolbarActionBar $r1;
+        android.view.Window$Callback $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>($r2);
+
+        return;
+    }
+
+    public android.view.View onCreatePanelView(int)
+    {
+        androidx.appcompat.widget.DecorToolbar $r3;
+        android.content.Context $r4;
+        androidx.appcompat.app.ToolbarActionBar $r2;
+        int $i0;
+        android.view.View $r1;
+        androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        if $i0 != 0 goto label1;
+
+        $r1 = new android.view.View;
+
+        $r2 = r0.this$0;
+
+        $r3 = $r2.mDecorToolbar;
+
+        $r4 = interfaceinvoke $r3.getContext();
+
+        specialinvoke $r1.<init>($r4);
+
+        return $r1;
+
+     label1:
+        $r1 = specialinvoke r0.onCreatePanelView($i0);
+
+        return $r1;
+    }
+
+    public boolean onPreparePanel(int, android.view.View, android.view.Menu)
+    {
+        androidx.appcompat.widget.DecorToolbar $r4;
+        androidx.appcompat.app.ToolbarActionBar $r3;
+        int $i0;
+        android.view.Menu $r2;
+        android.view.View $r1;
+        androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper r0;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z0 = specialinvoke r0.onPreparePanel($i0, $r1, $r2);
+
+        if $z0 == 0 goto label1;
+
+        $r3 = r0.this$0;
+
+        $z1 = $r3.mToolbarMenuPrepared;
+
+        if $z1 != 0 goto label1;
+
+        $r3 = r0.this$0;
+
+        $r4 = $r3.mDecorToolbar;
+
+        interfaceinvoke $r4.setMenuPrepared();
+
+        $r3 = r0.this$0;
+
+        $r3.mToolbarMenuPrepared = 1;
+
+     label1:
+        return $z0;
+    }
+}

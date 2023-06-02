@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzbat extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzbau zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbau $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbau;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbat.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzbau zza()
+    {
+        com.google.android.gms.internal.ads.zzbau r0;
+
+        r0 = com.google.android.gms.internal.ads.zzbat.zza;
+
+        return r0;
+    }
+}

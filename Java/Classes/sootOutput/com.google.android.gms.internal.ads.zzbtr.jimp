@@ -1,0 +1,724 @@
+public final class com.google.android.gms.internal.ads.zzbtr extends java.lang.Object
+{
+    private int zzA;
+    private final java.lang.String zzB;
+    private boolean zzC;
+    private int zza;
+    private boolean zzb;
+    private boolean zzc;
+    private int zzd;
+    private int zze;
+    private int zzf;
+    private java.lang.String zzg;
+    private int zzh;
+    private int zzi;
+    private int zzj;
+    private boolean zzk;
+    private int zzl;
+    private double zzm;
+    private boolean zzn;
+    private java.lang.String zzo;
+    private java.lang.String zzp;
+    private final boolean zzq;
+    private final boolean zzr;
+    private final java.lang.String zzs;
+    private final boolean zzt;
+    private final boolean zzu;
+    private final boolean zzv;
+    private final java.lang.String zzw;
+    private final java.lang.String zzx;
+    private float zzy;
+    private int zzz;
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r2;
+        android.content.pm.PackageManager $r3;
+        android.content.pm.PackageManager$NameNotFoundException $r11;
+        com.google.android.gms.common.wrappers.PackageManagerWrapper $r8;
+        android.content.pm.PackageInfo $r9;
+        java.util.Locale $r4;
+        android.content.pm.ActivityInfo $r7;
+        int $i0;
+        java.lang.String $r1, $r6;
+        boolean $z0, $z1;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        java.lang.Exception $r12;
+        android.util.DisplayMetrics $r14;
+        android.content.pm.ResolveInfo $r5;
+        float $f0;
+        java.lang.StringBuilder $r10;
+        android.content.res.Resources $r13;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r3 = virtualinvoke $r2.getPackageManager();
+
+        com.google.android.gms.internal.ads.zzbar.zzc($r2);
+
+        specialinvoke r0.zzc($r2);
+
+        specialinvoke r0.zze($r2);
+
+        specialinvoke r0.zzd($r2);
+
+        $r4 = java.util.Locale.getDefault();
+
+        $r5 = com.google.android.gms.internal.ads.zzbtr.zzb($r3, "geo:0,0?q=donuts");
+
+        $z0 = 1;
+
+        if $r5 == null goto label01;
+
+        $z1 = 1;
+
+        goto label02;
+
+     label01:
+        $z1 = 0;
+
+     label02:
+        r0.zzq = $z1;
+
+        $r5 = com.google.android.gms.internal.ads.zzbtr.zzb($r3, "http://www.google.com");
+
+        if $r5 == null goto label03;
+
+        goto label04;
+
+     label03:
+        $z0 = 0;
+
+     label04:
+        r0.zzr = $z0;
+
+        $r6 = virtualinvoke $r4.getCountry();
+
+        r0.zzs = $r6;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        com.google.android.gms.ads.internal.client.zzay.zzb();
+
+        $z0 = com.google.android.gms.internal.ads.zzbyt.zzs();
+
+        r0.zzt = $z0;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isLatchsky($r2);
+
+        r0.zzu = $z0;
+
+        $z0 = com.google.android.gms.common.util.DeviceProperties.isSidewinder($r2);
+
+        r0.zzv = $z0;
+
+        $r6 = virtualinvoke $r4.getLanguage();
+
+        r0.zzw = $r6;
+
+        $r5 = com.google.android.gms.internal.ads.zzbtr.zzb($r3, "market://details?id=com.google.android.gms.ads");
+
+        $r6 = null;
+
+        if $r5 != null goto label05;
+
+        $r1 = null;
+
+        goto label14;
+
+     label05:
+        $r7 = $r5.activityInfo;
+
+        if $r7 != null goto label06;
+
+        $r1 = null;
+
+        goto label14;
+
+     label06:
+        $r8 = com.google.android.gms.common.wrappers.Wrappers.packageManager($r2);
+
+     label07:
+        $r1 = $r7.packageName;
+
+     label08:
+        $r9 = virtualinvoke $r8.getPackageInfo($r1, 0);
+
+     label09:
+        if $r9 == null goto label13;
+
+        $i0 = $r9.versionCode;
+
+        $r1 = $r7.packageName;
+
+        $r10 = new java.lang.StringBuilder;
+
+     label10:
+        specialinvoke $r10.<init>();
+
+        virtualinvoke $r10.append($i0);
+
+        virtualinvoke $r10.append(".");
+
+        virtualinvoke $r10.append($r1);
+
+        $r1 = virtualinvoke $r10.toString();
+
+     label11:
+        goto label14;
+
+     label12:
+        $r11 := @caughtexception;
+
+     label13:
+        $r1 = null;
+
+     label14:
+        r0.zzx = $r1;
+
+     label15:
+        $r8 = com.google.android.gms.common.wrappers.Wrappers.packageManager($r2);
+
+        $r9 = virtualinvoke $r8.getPackageInfo("com.android.vending", 128);
+
+     label16:
+        if $r9 == null goto label21;
+
+     label17:
+        $i0 = $r9.versionCode;
+
+        $r1 = $r9.packageName;
+
+     label18:
+        $r10 = new java.lang.StringBuilder;
+
+     label19:
+        specialinvoke $r10.<init>();
+
+        virtualinvoke $r10.append($i0);
+
+        virtualinvoke $r10.append(".");
+
+        virtualinvoke $r10.append($r1);
+
+        $r1 = virtualinvoke $r10.toString();
+
+     label20:
+        $r6 = $r1;
+
+        goto label23;
+
+     label21:
+        goto label23;
+
+     label22:
+        $r12 := @caughtexception;
+
+     label23:
+        r0.zzB = $r6;
+
+        $r13 = virtualinvoke $r2.getResources();
+
+        if $r13 != null goto label24;
+
+        return;
+
+     label24:
+        $r14 = virtualinvoke $r13.getDisplayMetrics();
+
+        if $r14 != null goto label25;
+
+        return;
+
+     label25:
+        $f0 = $r14.density;
+
+        r0.zzy = $f0;
+
+        $i0 = $r14.widthPixels;
+
+        r0.zzz = $i0;
+
+        $i0 = $r14.heightPixels;
+
+        r0.zzA = $i0;
+
+        return;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label06 to label07 with label12;
+        catch android.content.pm.PackageManager$NameNotFoundException from label08 to label09 with label12;
+        catch android.content.pm.PackageManager$NameNotFoundException from label10 to label11 with label12;
+        catch java.lang.Exception from label15 to label16 with label22;
+        catch java.lang.Exception from label17 to label18 with label22;
+        catch java.lang.Exception from label19 to label20 with label22;
+    }
+
+    public void <init>(android.content.Context, com.google.android.gms.internal.ads.zzbts)
+    {
+        com.google.android.gms.internal.ads.zzbts $r1;
+        android.content.Context $r2;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        int $i0;
+        float $f0;
+        java.lang.String $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbar.zzc($r2);
+
+        specialinvoke r0.zzc($r2);
+
+        specialinvoke r0.zze($r2);
+
+        specialinvoke r0.zzd($r2);
+
+        $r3 = android.os.Build.FINGERPRINT;
+
+        r0.zzo = $r3;
+
+        $r3 = android.os.Build.DEVICE;
+
+        r0.zzp = $r3;
+
+        $z0 = com.google.android.gms.internal.ads.zzbbs.zzg($r2);
+
+        r0.zzC = $z0;
+
+        $z0 = $r1.zza;
+
+        r0.zzq = $z0;
+
+        $z0 = $r1.zzb;
+
+        r0.zzr = $z0;
+
+        $r3 = $r1.zzd;
+
+        r0.zzs = $r3;
+
+        $z0 = $r1.zze;
+
+        r0.zzt = $z0;
+
+        $z0 = $r1.zzf;
+
+        r0.zzu = $z0;
+
+        $z0 = $r1.zzg;
+
+        r0.zzv = $z0;
+
+        $r3 = $r1.zzh;
+
+        r0.zzw = $r3;
+
+        $r3 = $r1.zzi;
+
+        r0.zzx = $r3;
+
+        $r3 = $r1.zzj;
+
+        r0.zzB = $r3;
+
+        $f0 = $r1.zzm;
+
+        r0.zzy = $f0;
+
+        $i0 = $r1.zzn;
+
+        r0.zzz = $i0;
+
+        $i0 = $r1.zzo;
+
+        r0.zzA = $i0;
+
+        return;
+    }
+
+    private static android.content.pm.ResolveInfo zzb(android.content.pm.PackageManager, java.lang.String)
+    {
+        java.lang.Throwable $r5;
+        android.content.pm.PackageManager $r0;
+        com.google.android.gms.internal.ads.zzbyj $r6;
+        android.net.Uri $r3;
+        android.content.Intent $r2;
+        java.lang.String $r1;
+        android.content.pm.ResolveInfo $r4;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+     label1:
+        $r2 = new android.content.Intent;
+
+        $r3 = android.net.Uri.parse($r1);
+
+        specialinvoke $r2.<init>("android.intent.action.VIEW", $r3);
+
+        $r4 = virtualinvoke $r0.resolveActivity($r2, 65536);
+
+     label2:
+        return $r4;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r6 = com.google.android.gms.ads.internal.zzt.zzo();
+
+        virtualinvoke $r6.zzu($r5, "DeviceInfo.getResolveInfo");
+
+        return null;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private final void zzc(android.content.Context)
+    {
+        java.lang.Throwable $r4;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        android.media.AudioManager $r3;
+        com.google.android.gms.internal.ads.zzbyj $r5;
+        int $i0;
+        java.lang.Object $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke $r1.getSystemService("audio");
+
+        $r3 = (android.media.AudioManager) $r2;
+
+        if $r3 == null goto label4;
+
+     label1:
+        $i0 = virtualinvoke $r3.getMode();
+
+        r0.zza = $i0;
+
+        $z0 = virtualinvoke $r3.isMusicActive();
+
+        r0.zzb = $z0;
+
+        $z0 = virtualinvoke $r3.isSpeakerphoneOn();
+
+        r0.zzc = $z0;
+
+        $i0 = virtualinvoke $r3.getStreamVolume(3);
+
+        r0.zzd = $i0;
+
+        $i0 = virtualinvoke $r3.getRingerMode();
+
+        r0.zze = $i0;
+
+        $i0 = virtualinvoke $r3.getStreamVolume(2);
+
+        r0.zzf = $i0;
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        $r5 = com.google.android.gms.ads.internal.zzt.zzo();
+
+        virtualinvoke $r5.zzu($r4, "DeviceInfo.gatherAudioInfo");
+
+     label4:
+        r0.zza = -2;
+
+        r0.zzb = 0;
+
+        r0.zzc = 0;
+
+        r0.zzd = 0;
+
+        r0.zze = 2;
+
+        r0.zzf = 0;
+
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    private final void zzd(android.content.Context)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        android.content.IntentFilter $r8;
+        android.content.Intent $r7;
+        com.google.android.gms.internal.ads.zzbap $r4;
+        int $i0, $i1, $i2;
+        java.lang.Boolean $r6;
+        float $f0, $f1;
+        java.lang.Object $r5;
+        com.google.android.gms.internal.ads.zzbaj $r3;
+        boolean $z0;
+        double $d0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r8 = new android.content.IntentFilter;
+
+        specialinvoke $r8.<init>("android.intent.action.BATTERY_CHANGED");
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzjn;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Boolean) $r5;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 33 goto label1;
+
+        $r7 = virtualinvoke $r1.registerReceiver(null, $r8, 4);
+
+        goto label2;
+
+     label1:
+        $r7 = virtualinvoke $r1.registerReceiver(null, $r8);
+
+     label2:
+        $z0 = 0;
+
+        if $r7 == null goto label5;
+
+        $i0 = virtualinvoke $r7.getIntExtra("status", -1);
+
+        $i1 = virtualinvoke $r7.getIntExtra("level", -1);
+
+        $i2 = virtualinvoke $r7.getIntExtra("scale", -1);
+
+        $f0 = (float) $i1;
+
+        $f1 = (float) $i2;
+
+        $f0 = $f0 / $f1;
+
+        $d0 = (double) $f0;
+
+        r0.zzm = $d0;
+
+        if $i0 == 2 goto label3;
+
+        if $i0 != 5 goto label4;
+
+     label3:
+        $z0 = 1;
+
+     label4:
+        r0.zzn = $z0;
+
+        return;
+
+     label5:
+        r0.zzm = -1.0;
+
+        goto label4;
+    }
+
+    private final void zze(android.content.Context)
+    {
+        android.net.ConnectivityManager $r4;
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        android.net.NetworkInfo $r9;
+        com.google.android.gms.internal.ads.zzbap $r7;
+        android.telephony.TelephonyManager $r3;
+        int $i0;
+        java.lang.Boolean $r8;
+        java.lang.Object $r2;
+        java.lang.String $r5;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzbaj $r6;
+        android.net.NetworkInfo$DetailedState $r10;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = virtualinvoke $r1.getSystemService("phone");
+
+        $r3 = (android.telephony.TelephonyManager) $r2;
+
+        $r2 = virtualinvoke $r1.getSystemService("connectivity");
+
+        $r4 = (android.net.ConnectivityManager) $r2;
+
+        $r5 = virtualinvoke $r3.getNetworkOperator();
+
+        r0.zzg = $r5;
+
+        $z0 = com.google.android.gms.common.util.PlatformVersion.isAtLeastR();
+
+        if $z0 == 0 goto label1;
+
+        $r6 = com.google.android.gms.internal.ads.zzbar.zzhN;
+
+        $r7 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r2 = virtualinvoke $r7.zzb($r6);
+
+        $r8 = (java.lang.Boolean) $r2;
+
+        $z0 = virtualinvoke $r8.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $i0 = 0;
+
+        goto label2;
+
+     label1:
+        $i0 = virtualinvoke $r3.getNetworkType();
+
+     label2:
+        r0.zzi = $i0;
+
+        $i0 = virtualinvoke $r3.getPhoneType();
+
+        r0.zzj = $i0;
+
+        r0.zzh = -2;
+
+        r0.zzk = 0;
+
+        r0.zzl = -1;
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $z0 = com.google.android.gms.ads.internal.util.zzs.zzw($r1, "android.permission.ACCESS_NETWORK_STATE");
+
+        if $z0 == 0 goto label5;
+
+        $r9 = virtualinvoke $r4.getActiveNetworkInfo();
+
+        if $r9 == null goto label3;
+
+        $i0 = virtualinvoke $r9.getType();
+
+        r0.zzh = $i0;
+
+        $r10 = virtualinvoke $r9.getDetailedState();
+
+        $i0 = virtualinvoke $r10.ordinal();
+
+        r0.zzl = $i0;
+
+        goto label4;
+
+     label3:
+        r0.zzh = -1;
+
+     label4:
+        $z0 = virtualinvoke $r4.isActiveNetworkMetered();
+
+        r0.zzk = $z0;
+
+     label5:
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbts zza()
+    {
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9;
+        java.lang.String $r1, $r2, $r3, $r4, $r5, $r7, $r8;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9;
+        double $d0;
+        com.google.android.gms.internal.ads.zzbts $r6;
+        com.google.android.gms.internal.ads.zzbtr r0;
+        float $f0;
+
+        r0 := @this;
+
+        $r6 = new com.google.android.gms.internal.ads.zzbts;
+
+        $i1 = r0.zza;
+
+        $z0 = r0.zzq;
+
+        $z1 = r0.zzr;
+
+        $r1 = r0.zzg;
+
+        $r2 = r0.zzs;
+
+        $z2 = r0.zzt;
+
+        $z3 = r0.zzu;
+
+        $z4 = r0.zzv;
+
+        $z5 = r0.zzb;
+
+        $z6 = r0.zzc;
+
+        $r3 = r0.zzw;
+
+        $r4 = r0.zzx;
+
+        $r5 = r0.zzB;
+
+        $i0 = r0.zzd;
+
+        $i2 = r0.zzh;
+
+        $i3 = r0.zzi;
+
+        $i4 = r0.zzj;
+
+        $i5 = r0.zze;
+
+        $i6 = r0.zzf;
+
+        $f0 = r0.zzy;
+
+        $i7 = r0.zzz;
+
+        $i8 = r0.zzA;
+
+        $d0 = r0.zzm;
+
+        $z7 = r0.zzn;
+
+        $z8 = r0.zzk;
+
+        $i9 = r0.zzl;
+
+        $r7 = r0.zzo;
+
+        $z9 = r0.zzC;
+
+        $r8 = r0.zzp;
+
+        specialinvoke $r6.<init>($i1, $z0, $z1, $r1, $r2, $z2, $z3, $z4, $z5, $z6, $r3, $r4, $r5, $i0, $i2, $i3, $i4, $i5, $i6, $f0, $i7, $i8, $d0, $z7, $z8, $i9, $r7, $z9, $r8);
+
+        return $r6;
+    }
+}

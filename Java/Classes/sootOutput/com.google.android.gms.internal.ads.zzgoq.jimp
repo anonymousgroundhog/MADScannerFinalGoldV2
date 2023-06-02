@@ -1,0 +1,52 @@
+final class com.google.android.gms.internal.ads.zzgoq extends java.lang.Object
+{
+    public int zza;
+    public long zzb;
+    public java.lang.Object zzc;
+    public final com.google.android.gms.internal.ads.zzgpy zzd;
+
+    void <init>()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzgoq r0;
+        java.lang.NullPointerException r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $i0 = com.google.android.gms.internal.ads.zzgpy.zzb;
+
+        r1 = new java.lang.NullPointerException;
+
+        specialinvoke r1.<init>("Null throw statement replaced by Soot");
+
+        throw r1;
+    }
+
+    void <init>(com.google.android.gms.internal.ads.zzgpy)
+    {
+        com.google.android.gms.internal.ads.zzgoq r0;
+        com.google.android.gms.internal.ads.zzgpy $r1;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        if $r1 == null goto label1;
+
+        r0.zzd = $r1;
+
+        return;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+}

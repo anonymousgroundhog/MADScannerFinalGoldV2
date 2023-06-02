@@ -1,0 +1,83 @@
+public final class com.google.android.gms.internal.ads.zzbvj extends com.google.android.gms.internal.ads.zzbvc
+{
+    private final com.google.android.gms.ads.rewarded.RewardedAdLoadCallback zza;
+    private final com.google.android.gms.ads.rewarded.RewardedAd zzb;
+
+    public void <init>(com.google.android.gms.ads.rewarded.RewardedAdLoadCallback, com.google.android.gms.ads.rewarded.RewardedAd)
+    {
+        com.google.android.gms.ads.rewarded.RewardedAd $r2;
+        com.google.android.gms.internal.ads.zzbvj r0;
+        com.google.android.gms.ads.rewarded.RewardedAdLoadCallback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void zze(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzbvj r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return;
+    }
+
+    public final void zzf(com.google.android.gms.ads.internal.client.zze)
+    {
+        com.google.android.gms.ads.LoadAdError $r1;
+        com.google.android.gms.ads.internal.client.zze $r2;
+        com.google.android.gms.internal.ads.zzbvj r0;
+        com.google.android.gms.ads.rewarded.RewardedAdLoadCallback $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        if $r3 == null goto label1;
+
+        $r1 = virtualinvoke $r2.zzb();
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r3.onAdFailedToLoad($r1);
+
+     label1:
+        return;
+    }
+
+    public final void zzg()
+    {
+        com.google.android.gms.ads.rewarded.RewardedAd $r2;
+        com.google.android.gms.internal.ads.zzbvj r0;
+        com.google.android.gms.ads.rewarded.RewardedAdLoadCallback $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        if $r1 == null goto label1;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r1.onAdLoaded($r2);
+
+     label1:
+        return;
+    }
+}

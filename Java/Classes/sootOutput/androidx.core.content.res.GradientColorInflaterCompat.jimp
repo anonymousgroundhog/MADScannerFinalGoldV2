@@ -1,0 +1,441 @@
+final class androidx.core.content.res.GradientColorInflaterCompat extends java.lang.Object
+{
+    private static final int TILE_MODE_CLAMP;
+    private static final int TILE_MODE_MIRROR;
+    private static final int TILE_MODE_REPEAT;
+
+    private void <init>()
+    {
+        androidx.core.content.res.GradientColorInflaterCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    private static androidx.core.content.res.GradientColorInflaterCompat$ColorStops checkColors(androidx.core.content.res.GradientColorInflaterCompat$ColorStops, int, int, boolean, int)
+    {
+        int $i0, $i1, $i2;
+        androidx.core.content.res.GradientColorInflaterCompat$ColorStops $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $z0 := @parameter3;
+
+        $i2 := @parameter4;
+
+        if $r0 == null goto label1;
+
+        return $r0;
+
+     label1:
+        if $z0 == 0 goto label2;
+
+        $r0 = new androidx.core.content.res.GradientColorInflaterCompat$ColorStops;
+
+        specialinvoke $r0.<init>($i0, $i2, $i1);
+
+        return $r0;
+
+     label2:
+        $r0 = new androidx.core.content.res.GradientColorInflaterCompat$ColorStops;
+
+        specialinvoke $r0.<init>($i0, $i1);
+
+        return $r0;
+    }
+
+    static android.graphics.Shader createFromXml(android.content.res.Resources, org.xmlpull.v1.XmlPullParser, android.content.res.Resources$Theme) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException
+    {
+        org.xmlpull.v1.XmlPullParserException $r5;
+        android.util.AttributeSet $r3;
+        int $i0;
+        android.graphics.Shader $r4;
+        android.content.res.Resources$Theme $r2;
+        android.content.res.Resources $r0;
+        org.xmlpull.v1.XmlPullParser $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = android.util.Xml.asAttributeSet($r1);
+
+     label1:
+        $i0 = interfaceinvoke $r1.next();
+
+        if $i0 == 2 goto label2;
+
+        if $i0 == 1 goto label2;
+
+        goto label1;
+
+     label2:
+        if $i0 != 2 goto label3;
+
+        $r4 = androidx.core.content.res.GradientColorInflaterCompat.createFromXmlInner($r0, $r1, $r3, $r2);
+
+        return $r4;
+
+     label3:
+        $r5 = new org.xmlpull.v1.XmlPullParserException;
+
+        specialinvoke $r5.<init>("No start tag found");
+
+        goto label4;
+
+     label4:
+        throw $r5;
+    }
+
+    static android.graphics.Shader createFromXmlInner(android.content.res.Resources, org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, android.content.res.Resources$Theme) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException
+    {
+        android.graphics.RadialGradient $r14;
+        android.util.AttributeSet $r2;
+        byte $b6;
+        int[] r5;
+        org.xmlpull.v1.XmlPullParser $r1;
+        boolean $z0;
+        org.xmlpull.v1.XmlPullParserException $r15;
+        float $f0, $f1, $f2, $f3, $f4, $f5, $f6;
+        androidx.core.content.res.GradientColorInflaterCompat$ColorStops $r7;
+        java.lang.StringBuilder r10, $r16;
+        android.graphics.Shader$TileMode $r9;
+        float[] $r8;
+        android.content.res.TypedArray $r6;
+        int i0, i1, i2, i3, i4, $i5;
+        java.lang.String $r4, $r11;
+        android.graphics.SweepGradient $r13;
+        android.content.res.Resources$Theme $r3;
+        android.graphics.LinearGradient $r12;
+        android.content.res.Resources $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 = interfaceinvoke $r1.getName();
+
+        $z0 = virtualinvoke $r4.equals("gradient");
+
+        if $z0 == 0 goto label5;
+
+        r5 = androidx.core.R$styleable.GradientColor;
+
+        $r6 = androidx.core.content.res.TypedArrayUtils.obtainAttributes($r0, $r3, $r2, r5);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_startX;
+
+        $f0 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "startX", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_startY;
+
+        $f1 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "startY", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_endX;
+
+        $f2 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "endX", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_endY;
+
+        $f3 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "endY", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_centerX;
+
+        $f4 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "centerX", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_centerY;
+
+        $f5 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "centerY", i0, 0.0F);
+
+        i0 = androidx.core.R$styleable.GradientColor_android_type;
+
+        i0 = androidx.core.content.res.TypedArrayUtils.getNamedInt($r6, $r1, "type", i0, 0);
+
+        i1 = androidx.core.R$styleable.GradientColor_android_startColor;
+
+        i1 = androidx.core.content.res.TypedArrayUtils.getNamedColor($r6, $r1, "startColor", i1, 0);
+
+        $z0 = androidx.core.content.res.TypedArrayUtils.hasAttribute($r1, "centerColor");
+
+        i2 = androidx.core.R$styleable.GradientColor_android_centerColor;
+
+        i2 = androidx.core.content.res.TypedArrayUtils.getNamedColor($r6, $r1, "centerColor", i2, 0);
+
+        i3 = androidx.core.R$styleable.GradientColor_android_endColor;
+
+        i3 = androidx.core.content.res.TypedArrayUtils.getNamedColor($r6, $r1, "endColor", i3, 0);
+
+        i4 = androidx.core.R$styleable.GradientColor_android_tileMode;
+
+        i4 = androidx.core.content.res.TypedArrayUtils.getNamedInt($r6, $r1, "tileMode", i4, 0);
+
+        $i5 = androidx.core.R$styleable.GradientColor_android_gradientRadius;
+
+        $f6 = androidx.core.content.res.TypedArrayUtils.getNamedFloat($r6, $r1, "gradientRadius", $i5, 0.0F);
+
+        virtualinvoke $r6.recycle();
+
+        $r7 = androidx.core.content.res.GradientColorInflaterCompat.inflateChildElements($r0, $r1, $r2, $r3);
+
+        $r7 = androidx.core.content.res.GradientColorInflaterCompat.checkColors($r7, i1, i3, $z0, i2);
+
+        lookupswitch(i0)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        $r12 = new android.graphics.LinearGradient;
+
+        r5 = $r7.mColors;
+
+        $r8 = $r7.mOffsets;
+
+        $r9 = androidx.core.content.res.GradientColorInflaterCompat.parseTileMode(i4);
+
+        specialinvoke $r12.<init>($f0, $f1, $f2, $f3, r5, $r8, $r9);
+
+        return $r12;
+
+     label2:
+        $r13 = new android.graphics.SweepGradient;
+
+        r5 = $r7.mColors;
+
+        $r8 = $r7.mOffsets;
+
+        specialinvoke $r13.<init>($f4, $f5, r5, $r8);
+
+        return $r13;
+
+     label3:
+        $b6 = $f6 cmpg 0.0F;
+
+        i0 = (int) $b6;
+
+        if i0 <= 0 goto label4;
+
+        $r14 = new android.graphics.RadialGradient;
+
+        r5 = $r7.mColors;
+
+        $r8 = $r7.mOffsets;
+
+        $r9 = androidx.core.content.res.GradientColorInflaterCompat.parseTileMode(i4);
+
+        specialinvoke $r14.<init>($f4, $f5, $f6, r5, $r8, $r9);
+
+        return $r14;
+
+     label4:
+        $r15 = new org.xmlpull.v1.XmlPullParserException;
+
+        specialinvoke $r15.<init>("<gradient> tag requires \'gradientRadius\' attribute with radial type");
+
+        throw $r15;
+
+     label5:
+        $r15 = new org.xmlpull.v1.XmlPullParserException;
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<init>();
+
+        $r11 = interfaceinvoke $r1.getPositionDescription();
+
+        r10 = virtualinvoke $r16.append($r11);
+
+        r10 = virtualinvoke r10.append(": invalid gradient color tag ");
+
+        r10 = virtualinvoke r10.append($r4);
+
+        $r4 = virtualinvoke r10.toString();
+
+        specialinvoke $r15.<init>($r4);
+
+        throw $r15;
+    }
+
+    private static androidx.core.content.res.GradientColorInflaterCompat$ColorStops inflateChildElements(android.content.res.Resources, org.xmlpull.v1.XmlPullParser, android.util.AttributeSet, android.content.res.Resources$Theme) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException
+    {
+        java.lang.Float $r10;
+        java.lang.Integer $r9;
+        java.util.ArrayList r4, r5;
+        android.content.res.TypedArray $r8;
+        android.util.AttributeSet $r2;
+        int[] r7;
+        int $i0, $i1, $i2;
+        java.lang.String $r6;
+        android.content.res.Resources$Theme $r3;
+        org.xmlpull.v1.XmlPullParser $r1;
+        boolean $z0, $z1;
+        org.xmlpull.v1.XmlPullParserException $r11;
+        float $f0;
+        androidx.core.content.res.GradientColorInflaterCompat$ColorStops $r13;
+        java.lang.StringBuilder r12;
+        android.content.res.Resources $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $i0 = interfaceinvoke $r1.getDepth();
+
+        $i0 = $i0 + 1;
+
+        r4 = new java.util.ArrayList;
+
+        specialinvoke r4.<init>(20);
+
+        r5 = new java.util.ArrayList;
+
+        specialinvoke r5.<init>(20);
+
+     label1:
+        $i1 = interfaceinvoke $r1.next();
+
+        if $i1 == 1 goto label6;
+
+        $i2 = interfaceinvoke $r1.getDepth();
+
+        if $i2 >= $i0 goto label2;
+
+        if $i1 == 3 goto label6;
+
+     label2:
+        if $i1 == 2 goto label3;
+
+        goto label1;
+
+     label3:
+        if $i2 > $i0 goto label1;
+
+        $r6 = interfaceinvoke $r1.getName();
+
+        $z0 = virtualinvoke $r6.equals("item");
+
+        if $z0 != 0 goto label4;
+
+        goto label1;
+
+     label4:
+        r7 = androidx.core.R$styleable.GradientColorItem;
+
+        $r8 = androidx.core.content.res.TypedArrayUtils.obtainAttributes($r0, $r3, $r2, r7);
+
+        $i1 = androidx.core.R$styleable.GradientColorItem_android_color;
+
+        $z0 = virtualinvoke $r8.hasValue($i1);
+
+        $i1 = androidx.core.R$styleable.GradientColorItem_android_offset;
+
+        $z1 = virtualinvoke $r8.hasValue($i1);
+
+        if $z0 == 0 goto label5;
+
+        if $z1 == 0 goto label5;
+
+        $i1 = androidx.core.R$styleable.GradientColorItem_android_color;
+
+        $i1 = virtualinvoke $r8.getColor($i1, 0);
+
+        $i2 = androidx.core.R$styleable.GradientColorItem_android_offset;
+
+        $f0 = virtualinvoke $r8.getFloat($i2, 0.0F);
+
+        virtualinvoke $r8.recycle();
+
+        $r9 = java.lang.Integer.valueOf($i1);
+
+        interfaceinvoke r5.add($r9);
+
+        $r10 = java.lang.Float.valueOf($f0);
+
+        interfaceinvoke r4.add($r10);
+
+        goto label1;
+
+     label5:
+        $r11 = new org.xmlpull.v1.XmlPullParserException;
+
+        r12 = new java.lang.StringBuilder;
+
+        specialinvoke r12.<init>();
+
+        $r6 = interfaceinvoke $r1.getPositionDescription();
+
+        r12 = virtualinvoke r12.append($r6);
+
+        r12 = virtualinvoke r12.append(": <item> tag requires a \'color\' attribute and a \'offset\' attribute!");
+
+        $r6 = virtualinvoke r12.toString();
+
+        specialinvoke $r11.<init>($r6);
+
+        throw $r11;
+
+     label6:
+        $i0 = interfaceinvoke r5.size();
+
+        if $i0 <= 0 goto label7;
+
+        $r13 = new androidx.core.content.res.GradientColorInflaterCompat$ColorStops;
+
+        specialinvoke $r13.<init>(r5, r4);
+
+        return $r13;
+
+     label7:
+        return null;
+    }
+
+    private static android.graphics.Shader$TileMode parseTileMode(int)
+    {
+        int $i0;
+        android.graphics.Shader$TileMode r0;
+
+        $i0 := @parameter0;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label3;
+            case 2: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        r0 = android.graphics.Shader$TileMode.CLAMP;
+
+        return r0;
+
+     label2:
+        r0 = android.graphics.Shader$TileMode.MIRROR;
+
+        return r0;
+
+     label3:
+        r0 = android.graphics.Shader$TileMode.REPEAT;
+
+        return r0;
+    }
+}

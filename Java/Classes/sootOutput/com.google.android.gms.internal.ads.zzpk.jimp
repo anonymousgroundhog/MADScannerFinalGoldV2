@@ -1,0 +1,67 @@
+final class com.google.android.gms.internal.ads.zzpk extends java.lang.Object implements com.google.android.gms.internal.ads.zzof
+{
+    final com.google.android.gms.internal.ads.zzpl zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzpl, com.google.android.gms.internal.ads.zzpj)
+    {
+        com.google.android.gms.internal.ads.zzpk r0;
+        com.google.android.gms.internal.ads.zzpl $r1;
+        com.google.android.gms.internal.ads.zzpj $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Exception)
+    {
+        com.google.android.gms.internal.ads.zzpk r0;
+        com.google.android.gms.internal.ads.zzpl $r3;
+        com.google.android.gms.internal.ads.zzob $r2;
+        java.lang.Exception $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        com.google.android.gms.internal.ads.zzee.zzc("MediaCodecAudioRenderer", "Audio sink error", $r1);
+
+        $r3 = r0.zza;
+
+        $r2 = com.google.android.gms.internal.ads.zzpl.zzU($r3);
+
+        virtualinvoke $r2.zzb($r1);
+
+        return;
+    }
+
+    public final void zzb()
+    {
+        com.google.android.gms.internal.ads.zzpk r0;
+        com.google.android.gms.internal.ads.zzpl $r1;
+        com.google.android.gms.internal.ads.zzkm $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $r2 = com.google.android.gms.internal.ads.zzpl.zzT($r1);
+
+        if $r2 == null goto label1;
+
+        $r2 = com.google.android.gms.internal.ads.zzpl.zzT($r1);
+
+        interfaceinvoke $r2.zzb();
+
+     label1:
+        return;
+    }
+}

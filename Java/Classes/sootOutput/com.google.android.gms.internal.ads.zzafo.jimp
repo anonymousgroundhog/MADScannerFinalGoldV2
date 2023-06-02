@@ -1,0 +1,133 @@
+final class com.google.android.gms.internal.ads.zzafo extends java.lang.Object implements com.google.android.gms.internal.ads.zzafm
+{
+    private final int zza;
+    private final int zzb;
+    private final com.google.android.gms.internal.ads.zzen zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzafi, com.google.android.gms.internal.ads.zzaf)
+    {
+        com.google.android.gms.internal.ads.zzafi $r1;
+        com.google.android.gms.internal.ads.zzaf $r2;
+        com.google.android.gms.internal.ads.zzen $r3;
+        com.google.android.gms.internal.ads.zzafo r0;
+        int $i0, $i1, $i2, $i3;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r4, $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = $r1.zza;
+
+        r0.zzc = $r3;
+
+        virtualinvoke $r3.zzF(12);
+
+        $i0 = virtualinvoke $r3.zzn();
+
+        $i1 = $i0;
+
+        $r4 = $r2.zzm;
+
+        $r5 = "audio/raw";
+
+        $z0 = virtualinvoke $r5.equals($r4);
+
+        if $z0 == 0 goto label2;
+
+        $i2 = $r2.zzB;
+
+        $i3 = $r2.zzz;
+
+        $i2 = com.google.android.gms.internal.ads.zzew.zzo($i2, $i3);
+
+        if $i0 == 0 goto label1;
+
+        $i3 = $i0 % $i2;
+
+        if $i3 == 0 goto label2;
+
+     label1:
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        virtualinvoke $r7.append("Audio sample size mismatch. stsd sample size: ");
+
+        virtualinvoke $r7.append($i2);
+
+        virtualinvoke $r7.append(", stsz sample size: ");
+
+        virtualinvoke $r7.append($i0);
+
+        $r4 = virtualinvoke $r7.toString();
+
+        com.google.android.gms.internal.ads.zzee.zze("AtomParsers", $r4);
+
+        $i1 = $i2;
+
+     label2:
+        if $i1 != 0 goto label3;
+
+        $i1 = -1;
+
+     label3:
+        r0.zza = $i1;
+
+        $i0 = virtualinvoke $r3.zzn();
+
+        r0.zzb = $i0;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzafo r0;
+        int i0;
+
+        r0 := @this;
+
+        i0 = r0.zza;
+
+        return i0;
+    }
+
+    public final int zzb()
+    {
+        com.google.android.gms.internal.ads.zzafo r0;
+        int i0;
+
+        r0 := @this;
+
+        i0 = r0.zzb;
+
+        return i0;
+    }
+
+    public final int zzc()
+    {
+        com.google.android.gms.internal.ads.zzafo r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzen $r1;
+
+        r0 := @this;
+
+        $i0 = r0.zza;
+
+        if $i0 != -1 goto label1;
+
+        $r1 = r0.zzc;
+
+        $i0 = virtualinvoke $r1.zzn();
+
+     label1:
+        return $i0;
+    }
+}

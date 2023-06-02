@@ -1,0 +1,35 @@
+final class com.google.android.gms.internal.ads.zzajs extends com.google.android.gms.internal.ads.zzajt
+{
+    private final byte[] zza;
+
+    public void <init>(java.security.cert.X509Certificate, byte[])
+    {
+        com.google.android.gms.internal.ads.zzajs r0;
+        java.security.cert.X509Certificate $r1;
+        byte[] $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.zza = $r2;
+
+        return;
+    }
+
+    public final byte[] getEncoded() throws java.security.cert.CertificateEncodingException
+    {
+        com.google.android.gms.internal.ads.zzajs r0;
+        byte[] r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

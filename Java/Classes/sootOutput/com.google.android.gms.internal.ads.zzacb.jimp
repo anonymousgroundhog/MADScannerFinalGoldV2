@@ -1,0 +1,282 @@
+final class com.google.android.gms.internal.ads.zzacb extends com.google.android.gms.internal.ads.zzacg
+{
+    private static final int[] zzb;
+    private boolean zzc;
+    private boolean zzd;
+    private int zze;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[4];
+
+        $r0[0] = 5512;
+
+        $r0[1] = 11025;
+
+        $r0[2] = 22050;
+
+        $r0[3] = 44100;
+
+        com.google.android.gms.internal.ads.zzacb.zzb = $r0;
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.internal.ads.zzabb)
+    {
+        com.google.android.gms.internal.ads.zzabb $r1;
+        com.google.android.gms.internal.ads.zzacb r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    protected final boolean zza(com.google.android.gms.internal.ads.zzen) throws com.google.android.gms.internal.ads.zzacf
+    {
+        com.google.android.gms.internal.ads.zzabb $r5;
+        com.google.android.gms.internal.ads.zzacb r0;
+        com.google.android.gms.internal.ads.zzacf $r6;
+        com.google.android.gms.internal.ads.zzaf $r4;
+        com.google.android.gms.internal.ads.zzad $r3;
+        int[] $r2;
+        com.google.android.gms.internal.ads.zzen $r1;
+        int $i0, $i1;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r8;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = r0.zzc;
+
+        if $z0 != 0 goto label8;
+
+        $i0 = virtualinvoke $r1.zzk();
+
+        $i1 = $i0 >> 4;
+
+        r0.zze = $i1;
+
+        if $i1 != 2 goto label1;
+
+        $i0 = $i0 >> 2;
+
+        $r2 = com.google.android.gms.internal.ads.zzacb.zzb;
+
+        $i0 = $i0 & 3;
+
+        $i0 = $r2[$i0];
+
+        $r3 = new com.google.android.gms.internal.ads.zzad;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r3.zzS("audio/mpeg");
+
+        virtualinvoke $r3.zzw(1);
+
+        virtualinvoke $r3.zzT($i0);
+
+        $r4 = virtualinvoke $r3.zzY();
+
+        $r5 = r0.zza;
+
+        interfaceinvoke $r5.zzk($r4);
+
+        r0.zzd = 1;
+
+        goto label7;
+
+     label1:
+        if $i1 == 7 goto label4;
+
+        if $i1 != 8 goto label2;
+
+        goto label4;
+
+     label2:
+        if $i1 != 10 goto label3;
+
+        goto label7;
+
+     label3:
+        $r6 = new com.google.android.gms.internal.ads.zzacf;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        virtualinvoke $r7.append("Audio format not supported: ");
+
+        virtualinvoke $r7.append($i1);
+
+        $r8 = virtualinvoke $r7.toString();
+
+        specialinvoke $r6.<init>($r8);
+
+        throw $r6;
+
+     label4:
+        $r3 = new com.google.android.gms.internal.ads.zzad;
+
+        specialinvoke $r3.<init>();
+
+        if $i1 != 7 goto label5;
+
+        $r8 = "audio/g711-alaw";
+
+        goto label6;
+
+     label5:
+        $r8 = "audio/g711-mlaw";
+
+     label6:
+        virtualinvoke $r3.zzS($r8);
+
+        virtualinvoke $r3.zzw(1);
+
+        virtualinvoke $r3.zzT(8000);
+
+        $r4 = virtualinvoke $r3.zzY();
+
+        $r5 = r0.zza;
+
+        interfaceinvoke $r5.zzk($r4);
+
+        r0.zzd = 1;
+
+     label7:
+        r0.zzc = 1;
+
+        return 1;
+
+     label8:
+        virtualinvoke $r1.zzG(1);
+
+        return 1;
+    }
+
+    protected final boolean zzb(com.google.android.gms.internal.ads.zzen, long) throws com.google.android.gms.internal.ads.zzbu
+    {
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzabb $r2;
+        com.google.android.gms.internal.ads.zzacb r0;
+        com.google.android.gms.internal.ads.zzyr $r4;
+        long $l0;
+        com.google.android.gms.internal.ads.zzaf $r8;
+        com.google.android.gms.internal.ads.zzad $r5;
+        java.util.List $r7;
+        com.google.android.gms.internal.ads.zzen $r3;
+        int $i1, $i2;
+        java.lang.String $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $l0 := @parameter1;
+
+        $i1 = r0.zze;
+
+        if $i1 != 2 goto label1;
+
+        $i1 = virtualinvoke $r3.zza();
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.zzq($r3, $i1);
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.zzs($l0, 1, $i1, 0, null);
+
+        return 1;
+
+     label1:
+        $i1 = virtualinvoke $r3.zzk();
+
+        if $i1 != 0 goto label3;
+
+        $z0 = r0.zzd;
+
+        if $z0 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $i1 = virtualinvoke $r3.zza();
+
+        $r1 = newarray (byte)[$i1];
+
+        virtualinvoke $r3.zzB($r1, 0, $i1);
+
+        $r4 = com.google.android.gms.internal.ads.zzys.zza($r1);
+
+        $r5 = new com.google.android.gms.internal.ads.zzad;
+
+        specialinvoke $r5.<init>();
+
+        virtualinvoke $r5.zzS("audio/mp4a-latm");
+
+        $r6 = $r4.zzc;
+
+        virtualinvoke $r5.zzx($r6);
+
+        $i1 = $r4.zzb;
+
+        virtualinvoke $r5.zzw($i1);
+
+        $i1 = $r4.zza;
+
+        virtualinvoke $r5.zzT($i1);
+
+        $r7 = java.util.Collections.singletonList($r1);
+
+        virtualinvoke $r5.zzI($r7);
+
+        $r8 = virtualinvoke $r5.zzY();
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.zzk($r8);
+
+        r0.zzd = 1;
+
+        return 0;
+
+     label3:
+        $i2 = r0.zze;
+
+        if $i2 != 10 goto label5;
+
+        if $i1 != 1 goto label4;
+
+        goto label5;
+
+     label4:
+        return 0;
+
+     label5:
+        $i1 = virtualinvoke $r3.zza();
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.zzq($r3, $i1);
+
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.zzs($l0, 1, $i1, 0, null);
+
+        return 1;
+    }
+}

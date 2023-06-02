@@ -1,0 +1,5 @@
+public interface  com.google.android.gms.internal.ads.zzaly extends java.lang.Object
+{
+
+    public abstract com.google.android.gms.internal.ads.zzamb zzb(com.google.android.gms.internal.ads.zzgwk, com.google.android.gms.internal.ads.zzamc) throws java.io.IOException;
+}

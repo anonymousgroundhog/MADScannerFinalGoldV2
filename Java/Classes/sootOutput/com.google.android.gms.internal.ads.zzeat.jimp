@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzeat extends java.lang.Object
+{
+
+    public abstract com.google.android.gms.internal.ads.zzfut zza(com.google.android.gms.internal.ads.zzeyo, com.google.android.gms.internal.ads.zzeyc);
+
+    public abstract boolean zzb(com.google.android.gms.internal.ads.zzeyo, com.google.android.gms.internal.ads.zzeyc);
+}

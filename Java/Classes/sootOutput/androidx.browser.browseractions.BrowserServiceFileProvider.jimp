@@ -1,0 +1,229 @@
+public final class androidx.browser.browseractions.BrowserServiceFileProvider extends androidx.core.content.FileProvider
+{
+    private static final java.lang.String AUTHORITY_SUFFIX;
+    private static final java.lang.String CLIP_DATA_LABEL;
+    private static final java.lang.String CONTENT_SCHEME;
+    private static final java.lang.String FILE_EXTENSION;
+    private static final java.lang.String FILE_SUB_DIR;
+    private static final java.lang.String FILE_SUB_DIR_NAME;
+    private static final java.lang.String LAST_CLEANUP_TIME_KEY;
+    private static final java.lang.String TAG;
+    static java.lang.Object sFileCleanupLock;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<init>();
+
+        androidx.browser.browseractions.BrowserServiceFileProvider.sFileCleanupLock = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        androidx.browser.browseractions.BrowserServiceFileProvider r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    private static android.net.Uri generateUri(android.content.Context, java.lang.String)
+    {
+        android.content.Context $r0;
+        android.net.Uri $r5;
+        java.lang.StringBuilder r2;
+        java.lang.String $r1, $r4;
+        android.net.Uri$Builder $r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 = new java.lang.StringBuilder;
+
+        specialinvoke r2.<init>();
+
+        r2 = virtualinvoke r2.append("image_provider_images/");
+
+        r2 = virtualinvoke r2.append($r1);
+
+        r2 = virtualinvoke r2.append(".png");
+
+        $r1 = virtualinvoke r2.toString();
+
+        $r3 = new android.net.Uri$Builder;
+
+        specialinvoke $r3.<init>();
+
+        $r3 = virtualinvoke $r3.scheme("content");
+
+        r2 = new java.lang.StringBuilder;
+
+        specialinvoke r2.<init>();
+
+        $r4 = virtualinvoke $r0.getPackageName();
+
+        r2 = virtualinvoke r2.append($r4);
+
+        r2 = virtualinvoke r2.append(".image_provider");
+
+        $r4 = virtualinvoke r2.toString();
+
+        $r3 = virtualinvoke $r3.authority($r4);
+
+        $r3 = virtualinvoke $r3.path($r1);
+
+        $r5 = virtualinvoke $r3.build();
+
+        return $r5;
+    }
+
+    public static void grantReadPermission(android.content.Intent, java.util.List, android.content.Context)
+    {
+        android.content.Context $r2;
+        android.net.Uri r5;
+        android.content.Intent $r0;
+        android.content.ClipData$Item $r7;
+        android.content.ClipData $r6;
+        java.util.List r1;
+        android.content.ContentResolver $r3;
+        int $i0, $i1;
+        java.lang.Object $r4;
+
+        $r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        if r1 == null goto label4;
+
+        $i0 = interfaceinvoke r1.size();
+
+        if $i0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r3 = virtualinvoke $r2.getContentResolver();
+
+        virtualinvoke $r0.addFlags(1);
+
+        $r4 = interfaceinvoke r1.get(0);
+
+        r5 = (android.net.Uri) $r4;
+
+        $r6 = android.content.ClipData.newUri($r3, "image_provider_uris", r5);
+
+        $i0 = 1;
+
+     label2:
+        $i1 = interfaceinvoke r1.size();
+
+        if $i0 >= $i1 goto label3;
+
+        $r7 = new android.content.ClipData$Item;
+
+        $r4 = interfaceinvoke r1.get($i0);
+
+        r5 = (android.net.Uri) $r4;
+
+        specialinvoke $r7.<init>(r5);
+
+        virtualinvoke $r6.addItem($r7);
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label3:
+        virtualinvoke $r0.setClipData($r6);
+
+     label4:
+        return;
+    }
+
+    public static com.google.common.util.concurrent.ListenableFuture loadBitmap(android.content.ContentResolver, android.net.Uri)
+    {
+        android.content.ContentResolver $r0;
+        java.util.concurrent.Executor $r2;
+        android.net.Uri $r1;
+        androidx.concurrent.futures.ResolvableFuture $r4;
+        androidx.browser.browseractions.BrowserServiceFileProvider$1 $r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r4 = androidx.concurrent.futures.ResolvableFuture.create();
+
+        $r2 = android.os.AsyncTask.THREAD_POOL_EXECUTOR;
+
+        $r3 = new androidx.browser.browseractions.BrowserServiceFileProvider$1;
+
+        specialinvoke $r3.<init>($r0, $r1, $r4);
+
+        interfaceinvoke $r2.execute($r3);
+
+        return $r4;
+    }
+
+    public static androidx.concurrent.futures.ResolvableFuture saveBitmap(android.content.Context, android.graphics.Bitmap, java.lang.String, int)
+    {
+        androidx.browser.browseractions.BrowserServiceFileProvider$FileSaveTask $r3;
+        android.content.Context $r0;
+        java.util.concurrent.Executor $r7;
+        android.net.Uri $r5;
+        androidx.concurrent.futures.ResolvableFuture $r6;
+        java.lang.String[] $r8;
+        android.graphics.Bitmap $r1;
+        int $i0;
+        java.lang.StringBuilder r4;
+        java.lang.String $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 := @parameter3;
+
+        r4 = new java.lang.StringBuilder;
+
+        specialinvoke r4.<init>();
+
+        r4 = virtualinvoke r4.append($r2);
+
+        r4 = virtualinvoke r4.append("_");
+
+        $r2 = java.lang.Integer.toString($i0);
+
+        r4 = virtualinvoke r4.append($r2);
+
+        $r2 = virtualinvoke r4.toString();
+
+        $r5 = androidx.browser.browseractions.BrowserServiceFileProvider.generateUri($r0, $r2);
+
+        $r6 = androidx.concurrent.futures.ResolvableFuture.create();
+
+        $r3 = new androidx.browser.browseractions.BrowserServiceFileProvider$FileSaveTask;
+
+        specialinvoke $r3.<init>($r0, $r2, $r1, $r5, $r6);
+
+        $r7 = android.os.AsyncTask.THREAD_POOL_EXECUTOR;
+
+        $r8 = newarray (java.lang.String)[0];
+
+        virtualinvoke $r3.executeOnExecutor($r7, $r8);
+
+        return $r6;
+    }
+}

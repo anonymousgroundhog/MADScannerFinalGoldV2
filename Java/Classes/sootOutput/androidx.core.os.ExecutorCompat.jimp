@@ -1,0 +1,28 @@
+public final class androidx.core.os.ExecutorCompat extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.os.ExecutorCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static java.util.concurrent.Executor create(android.os.Handler)
+    {
+        androidx.core.os.ExecutorCompat$HandlerExecutor $r1;
+        android.os.Handler $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new androidx.core.os.ExecutorCompat$HandlerExecutor;
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,23 @@
+final class com.google.android.gms.internal.ads.zzafi extends com.google.android.gms.internal.ads.zzafj
+{
+    public final com.google.android.gms.internal.ads.zzen zza;
+
+    public void <init>(int, com.google.android.gms.internal.ads.zzen)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzafi r0;
+        com.google.android.gms.internal.ads.zzen $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>($i0);
+
+        r0.zza = $r1;
+
+        return;
+    }
+}

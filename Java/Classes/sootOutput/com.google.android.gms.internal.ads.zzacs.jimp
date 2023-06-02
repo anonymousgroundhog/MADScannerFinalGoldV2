@@ -1,0 +1,143 @@
+public final class com.google.android.gms.internal.ads.zzacs extends java.lang.Object
+{
+    private final java.io.ByteArrayOutputStream zza;
+    private final java.io.DataOutputStream zzb;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzacs r0;
+        java.io.ByteArrayOutputStream $r1;
+        java.io.DataOutputStream $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $r1.<init>(512);
+
+        r0.zza = $r1;
+
+        $r2 = new java.io.DataOutputStream;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    private static void zzb(java.io.DataOutputStream, java.lang.String) throws java.io.IOException
+    {
+        java.lang.String $r1;
+        java.io.DataOutputStream $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        virtualinvoke $r0.writeBytes($r1);
+
+        virtualinvoke $r0.writeByte(0);
+
+        return;
+    }
+
+    public final byte[] zza(com.google.android.gms.internal.ads.zzacr)
+    {
+        byte[] $r1;
+        java.io.ByteArrayOutputStream $r3;
+        long $l0;
+        java.io.IOException $r6;
+        java.lang.RuntimeException $r7;
+        com.google.android.gms.internal.ads.zzacs r0;
+        com.google.android.gms.internal.ads.zzacr $r2;
+        java.io.DataOutputStream $r4;
+        java.lang.String $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r3.reset();
+
+        $r4 = r0.zzb;
+
+        $r5 = $r2.zza;
+
+     label01:
+        com.google.android.gms.internal.ads.zzacs.zzb($r4, $r5);
+
+     label02:
+        $r5 = $r2.zzb;
+
+        if $r5 != null goto label03;
+
+        $r5 = "";
+
+     label03:
+        $r4 = r0.zzb;
+
+     label04:
+        com.google.android.gms.internal.ads.zzacs.zzb($r4, $r5);
+
+     label05:
+        $r4 = r0.zzb;
+
+        $l0 = $r2.zzc;
+
+     label06:
+        virtualinvoke $r4.writeLong($l0);
+
+     label07:
+        $r4 = r0.zzb;
+
+        $l0 = $r2.zzd;
+
+     label08:
+        virtualinvoke $r4.writeLong($l0);
+
+     label09:
+        $r4 = r0.zzb;
+
+        $r1 = $r2.zze;
+
+     label10:
+        virtualinvoke $r4.write($r1);
+
+     label11:
+        $r4 = r0.zzb;
+
+     label12:
+        virtualinvoke $r4.flush();
+
+     label13:
+        $r3 = r0.zza;
+
+     label14:
+        $r1 = virtualinvoke $r3.toByteArray();
+
+     label15:
+        return $r1;
+
+     label16:
+        $r6 := @caughtexception;
+
+        $r7 = new java.lang.RuntimeException;
+
+        specialinvoke $r7.<init>($r6);
+
+        throw $r7;
+
+        catch java.io.IOException from label01 to label02 with label16;
+        catch java.io.IOException from label04 to label05 with label16;
+        catch java.io.IOException from label06 to label07 with label16;
+        catch java.io.IOException from label08 to label09 with label16;
+        catch java.io.IOException from label10 to label11 with label16;
+        catch java.io.IOException from label12 to label13 with label16;
+        catch java.io.IOException from label14 to label15 with label16;
+    }
+}

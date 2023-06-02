@@ -1,0 +1,57 @@
+final class androidx.viewpager.widget.ViewPager$1 extends java.lang.Object implements java.util.Comparator
+{
+
+    void <init>()
+    {
+        androidx.viewpager.widget.ViewPager$1 r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public int compare(androidx.viewpager.widget.ViewPager$ItemInfo, androidx.viewpager.widget.ViewPager$ItemInfo)
+    {
+        androidx.viewpager.widget.ViewPager$1 r0;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r1, $r2;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i1 = $r1.position;
+
+        $i0 = $r2.position;
+
+        $i0 = $i1 - $i0;
+
+        return $i0;
+    }
+
+    public volatile int compare(java.lang.Object, java.lang.Object)
+    {
+        androidx.viewpager.widget.ViewPager$1 r0;
+        androidx.viewpager.widget.ViewPager$ItemInfo $r3, $r4;
+        int $i0;
+        java.lang.Object $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r1;
+
+        $r4 = (androidx.viewpager.widget.ViewPager$ItemInfo) $r2;
+
+        $i0 = virtualinvoke r0.compare($r3, $r4);
+
+        return $i0;
+    }
+}

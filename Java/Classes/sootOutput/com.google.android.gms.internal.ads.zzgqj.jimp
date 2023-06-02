@@ -1,0 +1,20 @@
+public abstract class com.google.android.gms.internal.ads.zzgqj extends com.google.android.gms.internal.ads.zzgqm implements com.google.android.gms.internal.ads.zzgrx
+{
+    protected final com.google.android.gms.internal.ads.zzgqd zzb;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgqd $r1;
+        com.google.android.gms.internal.ads.zzgqj r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = com.google.android.gms.internal.ads.zzgqd.zza();
+
+        r0.zzb = $r1;
+
+        return;
+    }
+}

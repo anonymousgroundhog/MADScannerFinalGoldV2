@@ -1,0 +1,5 @@
+public interface  com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks extends java.lang.Object implements com.google.android.gms.common.api.internal.ConnectionCallbacks
+{
+    public static final int CAUSE_NETWORK_LOST;
+    public static final int CAUSE_SERVICE_DISCONNECTED;
+}

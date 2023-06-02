@@ -1,0 +1,22 @@
+public abstract class com.google.android.gms.internal.ads.zzeqf extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzeqf r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract com.google.android.gms.internal.ads.zzepq zza();
+
+    public abstract com.google.android.gms.internal.ads.zzepq zzb();
+
+    public abstract com.google.android.gms.internal.ads.zzfda zzc();
+
+    public abstract com.google.android.gms.internal.ads.zzfen zzd();
+}

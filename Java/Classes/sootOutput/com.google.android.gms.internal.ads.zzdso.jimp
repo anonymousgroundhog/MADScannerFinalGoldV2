@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzdso extends java.lang.Object implements com.google.android.gms.ads.OnUserEarnedRewardListener
+{
+    public static final com.google.android.gms.internal.ads.zzdso zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdso $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdso;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdso.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdso r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onUserEarnedReward(com.google.android.gms.ads.rewarded.RewardItem)
+    {
+        com.google.android.gms.ads.rewarded.RewardItem $r1;
+        com.google.android.gms.internal.ads.zzdso r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

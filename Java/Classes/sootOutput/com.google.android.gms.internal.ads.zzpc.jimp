@@ -1,0 +1,121 @@
+final class com.google.android.gms.internal.ads.zzpc extends android.media.AudioTrack$StreamEventCallback
+{
+    final com.google.android.gms.internal.ads.zzpf zza;
+    final com.google.android.gms.internal.ads.zzpd zzb;
+
+    void <init>(com.google.android.gms.internal.ads.zzpd, com.google.android.gms.internal.ads.zzpf)
+    {
+        com.google.android.gms.internal.ads.zzpf $r2;
+        com.google.android.gms.internal.ads.zzpc r0;
+        com.google.android.gms.internal.ads.zzpd $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zzb = $r1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onDataRequest(android.media.AudioTrack, int)
+    {
+        android.media.AudioTrack $r1, $r4;
+        int $i0;
+        com.google.android.gms.internal.ads.zzof $r5;
+        com.google.android.gms.internal.ads.zzpf $r3;
+        com.google.android.gms.internal.ads.zzpc r0;
+        com.google.android.gms.internal.ads.zzpd $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = r0.zzb;
+
+        $r3 = $r2.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzpf.zzB($r3);
+
+        $z0 = virtualinvoke $r1.equals($r4);
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = r0.zzb;
+
+        $r3 = $r2.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzpf.zzC($r3);
+
+        if $r5 == null goto label2;
+
+        $z0 = com.google.android.gms.internal.ads.zzpf.zzE($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = com.google.android.gms.internal.ads.zzpf.zzC($r3);
+
+        interfaceinvoke $r5.zzb();
+
+     label2:
+        return;
+    }
+
+    public final void onTearDown(android.media.AudioTrack)
+    {
+        com.google.android.gms.internal.ads.zzof $r5;
+        android.media.AudioTrack $r1, $r4;
+        com.google.android.gms.internal.ads.zzpf $r3;
+        com.google.android.gms.internal.ads.zzpc r0;
+        com.google.android.gms.internal.ads.zzpd $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzb;
+
+        $r3 = $r2.zza;
+
+        $r4 = com.google.android.gms.internal.ads.zzpf.zzB($r3);
+
+        $z0 = virtualinvoke $r1.equals($r4);
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = r0.zzb;
+
+        $r3 = $r2.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzpf.zzC($r3);
+
+        if $r5 == null goto label2;
+
+        $z0 = com.google.android.gms.internal.ads.zzpf.zzE($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = com.google.android.gms.internal.ads.zzpf.zzC($r3);
+
+        interfaceinvoke $r5.zzb();
+
+     label2:
+        return;
+    }
+}

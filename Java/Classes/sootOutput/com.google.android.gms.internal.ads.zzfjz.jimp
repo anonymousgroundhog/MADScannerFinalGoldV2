@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzfjz extends java.lang.Object implements com.google.android.gms.internal.ads.zzfok
+{
+    public static final com.google.android.gms.internal.ads.zzfjz zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzfjz $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfjz;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfjz.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfjz r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.lang.Object zza()
+    {
+        com.google.android.gms.internal.ads.zzfjz r0;
+        java.lang.Integer $r1;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.internal.ads.zzfka.zze();
+
+        return $r1;
+    }
+}

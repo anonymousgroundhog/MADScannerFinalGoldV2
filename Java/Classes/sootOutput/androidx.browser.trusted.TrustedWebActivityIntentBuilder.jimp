@@ -1,0 +1,383 @@
+public class androidx.browser.trusted.TrustedWebActivityIntentBuilder extends java.lang.Object
+{
+    public static final java.lang.String EXTRA_ADDITIONAL_TRUSTED_ORIGINS;
+    public static final java.lang.String EXTRA_DISPLAY_MODE;
+    public static final java.lang.String EXTRA_SCREEN_ORIENTATION;
+    public static final java.lang.String EXTRA_SHARE_DATA;
+    public static final java.lang.String EXTRA_SHARE_TARGET;
+    public static final java.lang.String EXTRA_SPLASH_SCREEN_PARAMS;
+    private java.util.List mAdditionalTrustedOrigins;
+    private androidx.browser.trusted.TrustedWebActivityDisplayMode mDisplayMode;
+    private final androidx.browser.customtabs.CustomTabsIntent$Builder mIntentBuilder;
+    private int mScreenOrientation;
+    private androidx.browser.trusted.sharing.ShareData mShareData;
+    private androidx.browser.trusted.sharing.ShareTarget mShareTarget;
+    private android.os.Bundle mSplashScreenParams;
+    private final android.net.Uri mUri;
+
+    public void <init>(android.net.Uri)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        android.net.Uri $r1;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r2;
+        androidx.browser.trusted.TrustedWebActivityDisplayMode$DefaultMode $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new androidx.browser.customtabs.CustomTabsIntent$Builder;
+
+        specialinvoke $r2.<init>();
+
+        r0.mIntentBuilder = $r2;
+
+        $r3 = new androidx.browser.trusted.TrustedWebActivityDisplayMode$DefaultMode;
+
+        specialinvoke $r3.<init>();
+
+        r0.mDisplayMode = $r3;
+
+        r0.mScreenOrientation = 0;
+
+        r0.mUri = $r1;
+
+        return;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntent build(androidx.browser.customtabs.CustomTabsSession)
+    {
+        android.os.Bundle r8;
+        android.net.Uri r5;
+        androidx.browser.trusted.TrustedWebActivityIntent $r13;
+        android.content.Intent r4;
+        androidx.browser.trusted.TrustedWebActivityDisplayMode $r12;
+        androidx.browser.customtabs.CustomTabsIntent$Builder r2;
+        java.lang.NullPointerException r14;
+        java.util.ArrayList r7;
+        androidx.browser.customtabs.CustomTabsIntent $r3;
+        int $i0;
+        androidx.browser.trusted.sharing.ShareTarget $r9;
+        androidx.browser.customtabs.CustomTabsSession $r1;
+        androidx.browser.trusted.sharing.ShareData $r10;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        java.util.List r6, $r11;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label4;
+
+        r2 = r0.mIntentBuilder;
+
+        virtualinvoke r2.setSession($r1);
+
+        r2 = r0.mIntentBuilder;
+
+        $r3 = virtualinvoke r2.build();
+
+        r4 = $r3.intent;
+
+        r5 = r0.mUri;
+
+        virtualinvoke r4.setData(r5);
+
+        virtualinvoke r4.putExtra("android.support.customtabs.extra.LAUNCH_AS_TRUSTED_WEB_ACTIVITY", 1);
+
+        r6 = r0.mAdditionalTrustedOrigins;
+
+        if r6 == null goto label1;
+
+        r7 = new java.util.ArrayList;
+
+        r6 = r0.mAdditionalTrustedOrigins;
+
+        specialinvoke r7.<init>(r6);
+
+        virtualinvoke r4.putExtra("android.support.customtabs.extra.ADDITIONAL_TRUSTED_ORIGINS", r7);
+
+     label1:
+        r8 = r0.mSplashScreenParams;
+
+        if r8 == null goto label2;
+
+        virtualinvoke r4.putExtra("androidx.browser.trusted.EXTRA_SPLASH_SCREEN_PARAMS", r8);
+
+     label2:
+        r6 = java.util.Collections.emptyList();
+
+        $r9 = r0.mShareTarget;
+
+        if $r9 == null goto label3;
+
+        $r10 = r0.mShareData;
+
+        if $r10 == null goto label3;
+
+        r8 = virtualinvoke $r9.toBundle();
+
+        virtualinvoke r4.putExtra("androidx.browser.trusted.extra.SHARE_TARGET", r8);
+
+        $r10 = r0.mShareData;
+
+        r8 = virtualinvoke $r10.toBundle();
+
+        virtualinvoke r4.putExtra("androidx.browser.trusted.extra.SHARE_DATA", r8);
+
+        $r10 = r0.mShareData;
+
+        $r11 = $r10.uris;
+
+        if $r11 == null goto label3;
+
+        $r10 = r0.mShareData;
+
+        r6 = $r10.uris;
+
+     label3:
+        $r12 = r0.mDisplayMode;
+
+        r8 = interfaceinvoke $r12.toBundle();
+
+        virtualinvoke r4.putExtra("androidx.browser.trusted.extra.DISPLAY_MODE", r8);
+
+        $i0 = r0.mScreenOrientation;
+
+        virtualinvoke r4.putExtra("androidx.browser.trusted.extra.SCREEN_ORIENTATION", $i0);
+
+        $r13 = new androidx.browser.trusted.TrustedWebActivityIntent;
+
+        specialinvoke $r13.<init>(r4, r6);
+
+        return $r13;
+
+     label4:
+        r14 = new java.lang.NullPointerException;
+
+        specialinvoke r14.<init>("CustomTabsSession is required for launching a TWA");
+
+        throw r14;
+    }
+
+    public androidx.browser.customtabs.CustomTabsIntent buildCustomTabsIntent()
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent $r1;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mIntentBuilder;
+
+        $r1 = virtualinvoke $r2.build();
+
+        return $r1;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityDisplayMode getDisplayMode()
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.trusted.TrustedWebActivityDisplayMode r1;
+
+        r0 := @this;
+
+        r1 = r0.mDisplayMode;
+
+        return r1;
+    }
+
+    public android.net.Uri getUri()
+    {
+        android.net.Uri r1;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+
+        r0 := @this;
+
+        r1 = r0.mUri;
+
+        return r1;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setAdditionalTrustedOrigins(java.util.List)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        java.util.List r1;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        r0.mAdditionalTrustedOrigins = r1;
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setColorScheme(int)
+    {
+        int $i0;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mIntentBuilder;
+
+        virtualinvoke $r1.setColorScheme($i0);
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setColorSchemeParams(int, androidx.browser.customtabs.CustomTabColorSchemeParams)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        int $i0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r2;
+        androidx.browser.customtabs.CustomTabColorSchemeParams $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.mIntentBuilder;
+
+        virtualinvoke $r2.setColorSchemeParams($i0, $r1);
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setDefaultColorSchemeParams(androidx.browser.customtabs.CustomTabColorSchemeParams)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r2;
+        androidx.browser.customtabs.CustomTabColorSchemeParams $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mIntentBuilder;
+
+        virtualinvoke $r2.setDefaultColorSchemeParams($r1);
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setDisplayMode(androidx.browser.trusted.TrustedWebActivityDisplayMode)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.trusted.TrustedWebActivityDisplayMode $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mDisplayMode = $r1;
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setNavigationBarColor(int)
+    {
+        int $i0;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mIntentBuilder;
+
+        virtualinvoke $r1.setNavigationBarColor($i0);
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setNavigationBarDividerColor(int)
+    {
+        int $i0;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mIntentBuilder;
+
+        virtualinvoke $r1.setNavigationBarDividerColor($i0);
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setScreenOrientation(int)
+    {
+        int $i0;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mScreenOrientation = $i0;
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setShareParams(androidx.browser.trusted.sharing.ShareTarget, androidx.browser.trusted.sharing.ShareData)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.trusted.sharing.ShareTarget $r1;
+        androidx.browser.trusted.sharing.ShareData $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.mShareTarget = $r1;
+
+        r0.mShareData = $r2;
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setSplashScreenParams(android.os.Bundle)
+    {
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        android.os.Bundle $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSplashScreenParams = $r1;
+
+        return r0;
+    }
+
+    public androidx.browser.trusted.TrustedWebActivityIntentBuilder setToolbarColor(int)
+    {
+        int $i0;
+        androidx.browser.trusted.TrustedWebActivityIntentBuilder r0;
+        androidx.browser.customtabs.CustomTabsIntent$Builder $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mIntentBuilder;
+
+        virtualinvoke $r1.setToolbarColor($i0);
+
+        return r0;
+    }
+}

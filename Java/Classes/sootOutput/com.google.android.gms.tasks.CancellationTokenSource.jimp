@@ -1,0 +1,48 @@
+public class com.google.android.gms.tasks.CancellationTokenSource extends java.lang.Object
+{
+    private final com.google.android.gms.tasks.zzb zza;
+
+    public void <init>()
+    {
+        com.google.android.gms.tasks.zzb $r1;
+        com.google.android.gms.tasks.CancellationTokenSource r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.tasks.zzb;
+
+        specialinvoke $r1.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public void cancel()
+    {
+        com.google.android.gms.tasks.zzb $r1;
+        com.google.android.gms.tasks.CancellationTokenSource r0;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.zza();
+
+        return;
+    }
+
+    public com.google.android.gms.tasks.CancellationToken getToken()
+    {
+        com.google.android.gms.tasks.zzb r1;
+        com.google.android.gms.tasks.CancellationTokenSource r0;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

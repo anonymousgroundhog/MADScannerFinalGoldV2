@@ -1,0 +1,78 @@
+final class com.google.android.gms.internal.ads.zzdsv extends com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
+{
+    final java.lang.String zza;
+    final java.lang.String zzb;
+    final com.google.android.gms.internal.ads.zzdsz zzc;
+
+    void <init>(com.google.android.gms.internal.ads.zzdsz, java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzdsv r0;
+        java.lang.String $r2, $r3;
+        com.google.android.gms.internal.ads.zzdsz $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.zzc = $r1;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void onAdFailedToLoad(com.google.android.gms.ads.LoadAdError)
+    {
+        com.google.android.gms.ads.LoadAdError $r4;
+        com.google.android.gms.internal.ads.zzdsv r0;
+        java.lang.String $r2, $r3;
+        com.google.android.gms.internal.ads.zzdsz $r1;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 = r0.zzc;
+
+        $r3 = com.google.android.gms.internal.ads.zzdsz.zzc($r4);
+
+        $r2 = r0.zzb;
+
+        com.google.android.gms.internal.ads.zzdsz.zzd($r1, $r3, $r2);
+
+        return;
+    }
+
+    public final volatile void onAdLoaded(java.lang.Object)
+    {
+        com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd $r5;
+        java.lang.Object $r4;
+        com.google.android.gms.internal.ads.zzdsv r0;
+        java.lang.String $r2, $r3;
+        com.google.android.gms.internal.ads.zzdsz $r1;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r5 = (com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd) $r4;
+
+        $r1 = r0.zzc;
+
+        $r2 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        virtualinvoke $r1.zzg($r2, $r5, $r3);
+
+        return;
+    }
+}

@@ -1,0 +1,59 @@
+public final class com.google.android.gms.internal.ads.zzdir extends java.lang.Object implements com.google.android.gms.internal.ads.zzfnj
+{
+    public final com.google.android.gms.internal.ads.zzdis zza;
+    public final double zzb;
+    public final boolean zzc;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdis, double, boolean)
+    {
+        com.google.android.gms.internal.ads.zzdis $r1;
+        com.google.android.gms.internal.ads.zzdir r0;
+        double $d0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $d0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $d0;
+
+        r0.zzc = $z0;
+
+        return;
+    }
+
+    public final java.lang.Object apply(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzakk $r4;
+        android.graphics.Bitmap $r2;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzdis $r1;
+        com.google.android.gms.internal.ads.zzdir r0;
+        double $d0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $d0 = r0.zzb;
+
+        $z0 = r0.zzc;
+
+        $r4 = (com.google.android.gms.internal.ads.zzakk) $r3;
+
+        $r2 = virtualinvoke $r1.zza($d0, $z0, $r4);
+
+        return $r2;
+    }
+}

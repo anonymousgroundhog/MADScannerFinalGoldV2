@@ -1,0 +1,93 @@
+final class com.google.android.gms.internal.measurement.zzit extends java.lang.Object implements java.util.Comparator
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.measurement.zzit r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final int compare(java.lang.Object, java.lang.Object)
+    {
+        com.google.android.gms.internal.measurement.zzit r0;
+        com.google.android.gms.internal.measurement.zzis $r2, $r9;
+        java.lang.Integer $r7, $r8;
+        short $s1;
+        byte $b0;
+        int $i2;
+        java.lang.Object $r3, $r4;
+        com.google.android.gms.internal.measurement.zzjb $r5, $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $r5 = (com.google.android.gms.internal.measurement.zzjb) $r3;
+
+        $r6 = (com.google.android.gms.internal.measurement.zzjb) $r4;
+
+        $r2 = new com.google.android.gms.internal.measurement.zzis;
+
+        specialinvoke $r2.<init>($r5);
+
+        $r9 = new com.google.android.gms.internal.measurement.zzis;
+
+        specialinvoke $r9.<init>($r6);
+
+     label1:
+        $z0 = interfaceinvoke $r2.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $z0 = interfaceinvoke $r9.hasNext();
+
+        if $z0 == 0 goto label2;
+
+        $b0 = interfaceinvoke $r2.zza();
+
+        $s1 = (short) $b0;
+
+        $s1 = $s1 & 255;
+
+        $i2 = (int) $s1;
+
+        $r7 = java.lang.Integer.valueOf($i2);
+
+        $b0 = interfaceinvoke $r9.zza();
+
+        $s1 = (short) $b0;
+
+        $s1 = $s1 & 255;
+
+        $i2 = (int) $s1;
+
+        $r8 = java.lang.Integer.valueOf($i2);
+
+        $i2 = virtualinvoke $r7.compareTo($r8);
+
+        if $i2 == 0 goto label1;
+
+        return $i2;
+
+     label2:
+        $i2 = virtualinvoke $r5.zzd();
+
+        $r7 = java.lang.Integer.valueOf($i2);
+
+        $i2 = virtualinvoke $r6.zzd();
+
+        $r8 = java.lang.Integer.valueOf($i2);
+
+        $i2 = virtualinvoke $r7.compareTo($r8);
+
+        return $i2;
+    }
+}

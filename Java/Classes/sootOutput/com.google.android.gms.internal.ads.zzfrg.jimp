@@ -1,0 +1,13 @@
+public interface  com.google.android.gms.internal.ads.zzfrg extends java.lang.Object
+{
+
+    public abstract int zzh();
+
+    public abstract void zzr();
+
+    public abstract boolean zzs(java.lang.Object, java.lang.Object);
+
+    public abstract java.util.Collection zzt();
+
+    public abstract java.util.Map zzu();
+}

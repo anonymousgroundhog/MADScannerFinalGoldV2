@@ -1,0 +1,42 @@
+class androidx.appcompat.widget.ActivityChooserView$3 extends android.view.View$AccessibilityDelegate
+{
+    final androidx.appcompat.widget.ActivityChooserView this$0;
+
+    void <init>(androidx.appcompat.widget.ActivityChooserView)
+    {
+        androidx.appcompat.widget.ActivityChooserView$3 r0;
+        androidx.appcompat.widget.ActivityChooserView $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onInitializeAccessibilityNodeInfo(android.view.View, android.view.accessibility.AccessibilityNodeInfo)
+    {
+        android.view.accessibility.AccessibilityNodeInfo $r2;
+        androidx.appcompat.widget.ActivityChooserView$3 r0;
+        android.view.View $r1;
+        androidx.core.view.accessibility.AccessibilityNodeInfoCompat $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.onInitializeAccessibilityNodeInfo($r1, $r2);
+
+        $r3 = androidx.core.view.accessibility.AccessibilityNodeInfoCompat.wrap($r2);
+
+        virtualinvoke $r3.setCanOpenPopup(1);
+
+        return;
+    }
+}

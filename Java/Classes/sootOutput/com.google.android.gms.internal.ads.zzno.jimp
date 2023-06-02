@@ -1,0 +1,125 @@
+public final class com.google.android.gms.internal.ads.zzno extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzno zza;
+    private final com.google.android.gms.internal.ads.zznn zzb;
+
+    static void <clinit>()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zznn $r1;
+        com.google.android.gms.internal.ads.zzno $r0;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 >= 31 goto label1;
+
+        $r0 = new com.google.android.gms.internal.ads.zzno;
+
+        specialinvoke $r0.<init>();
+
+        goto label2;
+
+     label1:
+        $r0 = new com.google.android.gms.internal.ads.zzno;
+
+        $r1 = com.google.android.gms.internal.ads.zznn.zza;
+
+        specialinvoke $r0.<init>($r1);
+
+     label2:
+        com.google.android.gms.internal.ads.zzno.zza = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzno r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = null;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 >= 31 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        com.google.android.gms.internal.ads.zzdl.zzf($z0);
+
+        return;
+    }
+
+    public void <init>(android.media.metrics.LogSessionId)
+    {
+        com.google.android.gms.internal.ads.zznn $r2;
+        android.media.metrics.LogSessionId $r1;
+        com.google.android.gms.internal.ads.zzno r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new com.google.android.gms.internal.ads.zznn;
+
+        specialinvoke $r2.<init>($r1);
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    private void <init>(com.google.android.gms.internal.ads.zznn)
+    {
+        com.google.android.gms.internal.ads.zznn $r1;
+        com.google.android.gms.internal.ads.zzno r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = $r1;
+
+        return;
+    }
+
+    public final android.media.metrics.LogSessionId zza()
+    {
+        com.google.android.gms.internal.ads.zznn $r1;
+        android.media.metrics.LogSessionId r2;
+        com.google.android.gms.internal.ads.zzno r0;
+        java.lang.NullPointerException r3;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        if $r1 == null goto label1;
+
+        r2 = $r1.zzb;
+
+        return r2;
+
+     label1:
+        r3 = new java.lang.NullPointerException;
+
+        specialinvoke r3.<init>("Null throw statement replaced by Soot");
+
+        throw r3;
+    }
+}

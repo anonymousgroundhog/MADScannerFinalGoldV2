@@ -1,0 +1,184 @@
+class androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener extends java.lang.Object implements android.view.View$OnApplyWindowInsetsListener
+{
+    private static final int COMPAT_ANIMATION_DURATION;
+    final androidx.core.view.WindowInsetsAnimationCompat$Callback mCallback;
+    private androidx.core.view.WindowInsetsCompat mLastInsets;
+
+    void <init>(android.view.View, androidx.core.view.WindowInsetsAnimationCompat$Callback)
+    {
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener r0;
+        androidx.core.view.WindowInsetsAnimationCompat$Callback $r2;
+        android.view.View $r1;
+        androidx.core.view.WindowInsetsCompat $r3;
+        androidx.core.view.WindowInsetsCompat$Builder $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mCallback = $r2;
+
+        $r3 = androidx.core.view.ViewCompat.getRootWindowInsets($r1);
+
+        if $r3 == null goto label1;
+
+        $r4 = new androidx.core.view.WindowInsetsCompat$Builder;
+
+        specialinvoke $r4.<init>($r3);
+
+        $r3 = virtualinvoke $r4.build();
+
+        goto label2;
+
+     label1:
+        $r3 = null;
+
+     label2:
+        r0.mLastInsets = $r3;
+
+        return;
+    }
+
+    public android.view.WindowInsets onApplyWindowInsets(android.view.View, android.view.WindowInsets)
+    {
+        androidx.core.view.WindowInsetsAnimationCompat$Callback $r5;
+        float[] $r9;
+        long $l1;
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener r0;
+        int $i0;
+        android.view.View $r1;
+        androidx.core.view.WindowInsetsCompat r3, $r4;
+        boolean $z0;
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$2 $r13;
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$3 $r14;
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$1 $r12;
+        androidx.core.view.WindowInsetsAnimationCompat $r7;
+        androidx.core.view.WindowInsetsAnimationCompat$BoundsCompat $r11;
+        android.view.WindowInsets $r2, $r6;
+        android.view.animation.DecelerateInterpolator $r8;
+        android.animation.ValueAnimator $r10;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 = virtualinvoke $r1.isLaidOut();
+
+        if $z0 != 0 goto label1;
+
+        $r4 = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat($r2, $r1);
+
+        r0.mLastInsets = $r4;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.forwardToViewIfNeeded($r1, $r2);
+
+        return $r2;
+
+     label1:
+        $r4 = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat($r2, $r1);
+
+        r3 = r0.mLastInsets;
+
+        if r3 != null goto label2;
+
+        r3 = androidx.core.view.ViewCompat.getRootWindowInsets($r1);
+
+        r0.mLastInsets = r3;
+
+     label2:
+        r3 = r0.mLastInsets;
+
+        if r3 != null goto label3;
+
+        r0.mLastInsets = $r4;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.forwardToViewIfNeeded($r1, $r2);
+
+        return $r2;
+
+     label3:
+        $r5 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.getCallback($r1);
+
+        if $r5 == null goto label4;
+
+        $r6 = $r5.mDispachedInsets;
+
+        $z0 = java.util.Objects.equals($r6, $r2);
+
+        if $z0 == 0 goto label4;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.forwardToViewIfNeeded($r1, $r2);
+
+        return $r2;
+
+     label4:
+        r3 = r0.mLastInsets;
+
+        $i0 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.buildAnimationMask($r4, r3);
+
+        if $i0 != 0 goto label5;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.forwardToViewIfNeeded($r1, $r2);
+
+        return $r2;
+
+     label5:
+        r3 = r0.mLastInsets;
+
+        $r7 = new androidx.core.view.WindowInsetsAnimationCompat;
+
+        $r8 = new android.view.animation.DecelerateInterpolator;
+
+        specialinvoke $r8.<init>();
+
+        specialinvoke $r7.<init>($i0, $r8, 160L);
+
+        virtualinvoke $r7.setFraction(0.0F);
+
+        $r9 = newarray (float)[2];
+
+        $r9[0] = 0.0F;
+
+        $r9[1] = 1.0F;
+
+        $r10 = android.animation.ValueAnimator.ofFloat($r9);
+
+        $l1 = virtualinvoke $r7.getDurationMillis();
+
+        $r10 = virtualinvoke $r10.setDuration($l1);
+
+        $r11 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.computeAnimationBounds($r4, r3, $i0);
+
+        androidx.core.view.WindowInsetsAnimationCompat$Impl21.dispatchOnPrepare($r1, $r7, $r2, 0);
+
+        $r12 = new androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$1;
+
+        specialinvoke $r12.<init>(r0, $r7, $r4, r3, $i0, $r1);
+
+        virtualinvoke $r10.addUpdateListener($r12);
+
+        $r13 = new androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$2;
+
+        specialinvoke $r13.<init>(r0, $r7, $r1);
+
+        virtualinvoke $r10.addListener($r13);
+
+        $r14 = new androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$3;
+
+        specialinvoke $r14.<init>(r0, $r1, $r7, $r11, $r10);
+
+        androidx.core.view.OneShotPreDrawListener.add($r1, $r14);
+
+        r0.mLastInsets = $r4;
+
+        $r2 = androidx.core.view.WindowInsetsAnimationCompat$Impl21.forwardToViewIfNeeded($r1, $r2);
+
+        return $r2;
+    }
+}

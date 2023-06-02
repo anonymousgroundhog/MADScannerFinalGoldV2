@@ -1,0 +1,198 @@
+public class androidx.appcompat.widget.AppCompatCheckedTextView extends android.widget.CheckedTextView
+{
+    private static final int[] TINT_ATTRS;
+    private final androidx.appcompat.widget.AppCompatTextHelper mTextHelper;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[1];
+
+        $r0[0] = 16843016;
+
+        androidx.appcompat.widget.AppCompatCheckedTextView.TINT_ATTRS = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2, 16843720);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatTextHelper r3;
+        android.graphics.drawable.Drawable $r6;
+        android.util.AttributeSet $r2;
+        int[] $r4;
+        androidx.appcompat.widget.TintTypedArray $r5;
+        int $i0;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r1 = androidx.appcompat.widget.TintContextWrapper.wrap($r1);
+
+        specialinvoke r0.<init>($r1, $r2, $i0);
+
+        $r1 = virtualinvoke r0.getContext();
+
+        androidx.appcompat.widget.ThemeUtils.checkAppCompatTheme(r0, $r1);
+
+        r3 = new androidx.appcompat.widget.AppCompatTextHelper;
+
+        specialinvoke r3.<init>(r0);
+
+        r0.mTextHelper = r3;
+
+        virtualinvoke r3.loadFromAttributes($r2, $i0);
+
+        virtualinvoke r3.applyCompoundDrawablesTints();
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r4 = androidx.appcompat.widget.AppCompatCheckedTextView.TINT_ATTRS;
+
+        $r5 = androidx.appcompat.widget.TintTypedArray.obtainStyledAttributes($r1, $r2, $r4, $i0, 0);
+
+        $r6 = virtualinvoke $r5.getDrawable(0);
+
+        virtualinvoke r0.setCheckMarkDrawable($r6);
+
+        virtualinvoke $r5.recycle();
+
+        return;
+    }
+
+    protected void drawableStateChanged()
+    {
+        androidx.appcompat.widget.AppCompatTextHelper $r1;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+
+        r0 := @this;
+
+        specialinvoke r0.drawableStateChanged();
+
+        $r1 = r0.mTextHelper;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.applyCompoundDrawablesTints();
+
+     label1:
+        return;
+    }
+
+    public android.view.inputmethod.InputConnection onCreateInputConnection(android.view.inputmethod.EditorInfo)
+    {
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+        android.view.inputmethod.EditorInfo $r1;
+        android.view.inputmethod.InputConnection $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = specialinvoke r0.onCreateInputConnection($r1);
+
+        $r2 = androidx.appcompat.widget.AppCompatHintHelper.onCreateInputConnection($r2, $r1, r0);
+
+        return $r2;
+    }
+
+    public void setCheckMarkDrawable(int)
+    {
+        android.content.Context $r1;
+        int $i0;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = virtualinvoke r0.getContext();
+
+        $r2 = androidx.appcompat.content.res.AppCompatResources.getDrawable($r1, $i0);
+
+        virtualinvoke r0.setCheckMarkDrawable($r2);
+
+        return;
+    }
+
+    public void setCustomSelectionActionModeCallback(android.view.ActionMode$Callback)
+    {
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+        android.view.ActionMode$Callback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r1 = androidx.core.widget.TextViewCompat.wrapCustomSelectionActionModeCallback(r0, $r1);
+
+        specialinvoke r0.setCustomSelectionActionModeCallback($r1);
+
+        return;
+    }
+
+    public void setTextAppearance(android.content.Context, int)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.AppCompatTextHelper $r2;
+        int $i0;
+        androidx.appcompat.widget.AppCompatCheckedTextView r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.setTextAppearance($r1, $i0);
+
+        $r2 = r0.mTextHelper;
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r2.onSetTextAppearance($r1, $i0);
+
+     label1:
+        return;
+    }
+}

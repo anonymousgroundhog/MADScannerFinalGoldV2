@@ -1,0 +1,14 @@
+public class com.google.android.gms.internal.ads.zzfxj extends com.google.android.gms.internal.ads.zzfvx
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfxj r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

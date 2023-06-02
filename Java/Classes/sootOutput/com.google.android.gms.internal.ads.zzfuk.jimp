@@ -1,0 +1,14 @@
+class com.google.android.gms.internal.ads.zzfuk extends com.google.android.gms.internal.ads.zzfsx
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfuk r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

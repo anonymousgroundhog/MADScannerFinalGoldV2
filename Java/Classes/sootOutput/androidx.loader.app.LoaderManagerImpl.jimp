@@ -1,0 +1,587 @@
+class androidx.loader.app.LoaderManagerImpl extends androidx.loader.app.LoaderManager
+{
+    static boolean DEBUG;
+    static final java.lang.String TAG;
+    private final androidx.lifecycle.LifecycleOwner mLifecycleOwner;
+    private final androidx.loader.app.LoaderManagerImpl$LoaderViewModel mLoaderViewModel;
+
+    static void <clinit>()
+    {
+        androidx.loader.app.LoaderManagerImpl.DEBUG = 0;
+
+        return;
+    }
+
+    void <init>(androidx.lifecycle.LifecycleOwner, androidx.lifecycle.ViewModelStore)
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.lifecycle.ViewModelStore $r2;
+        androidx.lifecycle.LifecycleOwner $r1;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mLifecycleOwner = $r1;
+
+        $r3 = androidx.loader.app.LoaderManagerImpl$LoaderViewModel.getInstance($r2);
+
+        r0.mLoaderViewModel = $r3;
+
+        return;
+    }
+
+    private androidx.loader.content.Loader createAndInstallLoader(int, android.os.Bundle, androidx.loader.app.LoaderManager$LoaderCallbacks, androidx.loader.content.Loader)
+    {
+        java.lang.Throwable r12;
+        android.os.Bundle r1;
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.lifecycle.LifecycleOwner r11;
+        int i0, $i1;
+        androidx.loader.app.LoaderManagerImpl$LoaderInfo $r10;
+        java.lang.String $r9;
+        androidx.loader.content.Loader r3, $r5;
+        boolean $z0;
+        androidx.loader.app.LoaderManager$LoaderCallbacks r2;
+        java.lang.IllegalArgumentException $r7;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel r4;
+        java.lang.Class $r6;
+        java.lang.StringBuilder $r8;
+
+        r0 := @this;
+
+        i0 := @parameter0;
+
+        r1 := @parameter1;
+
+        r2 := @parameter2;
+
+        r3 := @parameter3;
+
+     label01:
+        r4 = r0.mLoaderViewModel;
+
+        virtualinvoke r4.startCreatingLoader();
+
+        $r5 = interfaceinvoke r2.onCreateLoader(i0, r1);
+
+     label02:
+        if $r5 == null goto label15;
+
+     label03:
+        $r6 = virtualinvoke $r5.getClass();
+
+        $z0 = virtualinvoke $r6.isMemberClass();
+
+     label04:
+        if $z0 == 0 goto label08;
+
+     label05:
+        $r6 = virtualinvoke $r5.getClass();
+
+        $i1 = virtualinvoke $r6.getModifiers();
+
+        $z0 = java.lang.reflect.Modifier.isStatic($i1);
+
+     label06:
+        if $z0 == 0 goto label07;
+
+        goto label08;
+
+     label07:
+        $r7 = new java.lang.IllegalArgumentException;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        $r8 = virtualinvoke $r8.append("Object returned from onCreateLoader must not be a non-static inner member class: ");
+
+        $r8 = virtualinvoke $r8.append($r5);
+
+        $r9 = virtualinvoke $r8.toString();
+
+        specialinvoke $r7.<init>($r9);
+
+        throw $r7;
+
+     label08:
+        $r10 = new androidx.loader.app.LoaderManagerImpl$LoaderInfo;
+
+        specialinvoke $r10.<init>(i0, r1, $r5, r3);
+
+     label09:
+        $z0 = androidx.loader.app.LoaderManagerImpl.DEBUG;
+
+     label10:
+        if $z0 == 0 goto label12;
+
+     label11:
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<init>();
+
+        $r8 = virtualinvoke $r8.append("  Created new loader ");
+
+        $r8 = virtualinvoke $r8.append($r10);
+
+        $r9 = virtualinvoke $r8.toString();
+
+        android.util.Log.v("LoaderManager", $r9);
+
+     label12:
+        r4 = r0.mLoaderViewModel;
+
+        virtualinvoke r4.putLoader(i0, $r10);
+
+     label13:
+        r4 = r0.mLoaderViewModel;
+
+        virtualinvoke r4.finishCreatingLoader();
+
+        r11 = r0.mLifecycleOwner;
+
+        r3 = virtualinvoke $r10.setCallback(r11, r2);
+
+        return r3;
+
+     label14:
+        r12 := @caughtexception;
+
+        goto label17;
+
+     label15:
+        $r7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r7.<init>("Object returned from onCreateLoader must not be null");
+
+        throw $r7;
+
+     label16:
+        r12 := @caughtexception;
+
+     label17:
+        r4 = r0.mLoaderViewModel;
+
+        virtualinvoke r4.finishCreatingLoader();
+
+        throw r12;
+
+        catch java.lang.Throwable from label01 to label02 with label16;
+        catch java.lang.Throwable from label03 to label04 with label16;
+        catch java.lang.Throwable from label05 to label06 with label16;
+        catch java.lang.Throwable from label07 to label09 with label16;
+        catch java.lang.Throwable from label09 to label10 with label14;
+        catch java.lang.Throwable from label11 to label13 with label14;
+        catch java.lang.Throwable from label15 to label16 with label16;
+    }
+
+    public void destroyLoader(int)
+    {
+        java.lang.IllegalStateException r7;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel r1;
+        androidx.loader.app.LoaderManagerImpl r0;
+        android.os.Looper $r2, $r3;
+        int $i0;
+        androidx.loader.app.LoaderManagerImpl$LoaderInfo $r6;
+        java.lang.StringBuilder r4;
+        java.lang.String $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mLoaderViewModel;
+
+        $z0 = virtualinvoke r1.isCreatingLoader();
+
+        if $z0 != 0 goto label3;
+
+        $r2 = android.os.Looper.getMainLooper();
+
+        $r3 = android.os.Looper.myLooper();
+
+        if $r2 != $r3 goto label2;
+
+        $z0 = androidx.loader.app.LoaderManagerImpl.DEBUG;
+
+        if $z0 == 0 goto label1;
+
+        r4 = new java.lang.StringBuilder;
+
+        specialinvoke r4.<init>();
+
+        r4 = virtualinvoke r4.append("destroyLoader in ");
+
+        r4 = virtualinvoke r4.append(r0);
+
+        r4 = virtualinvoke r4.append(" of ");
+
+        r4 = virtualinvoke r4.append($i0);
+
+        $r5 = virtualinvoke r4.toString();
+
+        android.util.Log.v("LoaderManager", $r5);
+
+     label1:
+        r1 = r0.mLoaderViewModel;
+
+        $r6 = virtualinvoke r1.getLoader($i0);
+
+        if $r6 == null goto label4;
+
+        virtualinvoke $r6.destroy(1);
+
+        r1 = r0.mLoaderViewModel;
+
+        virtualinvoke r1.removeLoader($i0);
+
+        return;
+
+     label2:
+        r7 = new java.lang.IllegalStateException;
+
+        specialinvoke r7.<init>("destroyLoader must be called on the main thread");
+
+        throw r7;
+
+     label3:
+        r7 = new java.lang.IllegalStateException;
+
+        specialinvoke r7.<init>("Called while creating a loader");
+
+        throw r7;
+
+     label4:
+        return;
+    }
+
+    public void dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[])
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        java.io.PrintWriter $r3;
+        java.io.FileDescriptor $r2;
+        java.lang.String[] $r4;
+        java.lang.String $r1;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $r5 = r0.mLoaderViewModel;
+
+        virtualinvoke $r5.dump($r1, $r2, $r3, $r4);
+
+        return;
+    }
+
+    public androidx.loader.content.Loader getLoader(int)
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        java.lang.IllegalStateException r4;
+        int $i0;
+        androidx.loader.app.LoaderManagerImpl$LoaderInfo $r2;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel r1;
+        boolean $z0;
+        androidx.loader.content.Loader $r3;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = r0.mLoaderViewModel;
+
+        $z0 = virtualinvoke r1.isCreatingLoader();
+
+        if $z0 != 0 goto label2;
+
+        r1 = r0.mLoaderViewModel;
+
+        $r2 = virtualinvoke r1.getLoader($i0);
+
+        if $r2 == null goto label1;
+
+        $r3 = virtualinvoke $r2.getLoader();
+
+        return $r3;
+
+     label1:
+        return null;
+
+     label2:
+        r4 = new java.lang.IllegalStateException;
+
+        specialinvoke r4.<init>("Called while creating a loader");
+
+        throw r4;
+    }
+
+    public boolean hasRunningLoaders()
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mLoaderViewModel;
+
+        $z0 = virtualinvoke $r1.hasRunningLoaders();
+
+        return $z0;
+    }
+
+    public androidx.loader.content.Loader initLoader(int, android.os.Bundle, androidx.loader.app.LoaderManager$LoaderCallbacks)
+    {
+        java.lang.IllegalStateException r11;
+        android.os.Bundle $r1;
+        androidx.loader.app.LoaderManager$LoaderCallbacks r2;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel r3;
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.lifecycle.LifecycleOwner $r10;
+        android.os.Looper $r4, $r5;
+        int $i0;
+        androidx.loader.app.LoaderManagerImpl$LoaderInfo $r6;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r8;
+        boolean $z0;
+        androidx.loader.content.Loader $r9;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 := @parameter2;
+
+        r3 = r0.mLoaderViewModel;
+
+        $z0 = virtualinvoke r3.isCreatingLoader();
+
+        if $z0 != 0 goto label5;
+
+        $r4 = android.os.Looper.getMainLooper();
+
+        $r5 = android.os.Looper.myLooper();
+
+        if $r4 != $r5 goto label4;
+
+        r3 = r0.mLoaderViewModel;
+
+        $r6 = virtualinvoke r3.getLoader($i0);
+
+        $z0 = androidx.loader.app.LoaderManagerImpl.DEBUG;
+
+        if $z0 == 0 goto label1;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        $r7 = virtualinvoke $r7.append("initLoader in ");
+
+        $r7 = virtualinvoke $r7.append(r0);
+
+        $r7 = virtualinvoke $r7.append(": args=");
+
+        $r7 = virtualinvoke $r7.append($r1);
+
+        $r8 = virtualinvoke $r7.toString();
+
+        android.util.Log.v("LoaderManager", $r8);
+
+     label1:
+        if $r6 != null goto label2;
+
+        $r9 = specialinvoke r0.createAndInstallLoader($i0, $r1, r2, null);
+
+        return $r9;
+
+     label2:
+        $z0 = androidx.loader.app.LoaderManagerImpl.DEBUG;
+
+        if $z0 == 0 goto label3;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<init>();
+
+        $r7 = virtualinvoke $r7.append("  Re-using existing loader ");
+
+        $r7 = virtualinvoke $r7.append($r6);
+
+        $r8 = virtualinvoke $r7.toString();
+
+        android.util.Log.v("LoaderManager", $r8);
+
+     label3:
+        $r10 = r0.mLifecycleOwner;
+
+        $r9 = virtualinvoke $r6.setCallback($r10, r2);
+
+        return $r9;
+
+     label4:
+        r11 = new java.lang.IllegalStateException;
+
+        specialinvoke r11.<init>("initLoader must be called on the main thread");
+
+        throw r11;
+
+     label5:
+        r11 = new java.lang.IllegalStateException;
+
+        specialinvoke r11.<init>("Called while creating a loader");
+
+        throw r11;
+    }
+
+    public void markForRedelivery()
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mLoaderViewModel;
+
+        virtualinvoke $r1.markForRedelivery();
+
+        return;
+    }
+
+    public androidx.loader.content.Loader restartLoader(int, android.os.Bundle, androidx.loader.app.LoaderManager$LoaderCallbacks)
+    {
+        java.lang.IllegalStateException r10;
+        android.os.Bundle $r1;
+        androidx.loader.app.LoaderManager$LoaderCallbacks r2;
+        androidx.loader.app.LoaderManagerImpl$LoaderViewModel r3;
+        androidx.loader.app.LoaderManagerImpl r0;
+        android.os.Looper $r4, $r5;
+        int $i0;
+        androidx.loader.app.LoaderManagerImpl$LoaderInfo $r8;
+        java.lang.StringBuilder r6;
+        java.lang.String $r7;
+        boolean $z0;
+        androidx.loader.content.Loader r9;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 := @parameter2;
+
+        r3 = r0.mLoaderViewModel;
+
+        $z0 = virtualinvoke r3.isCreatingLoader();
+
+        if $z0 != 0 goto label4;
+
+        $r4 = android.os.Looper.getMainLooper();
+
+        $r5 = android.os.Looper.myLooper();
+
+        if $r4 != $r5 goto label3;
+
+        $z0 = androidx.loader.app.LoaderManagerImpl.DEBUG;
+
+        if $z0 == 0 goto label1;
+
+        r6 = new java.lang.StringBuilder;
+
+        specialinvoke r6.<init>();
+
+        r6 = virtualinvoke r6.append("restartLoader in ");
+
+        r6 = virtualinvoke r6.append(r0);
+
+        r6 = virtualinvoke r6.append(": args=");
+
+        r6 = virtualinvoke r6.append($r1);
+
+        $r7 = virtualinvoke r6.toString();
+
+        android.util.Log.v("LoaderManager", $r7);
+
+     label1:
+        r3 = r0.mLoaderViewModel;
+
+        $r8 = virtualinvoke r3.getLoader($i0);
+
+        r9 = null;
+
+        if $r8 == null goto label2;
+
+        r9 = virtualinvoke $r8.destroy(0);
+
+     label2:
+        r9 = specialinvoke r0.createAndInstallLoader($i0, $r1, r2, r9);
+
+        return r9;
+
+     label3:
+        r10 = new java.lang.IllegalStateException;
+
+        specialinvoke r10.<init>("restartLoader must be called on the main thread");
+
+        throw r10;
+
+     label4:
+        r10 = new java.lang.IllegalStateException;
+
+        specialinvoke r10.<init>("Called while creating a loader");
+
+        throw r10;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.loader.app.LoaderManagerImpl r0;
+        androidx.lifecycle.LifecycleOwner $r3;
+        int $i0;
+        java.lang.StringBuilder r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        r1 = new java.lang.StringBuilder;
+
+        specialinvoke r1.<init>(128);
+
+        virtualinvoke r1.append("LoaderManager{");
+
+        $i0 = java.lang.System.identityHashCode(r0);
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        virtualinvoke r1.append($r2);
+
+        virtualinvoke r1.append(" in ");
+
+        $r3 = r0.mLifecycleOwner;
+
+        androidx.core.util.DebugUtils.buildShortClassTag($r3, r1);
+
+        virtualinvoke r1.append("}}");
+
+        $r2 = virtualinvoke r1.toString();
+
+        return $r2;
+    }
+}

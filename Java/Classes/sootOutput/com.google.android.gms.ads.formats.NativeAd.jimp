@@ -1,0 +1,21 @@
+public abstract class com.google.android.gms.ads.formats.NativeAd extends java.lang.Object
+{
+    public static final java.lang.String ASSET_ADCHOICES_CONTAINER_VIEW;
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.formats.NativeAd r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract void performClick(android.os.Bundle);
+
+    public abstract boolean recordImpression(android.os.Bundle);
+
+    public abstract void reportTouchEvent(android.os.Bundle);
+}

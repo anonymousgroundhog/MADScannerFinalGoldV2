@@ -1,0 +1,139 @@
+public final class com.google.android.gms.internal.ads.zzepy extends java.lang.Object implements com.google.android.gms.internal.ads.zzepn
+{
+    private final com.google.android.gms.internal.ads.zzfuu zza;
+    private final android.content.Context zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfuu, android.content.Context)
+    {
+        android.content.Context $r2;
+        com.google.android.gms.internal.ads.zzepy r0;
+        com.google.android.gms.internal.ads.zzfuu $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzepy r0;
+
+        r0 := @this;
+
+        return 39;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zzb()
+    {
+        com.google.android.gms.internal.ads.zzfuu $r3;
+        com.google.android.gms.internal.ads.zzfut $r2;
+        com.google.android.gms.internal.ads.zzepy r0;
+        com.google.android.gms.internal.ads.zzepx $r1;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r1 = new com.google.android.gms.internal.ads.zzepx;
+
+        specialinvoke $r1.<init>(r0);
+
+        $r2 = interfaceinvoke $r3.zzb($r1);
+
+        return $r2;
+    }
+
+    final com.google.android.gms.internal.ads.zzepw zzc() throws java.lang.Exception
+    {
+        android.net.ConnectivityManager $r5;
+        android.content.Context $r1;
+        com.google.android.gms.ads.internal.util.zzaa $r8;
+        android.net.NetworkInfo $r6;
+        android.telephony.TelephonyManager $r3;
+        int $i0, $i1, $i2, $i3;
+        java.lang.Object $r2;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzepy r0;
+        com.google.android.gms.internal.ads.zzepw $r9;
+        boolean $z0;
+        android.net.NetworkInfo$DetailedState $r7;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        $r2 = virtualinvoke $r1.getSystemService("phone");
+
+        $r3 = (android.telephony.TelephonyManager) $r2;
+
+        $r4 = virtualinvoke $r3.getNetworkOperator();
+
+        $i0 = virtualinvoke $r3.getPhoneType();
+
+        com.google.android.gms.ads.internal.zzt.zzp();
+
+        $r1 = r0.zzb;
+
+        $z0 = com.google.android.gms.ads.internal.util.zzs.zzw($r1, "android.permission.ACCESS_NETWORK_STATE");
+
+        $i1 = -1;
+
+        if $z0 == 0 goto label3;
+
+        $r1 = r0.zzb;
+
+        $r2 = virtualinvoke $r1.getSystemService("connectivity");
+
+        $r5 = (android.net.ConnectivityManager) $r2;
+
+        $r6 = virtualinvoke $r5.getActiveNetworkInfo();
+
+        if $r6 == null goto label1;
+
+        $i2 = virtualinvoke $r6.getType();
+
+        $r7 = virtualinvoke $r6.getDetailedState();
+
+        $i1 = virtualinvoke $r7.ordinal();
+
+        goto label2;
+
+     label1:
+        $i2 = -1;
+
+     label2:
+        $z0 = virtualinvoke $r5.isActiveNetworkMetered();
+
+        goto label4;
+
+     label3:
+        $i2 = -2;
+
+        $z0 = 0;
+
+        $i1 = -1;
+
+     label4:
+        $r9 = new com.google.android.gms.internal.ads.zzepw;
+
+        $r8 = com.google.android.gms.ads.internal.zzt.zzq();
+
+        $r1 = r0.zzb;
+
+        $i3 = virtualinvoke $r8.zzm($r1);
+
+        specialinvoke $r9.<init>($r4, $i2, $i3, $i0, $z0, $i1);
+
+        return $r9;
+    }
+}

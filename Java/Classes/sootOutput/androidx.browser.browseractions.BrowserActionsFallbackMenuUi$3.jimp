@@ -1,0 +1,68 @@
+class androidx.browser.browseractions.BrowserActionsFallbackMenuUi$3 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final androidx.browser.browseractions.BrowserActionsFallbackMenuUi this$0;
+    final android.widget.TextView val$urlTextView;
+
+    void <init>(androidx.browser.browseractions.BrowserActionsFallbackMenuUi, android.widget.TextView)
+    {
+        android.widget.TextView $r2;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$3 r0;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        r0.val$urlTextView = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        android.widget.TextView $r2;
+        android.text.TextUtils$TruncateAt $r3;
+        int $i0;
+        android.view.View $r1;
+        androidx.browser.browseractions.BrowserActionsFallbackMenuUi$3 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.val$urlTextView;
+
+        $i0 = androidx.core.widget.TextViewCompat.getMaxLines($r2);
+
+        if $i0 != 2147483647 goto label1;
+
+        $r2 = r0.val$urlTextView;
+
+        virtualinvoke $r2.setMaxLines(1);
+
+        $r2 = r0.val$urlTextView;
+
+        $r3 = android.text.TextUtils$TruncateAt.END;
+
+        virtualinvoke $r2.setEllipsize($r3);
+
+        return;
+
+     label1:
+        $r2 = r0.val$urlTextView;
+
+        virtualinvoke $r2.setMaxLines(2147483647);
+
+        $r2 = r0.val$urlTextView;
+
+        virtualinvoke $r2.setEllipsize(null);
+
+        return;
+    }
+}

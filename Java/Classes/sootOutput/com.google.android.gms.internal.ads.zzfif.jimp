@@ -1,0 +1,38 @@
+final class com.google.android.gms.internal.ads.zzfif extends java.lang.Object implements com.google.android.gms.internal.ads.zzfih
+{
+    private static final com.google.android.gms.internal.ads.zzans zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzans $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzans.zzd();
+
+        com.google.android.gms.internal.ads.zzfif.zza = $r0;
+
+        return;
+    }
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfif r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzans zza()
+    {
+        com.google.android.gms.internal.ads.zzans r1;
+        com.google.android.gms.internal.ads.zzfif r0;
+
+        r0 := @this;
+
+        r1 = com.google.android.gms.internal.ads.zzfif.zza;
+
+        return r1;
+    }
+}

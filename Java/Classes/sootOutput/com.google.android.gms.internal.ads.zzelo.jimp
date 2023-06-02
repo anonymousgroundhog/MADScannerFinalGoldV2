@@ -1,0 +1,48 @@
+public final class com.google.android.gms.internal.ads.zzelo extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzgxl zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgxl)
+    {
+        com.google.android.gms.internal.ads.zzelo r0;
+        com.google.android.gms.internal.ads.zzgxl $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public static final com.google.android.gms.internal.ads.zzelm zza()
+    {
+        com.google.android.gms.internal.ads.zzfuu $r0;
+        com.google.android.gms.internal.ads.zzelm $r1;
+
+        $r0 = com.google.android.gms.internal.ads.zzbzn.zza;
+
+        com.google.android.gms.internal.ads.zzgxg.zzb($r0);
+
+        $r1 = new com.google.android.gms.internal.ads.zzelm;
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzelo r0;
+        com.google.android.gms.internal.ads.zzelm $r1;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.internal.ads.zzelo.zza();
+
+        return $r1;
+    }
+}

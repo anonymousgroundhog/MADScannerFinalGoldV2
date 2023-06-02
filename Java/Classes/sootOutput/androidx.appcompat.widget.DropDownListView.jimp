@@ -1,0 +1,1277 @@
+class androidx.appcompat.widget.DropDownListView extends android.widget.ListView
+{
+    public static final int INVALID_POSITION;
+    public static final int NO_POSITION;
+    private androidx.core.view.ViewPropertyAnimatorCompat mClickAnimation;
+    private boolean mDrawsInPressedState;
+    private boolean mHijackFocus;
+    private java.lang.reflect.Field mIsChildViewEnabled;
+    private boolean mListSelectionHidden;
+    private int mMotionPosition;
+    androidx.appcompat.widget.DropDownListView$ResolveHoverRunnable mResolveHoverRunnable;
+    private androidx.core.widget.ListViewAutoScrollHelper mScrollHelper;
+    private int mSelectionBottomPadding;
+    private int mSelectionLeftPadding;
+    private int mSelectionRightPadding;
+    private int mSelectionTopPadding;
+    private androidx.appcompat.widget.DropDownListView$GateKeeperDrawable mSelector;
+    private final android.graphics.Rect mSelectorRect;
+
+    void <init>(android.content.Context, boolean)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.content.Context $r1;
+        android.graphics.Rect r3;
+        java.lang.reflect.Field $r2;
+        java.lang.NoSuchFieldException r5;
+        int $i0;
+        java.lang.Class r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $i0 = androidx.appcompat.R$attr.dropDownListViewStyle;
+
+        specialinvoke r0.<init>($r1, null, $i0);
+
+        r3 = new android.graphics.Rect;
+
+        specialinvoke r3.<init>();
+
+        r0.mSelectorRect = r3;
+
+        r0.mSelectionLeftPadding = 0;
+
+        r0.mSelectionTopPadding = 0;
+
+        r0.mSelectionRightPadding = 0;
+
+        r0.mSelectionBottomPadding = 0;
+
+        r0.mHijackFocus = $z0;
+
+        virtualinvoke r0.setCacheColorHint(0);
+
+        r4 = class "Landroid/widget/AbsListView;";
+
+     label1:
+        $r2 = virtualinvoke r4.getDeclaredField("mIsChildViewEnabled");
+
+     label2:
+        r0.mIsChildViewEnabled = $r2;
+
+     label3:
+        virtualinvoke $r2.setAccessible(1);
+
+     label4:
+        return;
+
+     label5:
+        r5 := @caughtexception;
+
+        virtualinvoke r5.printStackTrace();
+
+        return;
+
+        catch java.lang.NoSuchFieldException from label1 to label2 with label5;
+        catch java.lang.NoSuchFieldException from label3 to label4 with label5;
+    }
+
+    private void clearPressedItem()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        androidx.core.view.ViewPropertyAnimatorCompat $r2;
+        int i0, $i1;
+        android.view.View $r1;
+
+        r0 := @this;
+
+        r0.mDrawsInPressedState = 0;
+
+        virtualinvoke r0.setPressed(0);
+
+        virtualinvoke r0.drawableStateChanged();
+
+        i0 = r0.mMotionPosition;
+
+        $i1 = virtualinvoke r0.getFirstVisiblePosition();
+
+        i0 = i0 - $i1;
+
+        $r1 = virtualinvoke r0.getChildAt(i0);
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.setPressed(0);
+
+     label1:
+        $r2 = r0.mClickAnimation;
+
+        if $r2 == null goto label2;
+
+        virtualinvoke $r2.cancel();
+
+        r0.mClickAnimation = null;
+
+     label2:
+        return;
+    }
+
+    private void clickPressedItem(android.view.View, int)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        int $i0;
+        android.view.View $r1;
+        long $l1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $l1 = virtualinvoke r0.getItemIdAtPosition($i0);
+
+        virtualinvoke r0.performItemClick($r1, $i0, $l1);
+
+        return;
+    }
+
+    private void drawSelectorCompat(android.graphics.Canvas)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.graphics.Rect $r2;
+        android.graphics.Canvas $r1;
+        android.graphics.drawable.Drawable $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mSelectorRect;
+
+        $z0 = virtualinvoke $r2.isEmpty();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = virtualinvoke r0.getSelector();
+
+        if $r3 == null goto label1;
+
+        $r2 = r0.mSelectorRect;
+
+        virtualinvoke $r3.setBounds($r2);
+
+        virtualinvoke $r3.draw($r1);
+
+     label1:
+        return;
+    }
+
+    private void positionSelectorCompat(int, android.view.View)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.graphics.Rect r2;
+        java.lang.IllegalAccessException r5;
+        java.lang.reflect.Field r3;
+        int $i0, $i1, $i2, $i3, $i4;
+        android.view.View $r1;
+        java.lang.Boolean $r4;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        r2 = r0.mSelectorRect;
+
+        $i1 = virtualinvoke $r1.getLeft();
+
+        $i2 = virtualinvoke $r1.getTop();
+
+        $i3 = virtualinvoke $r1.getRight();
+
+        $i4 = virtualinvoke $r1.getBottom();
+
+        virtualinvoke r2.set($i1, $i2, $i3, $i4);
+
+        $i1 = r2.left;
+
+        $i2 = r0.mSelectionLeftPadding;
+
+        $i1 = $i1 - $i2;
+
+        r2.left = $i1;
+
+        $i1 = r2.top;
+
+        $i2 = r0.mSelectionTopPadding;
+
+        $i1 = $i1 - $i2;
+
+        r2.top = $i1;
+
+        $i1 = r2.right;
+
+        $i2 = r0.mSelectionRightPadding;
+
+        $i1 = $i1 + $i2;
+
+        r2.right = $i1;
+
+        $i1 = r2.bottom;
+
+        $i2 = r0.mSelectionBottomPadding;
+
+        $i1 = $i1 + $i2;
+
+        r2.bottom = $i1;
+
+        r3 = r0.mIsChildViewEnabled;
+
+     label1:
+        $z0 = virtualinvoke r3.getBoolean(r0);
+
+        $z1 = virtualinvoke $r1.isEnabled();
+
+     label2:
+        if $z1 == $z0 goto label7;
+
+        r3 = r0.mIsChildViewEnabled;
+
+        if $z0 != 0 goto label3;
+
+        $z0 = 1;
+
+        goto label4;
+
+     label3:
+        $z0 = 0;
+
+     label4:
+        $r4 = java.lang.Boolean.valueOf($z0);
+
+        virtualinvoke r3.set(r0, $r4);
+
+     label5:
+        if $i0 == -1 goto label7;
+
+     label6:
+        virtualinvoke r0.refreshDrawableState();
+
+     label7:
+        return;
+
+     label8:
+        r5 := @caughtexception;
+
+        virtualinvoke r5.printStackTrace();
+
+        return;
+
+        catch java.lang.IllegalAccessException from label1 to label2 with label8;
+        catch java.lang.IllegalAccessException from label4 to label5 with label8;
+        catch java.lang.IllegalAccessException from label6 to label7 with label8;
+    }
+
+    private void positionSelectorLikeFocusCompat(int, android.view.View)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.graphics.Rect r2;
+        android.graphics.drawable.Drawable $r3;
+        int $i0;
+        android.view.View $r1;
+        float $f0, $f1;
+        boolean $z0, z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r3 = virtualinvoke r0.getSelector();
+
+        $z0 = 1;
+
+        if $r3 == null goto label1;
+
+        if $i0 == -1 goto label1;
+
+        z1 = 1;
+
+        goto label2;
+
+     label1:
+        z1 = 0;
+
+     label2:
+        if z1 == 0 goto label3;
+
+        virtualinvoke $r3.setVisible(0, 0);
+
+     label3:
+        specialinvoke r0.positionSelectorCompat($i0, $r1);
+
+        if z1 == 0 goto label6;
+
+        r2 = r0.mSelectorRect;
+
+        $f0 = virtualinvoke r2.exactCenterX();
+
+        $f1 = virtualinvoke r2.exactCenterY();
+
+        $i0 = virtualinvoke r0.getVisibility();
+
+        if $i0 != 0 goto label4;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        virtualinvoke $r3.setVisible($z0, 0);
+
+        androidx.core.graphics.drawable.DrawableCompat.setHotspot($r3, $f0, $f1);
+
+     label6:
+        return;
+    }
+
+    private void positionSelectorLikeTouchCompat(int, android.view.View, float, float)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        int $i0;
+        android.view.View $r1;
+        float $f0, $f1;
+        android.graphics.drawable.Drawable $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $f0 := @parameter2;
+
+        $f1 := @parameter3;
+
+        specialinvoke r0.positionSelectorLikeFocusCompat($i0, $r1);
+
+        $r2 = virtualinvoke r0.getSelector();
+
+        if $r2 == null goto label1;
+
+        if $i0 == -1 goto label1;
+
+        androidx.core.graphics.drawable.DrawableCompat.setHotspot($r2, $f0, $f1);
+
+     label1:
+        return;
+    }
+
+    private void setPressedItem(android.view.View, int, float, float)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        int $i0, $i1, $i2;
+        android.view.View $r1, $r2;
+        float $f0, $f1, f2, f3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $f0 := @parameter2;
+
+        $f1 := @parameter3;
+
+        r0.mDrawsInPressedState = 1;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 21 goto label1;
+
+        virtualinvoke r0.drawableHotspotChanged($f0, $f1);
+
+     label1:
+        $z0 = virtualinvoke r0.isPressed();
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke r0.setPressed(1);
+
+     label2:
+        virtualinvoke r0.layoutChildren();
+
+        $i1 = r0.mMotionPosition;
+
+        if $i1 == -1 goto label3;
+
+        $i2 = virtualinvoke r0.getFirstVisiblePosition();
+
+        $i1 = $i1 - $i2;
+
+        $r2 = virtualinvoke r0.getChildAt($i1);
+
+        if $r2 == null goto label3;
+
+        if $r2 == $r1 goto label3;
+
+        $z0 = virtualinvoke $r2.isPressed();
+
+        if $z0 == 0 goto label3;
+
+        virtualinvoke $r2.setPressed(0);
+
+     label3:
+        r0.mMotionPosition = $i0;
+
+        $i1 = virtualinvoke $r1.getLeft();
+
+        f2 = (float) $i1;
+
+        f2 = $f0 - f2;
+
+        $i1 = virtualinvoke $r1.getTop();
+
+        f3 = (float) $i1;
+
+        f3 = $f1 - f3;
+
+        $i1 = android.os.Build$VERSION.SDK_INT;
+
+        if $i1 < 21 goto label4;
+
+        virtualinvoke $r1.drawableHotspotChanged(f2, f3);
+
+     label4:
+        $z0 = virtualinvoke $r1.isPressed();
+
+        if $z0 != 0 goto label5;
+
+        virtualinvoke $r1.setPressed(1);
+
+     label5:
+        specialinvoke r0.positionSelectorLikeTouchCompat($i0, $r1, $f0, $f1);
+
+        specialinvoke r0.setSelectorEnabled(0);
+
+        virtualinvoke r0.refreshDrawableState();
+
+        return;
+    }
+
+    private void setSelectorEnabled(boolean)
+    {
+        androidx.appcompat.widget.DropDownListView$GateKeeperDrawable $r1;
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mSelector;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.setEnabled($z0);
+
+     label1:
+        return;
+    }
+
+    private boolean touchModeDrawsInPressedStateCompat()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean z0;
+
+        r0 := @this;
+
+        z0 = r0.mDrawsInPressedState;
+
+        return z0;
+    }
+
+    private void updateSelectorStateCompat()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        int[] $r2;
+        android.graphics.drawable.Drawable $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getSelector();
+
+        if $r1 == null goto label1;
+
+        $z0 = specialinvoke r0.touchModeDrawsInPressedStateCompat();
+
+        if $z0 == 0 goto label1;
+
+        $z0 = virtualinvoke r0.isPressed();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = virtualinvoke r0.getDrawableState();
+
+        virtualinvoke $r1.setState($r2);
+
+     label1:
+        return;
+    }
+
+    protected void dispatchDraw(android.graphics.Canvas)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.graphics.Canvas $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.drawSelectorCompat($r1);
+
+        specialinvoke r0.dispatchDraw($r1);
+
+        return;
+    }
+
+    protected void drawableStateChanged()
+    {
+        androidx.appcompat.widget.DropDownListView$ResolveHoverRunnable $r1;
+        androidx.appcompat.widget.DropDownListView r0;
+
+        r0 := @this;
+
+        $r1 = r0.mResolveHoverRunnable;
+
+        if $r1 == null goto label1;
+
+        return;
+
+     label1:
+        specialinvoke r0.drawableStateChanged();
+
+        specialinvoke r0.setSelectorEnabled(1);
+
+        specialinvoke r0.updateSelectorStateCompat();
+
+        return;
+    }
+
+    public boolean hasFocus()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHijackFocus;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = specialinvoke r0.hasFocus();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean hasWindowFocus()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHijackFocus;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = specialinvoke r0.hasWindowFocus();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean isFocused()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHijackFocus;
+
+        if $z0 != 0 goto label2;
+
+        $z0 = specialinvoke r0.isFocused();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public boolean isInTouchMode()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mHijackFocus;
+
+        if $z0 == 0 goto label1;
+
+        $z0 = r0.mListSelectionHidden;
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        $z0 = specialinvoke r0.isInTouchMode();
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public int lookForSelectablePosition(int, boolean)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.widget.ListAdapter $r1, $r2;
+        int $i0, $i1, $i2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r1 = virtualinvoke r0.getAdapter();
+
+        if $r1 == null goto label11;
+
+        $z1 = virtualinvoke r0.isInTouchMode();
+
+        if $z1 == 0 goto label01;
+
+        return -1;
+
+     label01:
+        $i1 = interfaceinvoke $r1.getCount();
+
+        $r2 = virtualinvoke r0.getAdapter();
+
+        $z1 = interfaceinvoke $r2.areAllItemsEnabled();
+
+        if $z1 != 0 goto label08;
+
+        if $z0 == 0 goto label03;
+
+        $i0 = java.lang.Math.max(0, $i0);
+
+     label02:
+        if $i0 >= $i1 goto label05;
+
+        $z0 = interfaceinvoke $r1.isEnabled($i0);
+
+        if $z0 != 0 goto label05;
+
+        $i0 = $i0 + 1;
+
+        goto label02;
+
+     label03:
+        $i2 = $i1 + -1;
+
+        $i0 = java.lang.Math.min($i0, $i2);
+
+     label04:
+        if $i0 < 0 goto label05;
+
+        $z0 = interfaceinvoke $r1.isEnabled($i0);
+
+        if $z0 != 0 goto label05;
+
+        $i0 = $i0 + -1;
+
+        goto label04;
+
+     label05:
+        if $i0 < 0 goto label07;
+
+        if $i0 < $i1 goto label06;
+
+        $i0 = -1;
+
+     label06:
+        return $i0;
+
+     label07:
+        return -1;
+
+     label08:
+        if $i0 < 0 goto label10;
+
+        if $i0 < $i1 goto label09;
+
+        $i0 = -1;
+
+     label09:
+        return $i0;
+
+     label10:
+        return -1;
+
+     label11:
+        return -1;
+    }
+
+    public int measureHeightOfChildrenCompat(int, int, int, int, int)
+    {
+        android.graphics.drawable.Drawable $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5, i6, $i7, i8, $i9;
+        android.view.View r3, $r4;
+        androidx.appcompat.widget.DropDownListView r0;
+        android.view.ViewGroup$LayoutParams $r5, r6;
+        android.widget.ListAdapter $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $i4 := @parameter4;
+
+        $i1 = virtualinvoke r0.getListPaddingTop();
+
+        $i5 = virtualinvoke r0.getListPaddingBottom();
+
+        $i2 = virtualinvoke r0.getDividerHeight();
+
+        $r1 = virtualinvoke r0.getDivider();
+
+        $r2 = virtualinvoke r0.getAdapter();
+
+        if $r2 != null goto label01;
+
+        $i0 = $i1 + $i5;
+
+        return $i0;
+
+     label01:
+        $i1 = $i1 + $i5;
+
+        if $i2 <= 0 goto label02;
+
+        if $r1 == null goto label02;
+
+        goto label03;
+
+     label02:
+        $i2 = 0;
+
+     label03:
+        $i5 = 0;
+
+        r3 = null;
+
+        i6 = 0;
+
+        $i7 = interfaceinvoke $r2.getCount();
+
+        i8 = 0;
+
+     label04:
+        if i8 >= $i7 goto label14;
+
+        $i9 = interfaceinvoke $r2.getItemViewType(i8);
+
+        if $i9 == i6 goto label05;
+
+        r3 = null;
+
+        i6 = $i9;
+
+     label05:
+        $r4 = interfaceinvoke $r2.getView(i8, r3, r0);
+
+        r3 = $r4;
+
+        $r5 = virtualinvoke $r4.getLayoutParams();
+
+        if $r5 != null goto label06;
+
+        $r5 = virtualinvoke r0.generateDefaultLayoutParams();
+
+        r6 = $r5;
+
+        virtualinvoke $r4.setLayoutParams($r5);
+
+        goto label07;
+
+     label06:
+        r6 = $r5;
+
+     label07:
+        $i9 = r6.height;
+
+        if $i9 <= 0 goto label08;
+
+        $i9 = r6.height;
+
+        $i9 = android.view.View$MeasureSpec.makeMeasureSpec($i9, 1073741824);
+
+        goto label09;
+
+     label08:
+        $i9 = android.view.View$MeasureSpec.makeMeasureSpec(0, 0);
+
+     label09:
+        virtualinvoke $r4.measure($i0, $i9);
+
+        virtualinvoke $r4.forceLayout();
+
+        if i8 <= 0 goto label10;
+
+        $i1 = $i1 + $i2;
+
+     label10:
+        $i9 = virtualinvoke $r4.getMeasuredHeight();
+
+        $i1 = $i1 + $i9;
+
+        if $i1 < $i3 goto label12;
+
+        if $i4 < 0 goto label11;
+
+        if i8 <= $i4 goto label11;
+
+        if $i5 <= 0 goto label11;
+
+        if $i1 == $i3 goto label11;
+
+        return $i5;
+
+     label11:
+        return $i3;
+
+     label12:
+        if $i4 < 0 goto label13;
+
+        if i8 < $i4 goto label13;
+
+        $i5 = $i1;
+
+     label13:
+        i8 = i8 + 1;
+
+        goto label04;
+
+     label14:
+        return $i1;
+    }
+
+    protected void onDetachedFromWindow()
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+
+        r0 := @this;
+
+        r0.mResolveHoverRunnable = null;
+
+        specialinvoke r0.onDetachedFromWindow();
+
+        return;
+    }
+
+    public boolean onForwardedEvent(android.view.MotionEvent, int)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.view.MotionEvent $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+        float $f0, $f1;
+        android.view.View $r2;
+        androidx.core.widget.ListViewAutoScrollHelper r3, $r4;
+        boolean z0, z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        z0 = 1;
+
+        z1 = 0;
+
+        $i1 = virtualinvoke $r1.getActionMasked();
+
+        lookupswitch($i1)
+        {
+            case 1: goto label03;
+            case 2: goto label04;
+            case 3: goto label02;
+            default: goto label01;
+        };
+
+     label01:
+        goto label07;
+
+     label02:
+        z0 = 0;
+
+        goto label07;
+
+     label03:
+        z0 = 0;
+
+     label04:
+        $i2 = virtualinvoke $r1.findPointerIndex($i0);
+
+        if $i2 >= 0 goto label05;
+
+        z0 = 0;
+
+        goto label07;
+
+     label05:
+        $f0 = virtualinvoke $r1.getX($i2);
+
+        $i0 = (int) $f0;
+
+        $f0 = virtualinvoke $r1.getY($i2);
+
+        $i2 = (int) $f0;
+
+        $i3 = virtualinvoke r0.pointToPosition($i0, $i2);
+
+        if $i3 != -1 goto label06;
+
+        z1 = 1;
+
+        goto label07;
+
+     label06:
+        $i4 = virtualinvoke r0.getFirstVisiblePosition();
+
+        $i4 = $i3 - $i4;
+
+        $r2 = virtualinvoke r0.getChildAt($i4);
+
+        $f0 = (float) $i0;
+
+        $f1 = (float) $i2;
+
+        specialinvoke r0.setPressedItem($r2, $i3, $f0, $f1);
+
+        z0 = 1;
+
+        if $i1 != 1 goto label07;
+
+        specialinvoke r0.clickPressedItem($r2, $i3);
+
+     label07:
+        if z0 == 0 goto label08;
+
+        if z1 == 0 goto label09;
+
+     label08:
+        specialinvoke r0.clearPressedItem();
+
+     label09:
+        if z0 == 0 goto label11;
+
+        r3 = r0.mScrollHelper;
+
+        if r3 != null goto label10;
+
+        $r4 = new androidx.core.widget.ListViewAutoScrollHelper;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mScrollHelper = $r4;
+
+     label10:
+        r3 = r0.mScrollHelper;
+
+        virtualinvoke r3.setEnabled(1);
+
+        r3 = r0.mScrollHelper;
+
+        virtualinvoke r3.onTouch(r0, $r1);
+
+        return z0;
+
+     label11:
+        r3 = r0.mScrollHelper;
+
+        if r3 == null goto label12;
+
+        virtualinvoke r3.setEnabled(0);
+
+     label12:
+        return z0;
+    }
+
+    public boolean onHoverEvent(android.view.MotionEvent)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.view.MotionEvent $r1;
+        int i0, $i1, $i2;
+        androidx.appcompat.widget.DropDownListView$ResolveHoverRunnable r2, $r4;
+        float $f0;
+        android.view.View $r3;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 >= 26 goto label1;
+
+        $z0 = specialinvoke r0.onHoverEvent($r1);
+
+        return $z0;
+
+     label1:
+        i0 = virtualinvoke $r1.getActionMasked();
+
+        if i0 != 10 goto label2;
+
+        r2 = r0.mResolveHoverRunnable;
+
+        if r2 != null goto label2;
+
+        $r4 = new androidx.appcompat.widget.DropDownListView$ResolveHoverRunnable;
+
+        r2 = $r4;
+
+        specialinvoke $r4.<init>(r0);
+
+        r0.mResolveHoverRunnable = r2;
+
+        virtualinvoke r2.post();
+
+     label2:
+        $z0 = specialinvoke r0.onHoverEvent($r1);
+
+        if i0 == 9 goto label4;
+
+        if i0 != 7 goto label3;
+
+        goto label4;
+
+     label3:
+        i0 = -1;
+
+        virtualinvoke r0.setSelection(i0);
+
+        return $z0;
+
+     label4:
+        $f0 = virtualinvoke $r1.getX();
+
+        i0 = (int) $f0;
+
+        $f0 = virtualinvoke $r1.getY();
+
+        $i1 = (int) $f0;
+
+        i0 = virtualinvoke r0.pointToPosition(i0, $i1);
+
+        if i0 == -1 goto label6;
+
+        $i1 = virtualinvoke r0.getSelectedItemPosition();
+
+        if i0 == $i1 goto label6;
+
+        $i1 = virtualinvoke r0.getFirstVisiblePosition();
+
+        $i1 = i0 - $i1;
+
+        $r3 = virtualinvoke r0.getChildAt($i1);
+
+        $z1 = virtualinvoke $r3.isEnabled();
+
+        if $z1 == 0 goto label5;
+
+        $i1 = virtualinvoke $r3.getTop();
+
+        $i2 = virtualinvoke r0.getTop();
+
+        $i1 = $i1 - $i2;
+
+        virtualinvoke r0.setSelectionFromTop(i0, $i1);
+
+     label5:
+        specialinvoke r0.updateSelectorStateCompat();
+
+     label6:
+        return $z0;
+    }
+
+    public boolean onTouchEvent(android.view.MotionEvent)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        android.view.MotionEvent $r1;
+        int $i0, $i1;
+        androidx.appcompat.widget.DropDownListView$ResolveHoverRunnable $r2;
+        float $f0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.getAction();
+
+        lookupswitch($i0)
+        {
+            case 0: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        goto label3;
+
+     label2:
+        $f0 = virtualinvoke $r1.getX();
+
+        $i0 = (int) $f0;
+
+        $f0 = virtualinvoke $r1.getY();
+
+        $i1 = (int) $f0;
+
+        $i0 = virtualinvoke r0.pointToPosition($i0, $i1);
+
+        r0.mMotionPosition = $i0;
+
+     label3:
+        $r2 = r0.mResolveHoverRunnable;
+
+        if $r2 == null goto label4;
+
+        virtualinvoke $r2.cancel();
+
+     label4:
+        $z0 = specialinvoke r0.onTouchEvent($r1);
+
+        return $z0;
+    }
+
+    void setListSelectionHidden(boolean)
+    {
+        androidx.appcompat.widget.DropDownListView r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mListSelectionHidden = $z0;
+
+        return;
+    }
+
+    public void setSelector(android.graphics.drawable.Drawable)
+    {
+        androidx.appcompat.widget.DropDownListView$GateKeeperDrawable r2;
+        androidx.appcompat.widget.DropDownListView r0;
+        android.graphics.Rect r3;
+        int $i0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        r2 = new androidx.appcompat.widget.DropDownListView$GateKeeperDrawable;
+
+        specialinvoke r2.<init>($r1);
+
+        goto label2;
+
+     label1:
+        r2 = null;
+
+     label2:
+        r0.mSelector = r2;
+
+        specialinvoke r0.setSelector(r2);
+
+        r3 = new android.graphics.Rect;
+
+        specialinvoke r3.<init>();
+
+        if $r1 == null goto label3;
+
+        virtualinvoke $r1.getPadding(r3);
+
+     label3:
+        $i0 = r3.left;
+
+        r0.mSelectionLeftPadding = $i0;
+
+        $i0 = r3.top;
+
+        r0.mSelectionTopPadding = $i0;
+
+        $i0 = r3.right;
+
+        r0.mSelectionRightPadding = $i0;
+
+        $i0 = r3.bottom;
+
+        r0.mSelectionBottomPadding = $i0;
+
+        return;
+    }
+}

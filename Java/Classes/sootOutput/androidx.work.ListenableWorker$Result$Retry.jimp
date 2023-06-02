@@ -1,0 +1,82 @@
+public final class androidx.work.ListenableWorker$Result$Retry extends androidx.work.ListenableWorker$Result
+{
+
+    public void <init>()
+    {
+        androidx.work.ListenableWorker$Result$Retry r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        androidx.work.ListenableWorker$Result$Retry r0;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label2;
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 != $r3 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public androidx.work.Data getOutputData()
+    {
+        androidx.work.Data r1;
+        androidx.work.ListenableWorker$Result$Retry r0;
+
+        r0 := @this;
+
+        r1 = androidx.work.Data.EMPTY;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        androidx.work.ListenableWorker$Result$Retry r0;
+        int $i0;
+        java.lang.Class r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        r1 = class "Landroidx/work/ListenableWorker$Result$Retry;";
+
+        $r2 = virtualinvoke r1.getName();
+
+        $i0 = virtualinvoke $r2.hashCode();
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.work.ListenableWorker$Result$Retry r0;
+
+        r0 := @this;
+
+        return "Retry";
+    }
+}

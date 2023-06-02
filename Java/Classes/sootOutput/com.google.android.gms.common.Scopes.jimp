@@ -1,0 +1,27 @@
+public final class com.google.android.gms.common.Scopes extends java.lang.Object
+{
+    public static final java.lang.String APP_STATE;
+    public static final java.lang.String CLOUD_SAVE;
+    public static final java.lang.String DRIVE_APPFOLDER;
+    public static final java.lang.String DRIVE_APPS;
+    public static final java.lang.String DRIVE_FILE;
+    public static final java.lang.String DRIVE_FULL;
+    public static final java.lang.String EMAIL;
+    public static final java.lang.String GAMES;
+    public static final java.lang.String GAMES_LITE;
+    public static final java.lang.String OPEN_ID;
+    public static final java.lang.String PLUS_LOGIN;
+    public static final java.lang.String PLUS_ME;
+    public static final java.lang.String PROFILE;
+
+    private void <init>()
+    {
+        com.google.android.gms.common.Scopes r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,47 @@
+public class androidx.core.provider.FontsContractCompat$FontRequestCallback extends java.lang.Object
+{
+    public static final int FAIL_REASON_FONT_LOAD_ERROR;
+    public static final int FAIL_REASON_FONT_NOT_FOUND;
+    public static final int FAIL_REASON_FONT_UNAVAILABLE;
+    public static final int FAIL_REASON_MALFORMED_QUERY;
+    public static final int FAIL_REASON_PROVIDER_NOT_FOUND;
+    public static final int FAIL_REASON_SECURITY_VIOLATION;
+    public static final int FAIL_REASON_WRONG_CERTIFICATES;
+    public static final int RESULT_OK;
+    static final int RESULT_SUCCESS;
+
+    public void <init>()
+    {
+        androidx.core.provider.FontsContractCompat$FontRequestCallback r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onTypefaceRequestFailed(int)
+    {
+        int $i0;
+        androidx.core.provider.FontsContractCompat$FontRequestCallback r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        return;
+    }
+
+    public void onTypefaceRetrieved(android.graphics.Typeface)
+    {
+        android.graphics.Typeface $r1;
+        androidx.core.provider.FontsContractCompat$FontRequestCallback r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

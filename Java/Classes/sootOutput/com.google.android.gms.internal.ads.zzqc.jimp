@@ -1,0 +1,17 @@
+public final class com.google.android.gms.internal.ads.zzqc extends java.lang.Exception
+{
+
+    public void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzqc r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,607 @@
+public final class com.google.android.gms.internal.ads.zzgoh extends java.lang.Object
+{
+
+    public static byte[] zza(byte[], byte[]) throws java.security.InvalidKeyException
+    {
+        byte[] $r0, $r1, $r4, $r6;
+        java.lang.IllegalStateException $r27;
+        byte $b1;
+        boolean $z0;
+        byte[][] $r5;
+        java.security.InvalidKeyException $r26;
+        short $s2;
+        long[] $r2, $r3, $r9, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22, $r23, $r24, $r25;
+        int $i0, $i4, $i5, $i6;
+        java.lang.String $r7, $r8;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 32 goto label22;
+
+        $r3 = newarray (long)[11];
+
+        $r4 = java.util.Arrays.copyOf($r0, 32);
+
+        $r0 = $r4;
+
+        $b1 = $r4[0];
+
+        $s2 = (short) $b1;
+
+        $s2 = $s2 & 248;
+
+        $b1 = (byte) $s2;
+
+        $r4[0] = $b1;
+
+        $b1 = $r4[31];
+
+        $b1 = $b1 & 127;
+
+        $r4[31] = $b1;
+
+        $b1 = $b1 | 64;
+
+        $r4[31] = $b1;
+
+        $i0 = com.google.android.gms.internal.ads.zzgmx.zzb;
+
+        $i0 = lengthof $r1;
+
+        if $i0 != 32 goto label21;
+
+        $r4 = java.util.Arrays.copyOf($r1, 32);
+
+        $b1 = $r4[31];
+
+        $b1 = $b1 & 127;
+
+        $r4[31] = $b1;
+
+        $i0 = 0;
+
+     label01:
+        if $i0 >= 7 goto label03;
+
+        $r5 = com.google.android.gms.internal.ads.zzgmx.zza;
+
+        $r6 = $r5[$i0];
+
+        $z0 = java.security.MessageDigest.isEqual($r6, $r4);
+
+        if $z0 != 0 goto label02;
+
+        $i0 = $i0 + 1;
+
+        goto label01;
+
+     label02:
+        $r26 = new java.security.InvalidKeyException;
+
+        $r5 = com.google.android.gms.internal.ads.zzgmx.zza;
+
+        $r0 = $r5[$i0];
+
+        $r7 = com.google.android.gms.internal.ads.zzgnx.zza($r0);
+
+        $r8 = "Banned public key: ";
+
+        $r7 = virtualinvoke $r8.concat($r7);
+
+        specialinvoke $r26.<init>($r7);
+
+        throw $r26;
+
+     label03:
+        $r9 = com.google.android.gms.internal.ads.zzgnw.zzk($r4);
+
+        $r10 = newarray (long)[19];
+
+        $r11 = newarray (long)[19];
+
+        $r11[0] = 1L;
+
+        $r12 = newarray (long)[19];
+
+        $r12[0] = 1L;
+
+        $r13 = newarray (long)[19];
+
+        $r14 = newarray (long)[19];
+
+        $r15 = newarray (long)[19];
+
+        $r15[0] = 1L;
+
+        $r16 = newarray (long)[19];
+
+        $r17 = newarray (long)[19];
+
+        $r17[0] = 1L;
+
+        java.lang.System.arraycopy($r9, 0, $r10, 0, 10);
+
+        $i0 = 0;
+
+     label04:
+        if $i0 >= 32 goto label07;
+
+        $i4 = 32 - $i0;
+
+        $i4 = $i4 + -1;
+
+        $b1 = $r0[$i4];
+
+        $s2 = (short) $b1;
+
+        $s2 = $s2 & 255;
+
+        $i4 = 0;
+
+     label05:
+        if $i4 >= 8 goto label06;
+
+        $i5 = 7 - $i4;
+
+        $i6 = (int) $s2;
+
+        $i5 = $i6 >> $i5;
+
+        $i5 = $i5 & 1;
+
+        com.google.android.gms.internal.ads.zzgmx.zza($r12, $r10, $i5);
+
+        com.google.android.gms.internal.ads.zzgmx.zza($r13, $r11, $i5);
+
+        $r18 = java.util.Arrays.copyOf($r12, 10);
+
+        $r2 = newarray (long)[19];
+
+        $r19 = newarray (long)[19];
+
+        $r20 = newarray (long)[19];
+
+        $r21 = newarray (long)[19];
+
+        $r22 = newarray (long)[19];
+
+        $r23 = newarray (long)[19];
+
+        $r24 = newarray (long)[19];
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r12, $r12, $r13);
+
+        com.google.android.gms.internal.ads.zzgnw.zzh($r13, $r18, $r13);
+
+        $r18 = java.util.Arrays.copyOf($r10, 10);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r10, $r10, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zzh($r11, $r18, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zzb($r21, $r10, $r13);
+
+        com.google.android.gms.internal.ads.zzgnw.zzb($r22, $r12, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zze($r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zze($r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r22);
+
+        $r25 = $r10;
+
+        java.lang.System.arraycopy($r21, 0, $r18, 0, 10);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r21, $r21, $r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzh($r22, $r18, $r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzb($r22, $r23, $r9);
+
+        com.google.android.gms.internal.ads.zzgnw.zze($r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r22);
+
+        java.lang.System.arraycopy($r24, 0, $r14, 0, 10);
+
+        java.lang.System.arraycopy($r22, 0, $r15, 0, 10);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r19, $r12);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r20, $r13);
+
+        com.google.android.gms.internal.ads.zzgnw.zzb($r16, $r19, $r20);
+
+        com.google.android.gms.internal.ads.zzgnw.zze($r16);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r16);
+
+        com.google.android.gms.internal.ads.zzgnw.zzh($r20, $r19, $r20);
+
+        java.util.Arrays.fill($r2, 10, 18, 0L);
+
+        com.google.android.gms.internal.ads.zzgnw.zzf($r2, $r20, 121665L);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r2);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r2, $r2, $r19);
+
+        com.google.android.gms.internal.ads.zzgnw.zzb($r17, $r20, $r2);
+
+        com.google.android.gms.internal.ads.zzgnw.zze($r17);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r17);
+
+        com.google.android.gms.internal.ads.zzgmx.zza($r16, $r14, $i5);
+
+        com.google.android.gms.internal.ads.zzgmx.zza($r17, $r15, $i5);
+
+        $i4 = $i4 + 1;
+
+        $r10 = $r14;
+
+        $r14 = $r25;
+
+        $r2 = $r12;
+
+        $r12 = $r16;
+
+        $r16 = $r2;
+
+        $r2 = $r13;
+
+        $r13 = $r17;
+
+        $r17 = $r2;
+
+        $r2 = $r15;
+
+        $r15 = $r11;
+
+        $r11 = $r2;
+
+        goto label05;
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label07:
+        $r14 = newarray (long)[10];
+
+        $r15 = newarray (long)[10];
+
+        $r16 = newarray (long)[10];
+
+        $r17 = newarray (long)[10];
+
+        $r2 = newarray (long)[10];
+
+        $r19 = newarray (long)[10];
+
+        $r20 = newarray (long)[10];
+
+        $r21 = newarray (long)[10];
+
+        $r22 = newarray (long)[10];
+
+        $r23 = newarray (long)[10];
+
+        $r24 = newarray (long)[10];
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r15, $r13);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r15);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r16, $r23, $r13);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r17, $r16, $r15);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r17);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r2, $r23, $r16);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r2);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r19, $r23, $r2);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r19);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i0 = 2;
+
+        $i4 = 2;
+
+     label08:
+        if $i4 >= 10 goto label09;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i4 = $i4 + 2;
+
+        goto label08;
+
+     label09:
+        com.google.android.gms.internal.ads.zzgnw.zza($r20, $r24, $r19);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r20);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i4 = 2;
+
+     label10:
+        if $i4 >= 20 goto label11;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i4 = $i4 + 2;
+
+        goto label10;
+
+     label11:
+        com.google.android.gms.internal.ads.zzgnw.zza($r23, $r24, $r20);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        $i4 = 2;
+
+     label12:
+        if $i4 >= 10 goto label13;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        $i4 = $i4 + 2;
+
+        goto label12;
+
+     label13:
+        com.google.android.gms.internal.ads.zzgnw.zza($r21, $r23, $r19);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i4 = 2;
+
+     label14:
+        if $i4 >= 50 goto label15;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i4 = $i4 + 2;
+
+        goto label14;
+
+     label15:
+        com.google.android.gms.internal.ads.zzgnw.zza($r22, $r24, $r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        $i4 = 2;
+
+     label16:
+        if $i4 >= 100 goto label17;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        $i4 = $i4 + 2;
+
+        goto label16;
+
+     label17:
+        com.google.android.gms.internal.ads.zzgnw.zza($r24, $r23, $r22);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+     label18:
+        if $i0 >= 50 goto label19;
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        $i0 = $i0 + 2;
+
+        goto label18;
+
+     label19:
+        com.google.android.gms.internal.ads.zzgnw.zza($r23, $r24, $r21);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r23, $r24);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r24, $r23);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r14, $r24, $r17);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r3, $r12, $r14);
+
+        $r12 = newarray (long)[10];
+
+        $r13 = newarray (long)[10];
+
+        $r14 = newarray (long)[11];
+
+        $r15 = newarray (long)[11];
+
+        $r16 = newarray (long)[11];
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r12, $r9, $r3);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r13, $r9, $r3);
+
+        $r9 = newarray (long)[10];
+
+        $r9[0] = 486662L;
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r15, $r13, $r9);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r15, $r15, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r15, $r15, $r10);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r15, $r15, $r12);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r15, $r15, $r10);
+
+        com.google.android.gms.internal.ads.zzgnw.zzf($r14, $r15, 4L);
+
+        com.google.android.gms.internal.ads.zzgnw.zzd($r14);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r15, $r12, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zzh($r15, $r15, $r11);
+
+        com.google.android.gms.internal.ads.zzgnw.zza($r16, $r13, $r10);
+
+        com.google.android.gms.internal.ads.zzgnw.zzi($r15, $r15, $r16);
+
+        com.google.android.gms.internal.ads.zzgnw.zzg($r15, $r15);
+
+        $r0 = com.google.android.gms.internal.ads.zzgnw.zzj($r14);
+
+        $r4 = com.google.android.gms.internal.ads.zzgnw.zzj($r15);
+
+        $z0 = java.security.MessageDigest.isEqual($r0, $r4);
+
+        if $z0 == 0 goto label20;
+
+        $r0 = com.google.android.gms.internal.ads.zzgnw.zzj($r3);
+
+        return $r0;
+
+     label20:
+        $r27 = new java.lang.IllegalStateException;
+
+        $r7 = com.google.android.gms.internal.ads.zzgnx.zza($r1);
+
+        $r8 = "Arithmetic error in curve multiplication with the public key: ";
+
+        $r7 = virtualinvoke $r8.concat($r7);
+
+        specialinvoke $r27.<init>($r7);
+
+        throw $r27;
+
+     label21:
+        $r26 = new java.security.InvalidKeyException;
+
+        specialinvoke $r26.<init>("Public key length is not 32-byte");
+
+        throw $r26;
+
+     label22:
+        $r26 = new java.security.InvalidKeyException;
+
+        specialinvoke $r26.<init>("Private key must have 32 bytes.");
+
+        goto label23;
+
+     label23:
+        throw $r26;
+    }
+
+    public static byte[] zzb()
+    {
+        byte[] $r0;
+        short $s2;
+        byte $b0, $b1;
+
+        $r0 = com.google.android.gms.internal.ads.zzgoe.zza(32);
+
+        $b0 = $r0[0];
+
+        $b0 = $b0 | 7;
+
+        $r0[0] = $b0;
+
+        $b0 = $r0[31];
+
+        $b1 = $b0 & 63;
+
+        $r0[31] = $b1;
+
+        $s2 = (short) $b1;
+
+        $s2 = $s2 | 128;
+
+        $b0 = (byte) $s2;
+
+        $r0[31] = $b0;
+
+        return $r0;
+    }
+
+    public static byte[] zzc(byte[]) throws java.security.InvalidKeyException
+    {
+        byte[] $r0, $r1;
+        int $i0;
+        java.security.InvalidKeyException $r2;
+
+        $r0 := @parameter0;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 32 goto label1;
+
+        $r1 = newarray (byte)[32];
+
+        $r1[0] = 9;
+
+        $r0 = com.google.android.gms.internal.ads.zzgoh.zza($r0, $r1);
+
+        return $r0;
+
+     label1:
+        $r2 = new java.security.InvalidKeyException;
+
+        specialinvoke $r2.<init>("Private key must have 32 bytes.");
+
+        throw $r2;
+    }
+}

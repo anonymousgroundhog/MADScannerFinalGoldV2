@@ -1,0 +1,100 @@
+class androidx.core.app.ShareCompat$Api16Impl extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.app.ShareCompat$Api16Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void migrateExtraStreamToClipData(android.content.Intent, java.util.ArrayList)
+    {
+        java.lang.CharSequence $r3;
+        android.net.Uri r9;
+        android.content.Intent $r0;
+        java.lang.String[] r5;
+        android.content.ClipData$Item r7;
+        java.util.ArrayList r1;
+        android.content.ClipData r2;
+        int i0, $i1;
+        java.lang.Object $r8;
+        java.lang.String $r4, $r6;
+
+        $r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        $r3 = virtualinvoke $r0.getCharSequenceExtra("android.intent.extra.TEXT");
+
+        $r4 = virtualinvoke $r0.getStringExtra("android.intent.extra.HTML_TEXT");
+
+        r2 = new android.content.ClipData;
+
+        r5 = newarray (java.lang.String)[1];
+
+        $r6 = virtualinvoke $r0.getType();
+
+        r5[0] = $r6;
+
+        r7 = new android.content.ClipData$Item;
+
+        $r8 = virtualinvoke r1.get(0);
+
+        r9 = (android.net.Uri) $r8;
+
+        specialinvoke r7.<init>($r3, $r4, null, r9);
+
+        specialinvoke r2.<init>(null, r5, r7);
+
+        i0 = 1;
+
+        $i1 = virtualinvoke r1.size();
+
+     label1:
+        if i0 >= $i1 goto label2;
+
+        $r8 = virtualinvoke r1.get(i0);
+
+        r9 = (android.net.Uri) $r8;
+
+        r7 = new android.content.ClipData$Item;
+
+        specialinvoke r7.<init>(r9);
+
+        virtualinvoke r2.addItem(r7);
+
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label2:
+        virtualinvoke $r0.setClipData(r2);
+
+        virtualinvoke $r0.addFlags(1);
+
+        return;
+    }
+
+    static void removeClipData(android.content.Intent)
+    {
+        int $i0;
+        android.content.Intent $r0;
+
+        $r0 := @parameter0;
+
+        virtualinvoke $r0.setClipData(null);
+
+        $i0 = virtualinvoke $r0.getFlags();
+
+        $i0 = $i0 & -2;
+
+        virtualinvoke $r0.setFlags($i0);
+
+        return;
+    }
+}

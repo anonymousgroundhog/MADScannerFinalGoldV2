@@ -1,0 +1,149 @@
+public final class com.google.android.gms.internal.ads.zzfo extends java.lang.Object implements com.google.android.gms.internal.ads.zzff
+{
+    private final com.google.android.gms.internal.ads.zzgc zza;
+    private com.google.android.gms.internal.ads.zzgi zzb;
+    private java.lang.String zzc;
+    private int zzd;
+    private int zze;
+    private boolean zzf;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgc $r1;
+        com.google.android.gms.internal.ads.zzfo r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.internal.ads.zzgc;
+
+        specialinvoke $r1.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzd = 8000;
+
+        r0.zze = 8000;
+
+        return;
+    }
+
+    public final volatile com.google.android.gms.internal.ads.zzfg zza()
+    {
+        com.google.android.gms.internal.ads.zzft $r1;
+        com.google.android.gms.internal.ads.zzfo r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zzg();
+
+        return $r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfo zzb(boolean)
+    {
+        com.google.android.gms.internal.ads.zzfo r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.zzf = 1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfo zzc(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfo r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.zzd = $i0;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfo zzd(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfo r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.zze = $i0;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfo zze(com.google.android.gms.internal.ads.zzgi)
+    {
+        com.google.android.gms.internal.ads.zzfo r0;
+        com.google.android.gms.internal.ads.zzgi $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzb = $r1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfo zzf(java.lang.String)
+    {
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzfo r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzc = $r1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzft zzg()
+    {
+        com.google.android.gms.internal.ads.zzgc $r2;
+        com.google.android.gms.internal.ads.zzgi $r4;
+        com.google.android.gms.internal.ads.zzft $r3;
+        com.google.android.gms.internal.ads.zzfo r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 = new com.google.android.gms.internal.ads.zzft;
+
+        $r1 = r0.zzc;
+
+        $i0 = r0.zzd;
+
+        $i1 = r0.zze;
+
+        $z0 = r0.zzf;
+
+        $r2 = r0.zza;
+
+        specialinvoke $r3.<init>($r1, $i0, $i1, $z0, $r2, null, 0, null);
+
+        $r4 = r0.zzb;
+
+        if $r4 == null goto label1;
+
+        virtualinvoke $r3.zzf($r4);
+
+     label1:
+        return $r3;
+    }
+}

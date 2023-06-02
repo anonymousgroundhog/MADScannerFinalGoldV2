@@ -1,0 +1,79 @@
+public final class com.google.android.gms.internal.ads.zzfci extends java.lang.Object
+{
+    final com.google.android.gms.internal.ads.zzfcs zza;
+    private final java.lang.Object zzb;
+    private final java.util.List zzc;
+
+    void <init>(com.google.android.gms.internal.ads.zzfcs, java.lang.Object, java.util.List, com.google.android.gms.internal.ads.zzfch)
+    {
+        java.util.List $r3;
+        com.google.android.gms.internal.ads.zzfcs $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzfci r0;
+        com.google.android.gms.internal.ads.zzfch $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfcr zza(java.util.concurrent.Callable)
+    {
+        com.google.android.gms.internal.ads.zzfuu $r7;
+        com.google.android.gms.internal.ads.zzfut $r8, $r10;
+        com.google.android.gms.internal.ads.zzfui $r5;
+        java.util.concurrent.Callable $r1;
+        java.util.List $r4;
+        com.google.android.gms.internal.ads.zzfcs $r2;
+        com.google.android.gms.internal.ads.zzfcr $r9;
+        com.google.android.gms.internal.ads.zzfcg $r6;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzfci r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r4 = r0.zzc;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzb($r4);
+
+        $r6 = com.google.android.gms.internal.ads.zzfcg.zza;
+
+        $r7 = com.google.android.gms.internal.ads.zzbzn.zzf;
+
+        $r8 = virtualinvoke $r5.zza($r6, $r7);
+
+        $r9 = new com.google.android.gms.internal.ads.zzfcr;
+
+        $r2 = r0.zza;
+
+        $r3 = r0.zzb;
+
+        $r4 = r0.zzc;
+
+        $r7 = com.google.android.gms.internal.ads.zzfcs.zze($r2);
+
+        $r10 = virtualinvoke $r5.zza($r1, $r7);
+
+        specialinvoke $r9.<init>($r2, $r3, null, $r8, $r4, $r10, null);
+
+        return $r9;
+    }
+}

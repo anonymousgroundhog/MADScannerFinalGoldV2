@@ -1,0 +1,147 @@
+public final class androidx.core.app.AppOpsManagerCompat extends java.lang.Object
+{
+    public static final int MODE_ALLOWED;
+    public static final int MODE_DEFAULT;
+    public static final int MODE_ERRORED;
+    public static final int MODE_IGNORED;
+
+    private void <init>()
+    {
+        androidx.core.app.AppOpsManagerCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static int noteOp(android.content.Context, java.lang.String, int, java.lang.String)
+    {
+        android.content.Context $r0;
+        android.app.AppOpsManager r4;
+        int $i0;
+        java.lang.Object $r3;
+        java.lang.String $r1, $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $r3 = virtualinvoke $r0.getSystemService("appops");
+
+        r4 = (android.app.AppOpsManager) $r3;
+
+        $i0 = virtualinvoke r4.noteOp($r1, $i0, $r2);
+
+        return $i0;
+    }
+
+    public static int noteOpNoThrow(android.content.Context, java.lang.String, int, java.lang.String)
+    {
+        android.content.Context $r0;
+        android.app.AppOpsManager r4;
+        int $i0;
+        java.lang.Object $r3;
+        java.lang.String $r1, $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $r3 = virtualinvoke $r0.getSystemService("appops");
+
+        r4 = (android.app.AppOpsManager) $r3;
+
+        $i0 = virtualinvoke r4.noteOpNoThrow($r1, $i0, $r2);
+
+        return $i0;
+    }
+
+    public static int noteProxyOp(android.content.Context, java.lang.String, java.lang.String)
+    {
+        android.content.Context $r0;
+        android.app.AppOpsManager r4;
+        int i0;
+        java.lang.Object $r3;
+        java.lang.String $r1, $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label1;
+
+        $r3 = virtualinvoke $r0.getSystemService(class "Landroid/app/AppOpsManager;");
+
+        r4 = (android.app.AppOpsManager) $r3;
+
+        i0 = virtualinvoke r4.noteProxyOp($r1, $r2);
+
+        return i0;
+
+     label1:
+        return 1;
+    }
+
+    public static int noteProxyOpNoThrow(android.content.Context, java.lang.String, java.lang.String)
+    {
+        android.content.Context $r0;
+        android.app.AppOpsManager r4;
+        int i0;
+        java.lang.Object $r3;
+        java.lang.String $r1, $r2;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 23 goto label1;
+
+        $r3 = virtualinvoke $r0.getSystemService(class "Landroid/app/AppOpsManager;");
+
+        r4 = (android.app.AppOpsManager) $r3;
+
+        i0 = virtualinvoke r4.noteProxyOpNoThrow($r1, $r2);
+
+        return i0;
+
+     label1:
+        return 1;
+    }
+
+    public static java.lang.String permissionToOp(java.lang.String)
+    {
+        int $i0;
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 23 goto label1;
+
+        $r0 = android.app.AppOpsManager.permissionToOp($r0);
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+}

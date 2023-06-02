@@ -1,0 +1,267 @@
+public final class com.google.android.gms.internal.ads.zzdi extends com.google.android.gms.internal.ads.zzdf
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdi r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zze(java.nio.ByteBuffer)
+    {
+        com.google.android.gms.internal.ads.zzdc $r2;
+        java.lang.IllegalStateException $r4;
+        com.google.android.gms.internal.ads.zzdi r0;
+        java.nio.ByteBuffer $r1, $r3;
+        short $s5, $s6;
+        byte $b4;
+        int $i0, $i1, $i2, $i3;
+        float $f0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = virtualinvoke $r1.position();
+
+        $i1 = $i0;
+
+        $i2 = virtualinvoke $r1.limit();
+
+        $i0 = $i2 - $i0;
+
+        $r2 = r0.zzb;
+
+        $i3 = $r2.zzd;
+
+        lookupswitch($i3)
+        {
+            case 3: goto label04;
+            case 4: goto label03;
+            case 268435456: goto label05;
+            case 536870912: goto label02;
+            case 805306368: goto label03;
+            default: goto label01;
+        };
+
+     label01:
+        $r4 = new java.lang.IllegalStateException;
+
+        specialinvoke $r4.<init>();
+
+        throw $r4;
+
+     label02:
+        $i0 = $i0 / 3;
+
+        goto label04;
+
+     label03:
+        $i0 = $i0 / 2;
+
+        goto label05;
+
+     label04:
+        $i0 = $i0 + $i0;
+
+     label05:
+        $r3 = virtualinvoke r0.zzj($i0);
+
+        $r2 = r0.zzb;
+
+        $i0 = $r2.zzd;
+
+        lookupswitch($i0)
+        {
+            case 3: goto label11;
+            case 4: goto label10;
+            case 268435456: goto label09;
+            case 536870912: goto label08;
+            case 805306368: goto label07;
+            default: goto label06;
+        };
+
+     label06:
+        $r4 = new java.lang.IllegalStateException;
+
+        specialinvoke $r4.<init>();
+
+        throw $r4;
+
+     label07:
+        if $i1 >= $i2 goto label12;
+
+        $i0 = $i1 + 2;
+
+        $b4 = virtualinvoke $r1.get($i0);
+
+        virtualinvoke $r3.put($b4);
+
+        $i0 = $i1 + 3;
+
+        $b4 = virtualinvoke $r1.get($i0);
+
+        virtualinvoke $r3.put($b4);
+
+        $i1 = $i1 + 4;
+
+        goto label07;
+
+     label08:
+        if $i1 >= $i2 goto label12;
+
+        $i0 = $i1 + 1;
+
+        $b4 = virtualinvoke $r1.get($i0);
+
+        virtualinvoke $r3.put($b4);
+
+        $i0 = $i1 + 2;
+
+        $b4 = virtualinvoke $r1.get($i0);
+
+        virtualinvoke $r3.put($b4);
+
+        $i1 = $i1 + 3;
+
+        goto label08;
+
+     label09:
+        if $i1 >= $i2 goto label12;
+
+        $i0 = $i1 + 1;
+
+        $b4 = virtualinvoke $r1.get($i0);
+
+        virtualinvoke $r3.put($b4);
+
+        $b4 = virtualinvoke $r1.get($i1);
+
+        virtualinvoke $r3.put($b4);
+
+        $i1 = $i1 + 2;
+
+        goto label09;
+
+     label10:
+        if $i1 >= $i2 goto label12;
+
+        $f0 = virtualinvoke $r1.getFloat($i1);
+
+        $f0 = com.google.android.gms.internal.ads.zzew.zza($f0, -1.0F, 1.0F);
+
+        $f0 = $f0 * 32767.0F;
+
+        $i0 = (int) $f0;
+
+        $s5 = (short) $i0;
+
+        $s6 = $s5 & 255;
+
+        $b4 = (byte) $s6;
+
+        virtualinvoke $r3.put($b4);
+
+        $i0 = (int) $s5;
+
+        $i0 = $i0 >> 8;
+
+        $i0 = $i0 & 255;
+
+        $b4 = (byte) $i0;
+
+        virtualinvoke $r3.put($b4);
+
+        $i1 = $i1 + 4;
+
+        goto label10;
+
+     label11:
+        if $i1 >= $i2 goto label12;
+
+        virtualinvoke $r3.put(0);
+
+        $b4 = virtualinvoke $r1.get($i1);
+
+        $s5 = (short) $b4;
+
+        $s5 = $s5 & 255;
+
+        $i0 = (int) $s5;
+
+        $i0 = $i0 + -128;
+
+        $b4 = (byte) $i0;
+
+        virtualinvoke $r3.put($b4);
+
+        $i1 = $i1 + 1;
+
+        goto label11;
+
+     label12:
+        $i1 = virtualinvoke $r1.limit();
+
+        virtualinvoke $r1.position($i1);
+
+        virtualinvoke $r3.flip();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzdc zzi(com.google.android.gms.internal.ads.zzdc) throws com.google.android.gms.internal.ads.zzdd
+    {
+        com.google.android.gms.internal.ads.zzdc $r1, $r3;
+        com.google.android.gms.internal.ads.zzdd $r2;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzdi r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = $r1.zzd;
+
+        if $i0 == 3 goto label3;
+
+        if $i0 == 2 goto label2;
+
+        if $i0 == 268435456 goto label3;
+
+        if $i0 == 536870912 goto label3;
+
+        if $i0 == 805306368 goto label3;
+
+        if $i0 != 4 goto label1;
+
+        goto label3;
+
+     label1:
+        $r2 = new com.google.android.gms.internal.ads.zzdd;
+
+        specialinvoke $r2.<init>($r1);
+
+        throw $r2;
+
+     label2:
+        $r1 = com.google.android.gms.internal.ads.zzdc.zza;
+
+        return $r1;
+
+     label3:
+        $r3 = new com.google.android.gms.internal.ads.zzdc;
+
+        $i0 = $r1.zzb;
+
+        $i1 = $r1.zzc;
+
+        specialinvoke $r3.<init>($i0, $i1, 2);
+
+        return $r3;
+    }
+}

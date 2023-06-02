@@ -1,0 +1,37 @@
+public final class com.google.android.gms.internal.ads.zzeah extends java.lang.Object
+{
+    public final long zza;
+    public final java.lang.String zzb;
+    public final java.lang.String zzc;
+    public final int zzd;
+
+    public void <init>(long, java.lang.String, java.lang.String, int)
+    {
+        int $i1;
+        long $l0;
+        java.lang.String $r1, $r2;
+        com.google.android.gms.internal.ads.zzeah r0;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i1 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $l0;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        r0.zzd = $i1;
+
+        return;
+    }
+}

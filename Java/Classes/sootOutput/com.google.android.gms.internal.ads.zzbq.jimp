@@ -1,0 +1,394 @@
+public final class com.google.android.gms.internal.ads.zzbq extends java.lang.Object implements android.os.Parcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public final long zza;
+    private final com.google.android.gms.internal.ads.zzbp[] zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbo $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzbo;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzbq.CREATOR = $r0;
+
+        return;
+    }
+
+    public transient void <init>(long, com.google.android.gms.internal.ads.zzbp[])
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        long $l0;
+        com.google.android.gms.internal.ads.zzbp[] $r1;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $l0;
+
+        r0.zzb = $r1;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel)
+    {
+        com.google.android.gms.internal.ads.zzbp[] $r2;
+        android.os.Parcelable $r5;
+        long $l2;
+        android.os.Parcel $r1;
+        com.google.android.gms.internal.ads.zzbq r0;
+        com.google.android.gms.internal.ads.zzbp $r6;
+        int $i0, $i1;
+        java.lang.Class $r3;
+        java.lang.ClassLoader $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $i0 = virtualinvoke $r1.readInt();
+
+        $r2 = newarray (com.google.android.gms.internal.ads.zzbp)[$i0];
+
+        r0.zzb = $r2;
+
+        $i0 = 0;
+
+     label1:
+        $r2 = r0.zzb;
+
+        $i1 = lengthof $r2;
+
+        if $i0 >= $i1 goto label2;
+
+        $r3 = class "Lcom/google/android/gms/internal/ads/zzbp;";
+
+        $r4 = virtualinvoke $r3.getClassLoader();
+
+        $r5 = virtualinvoke $r1.readParcelable($r4);
+
+        $r6 = (com.google.android.gms.internal.ads.zzbp) $r5;
+
+        $r2[$i0] = $r6;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        $l2 = virtualinvoke $r1.readLong();
+
+        r0.zza = $l2;
+
+        return;
+    }
+
+    public void <init>(java.util.List)
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        java.util.List $r2;
+        com.google.android.gms.internal.ads.zzbp[] $r3;
+        java.lang.Object[] $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = newarray (com.google.android.gms.internal.ads.zzbp)[0];
+
+        $r1 = interfaceinvoke $r2.toArray($r3);
+
+        $r3 = (com.google.android.gms.internal.ads.zzbp[]) $r1;
+
+        specialinvoke r0.<init>(-9223372036854775807L, $r3);
+
+        return;
+    }
+
+    public final int describeContents()
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public final boolean equals(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzbp[] $r5, $r6;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzbq r0, $r4;
+        byte $b2;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label3;
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 == $r3 goto label2;
+
+        return 0;
+
+     label2:
+        $r4 = (com.google.android.gms.internal.ads.zzbq) $r1;
+
+        $r5 = r0.zzb;
+
+        $r6 = $r4.zzb;
+
+        $z0 = java.util.Arrays.equals($r5, $r6);
+
+        if $z0 == 0 goto label3;
+
+        $l1 = r0.zza;
+
+        $l0 = $r4.zza;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 != 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public final int hashCode()
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        com.google.android.gms.internal.ads.zzbp[] $r1;
+        int $i0, $i1;
+        long $l2, $l3;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        $i0 = java.util.Arrays.hashCode($r1);
+
+        $i1 = $i0 * 31;
+
+        $l2 = r0.zza;
+
+        $l3 = $l2 >>> 32;
+
+        $l2 = $l2 ^ $l3;
+
+        $i0 = (int) $l2;
+
+        $i0 = $i1 + $i0;
+
+        return $i0;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        com.google.android.gms.internal.ads.zzbp[] $r2;
+        byte $b0;
+        java.lang.StringBuilder $r1;
+        long $l1;
+        java.lang.String $r3, $r4;
+
+        r0 := @this;
+
+        $r2 = r0.zzb;
+
+        $r3 = java.util.Arrays.toString($r2);
+
+        $l1 = r0.zza;
+
+        $b0 = $l1 cmp -9223372036854775807L;
+
+        if $b0 != 0 goto label1;
+
+        $r4 = "";
+
+        goto label2;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append(", presentationTimeUs=");
+
+        virtualinvoke $r1.append($l1);
+
+        $r4 = virtualinvoke $r1.toString();
+
+     label2:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("entries=");
+
+        virtualinvoke $r1.append($r3);
+
+        virtualinvoke $r1.append($r4);
+
+        $r3 = virtualinvoke $r1.toString();
+
+        return $r3;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        com.google.android.gms.internal.ads.zzbp[] $r3;
+        com.google.android.gms.internal.ads.zzbp $r2;
+        int $i0, $i1;
+        long $l2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r3 = r0.zzb;
+
+        $i0 = lengthof $r3;
+
+        virtualinvoke $r1.writeInt($i0);
+
+        $r3 = r0.zzb;
+
+        $i0 = lengthof $r3;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 >= $i0 goto label2;
+
+        $r2 = $r3[$i1];
+
+        virtualinvoke $r1.writeParcelable($r2, 0);
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label2:
+        $l2 = r0.zza;
+
+        virtualinvoke $r1.writeLong($l2);
+
+        return;
+    }
+
+    public final int zza()
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzbp[] $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        $i0 = lengthof $r1;
+
+        return $i0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbp zzb(int)
+    {
+        com.google.android.gms.internal.ads.zzbq r0;
+        com.google.android.gms.internal.ads.zzbp[] $r1;
+        com.google.android.gms.internal.ads.zzbp $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.zzb;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+
+    public final transient com.google.android.gms.internal.ads.zzbq zzc(com.google.android.gms.internal.ads.zzbp[])
+    {
+        com.google.android.gms.internal.ads.zzbq r0, $r4;
+        com.google.android.gms.internal.ads.zzbp[] $r1, $r3;
+        java.lang.Object[] $r2;
+        int $i1;
+        long $l0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $i1 = lengthof $r3;
+
+        if $i1 != 0 goto label1;
+
+        return r0;
+
+     label1:
+        $r4 = new com.google.android.gms.internal.ads.zzbq;
+
+        $l0 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $r2 = com.google.android.gms.internal.ads.zzew.zzae($r1, $r3);
+
+        $r3 = (com.google.android.gms.internal.ads.zzbp[]) $r2;
+
+        specialinvoke $r4.<init>($l0, $r3);
+
+        return $r4;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbq zzd(com.google.android.gms.internal.ads.zzbq)
+    {
+        com.google.android.gms.internal.ads.zzbq r0, $r1;
+        com.google.android.gms.internal.ads.zzbp[] $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return r0;
+
+     label1:
+        $r2 = $r1.zzb;
+
+        r0 = virtualinvoke r0.zzc($r2);
+
+        return r0;
+    }
+}

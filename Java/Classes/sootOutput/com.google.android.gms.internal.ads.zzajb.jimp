@@ -1,0 +1,149 @@
+public final class com.google.android.gms.internal.ads.zzajb extends java.lang.Object
+{
+
+    public static int zza(byte[], int, int)
+    {
+        byte[] $r0;
+        byte $b1;
+        int $i0, $i2, $i3;
+
+        $r0 := @parameter0;
+
+        $i2 := @parameter1;
+
+        $i0 := @parameter2;
+
+     label1:
+        if $i2 >= $i0 goto label2;
+
+        $b1 = $r0[$i2];
+
+        $i3 = (int) $b1;
+
+        if $i3 == 71 goto label2;
+
+        $i2 = $i2 + 1;
+
+        goto label1;
+
+     label2:
+        return $i2;
+    }
+
+    public static long zzb(com.google.android.gms.internal.ads.zzen, int, int)
+    {
+        byte[] $r1;
+        long $l4, $l5, $l6, $l7, $l8;
+        byte $b3;
+        com.google.android.gms.internal.ads.zzen $r0;
+        int $i0, $i1, $i2;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        virtualinvoke $r0.zzF($i0);
+
+        $i0 = virtualinvoke $r0.zza();
+
+        if $i0 >= 5 goto label1;
+
+        return -9223372036854775807L;
+
+     label1:
+        $i0 = virtualinvoke $r0.zze();
+
+        $i2 = 8388608 & $i0;
+
+        if $i2 == 0 goto label2;
+
+        return -9223372036854775807L;
+
+     label2:
+        $i2 = $i0 >> 8;
+
+        $i2 = $i2 & 8191;
+
+        if $i2 == $i1 goto label3;
+
+        return -9223372036854775807L;
+
+     label3:
+        $i0 = $i0 & 32;
+
+        if $i0 == 0 goto label4;
+
+        $i0 = virtualinvoke $r0.zzk();
+
+        if $i0 < 7 goto label4;
+
+        $i0 = virtualinvoke $r0.zza();
+
+        if $i0 < 7 goto label4;
+
+        $i0 = virtualinvoke $r0.zzk();
+
+        $i0 = $i0 & 16;
+
+        if $i0 != 16 goto label4;
+
+        $r1 = newarray (byte)[6];
+
+        virtualinvoke $r0.zzB($r1, 0, 6);
+
+        $b3 = $r1[0];
+
+        $l4 = (long) $b3;
+
+        $b3 = $r1[1];
+
+        $l5 = (long) $b3;
+
+        $b3 = $r1[2];
+
+        $l6 = (long) $b3;
+
+        $b3 = $r1[3];
+
+        $l7 = (long) $b3;
+
+        $b3 = $r1[4];
+
+        $l8 = (long) $b3;
+
+        $l4 = $l4 & 255L;
+
+        $l5 = $l5 & 255L;
+
+        $l6 = $l6 & 255L;
+
+        $l8 = $l8 & 255L;
+
+        $l7 = $l7 & 255L;
+
+        $l4 = $l4 << 25;
+
+        $l5 = $l5 << 17;
+
+        $l4 = $l4 | $l5;
+
+        $l6 = $l6 << 9;
+
+        $l6 = $l4 | $l6;
+
+        $l7 = $l7 + $l7;
+
+        $l6 = $l6 | $l7;
+
+        $l8 = $l8 >> 7;
+
+        $l8 = $l6 | $l8;
+
+        return $l8;
+
+     label4:
+        return -9223372036854775807L;
+    }
+}

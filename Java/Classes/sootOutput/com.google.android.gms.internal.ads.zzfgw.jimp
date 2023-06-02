@@ -1,0 +1,37 @@
+final class com.google.android.gms.internal.ads.zzfgw extends java.lang.Object implements java.lang.Runnable
+{
+    final com.google.android.gms.internal.ads.zzfhb zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzfhb)
+    {
+        com.google.android.gms.internal.ads.zzfhb $r1;
+        com.google.android.gms.internal.ads.zzfgw r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        com.google.android.gms.internal.ads.zzfhb $r2;
+        com.google.android.gms.internal.ads.zzfgw r0;
+        com.google.android.gms.internal.ads.zzfgv $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = com.google.android.gms.internal.ads.zzfhb.zzc($r2);
+
+        virtualinvoke $r1.zzb();
+
+        return;
+    }
+}

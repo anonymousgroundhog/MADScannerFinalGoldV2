@@ -1,0 +1,372 @@
+public class com.google.android.gms.common.logging.Logger extends java.lang.Object
+{
+    private final java.lang.String zza;
+    private final java.lang.String zzb;
+    private final com.google.android.gms.common.internal.GmsLogger zzc;
+    private final int zzd;
+
+    public transient void <init>(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] $r4;
+        com.google.android.gms.common.internal.GmsLogger $r5;
+        com.google.android.gms.common.logging.Logger r0;
+        int $i0, $i1, $i2;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $i0 = lengthof $r4;
+
+        if $i0 != 0 goto label1;
+
+        $r2 = "";
+
+        goto label5;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append(91);
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label4;
+
+        $r2 = $r4[$i1];
+
+        $i2 = virtualinvoke $r1.length();
+
+        if $i2 <= 1 goto label3;
+
+        virtualinvoke $r1.append(",");
+
+     label3:
+        virtualinvoke $r1.append($r2);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label4:
+        virtualinvoke $r1.append("] ");
+
+        $r2 = virtualinvoke $r1.toString();
+
+     label5:
+        specialinvoke r0.<init>();
+
+        r0.zzb = $r2;
+
+        r0.zza = $r3;
+
+        $r5 = new com.google.android.gms.common.internal.GmsLogger;
+
+        specialinvoke $r5.<init>($r3);
+
+        r0.zzc = $r5;
+
+        $i0 = 2;
+
+     label6:
+        if $i0 > 7 goto label7;
+
+        $r3 = r0.zza;
+
+        $z0 = android.util.Log.isLoggable($r3, $i0);
+
+        if $z0 != 0 goto label7;
+
+        $i0 = $i0 + 1;
+
+        goto label6;
+
+     label7:
+        r0.zzd = $i0;
+
+        return;
+    }
+
+    public transient void d(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = virtualinvoke r0.isLoggable(3);
+
+        if $z0 == 0 goto label1;
+
+        $r3 = r0.zza;
+
+        $r2 = virtualinvoke r0.format($r2, $r1);
+
+        android.util.Log.d($r3, $r2);
+
+     label1:
+        return;
+    }
+
+    public transient void e(java.lang.String, java.lang.Throwable, java.lang.Object[])
+    {
+        java.lang.Throwable $r1;
+        java.lang.Object[] $r2;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r3, $r4;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = r0.zza;
+
+        $r4 = virtualinvoke r0.format($r4, $r2);
+
+        android.util.Log.e($r3, $r4, $r1);
+
+        return;
+    }
+
+    public transient void e(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r2, $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke r0.format($r3, $r1);
+
+        android.util.Log.e($r2, $r3);
+
+        return;
+    }
+
+    protected transient java.lang.String format(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r2;
+        java.util.Locale $r3;
+        com.google.android.gms.common.logging.Logger r0;
+        int $i0;
+        java.lang.String $r1, $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        if $r2 == null goto label1;
+
+        $i0 = lengthof $r2;
+
+        if $i0 <= 0 goto label1;
+
+        $r3 = java.util.Locale.US;
+
+        $r1 = java.lang.String.format($r3, $r1, $r2);
+
+     label1:
+        $r4 = r0.zzb;
+
+        $r1 = virtualinvoke $r4.concat($r1);
+
+        return $r1;
+    }
+
+    public java.lang.String getTag()
+    {
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public transient void i(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r2, $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke r0.format($r3, $r1);
+
+        android.util.Log.i($r2, $r3);
+
+        return;
+    }
+
+    public boolean isLoggable(int)
+    {
+        com.google.android.gms.common.logging.Logger r0;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $i0 = r0.zzd;
+
+        if $i0 > $i1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public transient void v(java.lang.String, java.lang.Throwable, java.lang.Object[])
+    {
+        java.lang.Throwable $r1;
+        java.lang.Object[] $r2;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r3, $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $z0 = virtualinvoke r0.isLoggable(2);
+
+        if $z0 == 0 goto label1;
+
+        $r4 = r0.zza;
+
+        $r3 = virtualinvoke r0.format($r3, $r2);
+
+        android.util.Log.v($r4, $r3, $r1);
+
+     label1:
+        return;
+    }
+
+    public transient void v(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $z0 = virtualinvoke r0.isLoggable(2);
+
+        if $z0 == 0 goto label1;
+
+        $r3 = r0.zza;
+
+        $r2 = virtualinvoke r0.format($r2, $r1);
+
+        android.util.Log.v($r3, $r2);
+
+     label1:
+        return;
+    }
+
+    public transient void w(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] $r1;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r2, $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = r0.zza;
+
+        $r3 = virtualinvoke r0.format($r3, $r1);
+
+        android.util.Log.w($r2, $r3);
+
+        return;
+    }
+
+    public transient void wtf(java.lang.String, java.lang.Throwable, java.lang.Object[])
+    {
+        java.lang.Throwable $r1;
+        java.lang.Object[] $r2;
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.String $r3, $r4;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = r0.zza;
+
+        $r4 = virtualinvoke r0.format($r4, $r2);
+
+        android.util.Log.wtf($r3, $r4, $r1);
+
+        return;
+    }
+
+    public void wtf(java.lang.Throwable)
+    {
+        com.google.android.gms.common.logging.Logger r0;
+        java.lang.Throwable $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        android.util.Log.wtf($r2, $r1);
+
+        return;
+    }
+}

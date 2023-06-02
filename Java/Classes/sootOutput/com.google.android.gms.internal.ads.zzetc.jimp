@@ -1,0 +1,9 @@
+public interface  com.google.android.gms.internal.ads.zzetc extends java.lang.Object
+{
+
+    public abstract com.google.android.gms.internal.ads.zzetc zza(java.lang.String);
+
+    public abstract com.google.android.gms.internal.ads.zzetc zzb(android.content.Context);
+
+    public abstract com.google.android.gms.internal.ads.zzetd zzc();
+}

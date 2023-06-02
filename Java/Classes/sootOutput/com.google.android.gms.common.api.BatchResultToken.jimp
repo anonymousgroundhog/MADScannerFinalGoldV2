@@ -1,0 +1,20 @@
+public final class com.google.android.gms.common.api.BatchResultToken extends java.lang.Object
+{
+    protected final int mId;
+
+    void <init>(int)
+    {
+        int $i0;
+        com.google.android.gms.common.api.BatchResultToken r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.mId = $i0;
+
+        return;
+    }
+}

@@ -1,0 +1,27 @@
+public abstract class com.google.android.gms.internal.ads.zzgom extends java.lang.Object implements com.google.android.gms.internal.ads.zzgrv
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgom r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        com.google.android.gms.internal.ads.zzgom r0;
+
+        r0 := @this;
+
+        r0 = virtualinvoke r0.zzah();
+
+        return r0;
+    }
+
+    public abstract com.google.android.gms.internal.ads.zzgom zzah();
+}

@@ -1,0 +1,112 @@
+public final class com.google.android.gms.common.internal.zzai extends java.lang.Object implements android.os.Parcelable$Creator
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.common.internal.zzai r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final volatile java.lang.Object createFromParcel(android.os.Parcel)
+    {
+        com.google.android.gms.common.internal.zzai r0;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration $r2;
+        android.os.Parcel $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.validateObjectHeader($r1);
+
+        $i1 = 0;
+
+        $z0 = 0;
+
+        $z1 = 0;
+
+        $i2 = 0;
+
+        $i3 = 0;
+
+     label1:
+        $i4 = virtualinvoke $r1.dataPosition();
+
+        if $i4 >= $i0 goto label8;
+
+        $i4 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readHeader($r1);
+
+        $i5 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.getFieldId($i4);
+
+        lookupswitch($i5)
+        {
+            case 1: goto label7;
+            case 2: goto label6;
+            case 3: goto label5;
+            case 4: goto label4;
+            case 5: goto label3;
+            default: goto label2;
+        };
+
+     label2:
+        com.google.android.gms.common.internal.safeparcel.SafeParcelReader.skipUnknownField($r1, $i4);
+
+        goto label1;
+
+     label3:
+        $i3 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readInt($r1, $i4);
+
+        goto label1;
+
+     label4:
+        $i2 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readInt($r1, $i4);
+
+        goto label1;
+
+     label5:
+        $z1 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readBoolean($r1, $i4);
+
+        goto label1;
+
+     label6:
+        $z0 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readBoolean($r1, $i4);
+
+        goto label1;
+
+     label7:
+        $i1 = com.google.android.gms.common.internal.safeparcel.SafeParcelReader.readInt($r1, $i4);
+
+        goto label1;
+
+     label8:
+        com.google.android.gms.common.internal.safeparcel.SafeParcelReader.ensureAtEnd($r1, $i0);
+
+        $r2 = new com.google.android.gms.common.internal.RootTelemetryConfiguration;
+
+        specialinvoke $r2.<init>($i1, $z0, $z1, $i2, $i3);
+
+        return $r2;
+    }
+
+    public final java.lang.Object[] newArray(int)
+    {
+        int $i0;
+        com.google.android.gms.common.internal.RootTelemetryConfiguration[] $r1;
+        com.google.android.gms.common.internal.zzai r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = newarray (com.google.android.gms.common.internal.RootTelemetryConfiguration)[$i0];
+
+        return $r1;
+    }
+}

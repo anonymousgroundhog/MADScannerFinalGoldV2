@@ -1,0 +1,154 @@
+class androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub extends android.support.v4.app.INotificationSideChannel$Stub
+{
+    final androidx.core.app.NotificationCompatSideChannelService this$0;
+
+    void <init>(androidx.core.app.NotificationCompatSideChannelService)
+    {
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub r0;
+        androidx.core.app.NotificationCompatSideChannelService $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void cancel(java.lang.String, int, java.lang.String) throws android.os.RemoteException
+    {
+        java.lang.Throwable $r4;
+        long $l2;
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub r0;
+        int $i0, $i1;
+        androidx.core.app.NotificationCompatSideChannelService r3;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        r3 = r0.this$0;
+
+        $i1 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.getCallingUid();
+
+        virtualinvoke r3.checkPermission($i1, $r1);
+
+        $l2 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.clearCallingIdentity();
+
+     label1:
+        r3 = r0.this$0;
+
+        virtualinvoke r3.cancel($r1, $i0, $r2);
+
+     label2:
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l2);
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l2);
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void cancelAll(java.lang.String)
+    {
+        java.lang.Throwable $r3;
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub r0;
+        int $i0;
+        androidx.core.app.NotificationCompatSideChannelService r2;
+        long $l1;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = r0.this$0;
+
+        $i0 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.getCallingUid();
+
+        virtualinvoke r2.checkPermission($i0, $r1);
+
+        $l1 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.clearCallingIdentity();
+
+     label1:
+        r2 = r0.this$0;
+
+        virtualinvoke r2.cancelAll($r1);
+
+     label2:
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l1);
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l1);
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void notify(java.lang.String, int, java.lang.String, android.app.Notification) throws android.os.RemoteException
+    {
+        java.lang.Throwable $r5;
+        long $l2;
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub r0;
+        int $i0, $i1;
+        android.app.Notification $r3;
+        androidx.core.app.NotificationCompatSideChannelService r4;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        r4 = r0.this$0;
+
+        $i1 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.getCallingUid();
+
+        virtualinvoke r4.checkPermission($i1, $r1);
+
+        $l2 = androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.clearCallingIdentity();
+
+     label1:
+        r4 = r0.this$0;
+
+        virtualinvoke r4.notify($r1, $i0, $r2, $r3);
+
+     label2:
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l2);
+
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        androidx.core.app.NotificationCompatSideChannelService$NotificationSideChannelStub.restoreCallingIdentity($l2);
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

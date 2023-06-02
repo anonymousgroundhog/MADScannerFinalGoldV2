@@ -1,0 +1,41 @@
+abstract class com.google.android.gms.internal.ads.zzvy extends java.lang.Object
+{
+    public final int zza;
+    public final com.google.android.gms.internal.ads.zzcp zzb;
+    public final int zzc;
+    public final com.google.android.gms.internal.ads.zzaf zzd;
+
+    public void <init>(int, com.google.android.gms.internal.ads.zzcp, int)
+    {
+        com.google.android.gms.internal.ads.zzcp $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzaf $r2;
+        com.google.android.gms.internal.ads.zzvy r0;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i1;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $i0;
+
+        $r2 = virtualinvoke $r1.zzb($i0);
+
+        r0.zzd = $r2;
+
+        return;
+    }
+
+    public abstract int zzb();
+
+    public abstract boolean zzc(com.google.android.gms.internal.ads.zzvy);
+}

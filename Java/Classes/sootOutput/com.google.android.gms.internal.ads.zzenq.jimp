@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzenq extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    private final java.lang.String zza;
+
+    public void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzenq r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        android.os.Bundle $r3;
+        com.google.android.gms.internal.ads.zzenq r0;
+        java.lang.Object $r2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (android.os.Bundle) $r2;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzezi.zzc($r3, "omid_v", $r1);
+
+        return;
+    }
+}

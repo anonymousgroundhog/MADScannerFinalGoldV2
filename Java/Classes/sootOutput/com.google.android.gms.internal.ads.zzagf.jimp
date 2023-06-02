@@ -1,0 +1,391 @@
+final class com.google.android.gms.internal.ads.zzagf extends java.lang.Object
+{
+    private static final int[] zza;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[29];
+
+        $r0[0] = 1769172845;
+
+        $r0[1] = 1769172786;
+
+        $r0[2] = 1769172787;
+
+        $r0[3] = 1769172788;
+
+        $r0[4] = 1769172789;
+
+        $r0[5] = 1769172790;
+
+        $r0[6] = 1769172793;
+
+        $r0[7] = 1635148593;
+
+        $r0[8] = 1752589105;
+
+        $r0[9] = 1751479857;
+
+        $r0[10] = 1635135537;
+
+        $r0[11] = 1836069937;
+
+        $r0[12] = 1836069938;
+
+        $r0[13] = 862401121;
+
+        $r0[14] = 862401122;
+
+        $r0[15] = 862417462;
+
+        $r0[16] = 862417718;
+
+        $r0[17] = 862414134;
+
+        $r0[18] = 862414646;
+
+        $r0[19] = 1295275552;
+
+        $r0[20] = 1295270176;
+
+        $r0[21] = 1714714144;
+
+        $r0[22] = 1801741417;
+
+        $r0[23] = 1295275600;
+
+        $r0[24] = 1903435808;
+
+        $r0[25] = 1297305174;
+
+        $r0[26] = 1684175153;
+
+        $r0[27] = 1769172332;
+
+        $r0[28] = 1885955686;
+
+        com.google.android.gms.internal.ads.zzagf.zza = $r0;
+
+        return;
+    }
+
+    public static boolean zza(com.google.android.gms.internal.ads.zzzv) throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzzv $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = com.google.android.gms.internal.ads.zzagf.zzc($r0, 1, 0);
+
+        return $z0;
+    }
+
+    public static boolean zzb(com.google.android.gms.internal.ads.zzzv, boolean) throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzzv $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z0 = com.google.android.gms.internal.ads.zzagf.zzc($r0, 0, 0);
+
+        return $z0;
+    }
+
+    private static boolean zzc(com.google.android.gms.internal.ads.zzzv, boolean, boolean) throws java.io.IOException
+    {
+        byte[] $r2;
+        long $l0, $l2, $l3, $l4, $l9;
+        byte $b1, $b8;
+        int[] $r3;
+        com.google.android.gms.internal.ads.zzen $r4;
+        int $i5, $i6, $i7, $i10, $i11, $i12, $i13;
+        boolean $z0, $z1, $z2;
+        com.google.android.gms.internal.ads.zzzv $r0;
+
+        $r0 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $z1 := @parameter2;
+
+        $l2 = interfaceinvoke $r0.zzd();
+
+        $l0 = $l2;
+
+        $l3 = 4096L;
+
+        $b1 = $l2 cmp -1L;
+
+        if $b1 == 0 goto label02;
+
+        $b1 = $l2 cmp 4096L;
+
+        $i5 = (int) $b1;
+
+        if $i5 <= 0 goto label01;
+
+        goto label02;
+
+     label01:
+        $l3 = $l2;
+
+        goto label02;
+
+     label02:
+        $r4 = new com.google.android.gms.internal.ads.zzen;
+
+        specialinvoke $r4.<init>(64);
+
+        $i5 = (int) $l3;
+
+        $i6 = 0;
+
+        $z1 = 0;
+
+     label03:
+        if $i6 >= $i5 goto label26;
+
+        virtualinvoke $r4.zzC(8);
+
+        $r2 = virtualinvoke $r4.zzH();
+
+        $z2 = interfaceinvoke $r0.zzm($r2, 0, 8, 1);
+
+        if $z2 != 0 goto label04;
+
+        $z2 = 0;
+
+        goto label27;
+
+     label04:
+        $l3 = virtualinvoke $r4.zzs();
+
+        $l2 = $l3;
+
+        $i7 = virtualinvoke $r4.zze();
+
+        $b1 = $l3 cmp 1L;
+
+        if $b1 != 0 goto label05;
+
+        $r2 = virtualinvoke $r4.zzH();
+
+        interfaceinvoke $r0.zzh($r2, 8, 8);
+
+        $b1 = 16;
+
+        virtualinvoke $r4.zzE(16);
+
+        $l4 = virtualinvoke $r4.zzr();
+
+        goto label07;
+
+     label05:
+        $b1 = $l3 cmp 0L;
+
+        if $b1 != 0 goto label06;
+
+        $l3 = interfaceinvoke $r0.zzd();
+
+        $b1 = $l3 cmp -1L;
+
+        if $b1 == 0 goto label06;
+
+        $l4 = interfaceinvoke $r0.zze();
+
+        $l4 = $l3 - $l4;
+
+        $l2 = 8L + $l4;
+
+        goto label06;
+
+     label06:
+        $l4 = $l2;
+
+        $b1 = 8;
+
+     label07:
+        $l2 = (long) $b1;
+
+        $b8 = $l4 cmp $l2;
+
+        $i10 = (int) $b8;
+
+        if $i10 >= 0 goto label08;
+
+        return 0;
+
+     label08:
+        $i6 = $i6 + $b1;
+
+        if $i7 != 1836019574 goto label10;
+
+        $i7 = (int) $l4;
+
+        $i5 = $i5 + $i7;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == 0 goto label09;
+
+        $l4 = (long) $i5;
+
+        $b1 = $l4 cmp $l0;
+
+        $i7 = (int) $b1;
+
+        if $i7 <= 0 goto label09;
+
+        $i5 = (int) $l0;
+
+        goto label03;
+
+     label09:
+        goto label03;
+
+     label10:
+        if $i7 == 1836019558 goto label25;
+
+        if $i7 != 1836475768 goto label11;
+
+        $z2 = 1;
+
+        goto label27;
+
+     label11:
+        $l3 = (long) $i6;
+
+        $l3 = $l3 + $l4;
+
+        $l9 = (long) $i5;
+
+        $l3 = $l3 - $l2;
+
+        $b1 = $l3 cmp $l9;
+
+        $i10 = (int) $b1;
+
+        if $i10 < 0 goto label12;
+
+        $z2 = 0;
+
+        goto label27;
+
+     label12:
+        $l4 = $l4 - $l2;
+
+        $i10 = (int) $l4;
+
+        $i6 = $i6 + $i10;
+
+        if $i7 != 1718909296 goto label23;
+
+        if $i10 >= 8 goto label13;
+
+        return 0;
+
+     label13:
+        virtualinvoke $r4.zzC($i10);
+
+        $r2 = virtualinvoke $r4.zzH();
+
+        interfaceinvoke $r0.zzh($r2, 0, $i10);
+
+        $i7 = $i10 >> 2;
+
+        $i10 = 0;
+
+     label14:
+        if $i10 >= $i7 goto label21;
+
+        if $i10 != 1 goto label15;
+
+        virtualinvoke $r4.zzG(4);
+
+        goto label20;
+
+     label15:
+        $i11 = virtualinvoke $r4.zze();
+
+        $i12 = $i11;
+
+        $i13 = $i11 >>> 8;
+
+        if $i13 != 3368816 goto label16;
+
+        $z1 = 1;
+
+        goto label21;
+
+     label16:
+        if $i11 != 1751476579 goto label17;
+
+        $i12 = 1751476579;
+
+     label17:
+        $r3 = com.google.android.gms.internal.ads.zzagf.zza;
+
+        $i11 = 0;
+
+     label18:
+        if $i11 >= 29 goto label20;
+
+        $i13 = $r3[$i11];
+
+        if $i13 != $i12 goto label19;
+
+        $z1 = 1;
+
+        goto label21;
+
+     label19:
+        $i11 = $i11 + 1;
+
+        goto label18;
+
+     label20:
+        $i10 = $i10 + 1;
+
+        goto label14;
+
+     label21:
+        if $z1 == 0 goto label22;
+
+        goto label24;
+
+     label22:
+        return 0;
+
+     label23:
+        if $i10 == 0 goto label24;
+
+        interfaceinvoke $r0.zzg($i10);
+
+     label24:
+        goto label03;
+
+     label25:
+        $z2 = 1;
+
+        goto label27;
+
+     label26:
+        $z2 = 0;
+
+     label27:
+        if $z1 == 0 goto label28;
+
+        if $z0 != $z2 goto label28;
+
+        return 1;
+
+     label28:
+        return 0;
+    }
+}

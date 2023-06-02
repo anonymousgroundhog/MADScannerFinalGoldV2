@@ -1,0 +1,223 @@
+public final class com.google.android.gms.common.api.internal.zacc extends com.google.android.gms.common.api.internal.zap
+{
+    private com.google.android.gms.tasks.TaskCompletionSource zad;
+
+    private void <init>(com.google.android.gms.common.api.internal.LifecycleFragment)
+    {
+        com.google.android.gms.common.api.internal.zacc r0;
+        com.google.android.gms.tasks.TaskCompletionSource $r3;
+        com.google.android.gms.common.GoogleApiAvailability $r1;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = com.google.android.gms.common.GoogleApiAvailability.getInstance();
+
+        specialinvoke r0.<init>($r2, $r1);
+
+        $r3 = new com.google.android.gms.tasks.TaskCompletionSource;
+
+        specialinvoke $r3.<init>();
+
+        r0.zad = $r3;
+
+        $r2 = r0.mLifecycleFragment;
+
+        interfaceinvoke $r2.addCallback("GmsAvailabilityHelper", r0);
+
+        return;
+    }
+
+    public static com.google.android.gms.common.api.internal.zacc zaa(android.app.Activity)
+    {
+        com.google.android.gms.common.api.internal.zacc $r3;
+        com.google.android.gms.tasks.TaskCompletionSource $r4;
+        android.app.Activity $r0;
+        com.google.android.gms.common.api.internal.LifecycleCallback $r2;
+        com.google.android.gms.tasks.Task $r5;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r1;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 = com.google.android.gms.common.api.internal.zacc.getFragment($r0);
+
+        $r2 = interfaceinvoke $r1.getCallbackOrNull("GmsAvailabilityHelper", class "Lcom/google/android/gms/common/api/internal/zacc;");
+
+        $r3 = (com.google.android.gms.common.api.internal.zacc) $r2;
+
+        if $r3 == null goto label1;
+
+        $r4 = $r3.zad;
+
+        $r5 = virtualinvoke $r4.getTask();
+
+        $z0 = virtualinvoke $r5.isComplete();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = new com.google.android.gms.tasks.TaskCompletionSource;
+
+        specialinvoke $r4.<init>();
+
+        $r3.zad = $r4;
+
+        return $r3;
+
+     label1:
+        $r3 = new com.google.android.gms.common.api.internal.zacc;
+
+        specialinvoke $r3.<init>($r1);
+
+     label2:
+        return $r3;
+    }
+
+    public final void onDestroy()
+    {
+        com.google.android.gms.tasks.TaskCompletionSource $r1;
+        com.google.android.gms.common.api.internal.zacc r0;
+        java.util.concurrent.CancellationException $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.onDestroy();
+
+        $r1 = r0.zad;
+
+        $r2 = new java.util.concurrent.CancellationException;
+
+        specialinvoke $r2.<init>("Host activity was destroyed before Google Play services could be made available.");
+
+        virtualinvoke $r1.trySetException($r2);
+
+        return;
+    }
+
+    protected final void zab(com.google.android.gms.common.ConnectionResult, int)
+    {
+        com.google.android.gms.common.api.internal.zacc r0;
+        com.google.android.gms.common.ConnectionResult $r1;
+        int $i0;
+        com.google.android.gms.tasks.TaskCompletionSource $r2;
+        com.google.android.gms.common.api.Status $r4;
+        java.lang.String $r5, $r6;
+        com.google.android.gms.common.api.ApiException $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r5 = virtualinvoke $r1.getErrorMessage();
+
+        $r6 = $r5;
+
+        if $r5 != null goto label1;
+
+        $r6 = "Error connecting to Google Play services";
+
+     label1:
+        $r2 = r0.zad;
+
+        $r3 = new com.google.android.gms.common.api.ApiException;
+
+        $r4 = new com.google.android.gms.common.api.Status;
+
+        $i0 = virtualinvoke $r1.getErrorCode();
+
+        specialinvoke $r4.<init>($r1, $r6, $i0);
+
+        specialinvoke $r3.<init>($r4);
+
+        virtualinvoke $r2.setException($r3);
+
+        return;
+    }
+
+    protected final void zac()
+    {
+        com.google.android.gms.common.api.internal.zacc r0;
+        com.google.android.gms.common.ConnectionResult $r8;
+        com.google.android.gms.tasks.Task $r7;
+        com.google.android.gms.common.api.internal.LifecycleFragment $r1;
+        int $i0;
+        com.google.android.gms.tasks.TaskCompletionSource $r3;
+        com.google.android.gms.common.api.Status $r5;
+        android.app.Activity $r2;
+        com.google.android.gms.common.api.ApiException $r4;
+        com.google.android.gms.common.GoogleApiAvailability $r6;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 = r0.mLifecycleFragment;
+
+        $r2 = interfaceinvoke $r1.getLifecycleActivity();
+
+        if $r2 != null goto label1;
+
+        $r3 = r0.zad;
+
+        $r4 = new com.google.android.gms.common.api.ApiException;
+
+        $r5 = new com.google.android.gms.common.api.Status;
+
+        specialinvoke $r5.<init>(8);
+
+        specialinvoke $r4.<init>($r5);
+
+        virtualinvoke $r3.trySetException($r4);
+
+        return;
+
+     label1:
+        $r6 = r0.zac;
+
+        $i0 = virtualinvoke $r6.isGooglePlayServicesAvailable($r2);
+
+        if $i0 != 0 goto label2;
+
+        $r3 = r0.zad;
+
+        virtualinvoke $r3.trySetResult(null);
+
+        return;
+
+     label2:
+        $r3 = r0.zad;
+
+        $r7 = virtualinvoke $r3.getTask();
+
+        $z0 = virtualinvoke $r7.isComplete();
+
+        if $z0 != 0 goto label3;
+
+        $r8 = new com.google.android.gms.common.ConnectionResult;
+
+        specialinvoke $r8.<init>($i0, null);
+
+        virtualinvoke r0.zah($r8, 0);
+
+     label3:
+        return;
+    }
+
+    public final com.google.android.gms.tasks.Task zad()
+    {
+        com.google.android.gms.tasks.TaskCompletionSource $r2;
+        com.google.android.gms.common.api.internal.zacc r0;
+        com.google.android.gms.tasks.Task $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zad;
+
+        $r1 = virtualinvoke $r2.getTask();
+
+        return $r1;
+    }
+}

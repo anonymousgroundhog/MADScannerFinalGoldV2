@@ -35,7 +35,7 @@ Function_Run_Framework_And_Output_Jimple() {
 Function_Compile_Framework() {
 	cd ../Java/
 	rm -rf Classes/sootOutput/*
-	javac -d Classes -cp "../Jar_Libs/*" BAnalysisApp.java SootExample.java SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
+	javac -d Classes -cp "../Jar_Libs/*" MyTransform.java BAnalysisApp.java SootExample.java SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
 }
 
 Function_Get_MainActivity_And_Write_To_File() {

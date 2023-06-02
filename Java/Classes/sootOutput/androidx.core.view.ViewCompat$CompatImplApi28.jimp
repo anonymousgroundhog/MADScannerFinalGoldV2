@@ -1,0 +1,93 @@
+class androidx.core.view.ViewCompat$CompatImplApi28 extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.view.ViewCompat$CompatImplApi28 r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void addOnUnhandledKeyEventListener(android.view.View, androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat)
+    {
+        androidx.core.view.ViewCompat$CompatImplApi28$1 r5;
+        androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat $r1;
+        int i0;
+        android.view.View $r0;
+        java.lang.Object $r2;
+        androidx.collection.SimpleArrayMap r3, r4;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = androidx.core.R$id.tag_unhandled_key_listeners;
+
+        $r2 = virtualinvoke $r0.getTag(i0);
+
+        r3 = (androidx.collection.SimpleArrayMap) $r2;
+
+        if r3 != null goto label1;
+
+        r4 = new androidx.collection.SimpleArrayMap;
+
+        specialinvoke r4.<init>();
+
+        r3 = r4;
+
+        i0 = androidx.core.R$id.tag_unhandled_key_listeners;
+
+        virtualinvoke $r0.setTag(i0, r4);
+
+     label1:
+        r5 = new androidx.core.view.ViewCompat$CompatImplApi28$1;
+
+        specialinvoke r5.<init>($r1);
+
+        virtualinvoke r3.put($r1, r5);
+
+        virtualinvoke $r0.addOnUnhandledKeyEventListener(r5);
+
+        return;
+    }
+
+    static void removeOnUnhandledKeyEventListener(android.view.View, androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat)
+    {
+        android.view.View$OnUnhandledKeyEventListener r4;
+        androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat $r1;
+        int i0;
+        android.view.View $r0;
+        java.lang.Object $r2;
+        androidx.collection.SimpleArrayMap r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = androidx.core.R$id.tag_unhandled_key_listeners;
+
+        $r2 = virtualinvoke $r0.getTag(i0);
+
+        r3 = (androidx.collection.SimpleArrayMap) $r2;
+
+        if r3 != null goto label1;
+
+        return;
+
+     label1:
+        $r2 = virtualinvoke r3.get($r1);
+
+        r4 = (android.view.View$OnUnhandledKeyEventListener) $r2;
+
+        if r4 == null goto label2;
+
+        virtualinvoke $r0.removeOnUnhandledKeyEventListener(r4);
+
+     label2:
+        return;
+    }
+}

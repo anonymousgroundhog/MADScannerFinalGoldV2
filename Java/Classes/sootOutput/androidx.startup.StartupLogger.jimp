@@ -1,0 +1,41 @@
+public final class androidx.startup.StartupLogger extends java.lang.Object
+{
+    static final boolean DEBUG;
+    private static final java.lang.String TAG;
+
+    private void <init>()
+    {
+        androidx.startup.StartupLogger r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void e(java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable $r1;
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        android.util.Log.e("StartupLogger", $r0, $r1);
+
+        return;
+    }
+
+    public static void i(java.lang.String)
+    {
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        android.util.Log.i("StartupLogger", $r0);
+
+        return;
+    }
+}

@@ -1,0 +1,48 @@
+final class com.google.android.gms.internal.ads.zzevd extends java.lang.Object implements com.google.android.gms.internal.ads.zzfuf
+{
+
+    void <init>(com.google.android.gms.internal.ads.zzevf)
+    {
+        com.google.android.gms.internal.ads.zzevf $r1;
+        com.google.android.gms.internal.ads.zzevd r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Throwable)
+    {
+        java.lang.Throwable $r1;
+        com.google.android.gms.internal.ads.zzevd r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        com.google.android.gms.ads.internal.util.zze.zza("Notification of cache hit failed.");
+
+        return;
+    }
+
+    public final void zzb(java.lang.Object)
+    {
+        java.lang.Void $r2;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzevd r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (java.lang.Void) $r1;
+
+        com.google.android.gms.ads.internal.util.zze.zza("Notification of cache hit successful.");
+
+        return;
+    }
+}

@@ -1,0 +1,25 @@
+public final class com.google.android.gms.internal.ads.zzbcn extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:lite_sdk_retriever:adapter:enable", 0);
+
+        com.google.android.gms.internal.ads.zzbcn.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzb("gads:lite_sdk_retriever:dynamite_version", 0L);
+
+        com.google.android.gms.internal.ads.zzbcn.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:lite_sdk_retriever:version_number:enable", 0);
+
+        com.google.android.gms.internal.ads.zzbcn.zzc = $r0;
+
+        return;
+    }
+}

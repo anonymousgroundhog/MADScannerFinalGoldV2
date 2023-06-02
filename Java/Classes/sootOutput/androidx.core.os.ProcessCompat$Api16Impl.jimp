@@ -1,0 +1,135 @@
+class androidx.core.os.ProcessCompat$Api16Impl extends java.lang.Object
+{
+    private static java.lang.reflect.Method sMethodUserIdIsAppMethod;
+    private static boolean sResolved;
+    private static final java.lang.Object sResolvedLock;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<init>();
+
+        androidx.core.os.ProcessCompat$Api16Impl.sResolvedLock = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        androidx.core.os.ProcessCompat$Api16Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static boolean isApplicationUid(int)
+    {
+        java.lang.Throwable $r9;
+        java.lang.Object[] $r5;
+        java.lang.Class[] $r0;
+        java.lang.Integer $r6;
+        java.lang.NullPointerException $r8;
+        java.lang.Exception r10;
+        int i0;
+        java.lang.Boolean r7;
+        java.lang.Class $r1, $r3;
+        java.lang.Object r2;
+        java.lang.reflect.Method $r4;
+        boolean $z0;
+
+        i0 := @parameter0;
+
+        r2 = androidx.core.os.ProcessCompat$Api16Impl.sResolvedLock;
+
+     label01:
+        entermonitor r2;
+
+     label02:
+        $z0 = androidx.core.os.ProcessCompat$Api16Impl.sResolved;
+
+        if $z0 != 0 goto label03;
+
+        androidx.core.os.ProcessCompat$Api16Impl.sResolved = 1;
+
+        $r3 = java.lang.Class.forName("android.os.UserId");
+
+        $r0 = newarray (java.lang.Class)[1];
+
+        $r1 = java.lang.Integer.TYPE;
+
+        $r0[0] = $r1;
+
+        $r4 = virtualinvoke $r3.getDeclaredMethod("isApp", $r0);
+
+        androidx.core.os.ProcessCompat$Api16Impl.sMethodUserIdIsAppMethod = $r4;
+
+     label03:
+        exitmonitor r2;
+
+     label04:
+        $r4 = androidx.core.os.ProcessCompat$Api16Impl.sMethodUserIdIsAppMethod;
+
+        if $r4 == null goto label11;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+     label05:
+        $r6 = java.lang.Integer.valueOf(i0);
+
+        $r5[0] = $r6;
+
+        r2 = virtualinvoke $r4.invoke(null, $r5);
+
+        r7 = (java.lang.Boolean) r2;
+
+     label06:
+        if r7 == null goto label09;
+
+     label07:
+        $z0 = virtualinvoke r7.booleanValue();
+
+     label08:
+        return $z0;
+
+     label09:
+        $r8 = new java.lang.NullPointerException;
+
+     label10:
+        specialinvoke $r8.<init>();
+
+        throw $r8;
+
+     label11:
+        return 1;
+
+     label12:
+        $r9 := @caughtexception;
+
+     label13:
+        exitmonitor r2;
+
+     label14:
+        throw $r9;
+
+     label15:
+        r10 := @caughtexception;
+
+        virtualinvoke r10.printStackTrace();
+
+        return 1;
+
+        catch java.lang.Exception from label01 to label02 with label15;
+        catch java.lang.Throwable from label02 to label04 with label12;
+        catch java.lang.Exception from label05 to label06 with label15;
+        catch java.lang.Exception from label07 to label08 with label15;
+        catch java.lang.Exception from label10 to label11 with label15;
+        catch java.lang.Throwable from label13 to label14 with label12;
+        catch java.lang.Exception from label14 to label15 with label15;
+    }
+}

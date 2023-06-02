@@ -1,0 +1,68 @@
+public final class com.google.android.gms.internal.ads.zzfbj extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public final com.google.android.gms.internal.ads.zzfbl zza;
+    public final com.google.android.gms.internal.ads.zzfbd zzb;
+    public final com.google.android.gms.internal.ads.zzfaj zzc;
+    public final com.google.android.gms.internal.ads.zzfbe zzd;
+
+    public void <init>(com.google.android.gms.internal.ads.zzfbl, com.google.android.gms.internal.ads.zzfbd, com.google.android.gms.internal.ads.zzfaj, com.google.android.gms.internal.ads.zzfbe)
+    {
+        com.google.android.gms.internal.ads.zzfbl $r1;
+        com.google.android.gms.internal.ads.zzfaj $r3;
+        com.google.android.gms.internal.ads.zzfbe $r4;
+        com.google.android.gms.internal.ads.zzfbd $r2;
+        com.google.android.gms.internal.ads.zzfbj r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        r0.zzd = $r4;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzfut $r5;
+        com.google.android.gms.internal.ads.zzfas $r7;
+        com.google.android.gms.internal.ads.zzfbl $r1;
+        com.google.android.gms.internal.ads.zzfaj $r3;
+        com.google.android.gms.internal.ads.zzfbe $r4;
+        com.google.android.gms.internal.ads.zzfbd $r2;
+        java.lang.Object $r6;
+        com.google.android.gms.internal.ads.zzfbj r0;
+
+        r0 := @this;
+
+        $r6 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $r2 = r0.zzb;
+
+        $r3 = r0.zzc;
+
+        $r4 = r0.zzd;
+
+        $r7 = (com.google.android.gms.internal.ads.zzfas) $r6;
+
+        $r5 = virtualinvoke $r1.zzb($r2, $r3, $r4, $r7);
+
+        return $r5;
+    }
+}

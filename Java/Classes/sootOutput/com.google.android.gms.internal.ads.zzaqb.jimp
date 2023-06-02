@@ -1,0 +1,34 @@
+public final class com.google.android.gms.internal.ads.zzaqb extends java.lang.Exception
+{
+
+    public void <init>(com.google.android.gms.internal.ads.zzaqc)
+    {
+        com.google.android.gms.internal.ads.zzaqb r0;
+        com.google.android.gms.internal.ads.zzaqc $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void <init>(com.google.android.gms.internal.ads.zzaqc, java.lang.Throwable)
+    {
+        com.google.android.gms.internal.ads.zzaqb r0;
+        java.lang.Throwable $r2;
+        com.google.android.gms.internal.ads.zzaqc $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r2);
+
+        return;
+    }
+}

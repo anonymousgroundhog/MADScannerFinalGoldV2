@@ -1,0 +1,15 @@
+public final class com.google.android.gms.ads.R$layout extends java.lang.Object
+{
+    public static final int admob_empty_layout;
+
+    private void <init>()
+    {
+        com.google.android.gms.ads.R$layout r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

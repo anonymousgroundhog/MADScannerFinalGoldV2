@@ -1,0 +1,73 @@
+class androidx.work.impl.utils.CancelWorkRunnable$1 extends androidx.work.impl.utils.CancelWorkRunnable
+{
+    final java.util.UUID val$id;
+    final androidx.work.impl.WorkManagerImpl val$workManagerImpl;
+
+    void <init>(androidx.work.impl.WorkManagerImpl, java.util.UUID)
+    {
+        androidx.work.impl.utils.CancelWorkRunnable$1 r0;
+        androidx.work.impl.WorkManagerImpl $r1;
+        java.util.UUID $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.val$workManagerImpl = $r1;
+
+        r0.val$id = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void runInternal()
+    {
+        java.lang.Throwable $r5;
+        androidx.work.impl.WorkDatabase $r2;
+        androidx.work.impl.utils.CancelWorkRunnable$1 r0;
+        androidx.work.impl.WorkManagerImpl r1;
+        java.util.UUID $r3;
+        java.lang.String $r4;
+
+        r0 := @this;
+
+        r1 = r0.val$workManagerImpl;
+
+        $r2 = virtualinvoke r1.getWorkDatabase();
+
+        virtualinvoke $r2.beginTransaction();
+
+     label1:
+        r1 = r0.val$workManagerImpl;
+
+        $r3 = r0.val$id;
+
+        $r4 = virtualinvoke $r3.toString();
+
+        virtualinvoke r0.cancel(r1, $r4);
+
+        virtualinvoke $r2.setTransactionSuccessful();
+
+     label2:
+        virtualinvoke $r2.endTransaction();
+
+        r1 = r0.val$workManagerImpl;
+
+        virtualinvoke r0.reschedulePendingWorkers(r1);
+
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        virtualinvoke $r2.endTransaction();
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

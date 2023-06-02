@@ -1,0 +1,164 @@
+public final class com.google.android.gms.internal.ads.zzezt extends java.lang.Object
+{
+    private final java.util.Deque zza;
+    private final java.util.concurrent.Callable zzb;
+    private final com.google.android.gms.internal.ads.zzfuu zzc;
+
+    public void <init>(java.util.concurrent.Callable, com.google.android.gms.internal.ads.zzfuu)
+    {
+        com.google.android.gms.internal.ads.zzezt r0;
+        com.google.android.gms.internal.ads.zzfuu $r2;
+        java.util.concurrent.LinkedBlockingDeque $r3;
+        java.util.concurrent.Callable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new java.util.concurrent.LinkedBlockingDeque;
+
+        specialinvoke $r3.<init>();
+
+        r0.zza = $r3;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $r2;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza()
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.internal.ads.zzezt r0;
+        com.google.android.gms.internal.ads.zzfut $r3;
+        java.lang.Object $r1;
+        java.util.Deque $r2;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label1:
+        virtualinvoke r0.zzc(1);
+
+        $r2 = r0.zza;
+
+        $r1 = interfaceinvoke $r2.poll();
+
+        $r3 = (com.google.android.gms.internal.ads.zzfut) $r1;
+
+     label2:
+        exitmonitor r0;
+
+        return $r3;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zzb(com.google.android.gms.internal.ads.zzfut)
+    {
+        java.lang.Throwable $r3;
+        com.google.android.gms.internal.ads.zzezt r0;
+        com.google.android.gms.internal.ads.zzfut $r2;
+        java.util.Deque $r1;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        $r1 = r0.zza;
+
+        interfaceinvoke $r1.addFirst($r2);
+
+     label2:
+        exitmonitor r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zzc(int)
+    {
+        java.lang.Throwable $r5;
+        com.google.android.gms.internal.ads.zzezt r0;
+        com.google.android.gms.internal.ads.zzfuu $r3;
+        com.google.android.gms.internal.ads.zzfut $r4;
+        java.util.concurrent.Callable $r2;
+        java.util.Deque $r1;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        $r1 = r0.zza;
+
+        $i1 = interfaceinvoke $r1.size();
+
+        $i0 = $i0 - $i1;
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label4;
+
+        $r1 = r0.zza;
+
+        $r3 = r0.zzc;
+
+        $r2 = r0.zzb;
+
+        $r4 = interfaceinvoke $r3.zzb($r2);
+
+        interfaceinvoke $r1.add($r4);
+
+     label3:
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label4:
+        exitmonitor r0;
+
+        return;
+
+     label5:
+        $r5 := @caughtexception;
+
+        exitmonitor r0;
+
+        goto label6;
+
+     label6:
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label3 with label5;
+    }
+}

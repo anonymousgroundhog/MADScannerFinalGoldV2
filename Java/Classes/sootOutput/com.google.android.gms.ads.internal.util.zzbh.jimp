@@ -1,0 +1,68 @@
+final class com.google.android.gms.ads.internal.util.zzbh extends java.lang.Object implements com.google.android.gms.internal.ads.zzaks
+{
+    final java.lang.String zza;
+    final com.google.android.gms.ads.internal.util.zzbl zzb;
+
+    void <init>(com.google.android.gms.ads.internal.util.zzbo, java.lang.String, com.google.android.gms.ads.internal.util.zzbl)
+    {
+        com.google.android.gms.ads.internal.util.zzbh r0;
+        com.google.android.gms.ads.internal.util.zzbo $r1;
+        java.lang.String $r2;
+        com.google.android.gms.ads.internal.util.zzbl $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        r0.zza = $r2;
+
+        r0.zzb = $r3;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(com.google.android.gms.internal.ads.zzakx)
+    {
+        com.google.android.gms.ads.internal.util.zzbh r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r3, $r4;
+        com.google.android.gms.internal.ads.zzakx $r2;
+        com.google.android.gms.ads.internal.util.zzbl $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        $r4 = virtualinvoke $r2.toString();
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        virtualinvoke $r1.append("Failed to load URL: ");
+
+        virtualinvoke $r1.append($r3);
+
+        virtualinvoke $r1.append("\n");
+
+        virtualinvoke $r1.append($r4);
+
+        $r3 = virtualinvoke $r1.toString();
+
+        com.google.android.gms.internal.ads.zzbza.zzj($r3);
+
+        $r5 = r0.zzb;
+
+        virtualinvoke $r5.zza(null);
+
+        return;
+    }
+}

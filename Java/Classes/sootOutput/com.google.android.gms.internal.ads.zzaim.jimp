@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzaim extends java.lang.Object
+{
+
+    public abstract void zza(com.google.android.gms.internal.ads.zzen);
+
+    public abstract void zzb(com.google.android.gms.internal.ads.zzeu, com.google.android.gms.internal.ads.zzzx, com.google.android.gms.internal.ads.zzaiz);
+}

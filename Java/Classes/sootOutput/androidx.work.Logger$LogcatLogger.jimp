@@ -1,0 +1,215 @@
+public class androidx.work.Logger$LogcatLogger extends androidx.work.Logger
+{
+    private int mLoggingLevel;
+
+    public void <init>(int)
+    {
+        int $i0;
+        androidx.work.Logger$LogcatLogger r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        specialinvoke r0.<init>($i0);
+
+        r0.mLoggingLevel = $i0;
+
+        return;
+    }
+
+    public transient void debug(java.lang.String, java.lang.String, java.lang.Throwable[])
+    {
+        java.lang.Throwable $r4;
+        androidx.work.Logger$LogcatLogger r0;
+        java.lang.Throwable[] $r3;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = r0.mLoggingLevel;
+
+        if $i0 > 3 goto label2;
+
+        if $r3 == null goto label1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 1 goto label1;
+
+        $r4 = $r3[0];
+
+        android.util.Log.d($r1, $r2, $r4);
+
+        return;
+
+     label1:
+        android.util.Log.d($r1, $r2);
+
+     label2:
+        return;
+    }
+
+    public transient void error(java.lang.String, java.lang.String, java.lang.Throwable[])
+    {
+        java.lang.Throwable $r4;
+        androidx.work.Logger$LogcatLogger r0;
+        java.lang.Throwable[] $r3;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = r0.mLoggingLevel;
+
+        if $i0 > 6 goto label2;
+
+        if $r3 == null goto label1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 1 goto label1;
+
+        $r4 = $r3[0];
+
+        android.util.Log.e($r1, $r2, $r4);
+
+        return;
+
+     label1:
+        android.util.Log.e($r1, $r2);
+
+     label2:
+        return;
+    }
+
+    public transient void info(java.lang.String, java.lang.String, java.lang.Throwable[])
+    {
+        java.lang.Throwable $r4;
+        androidx.work.Logger$LogcatLogger r0;
+        java.lang.Throwable[] $r3;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = r0.mLoggingLevel;
+
+        if $i0 > 4 goto label2;
+
+        if $r3 == null goto label1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 1 goto label1;
+
+        $r4 = $r3[0];
+
+        android.util.Log.i($r1, $r2, $r4);
+
+        return;
+
+     label1:
+        android.util.Log.i($r1, $r2);
+
+     label2:
+        return;
+    }
+
+    public transient void verbose(java.lang.String, java.lang.String, java.lang.Throwable[])
+    {
+        java.lang.Throwable $r4;
+        androidx.work.Logger$LogcatLogger r0;
+        java.lang.Throwable[] $r3;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = r0.mLoggingLevel;
+
+        if $i0 > 2 goto label2;
+
+        if $r3 == null goto label1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 1 goto label1;
+
+        $r4 = $r3[0];
+
+        android.util.Log.v($r1, $r2, $r4);
+
+        return;
+
+     label1:
+        android.util.Log.v($r1, $r2);
+
+     label2:
+        return;
+    }
+
+    public transient void warning(java.lang.String, java.lang.String, java.lang.Throwable[])
+    {
+        java.lang.Throwable $r4;
+        androidx.work.Logger$LogcatLogger r0;
+        java.lang.Throwable[] $r3;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 = r0.mLoggingLevel;
+
+        if $i0 > 5 goto label2;
+
+        if $r3 == null goto label1;
+
+        $i0 = lengthof $r3;
+
+        if $i0 < 1 goto label1;
+
+        $r4 = $r3[0];
+
+        android.util.Log.w($r1, $r2, $r4);
+
+        return;
+
+     label1:
+        android.util.Log.w($r1, $r2);
+
+     label2:
+        return;
+    }
+}

@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzezk extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzezl zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzezl $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzezl;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzezk.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzezl zza()
+    {
+        com.google.android.gms.internal.ads.zzezl r0;
+
+        r0 = com.google.android.gms.internal.ads.zzezk.zza;
+
+        return r0;
+    }
+}

@@ -1,0 +1,454 @@
+public final class androidx.core.graphics.Insets extends java.lang.Object
+{
+    public static final androidx.core.graphics.Insets NONE;
+    public final int bottom;
+    public final int left;
+    public final int right;
+    public final int top;
+
+    static void <clinit>()
+    {
+        androidx.core.graphics.Insets $r0;
+
+        $r0 = new androidx.core.graphics.Insets;
+
+        specialinvoke $r0.<init>(0, 0, 0, 0);
+
+        androidx.core.graphics.Insets.NONE = $r0;
+
+        return;
+    }
+
+    private void <init>(int, int, int, int)
+    {
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.left = $i0;
+
+        r0.top = $i1;
+
+        r0.right = $i2;
+
+        r0.bottom = $i3;
+
+        return;
+    }
+
+    public static androidx.core.graphics.Insets add(androidx.core.graphics.Insets, androidx.core.graphics.Insets)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        androidx.core.graphics.Insets $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i1 = $r0.left;
+
+        $i2 = $r1.left;
+
+        $i1 = $i1 + $i2;
+
+        $i2 = $r0.top;
+
+        $i3 = $r1.top;
+
+        $i2 = $i2 + $i3;
+
+        $i3 = $r0.right;
+
+        $i0 = $r1.right;
+
+        $i3 = $i3 + $i0;
+
+        $i4 = $r0.bottom;
+
+        $i0 = $r1.bottom;
+
+        $i0 = $i4 + $i0;
+
+        $r0 = androidx.core.graphics.Insets.of($i1, $i2, $i3, $i0);
+
+        return $r0;
+    }
+
+    public static androidx.core.graphics.Insets max(androidx.core.graphics.Insets, androidx.core.graphics.Insets)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        androidx.core.graphics.Insets $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i1 = $r0.left;
+
+        $i2 = $r1.left;
+
+        $i1 = java.lang.Math.max($i1, $i2);
+
+        $i2 = $r0.top;
+
+        $i3 = $r1.top;
+
+        $i2 = java.lang.Math.max($i2, $i3);
+
+        $i3 = $r0.right;
+
+        $i0 = $r1.right;
+
+        $i3 = java.lang.Math.max($i3, $i0);
+
+        $i4 = $r0.bottom;
+
+        $i0 = $r1.bottom;
+
+        $i0 = java.lang.Math.max($i4, $i0);
+
+        $r0 = androidx.core.graphics.Insets.of($i1, $i2, $i3, $i0);
+
+        return $r0;
+    }
+
+    public static androidx.core.graphics.Insets min(androidx.core.graphics.Insets, androidx.core.graphics.Insets)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        androidx.core.graphics.Insets $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i1 = $r0.left;
+
+        $i2 = $r1.left;
+
+        $i1 = java.lang.Math.min($i1, $i2);
+
+        $i2 = $r0.top;
+
+        $i3 = $r1.top;
+
+        $i2 = java.lang.Math.min($i2, $i3);
+
+        $i3 = $r0.right;
+
+        $i0 = $r1.right;
+
+        $i3 = java.lang.Math.min($i3, $i0);
+
+        $i4 = $r0.bottom;
+
+        $i0 = $r1.bottom;
+
+        $i0 = java.lang.Math.min($i4, $i0);
+
+        $r0 = androidx.core.graphics.Insets.of($i1, $i2, $i3, $i0);
+
+        return $r0;
+    }
+
+    public static androidx.core.graphics.Insets of(int, int, int, int)
+    {
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets $r0;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        if $i0 != 0 goto label1;
+
+        if $i1 != 0 goto label1;
+
+        if $i2 != 0 goto label1;
+
+        if $i3 != 0 goto label1;
+
+        $r0 = androidx.core.graphics.Insets.NONE;
+
+        return $r0;
+
+     label1:
+        $r0 = new androidx.core.graphics.Insets;
+
+        specialinvoke $r0.<init>($i0, $i1, $i2, $i3);
+
+        return $r0;
+    }
+
+    public static androidx.core.graphics.Insets of(android.graphics.Rect)
+    {
+        android.graphics.Rect $r0;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets $r1;
+
+        $r0 := @parameter0;
+
+        $i3 = $r0.left;
+
+        $i0 = $r0.top;
+
+        $i1 = $r0.right;
+
+        $i2 = $r0.bottom;
+
+        $r1 = androidx.core.graphics.Insets.of($i3, $i0, $i1, $i2);
+
+        return $r1;
+    }
+
+    public static androidx.core.graphics.Insets subtract(androidx.core.graphics.Insets, androidx.core.graphics.Insets)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        androidx.core.graphics.Insets $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i1 = $r0.left;
+
+        $i2 = $r1.left;
+
+        $i1 = $i1 - $i2;
+
+        $i2 = $r0.top;
+
+        $i3 = $r1.top;
+
+        $i2 = $i2 - $i3;
+
+        $i3 = $r0.right;
+
+        $i0 = $r1.right;
+
+        $i3 = $i3 - $i0;
+
+        $i4 = $r0.bottom;
+
+        $i0 = $r1.bottom;
+
+        $i0 = $i4 - $i0;
+
+        $r0 = androidx.core.graphics.Insets.of($i1, $i2, $i3, $i0);
+
+        return $r0;
+    }
+
+    public static androidx.core.graphics.Insets toCompatInsets(android.graphics.Insets)
+    {
+        android.graphics.Insets $r0;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets $r1;
+
+        $r0 := @parameter0;
+
+        $i3 = $r0.left;
+
+        $i0 = $r0.top;
+
+        $i1 = $r0.right;
+
+        $i2 = $r0.bottom;
+
+        $r1 = androidx.core.graphics.Insets.of($i3, $i0, $i1, $i2);
+
+        return $r1;
+    }
+
+    public static androidx.core.graphics.Insets wrap(android.graphics.Insets)
+    {
+        androidx.core.graphics.Insets $r1;
+        android.graphics.Insets $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = androidx.core.graphics.Insets.toCompatInsets($r0);
+
+        return $r1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        int $i0, $i1;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        androidx.core.graphics.Insets r0, r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label7;
+
+        $r2 = virtualinvoke r0.getClass();
+
+        $r3 = virtualinvoke $r1.getClass();
+
+        if $r2 == $r3 goto label2;
+
+        return 0;
+
+     label2:
+        r4 = (androidx.core.graphics.Insets) $r1;
+
+        $i0 = r0.bottom;
+
+        $i1 = r4.bottom;
+
+        if $i0 == $i1 goto label3;
+
+        return 0;
+
+     label3:
+        $i0 = r0.left;
+
+        $i1 = r4.left;
+
+        if $i0 == $i1 goto label4;
+
+        return 0;
+
+     label4:
+        $i0 = r0.right;
+
+        $i1 = r4.right;
+
+        if $i0 == $i1 goto label5;
+
+        return 0;
+
+     label5:
+        $i0 = r0.top;
+
+        $i1 = r4.top;
+
+        if $i0 == $i1 goto label6;
+
+        return 0;
+
+     label6:
+        return 1;
+
+     label7:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int i0, $i1;
+        androidx.core.graphics.Insets r0;
+
+        r0 := @this;
+
+        i0 = r0.left;
+
+        i0 = i0 * 31;
+
+        $i1 = r0.top;
+
+        i0 = i0 + $i1;
+
+        i0 = i0 * 31;
+
+        $i1 = r0.right;
+
+        i0 = i0 + $i1;
+
+        i0 = i0 * 31;
+
+        $i1 = r0.bottom;
+
+        i0 = i0 + $i1;
+
+        return i0;
+    }
+
+    public android.graphics.Insets toPlatformInsets()
+    {
+        android.graphics.Insets $r1;
+        int $i0, $i1, $i2, $i3;
+        androidx.core.graphics.Insets r0;
+
+        r0 := @this;
+
+        $i3 = r0.left;
+
+        $i0 = r0.top;
+
+        $i1 = r0.right;
+
+        $i2 = r0.bottom;
+
+        $r1 = android.graphics.Insets.of($i3, $i0, $i1, $i2);
+
+        return $r1;
+    }
+
+    public java.lang.String toString()
+    {
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        androidx.core.graphics.Insets r0;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("Insets{left=");
+
+        $i0 = r0.left;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append(", top=");
+
+        $i0 = r0.top;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append(", right=");
+
+        $i0 = r0.right;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append(", bottom=");
+
+        $i0 = r0.bottom;
+
+        $r1 = virtualinvoke $r1.append($i0);
+
+        $r1 = virtualinvoke $r1.append(125);
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+    }
+}

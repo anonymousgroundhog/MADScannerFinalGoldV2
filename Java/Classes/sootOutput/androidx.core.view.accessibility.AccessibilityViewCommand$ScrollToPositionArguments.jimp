@@ -1,0 +1,44 @@
+public final class androidx.core.view.accessibility.AccessibilityViewCommand$ScrollToPositionArguments extends androidx.core.view.accessibility.AccessibilityViewCommand$CommandArguments
+{
+
+    public void <init>()
+    {
+        androidx.core.view.accessibility.AccessibilityViewCommand$ScrollToPositionArguments r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public int getColumn()
+    {
+        int $i0;
+        android.os.Bundle $r1;
+        androidx.core.view.accessibility.AccessibilityViewCommand$ScrollToPositionArguments r0;
+
+        r0 := @this;
+
+        $r1 = r0.mBundle;
+
+        $i0 = virtualinvoke $r1.getInt("android.view.accessibility.action.ARGUMENT_COLUMN_INT");
+
+        return $i0;
+    }
+
+    public int getRow()
+    {
+        int $i0;
+        android.os.Bundle $r1;
+        androidx.core.view.accessibility.AccessibilityViewCommand$ScrollToPositionArguments r0;
+
+        r0 := @this;
+
+        $r1 = r0.mBundle;
+
+        $i0 = virtualinvoke $r1.getInt("android.view.accessibility.action.ARGUMENT_ROW_INT");
+
+        return $i0;
+    }
+}

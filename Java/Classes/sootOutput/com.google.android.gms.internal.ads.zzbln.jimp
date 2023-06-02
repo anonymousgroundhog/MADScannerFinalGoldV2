@@ -1,0 +1,39 @@
+final class com.google.android.gms.internal.ads.zzbln extends java.lang.Object implements com.google.android.gms.internal.ads.zzbzu
+{
+    final com.google.android.gms.internal.ads.zzbll zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzblq, com.google.android.gms.internal.ads.zzbll)
+    {
+        com.google.android.gms.internal.ads.zzbll $r2;
+        com.google.android.gms.internal.ads.zzblq $r1;
+        com.google.android.gms.internal.ads.zzbln r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza()
+    {
+        com.google.android.gms.internal.ads.zzbll $r1;
+        com.google.android.gms.internal.ads.zzbln r0;
+
+        r0 := @this;
+
+        com.google.android.gms.ads.internal.util.zze.zza("Rejecting reference for JS Engine.");
+
+        $r1 = r0.zza;
+
+        virtualinvoke $r1.zzg();
+
+        return;
+    }
+}

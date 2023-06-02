@@ -1,0 +1,325 @@
+public final class com.google.android.gms.internal.ads.zzgfy extends java.lang.Object implements com.google.android.gms.internal.ads.zzgcl
+{
+    public static final com.google.android.gms.internal.ads.zzgfy zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgfy $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgfy;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzgfy.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzgfy r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfvx zza(com.google.android.gms.internal.ads.zzgeb, com.google.android.gms.internal.ads.zzfxg)
+    {
+        com.google.android.gms.internal.ads.zzgkf $r9;
+        byte[] $r15;
+        com.google.android.gms.internal.ads.zzgme $r10;
+        com.google.android.gms.internal.ads.zzgeb $r1;
+        com.google.android.gms.internal.ads.zzgok $r16;
+        com.google.android.gms.internal.ads.zzgfy r0;
+        com.google.android.gms.internal.ads.zzgjz $r7;
+        com.google.android.gms.internal.ads.zzgdz $r3;
+        java.lang.Integer $r17;
+        com.google.android.gms.internal.ads.zzgfq $r22;
+        com.google.android.gms.internal.ads.zzgpy $r6;
+        java.security.GeneralSecurityException $r25;
+        com.google.android.gms.internal.ads.zzgfu $r13;
+        com.google.android.gms.internal.ads.zzgfs $r12;
+        com.google.android.gms.internal.ads.zzgfr $r11;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzgfi $r23;
+        java.lang.String $r4;
+        com.google.android.gms.internal.ads.zzgfk $r18;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r20, $r26;
+        com.google.android.gms.internal.ads.zzgpe $r5;
+        com.google.android.gms.internal.ads.zzgqy $r21;
+        com.google.android.gms.internal.ads.zzfxg $r2;
+        java.lang.StringBuilder $r24;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 = com.google.android.gms.internal.ads.zzgfz.zza;
+
+        $r3 = (com.google.android.gms.internal.ads.zzgdz) $r1;
+
+        $r4 = virtualinvoke $r3.zzg();
+
+        $z0 = virtualinvoke $r4.equals("type.googleapis.com/google.crypto.tink.HmacKey");
+
+        if $z0 == 0 goto label40;
+
+        $r3 = (com.google.android.gms.internal.ads.zzgdz) $r1;
+
+     label01:
+        $r5 = virtualinvoke $r3.zze();
+
+        $r6 = com.google.android.gms.internal.ads.zzgpy.zza();
+
+        $r7 = com.google.android.gms.internal.ads.zzgjz.zzf($r5, $r6);
+
+        $i0 = virtualinvoke $r7.zza();
+
+     label02:
+        if $i0 != 0 goto label34;
+
+        $r22 = new com.google.android.gms.internal.ads.zzgfq;
+
+     label03:
+        specialinvoke $r22.<init>(null);
+
+        $r5 = virtualinvoke $r7.zzh();
+
+        $i0 = virtualinvoke $r5.zzd();
+
+        virtualinvoke $r22.zzb($i0);
+
+        $r9 = virtualinvoke $r7.zzg();
+
+        $i0 = virtualinvoke $r9.zza();
+
+        virtualinvoke $r22.zzc($i0);
+
+        $r9 = virtualinvoke $r7.zzg();
+
+        $i0 = virtualinvoke $r9.zzg();
+
+     label04:
+        $r10 = com.google.android.gms.internal.ads.zzgme.zza;
+
+        $i1 = $i0 + -2;
+
+        lookupswitch($i1)
+        {
+            case 1: goto label10;
+            case 2: goto label09;
+            case 3: goto label08;
+            case 4: goto label07;
+            case 5: goto label06;
+            default: goto label05;
+        };
+
+     label05:
+        $r25 = new java.security.GeneralSecurityException;
+
+        goto label30;
+
+     label06:
+        $r11 = com.google.android.gms.internal.ads.zzgfr.zzb;
+
+        goto label11;
+
+     label07:
+        $r11 = com.google.android.gms.internal.ads.zzgfr.zze;
+
+        goto label11;
+
+     label08:
+        $r11 = com.google.android.gms.internal.ads.zzgfr.zzc;
+
+        goto label11;
+
+     label09:
+        $r11 = com.google.android.gms.internal.ads.zzgfr.zzd;
+
+        goto label11;
+
+     label10:
+        $r11 = com.google.android.gms.internal.ads.zzgfr.zza;
+
+     label11:
+        virtualinvoke $r22.zza($r11);
+
+     label12:
+        $r3 = (com.google.android.gms.internal.ads.zzgdz) $r1;
+
+     label13:
+        $r10 = virtualinvoke $r3.zzc();
+
+        $i0 = virtualinvoke $r10.ordinal();
+
+     label14:
+        lookupswitch($i0)
+        {
+            case 1: goto label19;
+            case 2: goto label18;
+            case 3: goto label17;
+            case 4: goto label16;
+            default: goto label15;
+        };
+
+     label15:
+        $r25 = new java.security.GeneralSecurityException;
+
+        goto label26;
+
+     label16:
+        $r12 = com.google.android.gms.internal.ads.zzgfs.zzb;
+
+        goto label20;
+
+     label17:
+        $r12 = com.google.android.gms.internal.ads.zzgfs.zzd;
+
+        goto label20;
+
+     label18:
+        $r12 = com.google.android.gms.internal.ads.zzgfs.zzc;
+
+        goto label20;
+
+     label19:
+        $r12 = com.google.android.gms.internal.ads.zzgfs.zza;
+
+     label20:
+        virtualinvoke $r22.zzd($r12);
+
+        $r13 = virtualinvoke $r22.zze();
+
+     label21:
+        $r23 = new com.google.android.gms.internal.ads.zzgfi;
+
+     label22:
+        specialinvoke $r23.<init>(null);
+
+        virtualinvoke $r23.zzc($r13);
+
+        $r5 = virtualinvoke $r7.zzh();
+
+        $r15 = virtualinvoke $r5.zzE();
+
+        $r16 = com.google.android.gms.internal.ads.zzgok.zzb($r15, $r2);
+
+        virtualinvoke $r23.zzb($r16);
+
+     label23:
+        $r3 = (com.google.android.gms.internal.ads.zzgdz) $r1;
+
+     label24:
+        $r17 = virtualinvoke $r3.zzf();
+
+        virtualinvoke $r23.zza($r17);
+
+        $r18 = virtualinvoke $r23.zzd();
+
+     label25:
+        return $r18;
+
+     label26:
+        $i0 = virtualinvoke $r10.zza();
+
+     label27:
+        $r24 = new java.lang.StringBuilder;
+
+     label28:
+        specialinvoke $r24.<init>();
+
+        virtualinvoke $r24.append("Unable to parse OutputPrefixType: ");
+
+        virtualinvoke $r24.append($i0);
+
+        $r4 = virtualinvoke $r24.toString();
+
+        specialinvoke $r25.<init>($r4);
+
+     label29:
+        throw $r25;
+
+     label30:
+        $i0 = com.google.android.gms.internal.ads.zzgjw.zza($i0);
+
+     label31:
+        $r24 = new java.lang.StringBuilder;
+
+     label32:
+        specialinvoke $r24.<init>();
+
+        virtualinvoke $r24.append("Unable to parse HashType: ");
+
+        virtualinvoke $r24.append($i0);
+
+        $r4 = virtualinvoke $r24.toString();
+
+        specialinvoke $r25.<init>($r4);
+
+     label33:
+        throw $r25;
+
+     label34:
+        $r25 = new java.security.GeneralSecurityException;
+
+     label35:
+        specialinvoke $r25.<init>("Only version 0 keys are accepted");
+
+     label36:
+        throw $r25;
+
+     label37:
+        $r20 := @caughtexception;
+
+        goto label39;
+
+     label38:
+        $r21 := @caughtexception;
+
+     label39:
+        $r25 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r25.<init>("Parsing HmacKey failed");
+
+        throw $r25;
+
+     label40:
+        $r26 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r26.<init>("Wrong type URL in call to HmacProtoSerialization.parseKey");
+
+        throw $r26;
+
+        catch com.google.android.gms.internal.ads.zzgqy from label01 to label02 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label03 to label04 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label11 to label12 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label13 to label14 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label20 to label21 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label22 to label23 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label24 to label25 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label26 to label27 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label28 to label29 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label30 to label31 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label32 to label33 with label38;
+        catch com.google.android.gms.internal.ads.zzgqy from label35 to label36 with label38;
+        catch java.lang.IllegalArgumentException from label01 to label02 with label37;
+        catch java.lang.IllegalArgumentException from label03 to label04 with label37;
+        catch java.lang.IllegalArgumentException from label11 to label12 with label37;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label37;
+        catch java.lang.IllegalArgumentException from label20 to label21 with label37;
+        catch java.lang.IllegalArgumentException from label22 to label23 with label37;
+        catch java.lang.IllegalArgumentException from label24 to label25 with label37;
+        catch java.lang.IllegalArgumentException from label26 to label27 with label37;
+        catch java.lang.IllegalArgumentException from label28 to label29 with label37;
+        catch java.lang.IllegalArgumentException from label30 to label31 with label37;
+        catch java.lang.IllegalArgumentException from label32 to label33 with label37;
+        catch java.lang.IllegalArgumentException from label35 to label36 with label37;
+    }
+}

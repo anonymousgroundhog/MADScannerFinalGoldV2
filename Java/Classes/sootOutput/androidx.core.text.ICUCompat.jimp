@@ -1,0 +1,289 @@
+public final class androidx.core.text.ICUCompat extends java.lang.Object
+{
+    private static final java.lang.String TAG;
+    private static java.lang.reflect.Method sAddLikelySubtagsMethod;
+    private static java.lang.reflect.Method sGetScriptMethod;
+
+    static void <clinit>()
+    {
+        java.lang.IllegalStateException $r5;
+        int i0;
+        java.lang.Class[] $r1;
+        java.lang.Class $r0;
+        java.lang.reflect.Method $r2;
+        java.lang.Exception r3, r4;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 >= 21 goto label09;
+
+     label01:
+        $r0 = java.lang.Class.forName("libcore.icu.ICU");
+
+     label02:
+        if $r0 == null goto label08;
+
+        $r1 = newarray (java.lang.Class)[1];
+
+     label03:
+        $r1[0] = class "Ljava/lang/String;";
+
+        $r2 = virtualinvoke $r0.getMethod("getScript", $r1);
+
+     label04:
+        androidx.core.text.ICUCompat.sGetScriptMethod = $r2;
+
+        $r1 = newarray (java.lang.Class)[1];
+
+     label05:
+        $r1[0] = class "Ljava/lang/String;";
+
+        $r2 = virtualinvoke $r0.getMethod("addLikelySubtags", $r1);
+
+     label06:
+        androidx.core.text.ICUCompat.sAddLikelySubtagsMethod = $r2;
+
+        goto label08;
+
+     label07:
+        r3 := @caughtexception;
+
+        androidx.core.text.ICUCompat.sGetScriptMethod = null;
+
+        androidx.core.text.ICUCompat.sAddLikelySubtagsMethod = null;
+
+        android.util.Log.w("ICUCompat", r3);
+
+     label08:
+        return;
+
+     label09:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 >= 24 goto label15;
+
+     label10:
+        $r0 = java.lang.Class.forName("libcore.icu.ICU");
+
+     label11:
+        $r1 = newarray (java.lang.Class)[1];
+
+     label12:
+        $r1[0] = class "Ljava/util/Locale;";
+
+        $r2 = virtualinvoke $r0.getMethod("addLikelySubtags", $r1);
+
+     label13:
+        androidx.core.text.ICUCompat.sAddLikelySubtagsMethod = $r2;
+
+        return;
+
+     label14:
+        r4 := @caughtexception;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        specialinvoke $r5.<init>(r4);
+
+        throw $r5;
+
+     label15:
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label07;
+        catch java.lang.Exception from label03 to label04 with label07;
+        catch java.lang.Exception from label05 to label06 with label07;
+        catch java.lang.Exception from label10 to label11 with label14;
+        catch java.lang.Exception from label12 to label13 with label14;
+    }
+
+    private void <init>()
+    {
+        androidx.core.text.ICUCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    private static java.lang.String addLikelySubtags(java.util.Locale)
+    {
+        java.lang.IllegalAccessException r7;
+        java.lang.Object[] r3;
+        java.lang.reflect.InvocationTargetException r6;
+        java.util.Locale $r0;
+        java.lang.Object $r4;
+        java.lang.String $r1, r5;
+        java.lang.reflect.Method r2;
+
+        $r0 := @parameter0;
+
+        $r1 = virtualinvoke $r0.toString();
+
+        r2 = androidx.core.text.ICUCompat.sAddLikelySubtagsMethod;
+
+        if r2 == null goto label5;
+
+        r3 = newarray (java.lang.Object)[1];
+
+        r3[0] = $r1;
+
+     label1:
+        $r4 = virtualinvoke r2.invoke(null, r3);
+
+     label2:
+        r5 = (java.lang.String) $r4;
+
+        return r5;
+
+     label3:
+        r6 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r6);
+
+        return $r1;
+
+     label4:
+        r7 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r7);
+
+     label5:
+        return $r1;
+
+        catch java.lang.IllegalAccessException from label1 to label2 with label4;
+        catch java.lang.reflect.InvocationTargetException from label1 to label2 with label3;
+    }
+
+    private static java.lang.String getScript(java.lang.String)
+    {
+        java.lang.IllegalAccessException r5;
+        java.lang.Object[] r3;
+        java.lang.Object $r1;
+        java.lang.String $r0;
+        java.lang.reflect.Method r2;
+        java.lang.reflect.InvocationTargetException r4;
+
+        $r0 := @parameter0;
+
+        r2 = androidx.core.text.ICUCompat.sGetScriptMethod;
+
+        if r2 == null goto label5;
+
+        r3 = newarray (java.lang.Object)[1];
+
+        r3[0] = $r0;
+
+     label1:
+        $r1 = virtualinvoke r2.invoke(null, r3);
+
+     label2:
+        $r0 = (java.lang.String) $r1;
+
+        return $r0;
+
+     label3:
+        r4 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r4);
+
+        return null;
+
+     label4:
+        r5 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r5);
+
+     label5:
+        return null;
+
+        catch java.lang.IllegalAccessException from label1 to label2 with label4;
+        catch java.lang.reflect.InvocationTargetException from label1 to label2 with label3;
+    }
+
+    public static java.lang.String maximizeAndGetScript(java.util.Locale)
+    {
+        java.lang.IllegalAccessException r7;
+        java.lang.Object[] r3;
+        android.icu.util.ULocale $r1;
+        java.lang.reflect.InvocationTargetException r8;
+        java.util.Locale $r0, $r6;
+        int i0;
+        java.lang.Object $r5;
+        java.lang.String $r2;
+        java.lang.reflect.Method $r4;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 24 goto label01;
+
+        $r1 = android.icu.util.ULocale.forLocale($r0);
+
+        $r1 = android.icu.util.ULocale.addLikelySubtags($r1);
+
+        $r2 = virtualinvoke $r1.getScript();
+
+        return $r2;
+
+     label01:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label09;
+
+        r3 = newarray (java.lang.Object)[1];
+
+        r3[0] = $r0;
+
+        $r4 = androidx.core.text.ICUCompat.sAddLikelySubtagsMethod;
+
+     label02:
+        $r5 = virtualinvoke $r4.invoke(null, r3);
+
+     label03:
+        $r6 = (java.util.Locale) $r5;
+
+     label04:
+        $r2 = virtualinvoke $r6.getScript();
+
+     label05:
+        return $r2;
+
+     label06:
+        r7 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r7);
+
+        goto label08;
+
+     label07:
+        r8 := @caughtexception;
+
+        android.util.Log.w("ICUCompat", r8);
+
+     label08:
+        $r2 = virtualinvoke $r0.getScript();
+
+        return $r2;
+
+     label09:
+        $r2 = androidx.core.text.ICUCompat.addLikelySubtags($r0);
+
+        if $r2 == null goto label10;
+
+        $r2 = androidx.core.text.ICUCompat.getScript($r2);
+
+        return $r2;
+
+     label10:
+        return null;
+
+        catch java.lang.reflect.InvocationTargetException from label02 to label03 with label07;
+        catch java.lang.reflect.InvocationTargetException from label04 to label05 with label07;
+        catch java.lang.IllegalAccessException from label02 to label03 with label06;
+        catch java.lang.IllegalAccessException from label04 to label05 with label06;
+    }
+}

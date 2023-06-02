@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzdog extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzdoh zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdoh $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdoh;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdog.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzdoh zza()
+    {
+        com.google.android.gms.internal.ads.zzdoh r0;
+
+        r0 = com.google.android.gms.internal.ads.zzdog.zza;
+
+        return r0;
+    }
+}

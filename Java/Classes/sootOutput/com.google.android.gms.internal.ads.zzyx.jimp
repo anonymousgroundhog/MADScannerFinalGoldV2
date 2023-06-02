@@ -1,0 +1,37 @@
+public final class com.google.android.gms.internal.ads.zzyx extends java.lang.Object
+{
+    public final int zza;
+    public final int zzb;
+    public final int zzc;
+
+    void <init>(int, int, int, int, int, com.google.android.gms.internal.ads.zzyw)
+    {
+        com.google.android.gms.internal.ads.zzyx r0;
+        com.google.android.gms.internal.ads.zzyw $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 := @parameter2;
+
+        $i3 := @parameter3;
+
+        $i4 := @parameter4;
+
+        $r1 := @parameter5;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i2;
+
+        r0.zzb = $i3;
+
+        r0.zzc = $i4;
+
+        return;
+    }
+}

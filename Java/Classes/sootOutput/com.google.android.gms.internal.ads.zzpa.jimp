@@ -1,0 +1,23 @@
+final class com.google.android.gms.internal.ads.zzpa extends java.lang.Object implements com.google.android.gms.internal.ads.zzol
+{
+    final com.google.android.gms.internal.ads.zzpf zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzpf, com.google.android.gms.internal.ads.zzoz)
+    {
+        com.google.android.gms.internal.ads.zzpf $r1;
+        com.google.android.gms.internal.ads.zzoz $r2;
+        com.google.android.gms.internal.ads.zzpa r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,45 @@
+public final class com.google.android.gms.internal.ads.zzdtv extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdtv r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzdtv zza()
+    {
+        com.google.android.gms.internal.ads.zzdtv $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzdtu.zza();
+
+        return $r0;
+    }
+
+    public final java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzdtv r0;
+        int $i0;
+        java.util.Random $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.ads.internal.client.zzay.zze();
+
+        $i0 = virtualinvoke $r1.nextInt();
+
+        $i0 = $i0 & 2147483647;
+
+        $r2 = java.lang.String.valueOf($i0);
+
+        com.google.android.gms.internal.ads.zzgxg.zzb($r2);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,36 @@
+public abstract class com.google.android.gms.internal.ads.zzbed extends com.google.android.gms.internal.ads.zzasw implements com.google.android.gms.internal.ads.zzbee
+{
+
+    public static com.google.android.gms.internal.ads.zzbee zzb(android.os.IBinder)
+    {
+        com.google.android.gms.internal.ads.zzbee $r2;
+        com.google.android.gms.internal.ads.zzbec $r3;
+        android.os.IInterface $r0;
+        android.os.IBinder $r1;
+        boolean $z0;
+
+        $r1 := @parameter0;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = interfaceinvoke $r1.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.INativeAdViewDelegateCreator");
+
+        $z0 = $r0 instanceof com.google.android.gms.internal.ads.zzbee;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (com.google.android.gms.internal.ads.zzbee) $r0;
+
+        return $r2;
+
+     label2:
+        $r3 = new com.google.android.gms.internal.ads.zzbec;
+
+        specialinvoke $r3.<init>($r1);
+
+        return $r3;
+    }
+}

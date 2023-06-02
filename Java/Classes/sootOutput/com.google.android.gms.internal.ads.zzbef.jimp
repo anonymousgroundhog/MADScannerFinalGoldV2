@@ -1,0 +1,69 @@
+public final class com.google.android.gms.internal.ads.zzbef extends com.google.android.gms.internal.ads.zzasv implements com.google.android.gms.internal.ads.zzbeh
+{
+
+    void <init>(android.os.IBinder)
+    {
+        android.os.IBinder $r1;
+        com.google.android.gms.internal.ads.zzbef r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, "com.google.android.gms.ads.internal.formats.client.INativeAdViewHolderDelegate");
+
+        return;
+    }
+
+    public final void zzb(com.google.android.gms.dynamic.IObjectWrapper) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r2;
+        android.os.Parcel $r1;
+        com.google.android.gms.internal.ads.zzbef r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r1, $r2);
+
+        virtualinvoke r0.zzbh(3, $r1);
+
+        return;
+    }
+
+    public final void zzc(com.google.android.gms.dynamic.IObjectWrapper) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r2;
+        android.os.Parcel $r1;
+        com.google.android.gms.internal.ads.zzbef r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r1, $r2);
+
+        virtualinvoke r0.zzbh(1, $r1);
+
+        return;
+    }
+
+    public final void zzd() throws android.os.RemoteException
+    {
+        android.os.Parcel $r1;
+        com.google.android.gms.internal.ads.zzbef r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zza();
+
+        virtualinvoke r0.zzbh(2, $r1);
+
+        return;
+    }
+}

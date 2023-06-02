@@ -1,0 +1,76 @@
+final class com.google.android.gms.tasks.zzz extends java.lang.Object implements java.lang.Runnable
+{
+    final com.google.android.gms.tasks.zzw zza;
+    final java.util.concurrent.Callable zzb;
+
+    void <init>(com.google.android.gms.tasks.zzw, java.util.concurrent.Callable)
+    {
+        com.google.android.gms.tasks.zzw $r1;
+        java.util.concurrent.Callable $r2;
+        com.google.android.gms.tasks.zzz r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void run()
+    {
+        java.lang.Throwable $r5;
+        com.google.android.gms.tasks.zzw $r3;
+        java.lang.Object $r2;
+        java.util.concurrent.Callable $r4;
+        java.lang.RuntimeException $r1;
+        com.google.android.gms.tasks.zzz r0;
+        java.lang.Exception $r6;
+
+        r0 := @this;
+
+     label1:
+        $r3 = r0.zza;
+
+        $r4 = r0.zzb;
+
+        $r2 = interfaceinvoke $r4.call();
+
+        virtualinvoke $r3.zzb($r2);
+
+     label2:
+        return;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r3 = r0.zza;
+
+        $r1 = new java.lang.RuntimeException;
+
+        specialinvoke $r1.<init>($r5);
+
+        virtualinvoke $r3.zza($r1);
+
+        return;
+
+     label4:
+        $r6 := @caughtexception;
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r3.zza($r6);
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label4;
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

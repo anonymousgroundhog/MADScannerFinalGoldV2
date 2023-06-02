@@ -1,0 +1,83 @@
+public final enum class com.google.android.gms.internal.ads.zzffq extends java.lang.Enum
+{
+    public static final enum com.google.android.gms.internal.ads.zzffq zza;
+    public static final enum com.google.android.gms.internal.ads.zzffq zzb;
+    public static final enum com.google.android.gms.internal.ads.zzffq zzc;
+    public static final enum com.google.android.gms.internal.ads.zzffq zzd;
+    private static final com.google.android.gms.internal.ads.zzffq[] zze;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzffq $r0, $r1, $r2, $r3;
+        com.google.android.gms.internal.ads.zzffq[] $r4;
+
+        $r0 = new com.google.android.gms.internal.ads.zzffq;
+
+        specialinvoke $r0.<init>("VIDEO_CONTROLS", 0);
+
+        com.google.android.gms.internal.ads.zzffq.zza = $r0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzffq;
+
+        specialinvoke $r1.<init>("CLOSE_AD", 1);
+
+        com.google.android.gms.internal.ads.zzffq.zzb = $r1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzffq;
+
+        specialinvoke $r2.<init>("NOT_VISIBLE", 2);
+
+        com.google.android.gms.internal.ads.zzffq.zzc = $r2;
+
+        $r3 = new com.google.android.gms.internal.ads.zzffq;
+
+        specialinvoke $r3.<init>("OTHER", 3);
+
+        com.google.android.gms.internal.ads.zzffq.zzd = $r3;
+
+        $r4 = newarray (com.google.android.gms.internal.ads.zzffq)[4];
+
+        $r4[0] = $r0;
+
+        $r4[1] = $r1;
+
+        $r4[2] = $r2;
+
+        $r4[3] = $r3;
+
+        com.google.android.gms.internal.ads.zzffq.zze = $r4;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzffq r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzffq[] values()
+    {
+        java.lang.Object $r0;
+        com.google.android.gms.internal.ads.zzffq[] $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzffq.zze;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (com.google.android.gms.internal.ads.zzffq[]) $r0;
+
+        return $r1;
+    }
+}

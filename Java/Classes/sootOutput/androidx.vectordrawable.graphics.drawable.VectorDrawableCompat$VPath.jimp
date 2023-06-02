@@ -1,0 +1,303 @@
+abstract class androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath extends androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VObject
+{
+    protected static final int FILL_TYPE_WINDING;
+    int mChangingConfigurations;
+    int mFillRule;
+    protected androidx.core.graphics.PathParser$PathDataNode[] mNodes;
+    java.lang.String mPathName;
+
+    public void <init>()
+    {
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>(null);
+
+        r0.mNodes = null;
+
+        r0.mFillRule = 0;
+
+        return;
+    }
+
+    public void <init>(androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath)
+    {
+        androidx.core.graphics.PathParser$PathDataNode[] $r2;
+        int $i0;
+        java.lang.String $r3;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0, $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>(null);
+
+        r0.mNodes = null;
+
+        r0.mFillRule = 0;
+
+        $r3 = $r1.mPathName;
+
+        r0.mPathName = $r3;
+
+        $i0 = $r1.mChangingConfigurations;
+
+        r0.mChangingConfigurations = $i0;
+
+        $r2 = $r1.mNodes;
+
+        $r2 = androidx.core.graphics.PathParser.deepCopyNodes($r2);
+
+        r0.mNodes = $r2;
+
+        return;
+    }
+
+    public void applyTheme(android.content.res.Resources$Theme)
+    {
+        android.content.res.Resources$Theme $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public boolean canApplyTheme()
+    {
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public androidx.core.graphics.PathParser$PathDataNode[] getPathData()
+    {
+        androidx.core.graphics.PathParser$PathDataNode[] r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        r1 = r0.mNodes;
+
+        return r1;
+    }
+
+    public java.lang.String getPathName()
+    {
+        java.lang.String r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        r1 = r0.mPathName;
+
+        return r1;
+    }
+
+    public boolean isClipPath()
+    {
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public java.lang.String nodesToString(androidx.core.graphics.PathParser$PathDataNode[])
+    {
+        androidx.core.graphics.PathParser$PathDataNode r4;
+        char c2;
+        float[] r5;
+        androidx.core.graphics.PathParser$PathDataNode[] $r1;
+        int i0, i1, $i3;
+        float $f0;
+        java.lang.StringBuilder r3;
+        java.lang.String r2;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r2 = " ";
+
+        i0 = 0;
+
+     label1:
+        i1 = lengthof $r1;
+
+        if i0 >= i1 goto label4;
+
+        r3 = new java.lang.StringBuilder;
+
+        specialinvoke r3.<init>();
+
+        r3 = virtualinvoke r3.append(r2);
+
+        r4 = $r1[i0];
+
+        c2 = r4.mType;
+
+        r3 = virtualinvoke r3.append(c2);
+
+        r3 = virtualinvoke r3.append(":");
+
+        r2 = virtualinvoke r3.toString();
+
+        r4 = $r1[i0];
+
+        r5 = r4.mParams;
+
+        i1 = 0;
+
+     label2:
+        $i3 = lengthof r5;
+
+        if i1 >= $i3 goto label3;
+
+        r3 = new java.lang.StringBuilder;
+
+        specialinvoke r3.<init>();
+
+        r3 = virtualinvoke r3.append(r2);
+
+        $f0 = r5[i1];
+
+        r3 = virtualinvoke r3.append($f0);
+
+        r3 = virtualinvoke r3.append(",");
+
+        r2 = virtualinvoke r3.toString();
+
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label3:
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label4:
+        return r2;
+    }
+
+    public void printVPath(int)
+    {
+        androidx.core.graphics.PathParser$PathDataNode[] $r3;
+        int $i0, i1;
+        java.lang.StringBuilder $r2;
+        java.lang.String r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r1 = "";
+
+        i1 = 0;
+
+     label1:
+        if i1 >= $i0 goto label2;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>();
+
+        $r2 = virtualinvoke $r2.append(r1);
+
+        $r2 = virtualinvoke $r2.append("    ");
+
+        r1 = virtualinvoke $r2.toString();
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>();
+
+        $r2 = virtualinvoke $r2.append(r1);
+
+        $r2 = virtualinvoke $r2.append("current path is :");
+
+        r1 = r0.mPathName;
+
+        $r2 = virtualinvoke $r2.append(r1);
+
+        $r2 = virtualinvoke $r2.append(" pathData is ");
+
+        $r3 = r0.mNodes;
+
+        r1 = virtualinvoke r0.nodesToString($r3);
+
+        $r2 = virtualinvoke $r2.append(r1);
+
+        r1 = virtualinvoke $r2.toString();
+
+        android.util.Log.v("VectorDrawableCompat", r1);
+
+        return;
+    }
+
+    public void setPathData(androidx.core.graphics.PathParser$PathDataNode[])
+    {
+        androidx.core.graphics.PathParser$PathDataNode[] $r1, $r2;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.mNodes;
+
+        $z0 = androidx.core.graphics.PathParser.canMorph($r2, $r1);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = androidx.core.graphics.PathParser.deepCopyNodes($r1);
+
+        r0.mNodes = $r1;
+
+        return;
+
+     label1:
+        $r2 = r0.mNodes;
+
+        androidx.core.graphics.PathParser.updateNodes($r2, $r1);
+
+        return;
+    }
+
+    public void toPath(android.graphics.Path)
+    {
+        androidx.core.graphics.PathParser$PathDataNode[] $r2;
+        android.graphics.Path $r1;
+        androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VPath r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        virtualinvoke $r1.reset();
+
+        $r2 = r0.mNodes;
+
+        if $r2 == null goto label1;
+
+        androidx.core.graphics.PathParser$PathDataNode.nodesToPath($r2, $r1);
+
+     label1:
+        return;
+    }
+}

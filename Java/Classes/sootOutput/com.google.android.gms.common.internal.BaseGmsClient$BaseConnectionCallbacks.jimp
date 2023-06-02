@@ -1,0 +1,9 @@
+public interface  com.google.android.gms.common.internal.BaseGmsClient$BaseConnectionCallbacks extends java.lang.Object
+{
+    public static final int CAUSE_DEAD_OBJECT_EXCEPTION;
+    public static final int CAUSE_SERVICE_DISCONNECTED;
+
+    public abstract void onConnected(android.os.Bundle);
+
+    public abstract void onConnectionSuspended(int);
+}

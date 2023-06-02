@@ -1,0 +1,37 @@
+public final class com.google.android.gms.internal.ads.zzgal extends com.google.android.gms.internal.ads.zzgam
+{
+
+    public void <init>(byte[]) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgal r0;
+        byte[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    final com.google.android.gms.internal.ads.zzgak zza(byte[], int) throws java.security.InvalidKeyException
+    {
+        com.google.android.gms.internal.ads.zzgal r0;
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzgaj $r2;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzgaj;
+
+        specialinvoke $r2.<init>($r1, $i0);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,46 @@
+public final class com.google.android.gms.internal.ads.zzdwc extends java.lang.Object implements com.google.android.gms.internal.ads.zzftq
+{
+    public static final com.google.android.gms.internal.ads.zzdwc zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdwc $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdwc;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdwc.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdwc r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(java.lang.Object)
+    {
+        com.google.android.gms.internal.ads.zzdwc r0;
+        com.google.android.gms.internal.ads.zzfut $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzdvi $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = (com.google.android.gms.internal.ads.zzdvi) $r2;
+
+        $r1 = com.google.android.gms.internal.ads.zzfuj.zzh(null);
+
+        return $r1;
+    }
+}

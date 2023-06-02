@@ -1,0 +1,79 @@
+final enum class com.google.android.gms.internal.ads.zzftx extends java.lang.Enum implements java.util.concurrent.Executor
+{
+    public static final enum com.google.android.gms.internal.ads.zzftx zza;
+    private static final com.google.android.gms.internal.ads.zzftx[] zzb;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzftx $r0;
+        com.google.android.gms.internal.ads.zzftx[] $r1;
+
+        $r0 = new com.google.android.gms.internal.ads.zzftx;
+
+        specialinvoke $r0.<init>("INSTANCE", 0);
+
+        com.google.android.gms.internal.ads.zzftx.zza = $r0;
+
+        $r1 = newarray (com.google.android.gms.internal.ads.zzftx)[1];
+
+        $r1[0] = $r0;
+
+        com.google.android.gms.internal.ads.zzftx.zzb = $r1;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        com.google.android.gms.internal.ads.zzftx r0;
+        int $i0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>("INSTANCE", 0);
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzftx[] values()
+    {
+        java.lang.Object $r0;
+        com.google.android.gms.internal.ads.zzftx[] $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzftx.zzb;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (com.google.android.gms.internal.ads.zzftx[]) $r0;
+
+        return $r1;
+    }
+
+    public final void execute(java.lang.Runnable)
+    {
+        com.google.android.gms.internal.ads.zzftx r0;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        interfaceinvoke $r1.run();
+
+        return;
+    }
+
+    public final java.lang.String toString()
+    {
+        com.google.android.gms.internal.ads.zzftx r0;
+
+        r0 := @this;
+
+        return "MoreExecutors.directExecutor()";
+    }
+}

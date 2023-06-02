@@ -1,0 +1,280 @@
+public final class com.google.android.gms.internal.ads.zzcpy extends android.widget.FrameLayout implements android.view.ViewTreeObserver$OnScrollChangedListener, android.view.ViewTreeObserver$OnGlobalLayoutListener
+{
+    private final android.content.Context zza;
+    private android.view.View zzb;
+
+    private void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzcpy r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzcpy zza(android.content.Context, android.view.View, com.google.android.gms.internal.ads.zzeyc)
+    {
+        android.content.Context $r1;
+        com.google.android.gms.internal.ads.zzeyd $r8;
+        com.google.android.gms.internal.ads.zzeyc $r3;
+        org.json.JSONObject $r10, $r12;
+        int $i0, $i1;
+        android.view.View $r2;
+        android.widget.FrameLayout$LayoutParams $r9;
+        com.google.android.gms.internal.ads.zzcpy $r0;
+        boolean $z0;
+        android.util.DisplayMetrics $r6;
+        java.util.List $r4;
+        float $f0, $f1, $f2;
+        android.widget.RelativeLayout $r11;
+        java.lang.Object $r7;
+        android.content.res.Resources $r5;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r0 = new com.google.android.gms.internal.ads.zzcpy;
+
+        specialinvoke $r0.<init>($r1);
+
+        $r4 = $r3.zzv;
+
+        $z0 = interfaceinvoke $r4.isEmpty();
+
+        if $z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = $r0.zza;
+
+        $r5 = virtualinvoke $r1.getResources();
+
+        if $r5 == null goto label2;
+
+        $r6 = virtualinvoke $r5.getDisplayMetrics();
+
+        if $r6 == null goto label2;
+
+        $r4 = $r3.zzv;
+
+        $r7 = interfaceinvoke $r4.get(0);
+
+        $r8 = (com.google.android.gms.internal.ads.zzeyd) $r7;
+
+        $r9 = new android.widget.FrameLayout$LayoutParams;
+
+        $i0 = $r8.zza;
+
+        $f1 = (float) $i0;
+
+        $f0 = $r6.density;
+
+        $f0 = $f1 * $f0;
+
+        $i0 = $r8.zzb;
+
+        $f1 = (float) $i0;
+
+        $f2 = $r6.density;
+
+        $f1 = $f1 * $f2;
+
+        $i0 = (int) $f0;
+
+        $i1 = (int) $f1;
+
+        specialinvoke $r9.<init>($i0, $i1);
+
+        virtualinvoke $r0.setLayoutParams($r9);
+
+     label2:
+        $r0.zzb = $r2;
+
+        virtualinvoke $r0.addView($r2);
+
+        com.google.android.gms.ads.internal.zzt.zzx();
+
+        com.google.android.gms.internal.ads.zzcaa.zzb($r0, $r0);
+
+        com.google.android.gms.ads.internal.zzt.zzx();
+
+        com.google.android.gms.internal.ads.zzcaa.zza($r0, $r0);
+
+        $r10 = $r3.zzai;
+
+        $r11 = new android.widget.RelativeLayout;
+
+        $r1 = $r0.zza;
+
+        specialinvoke $r11.<init>($r1);
+
+        $r12 = virtualinvoke $r10.optJSONObject("header");
+
+        if $r12 == null goto label3;
+
+        specialinvoke $r0.zzc($r12, $r11, 10);
+
+     label3:
+        $r10 = virtualinvoke $r10.optJSONObject("footer");
+
+        if $r10 == null goto label4;
+
+        specialinvoke $r0.zzc($r10, $r11, 12);
+
+     label4:
+        virtualinvoke $r0.addView($r11);
+
+        return $r0;
+    }
+
+    private final int zzb(double)
+    {
+        android.content.Context $r1;
+        int $i0;
+        com.google.android.gms.internal.ads.zzcpy r0;
+        double $d0;
+
+        r0 := @this;
+
+        $d0 := @parameter0;
+
+        com.google.android.gms.ads.internal.client.zzay.zzb();
+
+        $r1 = r0.zza;
+
+        $i0 = (int) $d0;
+
+        $i0 = com.google.android.gms.internal.ads.zzbyt.zzy($r1, $i0);
+
+        return $i0;
+    }
+
+    private final void zzc(org.json.JSONObject, android.widget.RelativeLayout, int)
+    {
+        android.content.Context $r4;
+        android.widget.RelativeLayout$LayoutParams $r8;
+        org.json.JSONObject $r3;
+        android.widget.TextView $r7;
+        int $i0, $i1;
+        android.widget.RelativeLayout $r1;
+        float $f0;
+        java.lang.String $r5;
+        com.google.android.gms.internal.ads.zzcpy r0;
+        double $d0;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r7 = new android.widget.TextView;
+
+        $r4 = r0.zza;
+
+        specialinvoke $r7.<init>($r4);
+
+        virtualinvoke $r7.setTextColor(-1);
+
+        virtualinvoke $r7.setBackgroundColor(-16777216);
+
+        virtualinvoke $r7.setGravity(17);
+
+        $r5 = virtualinvoke $r3.optString("text", "");
+
+        virtualinvoke $r7.setText($r5);
+
+        $d0 = virtualinvoke $r3.optDouble("text_size", 11.0);
+
+        $f0 = (float) $d0;
+
+        virtualinvoke $r7.setTextSize($f0);
+
+        $d0 = virtualinvoke $r3.optDouble("padding", 0.0);
+
+        $i1 = specialinvoke r0.zzb($d0);
+
+        virtualinvoke $r7.setPadding(0, $i1, 0, $i1);
+
+        $r8 = new android.widget.RelativeLayout$LayoutParams;
+
+        $d0 = virtualinvoke $r3.optDouble("height", 15.0);
+
+        $i1 = specialinvoke r0.zzb($d0);
+
+        specialinvoke $r8.<init>(-1, $i1);
+
+        virtualinvoke $r8.addRule($i0);
+
+        virtualinvoke $r1.addView($r7, $r8);
+
+        return;
+    }
+
+    public final void onGlobalLayout()
+    {
+        int[] $r2;
+        int $i0;
+        android.view.View $r1;
+        float $f0;
+        com.google.android.gms.internal.ads.zzcpy r0;
+
+        r0 := @this;
+
+        $r2 = newarray (int)[2];
+
+        virtualinvoke r0.getLocationInWindow($r2);
+
+        $r1 = r0.zzb;
+
+        $i0 = $r2[1];
+
+        $i0 = neg $i0;
+
+        $f0 = (float) $i0;
+
+        virtualinvoke $r1.setY($f0);
+
+        return;
+    }
+
+    public final void onScrollChanged()
+    {
+        int[] $r2;
+        int $i0;
+        android.view.View $r1;
+        float $f0;
+        com.google.android.gms.internal.ads.zzcpy r0;
+
+        r0 := @this;
+
+        $r2 = newarray (int)[2];
+
+        virtualinvoke r0.getLocationInWindow($r2);
+
+        $r1 = r0.zzb;
+
+        $i0 = $r2[1];
+
+        $i0 = neg $i0;
+
+        $f0 = (float) $i0;
+
+        virtualinvoke $r1.setY($f0);
+
+        return;
+    }
+}

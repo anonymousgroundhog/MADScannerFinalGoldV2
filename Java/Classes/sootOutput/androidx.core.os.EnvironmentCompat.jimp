@@ -1,0 +1,38 @@
+public final class androidx.core.os.EnvironmentCompat extends java.lang.Object
+{
+    public static final java.lang.String MEDIA_UNKNOWN;
+    private static final java.lang.String TAG;
+
+    private void <init>()
+    {
+        androidx.core.os.EnvironmentCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static java.lang.String getStorageState(java.io.File)
+    {
+        int $i0;
+        java.lang.String $r1;
+        java.io.File $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        $r1 = android.os.Environment.getExternalStorageState($r0);
+
+        return $r1;
+
+     label1:
+        $r1 = android.os.Environment.getStorageState($r0);
+
+        return $r1;
+    }
+}

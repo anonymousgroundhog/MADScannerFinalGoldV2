@@ -1,0 +1,214 @@
+public final class androidx.browser.customtabs.CustomTabsIntent extends java.lang.Object
+{
+    public static final int COLOR_SCHEME_DARK;
+    public static final int COLOR_SCHEME_LIGHT;
+    private static final int COLOR_SCHEME_MAX;
+    public static final int COLOR_SCHEME_SYSTEM;
+    public static final java.lang.String EXTRA_ACTION_BUTTON_BUNDLE;
+    public static final java.lang.String EXTRA_CLOSE_BUTTON_ICON;
+    public static final java.lang.String EXTRA_COLOR_SCHEME;
+    public static final java.lang.String EXTRA_COLOR_SCHEME_PARAMS;
+    public static final java.lang.String EXTRA_DEFAULT_SHARE_MENU_ITEM;
+    public static final java.lang.String EXTRA_ENABLE_INSTANT_APPS;
+    public static final java.lang.String EXTRA_ENABLE_URLBAR_HIDING;
+    public static final java.lang.String EXTRA_EXIT_ANIMATION_BUNDLE;
+    public static final java.lang.String EXTRA_MENU_ITEMS;
+    public static final java.lang.String EXTRA_NAVIGATION_BAR_COLOR;
+    public static final java.lang.String EXTRA_NAVIGATION_BAR_DIVIDER_COLOR;
+    public static final java.lang.String EXTRA_REMOTEVIEWS;
+    public static final java.lang.String EXTRA_REMOTEVIEWS_CLICKED_ID;
+    public static final java.lang.String EXTRA_REMOTEVIEWS_PENDINGINTENT;
+    public static final java.lang.String EXTRA_REMOTEVIEWS_VIEW_IDS;
+    public static final java.lang.String EXTRA_SECONDARY_TOOLBAR_COLOR;
+    public static final java.lang.String EXTRA_SESSION;
+    public static final java.lang.String EXTRA_SESSION_ID;
+    public static final java.lang.String EXTRA_SHARE_STATE;
+    public static final java.lang.String EXTRA_TINT_ACTION_BUTTON;
+    public static final java.lang.String EXTRA_TITLE_VISIBILITY_STATE;
+    public static final java.lang.String EXTRA_TOOLBAR_COLOR;
+    public static final java.lang.String EXTRA_TOOLBAR_ITEMS;
+    private static final java.lang.String EXTRA_USER_OPT_OUT_FROM_CUSTOM_TABS;
+    public static final java.lang.String KEY_DESCRIPTION;
+    public static final java.lang.String KEY_ICON;
+    public static final java.lang.String KEY_ID;
+    public static final java.lang.String KEY_MENU_ITEM_TITLE;
+    public static final java.lang.String KEY_PENDING_INTENT;
+    private static final int MAX_TOOLBAR_ITEMS;
+    public static final int NO_TITLE;
+    public static final int SHARE_STATE_DEFAULT;
+    private static final int SHARE_STATE_MAX;
+    public static final int SHARE_STATE_OFF;
+    public static final int SHARE_STATE_ON;
+    public static final int SHOW_PAGE_TITLE;
+    public static final int TOOLBAR_ACTION_BUTTON_ID;
+    public final android.content.Intent intent;
+    public final android.os.Bundle startAnimationBundle;
+
+    void <init>(android.content.Intent, android.os.Bundle)
+    {
+        androidx.browser.customtabs.CustomTabsIntent r0;
+        android.content.Intent $r1;
+        android.os.Bundle $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.intent = $r1;
+
+        r0.startAnimationBundle = $r2;
+
+        return;
+    }
+
+    public static androidx.browser.customtabs.CustomTabColorSchemeParams getColorSchemeParams(android.content.Intent, int)
+    {
+        android.os.Bundle $r1;
+        android.content.Intent $r0;
+        java.lang.IllegalArgumentException r6;
+        android.util.SparseArray $r3;
+        int $i0;
+        java.lang.Object $r4;
+        java.lang.StringBuilder r7;
+        java.lang.String $r8;
+        androidx.browser.customtabs.CustomTabColorSchemeParams $r2, $r5;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        if $i0 < 0 goto label3;
+
+        if $i0 > 2 goto label3;
+
+        if $i0 == 0 goto label3;
+
+        $r1 = virtualinvoke $r0.getExtras();
+
+        if $r1 != null goto label1;
+
+        $r2 = androidx.browser.customtabs.CustomTabColorSchemeParams.fromBundle(null);
+
+        return $r2;
+
+     label1:
+        $r2 = androidx.browser.customtabs.CustomTabColorSchemeParams.fromBundle($r1);
+
+        $r3 = virtualinvoke $r1.getSparseParcelableArray("androidx.browser.customtabs.extra.COLOR_SCHEME_PARAMS");
+
+        if $r3 == null goto label2;
+
+        $r4 = virtualinvoke $r3.get($i0);
+
+        $r1 = (android.os.Bundle) $r4;
+
+        if $r1 == null goto label4;
+
+        $r5 = androidx.browser.customtabs.CustomTabColorSchemeParams.fromBundle($r1);
+
+        $r2 = virtualinvoke $r5.withDefaults($r2);
+
+     label2:
+        return $r2;
+
+     label3:
+        r6 = new java.lang.IllegalArgumentException;
+
+        r7 = new java.lang.StringBuilder;
+
+        specialinvoke r7.<init>();
+
+        r7 = virtualinvoke r7.append("Invalid colorScheme: ");
+
+        r7 = virtualinvoke r7.append($i0);
+
+        $r8 = virtualinvoke r7.toString();
+
+        specialinvoke r6.<init>($r8);
+
+        throw r6;
+
+     label4:
+        return $r2;
+    }
+
+    public static int getMaxToolbarItems()
+    {
+        return 5;
+    }
+
+    public static android.content.Intent setAlwaysUseBrowserUI(android.content.Intent)
+    {
+        android.content.Intent $r0;
+
+        $r0 := @parameter0;
+
+        if $r0 != null goto label1;
+
+        $r0 = new android.content.Intent;
+
+        specialinvoke $r0.<init>("android.intent.action.VIEW");
+
+     label1:
+        virtualinvoke $r0.addFlags(268435456);
+
+        virtualinvoke $r0.putExtra("android.support.customtabs.extra.user_opt_out", 1);
+
+        return $r0;
+    }
+
+    public static boolean shouldAlwaysUseBrowserUI(android.content.Intent)
+    {
+        int $i0;
+        android.content.Intent $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $z0 = virtualinvoke $r0.getBooleanExtra("android.support.customtabs.extra.user_opt_out", 0);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = virtualinvoke $r0.getFlags();
+
+        $i0 = $i0 & 268435456;
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void launchUrl(android.content.Context, android.net.Uri)
+    {
+        androidx.browser.customtabs.CustomTabsIntent r0;
+        android.content.Context $r1;
+        android.os.Bundle $r3;
+        android.net.Uri $r2;
+        android.content.Intent $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r4 = r0.intent;
+
+        virtualinvoke $r4.setData($r2);
+
+        $r4 = r0.intent;
+
+        $r3 = r0.startAnimationBundle;
+
+        androidx.core.content.ContextCompat.startActivity($r1, $r4, $r3);
+
+        return;
+    }
+}

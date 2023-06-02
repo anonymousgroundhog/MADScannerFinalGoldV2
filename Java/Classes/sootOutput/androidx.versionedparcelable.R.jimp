@@ -1,0 +1,14 @@
+public final class androidx.versionedparcelable.R extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.versionedparcelable.R r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

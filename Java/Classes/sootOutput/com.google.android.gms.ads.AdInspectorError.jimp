@@ -1,0 +1,38 @@
+public final class com.google.android.gms.ads.AdInspectorError extends com.google.android.gms.ads.AdError
+{
+    public static final int ERROR_CODE_ALREADY_OPEN;
+    public static final int ERROR_CODE_FAILED_TO_LOAD;
+    public static final int ERROR_CODE_INTERNAL_ERROR;
+    public static final int ERROR_CODE_NOT_IN_TEST_MODE;
+
+    public void <init>(int, java.lang.String, java.lang.String)
+    {
+        com.google.android.gms.ads.AdInspectorError r0;
+        int $i0;
+        java.lang.String $r1, $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        specialinvoke r0.<init>($i0, $r1, $r2);
+
+        return;
+    }
+
+    public int getCode()
+    {
+        int $i0;
+        com.google.android.gms.ads.AdInspectorError r0;
+
+        r0 := @this;
+
+        $i0 = specialinvoke r0.getCode();
+
+        return $i0;
+    }
+}

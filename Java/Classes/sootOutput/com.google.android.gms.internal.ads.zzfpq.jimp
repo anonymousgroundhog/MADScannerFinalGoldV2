@@ -1,0 +1,180 @@
+abstract class com.google.android.gms.internal.ads.zzfpq extends java.lang.Object implements java.util.Iterator
+{
+    int zzb;
+    int zzc;
+    int zzd;
+    final com.google.android.gms.internal.ads.zzfpu zze;
+
+    void <init>(com.google.android.gms.internal.ads.zzfpu, com.google.android.gms.internal.ads.zzfpm)
+    {
+        com.google.android.gms.internal.ads.zzfpm $r2;
+        int $i0;
+        com.google.android.gms.internal.ads.zzfpq r0;
+        com.google.android.gms.internal.ads.zzfpu $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zze = $r1;
+
+        specialinvoke r0.<init>();
+
+        $i0 = com.google.android.gms.internal.ads.zzfpu.zza($r1);
+
+        r0.zzb = $i0;
+
+        $i0 = virtualinvoke $r1.zze();
+
+        r0.zzc = $i0;
+
+        r0.zzd = -1;
+
+        return;
+    }
+
+    private final void zzb()
+    {
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzfpq r0;
+        java.util.ConcurrentModificationException $r2;
+        com.google.android.gms.internal.ads.zzfpu $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zze;
+
+        $i1 = com.google.android.gms.internal.ads.zzfpu.zza($r1);
+
+        $i0 = r0.zzb;
+
+        if $i1 != $i0 goto label1;
+
+        return;
+
+     label1:
+        $r2 = new java.util.ConcurrentModificationException;
+
+        specialinvoke $r2.<init>();
+
+        throw $r2;
+    }
+
+    public final boolean hasNext()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfpq r0;
+
+        r0 := @this;
+
+        $i0 = r0.zzc;
+
+        if $i0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public final java.lang.Object next()
+    {
+        int $i0;
+        java.lang.Object $r1;
+        com.google.android.gms.internal.ads.zzfpq r0;
+        java.util.NoSuchElementException $r3;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzfpu $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.zzb();
+
+        $z0 = virtualinvoke r0.hasNext();
+
+        if $z0 == 0 goto label1;
+
+        $i0 = r0.zzc;
+
+        r0.zzd = $i0;
+
+        $r1 = virtualinvoke r0.zza($i0);
+
+        $r2 = r0.zze;
+
+        $i0 = r0.zzc;
+
+        $i0 = virtualinvoke $r2.zzf($i0);
+
+        r0.zzc = $i0;
+
+        return $r1;
+
+     label1:
+        $r3 = new java.util.NoSuchElementException;
+
+        specialinvoke $r3.<init>();
+
+        throw $r3;
+    }
+
+    public final void remove()
+    {
+        java.lang.Object[] $r1;
+        int $i0;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzfpq r0;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzfpu $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.zzb();
+
+        $i0 = r0.zzd;
+
+        if $i0 < 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        com.google.android.gms.internal.ads.zzfnu.zzi($z0, "no calls to next() since the last call to remove()");
+
+        $i0 = r0.zzb;
+
+        $i0 = $i0 + 32;
+
+        r0.zzb = $i0;
+
+        $r2 = r0.zze;
+
+        $i0 = r0.zzd;
+
+        $r1 = $r2.zzb;
+
+        virtualinvoke $r1.getClass();
+
+        $r3 = $r1[$i0];
+
+        virtualinvoke $r2.remove($r3);
+
+        $i0 = r0.zzc;
+
+        $i0 = $i0 + -1;
+
+        r0.zzc = $i0;
+
+        r0.zzd = -1;
+
+        return;
+    }
+
+    abstract java.lang.Object zza(int);
+}

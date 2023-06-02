@@ -1,0 +1,5 @@
+public interface  com.google.android.gms.internal.ads.zzcqp extends java.lang.Object
+{
+
+    public abstract com.google.android.gms.internal.ads.zzeat zza(int, java.lang.String);
+}

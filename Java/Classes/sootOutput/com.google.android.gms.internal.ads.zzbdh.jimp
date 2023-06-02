@@ -1,0 +1,264 @@
+public final class com.google.android.gms.internal.ads.zzbdh extends android.widget.RelativeLayout
+{
+    private static final float[] zza;
+    private android.graphics.drawable.AnimationDrawable zzb;
+
+    static void <clinit>()
+    {
+        float[] $r0;
+
+        $r0 = newarray (float)[8];
+
+        $r0[0] = 5.0F;
+
+        $r0[1] = 5.0F;
+
+        $r0[2] = 5.0F;
+
+        $r0[3] = 5.0F;
+
+        $r0[4] = 5.0F;
+
+        $r0[5] = 5.0F;
+
+        $r0[6] = 5.0F;
+
+        $r0[7] = 5.0F;
+
+        com.google.android.gms.internal.ads.zzbdh.zza = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, com.google.android.gms.internal.ads.zzbdg, android.widget.RelativeLayout$LayoutParams)
+    {
+        android.graphics.Typeface $r10;
+        com.google.android.gms.dynamic.IObjectWrapper $r17;
+        android.content.Context $r1;
+        android.widget.ImageView $r25;
+        float[] $r5;
+        android.graphics.drawable.AnimationDrawable $r13, $r26;
+        android.graphics.drawable.Drawable $r18;
+        android.widget.RelativeLayout$LayoutParams $r3, $r8, $r23;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzbdj $r16;
+        java.lang.String $r7;
+        boolean $z0;
+        android.graphics.drawable.ShapeDrawable $r22;
+        com.google.android.gms.internal.ads.zzbdh r0;
+        java.util.Iterator $r14;
+        com.google.android.gms.internal.ads.zzbdg $r2;
+        java.lang.Exception $r19, $r20;
+        android.graphics.drawable.shapes.RoundRectShape $r21;
+        java.util.List $r12;
+        android.widget.TextView $r24;
+        float $f0;
+        android.graphics.Paint $r6;
+        java.lang.Object $r15;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>($r1);
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r2);
+
+        $r22 = new android.graphics.drawable.ShapeDrawable;
+
+        $r21 = new android.graphics.drawable.shapes.RoundRectShape;
+
+        $r5 = com.google.android.gms.internal.ads.zzbdh.zza;
+
+        specialinvoke $r21.<init>($r5, null, null);
+
+        specialinvoke $r22.<init>($r21);
+
+        $r6 = virtualinvoke $r22.getPaint();
+
+        $i0 = virtualinvoke $r2.zzd();
+
+        virtualinvoke $r6.setColor($i0);
+
+        virtualinvoke r0.setLayoutParams($r3);
+
+        virtualinvoke r0.setBackground($r22);
+
+        $r8 = new android.widget.RelativeLayout$LayoutParams;
+
+        specialinvoke $r8.<init>(-2, -2);
+
+        $r7 = virtualinvoke $r2.zzg();
+
+        $z0 = android.text.TextUtils.isEmpty($r7);
+
+        if $z0 != 0 goto label01;
+
+        $r23 = new android.widget.RelativeLayout$LayoutParams;
+
+        specialinvoke $r23.<init>(-2, -2);
+
+        $r24 = new android.widget.TextView;
+
+        specialinvoke $r24.<init>($r1);
+
+        virtualinvoke $r24.setLayoutParams($r23);
+
+        virtualinvoke $r24.setId(1195835393);
+
+        $r10 = android.graphics.Typeface.DEFAULT;
+
+        virtualinvoke $r24.setTypeface($r10);
+
+        $r7 = virtualinvoke $r2.zzg();
+
+        virtualinvoke $r24.setText($r7);
+
+        $i0 = virtualinvoke $r2.zze();
+
+        virtualinvoke $r24.setTextColor($i0);
+
+        $i0 = virtualinvoke $r2.zzf();
+
+        $f0 = (float) $i0;
+
+        virtualinvoke $r24.setTextSize($f0);
+
+        com.google.android.gms.ads.internal.client.zzay.zzb();
+
+        $i0 = com.google.android.gms.internal.ads.zzbyt.zzy($r1, 4);
+
+        com.google.android.gms.ads.internal.client.zzay.zzb();
+
+        $i1 = com.google.android.gms.internal.ads.zzbyt.zzy($r1, 4);
+
+        virtualinvoke $r24.setPadding($i0, 0, $i1, 0);
+
+        virtualinvoke r0.addView($r24);
+
+        $i0 = virtualinvoke $r24.getId();
+
+        virtualinvoke $r8.addRule(1, $i0);
+
+     label01:
+        $r25 = new android.widget.ImageView;
+
+        specialinvoke $r25.<init>($r1);
+
+        virtualinvoke $r25.setLayoutParams($r8);
+
+        virtualinvoke $r25.setId(1195835394);
+
+        $r12 = virtualinvoke $r2.zzi();
+
+        if $r12 == null goto label07;
+
+        $i0 = interfaceinvoke $r12.size();
+
+        if $i0 <= 1 goto label07;
+
+        $r26 = new android.graphics.drawable.AnimationDrawable;
+
+        specialinvoke $r26.<init>();
+
+        r0.zzb = $r26;
+
+        $r14 = interfaceinvoke $r12.iterator();
+
+     label02:
+        $z0 = interfaceinvoke $r14.hasNext();
+
+        if $z0 == 0 goto label06;
+
+        $r15 = interfaceinvoke $r14.next();
+
+        $r16 = (com.google.android.gms.internal.ads.zzbdj) $r15;
+
+     label03:
+        $r17 = virtualinvoke $r16.zzf();
+
+        $r15 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r17);
+
+        $r18 = (android.graphics.drawable.Drawable) $r15;
+
+        $r13 = r0.zzb;
+
+        $i0 = virtualinvoke $r2.zzb();
+
+        virtualinvoke $r13.addFrame($r18, $i0);
+
+     label04:
+        goto label02;
+
+     label05:
+        $r19 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error while getting drawable.", $r19);
+
+        goto label02;
+
+     label06:
+        $r13 = r0.zzb;
+
+        virtualinvoke $r25.setBackground($r13);
+
+        goto label11;
+
+     label07:
+        $i0 = interfaceinvoke $r12.size();
+
+        if $i0 != 1 goto label11;
+
+     label08:
+        $r15 = interfaceinvoke $r12.get(0);
+
+        $r16 = (com.google.android.gms.internal.ads.zzbdj) $r15;
+
+        $r17 = virtualinvoke $r16.zzf();
+
+        $r15 = com.google.android.gms.dynamic.ObjectWrapper.unwrap($r17);
+
+        $r18 = (android.graphics.drawable.Drawable) $r15;
+
+        virtualinvoke $r25.setImageDrawable($r18);
+
+     label09:
+        goto label11;
+
+     label10:
+        $r20 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error while getting drawable.", $r20);
+
+     label11:
+        virtualinvoke r0.addView($r25);
+
+        return;
+
+        catch java.lang.Exception from label03 to label04 with label05;
+        catch java.lang.Exception from label08 to label09 with label10;
+    }
+
+    public final void onAttachedToWindow()
+    {
+        com.google.android.gms.internal.ads.zzbdh r0;
+        android.graphics.drawable.AnimationDrawable $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.start();
+
+     label1:
+        specialinvoke r0.onAttachedToWindow();
+
+        return;
+    }
+}

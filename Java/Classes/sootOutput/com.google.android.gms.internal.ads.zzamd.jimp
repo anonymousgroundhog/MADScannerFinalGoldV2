@@ -1,0 +1,14 @@
+public final class com.google.android.gms.internal.ads.zzamd extends com.google.android.gms.internal.ads.zzgwg
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzamd r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>("moov");
+
+        return;
+    }
+}

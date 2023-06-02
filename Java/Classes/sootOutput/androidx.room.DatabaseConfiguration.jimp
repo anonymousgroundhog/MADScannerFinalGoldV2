@@ -1,0 +1,256 @@
+public class androidx.room.DatabaseConfiguration extends java.lang.Object
+{
+    public final boolean allowDestructiveMigrationOnDowngrade;
+    public final boolean allowMainThreadQueries;
+    public final java.util.List callbacks;
+    public final android.content.Context context;
+    public final java.lang.String copyFromAssetPath;
+    public final java.io.File copyFromFile;
+    public final androidx.room.RoomDatabase$JournalMode journalMode;
+    private final java.util.Set mMigrationNotRequiredFrom;
+    public final androidx.room.RoomDatabase$MigrationContainer migrationContainer;
+    public final boolean multiInstanceInvalidation;
+    public final java.lang.String name;
+    public final java.util.concurrent.Executor queryExecutor;
+    public final boolean requireMigration;
+    public final androidx.sqlite.db.SupportSQLiteOpenHelper$Factory sqliteOpenHelperFactory;
+    public final java.util.concurrent.Executor transactionExecutor;
+
+    public void <init>(android.content.Context, java.lang.String, androidx.sqlite.db.SupportSQLiteOpenHelper$Factory, androidx.room.RoomDatabase$MigrationContainer, java.util.List, boolean, androidx.room.RoomDatabase$JournalMode, java.util.concurrent.Executor, java.util.concurrent.Executor, boolean, boolean, boolean, java.util.Set)
+    {
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Factory $r3;
+        android.content.Context $r1;
+        java.util.concurrent.Executor $r7, $r8;
+        java.util.Set r9;
+        java.util.List r5;
+        androidx.room.RoomDatabase$JournalMode $r6;
+        androidx.room.DatabaseConfiguration r0;
+        androidx.room.RoomDatabase$MigrationContainer $r4;
+        java.lang.String $r2;
+        boolean $z0, $z1, $z2, $z3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r5 := @parameter4;
+
+        $z0 := @parameter5;
+
+        $r6 := @parameter6;
+
+        $r7 := @parameter7;
+
+        $r8 := @parameter8;
+
+        $z1 := @parameter9;
+
+        $z2 := @parameter10;
+
+        $z3 := @parameter11;
+
+        r9 := @parameter12;
+
+        specialinvoke r0.<init>($r1, $r2, $r3, $r4, r5, $z0, $r6, $r7, $r8, $z1, $z2, $z3, r9, null, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, java.lang.String, androidx.sqlite.db.SupportSQLiteOpenHelper$Factory, androidx.room.RoomDatabase$MigrationContainer, java.util.List, boolean, androidx.room.RoomDatabase$JournalMode, java.util.concurrent.Executor, java.util.concurrent.Executor, boolean, boolean, boolean, java.util.Set, java.lang.String, java.io.File)
+    {
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Factory $r3;
+        android.content.Context $r1;
+        androidx.room.RoomDatabase$JournalMode $r6;
+        androidx.room.DatabaseConfiguration r0;
+        androidx.room.RoomDatabase$MigrationContainer $r4;
+        java.lang.String $r2, $r10;
+        boolean $z0, $z1, $z2, $z3;
+        java.util.concurrent.Executor $r7, $r8;
+        java.util.Set r9;
+        java.io.File $r11;
+        java.util.List r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r5 := @parameter4;
+
+        $z0 := @parameter5;
+
+        $r6 := @parameter6;
+
+        $r7 := @parameter7;
+
+        $r8 := @parameter8;
+
+        $z1 := @parameter9;
+
+        $z2 := @parameter10;
+
+        $z3 := @parameter11;
+
+        r9 := @parameter12;
+
+        $r10 := @parameter13;
+
+        $r11 := @parameter14;
+
+        specialinvoke r0.<init>();
+
+        r0.sqliteOpenHelperFactory = $r3;
+
+        r0.context = $r1;
+
+        r0.name = $r2;
+
+        r0.migrationContainer = $r4;
+
+        r0.callbacks = r5;
+
+        r0.allowMainThreadQueries = $z0;
+
+        r0.journalMode = $r6;
+
+        r0.queryExecutor = $r7;
+
+        r0.transactionExecutor = $r8;
+
+        r0.multiInstanceInvalidation = $z1;
+
+        r0.requireMigration = $z2;
+
+        r0.allowDestructiveMigrationOnDowngrade = $z3;
+
+        r0.mMigrationNotRequiredFrom = r9;
+
+        r0.copyFromAssetPath = $r10;
+
+        r0.copyFromFile = $r11;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, java.lang.String, androidx.sqlite.db.SupportSQLiteOpenHelper$Factory, androidx.room.RoomDatabase$MigrationContainer, java.util.List, boolean, androidx.room.RoomDatabase$JournalMode, java.util.concurrent.Executor, boolean, java.util.Set)
+    {
+        androidx.sqlite.db.SupportSQLiteOpenHelper$Factory $r3;
+        android.content.Context $r1;
+        java.util.concurrent.Executor $r7;
+        java.util.Set r8;
+        java.util.List r5;
+        androidx.room.RoomDatabase$JournalMode $r6;
+        androidx.room.DatabaseConfiguration r0;
+        androidx.room.RoomDatabase$MigrationContainer $r4;
+        java.lang.String $r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        r5 := @parameter4;
+
+        $z0 := @parameter5;
+
+        $r6 := @parameter6;
+
+        $r7 := @parameter7;
+
+        $z1 := @parameter8;
+
+        r8 := @parameter9;
+
+        specialinvoke r0.<init>($r1, $r2, $r3, $r4, r5, $z0, $r6, $r7, $r7, 0, $z1, 0, r8, null, null);
+
+        return;
+    }
+
+    public boolean isMigrationRequired(int, int)
+    {
+        androidx.room.DatabaseConfiguration r0;
+        int $i0, $i1;
+        java.util.Set $r1;
+        java.lang.Integer $r2;
+        boolean z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        if $i0 <= $i1 goto label1;
+
+        z0 = 1;
+
+        goto label2;
+
+     label1:
+        z0 = 0;
+
+     label2:
+        if z0 == 0 goto label3;
+
+        z0 = r0.allowDestructiveMigrationOnDowngrade;
+
+        if z0 == 0 goto label3;
+
+        return 0;
+
+     label3:
+        z0 = r0.requireMigration;
+
+        if z0 == 0 goto label5;
+
+        $r1 = r0.mMigrationNotRequiredFrom;
+
+        if $r1 == null goto label4;
+
+        $r2 = java.lang.Integer.valueOf($i0);
+
+        z0 = interfaceinvoke $r1.contains($r2);
+
+        if z0 != 0 goto label5;
+
+     label4:
+        return 1;
+
+     label5:
+        return 0;
+    }
+
+    public boolean isMigrationRequiredFrom(int)
+    {
+        androidx.room.DatabaseConfiguration r0;
+        int $i0, $i1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 = $i0 + 1;
+
+        $z0 = virtualinvoke r0.isMigrationRequired($i0, $i1);
+
+        return $z0;
+    }
+}

@@ -1,0 +1,132 @@
+public class androidx.work.impl.utils.WorkForegroundRunnable extends java.lang.Object implements java.lang.Runnable
+{
+    static final java.lang.String TAG;
+    final android.content.Context mContext;
+    final androidx.work.ForegroundUpdater mForegroundUpdater;
+    final androidx.work.impl.utils.futures.SettableFuture mFuture;
+    final androidx.work.impl.utils.taskexecutor.TaskExecutor mTaskExecutor;
+    final androidx.work.impl.model.WorkSpec mWorkSpec;
+    final androidx.work.ListenableWorker mWorker;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        $r0 = androidx.work.Logger.tagWithPrefix("WorkForegroundRunnable");
+
+        androidx.work.impl.utils.WorkForegroundRunnable.TAG = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, androidx.work.impl.model.WorkSpec, androidx.work.ListenableWorker, androidx.work.ForegroundUpdater, androidx.work.impl.utils.taskexecutor.TaskExecutor)
+    {
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r5;
+        android.content.Context $r1;
+        androidx.work.ForegroundUpdater $r4;
+        androidx.work.impl.utils.WorkForegroundRunnable r0;
+        androidx.work.ListenableWorker $r3;
+        androidx.work.impl.utils.futures.SettableFuture $r6;
+        androidx.work.impl.model.WorkSpec $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $r5 := @parameter4;
+
+        specialinvoke r0.<init>();
+
+        $r6 = androidx.work.impl.utils.futures.SettableFuture.create();
+
+        r0.mFuture = $r6;
+
+        r0.mContext = $r1;
+
+        r0.mWorkSpec = $r2;
+
+        r0.mWorker = $r3;
+
+        r0.mForegroundUpdater = $r4;
+
+        r0.mTaskExecutor = $r5;
+
+        return;
+    }
+
+    public com.google.common.util.concurrent.ListenableFuture getFuture()
+    {
+        androidx.work.impl.utils.WorkForegroundRunnable r0;
+        androidx.work.impl.utils.futures.SettableFuture r1;
+
+        r0 := @this;
+
+        r1 = r0.mFuture;
+
+        return r1;
+    }
+
+    public void run()
+    {
+        java.util.concurrent.Executor $r4;
+        androidx.work.impl.utils.WorkForegroundRunnable r0;
+        androidx.work.impl.model.WorkSpec r1;
+        androidx.work.impl.utils.taskexecutor.TaskExecutor $r3;
+        androidx.work.impl.utils.futures.SettableFuture $r2;
+        androidx.work.impl.utils.WorkForegroundRunnable$2 $r6;
+        boolean z0;
+        androidx.work.impl.utils.WorkForegroundRunnable$1 $r5;
+
+        r0 := @this;
+
+        r1 = r0.mWorkSpec;
+
+        z0 = r1.expedited;
+
+        if z0 == 0 goto label2;
+
+        z0 = androidx.core.os.BuildCompat.isAtLeastS();
+
+        if z0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        $r2 = androidx.work.impl.utils.futures.SettableFuture.create();
+
+        $r3 = r0.mTaskExecutor;
+
+        $r4 = interfaceinvoke $r3.getMainThreadExecutor();
+
+        $r5 = new androidx.work.impl.utils.WorkForegroundRunnable$1;
+
+        specialinvoke $r5.<init>(r0, $r2);
+
+        interfaceinvoke $r4.execute($r5);
+
+        $r6 = new androidx.work.impl.utils.WorkForegroundRunnable$2;
+
+        specialinvoke $r6.<init>(r0, $r2);
+
+        $r3 = r0.mTaskExecutor;
+
+        $r4 = interfaceinvoke $r3.getMainThreadExecutor();
+
+        virtualinvoke $r2.addListener($r6, $r4);
+
+        return;
+
+     label2:
+        $r2 = r0.mFuture;
+
+        virtualinvoke $r2.set(null);
+
+        return;
+    }
+}

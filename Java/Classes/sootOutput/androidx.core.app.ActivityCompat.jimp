@@ -1,0 +1,523 @@
+public class androidx.core.app.ActivityCompat extends androidx.core.content.ContextCompat
+{
+    private static androidx.core.app.ActivityCompat$PermissionCompatDelegate sDelegate;
+
+    protected void <init>()
+    {
+        androidx.core.app.ActivityCompat r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static void finishAffinity(android.app.Activity)
+    {
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        virtualinvoke $r0.finishAffinity();
+
+        return;
+    }
+
+    public static void finishAfterTransition(android.app.Activity)
+    {
+        int $i0;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        virtualinvoke $r0.finishAfterTransition();
+
+        return;
+
+     label1:
+        virtualinvoke $r0.finish();
+
+        return;
+    }
+
+    public static androidx.core.app.ActivityCompat$PermissionCompatDelegate getPermissionCompatDelegate()
+    {
+        androidx.core.app.ActivityCompat$PermissionCompatDelegate r0;
+
+        r0 = androidx.core.app.ActivityCompat.sDelegate;
+
+        return r0;
+    }
+
+    public static android.net.Uri getReferrer(android.app.Activity)
+    {
+        android.os.Parcelable $r3;
+        int i0;
+        android.net.Uri $r1;
+        android.content.Intent $r2;
+        java.lang.String $r4;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 22 goto label1;
+
+        $r1 = virtualinvoke $r0.getReferrer();
+
+        return $r1;
+
+     label1:
+        $r2 = virtualinvoke $r0.getIntent();
+
+        $r3 = virtualinvoke $r2.getParcelableExtra("android.intent.extra.REFERRER");
+
+        $r1 = (android.net.Uri) $r3;
+
+        if $r1 == null goto label2;
+
+        return $r1;
+
+     label2:
+        $r4 = virtualinvoke $r2.getStringExtra("android.intent.extra.REFERRER_NAME");
+
+        if $r4 == null goto label3;
+
+        $r1 = android.net.Uri.parse($r4);
+
+        return $r1;
+
+     label3:
+        return null;
+    }
+
+    public static boolean invalidateOptionsMenu(android.app.Activity)
+    {
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        virtualinvoke $r0.invalidateOptionsMenu();
+
+        return 1;
+    }
+
+    public static void postponeEnterTransition(android.app.Activity)
+    {
+        int $i0;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        virtualinvoke $r0.postponeEnterTransition();
+
+     label1:
+        return;
+    }
+
+    public static void recreate(android.app.Activity)
+    {
+        androidx.core.app.ActivityCompat$2 $r3;
+        android.os.Handler r1;
+        android.os.Looper $r2;
+        int i0;
+        android.app.Activity $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 28 goto label1;
+
+        virtualinvoke $r0.recreate();
+
+        return;
+
+     label1:
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 > 23 goto label2;
+
+        r1 = new android.os.Handler;
+
+        $r2 = virtualinvoke $r0.getMainLooper();
+
+        specialinvoke r1.<init>($r2);
+
+        $r3 = new androidx.core.app.ActivityCompat$2;
+
+        specialinvoke $r3.<init>($r0);
+
+        virtualinvoke r1.post($r3);
+
+        return;
+
+     label2:
+        $z0 = androidx.core.app.ActivityRecreator.recreate($r0);
+
+        if $z0 != 0 goto label3;
+
+        virtualinvoke $r0.recreate();
+
+     label3:
+        return;
+    }
+
+    public static androidx.core.view.DragAndDropPermissionsCompat requestDragAndDropPermissions(android.app.Activity, android.view.DragEvent)
+    {
+        androidx.core.view.DragAndDropPermissionsCompat $r2;
+        android.view.DragEvent $r1;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 = androidx.core.view.DragAndDropPermissionsCompat.request($r0, $r1);
+
+        return $r2;
+    }
+
+    public static void requestPermissions(android.app.Activity, java.lang.String[], int)
+    {
+        java.lang.String[] $r1;
+        java.lang.IllegalArgumentException r4;
+        androidx.core.app.ActivityCompat$PermissionCompatDelegate r3;
+        androidx.core.app.ActivityCompat$1 $r9;
+        androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator r6;
+        android.os.Handler r7;
+        android.os.Looper $r8;
+        int $i0, i1, $i2;
+        java.lang.StringBuilder $r5;
+        java.lang.String r2;
+        android.app.Activity $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        r3 = androidx.core.app.ActivityCompat.sDelegate;
+
+        if r3 == null goto label1;
+
+        $z0 = interfaceinvoke r3.requestPermissions($r0, $r1, $i0);
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        i1 = lengthof $r1;
+
+        $i2 = 0;
+
+     label2:
+        if $i2 >= i1 goto label4;
+
+        r2 = $r1[$i2];
+
+        $z0 = android.text.TextUtils.isEmpty(r2);
+
+        if $z0 != 0 goto label3;
+
+        $i2 = $i2 + 1;
+
+        goto label2;
+
+     label3:
+        r4 = new java.lang.IllegalArgumentException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        $r5 = virtualinvoke $r5.append("Permission request for permissions ");
+
+        r2 = java.util.Arrays.toString($r1);
+
+        $r5 = virtualinvoke $r5.append(r2);
+
+        $r5 = virtualinvoke $r5.append(" must not contain null or empty values");
+
+        r2 = virtualinvoke $r5.toString();
+
+        specialinvoke r4.<init>(r2);
+
+        throw r4;
+
+     label4:
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 23 goto label6;
+
+        $z0 = $r0 instanceof androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator;
+
+        if $z0 == 0 goto label5;
+
+        r6 = (androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator) $r0;
+
+        interfaceinvoke r6.validateRequestPermissionsRequestCode($i0);
+
+     label5:
+        virtualinvoke $r0.requestPermissions($r1, $i0);
+
+        return;
+
+     label6:
+        $z0 = $r0 instanceof androidx.core.app.ActivityCompat$OnRequestPermissionsResultCallback;
+
+        if $z0 == 0 goto label7;
+
+        r7 = new android.os.Handler;
+
+        $r8 = android.os.Looper.getMainLooper();
+
+        specialinvoke r7.<init>($r8);
+
+        $r9 = new androidx.core.app.ActivityCompat$1;
+
+        specialinvoke $r9.<init>($r1, $r0, $i0);
+
+        virtualinvoke r7.post($r9);
+
+     label7:
+        return;
+    }
+
+    public static android.view.View requireViewById(android.app.Activity, int)
+    {
+        int $i0, i1;
+        android.view.View $r1;
+        java.lang.IllegalArgumentException $r2;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        i1 = android.os.Build$VERSION.SDK_INT;
+
+        if i1 < 28 goto label1;
+
+        $r1 = virtualinvoke $r0.requireViewById($i0);
+
+        return $r1;
+
+     label1:
+        $r1 = virtualinvoke $r0.findViewById($i0);
+
+        if $r1 == null goto label2;
+
+        return $r1;
+
+     label2:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<init>("ID does not reference a View inside this Activity");
+
+        throw $r2;
+    }
+
+    public static void setEnterSharedElementCallback(android.app.Activity, androidx.core.app.SharedElementCallback)
+    {
+        androidx.core.app.SharedElementCallback $r1;
+        int i0;
+        androidx.core.app.ActivityCompat$SharedElementCallback21Impl r2;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label3;
+
+        if $r1 == null goto label1;
+
+        r2 = new androidx.core.app.ActivityCompat$SharedElementCallback21Impl;
+
+        specialinvoke r2.<init>($r1);
+
+        goto label2;
+
+     label1:
+        r2 = null;
+
+     label2:
+        virtualinvoke $r0.setEnterSharedElementCallback(r2);
+
+     label3:
+        return;
+    }
+
+    public static void setExitSharedElementCallback(android.app.Activity, androidx.core.app.SharedElementCallback)
+    {
+        androidx.core.app.SharedElementCallback $r1;
+        int i0;
+        androidx.core.app.ActivityCompat$SharedElementCallback21Impl r2;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 < 21 goto label3;
+
+        if $r1 == null goto label1;
+
+        r2 = new androidx.core.app.ActivityCompat$SharedElementCallback21Impl;
+
+        specialinvoke r2.<init>($r1);
+
+        goto label2;
+
+     label1:
+        r2 = null;
+
+     label2:
+        virtualinvoke $r0.setExitSharedElementCallback(r2);
+
+     label3:
+        return;
+    }
+
+    public static void setLocusContext(android.app.Activity, androidx.core.content.LocusIdCompat, android.os.Bundle)
+    {
+        android.os.Bundle $r2;
+        int $i0;
+        android.app.Activity $r0;
+        androidx.core.content.LocusIdCompat $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 30 goto label1;
+
+        androidx.core.app.ActivityCompat$Api30Impl.setLocusContext($r0, $r1, $r2);
+
+     label1:
+        return;
+    }
+
+    public static void setPermissionCompatDelegate(androidx.core.app.ActivityCompat$PermissionCompatDelegate)
+    {
+        androidx.core.app.ActivityCompat$PermissionCompatDelegate $r0;
+
+        $r0 := @parameter0;
+
+        androidx.core.app.ActivityCompat.sDelegate = $r0;
+
+        return;
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(android.app.Activity, java.lang.String)
+    {
+        int $i0;
+        java.lang.String $r1;
+        android.app.Activity $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 23 goto label1;
+
+        $z0 = virtualinvoke $r0.shouldShowRequestPermissionRationale($r1);
+
+        return $z0;
+
+     label1:
+        return 0;
+    }
+
+    public static void startActivityForResult(android.app.Activity, android.content.Intent, int, android.os.Bundle)
+    {
+        android.os.Bundle $r2;
+        int $i0;
+        android.content.Intent $r1;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r2 := @parameter3;
+
+        virtualinvoke $r0.startActivityForResult($r1, $i0, $r2);
+
+        return;
+    }
+
+    public static void startIntentSenderForResult(android.app.Activity, android.content.IntentSender, int, android.content.Intent, int, int, int, android.os.Bundle) throws android.content.IntentSender$SendIntentException
+    {
+        android.os.Bundle $r3;
+        android.content.Intent $r2;
+        android.content.IntentSender $r1;
+        int $i0, $i1, $i2, $i3;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r2 := @parameter3;
+
+        $i1 := @parameter4;
+
+        $i2 := @parameter5;
+
+        $i3 := @parameter6;
+
+        $r3 := @parameter7;
+
+        virtualinvoke $r0.startIntentSenderForResult($r1, $i0, $r2, $i1, $i2, $i3, $r3);
+
+        return;
+    }
+
+    public static void startPostponedEnterTransition(android.app.Activity)
+    {
+        int $i0;
+        android.app.Activity $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = android.os.Build$VERSION.SDK_INT;
+
+        if $i0 < 21 goto label1;
+
+        virtualinvoke $r0.startPostponedEnterTransition();
+
+     label1:
+        return;
+    }
+}

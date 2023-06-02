@@ -1,0 +1,218 @@
+public final class com.google.android.gms.internal.ads.zzara extends com.google.android.gms.internal.ads.zzaog
+{
+    public java.lang.Long zza;
+    public java.lang.Long zzb;
+    public java.lang.Long zzc;
+    public java.lang.Long zzd;
+    public java.lang.Long zze;
+    public java.lang.Long zzf;
+    public java.lang.Long zzg;
+    public java.lang.Long zzh;
+    public java.lang.Long zzi;
+    public java.lang.Long zzj;
+    public java.lang.Long zzk;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzara r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzara r0;
+        java.lang.Long $r5;
+        java.util.HashMap $r2;
+        java.lang.Object $r4;
+        java.lang.String $r1;
+        java.lang.Integer $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = com.google.android.gms.internal.ads.zzara.zza($r1);
+
+        if $r2 == null goto label1;
+
+        $r3 = java.lang.Integer.valueOf(0);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zza = $r5;
+
+        $r3 = java.lang.Integer.valueOf(1);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzb = $r5;
+
+        $r3 = java.lang.Integer.valueOf(2);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzc = $r5;
+
+        $r3 = java.lang.Integer.valueOf(3);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzd = $r5;
+
+        $r3 = java.lang.Integer.valueOf(4);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zze = $r5;
+
+        $r3 = java.lang.Integer.valueOf(5);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzf = $r5;
+
+        $r3 = java.lang.Integer.valueOf(6);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzg = $r5;
+
+        $r3 = java.lang.Integer.valueOf(7);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzh = $r5;
+
+        $r3 = java.lang.Integer.valueOf(8);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzi = $r5;
+
+        $r3 = java.lang.Integer.valueOf(9);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzj = $r5;
+
+        $r3 = java.lang.Integer.valueOf(10);
+
+        $r4 = virtualinvoke $r2.get($r3);
+
+        $r5 = (java.lang.Long) $r4;
+
+        r0.zzk = $r5;
+
+     label1:
+        return;
+    }
+
+    protected final java.util.HashMap zzb()
+    {
+        com.google.android.gms.internal.ads.zzara r0;
+        java.lang.Long $r3;
+        java.util.HashMap $r1;
+        java.lang.Integer $r2;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<init>();
+
+        $r2 = java.lang.Integer.valueOf(0);
+
+        $r3 = r0.zza;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(1);
+
+        $r3 = r0.zzb;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(2);
+
+        $r3 = r0.zzc;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(3);
+
+        $r3 = r0.zzd;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(4);
+
+        $r3 = r0.zze;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(5);
+
+        $r3 = r0.zzf;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(6);
+
+        $r3 = r0.zzg;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(7);
+
+        $r3 = r0.zzh;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(8);
+
+        $r3 = r0.zzi;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(9);
+
+        $r3 = r0.zzj;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        $r2 = java.lang.Integer.valueOf(10);
+
+        $r3 = r0.zzk;
+
+        virtualinvoke $r1.put($r2, $r3);
+
+        return $r1;
+    }
+}

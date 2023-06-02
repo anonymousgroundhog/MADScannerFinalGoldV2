@@ -1,0 +1,15 @@
+public final class com.google.android.gms.common.R$integer extends java.lang.Object
+{
+    public static final int google_play_services_version;
+
+    private void <init>()
+    {
+        com.google.android.gms.common.R$integer r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

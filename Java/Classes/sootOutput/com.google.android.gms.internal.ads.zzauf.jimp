@@ -1,0 +1,105 @@
+public final class com.google.android.gms.internal.ads.zzauf extends java.lang.Object
+{
+    private final float zza;
+    private final float zzb;
+    private final float zzc;
+    private final float zzd;
+    private final int zze;
+
+    public void <init>(float, float, float, float, int)
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        int $i0;
+        float $f0, $f1, $f2, $f3;
+
+        r0 := @this;
+
+        $f2 := @parameter0;
+
+        $f3 := @parameter1;
+
+        $f0 := @parameter2;
+
+        $f1 := @parameter3;
+
+        $i0 := @parameter4;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $f2;
+
+        r0.zzb = $f3;
+
+        $f2 = $f2 + $f0;
+
+        r0.zzc = $f2;
+
+        $f2 = $f3 + $f1;
+
+        r0.zzd = $f2;
+
+        r0.zze = $i0;
+
+        return;
+    }
+
+    final float zza()
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        float f0;
+
+        r0 := @this;
+
+        f0 = r0.zzd;
+
+        return f0;
+    }
+
+    final float zzb()
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        float f0;
+
+        r0 := @this;
+
+        f0 = r0.zza;
+
+        return f0;
+    }
+
+    final float zzc()
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        float f0;
+
+        r0 := @this;
+
+        f0 = r0.zzc;
+
+        return f0;
+    }
+
+    final float zzd()
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        float f0;
+
+        r0 := @this;
+
+        f0 = r0.zzb;
+
+        return f0;
+    }
+
+    final int zze()
+    {
+        com.google.android.gms.internal.ads.zzauf r0;
+        int i0;
+
+        r0 := @this;
+
+        i0 = r0.zze;
+
+        return i0;
+    }
+}

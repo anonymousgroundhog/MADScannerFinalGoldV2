@@ -1,0 +1,127 @@
+public abstract class com.google.android.gms.internal.ads.zzcba extends java.lang.Object
+{
+    private static final java.util.concurrent.atomic.AtomicInteger zza;
+    private static final java.util.concurrent.atomic.AtomicInteger zzb;
+
+    static void <clinit>()
+    {
+        java.util.concurrent.atomic.AtomicInteger $r0;
+
+        $r0 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r0.<init>(0);
+
+        com.google.android.gms.internal.ads.zzcba.zza = $r0;
+
+        $r0 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r0.<init>(0);
+
+        com.google.android.gms.internal.ads.zzcba.zzb = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzcba r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    protected static java.util.concurrent.atomic.AtomicInteger zzC()
+    {
+        java.util.concurrent.atomic.AtomicInteger r0;
+
+        r0 = com.google.android.gms.internal.ads.zzcba.zza;
+
+        return r0;
+    }
+
+    protected static java.util.concurrent.atomic.AtomicInteger zzD()
+    {
+        java.util.concurrent.atomic.AtomicInteger r0;
+
+        r0 = com.google.android.gms.internal.ads.zzcba.zzb;
+
+        return r0;
+    }
+
+    public static int zzs()
+    {
+        int $i0;
+        java.util.concurrent.atomic.AtomicInteger $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzcba.zza;
+
+        $i0 = virtualinvoke $r0.get();
+
+        return $i0;
+    }
+
+    public static int zzu()
+    {
+        int $i0;
+        java.util.concurrent.atomic.AtomicInteger $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzcba.zzb;
+
+        $i0 = virtualinvoke $r0.get();
+
+        return $i0;
+    }
+
+    public abstract long zzA();
+
+    public abstract long zzB();
+
+    public abstract void zzE(android.net.Uri[], java.lang.String);
+
+    public abstract void zzF(android.net.Uri[], java.lang.String, java.nio.ByteBuffer, boolean);
+
+    public abstract void zzG();
+
+    public abstract void zzH(long);
+
+    public abstract void zzI(int);
+
+    public abstract void zzJ(int);
+
+    public abstract void zzK(com.google.android.gms.internal.ads.zzcaz);
+
+    public abstract void zzL(int);
+
+    public abstract void zzM(int);
+
+    public abstract void zzN(boolean);
+
+    public abstract void zzO(boolean);
+
+    public abstract void zzP(int);
+
+    public abstract void zzQ(android.view.Surface, boolean) throws java.io.IOException;
+
+    public abstract void zzR(float, boolean) throws java.io.IOException;
+
+    public abstract void zzS();
+
+    public abstract boolean zzT();
+
+    public abstract int zzr();
+
+    public abstract int zzt();
+
+    public abstract long zzv();
+
+    public abstract long zzw();
+
+    public abstract long zzx();
+
+    public abstract long zzy();
+
+    public abstract long zzz();
+}

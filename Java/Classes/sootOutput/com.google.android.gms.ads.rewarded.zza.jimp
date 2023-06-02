@@ -1,0 +1,32 @@
+final class com.google.android.gms.ads.rewarded.zza extends java.lang.Object implements com.google.android.gms.ads.rewarded.RewardItem
+{
+
+    void <init>()
+    {
+        com.google.android.gms.ads.rewarded.zza r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final int getAmount()
+    {
+        com.google.android.gms.ads.rewarded.zza r0;
+
+        r0 := @this;
+
+        return 1;
+    }
+
+    public final java.lang.String getType()
+    {
+        com.google.android.gms.ads.rewarded.zza r0;
+
+        r0 := @this;
+
+        return "";
+    }
+}

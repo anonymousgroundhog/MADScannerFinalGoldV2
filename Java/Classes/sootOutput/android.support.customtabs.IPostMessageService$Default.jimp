@@ -1,0 +1,56 @@
+public class android.support.customtabs.IPostMessageService$Default extends java.lang.Object implements android.support.customtabs.IPostMessageService
+{
+
+    public void <init>()
+    {
+        android.support.customtabs.IPostMessageService$Default r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public android.os.IBinder asBinder()
+    {
+        android.support.customtabs.IPostMessageService$Default r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public void onMessageChannelReady(android.support.customtabs.ICustomTabsCallback, android.os.Bundle) throws android.os.RemoteException
+    {
+        android.os.Bundle $r2;
+        android.support.customtabs.IPostMessageService$Default r0;
+        android.support.customtabs.ICustomTabsCallback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        return;
+    }
+
+    public void onPostMessage(android.support.customtabs.ICustomTabsCallback, java.lang.String, android.os.Bundle) throws android.os.RemoteException
+    {
+        android.os.Bundle $r3;
+        android.support.customtabs.IPostMessageService$Default r0;
+        android.support.customtabs.ICustomTabsCallback $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        return;
+    }
+}

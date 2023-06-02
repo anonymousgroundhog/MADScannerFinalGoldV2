@@ -1,0 +1,150 @@
+public abstract class com.google.android.gms.ads.mediation.rtb.RtbAdapter extends com.google.android.gms.ads.mediation.Adapter
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public abstract void collectSignals(com.google.android.gms.ads.mediation.rtb.RtbSignalData, com.google.android.gms.ads.mediation.rtb.SignalCallbacks);
+
+    public void loadRtbAppOpenAd(com.google.android.gms.ads.mediation.MediationAppOpenAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationAppOpenAdConfiguration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadAppOpenAd($r1, $r2);
+
+        return;
+    }
+
+    public void loadRtbBannerAd(com.google.android.gms.ads.mediation.MediationBannerAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationBannerAdConfiguration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadBannerAd($r1, $r2);
+
+        return;
+    }
+
+    public void loadRtbInterscrollerAd(com.google.android.gms.ads.mediation.MediationBannerAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r1;
+        java.lang.Class $r4;
+        java.lang.String $r5;
+        com.google.android.gms.ads.AdError $r2;
+        com.google.android.gms.ads.mediation.MediationBannerAdConfiguration $r3;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r4 = virtualinvoke r0.getClass();
+
+        $r2 = new com.google.android.gms.ads.AdError;
+
+        $r5 = virtualinvoke $r4.getSimpleName();
+
+        $r5 = java.lang.String.valueOf($r5);
+
+        $r5 = virtualinvoke $r5.concat(" does not support interscroller ads.");
+
+        specialinvoke $r2.<init>(7, $r5, "com.google.android.gms.ads");
+
+        interfaceinvoke $r1.onFailure($r2);
+
+        return;
+    }
+
+    public void loadRtbInterstitialAd(com.google.android.gms.ads.mediation.MediationInterstitialAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationInterstitialAdConfiguration $r1;
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadInterstitialAd($r1, $r2);
+
+        return;
+    }
+
+    public void loadRtbNativeAd(com.google.android.gms.ads.mediation.MediationNativeAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationNativeAdConfiguration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadNativeAd($r1, $r2);
+
+        return;
+    }
+
+    public void loadRtbRewardedAd(com.google.android.gms.ads.mediation.MediationRewardedAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationRewardedAdConfiguration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadRewardedAd($r1, $r2);
+
+        return;
+    }
+
+    public void loadRtbRewardedInterstitialAd(com.google.android.gms.ads.mediation.MediationRewardedAdConfiguration, com.google.android.gms.ads.mediation.MediationAdLoadCallback)
+    {
+        com.google.android.gms.ads.mediation.MediationAdLoadCallback $r2;
+        com.google.android.gms.ads.mediation.rtb.RtbAdapter r0;
+        com.google.android.gms.ads.mediation.MediationRewardedAdConfiguration $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        virtualinvoke r0.loadRewardedInterstitialAd($r1, $r2);
+
+        return;
+    }
+}

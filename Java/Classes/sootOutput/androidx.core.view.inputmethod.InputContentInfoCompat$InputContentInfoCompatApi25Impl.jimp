@@ -1,0 +1,134 @@
+final class androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl extends java.lang.Object implements androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatImpl
+{
+    final android.view.inputmethod.InputContentInfo mObject;
+
+    void <init>(android.net.Uri, android.content.ClipDescription, android.net.Uri)
+    {
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.net.Uri $r1, $r3;
+        android.content.ClipDescription $r2;
+        android.view.inputmethod.InputContentInfo $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        $r4 = new android.view.inputmethod.InputContentInfo;
+
+        specialinvoke $r4.<init>($r1, $r2, $r3);
+
+        r0.mObject = $r4;
+
+        return;
+    }
+
+    void <init>(java.lang.Object)
+    {
+        java.lang.Object $r1;
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = (android.view.inputmethod.InputContentInfo) $r1;
+
+        r0.mObject = $r2;
+
+        return;
+    }
+
+    public android.net.Uri getContentUri()
+    {
+        android.net.Uri $r1;
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mObject;
+
+        $r1 = virtualinvoke $r2.getContentUri();
+
+        return $r1;
+    }
+
+    public android.content.ClipDescription getDescription()
+    {
+        android.content.ClipDescription $r1;
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mObject;
+
+        $r1 = virtualinvoke $r2.getDescription();
+
+        return $r1;
+    }
+
+    public java.lang.Object getInputContentInfo()
+    {
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo r1;
+
+        r0 := @this;
+
+        r1 = r0.mObject;
+
+        return r1;
+    }
+
+    public android.net.Uri getLinkUri()
+    {
+        android.net.Uri $r1;
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mObject;
+
+        $r1 = virtualinvoke $r2.getLinkUri();
+
+        return $r1;
+    }
+
+    public void releasePermission()
+    {
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mObject;
+
+        virtualinvoke $r1.releasePermission();
+
+        return;
+    }
+
+    public void requestPermission()
+    {
+        androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl r0;
+        android.view.inputmethod.InputContentInfo $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mObject;
+
+        virtualinvoke $r1.requestPermission();
+
+        return;
+    }
+}

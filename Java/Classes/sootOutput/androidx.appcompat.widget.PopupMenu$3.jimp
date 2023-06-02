@@ -1,0 +1,69 @@
+class androidx.appcompat.widget.PopupMenu$3 extends androidx.appcompat.widget.ForwardingListener
+{
+    final androidx.appcompat.widget.PopupMenu this$0;
+
+    void <init>(androidx.appcompat.widget.PopupMenu, android.view.View)
+    {
+        androidx.appcompat.widget.PopupMenu $r1;
+        android.view.View $r2;
+        androidx.appcompat.widget.PopupMenu$3 r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>($r2);
+
+        return;
+    }
+
+    public androidx.appcompat.view.menu.ShowableListMenu getPopup()
+    {
+        androidx.appcompat.widget.PopupMenu $r2;
+        androidx.appcompat.view.menu.MenuPopupHelper $r3;
+        androidx.appcompat.view.menu.MenuPopup $r1;
+        androidx.appcompat.widget.PopupMenu$3 r0;
+
+        r0 := @this;
+
+        $r2 = r0.this$0;
+
+        $r3 = $r2.mPopup;
+
+        $r1 = virtualinvoke $r3.getPopup();
+
+        return $r1;
+    }
+
+    protected boolean onForwardingStarted()
+    {
+        androidx.appcompat.widget.PopupMenu $r1;
+        androidx.appcompat.widget.PopupMenu$3 r0;
+
+        r0 := @this;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.show();
+
+        return 1;
+    }
+
+    protected boolean onForwardingStopped()
+    {
+        androidx.appcompat.widget.PopupMenu $r1;
+        androidx.appcompat.widget.PopupMenu$3 r0;
+
+        r0 := @this;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.dismiss();
+
+        return 1;
+    }
+}

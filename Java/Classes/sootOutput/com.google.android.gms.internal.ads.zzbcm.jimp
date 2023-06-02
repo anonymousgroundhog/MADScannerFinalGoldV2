@@ -1,0 +1,15 @@
+public final class com.google.android.gms.internal.ads.zzbcm extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:leibniz:record_events:enable", 0);
+
+        com.google.android.gms.internal.ads.zzbcm.zza = $r0;
+
+        return;
+    }
+}

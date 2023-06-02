@@ -1,0 +1,51 @@
+public abstract class com.google.android.gms.internal.ads.zzflz extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzflz r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzfly zzj()
+    {
+        com.google.android.gms.internal.ads.zzfle $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfle;
+
+        specialinvoke $r0.<init>();
+
+        virtualinvoke $r0.zzd(8388691);
+
+        virtualinvoke $r0.zze(-1.0F);
+
+        virtualinvoke $r0.zzc(0);
+
+        virtualinvoke $r0.zzf(0);
+
+        return $r0;
+    }
+
+    public abstract float zza();
+
+    public abstract int zzb();
+
+    public abstract int zzc();
+
+    public abstract int zzd();
+
+    public abstract android.os.IBinder zze();
+
+    public abstract java.lang.String zzf();
+
+    public abstract java.lang.String zzg();
+
+    public abstract java.lang.String zzh();
+
+    public abstract boolean zzi();
+}

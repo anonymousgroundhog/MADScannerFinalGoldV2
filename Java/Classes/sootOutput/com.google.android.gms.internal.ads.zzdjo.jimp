@@ -1,0 +1,150 @@
+public final class com.google.android.gms.internal.ads.zzdjo extends java.lang.Object
+{
+    private final java.util.concurrent.Executor zza;
+    private final com.google.android.gms.internal.ads.zzdjj zzb;
+
+    public void <init>(java.util.concurrent.Executor, com.google.android.gms.internal.ads.zzdjj)
+    {
+        com.google.android.gms.internal.ads.zzdjo r0;
+        java.util.concurrent.Executor $r1;
+        com.google.android.gms.internal.ads.zzdjj $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfut zza(org.json.JSONObject, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzfut $r5;
+        java.util.ArrayList $r6;
+        org.json.JSONObject $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzdjo r0;
+        com.google.android.gms.internal.ads.zzdjn $r9;
+        java.lang.String $r2, $r7, $r8;
+        com.google.android.gms.internal.ads.zzdjm $r13;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzdjl $r11;
+        java.util.concurrent.Executor $r12;
+        com.google.android.gms.internal.ads.zzdjj $r10;
+        java.util.List $r4;
+        org.json.JSONArray $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = virtualinvoke $r1.optJSONArray("custom_assets");
+
+        if $r3 != null goto label1;
+
+        $r4 = java.util.Collections.emptyList();
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzh($r4);
+
+        return $r5;
+
+     label1:
+        $r6 = new java.util.ArrayList;
+
+        specialinvoke $r6.<init>();
+
+        $i0 = virtualinvoke $r3.length();
+
+        $i1 = 0;
+
+     label2:
+        if $i1 >= $i0 goto label8;
+
+        $r1 = virtualinvoke $r3.optJSONObject($i1);
+
+        if $r1 != null goto label3;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzh(null);
+
+        goto label7;
+
+     label3:
+        $r2 = virtualinvoke $r1.optString("name");
+
+        if $r2 != null goto label4;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzh(null);
+
+        goto label7;
+
+     label4:
+        $r7 = virtualinvoke $r1.optString("type");
+
+        $r8 = "string";
+
+        $z0 = virtualinvoke $r8.equals($r7);
+
+        if $z0 == 0 goto label5;
+
+        $r9 = new com.google.android.gms.internal.ads.zzdjn;
+
+        $r7 = virtualinvoke $r1.optString("string_value");
+
+        specialinvoke $r9.<init>($r2, $r7);
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzh($r9);
+
+        goto label7;
+
+     label5:
+        $r8 = "image";
+
+        $z0 = virtualinvoke $r8.equals($r7);
+
+        if $z0 == 0 goto label6;
+
+        $r10 = r0.zzb;
+
+        $r5 = virtualinvoke $r10.zze($r1, "image_value");
+
+        $r11 = new com.google.android.gms.internal.ads.zzdjl;
+
+        specialinvoke $r11.<init>($r2);
+
+        $r12 = r0.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzl($r5, $r11, $r12);
+
+        goto label7;
+
+     label6:
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzh(null);
+
+     label7:
+        interfaceinvoke $r6.add($r5);
+
+        $i1 = $i1 + 1;
+
+        goto label2;
+
+     label8:
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzd($r6);
+
+        $r13 = com.google.android.gms.internal.ads.zzdjm.zza;
+
+        $r12 = r0.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzfuj.zzl($r5, $r13, $r12);
+
+        return $r5;
+    }
+}

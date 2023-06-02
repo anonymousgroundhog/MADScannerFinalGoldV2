@@ -1,0 +1,70 @@
+public final class com.google.android.gms.internal.ads.zzbci extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+    public static final com.google.android.gms.internal.ads.zzbbw zzd;
+    public static final com.google.android.gms.internal.ads.zzbbw zze;
+    public static final com.google.android.gms.internal.ads.zzbbw zzf;
+    public static final com.google.android.gms.internal.ads.zzbbw zzg;
+    public static final com.google.android.gms.internal.ads.zzbbw zzh;
+    public static final com.google.android.gms.internal.ads.zzbbw zzi;
+    public static final com.google.android.gms.internal.ads.zzbbw zzj;
+    public static final com.google.android.gms.internal.ads.zzbbw zzk;
+    public static final com.google.android.gms.internal.ads.zzbbw zzl;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:init:init_on_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:init:init_on_single_bg_thread", 0);
+
+        com.google.android.gms.internal.ads.zzbci.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:adloader_load_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzc = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:appopen_load_on_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzd = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:banner_destroy_bg_thread", 0);
+
+        com.google.android.gms.internal.ads.zzbci.zze = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:banner_load_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzf = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:banner_pause_bg_thread", 0);
+
+        com.google.android.gms.internal.ads.zzbci.zzg = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:banner_resume_bg_thread", 0);
+
+        com.google.android.gms.internal.ads.zzbci.zzh = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:interstitial_load_on_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzi = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:persist_flags_on_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzj = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:query_info_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzk = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:rewarded_load_bg_thread", 1);
+
+        com.google.android.gms.internal.ads.zzbci.zzl = $r0;
+
+        return;
+    }
+}

@@ -1,0 +1,23 @@
+public final class com.google.android.gms.internal.ads.zzcgy extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzcgy r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzcgy r0;
+
+        r0 := @this;
+
+        return null;
+    }
+}

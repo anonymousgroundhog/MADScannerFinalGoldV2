@@ -1,0 +1,57 @@
+class androidx.browser.customtabs.PostMessageService$1 extends android.support.customtabs.IPostMessageService$Stub
+{
+    final androidx.browser.customtabs.PostMessageService this$0;
+
+    void <init>(androidx.browser.customtabs.PostMessageService)
+    {
+        androidx.browser.customtabs.PostMessageService$1 r0;
+        androidx.browser.customtabs.PostMessageService $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public void onMessageChannelReady(android.support.customtabs.ICustomTabsCallback, android.os.Bundle) throws android.os.RemoteException
+    {
+        androidx.browser.customtabs.PostMessageService$1 r0;
+        android.os.Bundle $r2;
+        android.support.customtabs.ICustomTabsCallback $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        interfaceinvoke $r1.onMessageChannelReady($r2);
+
+        return;
+    }
+
+    public void onPostMessage(android.support.customtabs.ICustomTabsCallback, java.lang.String, android.os.Bundle) throws android.os.RemoteException
+    {
+        android.os.Bundle $r3;
+        android.support.customtabs.ICustomTabsCallback $r1;
+        androidx.browser.customtabs.PostMessageService$1 r0;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        interfaceinvoke $r1.onPostMessage($r2, $r3);
+
+        return;
+    }
+}

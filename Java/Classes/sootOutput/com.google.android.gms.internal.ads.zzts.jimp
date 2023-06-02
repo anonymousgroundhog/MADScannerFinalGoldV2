@@ -1,0 +1,118 @@
+final class com.google.android.gms.internal.ads.zzts extends java.lang.Object implements com.google.android.gms.internal.ads.zzuj
+{
+    final com.google.android.gms.internal.ads.zztv zza;
+    private final int zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zztv, int)
+    {
+        com.google.android.gms.internal.ads.zzts r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zztv $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        r0.zza = $r1;
+
+        specialinvoke r0.<init>();
+
+        r0.zzb = $i0;
+
+        return;
+    }
+
+    static volatile int zzc(com.google.android.gms.internal.ads.zzts)
+    {
+        com.google.android.gms.internal.ads.zzts $r0;
+        int i0;
+
+        $r0 := @parameter0;
+
+        i0 = $r0.zzb;
+
+        return i0;
+    }
+
+    public final int zza(com.google.android.gms.internal.ads.zzjo, com.google.android.gms.internal.ads.zzgr, int)
+    {
+        com.google.android.gms.internal.ads.zzts r0;
+        com.google.android.gms.internal.ads.zzgr $r1;
+        int $i0, $i1;
+        com.google.android.gms.internal.ads.zzjo $r3;
+        com.google.android.gms.internal.ads.zztv $r2;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r2 = r0.zza;
+
+        $i1 = r0.zzb;
+
+        $i0 = virtualinvoke $r2.zzg($i1, $r3, $r1, $i0);
+
+        return $i0;
+    }
+
+    public final int zzb(long)
+    {
+        com.google.android.gms.internal.ads.zzts r0;
+        int $i0;
+        long $l1;
+        com.google.android.gms.internal.ads.zztv $r1;
+
+        r0 := @this;
+
+        $l1 := @parameter0;
+
+        $r1 = r0.zza;
+
+        $i0 = r0.zzb;
+
+        $i0 = virtualinvoke $r1.zzi($i0, $l1);
+
+        return $i0;
+    }
+
+    public final void zzd() throws java.io.IOException
+    {
+        com.google.android.gms.internal.ads.zzts r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zztv $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = r0.zzb;
+
+        virtualinvoke $r1.zzH($i0);
+
+        return;
+    }
+
+    public final boolean zze()
+    {
+        com.google.android.gms.internal.ads.zzts r0;
+        int $i0;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zztv $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        $i0 = r0.zzb;
+
+        $z0 = virtualinvoke $r1.zzO($i0);
+
+        return $z0;
+    }
+}

@@ -1,0 +1,85 @@
+public final class com.google.android.gms.internal.ads.zzbiq extends com.google.android.gms.internal.ads.zzasv implements com.google.android.gms.internal.ads.zzbis
+{
+
+    void <init>(android.os.IBinder)
+    {
+        com.google.android.gms.internal.ads.zzbiq r0;
+        android.os.IBinder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, "com.google.android.gms.ads.internal.h5.client.IH5AdsManagerCreator");
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbip zze(com.google.android.gms.dynamic.IObjectWrapper, com.google.android.gms.internal.ads.zzbnf, int, com.google.android.gms.internal.ads.zzbim) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r1;
+        com.google.android.gms.internal.ads.zzbim $r3;
+        android.os.IInterface $r7;
+        com.google.android.gms.internal.ads.zzbnf $r2;
+        android.os.Parcel $r4;
+        android.os.IBinder $r5;
+        com.google.android.gms.internal.ads.zzbiq r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzbip $r6;
+        com.google.android.gms.internal.ads.zzbin $r8;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r4, $r1);
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r4, $r2);
+
+        virtualinvoke $r4.writeInt(230500000);
+
+        com.google.android.gms.internal.ads.zzasx.zzg($r4, $r3);
+
+        $r4 = virtualinvoke r0.zzbg(1, $r4);
+
+        $r5 = virtualinvoke $r4.readStrongBinder();
+
+        if $r5 != null goto label1;
+
+        $r6 = null;
+
+        goto label3;
+
+     label1:
+        $r7 = interfaceinvoke $r5.queryLocalInterface("com.google.android.gms.ads.internal.h5.client.IH5AdsManager");
+
+        $z0 = $r7 instanceof com.google.android.gms.internal.ads.zzbip;
+
+        if $z0 == 0 goto label2;
+
+        $r6 = (com.google.android.gms.internal.ads.zzbip) $r7;
+
+        goto label3;
+
+     label2:
+        $r8 = new com.google.android.gms.internal.ads.zzbin;
+
+        specialinvoke $r8.<init>($r5);
+
+        $r6 = $r8;
+
+     label3:
+        virtualinvoke $r4.recycle();
+
+        return $r6;
+    }
+}

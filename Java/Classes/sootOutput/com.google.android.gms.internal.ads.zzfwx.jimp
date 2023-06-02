@@ -1,0 +1,170 @@
+public final class com.google.android.gms.internal.ads.zzfwx extends java.lang.Object
+{
+    private final java.lang.Object zza;
+    private final java.lang.Object zzb;
+    private final byte[] zzc;
+    private final com.google.android.gms.internal.ads.zzgme zzd;
+    private final int zze;
+    private final java.lang.String zzf;
+    private final com.google.android.gms.internal.ads.zzfvx zzg;
+    private final int zzh;
+
+    void <init>(java.lang.Object, java.lang.Object, byte[], int, com.google.android.gms.internal.ads.zzgme, int, java.lang.String, com.google.android.gms.internal.ads.zzfvx)
+    {
+        byte[] $r2;
+        com.google.android.gms.internal.ads.zzgme $r3;
+        int $i0, $i1, $i2;
+        java.lang.Object $r1, $r6;
+        com.google.android.gms.internal.ads.zzfvx $r5;
+        com.google.android.gms.internal.ads.zzfwx r0;
+        java.lang.String $r4;
+
+        r0 := @this;
+
+        $r6 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $r3 := @parameter4;
+
+        $i1 := @parameter5;
+
+        $r4 := @parameter6;
+
+        $r5 := @parameter7;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r6;
+
+        r0.zzb = $r1;
+
+        $i2 = lengthof $r2;
+
+        $r2 = java.util.Arrays.copyOf($r2, $i2);
+
+        r0.zzc = $r2;
+
+        r0.zzh = $i0;
+
+        r0.zzd = $r3;
+
+        r0.zze = $i1;
+
+        r0.zzf = $r4;
+
+        r0.zzg = $r5;
+
+        return;
+    }
+
+    public final int zza()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        i0 = r0.zze;
+
+        return i0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzfvx zzb()
+    {
+        com.google.android.gms.internal.ads.zzfvx r1;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        r1 = r0.zzg;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzgme zzc()
+    {
+        com.google.android.gms.internal.ads.zzfwx r0;
+        com.google.android.gms.internal.ads.zzgme r1;
+
+        r0 := @this;
+
+        r1 = r0.zzd;
+
+        return r1;
+    }
+
+    public final java.lang.Object zzd()
+    {
+        java.lang.Object r1;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+
+    public final java.lang.Object zze()
+    {
+        java.lang.Object r1;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        r1 = r0.zzb;
+
+        return r1;
+    }
+
+    public final java.lang.String zzf()
+    {
+        com.google.android.gms.internal.ads.zzfwx r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zzf;
+
+        return r1;
+    }
+
+    public final byte[] zzg()
+    {
+        int $i0;
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        $r1 = r0.zzc;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $i0 = lengthof $r1;
+
+        $r1 = java.util.Arrays.copyOf($r1, $i0);
+
+        return $r1;
+    }
+
+    public final int zzh()
+    {
+        int i0;
+        com.google.android.gms.internal.ads.zzfwx r0;
+
+        r0 := @this;
+
+        i0 = r0.zzh;
+
+        return i0;
+    }
+}

@@ -1,0 +1,162 @@
+final class com.google.android.gms.internal.ads.zzgbw extends java.lang.Object
+{
+
+    static com.google.android.gms.internal.ads.zzgbp zza(com.google.android.gms.internal.ads.zzgkn) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgbm $r1;
+        com.google.android.gms.internal.ads.zzgbn $r2;
+        com.google.android.gms.internal.ads.zzgkn $r0;
+        int $i0;
+        java.lang.IllegalArgumentException $r3;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.zze();
+
+        if $i0 != 3 goto label1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbm;
+
+        specialinvoke $r1.<init>(16);
+
+        return $r1;
+
+     label1:
+        $i0 = virtualinvoke $r0.zze();
+
+        if $i0 != 4 goto label2;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbm;
+
+        specialinvoke $r1.<init>(32);
+
+        return $r1;
+
+     label2:
+        $i0 = virtualinvoke $r0.zze();
+
+        if $i0 != 5 goto label3;
+
+        $r2 = new com.google.android.gms.internal.ads.zzgbn;
+
+        specialinvoke $r2.<init>();
+
+        return $r2;
+
+     label3:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<init>("Unrecognized HPKE AEAD identifier");
+
+        throw $r3;
+    }
+
+    static com.google.android.gms.internal.ads.zzgbt zzb(com.google.android.gms.internal.ads.zzgkn) throws java.security.GeneralSecurityException
+    {
+        com.google.android.gms.internal.ads.zzgbo $r2;
+        com.google.android.gms.internal.ads.zzgkn $r0;
+        int $i0;
+        com.google.android.gms.internal.ads.zzgcf $r1;
+        com.google.android.gms.internal.ads.zzgcd $r3;
+        java.lang.IllegalArgumentException $r4;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.zzg();
+
+        if $i0 != 3 goto label1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgcf;
+
+        $r2 = new com.google.android.gms.internal.ads.zzgbo;
+
+        specialinvoke $r2.<init>("HmacSha256");
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+
+     label1:
+        $i0 = virtualinvoke $r0.zzg();
+
+        if $i0 != 4 goto label2;
+
+        $r3 = com.google.android.gms.internal.ads.zzgcd.zzc(1);
+
+        return $r3;
+
+     label2:
+        $i0 = virtualinvoke $r0.zzg();
+
+        if $i0 != 5 goto label3;
+
+        $r3 = com.google.android.gms.internal.ads.zzgcd.zzc(2);
+
+        return $r3;
+
+     label3:
+        $i0 = virtualinvoke $r0.zzg();
+
+        if $i0 != 6 goto label4;
+
+        $r3 = com.google.android.gms.internal.ads.zzgcd.zzc(3);
+
+        return $r3;
+
+     label4:
+        $r4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r4.<init>("Unrecognized HPKE KEM identifier");
+
+        throw $r4;
+    }
+
+    static com.google.android.gms.internal.ads.zzgbo zzc(com.google.android.gms.internal.ads.zzgkn)
+    {
+        com.google.android.gms.internal.ads.zzgbo $r1;
+        com.google.android.gms.internal.ads.zzgkn $r0;
+        int $i0;
+        java.lang.IllegalArgumentException $r2;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.zzf();
+
+        if $i0 != 3 goto label1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbo;
+
+        specialinvoke $r1.<init>("HmacSha256");
+
+        return $r1;
+
+     label1:
+        $i0 = virtualinvoke $r0.zzf();
+
+        if $i0 != 4 goto label2;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbo;
+
+        specialinvoke $r1.<init>("HmacSha384");
+
+        return $r1;
+
+     label2:
+        $i0 = virtualinvoke $r0.zzf();
+
+        if $i0 != 5 goto label3;
+
+        $r1 = new com.google.android.gms.internal.ads.zzgbo;
+
+        specialinvoke $r1.<init>("HmacSha512");
+
+        return $r1;
+
+     label3:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<init>("Unrecognized HPKE KDF identifier");
+
+        throw $r2;
+    }
+}

@@ -1,0 +1,35 @@
+public final class com.google.android.gms.ads.R$styleable extends java.lang.Object
+{
+    public static final int[] AdsAttrs;
+    public static final int AdsAttrs_adSize;
+    public static final int AdsAttrs_adSizes;
+    public static final int AdsAttrs_adUnitId;
+
+    public static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[3];
+
+        $r0[0] = 2130837538;
+
+        $r0[1] = 2130837539;
+
+        $r0[2] = 2130837540;
+
+        com.google.android.gms.ads.R$styleable.AdsAttrs = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.ads.R$styleable r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,202 @@
+public class androidx.room.util.CopyLock extends java.lang.Object
+{
+    private static final java.util.Map sThreadLocks;
+    private final java.io.File mCopyLockFile;
+    private final boolean mFileLevelLock;
+    private java.nio.channels.FileChannel mLockChannel;
+    private final java.util.concurrent.locks.Lock mThreadLock;
+
+    static void <clinit>()
+    {
+        java.util.HashMap $r0;
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<init>();
+
+        androidx.room.util.CopyLock.sThreadLocks = $r0;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.io.File, boolean)
+    {
+        java.util.concurrent.locks.Lock $r5;
+        java.lang.StringBuilder $r4;
+        androidx.room.util.CopyLock r0;
+        java.lang.String $r1;
+        java.io.File $r2, $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $z0 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new java.io.File;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<init>();
+
+        $r4 = virtualinvoke $r4.append($r1);
+
+        $r4 = virtualinvoke $r4.append(".lck");
+
+        $r1 = virtualinvoke $r4.toString();
+
+        specialinvoke $r3.<init>($r2, $r1);
+
+        r0.mCopyLockFile = $r3;
+
+        $r1 = virtualinvoke $r3.getAbsolutePath();
+
+        $r5 = androidx.room.util.CopyLock.getThreadLock($r1);
+
+        r0.mThreadLock = $r5;
+
+        r0.mFileLevelLock = $z0;
+
+        return;
+    }
+
+    private static java.util.concurrent.locks.Lock getThreadLock(java.lang.String)
+    {
+        java.lang.Throwable r5;
+        java.util.concurrent.locks.Lock r4;
+        java.util.concurrent.locks.ReentrantLock $r2;
+        java.util.Map $r1;
+        java.lang.Object $r3;
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = androidx.room.util.CopyLock.sThreadLocks;
+
+        entermonitor $r1;
+
+     label1:
+        $r3 = interfaceinvoke $r1.get($r0);
+
+        r4 = (java.util.concurrent.locks.Lock) $r3;
+
+        if r4 != null goto label2;
+
+        $r2 = new java.util.concurrent.locks.ReentrantLock;
+
+        specialinvoke $r2.<init>();
+
+        r4 = $r2;
+
+        interfaceinvoke $r1.put($r0, $r2);
+
+     label2:
+        exitmonitor $r1;
+
+     label3:
+        return r4;
+
+     label4:
+        r5 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label5:
+        throw r5;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public void lock()
+    {
+        java.lang.IllegalStateException $r6;
+        java.io.FileOutputStream r3;
+        java.io.IOException r5;
+        java.io.File $r4;
+        java.util.concurrent.locks.Lock r2;
+        androidx.room.util.CopyLock r0;
+        java.nio.channels.FileChannel $r1;
+        boolean z0;
+
+        r0 := @this;
+
+        r2 = r0.mThreadLock;
+
+        interfaceinvoke r2.lock();
+
+        z0 = r0.mFileLevelLock;
+
+        if z0 == 0 goto label6;
+
+        r3 = new java.io.FileOutputStream;
+
+        $r4 = r0.mCopyLockFile;
+
+     label1:
+        specialinvoke r3.<init>($r4);
+
+        $r1 = virtualinvoke r3.getChannel();
+
+     label2:
+        r0.mLockChannel = $r1;
+
+     label3:
+        virtualinvoke $r1.lock();
+
+     label4:
+        return;
+
+     label5:
+        r5 := @caughtexception;
+
+        $r6 = new java.lang.IllegalStateException;
+
+        specialinvoke $r6.<init>("Unable to grab copy lock.", r5);
+
+        throw $r6;
+
+     label6:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label5;
+        catch java.io.IOException from label3 to label4 with label5;
+    }
+
+    public void unlock()
+    {
+        java.util.concurrent.locks.Lock $r3;
+        java.io.IOException $r2;
+        androidx.room.util.CopyLock r0;
+        java.nio.channels.FileChannel $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mLockChannel;
+
+        if $r1 == null goto label4;
+
+     label1:
+        virtualinvoke $r1.close();
+
+     label2:
+        goto label4;
+
+     label3:
+        $r2 := @caughtexception;
+
+     label4:
+        $r3 = r0.mThreadLock;
+
+        interfaceinvoke $r3.unlock();
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+}

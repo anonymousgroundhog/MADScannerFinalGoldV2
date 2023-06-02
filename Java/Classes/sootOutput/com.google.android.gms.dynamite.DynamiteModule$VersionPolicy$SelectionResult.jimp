@@ -1,0 +1,23 @@
+public class com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult extends java.lang.Object
+{
+    public int localVersion;
+    public int remoteVersion;
+    public int selection;
+
+    public void <init>()
+    {
+        com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        r0.localVersion = 0;
+
+        r0.remoteVersion = 0;
+
+        r0.selection = 0;
+
+        return;
+    }
+}

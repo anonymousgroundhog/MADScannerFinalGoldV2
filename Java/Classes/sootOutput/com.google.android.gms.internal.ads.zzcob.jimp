@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzcob extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzcoc zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzcoc $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzcoc;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzcob.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzcoc zza()
+    {
+        com.google.android.gms.internal.ads.zzcoc r0;
+
+        r0 = com.google.android.gms.internal.ads.zzcob.zza;
+
+        return r0;
+    }
+}

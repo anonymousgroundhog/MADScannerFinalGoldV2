@@ -1,0 +1,1146 @@
+public class androidx.viewpager.widget.PagerTitleStrip extends android.view.ViewGroup
+{
+    private static final int[] ATTRS;
+    private static final float SIDE_ALPHA;
+    private static final int[] TEXT_ATTRS;
+    private static final int TEXT_SPACING;
+    android.widget.TextView mCurrText;
+    private int mGravity;
+    private int mLastKnownCurrentPage;
+    float mLastKnownPositionOffset;
+    android.widget.TextView mNextText;
+    private int mNonPrimaryAlpha;
+    private final androidx.viewpager.widget.PagerTitleStrip$PageListener mPageListener;
+    androidx.viewpager.widget.ViewPager mPager;
+    android.widget.TextView mPrevText;
+    private int mScaledTextSpacing;
+    int mTextColor;
+    private boolean mUpdatingPositions;
+    private boolean mUpdatingText;
+    private java.lang.ref.WeakReference mWatchingAdapter;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+
+        $r0 = newarray (int)[4];
+
+        $r0[0] = 16842804;
+
+        $r0[1] = 16842901;
+
+        $r0[2] = 16842904;
+
+        $r0[3] = 16842927;
+
+        androidx.viewpager.widget.PagerTitleStrip.ATTRS = $r0;
+
+        $r0 = newarray (int)[1];
+
+        $r0[0] = 16843660;
+
+        androidx.viewpager.widget.PagerTitleStrip.TEXT_ATTRS = $r0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        android.content.Context $r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, null);
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        android.content.Context $r1;
+        android.content.res.TypedArray $r5;
+        android.content.res.ColorStateList $r6;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        android.util.AttributeSet $r2;
+        int[] r4;
+        androidx.viewpager.widget.PagerTitleStrip$PageListener $r10;
+        int $i0, $i1;
+        boolean $z0;
+        android.text.TextUtils$TruncateAt r7;
+        android.util.DisplayMetrics $r9;
+        android.widget.TextView r3, $r11;
+        float f0;
+        android.content.res.Resources $r8;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $r2);
+
+        r0.mLastKnownCurrentPage = -1;
+
+        r0.mLastKnownPositionOffset = -1.0F;
+
+        $r10 = new androidx.viewpager.widget.PagerTitleStrip$PageListener;
+
+        specialinvoke $r10.<init>(r0);
+
+        r0.mPageListener = $r10;
+
+        $r11 = new android.widget.TextView;
+
+        r3 = $r11;
+
+        specialinvoke $r11.<init>($r1);
+
+        r0.mPrevText = r3;
+
+        virtualinvoke r0.addView(r3);
+
+        $r11 = new android.widget.TextView;
+
+        r3 = $r11;
+
+        specialinvoke $r11.<init>($r1);
+
+        r0.mCurrText = r3;
+
+        virtualinvoke r0.addView(r3);
+
+        $r11 = new android.widget.TextView;
+
+        r3 = $r11;
+
+        specialinvoke $r11.<init>($r1);
+
+        r0.mNextText = r3;
+
+        virtualinvoke r0.addView(r3);
+
+        r4 = androidx.viewpager.widget.PagerTitleStrip.ATTRS;
+
+        $r5 = virtualinvoke $r1.obtainStyledAttributes($r2, r4);
+
+        $i0 = virtualinvoke $r5.getResourceId(0, 0);
+
+        if $i0 == 0 goto label1;
+
+        r3 = r0.mPrevText;
+
+        androidx.core.widget.TextViewCompat.setTextAppearance(r3, $i0);
+
+        r3 = r0.mCurrText;
+
+        androidx.core.widget.TextViewCompat.setTextAppearance(r3, $i0);
+
+        r3 = r0.mNextText;
+
+        androidx.core.widget.TextViewCompat.setTextAppearance(r3, $i0);
+
+     label1:
+        $i1 = virtualinvoke $r5.getDimensionPixelSize(1, 0);
+
+        if $i1 == 0 goto label2;
+
+        f0 = (float) $i1;
+
+        virtualinvoke r0.setTextSize(0, f0);
+
+     label2:
+        $z0 = virtualinvoke $r5.hasValue(2);
+
+        if $z0 == 0 goto label3;
+
+        $i1 = virtualinvoke $r5.getColor(2, 0);
+
+        r3 = r0.mPrevText;
+
+        virtualinvoke r3.setTextColor($i1);
+
+        r3 = r0.mCurrText;
+
+        virtualinvoke r3.setTextColor($i1);
+
+        r3 = r0.mNextText;
+
+        virtualinvoke r3.setTextColor($i1);
+
+     label3:
+        $i1 = virtualinvoke $r5.getInteger(3, 80);
+
+        r0.mGravity = $i1;
+
+        virtualinvoke $r5.recycle();
+
+        r3 = r0.mCurrText;
+
+        $r6 = virtualinvoke r3.getTextColors();
+
+        $i1 = virtualinvoke $r6.getDefaultColor();
+
+        r0.mTextColor = $i1;
+
+        virtualinvoke r0.setNonPrimaryAlpha(0.6F);
+
+        r3 = r0.mPrevText;
+
+        r7 = android.text.TextUtils$TruncateAt.END;
+
+        virtualinvoke r3.setEllipsize(r7);
+
+        r3 = r0.mCurrText;
+
+        r7 = android.text.TextUtils$TruncateAt.END;
+
+        virtualinvoke r3.setEllipsize(r7);
+
+        r3 = r0.mNextText;
+
+        r7 = android.text.TextUtils$TruncateAt.END;
+
+        virtualinvoke r3.setEllipsize(r7);
+
+        $z0 = 0;
+
+        if $i0 == 0 goto label4;
+
+        r4 = androidx.viewpager.widget.PagerTitleStrip.TEXT_ATTRS;
+
+        $r5 = virtualinvoke $r1.obtainStyledAttributes($i0, r4);
+
+        $z0 = virtualinvoke $r5.getBoolean(0, 0);
+
+        virtualinvoke $r5.recycle();
+
+     label4:
+        if $z0 == 0 goto label5;
+
+        r3 = r0.mPrevText;
+
+        androidx.viewpager.widget.PagerTitleStrip.setSingleLineAllCaps(r3);
+
+        r3 = r0.mCurrText;
+
+        androidx.viewpager.widget.PagerTitleStrip.setSingleLineAllCaps(r3);
+
+        r3 = r0.mNextText;
+
+        androidx.viewpager.widget.PagerTitleStrip.setSingleLineAllCaps(r3);
+
+        goto label6;
+
+     label5:
+        r3 = r0.mPrevText;
+
+        virtualinvoke r3.setSingleLine();
+
+        r3 = r0.mCurrText;
+
+        virtualinvoke r3.setSingleLine();
+
+        r3 = r0.mNextText;
+
+        virtualinvoke r3.setSingleLine();
+
+     label6:
+        $r8 = virtualinvoke $r1.getResources();
+
+        $r9 = virtualinvoke $r8.getDisplayMetrics();
+
+        f0 = $r9.density;
+
+        f0 = 16.0F * f0;
+
+        $i0 = (int) f0;
+
+        r0.mScaledTextSpacing = $i0;
+
+        return;
+    }
+
+    private static void setSingleLineAllCaps(android.widget.TextView)
+    {
+        android.content.Context $r2;
+        android.widget.TextView $r0;
+        androidx.viewpager.widget.PagerTitleStrip$SingleLineAllCapsTransform $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = new androidx.viewpager.widget.PagerTitleStrip$SingleLineAllCapsTransform;
+
+        $r2 = virtualinvoke $r0.getContext();
+
+        specialinvoke $r1.<init>($r2);
+
+        virtualinvoke $r0.setTransformationMethod($r1);
+
+        return;
+    }
+
+    int getMinHeight()
+    {
+        int $i0;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        android.graphics.drawable.Drawable $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.getBackground();
+
+        if $r1 == null goto label1;
+
+        $i0 = virtualinvoke $r1.getIntrinsicHeight();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public int getTextSpacing()
+    {
+        int i0;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+
+        r0 := @this;
+
+        i0 = r0.mScaledTextSpacing;
+
+        return i0;
+    }
+
+    protected void onAttachedToWindow()
+    {
+        java.lang.IllegalStateException r8;
+        android.view.ViewParent $r1;
+        androidx.viewpager.widget.PagerAdapter $r3, $r7;
+        androidx.viewpager.widget.ViewPager r2;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        androidx.viewpager.widget.PagerTitleStrip$PageListener $r4;
+        java.lang.Object $r6;
+        java.lang.ref.WeakReference $r5;
+        boolean z0;
+
+        r0 := @this;
+
+        specialinvoke r0.onAttachedToWindow();
+
+        $r1 = virtualinvoke r0.getParent();
+
+        z0 = $r1 instanceof androidx.viewpager.widget.ViewPager;
+
+        if z0 == 0 goto label3;
+
+        r2 = (androidx.viewpager.widget.ViewPager) $r1;
+
+        $r3 = virtualinvoke r2.getAdapter();
+
+        $r4 = r0.mPageListener;
+
+        virtualinvoke r2.setInternalPageChangeListener($r4);
+
+        $r4 = r0.mPageListener;
+
+        virtualinvoke r2.addOnAdapterChangeListener($r4);
+
+        r0.mPager = r2;
+
+        $r5 = r0.mWatchingAdapter;
+
+        if $r5 == null goto label1;
+
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (androidx.viewpager.widget.PagerAdapter) $r6;
+
+        goto label2;
+
+     label1:
+        $r7 = null;
+
+     label2:
+        virtualinvoke r0.updateAdapter($r7, $r3);
+
+        return;
+
+     label3:
+        r8 = new java.lang.IllegalStateException;
+
+        specialinvoke r8.<init>("PagerTitleStrip must be a direct child of a ViewPager.");
+
+        throw r8;
+    }
+
+    protected void onDetachedFromWindow()
+    {
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        androidx.viewpager.widget.PagerTitleStrip$PageListener $r1;
+        androidx.viewpager.widget.PagerAdapter $r2;
+        androidx.viewpager.widget.ViewPager $r3;
+
+        r0 := @this;
+
+        specialinvoke r0.onDetachedFromWindow();
+
+        $r3 = r0.mPager;
+
+        if $r3 == null goto label1;
+
+        $r2 = virtualinvoke $r3.getAdapter();
+
+        virtualinvoke r0.updateAdapter($r2, null);
+
+        $r3 = r0.mPager;
+
+        virtualinvoke $r3.setInternalPageChangeListener(null);
+
+        $r3 = r0.mPager;
+
+        $r1 = r0.mPageListener;
+
+        virtualinvoke $r3.removeOnAdapterChangeListener($r1);
+
+        r0.mPager = null;
+
+     label1:
+        return;
+    }
+
+    protected void onLayout(boolean, int, int, int, int)
+    {
+        androidx.viewpager.widget.ViewPager r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        byte $b4;
+        int $i0, $i1, $i2, $i3;
+        float f0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $i3 := @parameter4;
+
+        r1 = r0.mPager;
+
+        if r1 == null goto label3;
+
+        f0 = r0.mLastKnownPositionOffset;
+
+        $b4 = f0 cmpl 0.0F;
+
+        $i0 = (int) $b4;
+
+        if $i0 < 0 goto label1;
+
+        goto label2;
+
+     label1:
+        f0 = 0.0F;
+
+     label2:
+        $i0 = r0.mLastKnownCurrentPage;
+
+        virtualinvoke r0.updateTextPositions($i0, f0, 1);
+
+     label3:
+        return;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        java.lang.IllegalStateException $r2;
+        android.widget.TextView r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        int $i0, $i1, $i2, $i3, $i4, i5;
+        float f0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $i2 = android.view.View$MeasureSpec.getMode($i0);
+
+        if $i2 != 1073741824 goto label3;
+
+        $i2 = virtualinvoke r0.getPaddingTop();
+
+        $i3 = virtualinvoke r0.getPaddingBottom();
+
+        $i3 = $i2 + $i3;
+
+        $i4 = androidx.viewpager.widget.PagerTitleStrip.getChildMeasureSpec($i1, $i3, -2);
+
+        $i2 = android.view.View$MeasureSpec.getSize($i0);
+
+        f0 = (float) $i2;
+
+        f0 = f0 * 0.2F;
+
+        i5 = (int) f0;
+
+        $i0 = androidx.viewpager.widget.PagerTitleStrip.getChildMeasureSpec($i0, i5, -2);
+
+        r1 = r0.mPrevText;
+
+        virtualinvoke r1.measure($i0, $i4);
+
+        r1 = r0.mCurrText;
+
+        virtualinvoke r1.measure($i0, $i4);
+
+        r1 = r0.mNextText;
+
+        virtualinvoke r1.measure($i0, $i4);
+
+        $i0 = android.view.View$MeasureSpec.getMode($i1);
+
+        if $i0 != 1073741824 goto label1;
+
+        $i0 = android.view.View$MeasureSpec.getSize($i1);
+
+        goto label2;
+
+     label1:
+        r1 = r0.mCurrText;
+
+        $i4 = virtualinvoke r1.getMeasuredHeight();
+
+        $i0 = virtualinvoke r0.getMinHeight();
+
+        $i3 = $i4 + $i3;
+
+        $i0 = java.lang.Math.max($i0, $i3);
+
+     label2:
+        r1 = r0.mCurrText;
+
+        $i3 = virtualinvoke r1.getMeasuredState();
+
+        $i3 = $i3 << 16;
+
+        $i0 = android.view.View.resolveSizeAndState($i0, $i1, $i3);
+
+        virtualinvoke r0.setMeasuredDimension($i2, $i0);
+
+        return;
+
+     label3:
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<init>("Must measure with an exact width");
+
+        throw $r2;
+    }
+
+    public void requestLayout()
+    {
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mUpdatingText;
+
+        if $z0 != 0 goto label1;
+
+        specialinvoke r0.requestLayout();
+
+     label1:
+        return;
+    }
+
+    public void setGravity(int)
+    {
+        int $i0;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mGravity = $i0;
+
+        virtualinvoke r0.requestLayout();
+
+        return;
+    }
+
+    public void setNonPrimaryAlpha(float)
+    {
+        android.widget.TextView $r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        int i0, $i1;
+        float $f0;
+
+        r0 := @this;
+
+        $f0 := @parameter0;
+
+        $f0 = 255.0F * $f0;
+
+        i0 = (int) $f0;
+
+        i0 = i0 & 255;
+
+        r0.mNonPrimaryAlpha = i0;
+
+        i0 = i0 << 24;
+
+        $i1 = r0.mTextColor;
+
+        $i1 = $i1 & 16777215;
+
+        i0 = i0 | $i1;
+
+        $r1 = r0.mPrevText;
+
+        virtualinvoke $r1.setTextColor(i0);
+
+        $r1 = r0.mNextText;
+
+        virtualinvoke $r1.setTextColor(i0);
+
+        return;
+    }
+
+    public void setTextColor(int)
+    {
+        android.widget.TextView r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        int $i0, $i1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mTextColor = $i0;
+
+        r1 = r0.mCurrText;
+
+        virtualinvoke r1.setTextColor($i0);
+
+        $i0 = r0.mNonPrimaryAlpha;
+
+        $i0 = $i0 << 24;
+
+        $i1 = r0.mTextColor;
+
+        $i1 = $i1 & 16777215;
+
+        $i0 = $i0 | $i1;
+
+        r1 = r0.mPrevText;
+
+        virtualinvoke r1.setTextColor($i0);
+
+        r1 = r0.mNextText;
+
+        virtualinvoke r1.setTextColor($i0);
+
+        return;
+    }
+
+    public void setTextSize(int, float)
+    {
+        android.widget.TextView $r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        int $i0;
+        float $f0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $r1 = r0.mPrevText;
+
+        virtualinvoke $r1.setTextSize($i0, $f0);
+
+        $r1 = r0.mCurrText;
+
+        virtualinvoke $r1.setTextSize($i0, $f0);
+
+        $r1 = r0.mNextText;
+
+        virtualinvoke $r1.setTextSize($i0, $f0);
+
+        return;
+    }
+
+    public void setTextSpacing(int)
+    {
+        int $i0;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mScaledTextSpacing = $i0;
+
+        virtualinvoke r0.requestLayout();
+
+        return;
+    }
+
+    void updateAdapter(androidx.viewpager.widget.PagerAdapter, androidx.viewpager.widget.PagerAdapter)
+    {
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        androidx.viewpager.widget.PagerAdapter $r1, $r2;
+        androidx.viewpager.widget.PagerTitleStrip$PageListener $r3;
+        int $i0;
+        androidx.viewpager.widget.ViewPager $r4;
+        java.lang.ref.WeakReference $r5;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        if $r1 == null goto label1;
+
+        $r3 = r0.mPageListener;
+
+        virtualinvoke $r1.unregisterDataSetObserver($r3);
+
+        r0.mWatchingAdapter = null;
+
+     label1:
+        if $r2 == null goto label2;
+
+        $r3 = r0.mPageListener;
+
+        virtualinvoke $r2.registerDataSetObserver($r3);
+
+        $r5 = new java.lang.ref.WeakReference;
+
+        specialinvoke $r5.<init>($r2);
+
+        r0.mWatchingAdapter = $r5;
+
+     label2:
+        $r4 = r0.mPager;
+
+        if $r4 == null goto label3;
+
+        r0.mLastKnownCurrentPage = -1;
+
+        r0.mLastKnownPositionOffset = -1.0F;
+
+        $i0 = virtualinvoke $r4.getCurrentItem();
+
+        virtualinvoke r0.updateText($i0, $r2);
+
+        virtualinvoke r0.requestLayout();
+
+     label3:
+        return;
+    }
+
+    void updateText(int, androidx.viewpager.widget.PagerAdapter)
+    {
+        java.lang.CharSequence r2;
+        androidx.viewpager.widget.PagerAdapter $r1;
+        android.widget.TextView r3;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        int $i0, $i1, i2, $i3;
+        float f0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        if $r1 == null goto label1;
+
+        $i1 = virtualinvoke $r1.getCount();
+
+        goto label2;
+
+     label1:
+        $i1 = 0;
+
+     label2:
+        r0.mUpdatingText = 1;
+
+        r2 = null;
+
+        if $i0 < 1 goto label3;
+
+        if $r1 == null goto label3;
+
+        i2 = -1;
+
+        i2 = $i0 + i2;
+
+        r2 = virtualinvoke $r1.getPageTitle(i2);
+
+     label3:
+        r3 = r0.mPrevText;
+
+        virtualinvoke r3.setText(r2);
+
+        r3 = r0.mCurrText;
+
+        if $r1 == null goto label4;
+
+        if $i0 >= $i1 goto label4;
+
+        r2 = virtualinvoke $r1.getPageTitle($i0);
+
+        goto label5;
+
+     label4:
+        r2 = null;
+
+     label5:
+        virtualinvoke r3.setText(r2);
+
+        r2 = null;
+
+        i2 = $i0 + 1;
+
+        if i2 >= $i1 goto label6;
+
+        if $r1 == null goto label6;
+
+        $i1 = $i0 + 1;
+
+        r2 = virtualinvoke $r1.getPageTitle($i1);
+
+     label6:
+        r3 = r0.mNextText;
+
+        virtualinvoke r3.setText(r2);
+
+        $i1 = virtualinvoke r0.getWidth();
+
+        i2 = virtualinvoke r0.getPaddingLeft();
+
+        $i1 = $i1 - i2;
+
+        i2 = virtualinvoke r0.getPaddingRight();
+
+        $i1 = $i1 - i2;
+
+        f0 = (float) $i1;
+
+        f0 = f0 * 0.8F;
+
+        $i1 = (int) f0;
+
+        $i1 = java.lang.Math.max(0, $i1);
+
+        $i1 = android.view.View$MeasureSpec.makeMeasureSpec($i1, -2147483648);
+
+        i2 = virtualinvoke r0.getHeight();
+
+        $i3 = virtualinvoke r0.getPaddingTop();
+
+        i2 = i2 - $i3;
+
+        $i3 = virtualinvoke r0.getPaddingBottom();
+
+        i2 = i2 - $i3;
+
+        i2 = java.lang.Math.max(0, i2);
+
+        i2 = android.view.View$MeasureSpec.makeMeasureSpec(i2, -2147483648);
+
+        r3 = r0.mPrevText;
+
+        virtualinvoke r3.measure($i1, i2);
+
+        r3 = r0.mCurrText;
+
+        virtualinvoke r3.measure($i1, i2);
+
+        r3 = r0.mNextText;
+
+        virtualinvoke r3.measure($i1, i2);
+
+        r0.mLastKnownCurrentPage = $i0;
+
+        $z0 = r0.mUpdatingPositions;
+
+        if $z0 != 0 goto label7;
+
+        f0 = r0.mLastKnownPositionOffset;
+
+        virtualinvoke r0.updateTextPositions($i0, f0, 0);
+
+     label7:
+        r0.mUpdatingText = 0;
+
+        return;
+    }
+
+    void updateTextPositions(int, float, boolean)
+    {
+        androidx.viewpager.widget.PagerAdapter $r2;
+        androidx.viewpager.widget.ViewPager $r1;
+        androidx.viewpager.widget.PagerTitleStrip r0;
+        byte $b0;
+        int $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16;
+        boolean $z0;
+        android.widget.TextView $r3;
+        float $f0, $f1, $f2;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $f0 := @parameter1;
+
+        $z0 := @parameter2;
+
+        $i2 = r0.mLastKnownCurrentPage;
+
+        if $i1 == $i2 goto label1;
+
+        $r1 = r0.mPager;
+
+        $r2 = virtualinvoke $r1.getAdapter();
+
+        virtualinvoke r0.updateText($i1, $r2);
+
+        goto label2;
+
+     label1:
+        if $z0 != 0 goto label2;
+
+        $f1 = r0.mLastKnownPositionOffset;
+
+        $b0 = $f0 cmpl $f1;
+
+        if $b0 != 0 goto label2;
+
+        return;
+
+     label2:
+        r0.mUpdatingPositions = 1;
+
+        $r3 = r0.mPrevText;
+
+        $i3 = virtualinvoke $r3.getMeasuredWidth();
+
+        $r3 = r0.mCurrText;
+
+        $i4 = virtualinvoke $r3.getMeasuredWidth();
+
+        $r3 = r0.mNextText;
+
+        $i1 = virtualinvoke $r3.getMeasuredWidth();
+
+        $i5 = $i4 / 2;
+
+        $i2 = virtualinvoke r0.getWidth();
+
+        $i6 = virtualinvoke r0.getHeight();
+
+        $i7 = virtualinvoke r0.getPaddingLeft();
+
+        $i8 = virtualinvoke r0.getPaddingRight();
+
+        $i9 = virtualinvoke r0.getPaddingTop();
+
+        $i10 = virtualinvoke r0.getPaddingBottom();
+
+        $i11 = $i7 + $i5;
+
+        $i12 = $i8 + $i5;
+
+        $i11 = $i2 - $i11;
+
+        $i11 = $i11 - $i12;
+
+        $f1 = 0.5F + $f0;
+
+        $b0 = $f1 cmpl 1.0F;
+
+        $i13 = (int) $b0;
+
+        if $i13 <= 0 goto label3;
+
+        $f1 = $f1 - 1.0F;
+
+     label3:
+        $i12 = $i2 - $i12;
+
+        $f2 = (float) $i11;
+
+        $f1 = $f2 * $f1;
+
+        $i11 = (int) $f1;
+
+        $i12 = $i12 - $i11;
+
+        $i5 = $i12 - $i5;
+
+        $i4 = $i4 + $i5;
+
+        $r3 = r0.mPrevText;
+
+        $i12 = virtualinvoke $r3.getBaseline();
+
+        $r3 = r0.mCurrText;
+
+        $i11 = virtualinvoke $r3.getBaseline();
+
+        $r3 = r0.mNextText;
+
+        $i13 = virtualinvoke $r3.getBaseline();
+
+        $i14 = java.lang.Math.max($i12, $i11);
+
+        $i14 = java.lang.Math.max($i14, $i13);
+
+        $i12 = $i14 - $i12;
+
+        $i11 = $i14 - $i11;
+
+        $i13 = $i14 - $i13;
+
+        $r3 = r0.mPrevText;
+
+        $i14 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i14 = $i14 + $i12;
+
+        $r3 = r0.mCurrText;
+
+        $i15 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i15 = $i15 + $i11;
+
+        $r3 = r0.mNextText;
+
+        $i16 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i16 = $i16 + $i13;
+
+        $i14 = java.lang.Math.max($i14, $i15);
+
+        $i14 = java.lang.Math.max($i14, $i16);
+
+        $i15 = r0.mGravity;
+
+        $i15 = $i15 & 112;
+
+        lookupswitch($i15)
+        {
+            case 16: goto label6;
+            case 80: goto label5;
+            default: goto label4;
+        };
+
+     label4:
+        $i10 = $i12 + $i9;
+
+        $i6 = $i11 + $i9;
+
+        $i9 = $i9 + $i13;
+
+        goto label7;
+
+     label5:
+        $i9 = $i6 - $i10;
+
+        $i9 = $i9 - $i14;
+
+        $i10 = $i12 + $i9;
+
+        $i6 = $i11 + $i9;
+
+        $i9 = $i9 + $i13;
+
+        goto label7;
+
+     label6:
+        $i9 = $i6 - $i9;
+
+        $i9 = $i9 - $i10;
+
+        $i9 = $i9 - $i14;
+
+        $i9 = $i9 / 2;
+
+        $i10 = $i12 + $i9;
+
+        $i6 = $i11 + $i9;
+
+        $i9 = $i9 + $i13;
+
+     label7:
+        $r3 = r0.mCurrText;
+
+        $i12 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i12 = $i12 + $i6;
+
+        virtualinvoke $r3.layout($i5, $i6, $i4, $i12);
+
+        $i6 = r0.mScaledTextSpacing;
+
+        $i5 = $i5 - $i6;
+
+        $i5 = $i5 - $i3;
+
+        $i7 = java.lang.Math.min($i7, $i5);
+
+        $r3 = r0.mPrevText;
+
+        $i3 = $i3 + $i7;
+
+        $i5 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i5 = $i5 + $i10;
+
+        virtualinvoke $r3.layout($i7, $i10, $i3, $i5);
+
+        $i2 = $i2 - $i8;
+
+        $i2 = $i2 - $i1;
+
+        $i8 = r0.mScaledTextSpacing;
+
+        $i8 = $i4 + $i8;
+
+        $i2 = java.lang.Math.max($i2, $i8);
+
+        $r3 = r0.mNextText;
+
+        $i1 = $i2 + $i1;
+
+        $i8 = virtualinvoke $r3.getMeasuredHeight();
+
+        $i8 = $i8 + $i9;
+
+        virtualinvoke $r3.layout($i2, $i9, $i1, $i8);
+
+        r0.mLastKnownPositionOffset = $f0;
+
+        r0.mUpdatingPositions = 0;
+
+        return;
+    }
+}

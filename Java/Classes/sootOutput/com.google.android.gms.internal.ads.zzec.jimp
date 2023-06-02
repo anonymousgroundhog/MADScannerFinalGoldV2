@@ -1,0 +1,14 @@
+final class com.google.android.gms.internal.ads.zzec extends java.lang.Object implements com.google.android.gms.internal.ads.zzed
+{
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzec r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

@@ -1,0 +1,15 @@
+final class com.google.android.gms.common.ProGuardCanary extends java.lang.Object
+{
+    static final java.lang.String CANARY;
+
+    private void <init>()
+    {
+        com.google.android.gms.common.ProGuardCanary r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

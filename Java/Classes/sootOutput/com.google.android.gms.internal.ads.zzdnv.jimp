@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzdnv extends java.lang.Object
+{
+    private static final com.google.android.gms.internal.ads.zzdnw zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdnw $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdnw;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdnv.zza = $r0;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzdnw zza()
+    {
+        com.google.android.gms.internal.ads.zzdnw r0;
+
+        r0 = com.google.android.gms.internal.ads.zzdnv.zza;
+
+        return r0;
+    }
+}

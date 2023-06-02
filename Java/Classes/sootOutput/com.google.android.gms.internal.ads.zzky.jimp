@@ -1,0 +1,385 @@
+final class com.google.android.gms.internal.ads.zzky extends java.lang.Object
+{
+    private final android.content.Context zza;
+    private final android.os.Handler zzb;
+    private final com.google.android.gms.internal.ads.zzku zzc;
+    private final android.media.AudioManager zzd;
+    private com.google.android.gms.internal.ads.zzkx zze;
+    private int zzf;
+    private int zzg;
+    private boolean zzh;
+
+    public void <init>(android.content.Context, android.os.Handler, com.google.android.gms.internal.ads.zzku)
+    {
+        android.content.Context $r1;
+        android.content.IntentFilter $r7;
+        java.lang.RuntimeException $r8;
+        android.media.AudioManager $r5;
+        com.google.android.gms.internal.ads.zzkx $r6;
+        com.google.android.gms.internal.ads.zzky r0;
+        android.os.Handler $r2;
+        com.google.android.gms.internal.ads.zzku $r3;
+        int $i0;
+        java.lang.Object $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        specialinvoke r0.<init>();
+
+        $r1 = virtualinvoke $r1.getApplicationContext();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        $r4 = virtualinvoke $r1.getSystemService("audio");
+
+        $r5 = (android.media.AudioManager) $r4;
+
+        com.google.android.gms.internal.ads.zzdl.zzb($r5);
+
+        r0.zzd = $r5;
+
+        r0.zzf = 3;
+
+        $i0 = com.google.android.gms.internal.ads.zzky.zzg($r5, 3);
+
+        r0.zzg = $i0;
+
+        $i0 = r0.zzf;
+
+        $z0 = com.google.android.gms.internal.ads.zzky.zzi($r5, $i0);
+
+        r0.zzh = $z0;
+
+        $r6 = new com.google.android.gms.internal.ads.zzkx;
+
+        specialinvoke $r6.<init>(r0, null);
+
+        $r7 = new android.content.IntentFilter;
+
+        specialinvoke $r7.<init>("android.media.VOLUME_CHANGED_ACTION");
+
+     label1:
+        com.google.android.gms.internal.ads.zzew.zzA($r1, $r6, $r7);
+
+        r0.zze = $r6;
+
+     label2:
+        return;
+
+     label3:
+        $r8 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzee.zzf("StreamVolumeManager", "Error registering stream volume receiver", $r8);
+
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    static volatile android.os.Handler zzc(com.google.android.gms.internal.ads.zzky)
+    {
+        com.google.android.gms.internal.ads.zzky $r0;
+        android.os.Handler r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile void zzd(com.google.android.gms.internal.ads.zzky)
+    {
+        com.google.android.gms.internal.ads.zzky $r0;
+
+        $r0 := @parameter0;
+
+        specialinvoke $r0.zzh();
+
+        return;
+    }
+
+    private static int zzg(android.media.AudioManager, int)
+    {
+        int $i0, $i1;
+        java.lang.StringBuilder $r2;
+        java.lang.RuntimeException $r0;
+        java.lang.String $r3;
+        android.media.AudioManager $r1;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+     label1:
+        $i1 = virtualinvoke $r1.getStreamVolume($i0);
+
+     label2:
+        return $i1;
+
+     label3:
+        $r0 := @caughtexception;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<init>();
+
+        virtualinvoke $r2.append("Could not retrieve stream volume for stream type ");
+
+        virtualinvoke $r2.append($i0);
+
+        $r3 = virtualinvoke $r2.toString();
+
+        com.google.android.gms.internal.ads.zzee.zzf("StreamVolumeManager", $r3, $r0);
+
+        $i0 = virtualinvoke $r1.getStreamMaxVolume($i0);
+
+        return $i0;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    private final void zzh()
+    {
+        com.google.android.gms.internal.ads.zzeb $r6;
+        com.google.android.gms.internal.ads.zzjc $r5;
+        android.media.AudioManager $r2;
+        com.google.android.gms.internal.ads.zziy $r4;
+        com.google.android.gms.internal.ads.zzky r0;
+        com.google.android.gms.internal.ads.zzit $r1;
+        com.google.android.gms.internal.ads.zzku $r3;
+        int $i0, $i1;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r2 = r0.zzd;
+
+        $i0 = r0.zzf;
+
+        $i0 = com.google.android.gms.internal.ads.zzky.zzg($r2, $i0);
+
+        $r2 = r0.zzd;
+
+        $i1 = r0.zzf;
+
+        $z0 = com.google.android.gms.internal.ads.zzky.zzi($r2, $i1);
+
+        $i1 = r0.zzg;
+
+        if $i1 != $i0 goto label2;
+
+        $z1 = r0.zzh;
+
+        if $z1 == $z0 goto label1;
+
+        goto label2;
+
+     label1:
+        return;
+
+     label2:
+        r0.zzg = $i0;
+
+        r0.zzh = $z0;
+
+        $r3 = r0.zzc;
+
+        $r4 = (com.google.android.gms.internal.ads.zziy) $r3;
+
+        $r5 = $r4.zza;
+
+        $r6 = com.google.android.gms.internal.ads.zzjc.zzI($r5);
+
+        $r1 = new com.google.android.gms.internal.ads.zzit;
+
+        specialinvoke $r1.<init>($i0, $z0);
+
+        virtualinvoke $r6.zzd(30, $r1);
+
+        virtualinvoke $r6.zzc();
+
+        return;
+    }
+
+    private static boolean zzi(android.media.AudioManager, int)
+    {
+        int $i0, $i1;
+        android.media.AudioManager $r0;
+        boolean $z0;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i1 < 23 goto label1;
+
+        $z0 = virtualinvoke $r0.isStreamMute($i0);
+
+        return $z0;
+
+     label1:
+        $i0 = com.google.android.gms.internal.ads.zzky.zzg($r0, $i0);
+
+        if $i0 != 0 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public final int zza()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzky r0;
+        android.media.AudioManager $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzd;
+
+        $i0 = r0.zzf;
+
+        $i0 = virtualinvoke $r1.getStreamMaxVolume($i0);
+
+        return $i0;
+    }
+
+    public final int zzb()
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzky r0;
+        android.media.AudioManager $r1;
+
+        r0 := @this;
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 28 goto label1;
+
+        $r1 = r0.zzd;
+
+        $i0 = r0.zzf;
+
+        $i0 = virtualinvoke $r1.getStreamMinVolume($i0);
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public final void zze()
+    {
+        android.content.Context $r2;
+        com.google.android.gms.internal.ads.zzkx $r1;
+        com.google.android.gms.internal.ads.zzky r0;
+        java.lang.RuntimeException $r3;
+
+        r0 := @this;
+
+        $r1 = r0.zze;
+
+        if $r1 == null goto label5;
+
+     label1:
+        $r2 = r0.zza;
+
+        virtualinvoke $r2.unregisterReceiver($r1);
+
+     label2:
+        goto label4;
+
+     label3:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzee.zzf("StreamVolumeManager", "Error unregistering stream volume receiver", $r3);
+
+     label4:
+        r0.zze = null;
+
+     label5:
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    public final void zzf(int)
+    {
+        com.google.android.gms.internal.ads.zzeb $r6;
+        com.google.android.gms.internal.ads.zzt $r4, $r5;
+        com.google.android.gms.internal.ads.zzjc $r3;
+        com.google.android.gms.internal.ads.zziy $r2;
+        com.google.android.gms.internal.ads.zzky r0;
+        com.google.android.gms.internal.ads.zziu $r7;
+        com.google.android.gms.internal.ads.zzku $r1;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i0 = r0.zzf;
+
+        if $i0 != 3 goto label1;
+
+        return;
+
+     label1:
+        r0.zzf = 3;
+
+        specialinvoke r0.zzh();
+
+        $r1 = r0.zzc;
+
+        $r2 = (com.google.android.gms.internal.ads.zziy) $r1;
+
+        $r3 = $r2.zza;
+
+        r0 = com.google.android.gms.internal.ads.zzjc.zzK($r3);
+
+        $r4 = com.google.android.gms.internal.ads.zzjc.zzH(r0);
+
+        $r3 = $r2.zza;
+
+        $r5 = com.google.android.gms.internal.ads.zzjc.zzG($r3);
+
+        $z0 = virtualinvoke $r4.equals($r5);
+
+        if $z0 != 0 goto label2;
+
+        $r3 = $r2.zza;
+
+        com.google.android.gms.internal.ads.zzjc.zzP($r3, $r4);
+
+        $r3 = $r2.zza;
+
+        $r6 = com.google.android.gms.internal.ads.zzjc.zzI($r3);
+
+        $r7 = new com.google.android.gms.internal.ads.zziu;
+
+        specialinvoke $r7.<init>($r4);
+
+        virtualinvoke $r6.zzd(29, $r7);
+
+        virtualinvoke $r6.zzc();
+
+     label2:
+        return;
+    }
+}

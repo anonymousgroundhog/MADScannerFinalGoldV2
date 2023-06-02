@@ -1,0 +1,52 @@
+public final class com.google.android.gms.internal.ads.zzi extends java.lang.Object
+{
+    public final android.media.AudioAttributes zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzk, com.google.android.gms.internal.ads.zzh)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzh $r2;
+        android.media.AudioAttributes$Builder $r3;
+        android.media.AudioAttributes $r4;
+        com.google.android.gms.internal.ads.zzi r0;
+        com.google.android.gms.internal.ads.zzk $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new android.media.AudioAttributes$Builder;
+
+        specialinvoke $r3.<init>();
+
+        $r3 = virtualinvoke $r3.setContentType(0);
+
+        $r3 = virtualinvoke $r3.setFlags(0);
+
+        $r3 = virtualinvoke $r3.setUsage(1);
+
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 29 goto label1;
+
+        com.google.android.gms.internal.ads.zzf.zza($r3, 1);
+
+     label1:
+        $i0 = com.google.android.gms.internal.ads.zzew.zza;
+
+        if $i0 < 32 goto label2;
+
+        com.google.android.gms.internal.ads.zzg.zza($r3, 0);
+
+     label2:
+        $r4 = virtualinvoke $r3.build();
+
+        r0.zza = $r4;
+
+        return;
+    }
+}

@@ -1,0 +1,95 @@
+abstract class com.google.android.gms.internal.ads.zzfre extends java.util.AbstractMap
+{
+    private transient java.util.Set zza;
+    private transient java.util.Set zzb;
+    private transient java.util.Collection zzc;
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfre r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final java.util.Set entrySet()
+    {
+        com.google.android.gms.internal.ads.zzfre r0;
+        java.util.Set $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        if $r1 != null goto label1;
+
+        $r1 = virtualinvoke r0.zzb();
+
+        r0.zza = $r1;
+
+     label1:
+        return $r1;
+    }
+
+    public java.util.Set keySet()
+    {
+        com.google.android.gms.internal.ads.zzfre r0;
+        java.util.Set $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzb;
+
+        if $r1 != null goto label1;
+
+        $r1 = virtualinvoke r0.zze();
+
+        r0.zzb = $r1;
+
+     label1:
+        return $r1;
+    }
+
+    public final java.util.Collection values()
+    {
+        com.google.android.gms.internal.ads.zzfre r0;
+        com.google.android.gms.internal.ads.zzfrd $r2;
+        java.util.Collection $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzc;
+
+        if $r1 != null goto label1;
+
+        $r2 = new com.google.android.gms.internal.ads.zzfrd;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.zzc = $r2;
+
+        return $r2;
+
+     label1:
+        return $r1;
+    }
+
+    abstract java.util.Set zzb();
+
+    java.util.Set zze()
+    {
+        com.google.android.gms.internal.ads.zzfre r0;
+        com.google.android.gms.internal.ads.zzfrc $r1;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfrc;
+
+        specialinvoke $r1.<init>(r0);
+
+        return $r1;
+    }
+}

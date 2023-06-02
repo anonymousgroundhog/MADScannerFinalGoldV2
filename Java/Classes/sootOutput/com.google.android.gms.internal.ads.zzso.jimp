@@ -1,0 +1,44 @@
+public final class com.google.android.gms.internal.ads.zzso extends java.lang.Object
+{
+    public final int zza;
+    public final com.google.android.gms.internal.ads.zzaf zzb;
+    public final long zzc;
+    public final long zzd;
+
+    public void <init>(int, int, com.google.android.gms.internal.ads.zzaf, int, java.lang.Object, long, long)
+    {
+        com.google.android.gms.internal.ads.zzso r0;
+        com.google.android.gms.internal.ads.zzaf $r1;
+        long $l3, $l4;
+        int $i0, $i1, $i2;
+        java.lang.Object $r2;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i2 := @parameter3;
+
+        $r2 := @parameter4;
+
+        $l3 := @parameter5;
+
+        $l4 := @parameter6;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i1;
+
+        r0.zzb = $r1;
+
+        r0.zzc = $l3;
+
+        r0.zzd = $l4;
+
+        return;
+    }
+}

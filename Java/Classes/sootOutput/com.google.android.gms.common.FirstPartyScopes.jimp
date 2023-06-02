@@ -1,0 +1,15 @@
+public class com.google.android.gms.common.FirstPartyScopes extends java.lang.Object
+{
+    public static final java.lang.String GAMES_1P;
+
+    private void <init>()
+    {
+        com.google.android.gms.common.FirstPartyScopes r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

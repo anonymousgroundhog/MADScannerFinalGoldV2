@@ -1,0 +1,113 @@
+public final class com.google.android.gms.ads.internal.client.zzs extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public final int zza;
+    public final int zzb;
+    public final java.lang.String zzc;
+    public final long zzd;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.ads.internal.client.zzt $r0;
+
+        $r0 = new com.google.android.gms.ads.internal.client.zzt;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.ads.internal.client.zzs.CREATOR = $r0;
+
+        return;
+    }
+
+    public void <init>(int, int, java.lang.String, long)
+    {
+        com.google.android.gms.ads.internal.client.zzs r0;
+        int $i0, $i1;
+        long $l2;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $i1 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $l2 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $i0;
+
+        r0.zzb = $i1;
+
+        r0.zzc = $r1;
+
+        r0.zzd = $l2;
+
+        return;
+    }
+
+    public static com.google.android.gms.ads.internal.client.zzs zza(org.json.JSONObject) throws org.json.JSONException
+    {
+        org.json.JSONObject $r0;
+        com.google.android.gms.ads.internal.client.zzs $r2;
+        int $i0, $i1;
+        long $l2;
+        java.lang.String $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.getInt("type_num");
+
+        $i1 = virtualinvoke $r0.getInt("precision_num");
+
+        $r1 = virtualinvoke $r0.getString("currency");
+
+        $l2 = virtualinvoke $r0.getLong("value");
+
+        $r2 = new com.google.android.gms.ads.internal.client.zzs;
+
+        specialinvoke $r2.<init>($i0, $i1, $r1, $l2);
+
+        return $r2;
+    }
+
+    public final void writeToParcel(android.os.Parcel, int)
+    {
+        com.google.android.gms.ads.internal.client.zzs r0;
+        int $i0, $i1;
+        long $l2;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i0 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $i1 = r0.zza;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1, $i1);
+
+        $i1 = r0.zzb;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 2, $i1);
+
+        $r2 = r0.zzc;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 3, $r2, 0);
+
+        $l2 = r0.zzd;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeLong($r1, 4, $l2);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i0);
+
+        return;
+    }
+}

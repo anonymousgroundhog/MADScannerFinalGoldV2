@@ -1,0 +1,43 @@
+public class androidx.room.RoomMasterTable extends java.lang.Object
+{
+    private static final java.lang.String COLUMN_ID;
+    private static final java.lang.String COLUMN_IDENTITY_HASH;
+    public static final java.lang.String CREATE_QUERY;
+    public static final java.lang.String DEFAULT_ID;
+    public static final java.lang.String NAME;
+    public static final java.lang.String READ_QUERY;
+    public static final java.lang.String TABLE_NAME;
+
+    private void <init>()
+    {
+        androidx.room.RoomMasterTable r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static java.lang.String createInsertQuery(java.lang.String)
+    {
+        java.lang.StringBuilder $r1;
+        java.lang.String $r0;
+
+        $r0 := @parameter0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \'");
+
+        $r1 = virtualinvoke $r1.append($r0);
+
+        $r1 = virtualinvoke $r1.append("\')");
+
+        $r0 = virtualinvoke $r1.toString();
+
+        return $r0;
+    }
+}

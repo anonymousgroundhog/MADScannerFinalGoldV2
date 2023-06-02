@@ -1,0 +1,143 @@
+abstract class androidx.arch.core.internal.SafeIterableMap$ListIterator extends java.lang.Object implements java.util.Iterator, androidx.arch.core.internal.SafeIterableMap$SupportRemove
+{
+    androidx.arch.core.internal.SafeIterableMap$Entry mExpectedEnd;
+    androidx.arch.core.internal.SafeIterableMap$Entry mNext;
+
+    void <init>(androidx.arch.core.internal.SafeIterableMap$Entry, androidx.arch.core.internal.SafeIterableMap$Entry)
+    {
+        androidx.arch.core.internal.SafeIterableMap$Entry r1, r2;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.mExpectedEnd = r2;
+
+        r0.mNext = r1;
+
+        return;
+    }
+
+    private androidx.arch.core.internal.SafeIterableMap$Entry nextNode()
+    {
+        androidx.arch.core.internal.SafeIterableMap$Entry $r1, $r2;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        $r2 = r0.mNext;
+
+        $r1 = r0.mExpectedEnd;
+
+        if $r2 == $r1 goto label2;
+
+        if $r1 != null goto label1;
+
+        goto label2;
+
+     label1:
+        $r1 = virtualinvoke r0.forward($r2);
+
+        return $r1;
+
+     label2:
+        return null;
+    }
+
+    abstract androidx.arch.core.internal.SafeIterableMap$Entry backward(androidx.arch.core.internal.SafeIterableMap$Entry);
+
+    abstract androidx.arch.core.internal.SafeIterableMap$Entry forward(androidx.arch.core.internal.SafeIterableMap$Entry);
+
+    public boolean hasNext()
+    {
+        androidx.arch.core.internal.SafeIterableMap$Entry $r1;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        $r1 = r0.mNext;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public volatile java.lang.Object next()
+    {
+        java.util.Map$Entry $r1;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.next();
+
+        return $r1;
+    }
+
+    public java.util.Map$Entry next()
+    {
+        androidx.arch.core.internal.SafeIterableMap$Entry $r1, r2;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        r2 = r0.mNext;
+
+        $r1 = specialinvoke r0.nextNode();
+
+        r0.mNext = $r1;
+
+        return r2;
+    }
+
+    public void supportRemove(androidx.arch.core.internal.SafeIterableMap$Entry)
+    {
+        androidx.arch.core.internal.SafeIterableMap$Entry r1, $r2;
+        androidx.arch.core.internal.SafeIterableMap$ListIterator r0;
+
+        r0 := @this;
+
+        r1 := @parameter0;
+
+        $r2 = r0.mExpectedEnd;
+
+        if $r2 != r1 goto label1;
+
+        $r2 = r0.mNext;
+
+        if r1 != $r2 goto label1;
+
+        r0.mNext = null;
+
+        r0.mExpectedEnd = null;
+
+     label1:
+        $r2 = r0.mExpectedEnd;
+
+        if $r2 != r1 goto label2;
+
+        $r2 = virtualinvoke r0.backward($r2);
+
+        r0.mExpectedEnd = $r2;
+
+     label2:
+        $r2 = r0.mNext;
+
+        if $r2 != r1 goto label3;
+
+        r1 = specialinvoke r0.nextNode();
+
+        r0.mNext = r1;
+
+     label3:
+        return;
+    }
+}

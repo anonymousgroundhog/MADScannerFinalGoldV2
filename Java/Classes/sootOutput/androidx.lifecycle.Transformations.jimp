@@ -1,0 +1,83 @@
+public class androidx.lifecycle.Transformations extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.lifecycle.Transformations r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static androidx.lifecycle.LiveData distinctUntilChanged(androidx.lifecycle.LiveData)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.MediatorLiveData r1;
+        androidx.lifecycle.Transformations$3 $r2;
+
+        r0 := @parameter0;
+
+        r1 = new androidx.lifecycle.MediatorLiveData;
+
+        specialinvoke r1.<init>();
+
+        $r2 = new androidx.lifecycle.Transformations$3;
+
+        specialinvoke $r2.<init>(r1);
+
+        virtualinvoke r1.addSource(r0, $r2);
+
+        return r1;
+    }
+
+    public static androidx.lifecycle.LiveData map(androidx.lifecycle.LiveData, androidx.arch.core.util.Function)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.Transformations$1 $r3;
+        androidx.arch.core.util.Function r1;
+        androidx.lifecycle.MediatorLiveData r2;
+
+        r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        r2 = new androidx.lifecycle.MediatorLiveData;
+
+        specialinvoke r2.<init>();
+
+        $r3 = new androidx.lifecycle.Transformations$1;
+
+        specialinvoke $r3.<init>(r2, r1);
+
+        virtualinvoke r2.addSource(r0, $r3);
+
+        return r2;
+    }
+
+    public static androidx.lifecycle.LiveData switchMap(androidx.lifecycle.LiveData, androidx.arch.core.util.Function)
+    {
+        androidx.lifecycle.LiveData r0;
+        androidx.lifecycle.Transformations$2 $r3;
+        androidx.arch.core.util.Function r1;
+        androidx.lifecycle.MediatorLiveData r2;
+
+        r0 := @parameter0;
+
+        r1 := @parameter1;
+
+        r2 = new androidx.lifecycle.MediatorLiveData;
+
+        specialinvoke r2.<init>();
+
+        $r3 = new androidx.lifecycle.Transformations$2;
+
+        specialinvoke $r3.<init>(r1, r2);
+
+        virtualinvoke r2.addSource(r0, $r3);
+
+        return r2;
+    }
+}

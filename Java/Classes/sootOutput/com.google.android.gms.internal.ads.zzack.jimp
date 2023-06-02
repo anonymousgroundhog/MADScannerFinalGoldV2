@@ -1,0 +1,26 @@
+final class com.google.android.gms.internal.ads.zzack extends java.lang.Object
+{
+    public final long zza;
+    public final java.util.List zzb;
+
+    public void <init>(long, java.util.List)
+    {
+        com.google.android.gms.internal.ads.zzack r0;
+        long $l0;
+        java.util.List $r1;
+
+        r0 := @this;
+
+        $l0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $l0;
+
+        r0.zzb = $r1;
+
+        return;
+    }
+}

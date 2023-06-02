@@ -1,0 +1,179 @@
+final class com.google.android.gms.ads.internal.client.zzaa extends com.google.android.gms.ads.internal.client.zzax
+{
+    final android.app.Activity zza;
+    final com.google.android.gms.ads.internal.client.zzaw zzb;
+
+    void <init>(com.google.android.gms.ads.internal.client.zzaw, android.app.Activity)
+    {
+        com.google.android.gms.ads.internal.client.zzaa r0;
+        android.app.Activity $r2;
+        com.google.android.gms.ads.internal.client.zzaw $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        r0.zzb = $r1;
+
+        r0.zza = $r2;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    protected final volatile java.lang.Object zza()
+    {
+        com.google.android.gms.ads.internal.client.zzaa r0;
+        android.app.Activity $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.ads.internal.client.zzaw.zzt($r1, "ad_overlay");
+
+        return null;
+    }
+
+    public final volatile java.lang.Object zzb(com.google.android.gms.ads.internal.client.zzce) throws android.os.RemoteException
+    {
+        com.google.android.gms.ads.internal.client.zzaa r0;
+        com.google.android.gms.dynamic.IObjectWrapper $r3;
+        com.google.android.gms.ads.internal.client.zzce $r1;
+        com.google.android.gms.internal.ads.zzbrc $r4;
+        android.app.Activity $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zza;
+
+        $r3 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+        $r4 = interfaceinvoke $r1.zzm($r3);
+
+        return $r4;
+    }
+
+    public final volatile java.lang.Object zzc() throws android.os.RemoteException
+    {
+        com.google.android.gms.ads.internal.client.zzaa r0;
+        com.google.android.gms.dynamic.IObjectWrapper $r7;
+        android.content.Context $r13;
+        com.google.android.gms.internal.ads.zzbsh $r14;
+        android.os.IBinder $r9;
+        java.lang.Boolean $r6;
+        com.google.android.gms.ads.internal.client.zzz $r1;
+        boolean $z0;
+        java.lang.Exception $r11;
+        com.google.android.gms.internal.ads.zzbap $r4;
+        com.google.android.gms.internal.ads.zzbrf $r8;
+        com.google.android.gms.ads.internal.client.zzaw $r12;
+        com.google.android.gms.internal.ads.zzbrc $r10;
+        java.lang.Object $r5;
+        android.app.Activity $r2;
+        com.google.android.gms.internal.ads.zzbaj $r3;
+        com.google.android.gms.internal.ads.zzbqz $r15;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        com.google.android.gms.internal.ads.zzbar.zzc($r2);
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzjb;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r5 = virtualinvoke $r4.zzb($r3);
+
+        $r6 = (java.lang.Boolean) $r5;
+
+        $z0 = virtualinvoke $r6.booleanValue();
+
+        if $z0 == 0 goto label13;
+
+     label01:
+        $r2 = r0.zza;
+
+     label02:
+        $r7 = com.google.android.gms.dynamic.ObjectWrapper.wrap($r2);
+
+     label03:
+        $r2 = r0.zza;
+
+     label04:
+        $r1 = com.google.android.gms.ads.internal.client.zzz.zza;
+
+     label05:
+        $r5 = com.google.android.gms.internal.ads.zzbze.zzb($r2, "com.google.android.gms.ads.ChimeraAdOverlayCreatorImpl", $r1);
+
+     label06:
+        $r8 = (com.google.android.gms.internal.ads.zzbrf) $r5;
+
+     label07:
+        $r9 = interfaceinvoke $r8.zze($r7);
+
+        $r10 = com.google.android.gms.internal.ads.zzbrb.zzF($r9);
+
+     label08:
+        return $r10;
+
+     label09:
+        $r11 := @caughtexception;
+
+        goto label12;
+
+     label10:
+        $r11 := @caughtexception;
+
+        goto label12;
+
+     label11:
+        $r11 := @caughtexception;
+
+     label12:
+        $r12 = r0.zzb;
+
+        $r2 = r0.zza;
+
+        $r13 = virtualinvoke $r2.getApplicationContext();
+
+        $r14 = com.google.android.gms.internal.ads.zzbsf.zza($r13);
+
+        com.google.android.gms.ads.internal.client.zzaw.zzs($r12, $r14);
+
+        $r12 = r0.zzb;
+
+        $r14 = com.google.android.gms.ads.internal.client.zzaw.zzp($r12);
+
+        interfaceinvoke $r14.zzf($r11, "ClientApiBroker.createAdOverlay");
+
+        return null;
+
+     label13:
+        $r12 = r0.zzb;
+
+        $r15 = com.google.android.gms.ads.internal.client.zzaw.zzn($r12);
+
+        $r2 = r0.zza;
+
+        $r10 = virtualinvoke $r15.zza($r2);
+
+        return $r10;
+
+        catch com.google.android.gms.internal.ads.zzbzd from label02 to label03 with label11;
+        catch com.google.android.gms.internal.ads.zzbzd from label05 to label06 with label11;
+        catch com.google.android.gms.internal.ads.zzbzd from label07 to label08 with label11;
+        catch android.os.RemoteException from label02 to label03 with label10;
+        catch android.os.RemoteException from label05 to label06 with label10;
+        catch android.os.RemoteException from label07 to label08 with label10;
+        catch java.lang.NullPointerException from label01 to label04 with label09;
+        catch java.lang.NullPointerException from label05 to label06 with label09;
+        catch java.lang.NullPointerException from label07 to label08 with label09;
+    }
+}

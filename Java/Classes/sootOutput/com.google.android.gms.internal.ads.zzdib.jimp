@@ -1,0 +1,53 @@
+public final class com.google.android.gms.internal.ads.zzdib extends java.lang.Object implements com.google.android.gms.internal.ads.zzbhp
+{
+    public static final com.google.android.gms.internal.ads.zzdib zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzdib $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzdib;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzdib.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdib r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final void zza(java.lang.Object, java.util.Map)
+    {
+        java.util.Map $r3;
+        android.view.View $r1;
+        java.lang.Object $r2;
+        com.google.android.gms.internal.ads.zzcei $r4;
+        com.google.android.gms.internal.ads.zzdib r0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r4 = (com.google.android.gms.internal.ads.zzcei) $r2;
+
+        com.google.android.gms.internal.ads.zzbza.zze("Show native ad policy validator overlay.");
+
+        $r1 = interfaceinvoke $r4.zzF();
+
+        virtualinvoke $r1.setVisibility(0);
+
+        return;
+    }
+}

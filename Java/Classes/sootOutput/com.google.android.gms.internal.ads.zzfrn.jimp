@@ -1,0 +1,45 @@
+public class com.google.android.gms.internal.ads.zzfrn extends java.lang.Object
+{
+
+    void <init>(com.google.android.gms.internal.ads.zzfrh)
+    {
+        com.google.android.gms.internal.ads.zzfrn r0;
+        com.google.android.gms.internal.ads.zzfrh $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public static com.google.android.gms.internal.ads.zzfrm zzb(int)
+    {
+        int $i0;
+        com.google.android.gms.internal.ads.zzfrh $r0;
+
+        $i0 := @parameter0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfrh;
+
+        specialinvoke $r0.<init>(8);
+
+        return $r0;
+    }
+
+    public static com.google.android.gms.internal.ads.zzfrm zzc(java.util.Comparator)
+    {
+        java.util.Comparator $r0;
+        com.google.android.gms.internal.ads.zzfri $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = new com.google.android.gms.internal.ads.zzfri;
+
+        specialinvoke $r1.<init>($r0);
+
+        return $r1;
+    }
+}

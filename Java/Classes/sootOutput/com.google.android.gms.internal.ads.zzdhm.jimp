@@ -1,0 +1,231 @@
+public final class com.google.android.gms.internal.ads.zzdhm extends java.lang.Object implements android.view.View$OnClickListener
+{
+    java.lang.String zza;
+    java.lang.Long zzb;
+    java.lang.ref.WeakReference zzc;
+    private final com.google.android.gms.internal.ads.zzdlf zzd;
+    private final com.google.android.gms.common.util.Clock zze;
+    private com.google.android.gms.internal.ads.zzbfr zzf;
+    private com.google.android.gms.internal.ads.zzbhp zzg;
+
+    public void <init>(com.google.android.gms.internal.ads.zzdlf, com.google.android.gms.common.util.Clock)
+    {
+        com.google.android.gms.internal.ads.zzdhm r0;
+        com.google.android.gms.common.util.Clock $r2;
+        com.google.android.gms.internal.ads.zzdlf $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zzd = $r1;
+
+        r0.zze = $r2;
+
+        return;
+    }
+
+    private final void zzd()
+    {
+        com.google.android.gms.internal.ads.zzdhm r0;
+        android.view.View $r3;
+        java.lang.Object $r1;
+        java.lang.ref.WeakReference $r2;
+
+        r0 := @this;
+
+        r0.zza = null;
+
+        r0.zzb = null;
+
+        $r2 = r0.zzc;
+
+        if $r2 != null goto label1;
+
+        return;
+
+     label1:
+        $r1 = virtualinvoke $r2.get();
+
+        $r3 = (android.view.View) $r1;
+
+        if $r3 != null goto label2;
+
+        return;
+
+     label2:
+        virtualinvoke $r3.setClickable(0);
+
+        virtualinvoke $r3.setOnClickListener(null);
+
+        r0.zzc = null;
+
+        return;
+    }
+
+    public final void onClick(android.view.View)
+    {
+        com.google.android.gms.common.util.Clock $r7;
+        java.util.HashMap $r6;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzdlf $r8;
+        java.lang.Long $r5;
+        com.google.android.gms.internal.ads.zzdhm r0;
+        android.view.View $r1;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        java.lang.ref.WeakReference $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzc;
+
+        if $r2 == null goto label3;
+
+        $r3 = virtualinvoke $r2.get();
+
+        if $r3 == $r1 goto label1;
+
+        return;
+
+     label1:
+        $r4 = r0.zza;
+
+        if $r4 == null goto label2;
+
+        $r5 = r0.zzb;
+
+        if $r5 == null goto label2;
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<init>();
+
+        $r4 = r0.zza;
+
+        interfaceinvoke $r6.put("id", $r4);
+
+        $r7 = r0.zze;
+
+        $l0 = interfaceinvoke $r7.currentTimeMillis();
+
+        $r5 = r0.zzb;
+
+        $l1 = virtualinvoke $r5.longValue();
+
+        $l0 = $l0 - $l1;
+
+        $r4 = java.lang.String.valueOf($l0);
+
+        interfaceinvoke $r6.put("time_interval", $r4);
+
+        interfaceinvoke $r6.put("messageType", "onePointFiveClick");
+
+        $r8 = r0.zzd;
+
+        virtualinvoke $r8.zzg("sendMessageToNativeJs", $r6);
+
+     label2:
+        specialinvoke r0.zzd();
+
+     label3:
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzbfr zza()
+    {
+        com.google.android.gms.internal.ads.zzdhm r0;
+        com.google.android.gms.internal.ads.zzbfr r1;
+
+        r0 := @this;
+
+        r1 = r0.zzf;
+
+        return r1;
+    }
+
+    public final void zzb()
+    {
+        java.lang.Long $r2;
+        com.google.android.gms.internal.ads.zzdhm r0;
+        android.os.RemoteException $r3;
+        com.google.android.gms.internal.ads.zzbfr $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zzf;
+
+        if $r1 != null goto label1;
+
+        return;
+
+     label1:
+        $r2 = r0.zzb;
+
+        if $r2 != null goto label2;
+
+        return;
+
+     label2:
+        specialinvoke r0.zzd();
+
+        $r1 = r0.zzf;
+
+     label3:
+        interfaceinvoke $r1.zze();
+
+     label4:
+        return;
+
+     label5:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzl("#007 Could not call remote method.", $r3);
+
+        return;
+
+        catch android.os.RemoteException from label3 to label4 with label5;
+    }
+
+    public final void zzc(com.google.android.gms.internal.ads.zzbfr)
+    {
+        com.google.android.gms.internal.ads.zzbhp $r3;
+        com.google.android.gms.internal.ads.zzdhm r0;
+        com.google.android.gms.internal.ads.zzdhl $r4;
+        com.google.android.gms.internal.ads.zzdlf $r1;
+        com.google.android.gms.internal.ads.zzbfr $r2;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        r0.zzf = $r2;
+
+        $r3 = r0.zzg;
+
+        if $r3 == null goto label1;
+
+        $r1 = r0.zzd;
+
+        virtualinvoke $r1.zzk("/unconfirmedClick", $r3);
+
+     label1:
+        $r4 = new com.google.android.gms.internal.ads.zzdhl;
+
+        specialinvoke $r4.<init>(r0, $r2);
+
+        r0.zzg = $r4;
+
+        $r1 = r0.zzd;
+
+        virtualinvoke $r1.zzi("/unconfirmedClick", $r4);
+
+        return;
+    }
+}

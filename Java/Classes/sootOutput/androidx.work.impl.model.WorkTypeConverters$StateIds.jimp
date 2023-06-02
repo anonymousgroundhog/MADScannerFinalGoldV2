@@ -1,0 +1,10 @@
+public interface  androidx.work.impl.model.WorkTypeConverters$StateIds extends java.lang.Object
+{
+    public static final int BLOCKED;
+    public static final int CANCELLED;
+    public static final java.lang.String COMPLETED_STATES;
+    public static final int ENQUEUED;
+    public static final int FAILED;
+    public static final int RUNNING;
+    public static final int SUCCEEDED;
+}

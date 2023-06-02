@@ -1,0 +1,29 @@
+final class com.google.android.gms.internal.ads.zzgwi extends com.google.android.gms.internal.ads.zzgwf
+{
+
+    void <init>(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzgwi r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>("eof ");
+
+        return;
+    }
+
+    protected final void zzf(java.nio.ByteBuffer)
+    {
+        com.google.android.gms.internal.ads.zzgwi r0;
+        java.nio.ByteBuffer $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+}

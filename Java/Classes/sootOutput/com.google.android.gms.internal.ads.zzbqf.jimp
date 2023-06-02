@@ -1,0 +1,321 @@
+public class com.google.android.gms.internal.ads.zzbqf extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzcei zza;
+    private final java.lang.String zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzcei, java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzbqf r0;
+        com.google.android.gms.internal.ads.zzcei $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final void zzf(int, int, int, int)
+    {
+        com.google.android.gms.internal.ads.zzbqf r0;
+        org.json.JSONException $r3;
+        org.json.JSONObject $r1;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzcei $r2;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $i2 := @parameter1;
+
+        $i3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $r1 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.put("x", $i1);
+
+        $r1 = virtualinvoke $r1.put("y", $i2);
+
+        $r1 = virtualinvoke $r1.put("width", $i3);
+
+        $r1 = virtualinvoke $r1.put("height", $i0);
+
+     label2:
+        $r2 = r0.zza;
+
+     label3:
+        interfaceinvoke $r2.zze("onDefaultPositionReceived", $r1);
+
+     label4:
+        return;
+
+     label5:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while dispatching default position.", $r3);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label5;
+        catch org.json.JSONException from label3 to label4 with label5;
+    }
+
+    public final void zzg(java.lang.String)
+    {
+        org.json.JSONException $r4;
+        org.json.JSONObject $r2;
+        com.google.android.gms.internal.ads.zzbqf r0;
+        java.lang.String $r1;
+        com.google.android.gms.internal.ads.zzcei $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r2.<init>();
+
+        $r2 = virtualinvoke $r2.put("message", $r1);
+
+     label2:
+        $r1 = r0.zzb;
+
+     label3:
+        $r2 = virtualinvoke $r2.put("action", $r1);
+
+     label4:
+        $r3 = r0.zza;
+
+        if $r3 == null goto label8;
+
+     label5:
+        interfaceinvoke $r3.zze("onError", $r2);
+
+     label6:
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while dispatching error event.", $r4);
+
+     label8:
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label7;
+        catch org.json.JSONException from label3 to label4 with label7;
+        catch org.json.JSONException from label5 to label6 with label7;
+    }
+
+    public final void zzh(java.lang.String)
+    {
+        org.json.JSONException $r4;
+        org.json.JSONObject $r1;
+        com.google.android.gms.internal.ads.zzbqf r0;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzcei $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.put("js", $r2);
+
+     label2:
+        $r3 = r0.zza;
+
+     label3:
+        interfaceinvoke $r3.zze("onReadyEventReceived", $r1);
+
+     label4:
+        return;
+
+     label5:
+        $r4 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while dispatching ready Event.", $r4);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label5;
+        catch org.json.JSONException from label3 to label4 with label5;
+    }
+
+    public final void zzi(int, int, int, int, float, int)
+    {
+        com.google.android.gms.internal.ads.zzbqf r0;
+        org.json.JSONException $r3;
+        org.json.JSONObject $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+        float $f0;
+        com.google.android.gms.internal.ads.zzcei $r2;
+        double $d0;
+
+        r0 := @this;
+
+        $i2 := @parameter0;
+
+        $i3 := @parameter1;
+
+        $i4 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $f0 := @parameter4;
+
+        $i1 := @parameter5;
+
+        $r1 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.put("width", $i2);
+
+        $r1 = virtualinvoke $r1.put("height", $i3);
+
+        $r1 = virtualinvoke $r1.put("maxSizeWidth", $i4);
+
+        $r1 = virtualinvoke $r1.put("maxSizeHeight", $i0);
+
+     label2:
+        $d0 = (double) $f0;
+
+     label3:
+        $r1 = virtualinvoke $r1.put("density", $d0);
+
+        $r1 = virtualinvoke $r1.put("rotation", $i1);
+
+     label4:
+        $r2 = r0.zza;
+
+     label5:
+        interfaceinvoke $r2.zze("onScreenInfoChanged", $r1);
+
+     label6:
+        return;
+
+     label7:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while obtaining screen information.", $r3);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label7;
+        catch org.json.JSONException from label3 to label4 with label7;
+        catch org.json.JSONException from label5 to label6 with label7;
+    }
+
+    public final void zzj(int, int, int, int)
+    {
+        com.google.android.gms.internal.ads.zzbqf r0;
+        org.json.JSONException $r3;
+        org.json.JSONObject $r1;
+        int $i0, $i1, $i2, $i3;
+        com.google.android.gms.internal.ads.zzcei $r2;
+
+        r0 := @this;
+
+        $i1 := @parameter0;
+
+        $i2 := @parameter1;
+
+        $i3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $r1 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.put("x", $i1);
+
+        $r1 = virtualinvoke $r1.put("y", $i2);
+
+        $r1 = virtualinvoke $r1.put("width", $i3);
+
+        $r1 = virtualinvoke $r1.put("height", $i0);
+
+     label2:
+        $r2 = r0.zza;
+
+     label3:
+        interfaceinvoke $r2.zze("onSizeChanged", $r1);
+
+     label4:
+        return;
+
+     label5:
+        $r3 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while dispatching size change.", $r3);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label5;
+        catch org.json.JSONException from label3 to label4 with label5;
+    }
+
+    public final void zzk(java.lang.String)
+    {
+        org.json.JSONException $r4;
+        org.json.JSONObject $r1;
+        com.google.android.gms.internal.ads.zzbqf r0;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzcei $r3;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new org.json.JSONObject;
+
+     label1:
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.put("state", $r2);
+
+     label2:
+        $r3 = r0.zza;
+
+     label3:
+        interfaceinvoke $r3.zze("onStateChanged", $r1);
+
+     label4:
+        return;
+
+     label5:
+        $r4 := @caughtexception;
+
+        com.google.android.gms.internal.ads.zzbza.zzh("Error occurred while dispatching state change.", $r4);
+
+        return;
+
+        catch org.json.JSONException from label1 to label2 with label5;
+        catch org.json.JSONException from label3 to label4 with label5;
+    }
+}

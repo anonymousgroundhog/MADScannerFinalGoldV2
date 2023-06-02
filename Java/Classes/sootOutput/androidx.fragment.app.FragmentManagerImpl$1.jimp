@@ -1,0 +1,37 @@
+class androidx.fragment.app.FragmentManagerImpl$1 extends androidx.activity.OnBackPressedCallback
+{
+    final androidx.fragment.app.FragmentManagerImpl this$0;
+
+    void <init>(androidx.fragment.app.FragmentManagerImpl, boolean)
+    {
+        androidx.fragment.app.FragmentManagerImpl$1 r0;
+        androidx.fragment.app.FragmentManagerImpl $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        r0.this$0 = $r1;
+
+        specialinvoke r0.<init>($z0);
+
+        return;
+    }
+
+    public void handleOnBackPressed()
+    {
+        androidx.fragment.app.FragmentManagerImpl$1 r0;
+        androidx.fragment.app.FragmentManagerImpl $r1;
+
+        r0 := @this;
+
+        $r1 = r0.this$0;
+
+        virtualinvoke $r1.handleOnBackPressed();
+
+        return;
+    }
+}

@@ -1,0 +1,28 @@
+public final class com.google.android.gms.internal.ads.zzfls extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzfls zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzfls $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfls;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfls.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfls r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

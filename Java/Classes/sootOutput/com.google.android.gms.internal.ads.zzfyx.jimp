@@ -1,0 +1,28 @@
+public final class com.google.android.gms.internal.ads.zzfyx extends java.lang.Object implements com.google.android.gms.internal.ads.zzgdl
+{
+    public static final com.google.android.gms.internal.ads.zzfyx zza;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzfyx $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzfyx;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzfyx.zza = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.ads.zzfyx r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+}

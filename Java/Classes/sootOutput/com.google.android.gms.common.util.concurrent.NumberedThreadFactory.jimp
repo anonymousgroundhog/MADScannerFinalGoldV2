@@ -1,0 +1,89 @@
+public class com.google.android.gms.common.util.concurrent.NumberedThreadFactory extends java.lang.Object implements java.util.concurrent.ThreadFactory
+{
+    private final java.lang.String zza;
+    private final java.util.concurrent.atomic.AtomicInteger zzb;
+    private final java.util.concurrent.ThreadFactory zzc;
+
+    public void <init>(java.lang.String)
+    {
+        com.google.android.gms.common.util.concurrent.NumberedThreadFactory r0;
+        java.util.concurrent.atomic.AtomicInteger $r3;
+        java.lang.String $r1;
+        java.util.concurrent.ThreadFactory $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r3 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r3.<init>();
+
+        r0.zzb = $r3;
+
+        $r2 = java.util.concurrent.Executors.defaultThreadFactory();
+
+        r0.zzc = $r2;
+
+        com.google.android.gms.common.internal.Preconditions.checkNotNull($r1, "Name must not be null");
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Thread newThread(java.lang.Runnable)
+    {
+        com.google.android.gms.common.util.concurrent.NumberedThreadFactory r0;
+        java.lang.Runnable $r1;
+        java.util.concurrent.atomic.AtomicInteger $r6;
+        java.lang.Thread $r4;
+        int $i0, $i1;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r5;
+        java.util.concurrent.ThreadFactory $r2;
+        com.google.android.gms.common.util.concurrent.zza $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = r0.zzc;
+
+        $r3 = new com.google.android.gms.common.util.concurrent.zza;
+
+        specialinvoke $r3.<init>($r1, 0);
+
+        $r4 = interfaceinvoke $r2.newThread($r3);
+
+        $r5 = r0.zza;
+
+        $r6 = r0.zzb;
+
+        $i0 = virtualinvoke $r6.getAndIncrement();
+
+        $r7 = new java.lang.StringBuilder;
+
+        $i1 = virtualinvoke $r5.length();
+
+        $i1 = $i1 + 13;
+
+        specialinvoke $r7.<init>($i1);
+
+        virtualinvoke $r7.append($r5);
+
+        virtualinvoke $r7.append("[");
+
+        virtualinvoke $r7.append($i0);
+
+        virtualinvoke $r7.append("]");
+
+        $r5 = virtualinvoke $r7.toString();
+
+        virtualinvoke $r4.setName($r5);
+
+        return $r4;
+    }
+}

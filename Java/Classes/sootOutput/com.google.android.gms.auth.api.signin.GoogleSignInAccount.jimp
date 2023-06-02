@@ -1,0 +1,951 @@
+public class com.google.android.gms.auth.api.signin.GoogleSignInAccount extends com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable implements com.google.android.gms.common.internal.ReflectedParcelable
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    public static com.google.android.gms.common.util.Clock zaa;
+    final int zab;
+    java.util.List zac;
+    private java.lang.String zad;
+    private java.lang.String zae;
+    private java.lang.String zaf;
+    private java.lang.String zag;
+    private android.net.Uri zah;
+    private java.lang.String zai;
+    private long zaj;
+    private java.lang.String zak;
+    private java.lang.String zal;
+    private java.lang.String zam;
+    private java.util.Set zan;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.common.util.Clock $r0;
+        com.google.android.gms.auth.api.signin.zab $r1;
+
+        $r1 = new com.google.android.gms.auth.api.signin.zab;
+
+        specialinvoke $r1.<init>();
+
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount.CREATOR = $r1;
+
+        $r0 = com.google.android.gms.common.util.DefaultClock.getInstance();
+
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount.zaa = $r0;
+
+        return;
+    }
+
+    void <init>(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, android.net.Uri, java.lang.String, long, java.lang.String, java.util.List, java.lang.String, java.lang.String)
+    {
+        android.net.Uri $r5;
+        long $l1;
+        java.util.HashSet $r11;
+        java.util.List $r8;
+        int $i0;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String $r1, $r2, $r3, $r4, $r6, $r7, $r9, $r10;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 := @parameter4;
+
+        $r5 := @parameter5;
+
+        $r6 := @parameter6;
+
+        $l1 := @parameter7;
+
+        $r7 := @parameter8;
+
+        $r8 := @parameter9;
+
+        $r9 := @parameter10;
+
+        $r10 := @parameter11;
+
+        specialinvoke r0.<init>();
+
+        $r11 = new java.util.HashSet;
+
+        specialinvoke $r11.<init>();
+
+        r0.zan = $r11;
+
+        r0.zab = $i0;
+
+        r0.zad = $r1;
+
+        r0.zae = $r2;
+
+        r0.zaf = $r3;
+
+        r0.zag = $r4;
+
+        r0.zah = $r5;
+
+        r0.zai = $r6;
+
+        r0.zaj = $l1;
+
+        r0.zak = $r7;
+
+        r0.zac = $r8;
+
+        r0.zal = $r9;
+
+        r0.zam = $r10;
+
+        return;
+    }
+
+    public static com.google.android.gms.auth.api.signin.GoogleSignInAccount createDefault()
+    {
+        java.util.HashSet $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount $r0;
+        android.accounts.Account $r1;
+
+        $r1 = new android.accounts.Account;
+
+        specialinvoke $r1.<init>("<<default account>>", "com.google");
+
+        $r2 = new java.util.HashSet;
+
+        specialinvoke $r2.<init>();
+
+        $r0 = com.google.android.gms.auth.api.signin.GoogleSignInAccount.zae($r1, $r2);
+
+        return $r0;
+    }
+
+    public static com.google.android.gms.auth.api.signin.GoogleSignInAccount fromAccount(android.accounts.Account)
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount $r1;
+        androidx.collection.ArraySet $r0;
+        android.accounts.Account $r2;
+
+        $r2 := @parameter0;
+
+        $r0 = new androidx.collection.ArraySet;
+
+        specialinvoke $r0.<init>();
+
+        $r1 = com.google.android.gms.auth.api.signin.GoogleSignInAccount.zae($r2, $r0);
+
+        return $r1;
+    }
+
+    public static com.google.android.gms.auth.api.signin.GoogleSignInAccount zaa(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, android.net.Uri, java.lang.Long, java.lang.String, java.util.Set)
+    {
+        java.util.Collection $r13;
+        android.net.Uri $r6;
+        java.util.Set $r9;
+        long $l0;
+        java.util.ArrayList $r10;
+        java.lang.Long $r7;
+        java.lang.Object $r12;
+        java.lang.String $r0, $r1, $r2, $r3, $r4, $r5, $r8;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount $r11;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 := @parameter3;
+
+        $r4 := @parameter4;
+
+        $r5 := @parameter5;
+
+        $r6 := @parameter6;
+
+        $r7 := @parameter7;
+
+        $r8 := @parameter8;
+
+        $r9 := @parameter9;
+
+        $r11 = new com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
+        $l0 = virtualinvoke $r7.longValue();
+
+        $r8 = com.google.android.gms.common.internal.Preconditions.checkNotEmpty($r8);
+
+        $r10 = new java.util.ArrayList;
+
+        $r12 = com.google.android.gms.common.internal.Preconditions.checkNotNull($r9);
+
+        $r13 = (java.util.Collection) $r12;
+
+        specialinvoke $r10.<init>($r13);
+
+        specialinvoke $r11.<init>(3, $r0, $r1, $r2, $r3, $r6, null, $l0, $r8, $r10, $r4, $r5);
+
+        return $r11;
+    }
+
+    public static com.google.android.gms.auth.api.signin.GoogleSignInAccount zab(java.lang.String) throws org.json.JSONException
+    {
+        com.google.android.gms.common.api.Scope $r6;
+        android.net.Uri $r4;
+        long $l0;
+        java.util.HashSet $r0;
+        org.json.JSONObject $r3;
+        java.lang.Long $r12;
+        int $i1, $i2;
+        java.lang.String $r1, $r2, $r7, $r8, $r9, $r10, $r11, $r13;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount $r14;
+        boolean $z0;
+        org.json.JSONArray $r5;
+
+        $r1 := @parameter0;
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        $r2 = null;
+
+        if $z0 == 0 goto label01;
+
+        return null;
+
+     label01:
+        $r3 = new org.json.JSONObject;
+
+        specialinvoke $r3.<init>($r1);
+
+        $r1 = virtualinvoke $r3.optString("photoUrl");
+
+        $z0 = android.text.TextUtils.isEmpty($r1);
+
+        if $z0 != 0 goto label02;
+
+        $r4 = android.net.Uri.parse($r1);
+
+        goto label03;
+
+     label02:
+        $r4 = null;
+
+     label03:
+        $r1 = virtualinvoke $r3.getString("expirationTime");
+
+        $l0 = java.lang.Long.parseLong($r1);
+
+        $r0 = new java.util.HashSet;
+
+        specialinvoke $r0.<init>();
+
+        $r5 = virtualinvoke $r3.getJSONArray("grantedScopes");
+
+        $i1 = virtualinvoke $r5.length();
+
+        $i2 = 0;
+
+     label04:
+        if $i2 >= $i1 goto label05;
+
+        $r6 = new com.google.android.gms.common.api.Scope;
+
+        $r1 = virtualinvoke $r5.getString($i2);
+
+        specialinvoke $r6.<init>($r1);
+
+        interfaceinvoke $r0.add($r6);
+
+        $i2 = $i2 + 1;
+
+        goto label04;
+
+     label05:
+        $r1 = virtualinvoke $r3.optString("id");
+
+        $z0 = virtualinvoke $r3.has("tokenId");
+
+        if $z0 == 0 goto label06;
+
+        $r7 = virtualinvoke $r3.optString("tokenId");
+
+        goto label07;
+
+     label06:
+        $r7 = null;
+
+     label07:
+        $z0 = virtualinvoke $r3.has("email");
+
+        if $z0 == 0 goto label08;
+
+        $r8 = virtualinvoke $r3.optString("email");
+
+        goto label09;
+
+     label08:
+        $r8 = null;
+
+     label09:
+        $z0 = virtualinvoke $r3.has("displayName");
+
+        if $z0 == 0 goto label10;
+
+        $r9 = virtualinvoke $r3.optString("displayName");
+
+        goto label11;
+
+     label10:
+        $r9 = null;
+
+     label11:
+        $z0 = virtualinvoke $r3.has("givenName");
+
+        if $z0 == 0 goto label12;
+
+        $r10 = virtualinvoke $r3.optString("givenName");
+
+        goto label13;
+
+     label12:
+        $r10 = null;
+
+     label13:
+        $z0 = virtualinvoke $r3.has("familyName");
+
+        if $z0 == 0 goto label14;
+
+        $r11 = virtualinvoke $r3.optString("familyName");
+
+        goto label15;
+
+     label14:
+        $r11 = null;
+
+     label15:
+        $r12 = java.lang.Long.valueOf($l0);
+
+        $r13 = virtualinvoke $r3.getString("obfuscatedIdentifier");
+
+        $r14 = com.google.android.gms.auth.api.signin.GoogleSignInAccount.zaa($r1, $r7, $r8, $r9, $r10, $r11, $r4, $r12, $r13, $r0);
+
+        $z0 = virtualinvoke $r3.has("serverAuthCode");
+
+        if $z0 == 0 goto label16;
+
+        $r2 = virtualinvoke $r3.optString("serverAuthCode");
+
+     label16:
+        $r14.zai = $r2;
+
+        return $r14;
+    }
+
+    private static com.google.android.gms.auth.api.signin.GoogleSignInAccount zae(android.accounts.Account, java.util.Set)
+    {
+        java.lang.Long $r4;
+        android.accounts.Account $r3;
+        java.util.Set $r0;
+        java.lang.String $r1, $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount $r5;
+
+        $r3 := @parameter0;
+
+        $r0 := @parameter1;
+
+        $r1 = $r3.name;
+
+        $r4 = java.lang.Long.valueOf(0L);
+
+        $r2 = $r3.name;
+
+        $r5 = com.google.android.gms.auth.api.signin.GoogleSignInAccount.zaa(null, null, $r1, null, null, null, null, $r4, $r2, $r0);
+
+        return $r5;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.util.Set $r5, $r6;
+        java.lang.Object $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0, $r3;
+        java.lang.String $r1, $r4;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        if $r2 != null goto label1;
+
+        return 0;
+
+     label1:
+        if $r2 != r0 goto label2;
+
+        return 1;
+
+     label2:
+        $z0 = $r2 instanceof com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
+        if $z0 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $r3 = (com.google.android.gms.auth.api.signin.GoogleSignInAccount) $r2;
+
+        $r4 = $r3.zak;
+
+        $r1 = r0.zak;
+
+        $z0 = virtualinvoke $r4.equals($r1);
+
+        if $z0 == 0 goto label4;
+
+        $r5 = virtualinvoke $r3.getRequestedScopes();
+
+        $r6 = virtualinvoke r0.getRequestedScopes();
+
+        $z0 = interfaceinvoke $r5.equals($r6);
+
+        if $z0 == 0 goto label4;
+
+        return 1;
+
+     label4:
+        return 0;
+    }
+
+    public android.accounts.Account getAccount()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String $r2;
+        android.accounts.Account $r1;
+
+        r0 := @this;
+
+        $r2 = r0.zaf;
+
+        if $r2 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = new android.accounts.Account;
+
+        specialinvoke $r1.<init>($r2, "com.google");
+
+        return $r1;
+    }
+
+    public java.lang.String getDisplayName()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zag;
+
+        return r1;
+    }
+
+    public java.lang.String getEmail()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zaf;
+
+        return r1;
+    }
+
+    public java.lang.String getFamilyName()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zam;
+
+        return r1;
+    }
+
+    public java.lang.String getGivenName()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zal;
+
+        return r1;
+    }
+
+    public java.util.Set getGrantedScopes()
+    {
+        java.util.HashSet $r1;
+        java.util.List $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashSet;
+
+        $r2 = r0.zac;
+
+        specialinvoke $r1.<init>($r2);
+
+        return $r1;
+    }
+
+    public java.lang.String getId()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zad;
+
+        return r1;
+    }
+
+    public java.lang.String getIdToken()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zae;
+
+        return r1;
+    }
+
+    public android.net.Uri getPhotoUrl()
+    {
+        android.net.Uri r1;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+
+        r0 := @this;
+
+        r1 = r0.zah;
+
+        return r1;
+    }
+
+    public java.util.Set getRequestedScopes()
+    {
+        java.util.HashSet $r1;
+        java.util.List $r2;
+        java.util.Set $r3;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+
+        r0 := @this;
+
+        $r1 = new java.util.HashSet;
+
+        $r2 = r0.zac;
+
+        specialinvoke $r1.<init>($r2);
+
+        $r3 = r0.zan;
+
+        interfaceinvoke $r1.addAll($r3);
+
+        return $r1;
+    }
+
+    public java.lang.String getServerAuthCode()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zai;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        int $i0, $i1;
+        java.util.Set $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zak;
+
+        $i0 = virtualinvoke $r1.hashCode();
+
+        $i0 = $i0 + 527;
+
+        $i0 = $i0 * 31;
+
+        $r2 = virtualinvoke r0.getRequestedScopes();
+
+        $i1 = interfaceinvoke $r2.hashCode();
+
+        $i0 = $i0 + $i1;
+
+        return $i0;
+    }
+
+    public boolean isExpired()
+    {
+        com.google.android.gms.common.util.Clock $r1;
+        byte $b2;
+        int $i3;
+        long $l0, $l1;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+
+        r0 := @this;
+
+        $r1 = com.google.android.gms.auth.api.signin.GoogleSignInAccount.zaa;
+
+        $l0 = interfaceinvoke $r1.currentTimeMillis();
+
+        $l0 = $l0 / 1000L;
+
+        $l1 = r0.zaj;
+
+        $l1 = $l1 + -300L;
+
+        $b2 = $l0 cmp $l1;
+
+        $i3 = (int) $b2;
+
+        if $i3 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public transient com.google.android.gms.auth.api.signin.GoogleSignInAccount requestExtraScopes(com.google.android.gms.common.api.Scope[])
+    {
+        java.util.Set $r2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        com.google.android.gms.common.api.Scope[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $r2 = r0.zan;
+
+        java.util.Collections.addAll($r2, $r1);
+
+     label1:
+        return r0;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        android.net.Uri $r3;
+        long $l3;
+        android.os.Parcel $r1;
+        java.util.List $r4;
+        int $i0, $i1, $i2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.beginObjectHeader($r1);
+
+        $i2 = r0.zab;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeInt($r1, 1, $i2);
+
+        $r2 = virtualinvoke r0.getId();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 2, $r2, 0);
+
+        $r2 = virtualinvoke r0.getIdToken();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 3, $r2, 0);
+
+        $r2 = virtualinvoke r0.getEmail();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 4, $r2, 0);
+
+        $r2 = virtualinvoke r0.getDisplayName();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 5, $r2, 0);
+
+        $r3 = virtualinvoke r0.getPhotoUrl();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeParcelable($r1, 6, $r3, $i0, 0);
+
+        $r2 = virtualinvoke r0.getServerAuthCode();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 7, $r2, 0);
+
+        $l3 = r0.zaj;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeLong($r1, 8, $l3);
+
+        $r2 = r0.zak;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 9, $r2, 0);
+
+        $r4 = r0.zac;
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeTypedList($r1, 10, $r4, 0);
+
+        $r2 = virtualinvoke r0.getGivenName();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 11, $r2, 0);
+
+        $r2 = virtualinvoke r0.getFamilyName();
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.writeString($r1, 12, $r2, 0);
+
+        com.google.android.gms.common.internal.safeparcel.SafeParcelWriter.finishObjectHeader($r1, $i1);
+
+        return;
+    }
+
+    public final java.lang.String zac()
+    {
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.zak;
+
+        return r1;
+    }
+
+    public final java.lang.String zad()
+    {
+        com.google.android.gms.common.api.Scope $r9;
+        java.lang.Object[] $r7;
+        android.net.Uri $r3;
+        long $l0;
+        java.lang.RuntimeException $r11;
+        java.util.List $r5;
+        org.json.JSONException $r10;
+        org.json.JSONObject $r1;
+        com.google.android.gms.common.api.Scope[] $r6;
+        int $i1, $i2;
+        com.google.android.gms.auth.api.signin.GoogleSignInAccount r0;
+        java.lang.String $r2;
+        com.google.android.gms.auth.api.signin.zaa $r8;
+        org.json.JSONArray $r4;
+
+        r0 := @this;
+
+        $r1 = new org.json.JSONObject;
+
+        specialinvoke $r1.<init>();
+
+     label01:
+        $r2 = virtualinvoke r0.getId();
+
+     label02:
+        if $r2 == null goto label04;
+
+     label03:
+        $r2 = virtualinvoke r0.getId();
+
+        virtualinvoke $r1.put("id", $r2);
+
+     label04:
+        $r2 = virtualinvoke r0.getIdToken();
+
+     label05:
+        if $r2 == null goto label07;
+
+     label06:
+        $r2 = virtualinvoke r0.getIdToken();
+
+        virtualinvoke $r1.put("tokenId", $r2);
+
+     label07:
+        $r2 = virtualinvoke r0.getEmail();
+
+     label08:
+        if $r2 == null goto label10;
+
+     label09:
+        $r2 = virtualinvoke r0.getEmail();
+
+        virtualinvoke $r1.put("email", $r2);
+
+     label10:
+        $r2 = virtualinvoke r0.getDisplayName();
+
+     label11:
+        if $r2 == null goto label13;
+
+     label12:
+        $r2 = virtualinvoke r0.getDisplayName();
+
+        virtualinvoke $r1.put("displayName", $r2);
+
+     label13:
+        $r2 = virtualinvoke r0.getGivenName();
+
+     label14:
+        if $r2 == null goto label16;
+
+     label15:
+        $r2 = virtualinvoke r0.getGivenName();
+
+        virtualinvoke $r1.put("givenName", $r2);
+
+     label16:
+        $r2 = virtualinvoke r0.getFamilyName();
+
+     label17:
+        if $r2 == null goto label19;
+
+     label18:
+        $r2 = virtualinvoke r0.getFamilyName();
+
+        virtualinvoke $r1.put("familyName", $r2);
+
+     label19:
+        $r3 = virtualinvoke r0.getPhotoUrl();
+
+     label20:
+        if $r3 == null goto label22;
+
+     label21:
+        $r2 = virtualinvoke $r3.toString();
+
+        virtualinvoke $r1.put("photoUrl", $r2);
+
+     label22:
+        $r2 = virtualinvoke r0.getServerAuthCode();
+
+     label23:
+        if $r2 == null goto label25;
+
+     label24:
+        $r2 = virtualinvoke r0.getServerAuthCode();
+
+        virtualinvoke $r1.put("serverAuthCode", $r2);
+
+     label25:
+        $l0 = r0.zaj;
+
+     label26:
+        virtualinvoke $r1.put("expirationTime", $l0);
+
+     label27:
+        $r2 = r0.zak;
+
+     label28:
+        virtualinvoke $r1.put("obfuscatedIdentifier", $r2);
+
+     label29:
+        $r4 = new org.json.JSONArray;
+
+     label30:
+        specialinvoke $r4.<init>();
+
+     label31:
+        $r5 = r0.zac;
+
+     label32:
+        $i1 = interfaceinvoke $r5.size();
+
+     label33:
+        $r6 = newarray (com.google.android.gms.common.api.Scope)[$i1];
+
+     label34:
+        $r7 = interfaceinvoke $r5.toArray($r6);
+
+     label35:
+        $r6 = (com.google.android.gms.common.api.Scope[]) $r7;
+
+        $r8 = com.google.android.gms.auth.api.signin.zaa.zaa;
+
+     label36:
+        java.util.Arrays.sort($r6, $r8);
+
+     label37:
+        $i1 = lengthof $r6;
+
+        $i2 = 0;
+
+     label38:
+        if $i2 >= $i1 goto label41;
+
+        $r9 = $r6[$i2];
+
+     label39:
+        $r2 = virtualinvoke $r9.getScopeUri();
+
+        virtualinvoke $r4.put($r2);
+
+     label40:
+        $i2 = $i2 + 1;
+
+        goto label38;
+
+     label41:
+        virtualinvoke $r1.put("grantedScopes", $r4);
+
+     label42:
+        virtualinvoke $r1.remove("serverAuthCode");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+
+     label43:
+        $r10 := @caughtexception;
+
+        $r11 = new java.lang.RuntimeException;
+
+        specialinvoke $r11.<init>($r10);
+
+        goto label44;
+
+     label44:
+        throw $r11;
+
+        catch org.json.JSONException from label01 to label02 with label43;
+        catch org.json.JSONException from label03 to label05 with label43;
+        catch org.json.JSONException from label06 to label08 with label43;
+        catch org.json.JSONException from label09 to label11 with label43;
+        catch org.json.JSONException from label12 to label14 with label43;
+        catch org.json.JSONException from label15 to label17 with label43;
+        catch org.json.JSONException from label18 to label20 with label43;
+        catch org.json.JSONException from label21 to label23 with label43;
+        catch org.json.JSONException from label24 to label25 with label43;
+        catch org.json.JSONException from label26 to label27 with label43;
+        catch org.json.JSONException from label28 to label29 with label43;
+        catch org.json.JSONException from label30 to label31 with label43;
+        catch org.json.JSONException from label32 to label33 with label43;
+        catch org.json.JSONException from label34 to label35 with label43;
+        catch org.json.JSONException from label36 to label37 with label43;
+        catch org.json.JSONException from label39 to label40 with label43;
+        catch org.json.JSONException from label41 to label42 with label43;
+    }
+}

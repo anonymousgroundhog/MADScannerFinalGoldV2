@@ -1,0 +1,40 @@
+public final class com.google.android.gms.internal.ads.zzerx extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final com.google.android.gms.internal.ads.zzery zza;
+
+    public void <init>(com.google.android.gms.internal.ads.zzery)
+    {
+        com.google.android.gms.internal.ads.zzery $r1;
+        com.google.android.gms.internal.ads.zzerx r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        java.util.List $r3;
+        com.google.android.gms.internal.ads.zzerz $r1;
+        com.google.android.gms.internal.ads.zzery $r2;
+        com.google.android.gms.internal.ads.zzerx r0;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r1 = new com.google.android.gms.internal.ads.zzerz;
+
+        $r3 = $r2.zzb;
+
+        specialinvoke $r1.<init>($r3);
+
+        return $r1;
+    }
+}

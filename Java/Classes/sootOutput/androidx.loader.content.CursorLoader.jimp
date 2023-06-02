@@ -1,0 +1,655 @@
+public class androidx.loader.content.CursorLoader extends androidx.loader.content.AsyncTaskLoader
+{
+    androidx.core.os.CancellationSignal mCancellationSignal;
+    android.database.Cursor mCursor;
+    final androidx.loader.content.Loader$ForceLoadContentObserver mObserver;
+    java.lang.String[] mProjection;
+    java.lang.String mSelection;
+    java.lang.String[] mSelectionArgs;
+    java.lang.String mSortOrder;
+    android.net.Uri mUri;
+
+    public void <init>(android.content.Context)
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.content.Context $r1;
+        androidx.loader.content.Loader$ForceLoadContentObserver $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $r2 = new androidx.loader.content.Loader$ForceLoadContentObserver;
+
+        specialinvoke $r2.<init>(r0);
+
+        r0.mObserver = $r2;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.content.Context $r1;
+        android.net.Uri $r2;
+        java.lang.String[] $r3, $r5;
+        androidx.loader.content.Loader$ForceLoadContentObserver $r7;
+        java.lang.String $r4, $r6;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        $r5 := @parameter4;
+
+        $r6 := @parameter5;
+
+        specialinvoke r0.<init>($r1);
+
+        $r7 = new androidx.loader.content.Loader$ForceLoadContentObserver;
+
+        specialinvoke $r7.<init>(r0);
+
+        r0.mObserver = $r7;
+
+        r0.mUri = $r2;
+
+        r0.mProjection = $r3;
+
+        r0.mSelection = $r4;
+
+        r0.mSelectionArgs = $r5;
+
+        r0.mSortOrder = $r6;
+
+        return;
+    }
+
+    public void cancelLoadInBackground()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.Throwable $r2;
+        androidx.core.os.CancellationSignal $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.cancelLoadInBackground();
+
+        entermonitor r0;
+
+     label1:
+        $r1 = r0.mCancellationSignal;
+
+        if $r1 == null goto label2;
+
+        virtualinvoke $r1.cancel();
+
+     label2:
+        exitmonitor r0;
+
+     label3:
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+        exitmonitor r0;
+
+     label5:
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public void deliverResult(android.database.Cursor)
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.database.Cursor $r1, r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke r0.isReset();
+
+        if $z0 == 0 goto label1;
+
+        if $r1 == null goto label3;
+
+        interfaceinvoke $r1.close();
+
+        return;
+
+     label1:
+        r2 = r0.mCursor;
+
+        r0.mCursor = $r1;
+
+        $z0 = virtualinvoke r0.isStarted();
+
+        if $z0 == 0 goto label2;
+
+        specialinvoke r0.deliverResult($r1);
+
+     label2:
+        if r2 == null goto label3;
+
+        if r2 == $r1 goto label3;
+
+        $z0 = interfaceinvoke r2.isClosed();
+
+        if $z0 != 0 goto label3;
+
+        interfaceinvoke r2.close();
+
+     label3:
+        return;
+    }
+
+    public volatile void deliverResult(java.lang.Object)
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.Object $r1;
+        android.database.Cursor $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.database.Cursor) $r1;
+
+        virtualinvoke r0.deliverResult($r2);
+
+        return;
+    }
+
+    public void dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[])
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.io.PrintWriter $r3;
+        android.net.Uri $r5;
+        java.lang.String[] $r4;
+        java.io.FileDescriptor $r2;
+        java.lang.String $r1, $r6;
+        android.database.Cursor $r7;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.dump($r1, $r2, $r3, $r4);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mUri=");
+
+        $r5 = r0.mUri;
+
+        virtualinvoke $r3.println($r5);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mProjection=");
+
+        $r4 = r0.mProjection;
+
+        $r6 = java.util.Arrays.toString($r4);
+
+        virtualinvoke $r3.println($r6);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mSelection=");
+
+        $r6 = r0.mSelection;
+
+        virtualinvoke $r3.println($r6);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mSelectionArgs=");
+
+        $r4 = r0.mSelectionArgs;
+
+        $r6 = java.util.Arrays.toString($r4);
+
+        virtualinvoke $r3.println($r6);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mSortOrder=");
+
+        $r6 = r0.mSortOrder;
+
+        virtualinvoke $r3.println($r6);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mCursor=");
+
+        $r7 = r0.mCursor;
+
+        virtualinvoke $r3.println($r7);
+
+        virtualinvoke $r3.print($r1);
+
+        virtualinvoke $r3.print("mContentChanged=");
+
+        $z0 = r0.mContentChanged;
+
+        virtualinvoke $r3.println($z0);
+
+        return;
+    }
+
+    public java.lang.String[] getProjection()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String[] r1;
+
+        r0 := @this;
+
+        r1 = r0.mProjection;
+
+        return r1;
+    }
+
+    public java.lang.String getSelection()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.mSelection;
+
+        return r1;
+    }
+
+    public java.lang.String[] getSelectionArgs()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String[] r1;
+
+        r0 := @this;
+
+        r1 = r0.mSelectionArgs;
+
+        return r1;
+    }
+
+    public java.lang.String getSortOrder()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String r1;
+
+        r0 := @this;
+
+        r1 = r0.mSortOrder;
+
+        return r1;
+    }
+
+    public android.net.Uri getUri()
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.net.Uri r1;
+
+        r0 := @this;
+
+        r1 = r0.mUri;
+
+        return r1;
+    }
+
+    public android.database.Cursor loadInBackground()
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.Throwable $r12, r13, $r14, $r16;
+        android.content.Context $r7;
+        android.net.Uri $r1;
+        java.lang.String[] $r2, $r4;
+        android.content.ContentResolver $r8;
+        androidx.loader.content.Loader$ForceLoadContentObserver r10;
+        java.lang.String $r3, $r5;
+        boolean $z0;
+        android.database.Cursor $r9;
+        androidx.core.os.OperationCanceledException $r15;
+        androidx.core.os.CancellationSignal $r6;
+        java.lang.RuntimeException r11;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label01:
+        $z0 = virtualinvoke r0.isLoadInBackgroundCanceled();
+
+        if $z0 != 0 goto label19;
+
+        $r6 = new androidx.core.os.CancellationSignal;
+
+        specialinvoke $r6.<init>();
+
+        r0.mCancellationSignal = $r6;
+
+        exitmonitor r0;
+
+     label02:
+        $r7 = virtualinvoke r0.getContext();
+
+        $r8 = virtualinvoke $r7.getContentResolver();
+
+        $r1 = r0.mUri;
+
+        $r2 = r0.mProjection;
+
+        $r3 = r0.mSelection;
+
+        $r4 = r0.mSelectionArgs;
+
+        $r5 = r0.mSortOrder;
+
+        $r6 = r0.mCancellationSignal;
+
+        $r9 = androidx.core.content.ContentResolverCompat.query($r8, $r1, $r2, $r3, $r4, $r5, $r6);
+
+     label03:
+        if $r9 == null goto label08;
+
+     label04:
+        interfaceinvoke $r9.getCount();
+
+        r10 = r0.mObserver;
+
+        interfaceinvoke $r9.registerContentObserver(r10);
+
+     label05:
+        goto label08;
+
+     label06:
+        r11 := @caughtexception;
+
+     label07:
+        interfaceinvoke $r9.close();
+
+        throw r11;
+
+     label08:
+        entermonitor r0;
+
+     label09:
+        r0.mCancellationSignal = null;
+
+        exitmonitor r0;
+
+     label10:
+        return $r9;
+
+     label11:
+        $r12 := @caughtexception;
+
+        exitmonitor r0;
+
+     label12:
+        throw $r12;
+
+     label13:
+        r13 := @caughtexception;
+
+        entermonitor r0;
+
+     label14:
+        r0.mCancellationSignal = null;
+
+        exitmonitor r0;
+
+     label15:
+        throw r13;
+
+     label16:
+        $r14 := @caughtexception;
+
+     label17:
+        exitmonitor r0;
+
+     label18:
+        throw $r14;
+
+     label19:
+        $r15 = new androidx.core.os.OperationCanceledException;
+
+        specialinvoke $r15.<init>();
+
+        throw $r15;
+
+     label20:
+        $r16 := @caughtexception;
+
+        exitmonitor r0;
+
+     label21:
+        throw $r16;
+
+        catch java.lang.Throwable from label01 to label02 with label20;
+        catch java.lang.Throwable from label02 to label03 with label13;
+        catch java.lang.RuntimeException from label04 to label05 with label06;
+        catch java.lang.Throwable from label04 to label05 with label13;
+        catch java.lang.Throwable from label07 to label08 with label13;
+        catch java.lang.Throwable from label09 to label10 with label11;
+        catch java.lang.Throwable from label11 to label12 with label11;
+        catch java.lang.Throwable from label14 to label15 with label16;
+        catch java.lang.Throwable from label17 to label18 with label16;
+        catch java.lang.Throwable from label19 to label21 with label20;
+    }
+
+    public volatile java.lang.Object loadInBackground()
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.database.Cursor $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.loadInBackground();
+
+        return $r1;
+    }
+
+    public void onCanceled(android.database.Cursor)
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.database.Cursor $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.isClosed();
+
+        if $z0 != 0 goto label1;
+
+        interfaceinvoke $r1.close();
+
+     label1:
+        return;
+    }
+
+    public volatile void onCanceled(java.lang.Object)
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.Object $r1;
+        android.database.Cursor $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.database.Cursor) $r1;
+
+        virtualinvoke r0.onCanceled($r2);
+
+        return;
+    }
+
+    protected void onReset()
+    {
+        androidx.loader.content.CursorLoader r0;
+        boolean $z0;
+        android.database.Cursor $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.onReset();
+
+        virtualinvoke r0.onStopLoading();
+
+        $r1 = r0.mCursor;
+
+        if $r1 == null goto label1;
+
+        $z0 = interfaceinvoke $r1.isClosed();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = r0.mCursor;
+
+        interfaceinvoke $r1.close();
+
+     label1:
+        r0.mCursor = null;
+
+        return;
+    }
+
+    protected void onStartLoading()
+    {
+        androidx.loader.content.CursorLoader r0;
+        boolean $z0;
+        android.database.Cursor $r1;
+
+        r0 := @this;
+
+        $r1 = r0.mCursor;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke r0.deliverResult($r1);
+
+     label1:
+        $z0 = virtualinvoke r0.takeContentChanged();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = r0.mCursor;
+
+        if $r1 != null goto label3;
+
+     label2:
+        virtualinvoke r0.forceLoad();
+
+     label3:
+        return;
+    }
+
+    protected void onStopLoading()
+    {
+        androidx.loader.content.CursorLoader r0;
+
+        r0 := @this;
+
+        virtualinvoke r0.cancelLoad();
+
+        return;
+    }
+
+    public void setProjection(java.lang.String[])
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mProjection = $r1;
+
+        return;
+    }
+
+    public void setSelection(java.lang.String)
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSelection = $r1;
+
+        return;
+    }
+
+    public void setSelectionArgs(java.lang.String[])
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSelectionArgs = $r1;
+
+        return;
+    }
+
+    public void setSortOrder(java.lang.String)
+    {
+        androidx.loader.content.CursorLoader r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mSortOrder = $r1;
+
+        return;
+    }
+
+    public void setUri(android.net.Uri)
+    {
+        androidx.loader.content.CursorLoader r0;
+        android.net.Uri $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mUri = $r1;
+
+        return;
+    }
+}

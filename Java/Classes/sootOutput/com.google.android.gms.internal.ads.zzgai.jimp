@@ -1,0 +1,354 @@
+public final class com.google.android.gms.internal.ads.zzgai extends java.lang.Object
+{
+    private static final java.lang.ThreadLocal zza;
+    private final javax.crypto.SecretKey zzb;
+    private final boolean zzc;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzgah $r0;
+
+        $r0 = new com.google.android.gms.internal.ads.zzgah;
+
+        specialinvoke $r0.<init>();
+
+        com.google.android.gms.internal.ads.zzgai.zza = $r0;
+
+        return;
+    }
+
+    public void <init>(byte[], boolean) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1;
+        com.google.android.gms.internal.ads.zzgai r0;
+        java.security.GeneralSecurityException $r3;
+        int $i0;
+        javax.crypto.spec.SecretKeySpec $r2;
+        boolean $z0, $z1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z1 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $z0 = com.google.android.gms.internal.ads.zzgas.zza(2);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = lengthof $r1;
+
+        com.google.android.gms.internal.ads.zzgog.zza($i0);
+
+        $r2 = new javax.crypto.spec.SecretKeySpec;
+
+        specialinvoke $r2.<init>($r1, "AES");
+
+        r0.zzb = $r2;
+
+        r0.zzc = $z1;
+
+        return;
+
+     label1:
+        $r3 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r3.<init>("Can not use AES-GCM in FIPS-mode, as BoringCrypto module is not available.");
+
+        throw $r3;
+    }
+
+    private static java.security.spec.AlgorithmParameterSpec zzc(byte[], int, int) throws java.security.GeneralSecurityException
+    {
+        byte[] $r0;
+        javax.crypto.spec.IvParameterSpec $r2;
+        int $i0, $i1;
+        java.lang.Integer $r1;
+        boolean $z0;
+        javax.crypto.spec.GCMParameterSpec $r3;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 := @parameter2;
+
+        $z0 = com.google.android.gms.internal.ads.zzgof.zza();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = com.google.android.gms.internal.ads.zzgek.zzc();
+
+        $i0 = virtualinvoke $r1.intValue();
+
+        if $i0 > 19 goto label1;
+
+        $r2 = new javax.crypto.spec.IvParameterSpec;
+
+        specialinvoke $r2.<init>($r0, 0, 12);
+
+        return $r2;
+
+     label1:
+        $r3 = new javax.crypto.spec.GCMParameterSpec;
+
+        specialinvoke $r3.<init>(128, $r0, 0, 12);
+
+        return $r3;
+    }
+
+    public final byte[] zza(byte[], byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r3, $r4;
+        javax.crypto.Cipher $r10;
+        java.nio.ByteBuffer $r5, $r6;
+        java.security.GeneralSecurityException $r11;
+        byte $b1, $b2;
+        int $i0, $i3;
+        java.security.spec.AlgorithmParameterSpec $r7;
+        boolean $z0;
+        java.lang.ThreadLocal $r8;
+        com.google.android.gms.internal.ads.zzgai r0;
+        java.lang.Object $r9;
+        javax.crypto.SecretKey $r2;
+
+        r0 := @this;
+
+        $r3 := @parameter0;
+
+        $r4 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i0 = lengthof $r3;
+
+        $b1 = 12;
+
+        if $i0 != 12 goto label9;
+
+        $z0 = r0.zzc;
+
+        if 1 == $z0 goto label1;
+
+        $b2 = 16;
+
+        goto label2;
+
+     label1:
+        $b2 = 28;
+
+     label2:
+        $i0 = lengthof $r4;
+
+        if $i0 < $b2 goto label8;
+
+        if $z0 == 0 goto label4;
+
+        $r5 = java.nio.ByteBuffer.wrap($r3);
+
+        $r6 = java.nio.ByteBuffer.wrap($r4, 0, 12);
+
+        $z0 = virtualinvoke $r5.equals($r6);
+
+        if $z0 == 0 goto label3;
+
+        goto label4;
+
+     label3:
+        $r11 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r11.<init>("iv does not match prepended iv");
+
+        throw $r11;
+
+     label4:
+        $r7 = com.google.android.gms.internal.ads.zzgai.zzc($r3, 0, 12);
+
+        $r8 = com.google.android.gms.internal.ads.zzgai.zza;
+
+        $r9 = virtualinvoke $r8.get();
+
+        $r10 = (javax.crypto.Cipher) $r9;
+
+        $r2 = r0.zzb;
+
+        virtualinvoke $r10.init(2, $r2, $r7);
+
+        if $r1 == null goto label5;
+
+        $i3 = lengthof $r1;
+
+        if $i3 == 0 goto label5;
+
+        $r9 = virtualinvoke $r8.get();
+
+        $r10 = (javax.crypto.Cipher) $r9;
+
+        virtualinvoke $r10.updateAAD($r1);
+
+     label5:
+        $z0 = r0.zzc;
+
+        if 1 == $z0 goto label6;
+
+        $b1 = 0;
+
+        goto label6;
+
+     label6:
+        if $z0 == 0 goto label7;
+
+        $i0 = $i0 + -12;
+
+        goto label7;
+
+     label7:
+        $r9 = virtualinvoke $r8.get();
+
+        $r10 = (javax.crypto.Cipher) $r9;
+
+        $r3 = virtualinvoke $r10.doFinal($r4, $b1, $i0);
+
+        return $r3;
+
+     label8:
+        $r11 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r11.<init>("ciphertext too short");
+
+        throw $r11;
+
+     label9:
+        $r11 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r11.<init>("iv is wrong size");
+
+        throw $r11;
+    }
+
+    public final byte[] zzb(byte[], byte[], byte[]) throws java.security.GeneralSecurityException
+    {
+        byte[] $r1, $r2, $r3;
+        java.lang.Object[] $r10;
+        javax.crypto.Cipher $r7;
+        java.lang.Integer $r11;
+        java.security.GeneralSecurityException $r9;
+        byte $b2;
+        int $i0, $i1, $i3;
+        java.security.spec.AlgorithmParameterSpec $r4;
+        java.lang.String $r12;
+        boolean $z0;
+        java.lang.ThreadLocal $r5;
+        com.google.android.gms.internal.ads.zzgai r0;
+        java.lang.Object $r6;
+        javax.crypto.SecretKey $r8;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $r1 := @parameter2;
+
+        $i0 = lengthof $r2;
+
+        if $i0 != 12 goto label8;
+
+        $i0 = lengthof $r3;
+
+        if $i0 > 2147483619 goto label7;
+
+        $z0 = r0.zzc;
+
+        if $z0 == 0 goto label1;
+
+        $i1 = $i0 + 28;
+
+        goto label2;
+
+     label1:
+        $i1 = $i0 + 16;
+
+     label2:
+        $r1 = newarray (byte)[$i1];
+
+        if $z0 == 0 goto label3;
+
+        java.lang.System.arraycopy($r2, 0, $r1, 0, 12);
+
+     label3:
+        $r4 = com.google.android.gms.internal.ads.zzgai.zzc($r2, 0, 12);
+
+        $r5 = com.google.android.gms.internal.ads.zzgai.zza;
+
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $r8 = r0.zzb;
+
+        virtualinvoke $r7.init(1, $r8, $r4);
+
+        $z0 = r0.zzc;
+
+        if 1 == $z0 goto label4;
+
+        $b2 = 0;
+
+        goto label5;
+
+     label4:
+        $b2 = 12;
+
+     label5:
+        $r6 = virtualinvoke $r5.get();
+
+        $r7 = (javax.crypto.Cipher) $r6;
+
+        $i1 = virtualinvoke $r7.doFinal($r3, 0, $i0, $r1, $b2);
+
+        $i3 = $i0 + 16;
+
+        if $i1 != $i3 goto label6;
+
+        return $r1;
+
+     label6:
+        $i0 = $i1 - $i0;
+
+        $r9 = new java.security.GeneralSecurityException;
+
+        $r10 = newarray (java.lang.Object)[2];
+
+        $r11 = java.lang.Integer.valueOf(16);
+
+        $r10[0] = $r11;
+
+        $r11 = java.lang.Integer.valueOf($i0);
+
+        $r10[1] = $r11;
+
+        $r12 = java.lang.String.format("encryption failed; GCM tag must be %s bytes, but got only %s bytes", $r10);
+
+        specialinvoke $r9.<init>($r12);
+
+        throw $r9;
+
+     label7:
+        $r9 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r9.<init>("plaintext too long");
+
+        throw $r9;
+
+     label8:
+        $r9 = new java.security.GeneralSecurityException;
+
+        specialinvoke $r9.<init>("iv is wrong size");
+
+        throw $r9;
+    }
+}

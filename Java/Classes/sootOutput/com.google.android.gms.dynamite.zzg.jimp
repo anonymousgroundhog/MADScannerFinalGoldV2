@@ -1,0 +1,58 @@
+final class com.google.android.gms.dynamite.zzg extends java.lang.Object implements com.google.android.gms.dynamite.DynamiteModule$VersionPolicy
+{
+
+    void <init>()
+    {
+        com.google.android.gms.dynamite.zzg r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult selectModule(android.content.Context, java.lang.String, com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$IVersions) throws com.google.android.gms.dynamite.DynamiteModule$LoadingException
+    {
+        android.content.Context $r4;
+        com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult $r5;
+        int $i0;
+        com.google.android.gms.dynamite.zzg r0;
+        java.lang.String $r1;
+        com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$IVersions $r2;
+
+        r0 := @this;
+
+        $r4 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r5 = new com.google.android.gms.dynamite.DynamiteModule$VersionPolicy$SelectionResult;
+
+        specialinvoke $r5.<init>();
+
+        $i0 = interfaceinvoke $r2.zza($r4, $r1);
+
+        $r5.localVersion = $i0;
+
+        if $i0 == 0 goto label1;
+
+        $r5.selection = -1;
+
+        return $r5;
+
+     label1:
+        $i0 = interfaceinvoke $r2.zzb($r4, $r1, 1);
+
+        $r5.remoteVersion = $i0;
+
+        if $i0 == 0 goto label2;
+
+        $r5.selection = 1;
+
+     label2:
+        return $r5;
+    }
+}

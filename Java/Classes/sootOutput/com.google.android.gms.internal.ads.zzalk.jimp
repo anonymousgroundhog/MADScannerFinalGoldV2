@@ -1,0 +1,1559 @@
+public final class com.google.android.gms.internal.ads.zzalk extends java.lang.Object implements com.google.android.gms.internal.ads.zzajy
+{
+    private final java.util.Map zza;
+    private long zzb;
+    private final com.google.android.gms.internal.ads.zzalj zzc;
+    private final int zzd;
+
+    public void <init>(com.google.android.gms.internal.ads.zzalj, int)
+    {
+        java.util.LinkedHashMap $r2;
+        com.google.android.gms.internal.ads.zzalk r0;
+        com.google.android.gms.internal.ads.zzalj $r1;
+        int $i0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.util.LinkedHashMap;
+
+        specialinvoke $r2.<init>(16, 0.75F, 1);
+
+        r0.zza = $r2;
+
+        r0.zzb = 0L;
+
+        r0.zzc = $r1;
+
+        r0.zzd = 5242880;
+
+        return;
+    }
+
+    public void <init>(java.io.File, int)
+    {
+        java.util.LinkedHashMap $r2;
+        com.google.android.gms.internal.ads.zzalk r0;
+        int $i0;
+        java.io.File $r1;
+        com.google.android.gms.internal.ads.zzalg $r3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.util.LinkedHashMap;
+
+        specialinvoke $r2.<init>(16, 0.75F, 1);
+
+        r0.zza = $r2;
+
+        r0.zzb = 0L;
+
+        $r3 = new com.google.android.gms.internal.ads.zzalg;
+
+        specialinvoke $r3.<init>(r0, $r1);
+
+        r0.zzc = $r3;
+
+        r0.zzd = 20971520;
+
+        return;
+    }
+
+    static int zze(java.io.InputStream) throws java.io.IOException
+    {
+        int $i0, $i1, $i2;
+        java.io.InputStream $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $i1 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $i1 = $i1 << 8;
+
+        $i0 = $i0 | $i1;
+
+        $i1 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $i1 = $i1 << 16;
+
+        $i2 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $i2 = $i2 << 24;
+
+        $i0 = $i0 | $i1;
+
+        $i0 = $i2 | $i0;
+
+        return $i0;
+    }
+
+    static long zzf(java.io.InputStream) throws java.io.IOException
+    {
+        long $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8;
+        int $i0;
+        java.io.InputStream $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l1 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l2 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l3 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l4 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l5 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l6 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l7 = (long) $i0;
+
+        $i0 = com.google.android.gms.internal.ads.zzalk.zzn($r0);
+
+        $l8 = (long) $i0;
+
+        $l2 = $l2 & 255L;
+
+        $l3 = $l3 & 255L;
+
+        $l4 = $l4 & 255L;
+
+        $l5 = $l5 & 255L;
+
+        $l6 = $l6 & 255L;
+
+        $l7 = $l7 & 255L;
+
+        $l8 = $l8 & 255L;
+
+        $l1 = $l1 & 255L;
+
+        $l2 = $l2 << 8;
+
+        $l1 = $l1 | $l2;
+
+        $l3 = $l3 << 16;
+
+        $l3 = $l1 | $l3;
+
+        $l4 = $l4 << 24;
+
+        $l4 = $l3 | $l4;
+
+        $l5 = $l5 << 32;
+
+        $l5 = $l4 | $l5;
+
+        $l6 = $l6 << 40;
+
+        $l6 = $l5 | $l6;
+
+        $l7 = $l7 << 48;
+
+        $l7 = $l6 | $l7;
+
+        $l8 = $l8 << 56;
+
+        $l8 = $l7 | $l8;
+
+        return $l8;
+    }
+
+    static java.lang.String zzh(com.google.android.gms.internal.ads.zzali) throws java.io.IOException
+    {
+        byte[] $r1;
+        long $l0;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzali $r0;
+
+        $r0 := @parameter0;
+
+        $l0 = com.google.android.gms.internal.ads.zzalk.zzf($r0);
+
+        $r1 = com.google.android.gms.internal.ads.zzalk.zzm($r0, $l0);
+
+        $r2 = new java.lang.String;
+
+        specialinvoke $r2.<init>($r1, "UTF-8");
+
+        return $r2;
+    }
+
+    static void zzj(java.io.OutputStream, int) throws java.io.IOException
+    {
+        java.io.OutputStream $r0;
+        int $i0, $i1;
+
+        $r0 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $i1 = $i0 & 255;
+
+        virtualinvoke $r0.write($i1);
+
+        $i1 = $i0 >> 8;
+
+        $i1 = $i1 & 255;
+
+        virtualinvoke $r0.write($i1);
+
+        $i1 = $i0 >> 16;
+
+        $i1 = $i1 & 255;
+
+        virtualinvoke $r0.write($i1);
+
+        $i0 = $i0 >> 24;
+
+        $i0 = $i0 & 255;
+
+        virtualinvoke $r0.write($i0);
+
+        return;
+    }
+
+    static void zzk(java.io.OutputStream, long) throws java.io.IOException
+    {
+        java.io.OutputStream $r0;
+        byte $b2;
+        int $i0;
+        long $l1, $l3;
+
+        $r0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        $i0 = (int) $l1;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 8;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 16;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 24;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 32;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 40;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l3 = $l1 >>> 48;
+
+        $i0 = (int) $l3;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        $l1 = $l1 >>> 56;
+
+        $i0 = (int) $l1;
+
+        $b2 = (byte) $i0;
+
+        $i0 = (int) $b2;
+
+        virtualinvoke $r0.write($i0);
+
+        return;
+    }
+
+    static void zzl(java.io.OutputStream, java.lang.String) throws java.io.IOException
+    {
+        java.io.OutputStream $r0;
+        byte[] $r1;
+        int $i0;
+        long $l1;
+        java.lang.String $r2;
+
+        $r0 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r1 = virtualinvoke $r2.getBytes("UTF-8");
+
+        $i0 = lengthof $r1;
+
+        $l1 = (long) $i0;
+
+        com.google.android.gms.internal.ads.zzalk.zzk($r0, $l1);
+
+        virtualinvoke $r0.write($r1, 0, $i0);
+
+        return;
+    }
+
+    static byte[] zzm(com.google.android.gms.internal.ads.zzali, long) throws java.io.IOException
+    {
+        byte[] $r1;
+        java.io.DataInputStream $r4;
+        long $l1, $l2, $l4;
+        java.io.IOException $r6;
+        com.google.android.gms.internal.ads.zzali $r0;
+        byte $b0;
+        int $i3;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r3;
+
+        $r0 := @parameter0;
+
+        $l1 := @parameter1;
+
+        $b0 = $l1 cmp 0L;
+
+        $l2 = virtualinvoke $r0.zza();
+
+        $i3 = (int) $b0;
+
+        if $i3 < 0 goto label1;
+
+        $b0 = $l1 cmp $l2;
+
+        $i3 = (int) $b0;
+
+        if $i3 > 0 goto label1;
+
+        $i3 = (int) $l1;
+
+        $l4 = (long) $i3;
+
+        $b0 = $l4 cmp $l1;
+
+        if $b0 != 0 goto label1;
+
+        $r1 = newarray (byte)[$i3];
+
+        $r4 = new java.io.DataInputStream;
+
+        specialinvoke $r4.<init>($r0);
+
+        virtualinvoke $r4.readFully($r1);
+
+        return $r1;
+
+     label1:
+        $r6 = new java.io.IOException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<init>();
+
+        virtualinvoke $r5.append("streamToBytes length=");
+
+        virtualinvoke $r5.append($l1);
+
+        virtualinvoke $r5.append(", maxLength=");
+
+        virtualinvoke $r5.append($l2);
+
+        $r3 = virtualinvoke $r5.toString();
+
+        specialinvoke $r6.<init>($r3);
+
+        throw $r6;
+    }
+
+    private static int zzn(java.io.InputStream) throws java.io.IOException
+    {
+        int $i0;
+        java.io.EOFException $r1;
+        java.io.InputStream $r0;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.read();
+
+        if $i0 == -1 goto label1;
+
+        return $i0;
+
+     label1:
+        $r1 = new java.io.EOFException;
+
+        specialinvoke $r1.<init>();
+
+        throw $r1;
+    }
+
+    private final void zzo(java.lang.String, com.google.android.gms.internal.ads.zzalh)
+    {
+        com.google.android.gms.internal.ads.zzalk r0;
+        long $l0, $l1, $l2;
+        com.google.android.gms.internal.ads.zzalh $r2, $r5;
+        java.util.Map $r3;
+        java.lang.Object $r4;
+        java.lang.String $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 = r0.zza;
+
+        $z0 = interfaceinvoke $r3.containsKey($r1);
+
+        if $z0 != 0 goto label1;
+
+        $l1 = r0.zzb;
+
+        $l0 = $r2.zza;
+
+        $l0 = $l1 + $l0;
+
+        r0.zzb = $l0;
+
+        goto label2;
+
+     label1:
+        $r3 = r0.zza;
+
+        $r4 = interfaceinvoke $r3.get($r1);
+
+        $r5 = (com.google.android.gms.internal.ads.zzalh) $r4;
+
+        $l0 = r0.zzb;
+
+        $l2 = $r2.zza;
+
+        $l1 = $r5.zza;
+
+        $l1 = $l2 - $l1;
+
+        $l0 = $l0 + $l1;
+
+        r0.zzb = $l0;
+
+     label2:
+        $r3 = r0.zza;
+
+        interfaceinvoke $r3.put($r1, $r2);
+
+        return;
+    }
+
+    private final void zzp(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzalk r0;
+        java.util.Map $r3;
+        long $l0, $l1;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+        com.google.android.gms.internal.ads.zzalh $r4;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 = r0.zza;
+
+        $r1 = interfaceinvoke $r3.remove($r2);
+
+        $r4 = (com.google.android.gms.internal.ads.zzalh) $r1;
+
+        if $r4 == null goto label1;
+
+        $l1 = r0.zzb;
+
+        $l0 = $r4.zza;
+
+        $l0 = $l1 - $l0;
+
+        r0.zzb = $l0;
+
+     label1:
+        return;
+    }
+
+    private static final java.lang.String zzq(java.lang.String)
+    {
+        int $i0, $i1;
+        java.lang.String $r0, $r1;
+
+        $r0 := @parameter0;
+
+        $i0 = virtualinvoke $r0.length();
+
+        $i0 = $i0 / 2;
+
+        $r1 = virtualinvoke $r0.substring(0, $i0);
+
+        $i1 = virtualinvoke $r1.hashCode();
+
+        $r1 = java.lang.String.valueOf($i1);
+
+        $r0 = virtualinvoke $r0.substring($i0);
+
+        $i0 = virtualinvoke $r0.hashCode();
+
+        $r0 = java.lang.String.valueOf($i0);
+
+        $r1 = java.lang.String.valueOf($r1);
+
+        $r0 = java.lang.String.valueOf($r0);
+
+        $r0 = virtualinvoke $r1.concat($r0);
+
+        return $r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzajx zza(java.lang.String)
+    {
+        java.lang.Throwable $r20, $r22;
+        byte[] $r12;
+        java.io.BufferedInputStream $r7;
+        java.lang.Object[] $r11;
+        long $l0;
+        com.google.android.gms.internal.ads.zzakg $r18;
+        com.google.android.gms.internal.ads.zzajx $r13;
+        java.util.Map $r3;
+        java.lang.String $r2, $r10, $r19;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzalk r0;
+        java.util.Iterator $r17;
+        java.io.IOException $r21;
+        java.io.FileInputStream $r8;
+        com.google.android.gms.internal.ads.zzali $r1;
+        com.google.android.gms.internal.ads.zzalh $r5, $r9;
+        java.io.File $r6;
+        java.util.List $r14;
+        java.util.TreeMap $r15;
+        java.lang.Object $r4;
+        java.util.Comparator $r16;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        entermonitor r0;
+
+     label01:
+        $r3 = r0.zza;
+
+        $r4 = interfaceinvoke $r3.get($r2);
+
+        $r5 = (com.google.android.gms.internal.ads.zzalh) $r4;
+
+     label02:
+        if $r5 != null goto label03;
+
+        exitmonitor r0;
+
+        return null;
+
+     label03:
+        $r6 = virtualinvoke r0.zzg($r2);
+
+     label04:
+        $r1 = new com.google.android.gms.internal.ads.zzali;
+
+        $r7 = new java.io.BufferedInputStream;
+
+        $r8 = new java.io.FileInputStream;
+
+     label05:
+        specialinvoke $r8.<init>($r6);
+
+        specialinvoke $r7.<init>($r8);
+
+        $l0 = virtualinvoke $r6.length();
+
+        specialinvoke $r1.<init>($r7, $l0);
+
+     label06:
+        $r9 = com.google.android.gms.internal.ads.zzalh.zza($r1);
+
+        $r10 = $r9.zzb;
+
+        $z0 = android.text.TextUtils.equals($r2, $r10);
+
+        if $z0 != 0 goto label09;
+
+        $r11 = newarray (java.lang.Object)[3];
+
+        $r10 = virtualinvoke $r6.getAbsolutePath();
+
+        $r11[0] = $r10;
+
+        $r11[1] = $r2;
+
+        $r10 = $r9.zzb;
+
+        $r11[2] = $r10;
+
+        com.google.android.gms.internal.ads.zzala.zza("%s: key=%s, found=%s", $r11);
+
+        specialinvoke r0.zzp($r2);
+
+     label07:
+        virtualinvoke $r1.close();
+
+     label08:
+        exitmonitor r0;
+
+        return null;
+
+     label09:
+        $l0 = virtualinvoke $r1.zza();
+
+        $r12 = com.google.android.gms.internal.ads.zzalk.zzm($r1, $l0);
+
+        $r13 = new com.google.android.gms.internal.ads.zzajx;
+
+        specialinvoke $r13.<init>();
+
+        $r13.zza = $r12;
+
+        $r10 = $r5.zzc;
+
+        $r13.zzb = $r10;
+
+        $l0 = $r5.zzd;
+
+        $r13.zzc = $l0;
+
+        $l0 = $r5.zze;
+
+        $r13.zzd = $l0;
+
+        $l0 = $r5.zzf;
+
+        $r13.zze = $l0;
+
+        $l0 = $r5.zzg;
+
+        $r13.zzf = $l0;
+
+        $r14 = $r5.zzh;
+
+        $r15 = new java.util.TreeMap;
+
+        $r16 = java.lang.String.CASE_INSENSITIVE_ORDER;
+
+        specialinvoke $r15.<init>($r16);
+
+        $r17 = interfaceinvoke $r14.iterator();
+
+     label10:
+        $z0 = interfaceinvoke $r17.hasNext();
+
+        if $z0 == 0 goto label11;
+
+        $r4 = interfaceinvoke $r17.next();
+
+        $r18 = (com.google.android.gms.internal.ads.zzakg) $r4;
+
+        $r10 = virtualinvoke $r18.zza();
+
+        $r19 = virtualinvoke $r18.zzb();
+
+        interfaceinvoke $r15.put($r10, $r19);
+
+        goto label10;
+
+     label11:
+        $r13.zzg = $r15;
+
+        $r14 = $r5.zzh;
+
+        $r14 = java.util.Collections.unmodifiableList($r14);
+
+        $r13.zzh = $r14;
+
+     label12:
+        virtualinvoke $r1.close();
+
+     label13:
+        exitmonitor r0;
+
+        return $r13;
+
+     label14:
+        $r20 := @caughtexception;
+
+     label15:
+        virtualinvoke $r1.close();
+
+        throw $r20;
+
+     label16:
+        $r21 := @caughtexception;
+
+     label17:
+        $r11 = newarray (java.lang.Object)[2];
+
+        $r10 = virtualinvoke $r6.getAbsolutePath();
+
+        $r11[0] = $r10;
+
+        $r10 = virtualinvoke $r21.toString();
+
+        $r11[1] = $r10;
+
+        com.google.android.gms.internal.ads.zzala.zza("%s: %s", $r11);
+
+        virtualinvoke r0.zzi($r2);
+
+     label18:
+        exitmonitor r0;
+
+        return null;
+
+     label19:
+        $r22 := @caughtexception;
+
+        exitmonitor r0;
+
+        goto label20;
+
+     label20:
+        throw $r22;
+
+        catch java.lang.Throwable from label01 to label02 with label19;
+        catch java.lang.Throwable from label03 to label04 with label19;
+        catch java.io.IOException from label05 to label06 with label16;
+        catch java.lang.Throwable from label04 to label06 with label19;
+        catch java.lang.Throwable from label06 to label07 with label14;
+        catch java.io.IOException from label07 to label08 with label16;
+        catch java.lang.Throwable from label07 to label08 with label19;
+        catch java.lang.Throwable from label09 to label12 with label14;
+        catch java.io.IOException from label12 to label13 with label16;
+        catch java.lang.Throwable from label12 to label13 with label19;
+        catch java.io.IOException from label15 to label16 with label16;
+        catch java.lang.Throwable from label15 to label16 with label19;
+        catch java.lang.Throwable from label17 to label18 with label19;
+    }
+
+    public final void zzb()
+    {
+        java.lang.Throwable $r10, $r12;
+        java.lang.Object[] $r5;
+        java.io.BufferedInputStream $r8;
+        long $l2;
+        int $i0, $i1;
+        java.lang.String $r6;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzalk r0;
+        com.google.android.gms.internal.ads.zzalj $r3;
+        java.io.IOException $r11;
+        java.io.FileInputStream $r2;
+        com.google.android.gms.internal.ads.zzali $r1;
+        com.google.android.gms.internal.ads.zzalh $r9;
+        java.io.File $r4;
+        java.io.File[] $r7;
+
+        r0 := @this;
+
+        entermonitor r0;
+
+     label01:
+        $r3 = r0.zzc;
+
+        $r4 = interfaceinvoke $r3.zza();
+
+        $z0 = virtualinvoke $r4.exists();
+
+        $i0 = 0;
+
+        if $z0 != 0 goto label03;
+
+        $z0 = virtualinvoke $r4.mkdirs();
+
+        if $z0 != 0 goto label02;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r6 = virtualinvoke $r4.getAbsolutePath();
+
+        $r5[0] = $r6;
+
+        com.google.android.gms.internal.ads.zzala.zzb("Unable to create cache dir %s", $r5);
+
+     label02:
+        exitmonitor r0;
+
+        return;
+
+     label03:
+        $r7 = virtualinvoke $r4.listFiles();
+
+        if $r7 == null goto label16;
+
+     label04:
+        $i1 = lengthof $r7;
+
+        if $i0 >= $i1 goto label16;
+
+        $r4 = $r7[$i0];
+
+     label05:
+        $l2 = virtualinvoke $r4.length();
+
+     label06:
+        $r1 = new com.google.android.gms.internal.ads.zzali;
+
+        $r8 = new java.io.BufferedInputStream;
+
+        $r2 = new java.io.FileInputStream;
+
+     label07:
+        specialinvoke $r2.<init>($r4);
+
+        specialinvoke $r8.<init>($r2);
+
+        specialinvoke $r1.<init>($r8, $l2);
+
+     label08:
+        $r9 = com.google.android.gms.internal.ads.zzalh.zza($r1);
+
+        $r9.zza = $l2;
+
+        $r6 = $r9.zzb;
+
+        specialinvoke r0.zzo($r6, $r9);
+
+     label09:
+        virtualinvoke $r1.close();
+
+     label10:
+        goto label15;
+
+     label11:
+        $r10 := @caughtexception;
+
+     label12:
+        virtualinvoke $r1.close();
+
+        throw $r10;
+
+     label13:
+        $r11 := @caughtexception;
+
+     label14:
+        virtualinvoke $r4.delete();
+
+     label15:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label16:
+        exitmonitor r0;
+
+        return;
+
+     label17:
+        $r12 := @caughtexception;
+
+        exitmonitor r0;
+
+        goto label18;
+
+     label18:
+        throw $r12;
+
+        catch java.lang.Throwable from label01 to label02 with label17;
+        catch java.lang.Throwable from label03 to label05 with label17;
+        catch java.io.IOException from label05 to label06 with label13;
+        catch java.io.IOException from label07 to label08 with label13;
+        catch java.lang.Throwable from label05 to label08 with label17;
+        catch java.lang.Throwable from label08 to label09 with label11;
+        catch java.io.IOException from label09 to label10 with label13;
+        catch java.io.IOException from label12 to label13 with label13;
+        catch java.lang.Throwable from label09 to label13 with label17;
+        catch java.lang.Throwable from label14 to label15 with label17;
+    }
+
+    public final void zzc(java.lang.String, boolean)
+    {
+        java.lang.Throwable $r3;
+        com.google.android.gms.internal.ads.zzalk r0;
+        com.google.android.gms.internal.ads.zzajx $r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $z0 := @parameter1;
+
+        entermonitor r0;
+
+     label1:
+        $r1 = virtualinvoke r0.zza($r2);
+
+        if $r1 == null goto label2;
+
+        $r1.zzf = 0L;
+
+        $r1.zze = 0L;
+
+        virtualinvoke r0.zzd($r2, $r1);
+
+     label2:
+        exitmonitor r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final void zzd(java.lang.String, com.google.android.gms.internal.ads.zzajx)
+    {
+        byte[] $r3;
+        com.google.android.gms.internal.ads.zzakg $r12;
+        java.lang.Integer $r18;
+        com.google.android.gms.internal.ads.zzajx $r1;
+        byte $b4;
+        java.lang.Long $r19;
+        java.util.Map $r14;
+        boolean $z0;
+        com.google.android.gms.internal.ads.zzalk r0;
+        com.google.android.gms.internal.ads.zzalj $r22;
+        java.util.Set $r15;
+        com.google.android.gms.internal.ads.zzalh $r7, $r26;
+        java.util.List $r9;
+        float $f0, $f1;
+        java.lang.Throwable $r23;
+        java.lang.Object[] $r13;
+        long $l0, $l2, $l5, $l6;
+        java.io.BufferedOutputStream $r25;
+        int $i1, $i3, $i7;
+        java.lang.String $r2, $r8;
+        java.util.Map$Entry $r16;
+        java.util.Iterator $r10;
+        java.io.FileOutputStream $r24;
+        java.io.IOException $r20, $r21;
+        java.io.File $r4, $r17;
+        java.lang.Object $r11;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 := @parameter1;
+
+        entermonitor r0;
+
+     label01:
+        $l0 = r0.zzb;
+
+        $r3 = $r1.zza;
+
+        $i1 = lengthof $r3;
+
+        $l2 = (long) $i1;
+
+        $l0 = $l0 + $l2;
+
+        $i3 = r0.zzd;
+
+     label02:
+        $l2 = (long) $i3;
+
+        $b4 = $l0 cmp $l2;
+
+        $i7 = (int) $b4;
+
+        if $i7 <= 0 goto label04;
+
+        $f0 = (float) $i1;
+
+        $f1 = (float) $i3;
+
+        $f1 = $f1 * 0.9F;
+
+        $b4 = $f0 cmpl $f1;
+
+        $i1 = (int) $b4;
+
+        if $i1 > 0 goto label03;
+
+        goto label04;
+
+     label03:
+        exitmonitor r0;
+
+        return;
+
+     label04:
+        $r4 = virtualinvoke r0.zzg($r2);
+
+     label05:
+        $r25 = new java.io.BufferedOutputStream;
+
+        $r24 = new java.io.FileOutputStream;
+
+     label06:
+        specialinvoke $r24.<init>($r4);
+
+        specialinvoke $r25.<init>($r24);
+
+     label07:
+        $r26 = new com.google.android.gms.internal.ads.zzalh;
+
+     label08:
+        specialinvoke $r26.<init>($r2, $r1);
+
+     label09:
+        com.google.android.gms.internal.ads.zzalk.zzj($r25, 538247942);
+
+     label10:
+        $r8 = $r26.zzb;
+
+     label11:
+        com.google.android.gms.internal.ads.zzalk.zzl($r25, $r8);
+
+     label12:
+        $r8 = $r26.zzc;
+
+        if $r8 != null goto label13;
+
+        $r8 = "";
+
+     label13:
+        com.google.android.gms.internal.ads.zzalk.zzl($r25, $r8);
+
+     label14:
+        $l0 = $r26.zzd;
+
+     label15:
+        com.google.android.gms.internal.ads.zzalk.zzk($r25, $l0);
+
+     label16:
+        $l0 = $r26.zze;
+
+     label17:
+        com.google.android.gms.internal.ads.zzalk.zzk($r25, $l0);
+
+     label18:
+        $l0 = $r26.zzf;
+
+     label19:
+        com.google.android.gms.internal.ads.zzalk.zzk($r25, $l0);
+
+     label20:
+        $l0 = $r26.zzg;
+
+     label21:
+        com.google.android.gms.internal.ads.zzalk.zzk($r25, $l0);
+
+     label22:
+        $r9 = $r26.zzh;
+
+        if $r9 == null goto label30;
+
+     label23:
+        $i1 = interfaceinvoke $r9.size();
+
+        com.google.android.gms.internal.ads.zzalk.zzj($r25, $i1);
+
+        $r10 = interfaceinvoke $r9.iterator();
+
+     label24:
+        $z0 = interfaceinvoke $r10.hasNext();
+
+     label25:
+        if $z0 == 0 goto label31;
+
+     label26:
+        $r11 = interfaceinvoke $r10.next();
+
+     label27:
+        $r12 = (com.google.android.gms.internal.ads.zzakg) $r11;
+
+     label28:
+        $r8 = virtualinvoke $r12.zza();
+
+        com.google.android.gms.internal.ads.zzalk.zzl($r25, $r8);
+
+        $r8 = virtualinvoke $r12.zzb();
+
+        com.google.android.gms.internal.ads.zzalk.zzl($r25, $r8);
+
+     label29:
+        goto label24;
+
+     label30:
+        com.google.android.gms.internal.ads.zzalk.zzj($r25, 0);
+
+     label31:
+        virtualinvoke $r25.flush();
+
+     label32:
+        $r3 = $r1.zza;
+
+     label33:
+        virtualinvoke $r25.write($r3);
+
+        virtualinvoke $r25.close();
+
+        $l0 = virtualinvoke $r4.length();
+
+     label34:
+        $r26.zza = $l0;
+
+     label35:
+        specialinvoke r0.zzo($r2, $r26);
+
+     label36:
+        $l0 = r0.zzb;
+
+        $i1 = r0.zzd;
+
+        $l2 = (long) $i1;
+
+        $b4 = $l0 cmp $l2;
+
+        $i1 = (int) $b4;
+
+        if $i1 >= 0 goto label37;
+
+        goto label85;
+
+     label37:
+        $z0 = com.google.android.gms.internal.ads.zzala.zzb;
+
+        if $z0 == 0 goto label39;
+
+        $r13 = newarray (java.lang.Object)[0];
+
+     label38:
+        com.google.android.gms.internal.ads.zzala.zzd("Pruning old cache entries.", $r13);
+
+     label39:
+        $l0 = r0.zzb;
+
+     label40:
+        $l2 = android.os.SystemClock.elapsedRealtime();
+
+     label41:
+        $r14 = r0.zza;
+
+     label42:
+        $r15 = interfaceinvoke $r14.entrySet();
+
+        $r10 = interfaceinvoke $r15.iterator();
+
+     label43:
+        $i1 = 0;
+
+     label44:
+        $z0 = interfaceinvoke $r10.hasNext();
+
+     label45:
+        if $z0 == 0 goto label59;
+
+     label46:
+        $r11 = interfaceinvoke $r10.next();
+
+     label47:
+        $r16 = (java.util.Map$Entry) $r11;
+
+     label48:
+        $r11 = interfaceinvoke $r16.getValue();
+
+     label49:
+        $r7 = (com.google.android.gms.internal.ads.zzalh) $r11;
+
+        $r2 = $r7.zzb;
+
+     label50:
+        $r17 = virtualinvoke r0.zzg($r2);
+
+        $z0 = virtualinvoke $r17.delete();
+
+     label51:
+        if $z0 == 0 goto label52;
+
+        $l5 = r0.zzb;
+
+        $l6 = $r7.zza;
+
+        $l5 = $l5 - $l6;
+
+        r0.zzb = $l5;
+
+        goto label56;
+
+     label52:
+        $r13 = newarray (java.lang.Object)[2];
+
+        $r2 = $r7.zzb;
+
+        $r13[0] = $r2;
+
+     label53:
+        $r2 = com.google.android.gms.internal.ads.zzalk.zzq($r2);
+
+     label54:
+        $r13[1] = $r2;
+
+     label55:
+        com.google.android.gms.internal.ads.zzala.zza("Could not delete cache entry for key=%s, filename=%s", $r13);
+
+     label56:
+        interfaceinvoke $r10.remove();
+
+     label57:
+        $i1 = $i1 + 1;
+
+        $l5 = r0.zzb;
+
+        $f0 = (float) $l5;
+
+        $i3 = r0.zzd;
+
+        $f1 = (float) $i3;
+
+        $f1 = $f1 * 0.9F;
+
+        $b4 = $f0 cmpg $f1;
+
+        $i3 = (int) $b4;
+
+        if $i3 >= 0 goto label58;
+
+        goto label59;
+
+     label58:
+        goto label44;
+
+     label59:
+        $z0 = com.google.android.gms.internal.ads.zzala.zzb;
+
+        if $z0 == 0 goto label85;
+
+        $r13 = newarray (java.lang.Object)[3];
+
+     label60:
+        $r18 = java.lang.Integer.valueOf($i1);
+
+     label61:
+        $r13[0] = $r18;
+
+        $l5 = r0.zzb;
+
+        $l0 = $l5 - $l0;
+
+     label62:
+        $r19 = java.lang.Long.valueOf($l0);
+
+     label63:
+        $r13[1] = $r19;
+
+     label64:
+        $l0 = android.os.SystemClock.elapsedRealtime();
+
+     label65:
+        $l0 = $l0 - $l2;
+
+     label66:
+        $r19 = java.lang.Long.valueOf($l0);
+
+     label67:
+        $r13[2] = $r19;
+
+     label68:
+        com.google.android.gms.internal.ads.zzala.zzd("pruned %d files, %d bytes, %d ms", $r13);
+
+     label69:
+        exitmonitor r0;
+
+        return;
+
+     label70:
+        $r20 := @caughtexception;
+
+     label71:
+        $r13 = newarray (java.lang.Object)[1];
+
+     label72:
+        $r2 = virtualinvoke $r20.toString();
+
+     label73:
+        $r13[0] = $r2;
+
+     label74:
+        com.google.android.gms.internal.ads.zzala.zza("%s", $r13);
+
+        virtualinvoke $r25.close();
+
+     label75:
+        $r13 = newarray (java.lang.Object)[1];
+
+     label76:
+        $r2 = virtualinvoke $r4.getAbsolutePath();
+
+     label77:
+        $r13[0] = $r2;
+
+     label78:
+        com.google.android.gms.internal.ads.zzala.zza("Failed to write header for %s", $r13);
+
+     label79:
+        $r21 = new java.io.IOException;
+
+     label80:
+        specialinvoke $r21.<init>();
+
+        throw $r21;
+
+     label81:
+        $r21 := @caughtexception;
+
+     label82:
+        $z0 = virtualinvoke $r4.delete();
+
+        if $z0 != 0 goto label83;
+
+        $r13 = newarray (java.lang.Object)[1];
+
+        $r2 = virtualinvoke $r4.getAbsolutePath();
+
+        $r13[0] = $r2;
+
+        com.google.android.gms.internal.ads.zzala.zza("Could not clean up file %s", $r13);
+
+     label83:
+        $r22 = r0.zzc;
+
+        $r4 = interfaceinvoke $r22.zza();
+
+        $z0 = virtualinvoke $r4.exists();
+
+        if $z0 != 0 goto label85;
+
+        $r13 = newarray (java.lang.Object)[0];
+
+        com.google.android.gms.internal.ads.zzala.zza("Re-initializing cache after external clearing.", $r13);
+
+        $r14 = r0.zza;
+
+        interfaceinvoke $r14.clear();
+
+        r0.zzb = 0L;
+
+        virtualinvoke r0.zzb();
+
+     label84:
+        exitmonitor r0;
+
+        return;
+
+     label85:
+        exitmonitor r0;
+
+        return;
+
+     label86:
+        $r23 := @caughtexception;
+
+        exitmonitor r0;
+
+        goto label87;
+
+     label87:
+        throw $r23;
+
+        catch java.lang.Throwable from label01 to label02 with label86;
+        catch java.lang.Throwable from label04 to label05 with label86;
+        catch java.io.IOException from label06 to label07 with label81;
+        catch java.io.IOException from label08 to label09 with label81;
+        catch java.lang.Throwable from label05 to label09 with label86;
+        catch java.io.IOException from label09 to label10 with label70;
+        catch java.io.IOException from label11 to label12 with label70;
+        catch java.io.IOException from label13 to label14 with label70;
+        catch java.io.IOException from label15 to label16 with label70;
+        catch java.io.IOException from label17 to label18 with label70;
+        catch java.io.IOException from label19 to label20 with label70;
+        catch java.io.IOException from label21 to label22 with label70;
+        catch java.io.IOException from label23 to label25 with label70;
+        catch java.io.IOException from label26 to label27 with label70;
+        catch java.io.IOException from label28 to label29 with label70;
+        catch java.io.IOException from label30 to label32 with label70;
+        catch java.lang.Throwable from label09 to label32 with label86;
+        catch java.io.IOException from label33 to label34 with label81;
+        catch java.io.IOException from label35 to label36 with label81;
+        catch java.io.IOException from label38 to label39 with label81;
+        catch java.io.IOException from label40 to label41 with label81;
+        catch java.io.IOException from label42 to label43 with label81;
+        catch java.io.IOException from label44 to label45 with label81;
+        catch java.io.IOException from label46 to label47 with label81;
+        catch java.io.IOException from label48 to label49 with label81;
+        catch java.io.IOException from label50 to label51 with label81;
+        catch java.io.IOException from label53 to label54 with label81;
+        catch java.io.IOException from label55 to label57 with label81;
+        catch java.io.IOException from label60 to label61 with label81;
+        catch java.io.IOException from label62 to label63 with label81;
+        catch java.io.IOException from label64 to label65 with label81;
+        catch java.io.IOException from label66 to label67 with label81;
+        catch java.io.IOException from label68 to label69 with label81;
+        catch java.lang.Throwable from label32 to label69 with label86;
+        catch java.io.IOException from label72 to label73 with label81;
+        catch java.io.IOException from label74 to label75 with label81;
+        catch java.io.IOException from label76 to label77 with label81;
+        catch java.io.IOException from label78 to label79 with label81;
+        catch java.io.IOException from label80 to label81 with label81;
+        catch java.lang.Throwable from label71 to label81 with label86;
+        catch java.lang.Throwable from label82 to label84 with label86;
+    }
+
+    public final java.io.File zzg(java.lang.String)
+    {
+        com.google.android.gms.internal.ads.zzalk r0;
+        com.google.android.gms.internal.ads.zzalj $r3;
+        java.lang.String $r2;
+        java.io.File $r1, $r4;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r1 = new java.io.File;
+
+        $r3 = r0.zzc;
+
+        $r4 = interfaceinvoke $r3.zza();
+
+        $r2 = com.google.android.gms.internal.ads.zzalk.zzq($r2);
+
+        specialinvoke $r1.<init>($r4, $r2);
+
+        return $r1;
+    }
+
+    public final void zzi(java.lang.String)
+    {
+        java.lang.Throwable $r4;
+        com.google.android.gms.internal.ads.zzalk r0;
+        java.lang.Object[] $r3;
+        java.lang.String $r1;
+        java.io.File $r2;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        entermonitor r0;
+
+     label1:
+        $r2 = virtualinvoke r0.zzg($r1);
+
+        $z0 = virtualinvoke $r2.delete();
+
+        specialinvoke r0.zzp($r1);
+
+        if $z0 != 0 goto label2;
+
+        $r3 = newarray (java.lang.Object)[2];
+
+        $r3[0] = $r1;
+
+        $r1 = com.google.android.gms.internal.ads.zzalk.zzq($r1);
+
+        $r3[1] = $r1;
+
+        com.google.android.gms.internal.ads.zzala.zza("Could not delete cache entry for key=%s, filename=%s", $r3);
+
+     label2:
+        exitmonitor r0;
+
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

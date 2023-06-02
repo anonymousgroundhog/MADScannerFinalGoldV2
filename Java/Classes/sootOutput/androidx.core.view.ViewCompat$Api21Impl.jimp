@@ -1,0 +1,125 @@
+class androidx.core.view.ViewCompat$Api21Impl extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        androidx.core.view.ViewCompat$Api21Impl r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    static void callCompatInsetAnimationCallback(android.view.WindowInsets, android.view.View)
+    {
+        android.view.WindowInsets $r0;
+        int i0;
+        android.view.View $r1;
+        java.lang.Object $r2;
+        android.view.View$OnApplyWindowInsetsListener r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = androidx.core.R$id.tag_window_insets_animation_callback;
+
+        $r2 = virtualinvoke $r1.getTag(i0);
+
+        r3 = (android.view.View$OnApplyWindowInsetsListener) $r2;
+
+        if r3 == null goto label1;
+
+        interfaceinvoke r3.onApplyWindowInsets($r1, $r0);
+
+     label1:
+        return;
+    }
+
+    static androidx.core.view.WindowInsetsCompat computeSystemWindowInsets(android.view.View, androidx.core.view.WindowInsetsCompat, android.graphics.Rect)
+    {
+        android.graphics.Rect $r2;
+        android.view.WindowInsets $r3;
+        android.view.View $r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $r3 = virtualinvoke $r1.toWindowInsets();
+
+        if $r3 == null goto label1;
+
+        $r3 = virtualinvoke $r0.computeSystemWindowInsets($r3, $r2);
+
+        $r1 = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat($r3, $r0);
+
+        return $r1;
+
+     label1:
+        virtualinvoke $r2.setEmpty();
+
+        return $r1;
+    }
+
+    public static androidx.core.view.WindowInsetsCompat getRootWindowInsets(android.view.View)
+    {
+        android.view.View $r0;
+        androidx.core.view.WindowInsetsCompat $r1;
+
+        $r0 := @parameter0;
+
+        $r1 = androidx.core.view.WindowInsetsCompat$Api21ReflectionHolder.getRootWindowInsets($r0);
+
+        return $r1;
+    }
+
+    static void setOnApplyWindowInsetsListener(android.view.View, androidx.core.view.OnApplyWindowInsetsListener)
+    {
+        int i0;
+        androidx.core.view.ViewCompat$Api21Impl$1 r4;
+        android.view.View $r0;
+        java.lang.Object $r2;
+        androidx.core.view.OnApplyWindowInsetsListener $r1;
+        android.view.View$OnApplyWindowInsetsListener r3;
+
+        $r0 := @parameter0;
+
+        $r1 := @parameter1;
+
+        i0 = android.os.Build$VERSION.SDK_INT;
+
+        if i0 >= 30 goto label1;
+
+        i0 = androidx.core.R$id.tag_on_apply_window_listener;
+
+        virtualinvoke $r0.setTag(i0, $r1);
+
+     label1:
+        if $r1 != null goto label2;
+
+        i0 = androidx.core.R$id.tag_window_insets_animation_callback;
+
+        $r2 = virtualinvoke $r0.getTag(i0);
+
+        r3 = (android.view.View$OnApplyWindowInsetsListener) $r2;
+
+        virtualinvoke $r0.setOnApplyWindowInsetsListener(r3);
+
+        return;
+
+     label2:
+        r4 = new androidx.core.view.ViewCompat$Api21Impl$1;
+
+        specialinvoke r4.<init>($r0, $r1);
+
+        virtualinvoke $r0.setOnApplyWindowInsetsListener(r4);
+
+        return;
+    }
+}

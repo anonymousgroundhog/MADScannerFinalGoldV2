@@ -1,0 +1,91 @@
+public final class com.google.android.gms.internal.ads.zzeej extends java.lang.Object implements com.google.android.gms.internal.ads.zzgwy
+{
+    private final com.google.android.gms.internal.ads.zzgxl zza;
+    private final com.google.android.gms.internal.ads.zzgxl zzb;
+    private final com.google.android.gms.internal.ads.zzgxl zzc;
+    private final com.google.android.gms.internal.ads.zzgxl zzd;
+
+    public void <init>(com.google.android.gms.internal.ads.zzgxl, com.google.android.gms.internal.ads.zzgxl, com.google.android.gms.internal.ads.zzgxl, com.google.android.gms.internal.ads.zzgxl)
+    {
+        com.google.android.gms.internal.ads.zzeej r0;
+        com.google.android.gms.internal.ads.zzgxl $r1, $r2, $r3, $r4;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $r4 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $r3;
+
+        r0.zzd = $r4;
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.ads.zzeei zza()
+    {
+        com.google.android.gms.internal.ads.zzezm $r4;
+        com.google.android.gms.internal.ads.zzdna $r5;
+        com.google.android.gms.internal.ads.zzdpi $r6;
+        com.google.android.gms.internal.ads.zzgxl $r2;
+        com.google.android.gms.internal.ads.zzeej r0;
+        com.google.android.gms.internal.ads.zzeei $r1;
+        java.lang.Object $r3;
+        com.google.android.gms.internal.ads.zzfdk $r7;
+
+        r0 := @this;
+
+        $r2 = r0.zza;
+
+        $r3 = interfaceinvoke $r2.zzb();
+
+        $r4 = (com.google.android.gms.internal.ads.zzezm) $r3;
+
+        $r2 = r0.zzb;
+
+        $r3 = interfaceinvoke $r2.zzb();
+
+        $r5 = (com.google.android.gms.internal.ads.zzdna) $r3;
+
+        $r2 = r0.zzc;
+
+        $r3 = interfaceinvoke $r2.zzb();
+
+        $r6 = (com.google.android.gms.internal.ads.zzdpi) $r3;
+
+        $r2 = r0.zzd;
+
+        $r3 = interfaceinvoke $r2.zzb();
+
+        $r7 = (com.google.android.gms.internal.ads.zzfdk) $r3;
+
+        $r1 = new com.google.android.gms.internal.ads.zzeei;
+
+        specialinvoke $r1.<init>($r4, $r5, $r6, $r7);
+
+        return $r1;
+    }
+
+    public final volatile java.lang.Object zzb()
+    {
+        com.google.android.gms.internal.ads.zzeej r0;
+        com.google.android.gms.internal.ads.zzeei $r1;
+
+        r0 := @this;
+
+        $r1 = virtualinvoke r0.zza();
+
+        return $r1;
+    }
+}

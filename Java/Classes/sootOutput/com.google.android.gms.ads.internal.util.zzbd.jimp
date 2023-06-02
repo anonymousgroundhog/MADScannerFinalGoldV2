@@ -1,0 +1,174 @@
+public final class com.google.android.gms.ads.internal.util.zzbd extends java.lang.Object
+{
+    private final java.util.List zza;
+    private final java.util.List zzb;
+    private final java.util.List zzc;
+
+    public void <init>()
+    {
+        com.google.android.gms.ads.internal.util.zzbd r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.zza = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.zzb = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<init>();
+
+        r0.zzc = $r1;
+
+        return;
+    }
+
+    static volatile java.util.List zzc(com.google.android.gms.ads.internal.util.zzbd)
+    {
+        java.util.List r1;
+        com.google.android.gms.ads.internal.util.zzbd $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile java.util.List zzd(com.google.android.gms.ads.internal.util.zzbd)
+    {
+        java.util.List r1;
+        com.google.android.gms.ads.internal.util.zzbd $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzc;
+
+        return r1;
+    }
+
+    static volatile java.util.List zze(com.google.android.gms.ads.internal.util.zzbd)
+    {
+        java.util.List r1;
+        com.google.android.gms.ads.internal.util.zzbd $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.ads.internal.util.zzbd zza(java.lang.String, double, double)
+    {
+        com.google.android.gms.ads.internal.util.zzbd r0;
+        java.lang.Double $r4;
+        java.util.List $r2;
+        byte $b2;
+        int $i0, $i1;
+        java.lang.Object $r3;
+        java.lang.String $r1;
+        double $d0, $d1, $d2, $d3;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $d1 := @parameter1;
+
+        $d0 := @parameter2;
+
+        $i0 = 0;
+
+     label1:
+        $r2 = r0.zza;
+
+        $i1 = interfaceinvoke $r2.size();
+
+        if $i0 >= $i1 goto label4;
+
+        $r2 = r0.zzc;
+
+        $r3 = interfaceinvoke $r2.get($i0);
+
+        $r4 = (java.lang.Double) $r3;
+
+        $d2 = virtualinvoke $r4.doubleValue();
+
+        $r2 = r0.zzb;
+
+        $r3 = interfaceinvoke $r2.get($i0);
+
+        $r4 = (java.lang.Double) $r3;
+
+        $d3 = virtualinvoke $r4.doubleValue();
+
+        $b2 = $d1 cmpg $d2;
+
+        $i1 = (int) $b2;
+
+        if $i1 >= 0 goto label2;
+
+        goto label4;
+
+     label2:
+        $b2 = $d2 cmpl $d1;
+
+        if $b2 != 0 goto label3;
+
+        $b2 = $d0 cmpg $d3;
+
+        $i1 = (int) $b2;
+
+        if $i1 < 0 goto label4;
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = r0.zza;
+
+        interfaceinvoke $r2.add($i0, $r1);
+
+        $r2 = r0.zzc;
+
+        $r4 = java.lang.Double.valueOf($d1);
+
+        interfaceinvoke $r2.add($i0, $r4);
+
+        $r2 = r0.zzb;
+
+        $r4 = java.lang.Double.valueOf($d0);
+
+        interfaceinvoke $r2.add($i0, $r4);
+
+        return r0;
+    }
+
+    public final com.google.android.gms.ads.internal.util.zzbf zzb()
+    {
+        com.google.android.gms.ads.internal.util.zzbf $r1;
+        com.google.android.gms.ads.internal.util.zzbd r0;
+
+        r0 := @this;
+
+        $r1 = new com.google.android.gms.ads.internal.util.zzbf;
+
+        specialinvoke $r1.<init>(r0, null);
+
+        return $r1;
+    }
+}

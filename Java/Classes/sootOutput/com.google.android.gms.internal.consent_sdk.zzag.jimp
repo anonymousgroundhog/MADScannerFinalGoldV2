@@ -1,0 +1,74 @@
+final class com.google.android.gms.internal.consent_sdk.zzag extends java.lang.Object
+{
+    private android.app.Application zza;
+
+    private void <init>()
+    {
+        com.google.android.gms.internal.consent_sdk.zzag r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    void <init>(com.google.android.gms.internal.consent_sdk.zzaf)
+    {
+        com.google.android.gms.internal.consent_sdk.zzag r0;
+        com.google.android.gms.internal.consent_sdk.zzaf $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public final com.google.android.gms.internal.consent_sdk.zzd zza()
+    {
+        com.google.android.gms.internal.consent_sdk.zzaj $r2;
+        com.google.android.gms.internal.consent_sdk.zzag r0;
+        android.app.Application $r1;
+
+        r0 := @this;
+
+        $r1 = r0.zza;
+
+        com.google.android.gms.internal.consent_sdk.zzck.zzb($r1, class "Landroid/app/Application;");
+
+        $r2 = new com.google.android.gms.internal.consent_sdk.zzaj;
+
+        $r1 = r0.zza;
+
+        specialinvoke $r2.<init>($r1, null);
+
+        return $r2;
+    }
+
+    public final com.google.android.gms.internal.consent_sdk.zzag zzb(android.app.Application)
+    {
+        com.google.android.gms.internal.consent_sdk.zzag r0;
+        android.app.Application $r1;
+        java.lang.NullPointerException r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        if $r1 == null goto label1;
+
+        r0.zza = $r1;
+
+        return r0;
+
+     label1:
+        r2 = new java.lang.NullPointerException;
+
+        specialinvoke r2.<init>("Null throw statement replaced by Soot");
+
+        throw r2;
+    }
+}

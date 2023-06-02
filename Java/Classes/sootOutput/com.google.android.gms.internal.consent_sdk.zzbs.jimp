@@ -1,0 +1,23 @@
+public final class com.google.android.gms.internal.consent_sdk.zzbs extends java.lang.Object
+{
+    public java.lang.Integer zza;
+    public java.lang.Integer zzb;
+    public java.lang.Double zzc;
+    public java.util.List zzd;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.consent_sdk.zzbs r0;
+        java.util.List $r1;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = java.util.Collections.emptyList();
+
+        r0.zzd = $r1;
+
+        return;
+    }
+}

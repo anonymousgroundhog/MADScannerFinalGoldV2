@@ -1,0 +1,85 @@
+final class com.google.android.gms.internal.ads.zzafl extends java.lang.Object
+{
+    private final java.lang.String zza;
+    private final byte[] zzb;
+    private final long zzc;
+    private final long zzd;
+
+    public void <init>(java.lang.String, byte[], long, long)
+    {
+        byte[] $r2;
+        long $l0, $l1;
+        com.google.android.gms.internal.ads.zzafl r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $l0 := @parameter2;
+
+        $l1 := @parameter3;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        r0.zzc = $l0;
+
+        r0.zzd = $l1;
+
+        return;
+    }
+
+    static volatile long zza(com.google.android.gms.internal.ads.zzafl)
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzafl $r0;
+
+        $r0 := @parameter0;
+
+        l0 = $r0.zzc;
+
+        return l0;
+    }
+
+    static volatile long zzb(com.google.android.gms.internal.ads.zzafl)
+    {
+        long l0;
+        com.google.android.gms.internal.ads.zzafl $r0;
+
+        $r0 := @parameter0;
+
+        l0 = $r0.zzd;
+
+        return l0;
+    }
+
+    static volatile java.lang.String zzc(com.google.android.gms.internal.ads.zzafl)
+    {
+        com.google.android.gms.internal.ads.zzafl $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    static volatile byte[] zzd(com.google.android.gms.internal.ads.zzafl)
+    {
+        byte[] r1;
+        com.google.android.gms.internal.ads.zzafl $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+}

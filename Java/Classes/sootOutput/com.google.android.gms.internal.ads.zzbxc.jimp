@@ -1,0 +1,60 @@
+final class com.google.android.gms.internal.ads.zzbxc extends java.lang.Object implements java.util.concurrent.ThreadFactory
+{
+    private final java.util.concurrent.atomic.AtomicInteger zza;
+
+    void <init>(com.google.android.gms.internal.ads.zzbxf)
+    {
+        com.google.android.gms.internal.ads.zzbxf $r1;
+        com.google.android.gms.internal.ads.zzbxc r0;
+        java.util.concurrent.atomic.AtomicInteger $r2;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>();
+
+        $r2 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $r2.<init>(1);
+
+        r0.zza = $r2;
+
+        return;
+    }
+
+    public final java.lang.Thread newThread(java.lang.Runnable)
+    {
+        java.util.concurrent.atomic.AtomicInteger $r4;
+        java.lang.Thread $r2;
+        int $i0;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r5;
+        com.google.android.gms.internal.ads.zzbxc r0;
+        java.lang.Runnable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new java.lang.Thread;
+
+        $r4 = r0.zza;
+
+        $i0 = virtualinvoke $r4.getAndIncrement();
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<init>();
+
+        virtualinvoke $r3.append("AdWorker(SCION_TASK_EXECUTOR) #");
+
+        virtualinvoke $r3.append($i0);
+
+        $r5 = virtualinvoke $r3.toString();
+
+        specialinvoke $r2.<init>($r1, $r5);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,97 @@
+public final class com.google.android.gms.dynamite.zzr extends com.google.android.gms.internal.common.zza implements android.os.IInterface
+{
+
+    void <init>(android.os.IBinder)
+    {
+        com.google.android.gms.dynamite.zzr r0;
+        android.os.IBinder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1, "com.google.android.gms.dynamite.IDynamiteLoaderV2");
+
+        return;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zze(com.google.android.gms.dynamic.IObjectWrapper, java.lang.String, int, com.google.android.gms.dynamic.IObjectWrapper) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r1, $r2;
+        int $i0;
+        java.lang.String $r3;
+        com.google.android.gms.dynamite.zzr r0;
+        android.os.Parcel $r4;
+        android.os.IBinder $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r1 := @parameter3;
+
+        $r4 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.common.zzc.zze($r4, $r2);
+
+        virtualinvoke $r4.writeString($r3);
+
+        virtualinvoke $r4.writeInt($i0);
+
+        com.google.android.gms.internal.common.zzc.zze($r4, $r1);
+
+        $r4 = virtualinvoke r0.zzB(2, $r4);
+
+        $r5 = virtualinvoke $r4.readStrongBinder();
+
+        $r2 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r5);
+
+        virtualinvoke $r4.recycle();
+
+        return $r2;
+    }
+
+    public final com.google.android.gms.dynamic.IObjectWrapper zzf(com.google.android.gms.dynamic.IObjectWrapper, java.lang.String, int, com.google.android.gms.dynamic.IObjectWrapper) throws android.os.RemoteException
+    {
+        com.google.android.gms.dynamic.IObjectWrapper $r1, $r2;
+        int $i0;
+        java.lang.String $r3;
+        com.google.android.gms.dynamite.zzr r0;
+        android.os.Parcel $r4;
+        android.os.IBinder $r5;
+
+        r0 := @this;
+
+        $r2 := @parameter0;
+
+        $r3 := @parameter1;
+
+        $i0 := @parameter2;
+
+        $r1 := @parameter3;
+
+        $r4 = virtualinvoke r0.zza();
+
+        com.google.android.gms.internal.common.zzc.zze($r4, $r2);
+
+        virtualinvoke $r4.writeString($r3);
+
+        virtualinvoke $r4.writeInt($i0);
+
+        com.google.android.gms.internal.common.zzc.zze($r4, $r1);
+
+        $r4 = virtualinvoke r0.zzB(3, $r4);
+
+        $r5 = virtualinvoke $r4.readStrongBinder();
+
+        $r2 = com.google.android.gms.dynamic.IObjectWrapper$Stub.asInterface($r5);
+
+        virtualinvoke $r4.recycle();
+
+        return $r2;
+    }
+}

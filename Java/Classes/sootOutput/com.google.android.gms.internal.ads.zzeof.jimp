@@ -1,0 +1,68 @@
+public final class com.google.android.gms.internal.ads.zzeof extends java.lang.Object implements com.google.android.gms.internal.ads.zzepm
+{
+    private final java.lang.String zza;
+    private final java.lang.String zzb;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r1, $r2;
+        com.google.android.gms.internal.ads.zzeof r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final volatile void zzh(java.lang.Object)
+    {
+        android.os.Bundle $r2;
+        com.google.android.gms.internal.ads.zzeof r0;
+        com.google.android.gms.internal.ads.zzbap $r4;
+        java.lang.Boolean $r5;
+        java.lang.Object $r1;
+        java.lang.String $r6;
+        com.google.android.gms.internal.ads.zzbaj $r3;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = (android.os.Bundle) $r1;
+
+        $r3 = com.google.android.gms.internal.ads.zzbar.zzgy;
+
+        $r4 = com.google.android.gms.ads.internal.client.zzba.zzc();
+
+        $r1 = virtualinvoke $r4.zzb($r3);
+
+        $r5 = (java.lang.Boolean) $r1;
+
+        $z0 = virtualinvoke $r5.booleanValue();
+
+        if $z0 == 0 goto label1;
+
+        $r6 = r0.zzb;
+
+        virtualinvoke $r2.putString("request_id", $r6);
+
+        return;
+
+     label1:
+        $r6 = r0.zza;
+
+        virtualinvoke $r2.putString("request_id", $r6);
+
+        return;
+    }
+}

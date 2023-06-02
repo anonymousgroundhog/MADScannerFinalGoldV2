@@ -1,0 +1,46 @@
+public final class com.google.android.gms.internal.ads.zzdll extends java.lang.Object
+{
+    private final com.google.android.gms.internal.ads.zzdli zza;
+
+    void <init>()
+    {
+        com.google.android.gms.internal.ads.zzdli $r1;
+        com.google.android.gms.internal.ads.zzdll r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = new com.google.android.gms.internal.ads.zzdli;
+
+        specialinvoke $r1.<init>();
+
+        r0.zza = $r1;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzdli zza(com.google.android.gms.internal.ads.zzdll)
+    {
+        com.google.android.gms.internal.ads.zzdli r1;
+        com.google.android.gms.internal.ads.zzdll $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zza;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzdli zzb()
+    {
+        com.google.android.gms.internal.ads.zzdli r1;
+        com.google.android.gms.internal.ads.zzdll r0;
+
+        r0 := @this;
+
+        r1 = r0.zza;
+
+        return r1;
+    }
+}

@@ -1,0 +1,113 @@
+public final class com.google.android.gms.internal.ads.zzot extends java.lang.Object
+{
+    final com.google.android.gms.internal.ads.zzos zza;
+    private com.google.android.gms.internal.ads.zznq zzb;
+    private com.google.android.gms.internal.ads.zzov zzc;
+
+    public void <init>()
+    {
+        com.google.android.gms.internal.ads.zzot r0;
+        com.google.android.gms.internal.ads.zznq $r1;
+        com.google.android.gms.internal.ads.zzos $r2;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        $r1 = com.google.android.gms.internal.ads.zznq.zza;
+
+        r0.zzb = $r1;
+
+        $r2 = com.google.android.gms.internal.ads.zzos.zza;
+
+        r0.zza = $r2;
+
+        return;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zznq zza(com.google.android.gms.internal.ads.zzot)
+    {
+        com.google.android.gms.internal.ads.zzot $r0;
+        com.google.android.gms.internal.ads.zznq r1;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzb;
+
+        return r1;
+    }
+
+    static volatile com.google.android.gms.internal.ads.zzov zze(com.google.android.gms.internal.ads.zzot)
+    {
+        com.google.android.gms.internal.ads.zzov r1;
+        com.google.android.gms.internal.ads.zzot $r0;
+
+        $r0 := @parameter0;
+
+        r1 = $r0.zzc;
+
+        return r1;
+    }
+
+    public final com.google.android.gms.internal.ads.zzot zzb(com.google.android.gms.internal.ads.zznq)
+    {
+        com.google.android.gms.internal.ads.zzot r0;
+        com.google.android.gms.internal.ads.zznq $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.zzb = $r1;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzot zzc(com.google.android.gms.internal.ads.zzde[])
+    {
+        com.google.android.gms.internal.ads.zzov $r2;
+        com.google.android.gms.internal.ads.zzot r0;
+        com.google.android.gms.internal.ads.zzde[] $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 = new com.google.android.gms.internal.ads.zzov;
+
+        specialinvoke $r2.<init>($r1);
+
+        r0.zzc = $r2;
+
+        return r0;
+    }
+
+    public final com.google.android.gms.internal.ads.zzpf zzd()
+    {
+        com.google.android.gms.internal.ads.zzov $r1;
+        com.google.android.gms.internal.ads.zzot r0;
+        com.google.android.gms.internal.ads.zzpf $r3;
+        com.google.android.gms.internal.ads.zzde[] $r2;
+
+        r0 := @this;
+
+        $r1 = r0.zzc;
+
+        if $r1 != null goto label1;
+
+        $r1 = new com.google.android.gms.internal.ads.zzov;
+
+        $r2 = newarray (com.google.android.gms.internal.ads.zzde)[0];
+
+        specialinvoke $r1.<init>($r2);
+
+        r0.zzc = $r1;
+
+     label1:
+        $r3 = new com.google.android.gms.internal.ads.zzpf;
+
+        specialinvoke $r3.<init>(r0, null);
+
+        return $r3;
+    }
+}

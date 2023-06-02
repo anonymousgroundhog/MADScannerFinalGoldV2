@@ -1,0 +1,80 @@
+public final enum class androidx.'annotation'.experimental.Experimental$Level extends java.lang.Enum
+{
+    private static final androidx.'annotation'.experimental.Experimental$Level[] $VALUES;
+    public static final enum androidx.'annotation'.experimental.Experimental$Level ERROR;
+    public static final enum androidx.'annotation'.experimental.Experimental$Level WARNING;
+
+    static void <clinit>()
+    {
+        androidx.annotation.experimental.Experimental$Level $r1;
+        androidx.annotation.experimental.Experimental$Level[] $r0;
+
+        $r0 = newarray (androidx.annotation.experimental.Experimental$Level)[2];
+
+        $r1 = new androidx.annotation.experimental.Experimental$Level;
+
+        specialinvoke $r1.<init>("WARNING", 0);
+
+        androidx.annotation.experimental.Experimental$Level.WARNING = $r1;
+
+        $r0[0] = $r1;
+
+        $r1 = new androidx.annotation.experimental.Experimental$Level;
+
+        specialinvoke $r1.<init>("ERROR", 1);
+
+        androidx.annotation.experimental.Experimental$Level.ERROR = $r1;
+
+        $r0[1] = $r1;
+
+        androidx.annotation.experimental.Experimental$Level.$VALUES = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        int $i0;
+        androidx.annotation.experimental.Experimental$Level r0;
+        java.lang.String $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.<init>($r1, $i0);
+
+        return;
+    }
+
+    public static androidx.'annotation'.experimental.Experimental$Level valueOf(java.lang.String)
+    {
+        androidx.annotation.experimental.Experimental$Level $r2;
+        java.lang.String $r1;
+        java.lang.Enum $r0;
+
+        $r1 := @parameter0;
+
+        $r0 = java.lang.Enum.valueOf(class "Landroidx/annotation/experimental/Experimental$Level;", $r1);
+
+        $r2 = (androidx.annotation.experimental.Experimental$Level) $r0;
+
+        return $r2;
+    }
+
+    public static androidx.'annotation'.experimental.Experimental$Level[] values()
+    {
+        java.lang.Object $r0;
+        androidx.annotation.experimental.Experimental$Level[] $r1;
+
+        $r1 = androidx.annotation.experimental.Experimental$Level.$VALUES;
+
+        $r0 = virtualinvoke $r1.clone();
+
+        $r1 = (androidx.annotation.experimental.Experimental$Level[]) $r0;
+
+        return $r1;
+    }
+}

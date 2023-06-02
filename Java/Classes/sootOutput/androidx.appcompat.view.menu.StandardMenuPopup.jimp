@@ -1,0 +1,806 @@
+final class androidx.appcompat.view.menu.StandardMenuPopup extends androidx.appcompat.view.menu.MenuPopup implements android.widget.PopupWindow$OnDismissListener, android.widget.AdapterView$OnItemClickListener, androidx.appcompat.view.menu.MenuPresenter, android.view.View$OnKeyListener
+{
+    private static final int ITEM_LAYOUT;
+    private final androidx.appcompat.view.menu.MenuAdapter mAdapter;
+    private android.view.View mAnchorView;
+    private final android.view.View$OnAttachStateChangeListener mAttachStateChangeListener;
+    private int mContentWidth;
+    private final android.content.Context mContext;
+    private int mDropDownGravity;
+    final android.view.ViewTreeObserver$OnGlobalLayoutListener mGlobalLayoutListener;
+    private boolean mHasContentWidth;
+    private final androidx.appcompat.view.menu.MenuBuilder mMenu;
+    private android.widget.PopupWindow$OnDismissListener mOnDismissListener;
+    private final boolean mOverflowOnly;
+    final androidx.appcompat.widget.MenuPopupWindow mPopup;
+    private final int mPopupMaxWidth;
+    private final int mPopupStyleAttr;
+    private final int mPopupStyleRes;
+    private androidx.appcompat.view.menu.MenuPresenter$Callback mPresenterCallback;
+    private boolean mShowTitle;
+    android.view.View mShownAnchorView;
+    android.view.ViewTreeObserver mTreeObserver;
+    private boolean mWasDismissed;
+
+    static void <clinit>()
+    {
+        int $i0;
+
+        $i0 = androidx.appcompat.R$layout.abc_popup_menu_item_layout;
+
+        androidx.appcompat.view.menu.StandardMenuPopup.ITEM_LAYOUT = $i0;
+
+        return;
+    }
+
+    public void <init>(android.content.Context, androidx.appcompat.view.menu.MenuBuilder, android.view.View, int, int, boolean)
+    {
+        android.content.Context $r1;
+        androidx.appcompat.widget.MenuPopupWindow $r10;
+        androidx.appcompat.view.menu.StandardMenuPopup$1 r4;
+        int $i0, $i1, $i2, $i3;
+        android.view.View $r3;
+        androidx.appcompat.view.menu.StandardMenuPopup$2 r5;
+        boolean $z0;
+        android.view.LayoutInflater $r6;
+        androidx.appcompat.view.menu.MenuBuilder $r2;
+        android.util.DisplayMetrics $r9;
+        androidx.appcompat.view.menu.MenuAdapter r7;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.content.res.Resources $r8;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        $r3 := @parameter2;
+
+        $i0 := @parameter3;
+
+        $i1 := @parameter4;
+
+        $z0 := @parameter5;
+
+        specialinvoke r0.<init>();
+
+        r4 = new androidx.appcompat.view.menu.StandardMenuPopup$1;
+
+        specialinvoke r4.<init>(r0);
+
+        r0.mGlobalLayoutListener = r4;
+
+        r5 = new androidx.appcompat.view.menu.StandardMenuPopup$2;
+
+        specialinvoke r5.<init>(r0);
+
+        r0.mAttachStateChangeListener = r5;
+
+        r0.mDropDownGravity = 0;
+
+        r0.mContext = $r1;
+
+        r0.mMenu = $r2;
+
+        r0.mOverflowOnly = $z0;
+
+        $r6 = android.view.LayoutInflater.from($r1);
+
+        r7 = new androidx.appcompat.view.menu.MenuAdapter;
+
+        $i2 = androidx.appcompat.view.menu.StandardMenuPopup.ITEM_LAYOUT;
+
+        specialinvoke r7.<init>($r2, $r6, $z0, $i2);
+
+        r0.mAdapter = r7;
+
+        r0.mPopupStyleAttr = $i0;
+
+        r0.mPopupStyleRes = $i1;
+
+        $r8 = virtualinvoke $r1.getResources();
+
+        $r9 = virtualinvoke $r8.getDisplayMetrics();
+
+        $i2 = $r9.widthPixels;
+
+        $i2 = $i2 / 2;
+
+        $i3 = androidx.appcompat.R$dimen.abc_config_prefDialogWidth;
+
+        $i3 = virtualinvoke $r8.getDimensionPixelSize($i3);
+
+        $i2 = java.lang.Math.max($i2, $i3);
+
+        r0.mPopupMaxWidth = $i2;
+
+        r0.mAnchorView = $r3;
+
+        $r10 = new androidx.appcompat.widget.MenuPopupWindow;
+
+        specialinvoke $r10.<init>($r1, null, $i0, $i1);
+
+        r0.mPopup = $r10;
+
+        virtualinvoke $r2.addMenuPresenter(r0, $r1);
+
+        return;
+    }
+
+    private boolean tryShow()
+    {
+        android.content.Context r7;
+        android.graphics.Rect $r8;
+        android.widget.FrameLayout r13;
+        androidx.appcompat.widget.MenuPopupWindow r2;
+        int $i0;
+        android.view.View r1;
+        boolean $z0;
+        java.lang.CharSequence $r11;
+        android.view.LayoutInflater $r12;
+        androidx.appcompat.view.menu.MenuBuilder r10;
+        android.view.ViewTreeObserver$OnGlobalLayoutListener $r4;
+        androidx.appcompat.view.menu.MenuAdapter r6;
+        android.widget.TextView r14;
+        android.view.ViewTreeObserver r3;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.view.View$OnAttachStateChangeListener r5;
+        android.widget.ListView $r9;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = r0.mWasDismissed;
+
+        if $z0 != 0 goto label9;
+
+        r1 = r0.mAnchorView;
+
+        if r1 != null goto label2;
+
+        return 0;
+
+     label2:
+        r0.mShownAnchorView = r1;
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.setOnDismissListener(r0);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.setOnItemClickListener(r0);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.setModal(1);
+
+        r1 = r0.mShownAnchorView;
+
+        r3 = r0.mTreeObserver;
+
+        if r3 != null goto label3;
+
+        $z0 = 1;
+
+        goto label4;
+
+     label3:
+        $z0 = 0;
+
+     label4:
+        r3 = virtualinvoke r1.getViewTreeObserver();
+
+        r0.mTreeObserver = r3;
+
+        if $z0 == 0 goto label5;
+
+        $r4 = r0.mGlobalLayoutListener;
+
+        virtualinvoke r3.addOnGlobalLayoutListener($r4);
+
+     label5:
+        r5 = r0.mAttachStateChangeListener;
+
+        virtualinvoke r1.addOnAttachStateChangeListener(r5);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.setAnchorView(r1);
+
+        r2 = r0.mPopup;
+
+        $i0 = r0.mDropDownGravity;
+
+        virtualinvoke r2.setDropDownGravity($i0);
+
+        $z0 = r0.mHasContentWidth;
+
+        if $z0 != 0 goto label6;
+
+        r6 = r0.mAdapter;
+
+        r7 = r0.mContext;
+
+        $i0 = r0.mPopupMaxWidth;
+
+        $i0 = androidx.appcompat.view.menu.StandardMenuPopup.measureIndividualMenuWidth(r6, null, r7, $i0);
+
+        r0.mContentWidth = $i0;
+
+        r0.mHasContentWidth = 1;
+
+     label6:
+        r2 = r0.mPopup;
+
+        $i0 = r0.mContentWidth;
+
+        virtualinvoke r2.setContentWidth($i0);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.setInputMethodMode(2);
+
+        r2 = r0.mPopup;
+
+        $r8 = virtualinvoke r0.getEpicenterBounds();
+
+        virtualinvoke r2.setEpicenterBounds($r8);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.show();
+
+        r2 = r0.mPopup;
+
+        $r9 = virtualinvoke r2.getListView();
+
+        virtualinvoke $r9.setOnKeyListener(r0);
+
+        $z0 = r0.mShowTitle;
+
+        if $z0 == 0 goto label8;
+
+        r10 = r0.mMenu;
+
+        $r11 = virtualinvoke r10.getHeaderTitle();
+
+        if $r11 == null goto label8;
+
+        r7 = r0.mContext;
+
+        $r12 = android.view.LayoutInflater.from(r7);
+
+        $i0 = androidx.appcompat.R$layout.abc_popup_menu_header_item_layout;
+
+        r1 = virtualinvoke $r12.inflate($i0, $r9, 0);
+
+        r13 = (android.widget.FrameLayout) r1;
+
+        r1 = virtualinvoke r13.findViewById(16908310);
+
+        r14 = (android.widget.TextView) r1;
+
+        if r14 == null goto label7;
+
+        r10 = r0.mMenu;
+
+        $r11 = virtualinvoke r10.getHeaderTitle();
+
+        virtualinvoke r14.setText($r11);
+
+     label7:
+        virtualinvoke r13.setEnabled(0);
+
+        virtualinvoke $r9.addHeaderView(r13, null, 0);
+
+     label8:
+        r2 = r0.mPopup;
+
+        r6 = r0.mAdapter;
+
+        virtualinvoke r2.setAdapter(r6);
+
+        r2 = r0.mPopup;
+
+        virtualinvoke r2.show();
+
+        return 1;
+
+     label9:
+        return 0;
+    }
+
+    public void addMenu(androidx.appcompat.view.menu.MenuBuilder)
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.view.menu.MenuBuilder $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public void dismiss()
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.widget.MenuPopupWindow $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = virtualinvoke r0.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.dismiss();
+
+     label1:
+        return;
+    }
+
+    public boolean flagActionItems()
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        return 0;
+    }
+
+    public android.widget.ListView getListView()
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.widget.ListView $r1;
+        androidx.appcompat.widget.MenuPopupWindow $r2;
+
+        r0 := @this;
+
+        $r2 = r0.mPopup;
+
+        $r1 = virtualinvoke $r2.getListView();
+
+        return $r1;
+    }
+
+    public boolean isShowing()
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.widget.MenuPopupWindow $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = r0.mWasDismissed;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = r0.mPopup;
+
+        $z0 = virtualinvoke $r1.isShowing();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void onCloseMenu(androidx.appcompat.view.menu.MenuBuilder, boolean)
+    {
+        androidx.appcompat.view.menu.MenuPresenter$Callback $r3;
+        androidx.appcompat.view.menu.MenuBuilder $r1, $r2;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 := @parameter1;
+
+        $r2 = r0.mMenu;
+
+        if $r1 == $r2 goto label1;
+
+        return;
+
+     label1:
+        virtualinvoke r0.dismiss();
+
+        $r3 = r0.mPresenterCallback;
+
+        if $r3 == null goto label2;
+
+        interfaceinvoke $r3.onCloseMenu($r1, $z0);
+
+     label2:
+        return;
+    }
+
+    public void onDismiss()
+    {
+        androidx.appcompat.view.menu.MenuBuilder $r1;
+        android.view.ViewTreeObserver$OnGlobalLayoutListener $r4;
+        android.widget.PopupWindow$OnDismissListener $r6;
+        android.view.ViewTreeObserver $r2;
+        android.view.View $r3;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.view.View$OnAttachStateChangeListener $r5;
+        boolean $z0;
+
+        r0 := @this;
+
+        r0.mWasDismissed = 1;
+
+        $r1 = r0.mMenu;
+
+        virtualinvoke $r1.close();
+
+        $r2 = r0.mTreeObserver;
+
+        if $r2 == null goto label2;
+
+        $z0 = virtualinvoke $r2.isAlive();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = r0.mShownAnchorView;
+
+        $r2 = virtualinvoke $r3.getViewTreeObserver();
+
+        r0.mTreeObserver = $r2;
+
+     label1:
+        $r2 = r0.mTreeObserver;
+
+        $r4 = r0.mGlobalLayoutListener;
+
+        virtualinvoke $r2.removeGlobalOnLayoutListener($r4);
+
+        r0.mTreeObserver = null;
+
+     label2:
+        $r3 = r0.mShownAnchorView;
+
+        $r5 = r0.mAttachStateChangeListener;
+
+        virtualinvoke $r3.removeOnAttachStateChangeListener($r5);
+
+        $r6 = r0.mOnDismissListener;
+
+        if $r6 == null goto label3;
+
+        interfaceinvoke $r6.onDismiss();
+
+     label3:
+        return;
+    }
+
+    public boolean onKey(android.view.View, int, android.view.KeyEvent)
+    {
+        android.view.KeyEvent $r2;
+        int $i0, $i1;
+        android.view.View $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        $r2 := @parameter2;
+
+        $i1 = virtualinvoke $r2.getAction();
+
+        if $i1 != 1 goto label1;
+
+        if $i0 != 82 goto label1;
+
+        virtualinvoke r0.dismiss();
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void onRestoreInstanceState(android.os.Parcelable)
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.os.Parcelable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        return;
+    }
+
+    public android.os.Parcelable onSaveInstanceState()
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        return null;
+    }
+
+    public boolean onSubMenuSelected(androidx.appcompat.view.menu.SubMenuBuilder)
+    {
+        android.content.Context r3;
+        androidx.appcompat.view.menu.MenuBuilder r7;
+        androidx.appcompat.widget.MenuPopupWindow r8;
+        androidx.appcompat.view.menu.MenuPresenter$Callback r5;
+        androidx.appcompat.view.menu.MenuPopupHelper r2;
+        android.widget.PopupWindow$OnDismissListener r6;
+        int $i0, $i1, i2, i3, $i4;
+        android.view.View $r4;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.view.menu.SubMenuBuilder $r1;
+        boolean $z0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $z0 = virtualinvoke $r1.hasVisibleItems();
+
+        if $z0 == 0 goto label3;
+
+        r2 = new androidx.appcompat.view.menu.MenuPopupHelper;
+
+        r3 = r0.mContext;
+
+        $r4 = r0.mShownAnchorView;
+
+        $z0 = r0.mOverflowOnly;
+
+        $i0 = r0.mPopupStyleAttr;
+
+        $i1 = r0.mPopupStyleRes;
+
+        specialinvoke r2.<init>(r3, $r1, $r4, $z0, $i0, $i1);
+
+        r5 = r0.mPresenterCallback;
+
+        virtualinvoke r2.setPresenterCallback(r5);
+
+        $z0 = androidx.appcompat.view.menu.MenuPopup.shouldPreserveIconSpacing($r1);
+
+        virtualinvoke r2.setForceShowIcon($z0);
+
+        r6 = r0.mOnDismissListener;
+
+        virtualinvoke r2.setOnDismissListener(r6);
+
+        r0.mOnDismissListener = null;
+
+        r7 = r0.mMenu;
+
+        virtualinvoke r7.close(0);
+
+        r8 = r0.mPopup;
+
+        $i0 = virtualinvoke r8.getHorizontalOffset();
+
+        i2 = $i0;
+
+        r8 = r0.mPopup;
+
+        $i1 = virtualinvoke r8.getVerticalOffset();
+
+        i3 = r0.mDropDownGravity;
+
+        $r4 = r0.mAnchorView;
+
+        $i4 = androidx.core.view.ViewCompat.getLayoutDirection($r4);
+
+        i3 = android.view.Gravity.getAbsoluteGravity(i3, $i4);
+
+        i3 = i3 & 7;
+
+        if i3 != 5 goto label1;
+
+        $r4 = r0.mAnchorView;
+
+        i2 = virtualinvoke $r4.getWidth();
+
+        i2 = $i0 + i2;
+
+     label1:
+        $z0 = virtualinvoke r2.tryShow(i2, $i1);
+
+        if $z0 == 0 goto label3;
+
+        r5 = r0.mPresenterCallback;
+
+        if r5 == null goto label2;
+
+        interfaceinvoke r5.onOpenSubMenu($r1);
+
+     label2:
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public void setAnchorView(android.view.View)
+    {
+        android.view.View $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mAnchorView = $r1;
+
+        return;
+    }
+
+    public void setCallback(androidx.appcompat.view.menu.MenuPresenter$Callback)
+    {
+        androidx.appcompat.view.menu.MenuPresenter$Callback $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mPresenterCallback = $r1;
+
+        return;
+    }
+
+    public void setForceShowIcon(boolean)
+    {
+        androidx.appcompat.view.menu.MenuAdapter $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        $r1 = r0.mAdapter;
+
+        virtualinvoke $r1.setForceShowIcon($z0);
+
+        return;
+    }
+
+    public void setGravity(int)
+    {
+        int $i0;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        r0.mDropDownGravity = $i0;
+
+        return;
+    }
+
+    public void setHorizontalOffset(int)
+    {
+        int $i0;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.widget.MenuPopupWindow $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setHorizontalOffset($i0);
+
+        return;
+    }
+
+    public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        android.widget.PopupWindow$OnDismissListener $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        r0.mOnDismissListener = $r1;
+
+        return;
+    }
+
+    public void setShowTitle(boolean)
+    {
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mShowTitle = $z0;
+
+        return;
+    }
+
+    public void setVerticalOffset(int)
+    {
+        int $i0;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        androidx.appcompat.widget.MenuPopupWindow $r1;
+
+        r0 := @this;
+
+        $i0 := @parameter0;
+
+        $r1 = r0.mPopup;
+
+        virtualinvoke $r1.setVerticalOffset($i0);
+
+        return;
+    }
+
+    public void show()
+    {
+        java.lang.IllegalStateException $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 = specialinvoke r0.tryShow();
+
+        if $z0 == 0 goto label1;
+
+        return;
+
+     label1:
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<init>("StandardMenuPopup cannot be used without an anchor");
+
+        throw $r1;
+    }
+
+    public void updateMenuView(boolean)
+    {
+        androidx.appcompat.view.menu.MenuAdapter $r1;
+        androidx.appcompat.view.menu.StandardMenuPopup r0;
+        boolean $z0;
+
+        r0 := @this;
+
+        $z0 := @parameter0;
+
+        r0.mHasContentWidth = 0;
+
+        $r1 = r0.mAdapter;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.notifyDataSetChanged();
+
+     label1:
+        return;
+    }
+}

@@ -1,0 +1,107 @@
+class androidx.fragment.app.FragmentTabHost$SavedState extends android.view.View$BaseSavedState
+{
+    public static final android.os.Parcelable$Creator CREATOR;
+    java.lang.String curTab;
+
+    static void <clinit>()
+    {
+        androidx.fragment.app.FragmentTabHost$SavedState$1 $r0;
+
+        $r0 = new androidx.fragment.app.FragmentTabHost$SavedState$1;
+
+        specialinvoke $r0.<init>();
+
+        androidx.fragment.app.FragmentTabHost$SavedState.CREATOR = $r0;
+
+        return;
+    }
+
+    void <init>(android.os.Parcel)
+    {
+        androidx.fragment.app.FragmentTabHost$SavedState r0;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        $r2 = virtualinvoke $r1.readString();
+
+        r0.curTab = $r2;
+
+        return;
+    }
+
+    void <init>(android.os.Parcelable)
+    {
+        androidx.fragment.app.FragmentTabHost$SavedState r0;
+        android.os.Parcelable $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        specialinvoke r0.<init>($r1);
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        androidx.fragment.app.FragmentTabHost$SavedState r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        r0 := @this;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<init>();
+
+        $r1 = virtualinvoke $r1.append("FragmentTabHost.SavedState{");
+
+        $i0 = java.lang.System.identityHashCode(r0);
+
+        $r2 = java.lang.Integer.toHexString($i0);
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append(" curTab=");
+
+        $r2 = r0.curTab;
+
+        $r1 = virtualinvoke $r1.append($r2);
+
+        $r1 = virtualinvoke $r1.append("}");
+
+        $r2 = virtualinvoke $r1.toString();
+
+        return $r2;
+    }
+
+    public void writeToParcel(android.os.Parcel, int)
+    {
+        androidx.fragment.app.FragmentTabHost$SavedState r0;
+        int $i0;
+        java.lang.String $r2;
+        android.os.Parcel $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $i0 := @parameter1;
+
+        specialinvoke r0.writeToParcel($r1, $i0);
+
+        $r2 = r0.curTab;
+
+        virtualinvoke $r1.writeString($r2);
+
+        return;
+    }
+}

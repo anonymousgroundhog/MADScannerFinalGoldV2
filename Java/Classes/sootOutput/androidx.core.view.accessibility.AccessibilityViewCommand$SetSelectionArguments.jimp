@@ -1,0 +1,44 @@
+public final class androidx.core.view.accessibility.AccessibilityViewCommand$SetSelectionArguments extends androidx.core.view.accessibility.AccessibilityViewCommand$CommandArguments
+{
+
+    public void <init>()
+    {
+        androidx.core.view.accessibility.AccessibilityViewCommand$SetSelectionArguments r0;
+
+        r0 := @this;
+
+        specialinvoke r0.<init>();
+
+        return;
+    }
+
+    public int getEnd()
+    {
+        int $i0;
+        android.os.Bundle $r1;
+        androidx.core.view.accessibility.AccessibilityViewCommand$SetSelectionArguments r0;
+
+        r0 := @this;
+
+        $r1 = r0.mBundle;
+
+        $i0 = virtualinvoke $r1.getInt("ACTION_ARGUMENT_SELECTION_END_INT");
+
+        return $i0;
+    }
+
+    public int getStart()
+    {
+        int $i0;
+        android.os.Bundle $r1;
+        androidx.core.view.accessibility.AccessibilityViewCommand$SetSelectionArguments r0;
+
+        r0 := @this;
+
+        $r1 = r0.mBundle;
+
+        $i0 = virtualinvoke $r1.getInt("ACTION_ARGUMENT_SELECTION_START_INT");
+
+        return $i0;
+    }
+}

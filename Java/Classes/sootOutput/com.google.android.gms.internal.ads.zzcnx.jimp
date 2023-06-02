@@ -1,0 +1,7 @@
+public interface  com.google.android.gms.internal.ads.zzcnx extends java.lang.Object implements com.google.android.gms.internal.ads.zzctv
+{
+
+    public abstract com.google.android.gms.internal.ads.zzcnx zzc(com.google.android.gms.internal.ads.zzdab);
+
+    public abstract com.google.android.gms.internal.ads.zzcnx zzd(com.google.android.gms.internal.ads.zzctz);
+}

@@ -1,0 +1,25 @@
+public final class com.google.android.gms.internal.ads.zzbce extends java.lang.Object
+{
+    public static final com.google.android.gms.internal.ads.zzbbw zza;
+    public static final com.google.android.gms.internal.ads.zzbbw zzb;
+    public static final com.google.android.gms.internal.ads.zzbbw zzc;
+
+    static void <clinit>()
+    {
+        com.google.android.gms.internal.ads.zzbbw $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zza("gads:csi_reporting_ratio", 0.05);
+
+        com.google.android.gms.internal.ads.zzbce.zza = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzc("gads:sdk_csi_server", "https://csi.gstatic.com/csi");
+
+        com.google.android.gms.internal.ads.zzbce.zzb = $r0;
+
+        $r0 = com.google.android.gms.internal.ads.zzbbw.zzd("gads:enabled_sdk_csi", 0);
+
+        com.google.android.gms.internal.ads.zzbce.zzc = $r0;
+
+        return;
+    }
+}

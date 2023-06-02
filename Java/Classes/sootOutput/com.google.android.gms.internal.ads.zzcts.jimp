@@ -1,0 +1,44 @@
+public final class com.google.android.gms.internal.ads.zzcts extends java.lang.Object implements java.util.concurrent.Callable
+{
+    public final com.google.android.gms.internal.ads.zzctt zza;
+    public final com.google.android.gms.internal.ads.zzfut zzb;
+
+    public void <init>(com.google.android.gms.internal.ads.zzctt, com.google.android.gms.internal.ads.zzfut)
+    {
+        com.google.android.gms.internal.ads.zzcts r0;
+        com.google.android.gms.internal.ads.zzfut $r2;
+        com.google.android.gms.internal.ads.zzctt $r1;
+
+        r0 := @this;
+
+        $r1 := @parameter0;
+
+        $r2 := @parameter1;
+
+        specialinvoke r0.<init>();
+
+        r0.zza = $r1;
+
+        r0.zzb = $r2;
+
+        return;
+    }
+
+    public final java.lang.Object call()
+    {
+        com.google.android.gms.internal.ads.zzcts r0;
+        com.google.android.gms.internal.ads.zzfut $r1;
+        com.google.android.gms.internal.ads.zzctt $r3;
+        com.google.android.gms.internal.ads.zzbtn $r2;
+
+        r0 := @this;
+
+        $r3 = r0.zza;
+
+        $r1 = r0.zzb;
+
+        $r2 = virtualinvoke $r3.zza($r1);
+
+        return $r2;
+    }
+}
