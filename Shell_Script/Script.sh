@@ -27,12 +27,13 @@ Function_Run_Framework_And_Output_Jimple() {
 	cd Classes
 	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
 	java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
+	# java -cp ".:../../Jar_Libs/*" SootExample -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 }
 
 Function_Compile_Framework() {
 	cd ../Java/
 	rm sootOutput/*
-	javac -d Classes -cp "../Jar_Libs/*" SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
+	javac -d Classes -cp "../Jar_Libs/*" SootExample.java SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
 }
 
 Function_Get_MainActivity_And_Write_To_File() {

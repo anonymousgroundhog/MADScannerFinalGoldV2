@@ -110,4 +110,42 @@ public class SootInstrumentationHelper
         }
         return false;
     }
+    public static Boolean ContainsAdListenerUnit(UnitPatchingChain thisunits){
+        String public_variable_admanageradview = "com.google.android.gms.ads.admanager.AdManagerAdView";
+        Unit this_unit = null;
+        for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+            this_unit = unit.next();
+            if(this_unit.toString().contains("virtualinvoke") && this_unit.getUseBoxes().size() > 2){
+                Value this_value = this_unit.getUseBoxes().get(2).getValue();
+                if(this_value instanceof VirtualInvokeExpr){
+                    VirtualInvokeExpr this_virtualInvokeExpr = (VirtualInvokeExpr) this_value;
+                    String this_method_name = this_virtualInvokeExpr.getMethod().getName();
+                    if(this_method_name.equals("setAdListener") && this_virtualInvokeExpr.getMethod().getDeclaringClass().getName().equals("com.google.android.gms.ads.BaseAdView")){
+                        // Print(this_virtualInvokeExpr.getMethod().getName());
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public static SootClass GetAdListenerUnitClass(UnitPatchingChain thisunits){
+        String public_variable_admanageradview = "com.google.android.gms.ads.admanager.AdManagerAdView";
+        Unit this_unit = null;
+        for (Iterator<Unit> unit = thisunits.snapshotIterator(); unit.hasNext();) {
+            this_unit = unit.next();
+            if(this_unit.toString().contains("virtualinvoke") && this_unit.getUseBoxes().size() > 2){
+                Value this_value = this_unit.getUseBoxes().get(2).getValue();
+                if(this_value instanceof VirtualInvokeExpr){
+                    VirtualInvokeExpr this_virtualInvokeExpr = (VirtualInvokeExpr) this_value;
+                    String this_method_name = this_virtualInvokeExpr.getMethod().getName();
+                    if(this_method_name.equals("setAdListener")){
+                        // Print(this_virtualInvokeExpr.getMethod().getName());
+                        return this_virtualInvokeExpr.getMethod().getDeclaringClass();
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }

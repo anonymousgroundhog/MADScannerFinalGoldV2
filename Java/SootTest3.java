@@ -24,7 +24,8 @@ public class SootTest3
     private static SootUtil this_sootUtil = new SootUtil();
     private static SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
     private static Boolean boolean_injected_classes = false;
-
+    // private static Hierarchy hierarchy = null;
+    
     // INJECTING TestClass
     // Issue was with setting a local instead of a thisRef. Use Scene.v().makeFieldRef
     public static void InjectNewClass_AdListenerClass1(){
@@ -173,7 +174,6 @@ public class SootTest3
                     
                     // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
                     if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
-                        // this_Helper.Print("FOUND!!!");
                         unit_to_inject_after = this_unit;
                         break;
                     }
@@ -205,7 +205,6 @@ public class SootTest3
                    this_value = vb.getValue(); 
                 }
                 AssignStmt this_assign_stmt_to_inject = Jimple.v().newAssignStmt(local_this_admanager, this_value);
-                // this_Helper.Print("Testing:"+this_assign_stmt_to_inject.toString());
                 this_units.insertAfter(this_assign_stmt_to_inject, unit_to_inject_after);
 
                 // Generate r2 = new com.google.android.gms.example.bannerexample.TestClass;
@@ -252,6 +251,8 @@ public class SootTest3
                 String this_method_name = this_method.getName();
                 SootClass this_class = this_method.getDeclaringClass();
                 String this_class_name = this_class.getName();
+                
+                
 
                 if(boolean_injected_classes){
                     String[] app_name =  args[13].split("/");
@@ -275,6 +276,7 @@ public class SootTest3
                         boolean_injected_classes = true;
                         // Try to cast to the class where getadunitid exists
                         // Inject_Calls_Into_MainActivity();
+                        // hierarchy = Scene.v().getActiveHierarchy();
                     }
                 });
 
@@ -284,9 +286,25 @@ public class SootTest3
                 Boolean method_not_clinit_or_init = (!this_method_name.contains("<clinit>") && !this_method_name.contains("<init>")); 
                 Boolean contains_ad_view = this_Helper.ContainsAdViewUnit(this_body.getUnits());
                 Boolean class_not_main_activity = !this_class_name.equals(public_variable_mainactivity);
+                Boolean found_unit_with_adlistener = this_Helper.ContainsAdListenerUnit(this_body.getUnits());
+                
+                // boolean inherits = hierarchy.isClassSubclassOfIncluding(subClass, superClass);
+                
+                // if(class_has_superclass && hierarchy != null){
+                //     System.out.printf("Class extends superclass:%s\nSuperclasses are:%s",this_class_name,   hierarchy.getSuperclassesOf(this_class));
+                //     // Get Units class name invoked.
+                //     // boolean inherits = hierarchy.isClassSubclassOfIncluding(this_class, this_Helper.GetAdListenerUnitClass(this_body.getUnits()));
+                //     // if(inherits){
+                //     //    System.out.printf("Inherits"); 
+                //     // }
+                // }
+                if(found_unit_with_adlistener){
+                    System.out.printf("Found setAdListener in Class: %s, Method: %s\n\n",this_class_name, this_method_name);
+                }
                 if(class_not_main_activity && class_has_superclass && class_contains_google && method_not_clinit_or_init && contains_ad_view){
                     System.out.printf("Class: %s, Method: %s\n\n",this_class_name, this_method_name); 
                 }
+
             }
         }));   
         soot.Main.main(args);
