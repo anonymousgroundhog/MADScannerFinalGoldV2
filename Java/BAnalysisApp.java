@@ -66,23 +66,23 @@ public class BAnalysisApp {
 	}
 
     private static void prepareSoot(String app_name) {
-	soot.G.reset();
-	Options.v().set_src_prec(Options.src_prec_apk);
-	Options.v().set_process_dir(Arrays.asList("../../APK/"+app_name));
-	Options.v().set_process_multiple_dex(true);
-	Options.v().set_android_jars("../../Android/platforms");
-	Options.v().set_whole_program(true);
-	Options.v().set_allow_phantom_refs(true);
-	Options.v().set_output_format(Options.output_format_j);
-	// Options.v().setPhaseOption("cg.spark", "on");
-	Scene.v().loadNecessaryClasses();
-	// Perform the necessary transformations on the scene
-	Scene.v().setEntryPoints(Scene.v().getEntryPoints());
-    Scene.v().setFastHierarchy(new FastHierarchy());
-    // Run the analysis
-	PackManager.v().runPacks();
-	// PackManager.v().runBodyPacks();
-	// PackManager.v().writeOutput();
+		soot.G.reset();
+		Options.v().set_src_prec(Options.src_prec_apk);
+		Options.v().set_process_dir(Arrays.asList("../../APK/"+app_name));
+		Options.v().set_process_multiple_dex(true);
+		Options.v().set_android_jars("../../Android/platforms");
+		Options.v().set_whole_program(true);
+		Options.v().set_allow_phantom_refs(true);
+		Options.v().set_output_format(Options.output_format_jimple);
+		// Options.v().setPhaseOption("cg.spark", "on");
+		Scene.v().loadNecessaryClasses();
+		// Perform the necessary transformations on the scene
+		Scene.v().setEntryPoints(Scene.v().getEntryPoints());
+	    Scene.v().setFastHierarchy(new FastHierarchy());
+	    // Run the analysis
+		PackManager.v().runPacks();
+		// PackManager.v().runBodyPacks();
+		// PackManager.v().writeOutput();
     }
 
     private static String getMainClass(){

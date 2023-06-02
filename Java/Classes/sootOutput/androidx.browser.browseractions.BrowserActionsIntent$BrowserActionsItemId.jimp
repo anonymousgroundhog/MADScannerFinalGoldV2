@@ -1,3 +1,0 @@
-public annotation interface  androidx.browser.browseractions.BrowserActionsIntent$BrowserActionsItemId extends java.lang.Object implements java.lang.'annotation'.Annotation
-{
-}

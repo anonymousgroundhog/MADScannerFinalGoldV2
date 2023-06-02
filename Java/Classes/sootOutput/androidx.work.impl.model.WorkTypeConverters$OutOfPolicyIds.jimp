@@ -1,5 +1,0 @@
-public interface  androidx.work.impl.model.WorkTypeConverters$OutOfPolicyIds extends java.lang.Object
-{
-    public static final int DROP_WORK_REQUEST;
-    public static final int RUN_AS_NON_EXPEDITED_WORK_REQUEST;
-}

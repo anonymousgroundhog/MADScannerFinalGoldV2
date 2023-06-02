@@ -1,9 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzdqi extends java.lang.Object
-{
-
-    public abstract com.google.android.gms.internal.ads.zzdqi zza(java.lang.String);
-
-    public abstract com.google.android.gms.internal.ads.zzdqi zzb(long);
-
-    public abstract com.google.android.gms.internal.ads.zzdqj zzc();
-}

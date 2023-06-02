@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzfgh extends java.lang.Object
-{
-
-    public abstract org.json.JSONObject zza(android.view.View);
-
-    public abstract void zzb(android.view.View, org.json.JSONObject, com.google.android.gms.internal.ads.zzfgg, boolean, boolean);
-}

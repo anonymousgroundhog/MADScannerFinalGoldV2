@@ -1,8 +1,0 @@
-public annotation interface  androidx.room.OnConflictStrategy extends java.lang.Object implements java.lang.'annotation'.Annotation
-{
-    public static final int ABORT;
-    public static final int FAIL;
-    public static final int IGNORE;
-    public static final int REPLACE;
-    public static final int ROLLBACK;
-}

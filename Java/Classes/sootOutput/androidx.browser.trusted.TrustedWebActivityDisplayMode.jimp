@@ -1,6 +1,0 @@
-public interface  androidx.browser.trusted.TrustedWebActivityDisplayMode extends java.lang.Object
-{
-    public static final java.lang.String KEY_ID;
-
-    public abstract android.os.Bundle toBundle();
-}

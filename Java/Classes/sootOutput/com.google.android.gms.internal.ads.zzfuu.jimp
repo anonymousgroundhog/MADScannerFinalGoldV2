@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzfuu extends java.lang.Object implements java.util.concurrent.ExecutorService
-{
-
-    public abstract com.google.android.gms.internal.ads.zzfut zza(java.lang.Runnable);
-
-    public abstract com.google.android.gms.internal.ads.zzfut zzb(java.util.concurrent.Callable);
-}

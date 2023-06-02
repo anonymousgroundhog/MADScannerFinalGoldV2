@@ -1,8 +1,0 @@
-public annotation interface  com.google.android.gms.ads.MediaAspectRatio extends java.lang.Object implements java.lang.'annotation'.Annotation
-{
-    public static final int ANY;
-    public static final int LANDSCAPE;
-    public static final int PORTRAIT;
-    public static final int SQUARE;
-    public static final int UNKNOWN;
-}

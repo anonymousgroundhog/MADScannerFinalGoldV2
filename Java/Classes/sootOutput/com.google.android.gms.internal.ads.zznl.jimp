@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zznl extends java.lang.Object
-{
-
-    public abstract void zzc(com.google.android.gms.internal.ads.zzlc, java.lang.String);
-
-    public abstract void zzd(com.google.android.gms.internal.ads.zzlc, java.lang.String, boolean);
-}

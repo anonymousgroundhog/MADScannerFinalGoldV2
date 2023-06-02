@@ -1,5 +1,0 @@
-public interface  androidx.work.ForegroundUpdater extends java.lang.Object
-{
-
-    public abstract com.google.common.util.concurrent.ListenableFuture setForegroundAsync(android.content.Context, java.util.UUID, androidx.work.ForegroundInfo);
-}

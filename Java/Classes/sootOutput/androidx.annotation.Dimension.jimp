@@ -1,8 +1,0 @@
-public annotation interface  androidx.'annotation'.Dimension extends java.lang.Object implements java.lang.'annotation'.Annotation
-{
-    public static final int DP;
-    public static final int PX;
-    public static final int SP;
-
-    public abstract int unit();
-}

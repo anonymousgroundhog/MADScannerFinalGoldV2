@@ -1,7 +1,0 @@
-interface  com.google.android.gms.internal.ads.zzjv extends java.lang.Object
-{
-
-    public abstract com.google.android.gms.internal.ads.zzcn zza();
-
-    public abstract java.lang.Object zzb();
-}

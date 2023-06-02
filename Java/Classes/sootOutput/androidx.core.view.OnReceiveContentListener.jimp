@@ -1,5 +1,0 @@
-public interface  androidx.core.view.OnReceiveContentListener extends java.lang.Object
-{
-
-    public abstract androidx.core.view.ContentInfoCompat onReceiveContent(android.view.View, androidx.core.view.ContentInfoCompat);
-}

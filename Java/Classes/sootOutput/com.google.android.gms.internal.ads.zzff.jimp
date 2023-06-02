@@ -1,5 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzff extends java.lang.Object
-{
-
-    public abstract com.google.android.gms.internal.ads.zzfg zza();
-}

@@ -1,5 +1,0 @@
-public interface  android.support.customtabs.trusted.ITrustedWebActivityCallback extends java.lang.Object implements android.os.IInterface
-{
-
-    public abstract void onExtraCallback(java.lang.String, android.os.Bundle) throws android.os.RemoteException;
-}

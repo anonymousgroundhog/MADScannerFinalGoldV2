@@ -1,5 +1,0 @@
-public interface  androidx.work.impl.constraints.ConstraintListener extends java.lang.Object
-{
-
-    public abstract void onConstraintChanged(java.lang.Object);
-}

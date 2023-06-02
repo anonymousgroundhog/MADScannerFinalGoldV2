@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzcxj extends java.lang.Object
-{
-
-    public abstract void zzb(com.google.android.gms.internal.ads.zzeyo);
-
-    public abstract void zzbA(com.google.android.gms.internal.ads.zzbtn);
-}

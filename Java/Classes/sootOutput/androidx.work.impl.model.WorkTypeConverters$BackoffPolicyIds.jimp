@@ -1,5 +1,0 @@
-public interface  androidx.work.impl.model.WorkTypeConverters$BackoffPolicyIds extends java.lang.Object
-{
-    public static final int EXPONENTIAL;
-    public static final int LINEAR;
-}

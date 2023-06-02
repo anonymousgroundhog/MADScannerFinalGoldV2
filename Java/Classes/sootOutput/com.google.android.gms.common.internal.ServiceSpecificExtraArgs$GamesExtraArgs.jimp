@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.common.internal.ServiceSpecificExtraArgs$GamesExtraArgs extends java.lang.Object
-{
-    public static final java.lang.String DESIRED_LOCALE;
-    public static final java.lang.String GAME_PACKAGE_NAME;
-    public static final java.lang.String SIGNIN_OPTIONS;
-    public static final java.lang.String WINDOW_TOKEN;
-}

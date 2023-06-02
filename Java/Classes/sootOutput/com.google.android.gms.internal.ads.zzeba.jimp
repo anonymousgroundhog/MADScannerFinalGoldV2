@@ -1,7 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzeba extends java.lang.Object
-{
-
-    public abstract java.lang.Object zza(com.google.android.gms.internal.ads.zzeyo, com.google.android.gms.internal.ads.zzeyc, com.google.android.gms.internal.ads.zzeaw) throws com.google.android.gms.internal.ads.zzezc, com.google.android.gms.internal.ads.zzeek;
-
-    public abstract void zzb(com.google.android.gms.internal.ads.zzeyo, com.google.android.gms.internal.ads.zzeyc, com.google.android.gms.internal.ads.zzeaw) throws com.google.android.gms.internal.ads.zzezc;
-}

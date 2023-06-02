@@ -1,9 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzctv extends java.lang.Object
-{
-
-    public abstract com.google.android.gms.internal.ads.zzctv zza(com.google.android.gms.internal.ads.zzeva);
-
-    public abstract com.google.android.gms.internal.ads.zzctv zzb(com.google.android.gms.internal.ads.zzevx);
-
-    public abstract java.lang.Object zzh();
-}

@@ -1,9 +1,0 @@
-public interface  com.google.android.gms.internal.ads.zzdly extends java.lang.Object implements com.google.android.gms.internal.ads.zzctv
-{
-
-    public abstract com.google.android.gms.internal.ads.zzdly zzc(com.google.android.gms.internal.ads.zzdab);
-
-    public abstract com.google.android.gms.internal.ads.zzdly zzd(com.google.android.gms.internal.ads.zzctz);
-
-    public abstract com.google.android.gms.internal.ads.zzdlz zze();
-}
