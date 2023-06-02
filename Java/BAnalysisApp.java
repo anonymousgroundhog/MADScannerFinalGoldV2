@@ -39,14 +39,19 @@ public class BAnalysisApp {
     public static void main(String[] args) {
     	String apk_file = args[0];
     	String hash = args[1];
-		String main_class = getMainClass();
-    	printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\n",apk_file,hash,main_class);
+		public_variable_mainactivity = getMainClass();
+    	printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\n",apk_file,hash,public_variable_mainactivity);
 		
 		prepareSoot(apk_file);
 		
 		List<SootClass> registeredServices = getRegisteredServicesClasses();
 		Chain<SootClass> allClasses = getAllClasses();
-		SootClass this_main_class = Scene.v().getSootClass(main_class);
+		SootClass this_class = Scene.v().getSootClass(public_variable_mainactivity);
+		int lastPeriodIndex = public_variable_mainactivity.lastIndexOf(".");
+		String this_package = public_variable_mainactivity.substring(0, lastPeriodIndex);
+        public_variable_string_class_to_inject_adlistener = this_package+"."+"TestClass";
+        public_variable_string_class_to_inject = this_package+"."+"TestClass";
+        public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
 		InjectNewClass_AdListenerClass2(); 
         InjectNewClass_AdListenerClass1();
 		// printClassHierarchy(allClasses);

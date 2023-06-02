@@ -1,13 +1,13 @@
-class TestClass$1 extends com.google.android.gms.ads.AdListener
+class com.google.android.gms.example.bannerexample.TestClass$1 extends com.google.android.gms.ads.AdListener
 {
-    final TestClass this$0;
+    final com.google.android.gms.example.bannerexample.TestClass this$0;
     final com.google.android.gms.ads.BaseAdView val$adView;
 
-    void <init>(TestClass, com.google.android.gms.ads.BaseAdView)
+    void <init>(com.google.android.gms.example.bannerexample.TestClass, com.google.android.gms.ads.BaseAdView)
     {
-        TestClass $r0;
+        com.google.android.gms.example.bannerexample.TestClass $r0;
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r1;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r1;
 
         $r1 := @this;
 
@@ -27,7 +27,7 @@ class TestClass$1 extends com.google.android.gms.ads.AdListener
     public void onAdClicked()
     {
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r3;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r3;
         java.lang.StringBuilder $r1;
         java.lang.String $r0;
 
@@ -55,7 +55,7 @@ class TestClass$1 extends com.google.android.gms.ads.AdListener
     public void onAdClosed()
     {
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r3;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r3;
         java.lang.StringBuilder $r1;
         java.lang.String $r0;
 
@@ -83,7 +83,7 @@ class TestClass$1 extends com.google.android.gms.ads.AdListener
     public void onAdLoaded()
     {
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r3;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r3;
         java.lang.StringBuilder $r1;
         java.lang.String $r0;
 
@@ -111,7 +111,7 @@ class TestClass$1 extends com.google.android.gms.ads.AdListener
     public void onAdImpression()
     {
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r3;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r3;
         java.lang.StringBuilder $r1;
         java.lang.String $r0;
 
@@ -139,7 +139,7 @@ class TestClass$1 extends com.google.android.gms.ads.AdListener
     public void onAdOpened()
     {
         com.google.android.gms.ads.BaseAdView $r2;
-        TestClass$1 $r3;
+        com.google.android.gms.example.bannerexample.TestClass$1 $r3;
         java.lang.StringBuilder $r1;
         java.lang.String $r0;
 
