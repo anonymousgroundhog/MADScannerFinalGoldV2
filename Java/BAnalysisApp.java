@@ -57,7 +57,7 @@ public class BAnalysisApp {
 		// printClassHierarchy(allClasses);
 		
 		// START INJECTION PROCESS
-		 PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
+		PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
         soot.Main.main(args);
 
     }
