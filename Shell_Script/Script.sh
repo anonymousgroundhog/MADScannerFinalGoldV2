@@ -5,15 +5,16 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	# ls
 	cd Classes
 	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
-	java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format dex -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
+	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format dex -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash
 
-	cd ../sootOutput
+	cd sootOutput
 	rm signed*.apk
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
 	echo $apk_name
 
 	zipalign -fv 4 $apk_name.apk signed$apk_name.apk
-	apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$apk_name.apk
+	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password signed$apk_name.apk
 	rm *.idsig
 	adb install signed$apk_name.apk
 	adb logcat -c
@@ -50,5 +51,5 @@ Function_Compile_Framework
 # GET MAIN ACTIVITY FROM APK
 Function_Get_MainActivity_And_Write_To_File $1
 
-Function_Run_Framework_And_Output_Jimple $1
-# Function_Run_Framework_And_Zip_And_Sign_APK $1
+# Function_Run_Framework_And_Output_Jimple $1
+Function_Run_Framework_And_Zip_And_Sign_APK $1
