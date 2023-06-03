@@ -54,7 +54,7 @@ public class BAnalysisApp {
         public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
 		InjectNewClass_AdListenerClass2(); 
         InjectNewClass_AdListenerClass1();
-		// printClassHierarchy(allClasses);
+		printClassHierarchy(allClasses);
 		
 		// START INJECTION PROCESS
 		PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
@@ -92,10 +92,15 @@ public class BAnalysisApp {
     private static void printClassHierarchy(Chain<SootClass> classes){
     	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
     	for (SootClass sootClass : classes) {
-            if(sootClass instanceof SootClass){
-                printFormattedOutput("Class: %s\n\tSubclasses:\n", sootClass.getName());
-                for (SootClass subClass : hierarchy.getSubclassesOf(sootClass)) {
-                    printFormattedOutput("\t%s\n",subClass.getName());
+            // if(sootClass.isConcrete()){
+        	if(!sootClass.isInterface()){
+            	List<SootClass> this_subclasses = hierarchy.getSubclassesOf(sootClass);
+            	int number_of_subclasses = this_subclasses.size();
+                if(number_of_subclasses > 0){
+	                printFormattedOutput("Class: %s\n\tSubclasses:\n", sootClass.getName());
+	                for (SootClass subClass : this_subclasses) {
+	                    printFormattedOutput("\t%s\n",subClass.getName());
+	                }
                 }
             }
         }
