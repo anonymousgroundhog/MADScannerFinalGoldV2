@@ -6,7 +6,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	cd Classes
 	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
 	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format dex -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash $2
 
 	cd sootOutput
 	rm signed*.apk
@@ -30,7 +30,7 @@ Function_Run_Framework_And_Output_Jimple() {
 	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" SootExample -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 -output-format J -force-overwrite $hash
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash $2
 }
 
 Function_Compile_Framework() {
@@ -40,16 +40,33 @@ Function_Compile_Framework() {
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
-	main_activity=$(aapt dump badging ../APK/$1 | grep 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	main_activity=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Activity:" $main_activity > APK_Details.txt
+	# main_activity2=$(aapt dump badging ../APK/$1 | grep 'leanback-launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	# echo "Main_Activity2:" $main_activity2 >> APK_Details.txt
 	main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
 clear
 Function_Compile_Framework
 
+
 # GET MAIN ACTIVITY FROM APK
 Function_Get_MainActivity_And_Write_To_File $1
 
-# Function_Run_Framework_And_Output_Jimple $1
-Function_Run_Framework_And_Zip_And_Sign_APK $1
+Option=$2
+
+if [ $Option = J ] || [ $Option = j ]
+then
+	echo "Jimple chosen"
+	Function_Run_Framework_And_Output_Jimple $1 $Option
+elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+then
+	echo "dex chosen"
+	Function_Run_Framework_And_Output_Jimple $1 $Option
+elif [ $Option = apk ]
+	then
+	Function_Run_Framework_And_Zip_And_Sign_APK $1 $Option
+else
+	echo "No such option"
+fi

@@ -2,22 +2,13 @@ import soot.*;
 import soot.util.*;
 import soot.jimple.*;
 import soot.jimple.internal.*;
-import soot.javaToJimple.*;
-import soot.options.Options;
-import java.io.*;
-import java.util.*;
-import soot.grimp.NewInvokeExpr;
 import soot.jimple.internal.JAssignStmt.*;
-import soot.jimple.internal.*;
-import soot.Scene;
-import soot.SootClass;
-import soot.SceneTransformer;
-import soot.Hierarchy;
+import soot.jimple.toolkits.callgraph.*;
 import soot.options.Options;
 
-import soot.jimple.toolkits.callgraph.CallGraph;
-import soot.jimple.toolkits.callgraph.Edge;
-// import soot.options.Options;
+import java.io.*;
+import java.util.*;
+
 
 public class BAnalysisApp {
     private final static String ANDROID_BOOT_JAR_PATH = "../../Android/platforms/android-33/android.jar";
@@ -30,7 +21,6 @@ public class BAnalysisApp {
     private static String public_variable_baseadview = "com.google.android.gms.ads.BaseAdView";
     private static SootUtil this_sootUtil = new SootUtil();
     private static SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
-    private static Boolean boolean_injected_classes = false;
 
     // searched method signatures
     private final static String[] smAddMethodSignatures = {
@@ -40,10 +30,11 @@ public class BAnalysisApp {
     	String apk_file = args[0];
     	String app_name_only = apk_file.replace(".apk","");
     	String hash = args[1];
+    	String option = args[2];
 		public_variable_mainactivity = getMainClass();
-    	printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\n",apk_file,hash,public_variable_mainactivity);
+    	printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, public_variable_mainactivity, option);
 		
-		prepareSoot(apk_file);
+		prepareSoot(apk_file, option);
 		
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();
 		Chain<SootClass> allClasses = getAllClasses();
@@ -54,12 +45,17 @@ public class BAnalysisApp {
         public_variable_string_class_to_inject = this_package+"."+"TestClass";
         public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
 		
+		if(Contains_Ads(allClasses)){
+			printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
+		}
 		InjectNewClass_AdListenerClass2(); 
         InjectNewClass_AdListenerClass1();
-		printClassHierarchy(allClasses);
+		// printClassHierarchy(allClasses);
 		
 		// INJECT CODE INTO MAINACTIVITY
-		Inject_Into_Main_Activity(mainactivity_class.getMethodByName("onCreate").getActiveBody(), app_name_only, hash);
+		if(Class_Contains_onCreate(mainactivity_class)){
+			Inject_Into_Main_Activity(mainactivity_class.getMethodByName("onCreate").getActiveBody(), app_name_only, hash);
+		}
 		// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
         soot.Main.main(args);
 
@@ -67,8 +63,7 @@ public class BAnalysisApp {
     private static void printFormattedOutput(String format, Object... args) {
 	    System.out.printf(format, args);
 	}
-
-    private static void prepareSoot(String app_name) {
+    private static void prepareSoot(String app_name, String option) {
 		soot.G.reset();
 		Options.v().set_src_prec(Options.src_prec_apk);
 		Options.v().set_process_dir(Arrays.asList("../../APK/"+app_name));
@@ -76,21 +71,21 @@ public class BAnalysisApp {
 		Options.v().set_android_jars("../../Android/platforms");
 		Options.v().set_whole_program(true);
 		Options.v().set_allow_phantom_refs(true);
-		// Options.v().set_output_format(Options.output_format_jimple);
-		Options.v().set_output_format(Options.output_format_dex);
-		// Options.v().setPhaseOption("cg.spark", "on");
+		
+		if(option.equals("J") || option.equals("j")){
+			Options.v().set_output_format(Options.output_format_jimple);
+		}else{
+			Options.v().set_output_format(Options.output_format_dex);
+		}
+		
 		Scene.v().loadNecessaryClasses();
 		// Perform the necessary transformations on the scene
 		Scene.v().setEntryPoints(Scene.v().getEntryPoints());
 	    Scene.v().setFastHierarchy(new FastHierarchy());
 	    // Run the analysis
 		PackManager.v().runPacks();
-		// PackManager.v().runBodyPacks();
-		// PackManager.v().writeOutput();
     }
-
     private static String getMainClass(){
-    	// public_variable_mainactivity = this_Helper.Read_Nth_Line("../APK_Details.txt",1).replace("Main_Activity:","").replace(" ", "");
     	return this_Helper.Read_Nth_Line("../APK_Details.txt",1).replace("Main_Activity:","").replace(" ", "");
     }
     private static void printClassHierarchy(Chain<SootClass> classes){
@@ -116,7 +111,6 @@ public class BAnalysisApp {
 		for (String mthSig : smAddMethodSignatures) {
 		    SootMethod smAddServiceMth = Scene.v().grabMethod(mthSig);
 		    printFormattedOutput("%s\n%s\n",mthSig,smAddServiceMth.getActiveBody().toString());
-	            //iterating over the caller methods
 		    Iterator<Edge> edgeIterator = cg.edgesInto(smAddServiceMth);
 		    while (edgeIterator.hasNext()) {
 				Edge mtdEdge = edgeIterator.next();
@@ -152,6 +146,7 @@ public class BAnalysisApp {
             // this_method_arguments = Collections.<Value>emptyList();
             this_soot_method = new SootMethod("setAdListener", Arrays.asList(new Type[] {RefType.v(public_variable_baseadview)}), VoidType.v(), Modifier.PUBLIC);
             public_variable_soot_class.addMethod(this_soot_method);
+            
             // Set method source for setAdListener
             ClassLiteralMethodSourceSetAdListener this_soot_method_source_setAdListener = new ClassLiteralMethodSourceSetAdListener();
             this_soot_method_source_setAdListener.public_string_class_to_inject = public_variable_string_class_to_inject_adlistener;
@@ -249,7 +244,6 @@ public class BAnalysisApp {
             
             // // Set method source for onAdImpression
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adopened = new ClassLiteralMethodSourceGeneric();
-            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
             this_soot_methodsource_generic_adopened.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adopened.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adopened.this_string_method_name = "onAdOpened";
@@ -257,7 +251,7 @@ public class BAnalysisApp {
             this_soot_method_onAdOpened.setSource(this_soot_methodsource_generic_adopened);
         }
     }
-    public static void Inject_Into_Main_Activity(Body this_body, String app_name_only, String hash){
+    private static void Inject_Into_Main_Activity(Body this_body, String app_name_only, String hash){
         SootMethod this_method = this_body.getMethod();
         SootClass this_class = this_method.getDeclaringClass();
         String string_this_class = this_class.getName();
@@ -270,8 +264,6 @@ public class BAnalysisApp {
                     AssignStmt this_invokeStmt = (AssignStmt) this_unit;
                     Value left_side = this_invokeStmt.getLeftOpBox().getValue();
                     Value right_side = this_invokeStmt.getRightOpBox().getValue();
-                    
-                    // this_Helper.Print("\nStmt:"+this_invokeStmt.toString()+ " (Left:" + left_side.toString()+" Right:"+right_side.getType()+")");
                     if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
                         unit_to_inject_after = this_unit;
                         // break;
@@ -323,5 +315,21 @@ public class BAnalysisApp {
                 this_units.insertAfter(InvokeStatementLog, u2);
             }
         }
+    }
+    private static Boolean Contains_Ads(Chain<SootClass> classes){
+    	for (SootClass sootClass : classes) {
+    		if(sootClass.getName().contains("com.google.android.gms.ads")){
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    private static Boolean Class_Contains_onCreate(SootClass this_class){
+    	for (SootMethod sootMethod : this_class.getMethods()) {
+    		if(sootMethod.getName().equals("onCreate")){
+    			return true;
+    		}
+    	}
+    	return false;
     }
 }
