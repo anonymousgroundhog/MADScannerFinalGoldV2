@@ -1,2 +1,2 @@
-Main_Activity: com.rovio.fusion.App
-Main_Class: com.rovio.angrybirdsrio
+Main_Activity: com.king.candycrushsodasaga.StritzActivity
+Main_Class: com.king.candycrushsodasaga

@@ -35,7 +35,7 @@ Function_Run_Framework_And_Output_Jimple() {
 
 Function_Compile_Framework() {
 	cd ../Java/
-	rm -rf Classes/sootOutput/*
+	rm -rf Classes/sootOutput
 	javac -d Classes -cp "../Jar_Libs/*" MyTransform.java BAnalysisApp.java SootExample.java SootTest3.java SootInstrumentationHelper.java Once.java SootUtil.java ClassLiteralMethodSourceonInit.java
 }
 
@@ -47,9 +47,10 @@ Function_Get_MainActivity_And_Write_To_File() {
 	main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
+
+
 clear
 Function_Compile_Framework
-
 
 # GET MAIN ACTIVITY FROM APK
 Function_Get_MainActivity_And_Write_To_File $1
