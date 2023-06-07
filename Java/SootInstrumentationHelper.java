@@ -494,7 +494,7 @@ public class SootInstrumentationHelper
     }
     public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
         SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
-	if(this_method.hasActiveBody()){
+	if(this_method.hasActiveBody() && !this_method.getName().contains("<init>")){
 		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
 		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
 		List<Value> listArgs = new ArrayList<Value>();

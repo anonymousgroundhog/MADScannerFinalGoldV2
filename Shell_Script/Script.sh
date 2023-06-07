@@ -19,6 +19,11 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	adb install signed$apk_name.apk
 	adb logcat -c
 	clear
+	cd ../../../Python
+	device_name=$(Get_Device_Name)
+	package=$(Get_App_Package ../APK/$1)
+	activity=$(Get_App_activity ../APK/$1)
+	python3 Appium_Gold.py $device_name $package $activity
 	adb logcat FiniteState:V *:S
 }
 
@@ -47,7 +52,18 @@ Function_Get_MainActivity_And_Write_To_File() {
 	main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
-
+Get_Device_Name() {
+	output=$(adb devices | awk 'NR>1 {print $1}')
+	echo $output
+}
+Get_App_Package() {
+	output=$(aapt dump badging ../APK/$1 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	echo $output
+}
+Get_App_activity() {
+	output=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	echo $output
+}
 
 clear
 Function_Compile_Framework

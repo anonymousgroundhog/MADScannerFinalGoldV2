@@ -1,2 +1,2 @@
-Main_Activity: com.google.android.gms.example.bannerexample.MyActivity
-Main_Class: com.google.android.gms.example.bannerexample
+Main_Activity: com.king.candycrushsodasaga.StritzActivity
+Main_Class: com.king.candycrushsodasaga
