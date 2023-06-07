@@ -166,7 +166,6 @@ public class SootInstrumentationHelper
     public static void WriteToTextFile(String content, String filePath, boolean option){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, option))) {
             writer.write(content); // Write the string to the file
-            // System.out.println("String written to the file successfully.");
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file: " + e.getMessage());
         }
@@ -230,7 +229,6 @@ public class SootInstrumentationHelper
     public static void writeClassHierarchyToFile(Chain<SootClass> classes, String filename){
         Hierarchy hierarchy = Scene.v().getActiveHierarchy();
         int counter = 0;
-        // String filename="class_hierarchy.txt";
         RemoveFile(filename);
         for (SootClass sootClass : classes) {
             if(!sootClass.isInterface()){
@@ -240,7 +238,6 @@ public class SootInstrumentationHelper
                     WriteToTextFile("Class: "+sootClass.getName()+"\n\tSubclasses:\n", filename, true);
                     for (SootClass subClass : this_subclasses) {
                         WriteToTextFile("\t"+subClass.getName()+"\n", filename, true);
-                        // printFormattedOutput("\t%s\n",subClass.getName());
                     }
                 }
             }
@@ -293,6 +290,7 @@ public class SootInstrumentationHelper
             
             this_soot_method = new SootMethod("<init>", Arrays.asList(), VoidType.v(), Modifier.PUBLIC);
             public_variable_soot_class.addMethod(this_soot_method);
+
             // Set method source for Init
             ClassLiteralMethodSourceonInitFirst this_soot_method_source_init = new ClassLiteralMethodSourceonInitFirst();
             this_soot_method_source_init.public_string_class_to_inject = public_variable_soot_class.getName();
@@ -361,7 +359,6 @@ public class SootInstrumentationHelper
             
             // // Set method source for onAdClosed
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adclosed = new ClassLiteralMethodSourceGeneric();
-            // ClassLiteralMethodSourceonAdClosed this_soot_methodsource_ad_closed = new ClassLiteralMethodSourceonAdClosed();
             this_soot_methodsource_generic_adclosed.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adclosed.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adclosed.this_string_method_to_inject = "void onAdClosed()";
@@ -374,7 +371,6 @@ public class SootInstrumentationHelper
             
             // // Set method source for onAdLoaded
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adloaded = new ClassLiteralMethodSourceGeneric();
-            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
             this_soot_methodsource_generic_adloaded.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adloaded.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adloaded.this_string_method_name = "onAdLoaded";
@@ -387,7 +383,6 @@ public class SootInstrumentationHelper
             
             // // Set method source for onAdImpression
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adimpression = new ClassLiteralMethodSourceGeneric();
-            // ClassLiteralMethodSourceonAdLoaded this_soot_methodsource_ad_loaded = new ClassLiteralMethodSourceonAdLoaded();
             this_soot_methodsource_generic_adimpression.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adimpression.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adimpression.this_string_method_name = "onAdImpression";
@@ -422,7 +417,7 @@ public class SootInstrumentationHelper
                     Value right_side = this_invokeStmt.getRightOpBox().getValue();
                     if(left_side.getType().toString().equals(public_variable_admanageradview) && left_side.getType().toString().equals(public_variable_admanageradview)){
                         unit_to_inject_after = this_unit;
-                        // break;
+                        break;
                     }
                 }
             }
@@ -487,5 +482,43 @@ public class SootInstrumentationHelper
             }
         }
         return false;
+    }
+    public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
+	List<SootClass> classes_to_return = new ArrayList<SootClass>();
+	for (SootClass sootClass : classes) {
+	    if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
+		classes_to_return.add(sootClass);
+	    }
+	}
+	return classes_to_return;
+    }
+    public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
+        SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
+	if(this_method.hasActiveBody()){
+		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
+		List<Value> listArgs = new ArrayList<Value>();
+		listArgs.add(StringConstant.v("FiniteState"));
+		listArgs.add(StringConstant.v(MSG));
+		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+		Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+
+		if(unit_to_insert_after != null){
+		    Print("Injected log");
+		    thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+		} 
+	}
+    }
+
+    public static void Inject_Into_Google_Libs_Log_Message(List<SootClass> classes, String app_name_only, String hash){
+	    for(SootClass this_class : classes){
+		    for (SootMethod this_method : this_class.getMethods()){
+			String this_method_name = this_method.getName();
+			String this_class_name = this_class.getName();
+			printFormattedOutput("%s\n",this_method_name);
+			Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
+		    }
+	    }
     }
 }
