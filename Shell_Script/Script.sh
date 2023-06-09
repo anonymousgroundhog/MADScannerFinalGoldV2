@@ -5,7 +5,6 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	# ls
 	cd Classes
 	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
-	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format dex -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash $2
 
 	cd sootOutput
@@ -24,6 +23,8 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	package=$(Get_App_Package ../APK/$1)
 	activity=$(Get_App_activity ../APK/$1)
 	python3 Appium_Gold.py $device_name $package $activity
+	pwd
+	Uninstall_App $package
 	adb logcat FiniteState:V *:S
 }
 
@@ -63,6 +64,10 @@ Get_App_Package() {
 Get_App_activity() {
 	output=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
+}
+Uninstall_App(){
+	package=$(adb shell pm list packages | grep -m1 $1 | sed "s/package://g")
+	adb uninstall $package
 }
 
 clear

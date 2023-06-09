@@ -35,7 +35,7 @@ public class BAnalysisApp {
 	if(this_Helper.Contains_Ads(allClasses)){
 		this_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
 		SootClass adListener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
-		this_Helper.printClassHierarchyForSpecificClass(adListener);
+		this_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(adListener));
 	}
 	this_Helper.InjectNewClass_AdListenerClass2(); 
 	this_Helper.InjectNewClass_AdListenerClass1();
@@ -45,10 +45,11 @@ public class BAnalysisApp {
 		SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
 		String method_signature = this_method.getSignature();
 		this_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, hash);
+		//TESTING
+		this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
 	}
 	// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
 	List<SootClass> admob_classes=this_Helper.Extract_Google_AdMob_Classes(allClasses);
-    	this_Helper.printFormattedOutput("Classes:%s\n",admob_classes);
 	this_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, hash);
 	this_Helper.writeClassHierarchyToFile(allClasses, "../class_hierarchy.txt");
         soot.Main.main(args);

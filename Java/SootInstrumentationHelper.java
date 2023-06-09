@@ -226,6 +226,26 @@ public class SootInstrumentationHelper
             printFormattedOutput("Class: %s is a interface\n", sootClass.getName());
         }
     }
+    public static List<SootClass> ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(SootClass sootClass){
+	List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        Hierarchy hierarchy = Scene.v().getActiveHierarchy();
+        if(!sootClass.isInterface()){
+            List<SootClass> this_subclasses = hierarchy.getSubclassesOf(sootClass);
+            int number_of_subclasses = this_subclasses.size();
+            if(number_of_subclasses > 0){
+                for (SootClass subClass : this_subclasses) {
+			String subClassName = subClass.getName();
+			if(!subClassName.contains("com.google.android.gms.ads") && !subClassName.contains("com.google.android.gms.internal.ads") && !subClassName.contains("com.google.ads")){
+				classes_to_return.add(subClass);
+			}
+                }
+		return classes_to_return;
+            }
+        }else{
+		return null;
+        }
+	return null;
+    }
     public static void writeClassHierarchyToFile(Chain<SootClass> classes, String filename){
         Hierarchy hierarchy = Scene.v().getActiveHierarchy();
         int counter = 0;
@@ -494,7 +514,7 @@ public class SootInstrumentationHelper
     }
     public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
         SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
-	if(this_method.hasActiveBody() && !this_method.getName().contains("<init>")){
+	if(this_method.hasActiveBody() && !this_method.isConstructor() && !this_method.getName().contains("<clinit>")){
 		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
 		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
 		List<Value> listArgs = new ArrayList<Value>();
@@ -505,7 +525,6 @@ public class SootInstrumentationHelper
 		Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
 
 		if(unit_to_insert_after != null){
-		    Print("Injected log");
 		    thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
 		} 
 	}
@@ -516,9 +535,26 @@ public class SootInstrumentationHelper
 		    for (SootMethod this_method : this_class.getMethods()){
 			String this_method_name = this_method.getName();
 			String this_class_name = this_class.getName();
-			printFormattedOutput("%s\n",this_method_name);
 			Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
 		    }
 	    }
+    }
+    public static List<SootClass> ReturnVirtualInvokeClasses(SootClass this_class, String method_name){
+	UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
+	for(Unit this_unit: this_units){
+		if(this_unit instanceof InvokeStmt){
+			InvokeStmt invokeStmt = (InvokeStmt) this_unit;
+			InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
+			 if (invokeExpr instanceof VirtualInvokeExpr) {
+				// The unit is a virtualinvoke
+				VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
+				SootMethod this_method = virtualInvokeExpr.getMethod();
+				SootClass this_invoke_class = this_method.getDeclaringClass();
+				printFormattedOutput("%s:%s\n",this_invoke_class.getName(), this_method.getName());
+
+			 }
+		}
+	}
+	return null;
     }
 }
