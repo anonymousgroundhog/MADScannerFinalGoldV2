@@ -46,7 +46,8 @@ public class BAnalysisApp {
 		String method_signature = this_method.getSignature();
 		this_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, hash);
 		//TESTING
-		this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
+		//this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
+		this_Helper.printFormattedOutput("%s\n",this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
 	}
 	// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
 	List<SootClass> admob_classes=this_Helper.Extract_Google_AdMob_Classes(allClasses);

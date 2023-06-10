@@ -540,21 +540,20 @@ public class SootInstrumentationHelper
 	    }
     }
     public static List<SootClass> ReturnVirtualInvokeClasses(SootClass this_class, String method_name){
+	List<SootClass> classes_to_return = new ArrayList<SootClass>();
 	UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
 	for(Unit this_unit: this_units){
 		if(this_unit instanceof InvokeStmt){
 			InvokeStmt invokeStmt = (InvokeStmt) this_unit;
 			InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
 			 if (invokeExpr instanceof VirtualInvokeExpr) {
-				// The unit is a virtualinvoke
 				VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
 				SootMethod this_method = virtualInvokeExpr.getMethod();
 				SootClass this_invoke_class = this_method.getDeclaringClass();
-				printFormattedOutput("%s:%s\n",this_invoke_class.getName(), this_method.getName());
-
+				classes_to_return.add(this_invoke_class);
 			 }
 		}
 	}
-	return null;
+	return classes_to_return;
     }
 }
