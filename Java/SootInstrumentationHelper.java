@@ -24,9 +24,8 @@ public class SootInstrumentationHelper
     public static String public_variable_string_class_to_inject2 = "TestClass$1";
     public static String public_variable_mainactivity = null;
     public static String[] smAddMethodSignatures = {};
+    public static String publicVariableStringClassToInject = "com.google.android.gms.example.bannerexample.TestClassAdViewAdListenerTesting";
 
-
-    // private static SootUtil this_sootUtil = new SootUtil();
     public static Local Generate_Local(Body this_body, LocalGenerator this_local_generator, String string_this_local){
         Boolean contains_local = false;
         Local local_to_return = null;
@@ -42,7 +41,6 @@ public class SootInstrumentationHelper
 
         return local_to_return;
     }
-    public static String publicVariableStringClassToInject = "com.google.android.gms.example.bannerexample.TestClassAdViewAdListenerTesting";
     public static String Read_Nth_Line(String filePath, int lineNumber){
         String line = null;
         BufferedReader reader = null;
@@ -162,7 +160,6 @@ public class SootInstrumentationHelper
         }
         return null;
     }
-
     public static void WriteToTextFile(String content, String filePath, boolean option){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, option))) {
             writer.write(content); // Write the string to the file
@@ -179,8 +176,6 @@ public class SootInstrumentationHelper
             System.err.println("An error occurred while removing the file: " + e.getMessage());
         }
     }
-
-
     public static void printFormattedOutput(String format, Object... args) {
         System.out.printf(format, args);
     }
@@ -504,32 +499,32 @@ public class SootInstrumentationHelper
         return false;
     }
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
-	List<SootClass> classes_to_return = new ArrayList<SootClass>();
-	for (SootClass sootClass : classes) {
-	    if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
-		classes_to_return.add(sootClass);
-	    }
-	}
-	return classes_to_return;
+    	List<SootClass> classes_to_return = new ArrayList<SootClass>();
+    	for (SootClass sootClass : classes) {
+    	    if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
+    		classes_to_return.add(sootClass);
+    	    }
+    	}
+    	return classes_to_return;
     }
     public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
         SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
-	if(this_method.hasActiveBody() && !this_method.isConstructor() && !this_method.getName().contains("<clinit>")){
-		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
-		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
-		List<Value> listArgs = new ArrayList<Value>();
-		listArgs.add(StringConstant.v("FiniteState"));
-		listArgs.add(StringConstant.v(MSG));
-		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
-		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-		Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+    	if(this_method.hasActiveBody() && !this_method.isConstructor() && !this_method.getName().contains("<clinit>")){
+    		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+    		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
+    		List<Value> listArgs = new ArrayList<Value>();
+    		listArgs.add(StringConstant.v("FiniteState"));
+    		listArgs.add(StringConstant.v(MSG));
+    		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+    		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+    		Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
 
-		if(unit_to_insert_after != null){
-		    thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
-		} 
-	}
+    		if(unit_to_insert_after != null){
+    		    thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+    		} 
+    	}
     }
-
+    // This is where we would want ot check for the ID and whether or not one could be found.
     public static void Inject_Into_Google_Libs_Log_Message(List<SootClass> classes, String app_name_only, String hash){
 	    for(SootClass this_class : classes){
 		    for (SootMethod this_method : this_class.getMethods()){
@@ -540,20 +535,20 @@ public class SootInstrumentationHelper
 	    }
     }
     public static List<SootClass> ReturnVirtualInvokeClasses(SootClass this_class, String method_name){
-	List<SootClass> classes_to_return = new ArrayList<SootClass>();
-	UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
-	for(Unit this_unit: this_units){
-		if(this_unit instanceof InvokeStmt){
-			InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-			InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-			 if (invokeExpr instanceof VirtualInvokeExpr) {
-				VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
-				SootMethod this_method = virtualInvokeExpr.getMethod();
-				SootClass this_invoke_class = this_method.getDeclaringClass();
-				classes_to_return.add(this_invoke_class);
-			 }
-		}
-	}
-	return classes_to_return;
+    	List<SootClass> classes_to_return = new ArrayList<SootClass>();
+    	UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
+    	for(Unit this_unit: this_units){
+    		if(this_unit instanceof InvokeStmt){
+    			InvokeStmt invokeStmt = (InvokeStmt) this_unit;
+    			InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
+    			 if (invokeExpr instanceof VirtualInvokeExpr) {
+    				VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
+    				SootMethod this_method = virtualInvokeExpr.getMethod();
+    				SootClass this_invoke_class = this_method.getDeclaringClass();
+    				classes_to_return.add(this_invoke_class);
+    			 }
+    		}
+    	}
+    	return classes_to_return;
     }
 }
