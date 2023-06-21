@@ -1,4 +1,5 @@
-import urllib3, os, re, webbrowser, shutil, time, graphviz, subprocess
+import multiprocessing, time
+import urllib3, os, re, webbrowser, shutil, time, graphviz, subprocess, json, pandas as pd
 from bs4 import BeautifulSoup
 from google_play_scraper import app, Sort, reviews_all, reviews, search
 from urllib.request import Request, urlopen, urlretrieve
@@ -11,9 +12,24 @@ def get_top_n_number_of_apps(category, num_apps_to_investigate):
     country="us",  # defaults to 'us'
     # sort=Sort.NEWEST,
     n_hits=num_apps_to_investigate  # defaults to 30 (= Google's maximum)
-)
+    )
     # print(results)
     return [result for result in results]
+
+def remove_special_characters_from_apk_name():
+    print("Removing Characters!!!")
+    os.chdir('../APK')
+    special_characters = "!@&#$%^&*()_+{}[]|\;:'<>?,./\""
+    for item in os.listdir(os.getcwd()):
+        if item.__contains__(".apk"):
+            old_path = ''.join([os.getcwd(),"/",item])
+            cleaned_string = ""
+            for char in special_characters:
+                cleaned_string = item.replace(char, "")
+            cleaned_string = cleaned_string.replace("(","").replace(")","").replace("&","")
+            new_path = ''.join([os.getcwd(),'/',cleaned_string])
+            # print(' '.join(['Old path:',old_path,'New path:',new_path]))
+            shutil.move(old_path, new_path)
 
 def get_download_links_from_apkpure(list_of_apps):
     # div.first.brand.is-brand.sa-all-div.sa-apps-div.mb
@@ -36,20 +52,35 @@ def get_download_links_from_apkpure(list_of_apps):
             download_apk_links.append(str(link['href']))
     return download_apk_links
 
+# def return_names_from_links_list(download_apk_links):
+#     app_names=[]
+#     for link in download_apk_links:
+#         last_item = link.split('/').pop().replace('?version=latest', '')
+#         app_names.append(last_item)
+#         print("last item:"+last_item)
+#     return app_names
+
 def open_links_in_browser(download_apk_links):
-    for link in download_apk_links:
-        print(link)
-        last_item = link.split('/').pop().replace('?version=latest', '')
-        webbrowser.open(link)
+    try:
+        for link in download_apk_links:
+            print(link)
+            last_item = link.split('/').pop().replace('?version=latest', '')
+            print("last item:"+last_item)
+            webbrowser.open(link)
+            # os.system("start "+link)
+    except Exception as e:
+        print("An error occurred:", str(e))
 
 def move_file_from_downloads(downloads_dir):
     if os.getcwd().__contains__("Python"):
         os.chdir('../APK')
+        os.system('rm *.xapk')
         for item in os.listdir(downloads_dir):
-            old_path = ''.join([downloads_dir,item])
-            new_path = ''.join([os.getcwd(),'/',old_path.replace(' ', '_').split('/').pop()])
-            print(new_path)
-            shutil.move(old_path, new_path)
+            if item.__contains__(".apk"):
+                old_path = ''.join([downloads_dir,item])
+                new_path = ''.join([os.getcwd(),'/',old_path.replace(' ', '').replace("_","").split('/').pop()])
+                # print(new_path)
+                shutil.move(old_path, new_path)
 
 def app_categories_print():
     categories = ["Art and Design", "Auto and Vehicles", "Beauty", "Books and Reference", "Business", 
@@ -72,50 +103,6 @@ def install_apps_from_apk_folder(list_of_apps):
         for app in list_of_apps:
             os.system(' '.join(['adb install', app]))
 
-def compile_framework():
-    if os.getcwd().__contains__("Java"):
-        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
-        # os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Logging/Logging.java FileParser/*.java Soot/*.java")
-    else:
-        os.chdir("../Java")
-        os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Conditions/*.java Soot/*.java Logging/Logging.java FileWriter/*.java FileParser/*.java FileHandler/*.java Constants/*.java ClassHelper/*.java Utils/*.java")
-        # os.system("javac -d Classes -cp '../Jar_Libs/*' *.java Logging/Logging.java FileParser/*.java Soot/*.java")
-
-def run_framework(APK_Name, Main_Class):
-    if os.getcwd().__contains__("Java"):
-        APK_Location=''.join(["../../APK/",APK_Name,".apk"])
-        Soot_output_Location=''.join(['../sootOutput/',APK_Name])
-        os.chdir("Classes")
-        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
-        Output_Format = "dex"
-        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
-            '--output-format', Output_Format]).decode().split("\n")
-        # del output[-16:]
-        print('\n'.join(output))
-        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootTest', APK_Location, Soot_output_Location, Main_Class,
-        #     '--output-format', Output_Format])
-        # # print(cmd)
-        # os.system(cmd)
-        os.chdir('../')
-    else:
-        os.chdir("../Java")
-        APK_Location=''.join(["../../APK/",APK_Name,".apk"])
-        Soot_output_Location=''.join(['../sootOutput/',APK_Name,'/'])
-        os.chdir("Classes")
-        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootAnalysis', APK_Location, Soot_output_Location, Main_Class])
-        # print(cmd)
-        # os.system(cmd)
-        # print(''.join(["RUNNING ", APK_Name]))
-        # output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class]).decode().split("\n")
-        output = subprocess.check_output(['java', '-cp', '.:../../Jar_Libs/*','SootTest', APK_Location, Soot_output_Location, Main_Class, 
-            '--output-format', Output_Format]).decode().split("\n")
-        # # del output[-16:]
-        print('\n'.join(output))
-        # cmd = ' '.join(['java -cp .:../../Jar_Libs/* SootTest', APK_Location, Soot_output_Location, Main_Class,
-        #     '--output-format', Output_Format])
-        # os.system(cmd)
-        os.chdir('../')
-
 def get_main_class_from_APK(APK_Name):
     output=os.popen(''.join(['aapt dump badging ../APK/',APK_Name, '.apk | grep "launchable-activity"'])).read()
     output = str(output).split(" ")
@@ -123,9 +110,14 @@ def get_main_class_from_APK(APK_Name):
     return(output)
 
 def get_package_from_APK(APK_Name):
-    output=os.popen(''.join(['aapt dump badging ../APK/',APK_Name,'.apk | grep "package"'])).read().split(" ")
-    output = output[1].replace("name=", "").replace("'", "")
-    return(output)
+    try:
+        APK_Name = APK_Name.replace(".apk","")
+        output=os.popen(''.join(['aapt dump badging ../APK/',APK_Name,'.apk | grep "package"'])).read().split(" ")
+        if len(output) > 1:
+            output = output[1].replace("name=", "").replace("'", "")
+            return(output)
+    except Exception as e:
+        print("An error occurred:", str(e))
 
 def install_APK(APK_Name):
     directory = os.getcwd()
@@ -221,43 +213,41 @@ def generate_model_from_log(APK_Name):
     print(dot.source)
     dot.view()
 
+
+
 clear_screen()
 # app_categories_print()
-#top_n_apps = get_top_n_number_of_apps('Games', 10)
-#download_apk_links = get_download_links_from_apkpure(top_n_apps)
-# print(download_apk_links)
-# open_links_in_browser(download_apk_links)
+
+apps_list = get_top_n_number_of_apps("Tools", 10)
+# print(apps_list)
+file_path = "dictionary.json"
+df = pd.DataFrame(apps_list)
+
+df.to_csv("output.csv", index=False)
+
+links_download = get_download_links_from_apkpure(apps_list)
+df['download_url'] = links_download
+print(df)
+p = multiprocessing.Process(target=open_links_in_browser, name="open_links_in_browser", args=(links_download,))
+p.start()
+time.sleep(110)
+p.terminate()
+p.join()
+
+p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
+p.start()
+time.sleep(5)
+p.terminate()
+p.join()
+
+p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
+p.start()
+time.sleep(5)
+p.terminate()
+p.join()
+# open_links_in_browser(links_download)
 # move_file_from_downloads('/home/seansanders/Downloads/')
-
-# install_apps_from_apk_folder(['Angry_Birds_2_3.11.3_Apkpure.apk', 'Call_of_Dragons_1.0.14.69_Apkpure.apk', 
-#     'Clash_of_Clans_15.83.29_Apkpure.apk', 'Roblox_2.568.524_Apkpure.apk', 'Subway_Surfers_3.10.0_Apkpure.xapk', 
-#     'Toca_Life_World_Build_a_Story_1.63_Apkpure.apk', 'Whiteout_Survival_1.7.9_Apkpure.apk', 'Zooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk'])
-
-#------------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------------
-#-------------------------------------INSTRUMENT APK FILES---------------------------------------------------
-#------------------------------------------------------------------------------------------------------------
-# compile_framework()
-# Main_Class = get_main_class_from_APK('TestApp3')
-# APK_Package = get_package_from_APK('TestApp3')
-# run_framework('TestApp3', Main_Class)
-# zip_and_sign_APK_file('TestApp3')
-# install_APK('TestApp3')
-
-# log_APK("Test")
-# uninstall_APK(APK_Package)
-#generate_model_from_log('Test')
-
-
-compile_framework()
-Main_Class = get_main_class_from_APK("BannerOnly_Log_With_Class_AdView")
-APK_Package = get_package_from_APK("BannerOnly_Log_With_Class_AdView")
-run_framework("BannerOnly_Log_With_Class_AdView", Main_Class)
-
-# for file in os.listdir("../APK"):
-#     if not file.__contains__("idsig"):
-#         file_name_only = file.replace(".apk", "")
-#         Main_Class = get_main_class_from_APK(file_name_only)
-#         APK_Package = get_package_from_APK(file_name_only)
-#         print(" ".join(["App:",file_name_only, "Main Class:",Main_Class]))
-#         run_framework(file_name_only, Main_Class)
+# remove_special_characters_from_apk_name()
+for item in os.listdir("../APK/"):
+            if item.__contains__(".apk"):
+                print(' '.join(["apk:",item,get_package_from_APK(str(item))]))
