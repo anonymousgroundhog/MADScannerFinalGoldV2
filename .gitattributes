@@ -64,3 +64,6 @@ APK/Calculator8.4503542421Apkpure.apk filter=lfs diff=lfs merge=lfs -text
 APK/GoogleChromeFastSecure114.0.5735.131Apkpure.apk filter=lfs diff=lfs merge=lfs -text
 APK/SamsungInternetBrowser21.0.3.6Apkpure.apk filter=lfs diff=lfs merge=lfs -text
 APK/AIChat-AIChatbotAssistant1.1.3Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/GoogleDrive2.23.251.0.all.alldpiApkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/GoogleTranslate7.6.30.538653321.1-releaseApkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/GoogleTranslate7.7.0.540337148.2-releaseApkpure.apk filter=lfs diff=lfs merge=lfs -text

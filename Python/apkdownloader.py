@@ -74,7 +74,6 @@ def open_links_in_browser(download_apk_links):
 def move_file_from_downloads(downloads_dir):
     if os.getcwd().__contains__("Python"):
         os.chdir('../APK')
-        os.system('rm *.xapk')
         for item in os.listdir(downloads_dir):
             if item.__contains__(".apk"):
                 old_path = ''.join([downloads_dir,item])
@@ -213,41 +212,49 @@ def generate_model_from_log(APK_Name):
     print(dot.source)
     dot.view()
 
+def Generate_Dataframe_Details_For_APK_Files(df):
+    apk_names = []
+    packages = []
+    for item in os.listdir("../APK/"):
+                if item.__contains__(".apk"):
+                    apk_names.append(item)
+                    packages.append(get_package_from_APK(str(item)))
+    data = {'APK_Name': apk_names, 'Package': packages}
+    df2 = pd.DataFrame(data)
+
+    merged_df = pd.merge(df, df2, left_on='appId', right_on='Package')
+    merged_df = merged_df.drop('Package', axis=1)
+    return(merged_df)
+
 
 
 clear_screen()
-# app_categories_print()
 
-apps_list = get_top_n_number_of_apps("Tools", 10)
-# print(apps_list)
-file_path = "dictionary.json"
-df = pd.DataFrame(apps_list)
+# apps_list = get_top_n_number_of_apps("Tools", 10)
+# df = pd.DataFrame(apps_list)
 
-df.to_csv("output.csv", index=False)
+# # df.to_csv("output.csv", index=False)
 
-links_download = get_download_links_from_apkpure(apps_list)
-df['download_url'] = links_download
-print(df)
-p = multiprocessing.Process(target=open_links_in_browser, name="open_links_in_browser", args=(links_download,))
-p.start()
-time.sleep(110)
-p.terminate()
-p.join()
+# links_download = get_download_links_from_apkpure(apps_list)
+# df['download_url'] = links_download
+# print(df)
+# p = multiprocessing.Process(target=open_links_in_browser, name="open_links_in_browser", args=(links_download,))
+# p.start()
+# time.sleep(110)
+# p.terminate()
+# p.join()
 
-p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
-p.start()
-time.sleep(5)
-p.terminate()
-p.join()
+# p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
+# p.start()
+# time.sleep(5)
+# p.terminate()
+# p.join()
 
-p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
-p.start()
-time.sleep(5)
-p.terminate()
-p.join()
-# open_links_in_browser(links_download)
-# move_file_from_downloads('/home/seansanders/Downloads/')
-# remove_special_characters_from_apk_name()
-for item in os.listdir("../APK/"):
-            if item.__contains__(".apk"):
-                print(' '.join(["apk:",item,get_package_from_APK(str(item))]))
+# p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
+# p.start()
+# time.sleep(5)
+# p.terminate()
+# p.join()
+
+# print(Generate_Dataframe_Details_For_APK_Files(df))
+os.system('rm $HOME/Downloads/*.xapk')
