@@ -23,7 +23,6 @@ def get_top_n_number_of_apps_from_each_category(num_apps_to_investigate):
         n_hits=num_apps_to_investigate  # defaults to 30 (= Google's maximum)
         )
         df = pd.DataFrame(results)
-        df['category'] = category
         list_to_return.append(df)
     merged_df = pd.concat(list_to_return, axis=0, ignore_index=True)
     return merged_df
@@ -41,77 +40,26 @@ def get_top_n_number_of_apps(category, num_apps_to_investigate):
 def remove_special_characters_from_apk_name():
     print("Removing Characters!!!")
     os.chdir('../APK')
-    special_characters = "!@&#$%^&*()_+{}[]|\;:'<>?,./\""
+    special_characters = "!@&#$%^&*()_+{}[]|\\;:\'<>?,./\""
     for item in os.listdir(os.getcwd()):
         if item.__contains__(".apk"):
             old_path = ''.join([os.getcwd(),"/",item])
             cleaned_string = ""
             for char in special_characters:
                 cleaned_string = item.replace(char, "")
-            cleaned_string = cleaned_string.replace("(","").replace(")","").replace("&","")
+            cleaned_string = cleaned_string.replace("(","").replace(")","").replace("&","").replace("'","")
             new_path = ''.join([os.getcwd(),'/',cleaned_string])
-            # print(' '.join(['Old path:',old_path,'New path:',new_path]))
             shutil.move(old_path, new_path)
 
-def get_download_links_from_apkpure2(list_of_apps):
+def get_download_links_from_apkpure2(df):
     # div.first.brand.is-brand.sa-all-div.sa-apps-div.mb
     download_apk_links = []
     for index, row in df.iterrows():  
         link = None
-        # print(' '.join([row['appId'], "(",row['title'], ")"]))
-        # https://d.apkpure.com/b/APK/com.adsk.sketchbook?version=latest
         url = ''.join(['https://m.apkpure.com/',row['title'].lower().replace(" ", "-").replace('®',''),'/',row['appId'],'/download'])
         url = ''.join(['https://d.apkpure.com/b/APK/',row['appId'],'?version=latest'])
         download_apk_links.append(url)
-        # # print(url)
-        # req = requests.get(
-        # url, 
-        # params={'User-Agent': 'Mozilla/5.0'}
-        # )
-        # if req.status_code == 410:
-        #     print("Error")
-        #     download_apk_links.append("None")
-        # else:
-        #     webpage = req.text
-        #     soup = BeautifulSoup(webpage, 'html.parser')
-        #     # print(soup)
-        #     link = soup.find('a', {'class', 'download-start-btn'})
-        #     if link is not None: 
-        #         print("LINK TO DOWNLOAD APK:"+str(link['href']))
-        #         download_apk_links.append(str(link['href']))
-        #         break
-        #     else:
-        #         link = get_link_from_version(url)
-        #         if link is not None:
-        #             download_apk_links.append(link)
-        #         else:
-        #             print("No Link Found!!!")
-        #             download_apk_links.append('None')
     return download_apk_links
-
-# def get_link_from_version(url):
-#     url = url.replace("download",'versions')
-#     print(''.join(["URL:",url]))
-#     # create an HTML Session object
-#     session = HTMLSession()
-#     # Use the object above to connect to needed webpage
-#     r = session.get(url)
-#     link=r.html.find('body > div.versions-main.page-q > div.details-left > div.ver_content_box > ul > li:nth-child(1) > a', first=True)
-#     # print(link.attrs['href'])
-#     if link is not None:
-#         link2 = link.attrs['href']
-#         return link2
-#         # # return(link2)
-#         # r = session.get(link2)
-#         # link=r.html.find('body > div.download-page.hide-content > main > div.bottom-download-wrap > div.fast-download-box.mobile > div > div > div.normal-btn > a', first=True)
-#         # if link is not None:
-#         #     return(link.attrs['href'])
-#         # else:
-#         #     return None
-#     else:
-#         return None
-     
-    
 
 def get_download_links_from_apkpure(list_of_apps):
     # div.first.brand.is-brand.sa-all-div.sa-apps-div.mb
@@ -130,7 +78,6 @@ def get_download_links_from_apkpure(list_of_apps):
         # print(soup)
         link = soup.find('a', {'class', 'download-start-btn'})
         if link is not None: 
-            # print("LINK TO DOWNLOAD APK:"+str(link['href']))
             download_apk_links.append(str(link['href']))
     return download_apk_links
 
@@ -163,15 +110,15 @@ def move_file_from_downloads(downloads_dir):
                 # print(new_path)
                 shutil.move(old_path, new_path)
 
-def app_categories_print():
-    categories = ["Art and Design", "Auto and Vehicles", "Beauty", "Books and Reference", "Business", 
-    "Comics", "Communications", "Dating", "Education", "Entertainment", "Events", "Finance", 
-    "Food and Drink", "Games", "Health and Fitness", "House and Home", "Libraries and Demo", "Lifestyle", 
-    "Maps and Navigation", "Medical", "Music and Audio", "News and Magazines", "Parenting", 
-    "Personalization", "Photography", "Productivity", "Shopping", "Social", "Sports", "Tools", 
-    "Travel and Local", "Video Players and Editors", "Weather"]
-    for category in categories:
-        print(category)
+# def app_categories_print():
+#     categories = ["Art and Design", "Auto and Vehicles", "Beauty", "Books and Reference", "Business", 
+#     "Comics", "Communications", "Dating", "Education", "Entertainment", "Events", "Finance", 
+#     "Food and Drink", "Games", "Health and Fitness", "House and Home", "Libraries and Demo", "Lifestyle", 
+#     "Maps and Navigation", "Medical", "Music and Audio", "News and Magazines", "Parenting", 
+#     "Personalization", "Photography", "Productivity", "Shopping", "Social", "Sports", "Tools", 
+#     "Travel and Local", "Video Players and Editors", "Weather"]
+#     for category in categories:
+#         print(category)
 
 def install_apps_from_apk_folder(list_of_apps):
     if os.getcwd().__contains__("APK"):
@@ -217,23 +164,17 @@ def log_APK(APK_Name):
     time.sleep(13)
     os.system('pkill -f adb')
     os.system('adb logcat -c')
-    # with open(''.join(['../ADB_Logcat_Logs/',APK_Name,'.txt'])) as f:
-    #     lines = f.readlines()
-
-    # for line in lines:
-    #     if not line.__contains__('beginning'):
-    #         print(line)
 
 def clear_screen():
     os.system("clear")
 
-def zip_and_sign_APK_file(APK_Name):
-    if os.getcwd().__contains__('Java'):
-        os.system(''.join(['zipalign -fv 4 sootOutput/',APK_Name,'/',APK_Name,'.apk', ' sootOutput/',APK_Name,'/signed',APK_Name,'.apk']))
-        os.system(''.join(['apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password sootOutput/',APK_Name,'/signed',APK_Name,'.apk']))
+# def zip_and_sign_APK_file(APK_Name):
+#     if os.getcwd().__contains__('Java'):
+#         os.system(''.join(['zipalign -fv 4 sootOutput/',APK_Name,'/',APK_Name,'.apk', ' sootOutput/',APK_Name,'/signed',APK_Name,'.apk']))
+#         os.system(''.join(['apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password sootOutput/',APK_Name,'/signed',APK_Name,'.apk']))
 
-def create_ngrams(lst, n):
-    return [tuple(lst[i:i + n]) for i in range(len(lst) - n + 1)]
+# def create_ngrams(lst, n):
+#     return [tuple(lst[i:i + n]) for i in range(len(lst) - n + 1)]
 
 def add_edge(graph, src_node, dest_node, edge_label=None):
     """
@@ -299,50 +240,68 @@ def Generate_Dataframe_Details_For_APK_Files(df):
     packages = []
     for item in os.listdir("../APK/"):
                 if item.__contains__(".apk"):
+                    # print(item)
                     apk_names.append(item)
                     packages.append(get_package_from_APK(str(item)))
-    data = {'APK_Name': apk_names, 'Package': packages}
+    data = {"APK_Name": apk_names, "Package": packages}
     df2 = pd.DataFrame(data)
 
-    merged_df = pd.merge(df, df2, left_on='appId', right_on='Package')
-    merged_df = merged_df.drop('Package', axis=1)
+    merged_df = pd.merge(df, df2, left_on="appId", right_on="Package")
+    merged_df = merged_df.drop("Package", axis=1)
     return(merged_df)
 
+def Part1():
+    df = get_top_n_number_of_apps_from_each_category(10)
+    links_download = get_download_links_from_apkpure2(df)
+    df["download_url"] = links_download
+    df["download_url"] = links_download
+    df.to_csv("output.csv", index=False)
+    p = multiprocessing.Process(target=open_links_in_browser, name="open_links_in_browser", args=(links_download,))
+    p.start()
+    time.sleep(110)
+    p.terminate()
+    p.join()
+
+def Part2():
+    df = pd.read_csv("output.csv")
+    p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
+    p.start()
+    time.sleep(1)
+    p.terminate()
+    p.join()
+
+    print("Moved Files")
+    p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
+    p.start()
+    time.sleep(1)
+    p.terminate()
+    p.join()
+    print("Removed special characters")
+    df_mapped = Generate_Dataframe_Details_For_APK_Files(df)
+    print("MP1")
+    df_mapped = df_mapped.dropna(axis=1, how="all")
+    print("MP2")
+    df_mapped.to_csv('data.csv', index = False)
+    os.system("rm $HOME/Downloads/*.xapk")
 
 
 clear_screen()
-# url = 'https://apkpure.com/clip-studio-paint/jp.co.celsys.clipstudiopaint.googleplay/download'
-# url = url.replace("download",'versions')
-# print(''.join(["URL:",url]))
-# # create an HTML Session object
-# session = HTMLSession()
-
-# # Use the object above to connect to needed webpage
-# r = session.get(url)
- 
-# # Run JavaScript code on webpage
-# link=r.html.find('body > div.versions-main.page-q > div.details-left > div.ver_content_box > ul > li:nth-child(1) > a', first=True)
-# # print(link.attrs['href'])
-
-# r = session.get(link.attrs['href'])
- 
-# # Run JavaScript code on webpage
-# link=r.html.find('body > div.download-page.hide-content > main > div.bottom-download-wrap > div.fast-download-box.mobile > div > div > div.normal-btn > a', first=True)
-# print(link.attrs['href'])
+# Part1()
+Part2()
 
 # df = get_top_n_number_of_apps_from_each_category(10)
 # # print(df[['appId', 'title']])
 # links_download = get_download_links_from_apkpure2(df)
 # df['download_url'] = links_download
-# print(df)
+# # print(df)
 
 
-# apps_list = get_top_n_number_of_apps("Tools", 10)
-# df = pd.DataFrame(apps_list)
+# # apps_list = get_top_n_number_of_apps("Tools", 10)
+# # df = pd.DataFrame(apps_list)
 
 # links_download = get_download_links_from_apkpure(apps_list)
 # df['download_url'] = links_download
-# print(df)
+# # print(df)
 
 # p = multiprocessing.Process(target=open_links_in_browser, name="open_links_in_browser", args=(links_download,))
 # p.start()
@@ -350,17 +309,19 @@ clear_screen()
 # p.terminate()
 # p.join()
 
-p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
-p.start()
-time.sleep(5)
-p.terminate()
-p.join()
+# p = multiprocessing.Process(target=move_file_from_downloads, name="move_file_from_downloads", args=('/home/seansanders/Downloads/',))
+# p.start()
+# time.sleep(5)
+# p.terminate()
+# p.join()
 
-p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
-p.start()
-time.sleep(5)
-p.terminate()
-p.join()
+# p = multiprocessing.Process(target=remove_special_characters_from_apk_name, name="remove_special_characters_from_apk_name", args=())
+# p.start()
+# time.sleep(5)
+# p.terminate()
+# p.join()
 
-# print(Generate_Dataframe_Details_For_APK_Files(df))
-os.system('rm $HOME/Downloads/*.xapk')
+# df_mapped = Generate_Dataframe_Details_For_APK_Files(df)
+# df_mapped = df_mapped.dropna(axis=1, how='all')
+# df_mapped.to_csv('output.csv', index=False)
+# os.system('rm $HOME/Downloads/*.xapk')
