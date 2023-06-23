@@ -1,4 +1,4 @@
-import multiprocessing, time, requests
+import multiprocessing, time, requests, hashlib
 import urllib3, os, re, webbrowser, shutil, time, graphviz, subprocess, json, pandas as pd
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
@@ -284,11 +284,58 @@ def Part2():
     df_mapped.to_csv('data.csv', index = False)
     os.system("rm $HOME/Downloads/*.xapk")
 
+def Part3():
+    source_dir = os.getcwd()  # Get the current working directory
+    destination_dir = os.path.join('..', 'Data')  # Destination directory path
+
+    if not os.path.exists(destination_dir):
+        os.makedirs(destination_dir)
+        print(f"The folder '{destination_dir}' has been created.")
+
+    csv_files = [file for file in os.listdir(source_dir) if file.endswith('.csv')]
+
+    for file in csv_files:
+        source_file = os.path.join(source_dir, file)
+        destination_file = os.path.join(destination_dir, file)
+        shutil.move(source_file, destination_file)
+    txt_files = [file for file in os.listdir(source_dir) if file.endswith('.txt')]
+
+    for file in txt_files:
+        source_file = os.path.join(source_dir, file)
+        destination_file = os.path.join(destination_dir, file)
+        shutil.move(source_file, destination_file)
+def calculate_sha256(file_path):
+    sha256_hash = hashlib.sha256()
+    with open(file_path, 'rb') as file:
+        # Read the file in chunks to handle large files efficiently
+        for chunk in iter(lambda: file.read(4096), b''):
+            sha256_hash.update(chunk)
+    return sha256_hash.hexdigest()
+
+
+def Map_APK_Files_Package_To_Hash():
+    df = pd.read_csv("../Data/data.csv")
+    print(df) 
+    apk_dir = os.path.join('..', 'APK')
+    apk_files = [file for file in os.listdir(apk_dir) if file.endswith('.apk')]
+    hashes = []
+    for file in apk_files:
+        path = ''.join([apk_dir,"/",file])
+        hash_value = calculate_sha256(path)
+        hashes.append(hash_value)
+    data = {'APK_Name': apk_files, 'Hashes': hashes}
+    df_hash = pd.DataFrame(data)
+    merged_df = pd.merge(df, df_hash, on='APK_Name')
+    print(merged_df)
+    merged_df.to_csv("../Data/data_with_hash.csv", index=False)
+
 
 clear_screen()
 # Part1()
-Part2()
+# Part2()
+# Part3()
 
+Map_APK_Files_Package_To_Hash()
 # df = get_top_n_number_of_apps_from_each_category(10)
 # # print(df[['appId', 'title']])
 # links_download = get_download_links_from_apkpure2(df)
