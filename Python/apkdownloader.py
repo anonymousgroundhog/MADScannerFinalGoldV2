@@ -353,7 +353,7 @@ def Download_APK_To_File_System(package):
     time.sleep(10)
     os.popen(' '.join(['mv base.apk',app_name+".apk"]))
     time.sleep(2)
-    os.popen('mv *.apk ../APK')
+    os.popen('mv *.apk ../APK/Google_Play_Apps')
     print(path)
     
 def Get_Apps_Phase():
