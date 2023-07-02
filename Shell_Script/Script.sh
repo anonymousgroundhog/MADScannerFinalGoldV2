@@ -3,9 +3,13 @@
 Function_Run_Framework_And_Zip_And_Sign_APK() {
 	echo "Running Function"
 	# ls
-	cd Classes
-	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash $2
+	[ -d "Classes" ] && cd Classes
+	Folder=$3
+	File=$1
+	Option=$2
+	hash=$(sha256sum ../../APK/$Folder/$File | cut -d " " -f1)
+
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option
 
 	cd sootOutput
 	rm signed*.apk
@@ -20,8 +24,8 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	clear
 	cd ../../../Python
 	device_name=$(Get_Device_Name)
-	package=$(Get_App_Package ../APK/$1)
-	activity=$(Get_App_activity ../APK/$1)
+	package=$(Get_App_Package ../APK/$Folder/$File)
+	activity=$(Get_App_activity ../APK/$Folder/$File)
 	python3 Appium_Gold.py $device_name $package $activity
 	pwd
 	Uninstall_App $package
@@ -30,13 +34,17 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 
 Function_Run_Framework_And_Output_Jimple() {
 	echo "Running Function"
-	# ls
-	cd Classes
-	hash=$(sha256sum ../../APK/$1 | cut -d " " -f1)
+	
+	[ -d "Classes" ] && cd Classes
+	
+	Folder=$3
+	File=$1
+	Option=$2
+	hash=$(sha256sum ../../APK/$Folder/$File | cut -d " " -f1)
 	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" SootExample -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 -output-format J -force-overwrite $hash
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 $hash $2
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option
 }
 
 Function_Compile_Framework() {
@@ -46,11 +54,14 @@ Function_Compile_Framework() {
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
-	main_activity=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	File=$1
+	Folder=$2
+	main_activity=$(aapt dump badging ../APK/$Folder/$File | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	# echo $main_activity
 	echo "Main_Activity:" $main_activity > APK_Details.txt
 	# main_activity2=$(aapt dump badging ../APK/$1 | grep 'leanback-launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	# echo "Main_Activity2:" $main_activity2 >> APK_Details.txt
-	main_package=$(aapt dump badging ../APK/$1 | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	main_package=$(aapt dump badging ../APK/$Folder/$File | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
 Get_Device_Name() {
@@ -74,21 +85,41 @@ clear
 Function_Compile_Framework
 
 # GET MAIN ACTIVITY FROM APK
-Function_Get_MainActivity_And_Write_To_File $1
-
-Option=$2
-
-if [ $Option = J ] || [ $Option = j ]
-then
-	echo "Jimple chosen"
-	Function_Run_Framework_And_Output_Jimple $1 $Option
-elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-then
-	echo "dex chosen"
-	Function_Run_Framework_And_Output_Jimple $1 $Option
-elif [ $Option = apk ]
+Option=$1
+Folder=Google_Play_Apps
+for file in $(ls ../APK/$Folder/)
+do
+	echo $file
+	Function_Get_MainActivity_And_Write_To_File $file $Folder
+	if [ $Option = J ] || [ $Option = j ]
 	then
-	Function_Run_Framework_And_Zip_And_Sign_APK $1 $Option
-else
-	echo "No such option"
-fi
+		echo "\nJimple chosen"
+		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+	then
+		echo "dex chosen"
+		Function_Run_Framework_And_Output_Jimple $file $Option
+	elif [ $Option = apk ]
+		then
+		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option
+	else
+		echo "No such option"
+	fi
+done
+
+# Option=$2
+
+# if [ $Option = J ] || [ $Option = j ]
+# then
+# 	echo "Jimple chosen"
+# 	Function_Run_Framework_And_Output_Jimple $1 $Option
+# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+# then
+# 	echo "dex chosen"
+# 	Function_Run_Framework_And_Output_Jimple $1 $Option
+# elif [ $Option = apk ]
+# 	then
+# 	Function_Run_Framework_And_Zip_And_Sign_APK $1 $Option
+# else
+# 	echo "No such option"
+# fi
