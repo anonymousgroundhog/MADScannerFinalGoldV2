@@ -304,6 +304,7 @@ def Part3():
         source_file = os.path.join(source_dir, file)
         destination_file = os.path.join(destination_dir, file)
         shutil.move(source_file, destination_file)
+
 def calculate_sha256(file_path):
     sha256_hash = hashlib.sha256()
     with open(file_path, 'rb') as file:
@@ -311,7 +312,6 @@ def calculate_sha256(file_path):
         for chunk in iter(lambda: file.read(4096), b''):
             sha256_hash.update(chunk)
     return sha256_hash.hexdigest()
-
 
 def Map_APK_Files_Package_To_Hash():
     df = pd.read_csv("../Data/data.csv")
@@ -329,13 +329,47 @@ def Map_APK_Files_Package_To_Hash():
     print(merged_df)
     merged_df.to_csv("../Data/data_with_hash.csv", index=False)
 
+def List_Installed_App_Packages():
+    output=os.popen('adb shell pm list packages').read()
+    output = str(output).replace("package:","").split("\n")
+    output.pop()
+    # output = output[1].replace("package:", "")
+    return(output)
+
+def Return_App_Packages_That_Were_Installed(app_packages,list_of_apps_installed):
+    unique_packages = [x for x in app_packages if x not in list_of_apps_installed]
+    return unique_packages
+
+def Download_APK_To_File_System(package):
+    output=os.popen(' '.join(['adb shell pm path',package])).read()
+    output = str(output).replace("package:","").split("\n")
+    path = ''
+    for x in output:
+        if x.__contains__("base.apk"):
+            path = x
+            os.popen(' '.join(['adb pull',path,'.']))
+            app_name = package.replace('.',"")
+            break
+    time.sleep(10)
+    os.popen(' '.join(['mv base.apk',app_name+".apk"]))
+    time.sleep(2)
+    os.popen('mv *.apk ../APK')
+    print(path)
+    
+def Get_Apps_Phase():
+    app_packages = List_Installed_App_Packages()
+    list_of_apps_installed = ['com.android.fmradio', 'com.android.cts.priv.ctsshim', 'com.google.android.youtube', 'com.android.internal.display.cutout.emulation.corner', 'com.google.android.ext.services', 'com.android.internal.display.cutout.emulation.double', 'com.android.providers.telephony', 'com.sprd.engineermode', 'io.appium.settings', 'com.google.android.googlequicksearchbox', 'com.android.providers.calendar', 'com.android.providers.media', 'com.google.android.onetimeinitializer', 'com.google.android.ext.shared', 'com.android.wallpapercropper', 'com.sprd.firewall', 'com.android.documentsui', 'android.auto_generated_rro__', 'com.android.externalstorage', 'com.android.htmlviewer', 'com.android.companiondevicemanager', 'com.android.mms.service', 'com.sprd.omacp', 'com.android.providers.downloads', 'com.google.android.apps.messaging', 'com.android.sprd.telephony.server', 'com.google.android.configupdater', 'com.android.soundrecorder', 'io.appium.uiautomator2.server', 'com.android.defcontainer', 'com.android.providers.downloads.ui', 'com.android.vending', 'com.dti.blu', 'com.android.pacprocessor', 'com.android.simappdialog', 'com.sprd.validationtools', 'com.android.internal.display.cutout.emulation.tall', 'com.android.certinstaller', 'com.android.carrierconfig', 'com.google.android.marvin.talkback', 'com.google.android.apps.work.oobconfig', 'com.bluproducts.activationapp', 'android', 'com.android.camera2', 'com.android.egg', 'com.android.mtp', 'com.android.nfc', 'com.android.stk', 'com.android.launcher3', 'com.android.backupconfirm', 'com.sprd.screencapture', 'com.google.android.deskclock', 'com.sprd.quickcamera', 'com.android.statementservice', 'com.google.android.gm', 'com.unisoc.storageclearmanager', 'com.google.android.apps.tachyon', 'com.android.messaging.smilplayer', 'com.android.settings.intelligence', 'com.huub.dolphin', 'com.android.systemui.theme.dark', 'com.google.android.setupwizard', 'com.android.providers.settings', 'com.android.sharedstoragebackup', 'com.google.android.music', 'com.android.printspooler', 'com.android.dreams.basic', 'com.android.se', 'com.android.inputdevices', 'com.google.android.apps.wellbeing', 'com.google.android.dialer', 'com.android.bips', 'com.google.android.apps.nbu.files', 'com.android.musicfx', 'com.google.android.apps.docs', 'com.google.android.apps.maps', 'android.autoinstalls.config.BLU.G0090', 'com.android.mmsfolderview', 'com.android.cellbroadcastreceiver', 'com.google.android.webview', 'com.opera.browser', 'com.sprd.uplmnsettings', 'com.google.android.contacts', 'com.android.server.telecom', 'com.google.android.syncadapters.contacts', 'com.android.keychain', 'com.google.android.calculator', 'com.android.chrome', 'com.sprd.uasetting', 'com.android.gallery3d', 'com.google.android.packageinstaller', 'com.spreadtrum.ims', 'com.spreadtrum.vce', 'com.google.android.gms', 'com.google.android.gsf', 'com.google.android.ims', 'com.google.android.tag', 'com.google.android.tts', 'com.ww6.agetest', 'com.android.calllogbackup', 'com.google.android.partnersetup', 'com.sprd.powersavemodelauncher', 'com.google.android.videos', 'com.android.carrierdefaultapp', 'com.android.proxyhandler', 'com.google.android.feedback', 'com.google.android.printservice.recommendation', 'com.google.android.apps.photos', 'com.sprd.logmanager', 'com.google.android.calendar', 'com.android.managedprovisioning', 'com.android.dreams.phototable', 'com.sprd.cellbroadcastreceiver', 'io.appium.uiautomator2.server.test', 'com.spreadtrum.vowifi', 'com.android.providers.partnerbookmarks', 'com.android.smspush', 'com.pivotmobile.android.metrics', 'com.google.android.gms.policy_sidecar_aps', 'com.sprd.providers.photos', 'com.google.android.backuptransport', 'com.android.storagemanager', 'com.android.bookmarkprovider', 'com.android.settings', 'com.spreadtrum.sgps', 'com.sprd.systemupdate', 'com.android.cts.ctsshim', 'com.sprd.sprdnote', 'com.android.vpndialogs', 'com.android.phone', 'com.android.shell', 'com.sprd.ImsConnectionManager', 'com.android.wallpaperbackup', 'com.android.providers.blockednumber', 'com.android.providers.userdictionary', 'com.android.emergency', 'com.android.location.fused', 'com.opera.preinstall', 'com.android.systemui', 'com.android.bluetoothmidiservice', 'com.android.traceur', 'com.android.modemnotifier', 'com.google.android.gms.example.bannerexample', 'com.android.bluetooth', 'com.android.wallpaperpicker', 'com.android.providers.contacts', 'com.android.captiveportallogin', 'com.google.android.inputmethod.latin', 'com.google.android.apps.restore']
+    unique_packages = Return_App_Packages_That_Were_Installed(app_packages,list_of_apps_installed)
+    print(unique_packages)
+    for package in unique_packages:
+        Download_APK_To_File_System(package)
 
 clear_screen()
+Get_Apps_Phase()
 # Part1()
 # Part2()
 # Part3()
-
-Map_APK_Files_Package_To_Hash()
+# Map_APK_Files_Package_To_Hash()
 # df = get_top_n_number_of_apps_from_each_category(10)
 # # print(df[['appId', 'title']])
 # links_download = get_download_links_from_apkpure2(df)

@@ -254,3 +254,5 @@ APK/GoogleMeet197.0.542043071.duo.android20230611.10p5.sApkpure.apk filter=lfs d
 APK/Instagram288.1.0.22.66Apkpure.apk filter=lfs diff=lfs merge=lfs -text
 APK/KineMaster-VideoEditorMaker7.0.4.30130.GPApkpure.apk filter=lfs diff=lfs merge=lfs -text
 APK/VLCforAndroid3.5.4Apkpure.apk filter=lfs diff=lfs merge=lfs -text
+APK/compeoplefunwordcross.apk filter=lfs diff=lfs merge=lfs -text
+APK/comcandywriterbitlife.apk filter=lfs diff=lfs merge=lfs -text
