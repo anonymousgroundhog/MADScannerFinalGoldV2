@@ -1,35 +1,56 @@
 #!/bin/sh
 
+Function_Check_Command_Runs() {
+	"$@"
+	local exit_status=$?
+	if [ $exit_status -eq 0 ]; then
+		echo "Command ran successfully"
+		return 1
+	else
+		echo "Command encountered an error"
+		return 0
+	fi
+}
+
 Function_Run_Framework_And_Zip_And_Sign_APK() {
-	echo "Running Function"
+	echo "\n\n"
+	current_dir=$(pwd)
 	# ls
 	[ -d "Classes" ] && cd Classes
 	Folder=$3
 	File=$1
 	Option=$2
-	hash=$(sha256sum ../../APK/$Folder/$File | cut -d " " -f1)
+	SignedFile=signed$File
+	APKPath="../../APK/"$Folder/$File
+	echo "APK path is: " $APKPath
+	echo "Current directory is: " $(pwd)
+
+	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
+	echo Hash is: $hash
 
 	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option
 
-	cd sootOutput
-	rm signed*.apk
+	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
-	echo $apk_name
 
-	zipalign -fv 4 $apk_name.apk signed$apk_name.apk
-	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password signed$apk_name.apk
+	zipalign -fv 4 $File $SignedFile
+	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+
+	#clear
 	rm *.idsig
-	adb install signed$apk_name.apk
-	adb logcat -c
-	clear
-	cd ../../../Python
+	#adb logcat -c
+	Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+	#clear
+	[ -d "../../../Python" ] && cd ../../../Python
 	device_name=$(Get_Device_Name)
-	package=$(Get_App_Package ../APK/$Folder/$File)
-	activity=$(Get_App_activity ../APK/$Folder/$File)
+	package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
+	activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
+	echo Package: $package Activity: $activity
 	python3 Appium_Gold.py $device_name $package $activity
-	pwd
 	Uninstall_App $package
-	adb logcat FiniteState:V *:S
+#	adb logcat FiniteState:V *:S
+	cd $current_dir
+	pwd
 }
 
 Function_Run_Framework_And_Output_Jimple() {
@@ -87,6 +108,7 @@ Function_Compile_Framework
 # GET MAIN ACTIVITY FROM APK
 Option=$1
 Folder=Google_Play_Apps
+adb logcat -c
 for file in $(ls ../APK/$Folder/)
 do
 	echo $file
@@ -101,11 +123,13 @@ do
 		Function_Run_Framework_And_Output_Jimple $file $Option
 	elif [ $Option = apk ]
 		then
-		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option
+		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
 	else
 		echo "No such option"
 	fi
 done
+
+#adb logcat FiniteState:V *:S
 
 # Option=$2
 

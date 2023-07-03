@@ -53,6 +53,6 @@ public class BAnalysisApp {
 		List<SootClass> admob_classes=this_Helper.Extract_Google_AdMob_Classes(allClasses);
 		this_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, hash);
 		this_Helper.writeClassHierarchyToFile(allClasses, "../class_hierarchy.txt");
-	        soot.Main.main(args);
+        soot.Main.main(args);
     }
 }

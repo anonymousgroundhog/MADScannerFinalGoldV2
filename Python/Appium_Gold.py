@@ -52,7 +52,7 @@ desired_capabilities = {
             "appPackage": sys.argv[2],
             "noReset": True,
             "autoacceptalerts": True,
-            "appium:wdaStartupRetries": 5,
+            "appium:wdaStartupRetries": 6,
             "autoGrantPermissions": True,
             "appActivity": sys.argv[3],
             "adbExecTimeout": 30000

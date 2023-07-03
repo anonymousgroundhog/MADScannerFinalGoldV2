@@ -1,0 +1,2 @@
+Main_Activity: jp.ne.ibis.ibispaintx.app.market.MarketAuthenticationActivity
+Main_Class: jp.ne.ibis.ibispaintx.app

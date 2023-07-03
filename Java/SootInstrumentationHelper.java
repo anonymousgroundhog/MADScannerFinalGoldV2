@@ -182,7 +182,7 @@ public class SootInstrumentationHelper
     public static void prepareSoot(String app_name, String option) {
         soot.G.reset();
         Options.v().set_src_prec(Options.src_prec_apk);
-        Options.v().set_process_dir(Arrays.asList("../../APK/"+app_name));
+        Options.v().set_process_dir(Arrays.asList("../../APK/Google_Play_Apps/"+app_name));
         Options.v().set_process_multiple_dex(true);
         Options.v().set_android_jars("../../Android/platforms");
         Options.v().set_whole_program(true);
@@ -222,24 +222,24 @@ public class SootInstrumentationHelper
         }
     }
     public static List<SootClass> ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(SootClass sootClass){
-	List<SootClass> classes_to_return = new ArrayList<SootClass>();
+    List<SootClass> classes_to_return = new ArrayList<SootClass>();
         Hierarchy hierarchy = Scene.v().getActiveHierarchy();
         if(!sootClass.isInterface()){
             List<SootClass> this_subclasses = hierarchy.getSubclassesOf(sootClass);
             int number_of_subclasses = this_subclasses.size();
             if(number_of_subclasses > 0){
                 for (SootClass subClass : this_subclasses) {
-			String subClassName = subClass.getName();
-			if(!subClassName.contains("com.google.android.gms.ads") && !subClassName.contains("com.google.android.gms.internal.ads") && !subClassName.contains("com.google.ads")){
-				classes_to_return.add(subClass);
-			}
+            String subClassName = subClass.getName();
+            if(!subClassName.contains("com.google.android.gms.ads") && !subClassName.contains("com.google.android.gms.internal.ads") && !subClassName.contains("com.google.ads")){
+                classes_to_return.add(subClass);
+            }
                 }
-		return classes_to_return;
+        return classes_to_return;
             }
         }else{
-		return null;
+        return null;
         }
-	return null;
+    return null;
     }
     public static void writeClassHierarchyToFile(Chain<SootClass> classes, String filename){
         Hierarchy hierarchy = Scene.v().getActiveHierarchy();
@@ -499,56 +499,56 @@ public class SootInstrumentationHelper
         return false;
     }
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
-    	List<SootClass> classes_to_return = new ArrayList<SootClass>();
-    	for (SootClass sootClass : classes) {
-    	    if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
-    		classes_to_return.add(sootClass);
-    	    }
-    	}
-    	return classes_to_return;
+        List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        for (SootClass sootClass : classes) {
+            if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
+            classes_to_return.add(sootClass);
+            }
+        }
+        return classes_to_return;
     }
     public static void Inject_Log_Generic(String app_name_only, String hash, String this_class_name, String this_method_name, SootMethod this_method){
         SootMethodRef method_ref_log = Scene.v().getMethod("<android.util.Log: int d(java.lang.String,java.lang.String)>").makeRef();
-    	if(this_method.hasActiveBody() && !this_method.isConstructor() && !this_method.getName().contains("<clinit>")){
-    		UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
-    		String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
-    		List<Value> listArgs = new ArrayList<Value>();
-    		listArgs.add(StringConstant.v("FiniteState"));
-    		listArgs.add(StringConstant.v(MSG));
-    		StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
-    		InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
-    		Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
+        if(this_method.hasActiveBody() && !this_method.isConstructor() && !this_method.getName().contains("<clinit>")){
+            UnitPatchingChain thisunits = this_method.retrieveActiveBody().getUnits();
+            String MSG = app_name_only+"---"+hash+"---"+this_class_name+"---"+this_method_name+"---null";
+            List<Value> listArgs = new ArrayList<Value>();
+            listArgs.add(StringConstant.v("FiniteState"));
+            listArgs.add(StringConstant.v(MSG));
+            StaticInvokeExpr LogInvokeStmt = Jimple.v().newStaticInvokeExpr(method_ref_log, listArgs);
+            InvokeStmt InvokeStatementLog = Jimple.v().newInvokeStmt(LogInvokeStmt);
+            Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
 
-    		if(unit_to_insert_after != null){
-    		    thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
-    		} 
-    	}
+            if(unit_to_insert_after != null){
+                thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
+            } 
+        }
     }
     // This is where we would want ot check for the ID and whether or not one could be found.
     public static void Inject_Into_Google_Libs_Log_Message(List<SootClass> classes, String app_name_only, String hash){
-	    for(SootClass this_class : classes){
-		    for (SootMethod this_method : this_class.getMethods()){
-			String this_method_name = this_method.getName();
-			String this_class_name = this_class.getName();
-			Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
-		    }
-	    }
+        for(SootClass this_class : classes){
+            for (SootMethod this_method : this_class.getMethods()){
+            String this_method_name = this_method.getName();
+            String this_class_name = this_class.getName();
+            Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
+            }
+        }
     }
     public static List<SootClass> ReturnVirtualInvokeClasses(SootClass this_class, String method_name){
-    	List<SootClass> classes_to_return = new ArrayList<SootClass>();
-    	UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
-    	for(Unit this_unit: this_units){
-    		if(this_unit instanceof InvokeStmt){
-    			InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-    			InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-    			 if (invokeExpr instanceof VirtualInvokeExpr) {
-    				VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
-    				SootMethod this_method = virtualInvokeExpr.getMethod();
-    				SootClass this_invoke_class = this_method.getDeclaringClass();
-    				classes_to_return.add(this_invoke_class);
-    			 }
-    		}
-    	}
-    	return classes_to_return;
+        List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        UnitPatchingChain this_units = this_class.getMethodByName(method_name).getActiveBody().getUnits();
+        for(Unit this_unit: this_units){
+            if(this_unit instanceof InvokeStmt){
+                InvokeStmt invokeStmt = (InvokeStmt) this_unit;
+                InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
+                 if (invokeExpr instanceof VirtualInvokeExpr) {
+                    VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
+                    SootMethod this_method = virtualInvokeExpr.getMethod();
+                    SootClass this_invoke_class = this_method.getDeclaringClass();
+                    classes_to_return.add(this_invoke_class);
+                 }
+            }
+        }
+        return classes_to_return;
     }
 }
