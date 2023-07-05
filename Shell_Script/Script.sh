@@ -1,5 +1,9 @@
 #!/bin/sh
 
+Function_Error_Log_To_File() {
+	$(adb logcat --buffer=crash > error.txt)
+}
+
 Function_Check_Command_Runs() {
 	"$@"
 	local exit_status=$?
@@ -40,6 +44,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	rm *.idsig
 	#adb logcat -c
 	Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+	echo "\nExit status is:" $Exit_Status
 	#clear
 	[ -d "../../../Python" ] && cd ../../../Python
 	device_name=$(Get_Device_Name)
@@ -113,6 +118,7 @@ for file in $(ls ../APK/$Folder/)
 do
 	echo $file
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
+
 	if [ $Option = J ] || [ $Option = j ]
 	then
 		echo "\nJimple chosen"
@@ -129,6 +135,8 @@ do
 	fi
 done
 
+#cd ../Shell_Script
+#Function_Error_Log_To_File
 #adb logcat FiniteState:V *:S
 
 # Option=$2

@@ -1,2 +1,2 @@
-Main_Activity: com.unity3d.player.UnityPlayerActivity
-Main_Class: com.candywriter.bitlife
+Main_Activity: com.vblast.feature_home.presentation.MainActivity
+Main_Class:
