@@ -77,6 +77,7 @@ source_xml = driver.page_source
 
 time.sleep(5)
 click_on_button_by_class_close_Ad(driver,"android.widget.Button")
+page_source = driver.page_source
 time.sleep(5)
 source_xml = driver.page_source
 click_on_button_by_class_close_Ad(driver,"android.widget.Button")
@@ -86,10 +87,12 @@ click_on_button_by_class_close_Ad(driver,"android.widget.Button")
 # driver.start_activity(sys.argv[2], sys.argv[3])
 
 time.sleep(5)
+source_xml = driver.page_source
 click_on_button_by_class(driver,"android.widget.LinearLayout")
 time.sleep(2)
+source_xml = driver.page_source
 click_on_button_by_class(driver,"android.widget.TextView")
-time.sleep(2)
+time.sleep(3)
 driver.swipe(150, 800, 250, 200, 1000)
 time.sleep(3)
 click_on_button_by_class_close_Ad(driver,"android.widget.Button")
