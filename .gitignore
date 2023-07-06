@@ -1,3 +1,7 @@
+*.class
+Java/Classes/sootOutput/*.apk
+Shell_Script/*.swp
+*.swp
 *.jimple
 Java/sootOutput/*
 .Rproj.user

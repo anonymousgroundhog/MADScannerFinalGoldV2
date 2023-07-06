@@ -261,3 +261,4 @@ APK/Google_Play_Apps/comcandywriterbitlife.apk filter=lfs diff=lfs merge=lfs -te
 APK/Google_Play_Apps/compeoplefunwordcross.apk filter=lfs diff=lfs merge=lfs -text
 APK/Google_Play_Apps/comroviobaba.apk filter=lfs diff=lfs merge=lfs -text
 APK/Google_Play_Apps filter=lfs diff=lfs merge=lfs -text
+APK/APKPure filter=lfs diff=lfs merge=lfs -text
