@@ -179,10 +179,10 @@ public class SootInstrumentationHelper
     public static void printFormattedOutput(String format, Object... args) {
         System.out.printf(format, args);
     }
-    public static void prepareSoot(String app_name, String option) {
+    public static void prepareSoot(String folder, String app_name, String option) {
         soot.G.reset();
         Options.v().set_src_prec(Options.src_prec_apk);
-        Options.v().set_process_dir(Arrays.asList("../../APK/Google_Play_Apps/"+app_name));
+        Options.v().set_process_dir(Arrays.asList("../../APK/"+folder+"/"+app_name));
         Options.v().set_process_multiple_dex(true);
         Options.v().set_android_jars("../../Android/platforms");
         Options.v().set_whole_program(true);
@@ -484,7 +484,7 @@ public class SootInstrumentationHelper
     }
     public static Boolean Contains_Ads(Chain<SootClass> classes){
         for (SootClass sootClass : classes) {
-            if(sootClass.getName().contains("com.google.android.gms.ads")){
+            if(sootClass.getName().contains("com.google.android.gms.ads") && sootClass.getName().contains("com.google.android.gms.ads.AdListener")){
                 return true;
             }
         }

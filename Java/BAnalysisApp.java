@@ -15,13 +15,14 @@ public class BAnalysisApp {
 
     public static void main(String[] args) {
     	String apk_file = args[0];
+    	String folder = args[3];
     	String app_name_only = apk_file.replace(".apk","");
     	String hash = args[1];
     	String option = args[2];
 		this_Helper.public_variable_mainactivity = this_Helper.getMainClass();
 	    	this_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, this_Helper.public_variable_mainactivity, option);
 			
-		this_Helper.prepareSoot(apk_file, option);
+		this_Helper.prepareSoot(folder,apk_file, option);
 		
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();
 		Chain<SootClass> allClasses = this_Helper.getAllClasses();
