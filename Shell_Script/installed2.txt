@@ -38,6 +38,7 @@ package:com.android.internal.display.cutout.emulation.tall
 package:com.android.certinstaller
 package:com.android.carrierconfig
 package:com.google.android.marvin.talkback
+package:com.sand.airdroid
 package:com.google.android.apps.work.oobconfig
 package:com.bluproducts.activationapp
 package:android
@@ -79,6 +80,7 @@ package:com.android.cellbroadcastreceiver
 package:com.google.android.webview
 package:com.opera.browser
 package:com.sprd.uplmnsettings
+package:com.ace.ex.file.manager
 package:com.google.android.contacts
 package:com.android.server.telecom
 package:com.google.android.syncadapters.contacts
@@ -109,13 +111,13 @@ package:com.sprd.logmanager
 package:com.google.android.calendar
 package:com.android.managedprovisioning
 package:com.android.dreams.phototable
-package:com.vblast.flipaclip
 package:com.sprd.cellbroadcastreceiver
 package:io.appium.uiautomator2.server.test
 package:com.spreadtrum.vowifi
 package:com.android.providers.partnerbookmarks
 package:com.android.smspush
 package:com.pivotmobile.android.metrics
+package:com.happygames.gamesgamesmod
 package:com.google.android.gms.policy_sidecar_aps
 package:com.securew2.paladin
 package:com.sprd.providers.photos

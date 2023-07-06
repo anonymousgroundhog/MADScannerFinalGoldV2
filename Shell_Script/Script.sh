@@ -32,7 +32,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	echo Hash is: $hash
 
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
 
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
@@ -55,7 +55,6 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	Uninstall_App $package
 #	adb logcat FiniteState:V *:S
 	cd $current_dir
-	pwd
 }
 
 Function_Run_Framework_And_Output_Jimple() {
@@ -112,7 +111,7 @@ Function_Compile_Framework
 
 # GET MAIN ACTIVITY FROM APK
 Option=$1
-Folder=Google_Play_Apps
+Folder=APKPure
 adb logcat -c
 for file in $(ls ../APK/$Folder/)
 do

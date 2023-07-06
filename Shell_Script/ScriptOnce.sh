@@ -48,12 +48,14 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	APKPath="../../APK/"$Folder/$File
 	echo "APK path is: " $APKPath
 	echo "Current directory is: " $(pwd)
+	sdkbuild_version=$(aapt dump badging $APKPath | grep compileSdkVersion | cut -d ' ' -f 6 | tr -d "platformBuildVersionCode='")
+	echo "SdkBuildVersion is: " $sdkbuild_version
 
 	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	echo Hash is: $hash
 
 	pwd
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
 
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
@@ -62,19 +64,25 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	pwd
 	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
 
-	clear
+	#clear
 	rm *.idsig
 	adb logcat -c
-	Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
-	echo "\nExit status is:" $Exit_Status
-	#clear
-	[ -d "../../../Python" ] && cd ../../../Python
-	device_name=$(Get_Device_Name)
-	package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
-	activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
-	echo Package: $package Activity: $activity
-	python3 Appium_Gold.py $device_name $package $activity
-	#Uninstall_App $package
+	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+	adb install $SignedFile
+	RESULT=$?
+	if [ $RESULT -eq 0 ]; then
+		echo success
+		#clear
+		[ -d "../../../Python" ] && cd ../../../Python
+		device_name=$(Get_Device_Name)
+		package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
+		activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
+		echo Package: $package Activity: $activity
+		python3 Appium_Test.py $device_name $package $activity
+		Uninstall_App $package
+	else
+		echo failed
+	fi
 ##	adb logcat FiniteState:V *:S
 }
 
@@ -131,13 +139,13 @@ Uninstall_App(){
 clear
 
 #Function_Get_Packages_And_Add_To_File
-Function_Download_New_APK_Discovered
+#Function_Download_New_APK_Discovered
 
 Function_Compile_Framework
-#
+
 ## GET MAIN ACTIVITY FROM APK
 Option=$1
-Folder=Google_Play_Apps
+Folder=APKPure
 file=$2
 APKPath="../../"$Folder"/"$file".apk"
 adb logcat -c
