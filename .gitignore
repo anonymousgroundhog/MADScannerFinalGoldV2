@@ -1,4 +1,4 @@
-APK/APKPure/*.apk
+APK/APKPure/
 *.class
 Java/Classes/sootOutput/*.apk
 Shell_Script/*.swp
