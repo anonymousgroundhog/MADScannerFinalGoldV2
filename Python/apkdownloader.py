@@ -345,16 +345,17 @@ def Download_APK_To_File_System(package):
     output = str(output).replace("package:","").split("\n")
     path = ''
     for x in output:
-        if x.__contains__("base.apk"):
+        if x.__contains__("base.apk") and not x.__contains__("appium"):
             path = x
             os.popen(' '.join(['adb pull',path,'.']))
-            app_name = package.replace('.',"")
+            # app_name = package.replace('.',"")
+            print(path)
             break
-    time.sleep(10)
-    os.popen(' '.join(['mv base.apk',app_name+".apk"]))
-    time.sleep(2)
-    os.popen('mv *.apk ../APK/Google_Play_Apps')
-    print(path)
+    # time.sleep(10)
+    # os.popen(' '.join(['mv base.apk',app_name+".apk"]))
+    # time.sleep(2)
+    # os.popen('mv *.apk ../APK/Google_Play_Apps')
+    # print(path)
     
 def Get_Apps_Phase():
     app_packages = List_Installed_App_Packages()

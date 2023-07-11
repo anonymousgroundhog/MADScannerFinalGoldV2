@@ -75,8 +75,8 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 		#clear
 		[ -d "../../../Python" ] && cd ../../../Python
 		device_name=$(Get_Device_Name)
-		package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
-		activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
+		package=$(Get_App_Package ../Java/Classes/sootOutput/$Folder/$SignedFile)
+		activity=$(Get_App_activity ../Java/Classes/sootOutput/$Folder/$SignedFile)
 		echo Package: $package Activity: $activity
 		python3 Appium_Test.py $device_name $package $activity
 		Uninstall_App $package
@@ -124,11 +124,11 @@ Get_Device_Name() {
 	echo $output
 }
 Get_App_Package() {
-	output=$(aapt dump badging ../APK/$1 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging ../APK/$1/$2 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Get_App_activity() {
-	output=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging ../APK/$1/$2 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Uninstall_App(){

@@ -149,6 +149,7 @@ dataframe=dataframe.append(dataframe2)
 time.sleep(8)
 driver.swipe(150, 800, 250, 200, 1000)
 print(dataframe)
+dataframe.to_csv(''.join(["../Data/CSV_Files/",sys.argv[2].replace(".","_"),".csv"]), index=False)
 #print(lines_of_interest)
 #elements_to_click_on=['android.widget.Button','android.widget.LinearLayout','android.widget.TextView','android.widget.Button']
 #for elem_to_click in elements_to_click_on:
