@@ -343,19 +343,14 @@ def Return_App_Packages_That_Were_Installed(app_packages,list_of_apps_installed)
 def Download_APK_To_File_System(package):
     output=os.popen(' '.join(['adb shell pm path',package])).read()
     output = str(output).replace("package:","").split("\n")
-    path = ''
-    for x in output:
-        if x.__contains__("base.apk") and not x.__contains__("appium"):
-            path = x
-            os.popen(' '.join(['adb pull',path,'.']))
-            # app_name = package.replace('.',"")
-            print(path)
-            break
-    # time.sleep(10)
-    # os.popen(' '.join(['mv base.apk',app_name+".apk"]))
-    # time.sleep(2)
-    # os.popen('mv *.apk ../APK/Google_Play_Apps')
-    # print(path)
+    print("output is: "+ str(output) + "\n\n")
+    path_to_download_to=''.join(['../APK/Google_Play_Apps/',package,'/'])
+    if not os.path.exists(path_to_download_to):
+        os.mkdir(path_to_download_to)
+   
+    for path in output:
+        print(path)
+        os.popen(' '.join(['adb pull',path,path_to_download_to]))
     
 def Get_Apps_Phase():
     app_packages = List_Installed_App_Packages()
