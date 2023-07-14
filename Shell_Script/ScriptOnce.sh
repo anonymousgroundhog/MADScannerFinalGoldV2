@@ -67,22 +67,24 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	#clear
 	rm *.idsig
 	adb logcat -c
+
+	echo "File is currently " $1
 	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
-	adb install $SignedFile
-	RESULT=$?
-	if [ $RESULT -eq 0 ]; then
-		echo success
-		#clear
-		[ -d "../../../Python" ] && cd ../../../Python
-		device_name=$(Get_Device_Name)
-		package=$(Get_App_Package ../Java/Classes/sootOutput/$Folder/$SignedFile)
-		activity=$(Get_App_activity ../Java/Classes/sootOutput/$Folder/$SignedFile)
-		echo Package: $package Activity: $activity
-		python3 Appium_Test.py $device_name $package $activity
-		Uninstall_App $package
-	else
-		echo failed
-	fi
+	# adb install $SignedFile
+	# RESULT=$?
+	# if [ $RESULT -eq 0 ]; then
+	# 	echo success
+	# 	#clear
+	# 	[ -d "../../../Python" ] && cd ../../../Python
+	# 	device_name=$(Get_Device_Name)
+	# 	package=$(Get_App_Package ../Java/Classes/sootOutput/$Folder/$SignedFile)
+	# 	activity=$(Get_App_activity ../Java/Classes/sootOutput/$Folder/$SignedFile)
+	# 	echo Package: $package Activity: $activity
+	# 	python3 Appium_Test.py $device_name $package $activity
+	# 	Uninstall_App $package
+	# else
+	# 	echo failed
+	# fi
 ##	adb logcat FiniteState:V *:S
 }
 
@@ -116,7 +118,7 @@ Function_Get_MainActivity_And_Write_To_File() {
 	echo "Main_Activity:" $main_activity > APK_Details.txt
 	# main_activity2=$(aapt dump badging ../APK/$1 | grep 'leanback-launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	# echo "Main_Activity2:" $main_activity2 >> APK_Details.txt
-	main_package=$(aapt dump badging ../APK/$Folder/$File | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	main_package=$(aapt dump badging ../APK/$Folder/$File.apk | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
 Get_Device_Name() {
@@ -145,7 +147,7 @@ Function_Compile_Framework
 
 ## GET MAIN ACTIVITY FROM APK
 Option=$1
-Folder=APKPure
+Folder=Google_Play_Apps
 file=$2
 APKPath="../../"$Folder"/"$file".apk"
 adb logcat -c
@@ -170,4 +172,3 @@ fi
 #cd ../Shell_Script
 #Function_Error_Log_To_File
 #adb logcat FiniteState:V *:S
-

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 Function_Error_Log_To_File() {
 	$(adb logcat --buffer=crash > error.txt)
@@ -17,43 +17,42 @@ Function_Check_Command_Runs() {
 }
 
 Function_Run_Framework_And_Zip_And_Sign_APK() {
-	echo "\n\n"
+	# echo "\n\n"
 	current_dir=$(pwd)
 	# ls
 	[ -d "Classes" ] && cd Classes
 	Folder=$3
-	File=$1
+	# File=$1
+	File=ParentingGuidefromLasting2.0.2Apkpure.apk
 	Option=$2
 	SignedFile=signed$File
-	APKPath="../../APK/"$Folder/$File
-	echo "APK path is: " $APKPath
-	echo "Current directory is: " $(pwd)
+	APKPath=../$Folder/$File
 
 	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	echo Hash is: $hash
 
 	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
 
-	[ -d "sootOutput" ] && cd sootOutput
-	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
+# 	[ -d "sootOutput" ] && cd sootOutput
+# 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
 
-	zipalign -fv 4 $File $SignedFile
-	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+# 	zipalign -fv 4 $File $SignedFile
+# 	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
 
-	#clear
-	rm *.idsig
-	#adb logcat -c
-	Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
-	echo "\nExit status is:" $Exit_Status
-	#clear
-	[ -d "../../../Python" ] && cd ../../../Python
-	device_name=$(Get_Device_Name)
-	package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
-	activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
-	echo Package: $package Activity: $activity
-	python3 Appium_Gold.py $device_name $package $activity
-	Uninstall_App $package
-#	adb logcat FiniteState:V *:S
+# 	#clear
+# 	rm *.idsig
+# 	#adb logcat -c
+# 	Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+# 	echo "\nExit status is:" $Exit_Status
+# 	#clear
+# 	[ -d "../../../Python" ] && cd ../../../Python
+# 	device_name=$(Get_Device_Name)
+# 	package=$(Get_App_Package ../Java/Classes/sootOutput/$SignedFile)
+# 	activity=$(Get_App_activity ../Java/Classes/sootOutput/$SignedFile)
+# 	echo Package: $package Activity: $activity
+# 	python3 Appium_Gold.py $device_name $package $activity
+# 	Uninstall_App $package
+# #	adb logcat FiniteState:V *:S
 	cd $current_dir
 }
 
@@ -79,14 +78,16 @@ Function_Compile_Framework() {
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
-	File=$1
-	Folder=$2
-	main_activity=$(aapt dump badging ../APK/$Folder/$File | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	# File=$1
+	# Folder=$2
+	Path=$1
+	echo "Path is: "$Path
+	main_activity=$(aapt dump badging $Path | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	# echo $main_activity
 	echo "Main_Activity:" $main_activity > APK_Details.txt
 	# main_activity2=$(aapt dump badging ../APK/$1 | grep 'leanback-launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	# echo "Main_Activity2:" $main_activity2 >> APK_Details.txt
-	main_package=$(aapt dump badging ../APK/$Folder/$File | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	main_package=$(aapt dump badging $Path | grep "package" | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo "Main_Class:" $main_package >> APK_Details.txt
 }
 Get_Device_Name() {
@@ -94,11 +95,11 @@ Get_Device_Name() {
 	echo $output
 }
 Get_App_Package() {
-	output=$(aapt dump badging ../APK/$1 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging ../$1 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Get_App_activity() {
-	output=$(aapt dump badging ../APK/$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging ../$1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Uninstall_App(){
@@ -111,28 +112,60 @@ Function_Compile_Framework
 
 # GET MAIN ACTIVITY FROM APK
 Option=$1
-Folder=APKPure
+Folder=Google_Play_Apps
 adb logcat -c
-for file in $(ls ../APK/$Folder/)
+for FolderToInvest in $(ls -d ../APK/$Folder/*)
 do
-	echo $file
-	Function_Get_MainActivity_And_Write_To_File $file $Folder
+	
+	# if [[ $Folder =~ .*appium.* ]]; then
+	#   echo "It's there."
+	# fi
+	if [[ ! $FolderToInvest == *"appium"* && ! $FolderToInvest == *"airdroid"* ]]; then
+	    # echo "The variable 'Folder' does not contain the words 'appium' or 'airdroid'."
+		File_Name=$(echo $FolderToInvest | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g').apk
+		# Full_Path=$FolderToInvest/$File_Name
+		Full_Path=$FolderToInvest/ParentingGuidefromLasting2.0.2Apkpure.apk
+		echo $Full_Path
+		# echo $File_Name
+		Function_Get_MainActivity_And_Write_To_File $Full_Path
 
-	if [ $Option = J ] || [ $Option = j ]
-	then
-		echo "\nJimple chosen"
-		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-	then
-		echo "dex chosen"
-		Function_Run_Framework_And_Output_Jimple $file $Option
-	elif [ $Option = apk ]
+		if [ $Option = J ] || [ $Option = j ]
 		then
-		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-	else
-		echo "No such option"
+			echo "\nJimple chosen"
+			Function_Run_Framework_And_Output_Jimple $File_Name $Option $FolderToInvest
+		elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+		then
+			echo "dex chosen"
+			Function_Run_Framework_And_Output_Jimple $File_Name $Option
+		elif [ $Option = apk ]
+			then
+			Function_Run_Framework_And_Zip_And_Sign_APK $File_Name $Option $FolderToInvest
+		else
+			echo "No such option"
+		fi
 	fi
 done
+
+# for file in $(ls ../APK/$Folder/)
+# do
+# 	echo $file
+# 	Function_Get_MainActivity_And_Write_To_File $file $Folder
+
+# 	if [ $Option = J ] || [ $Option = j ]
+# 	then
+# 		echo "\nJimple chosen"
+# 		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# 	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+# 	then
+# 		echo "dex chosen"
+# 		Function_Run_Framework_And_Output_Jimple $file $Option
+# 	elif [ $Option = apk ]
+# 		then
+# 		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+# 	else
+# 		echo "No such option"
+# 	fi
+# done
 
 #cd ../Shell_Script
 #Function_Error_Log_To_File

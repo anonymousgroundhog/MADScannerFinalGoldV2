@@ -1,2 +1,2 @@
-Main_Activity: com.cobi.lasting.v2.scenes.splash.SplashActivity
-Main_Class:
+Main_Activity: com.sliide.content.MainActivity
+Main_Class: com.huub.dolphin
