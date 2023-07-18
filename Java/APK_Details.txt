@@ -1,2 +1,2 @@
-Main_Activity: com.sliide.content.MainActivity
-Main_Class: com.huub.dolphin
+Main_Activity: com.unity3d.player.UnityPlayerActivity
+Main_Class: text.write.font.calligraphy.writer

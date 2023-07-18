@@ -110,8 +110,8 @@ click_on_button_by_class_permission(driver,"android.widget.Button")
 source_xml = driver.page_source
 time.sleep(4)
 click_on_button_by_class_permission(driver,"android.widget.Button")
-time.sleep(2)
-
+time.sleep(6)
+driver.swipe(150, 800, 250, 200, 1000)
 source_xml = driver.page_source
 pagenum=0
 content=get_page_content(driver,pagenum)
@@ -128,28 +128,28 @@ data = {
 dataframe = pd.DataFrame(data)
 dataframe['clicked']=False
 print(dataframe)
+if not dataframe.empty:
+	source_xml = click_on_element_in_dataframe(dataframe,0)
+	pagenum=pagenum+1
+	content=get_page_content(driver,pagenum)
+	page=content[0]
+	classes=content[1]
+	index=content[2]
+	text=content[3]
 
-source_xml = click_on_element_in_dataframe(dataframe,0)
-pagenum=pagenum+1
-content=get_page_content(driver,pagenum)
-page=content[0]
-classes=content[1]
-index=content[2]
-text=content[3]
-
-data = {
-	'class': classes,
-	'text': text,
-	'index': index,
-	'page':page
-}
-dataframe2 = pd.DataFrame(data)
-dataframe2['clicked']=False
-dataframe=dataframe.append(dataframe2)
-time.sleep(8)
-driver.swipe(150, 800, 250, 200, 1000)
-print(dataframe)
-dataframe.to_csv(''.join(["../Data/CSV_Files/",sys.argv[2].replace(".","_"),".csv"]), index=False)
+	data = {
+		'class': classes,
+		'text': text,
+		'index': index,
+		'page':page
+	}
+	dataframe2 = pd.DataFrame(data)
+	dataframe2['clicked']=False
+	dataframe=dataframe.append(dataframe2)
+	time.sleep(8)
+	driver.swipe(150, 800, 250, 200, 1000)
+	print(dataframe)
+	dataframe.to_csv(''.join(["../Data/CSV_Files/",sys.argv[2].replace(".","_"),".csv"]), index=False)
 #print(lines_of_interest)
 #elements_to_click_on=['android.widget.Button','android.widget.LinearLayout','android.widget.TextView','android.widget.Button']
 #for elem_to_click in elements_to_click_on:

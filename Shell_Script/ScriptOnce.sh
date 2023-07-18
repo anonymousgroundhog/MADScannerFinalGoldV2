@@ -69,22 +69,29 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	adb logcat -c
 
 	echo "File is currently " $1
+	# pwd
+	for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
+	do
+		cp $file .
+	done
+	
+	adb install-multiple $(ls signed*.apk)
 	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
 	# adb install $SignedFile
-	# RESULT=$?
-	# if [ $RESULT -eq 0 ]; then
-	# 	echo success
-	# 	#clear
-	# 	[ -d "../../../Python" ] && cd ../../../Python
-	# 	device_name=$(Get_Device_Name)
-	# 	package=$(Get_App_Package ../Java/Classes/sootOutput/$Folder/$SignedFile)
-	# 	activity=$(Get_App_activity ../Java/Classes/sootOutput/$Folder/$SignedFile)
-	# 	echo Package: $package Activity: $activity
-	# 	python3 Appium_Test.py $device_name $package $activity
-	# 	Uninstall_App $package
-	# else
-	# 	echo failed
-	# fi
+	device_name=$(Get_Device_Name)
+	package=$(Get_App_Package $SignedFile)
+	activity=$(Get_App_activity $SignedFile)
+	echo Package: $package Activity: $activity
+	RESULT=$?
+	if [ $RESULT -eq 0 ]; then
+		echo success
+		#clear
+		[ -d "../../../Python" ] && cd ../../../Python
+		python3 Appium_Test.py $device_name $package $activity
+		Uninstall_App $package
+	else
+		echo failed
+	fi
 ##	adb logcat FiniteState:V *:S
 }
 
@@ -126,11 +133,11 @@ Get_Device_Name() {
 	echo $output
 }
 Get_App_Package() {
-	output=$(aapt dump badging ../APK/$1/$2 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging $1 | grep -m1 'package' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Get_App_activity() {
-	output=$(aapt dump badging ../APK/$1/$2 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
+	output=$(aapt dump badging $1 | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
 	echo $output
 }
 Uninstall_App(){
@@ -151,7 +158,7 @@ Folder=Google_Play_Apps
 file=$2
 APKPath="../../"$Folder"/"$file".apk"
 adb logcat -c
-echo $file
+echo File is: $file
 Function_Get_MainActivity_And_Write_To_File $file $Folder
 
 if [ $Option = J ] || [ $Option = j ]
