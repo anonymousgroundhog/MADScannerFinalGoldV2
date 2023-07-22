@@ -33,7 +33,7 @@ def click_on_element_in_dataframe(dataframe, row_num):
 
 def get_page_content(driver,pagenum):
 	source_xml = driver.page_source
-	#print(source_xml)
+	print(source_xml)
 	page=[]
 	classes=[]
 	index=[]
@@ -44,12 +44,12 @@ def get_page_content(driver,pagenum):
 			line_array=line_fixed.split('" ')
 			for item in line_array:
 				item = item.replace('"',"")
-				if item.__contains__("class"):
+				if item.__contains__("class="):
 					classes.append(item.replace("class=",""))
 					page.append(pagenum)
-				if item.__contains__("index"):
+				if item.__contains__("index="):
 					index.append(item.split(" ").pop().replace("index=",""))
-				if item.__contains__("text"):
+				if item.__contains__("text="):
 					text.append(item.replace("text=",""))
 	return (page,classes,index,text)
 
@@ -110,8 +110,8 @@ click_on_button_by_class_permission(driver,"android.widget.Button")
 source_xml = driver.page_source
 time.sleep(4)
 click_on_button_by_class_permission(driver,"android.widget.Button")
-time.sleep(6)
-driver.swipe(150, 800, 250, 200, 1000)
+time.sleep(15)
+driver.swipe(150, 800, 150, 200, 1000)
 source_xml = driver.page_source
 pagenum=0
 content=get_page_content(driver,pagenum)
@@ -125,6 +125,7 @@ data = {
 	'index': index,
 	'page':page
 }
+print("Data is:" + str(data))
 dataframe = pd.DataFrame(data)
 dataframe['clicked']=False
 print(dataframe)
@@ -150,6 +151,7 @@ if not dataframe.empty:
 	driver.swipe(150, 800, 250, 200, 1000)
 	print(dataframe)
 	dataframe.to_csv(''.join(["../Data/CSV_Files/",sys.argv[2].replace(".","_"),".csv"]), index=False)
+	time.sleep(8)
 #print(lines_of_interest)
 #elements_to_click_on=['android.widget.Button','android.widget.LinearLayout','android.widget.TextView','android.widget.Button']
 #for elem_to_click in elements_to_click_on:
