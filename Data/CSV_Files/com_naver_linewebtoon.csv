@@ -1,0 +1,27 @@
+class,text,index,page,clicked
+android.widget.TextView,Skip,1,0,True
+android.view.View,,0,0,False
+android.view.ViewGroup,,1,0,False
+android.view.ViewGroup,,2,0,False
+android.view.ViewGroup,,3,0,False
+android.view.ViewGroup,,4,0,False
+android.view.ViewGroup,,5,0,False
+android.view.ViewGroup,,6,0,False
+android.view.ViewGroup,,7,0,False
+android.view.ViewGroup,,8,0,False
+android.view.ViewGroup,,9,0,False
+android.view.ViewGroup,,10,0,False
+android.widget.TextView,Next,2,0,False
+android.widget.EditText,Email Address,2,1,False
+android.widget.EditText,Password,0,1,False
+android.widget.ImageView,,1,1,False
+android.widget.Button,SIGN UP,0,1,False
+android.widget.Button,LOG IN,1,1,False
+android.widget.TextView,Forgot Password?,0,1,False
+android.widget.ImageView,,0,1,False
+android.widget.ImageView,,1,1,False
+android.widget.ImageView,,2,1,False
+android.widget.ImageView,,3,1,False
+android.widget.TextView,Skip,1,1,False
+android.widget.TextView,Terms,0,1,False
+android.widget.TextView,Privacy,2,1,False

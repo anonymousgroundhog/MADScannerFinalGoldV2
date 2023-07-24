@@ -172,6 +172,9 @@ then
 elif [ $Option = apk ]
 	then
 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+	# datetime=$(date "+%D-%T")
+	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+	adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
 else
 	echo "No such option"
 fi

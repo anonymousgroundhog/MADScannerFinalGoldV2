@@ -23,9 +23,8 @@ public class BAnalysisApp {
     	this_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, this_Helper.public_variable_mainactivity, option);
 		
 		if (this_Helper.public_variable_mainactivity == "") {
-
 			this_Helper.printFormattedOutput("APK doesn't have a launchable activity!!!\n");
-		}	
+		} else{	
 		this_Helper.prepareSoot(folder,apk_file, option);
 		
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();
@@ -60,5 +59,6 @@ public class BAnalysisApp {
 		this_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, hash);
 		this_Helper.writeClassHierarchyToFile(allClasses, "../class_hierarchy.txt");
         soot.Main.main(args);
+		}	
     }
 }
