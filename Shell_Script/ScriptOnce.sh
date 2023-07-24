@@ -55,7 +55,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	echo Hash is: $hash
 
 	pwd
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
 
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')

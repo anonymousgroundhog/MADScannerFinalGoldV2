@@ -20,8 +20,12 @@ public class BAnalysisApp {
     	String hash = args[1];
     	String option = args[2];
 		this_Helper.public_variable_mainactivity = this_Helper.getMainClass();
-	    	this_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, this_Helper.public_variable_mainactivity, option);
-			
+    	this_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, this_Helper.public_variable_mainactivity, option);
+		
+		if (this_Helper.public_variable_mainactivity == "") {
+
+			this_Helper.printFormattedOutput("APK doesn't have a launchable activity!!!\n");
+		}	
 		this_Helper.prepareSoot(folder,apk_file, option);
 		
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();

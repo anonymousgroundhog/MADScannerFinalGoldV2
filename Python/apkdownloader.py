@@ -382,6 +382,9 @@ def Get_Apps_Phase():
                 cmd = ' '.join(["apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password ", "signed"+file])
                 os.popen(cmd)
                 print("signing!!!")
+                file_to_copy="".join([package,".apk"])
+                destination="".join(["../",file_to_copy])
+                shutil.copyfile(file_to_copy, destination)
     os.chdir(pwd)
     # print(pwd)
     
