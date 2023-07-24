@@ -32,9 +32,9 @@ public class BAnalysisApp {
 		SootClass mainactivity_class = Scene.v().getSootClass(this_Helper.public_variable_mainactivity);
 		int lastPeriodIndex = this_Helper.public_variable_mainactivity.lastIndexOf(".");
 		String this_package = this_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
-	        this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"TestClass";
-	        this_Helper.public_variable_string_class_to_inject = this_package+"."+"TestClass";
-	        this_Helper.public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
+        this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"TestClass";
+        this_Helper.public_variable_string_class_to_inject = this_package+"."+"TestClass";
+        this_Helper.public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
 			
 		if(this_Helper.Contains_Ads(allClasses)){
 			this_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);

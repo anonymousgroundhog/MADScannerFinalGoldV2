@@ -297,6 +297,7 @@ public class SootInstrumentationHelper
         boolean this_adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
         if(this_adlistener_exists)
         {
+            Print("INJECTING CLASS AdListenerClass1");
             SootMethod this_soot_method = null;
             public_variable_soot_class = new SootClass(public_variable_string_class_to_inject);
             public_variable_soot_class.setSuperclass(Scene.v().getSootClass("java.lang.Object"));
@@ -331,6 +332,7 @@ public class SootInstrumentationHelper
         boolean this_adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
         if(this_adlistener_exists)
         {
+            Print("INJECTING CLASS AdListenerClass1");
             SootMethod this_soot_method = null;
             public_variable_soot_class = new SootClass(public_variable_string_class_to_inject2);
 

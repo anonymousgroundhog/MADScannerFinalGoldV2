@@ -101,13 +101,13 @@ Function_Run_Framework_And_Output_Jimple() {
 	[ -d "Classes" ] && cd Classes
 	
 	Folder=$3
-	File=$1
+	File=$1.apk
 	Option=$2
-	hash=$(sha256sum ../../APK/$Folder/$File.apk | cut -d " " -f1)
+	hash=$(sha256sum ../../APK/$Folder/$File | cut -d " " -f1)
 	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" SootExample -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 -output-format J -force-overwrite $hash
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File.apk $hash $Option
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
 }
 
 Function_Compile_Framework() {
