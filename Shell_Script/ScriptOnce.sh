@@ -70,10 +70,12 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 
 	echo "File is currently " $1
 	# pwd
-	for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
-	do
-		cp $file .
-	done
+	if [ -d ../../../APK/Google_Play_Apps/$1 ]; then
+		for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
+		do
+			cp $file .
+		done
+	fi
 	
 	adb install-multiple $(ls signed*.apk)
 	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)

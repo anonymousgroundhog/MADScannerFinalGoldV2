@@ -1,0 +1,39 @@
+--------- beginning of system
+--------- beginning of main
+07-25 11:42:37.097 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzdz---onAdLoaded---null
+07-25 11:42:37.097 24073 24073 D FiniteState: onAdLoaded /6499/example/banner
+07-25 11:42:37.097 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaz---onAdLoaded---null
+07-25 11:42:37.097 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzg---zzi---null
+07-25 11:42:37.111 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.117 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.123 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onLayout---null
+07-25 11:42:37.133 24073 24073 D FiniteState: onAdImpression /6499/example/banner
+07-25 11:42:37.133 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaz---onAdImpression---null
+07-25 11:42:37.133 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzg---zzg---null
+07-25 11:42:37.161 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.167 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.169 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onLayout---null
+07-25 11:42:37.190 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.191 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onMeasure---null
+07-25 11:42:37.194 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---onLayout---null
+07-25 11:42:43.498 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzei---zzb---null
+07-25 11:42:43.498 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzej---zzx---null
+07-25 11:43:00.958 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.BaseAdView---pause---null
+07-25 11:43:00.961 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzbs---zzz---null
+07-25 11:43:00.961 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzea---zzn---null
+07-25 11:43:01.011 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onCreate---null
+07-25 11:43:01.012 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaw---zzo---null
+07-25 11:43:01.013 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzax---zzd---null
+07-25 11:43:01.030 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaa---zzc---null
+07-25 11:43:01.045 24073 24073 D FiniteState: onAdClicked /6499/example/banner
+07-25 11:43:01.045 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaz---onAdClicked---null
+07-25 11:43:01.045 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzg---zzc---null
+07-25 11:43:01.047 24073 24073 D FiniteState: onAdOpened /6499/example/banner
+07-25 11:43:01.047 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzaz---onAdOpened---null
+07-25 11:43:01.047 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.internal.client.zzg---zzj---null
+07-25 11:43:01.098 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onStart---null
+07-25 11:43:01.110 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onResume---null
+07-25 11:43:01.137 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onUserLeaveHint---null
+07-25 11:43:01.139 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onPause---null
+07-25 11:43:02.609 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onStop---null
+07-25 11:43:02.622 24073 24073 D FiniteState: TestClassAdViewAdListener_No_Listener_Call---c5f06427299357f2f20fdd795358c9bc590c97bd55e84b5ef1d888ac2d03642a---com.google.android.gms.ads.AdActivity---onSaveInstanceState---null

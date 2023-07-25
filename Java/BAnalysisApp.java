@@ -32,9 +32,9 @@ public class BAnalysisApp {
 		SootClass mainactivity_class = Scene.v().getSootClass(this_Helper.public_variable_mainactivity);
 		int lastPeriodIndex = this_Helper.public_variable_mainactivity.lastIndexOf(".");
 		String this_package = this_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
-        this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"TestClass";
-        this_Helper.public_variable_string_class_to_inject = this_package+"."+"TestClass";
-        this_Helper.public_variable_string_class_to_inject2 = this_package+"."+"TestClass$1";
+        this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
+        this_Helper.public_variable_string_class_to_inject = this_package+"."+"MADScannerTestClass";
+        this_Helper.public_variable_string_class_to_inject2 = this_package+"."+"MADScannerTestClass$1";
 			
 		if(this_Helper.Contains_Ads(allClasses)){
 			this_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
@@ -52,6 +52,10 @@ public class BAnalysisApp {
 			//TESTING
 			//this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
 			this_Helper.printFormattedOutput("%s\n",this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
+		
+			// 	r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+
+	        // virtualinvoke r4.<com.google.android.gms.example.bannerexample.TestingHello: void callTestClassAdViewAdListener(com.google.android.gms.ads.BaseAdView)>(r3);
 		}
 		// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
 		// CHECK ALL CLASSES FOR GOOGLE ADMOB AND THEN INJECT LOGS

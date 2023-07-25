@@ -1686,7 +1686,7 @@ Class: com.google.android.gms.ads.AdListener
 	com.google.android.gms.example.bannerexample.TestClassAdViewAdListener$1
 	com.google.android.gms.internal.ads.zzdss
 	com.google.android.gms.internal.ads.zzdsw
-	com.google.android.gms.example.bannerexample.TestClass$1
+	com.google.android.gms.example.bannerexample.MADScannerTestClass$1
 Class: androidx.arch.core.executor.TaskExecutor
 	Subclasses:
 	androidx.arch.core.executor.ArchTaskExecutor
