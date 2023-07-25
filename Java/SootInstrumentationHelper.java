@@ -327,7 +327,7 @@ public class SootInstrumentationHelper
         }
     }
     // INJECTING TestClass$1
-    public static void InjectNewClass_AdListenerClass2(){
+    public static void InjectNewClass_AdListenerClass2(String App_Name, String Hash){
         SootUtil this_soot_util = new SootUtil();
         boolean this_adlistener_exists = Scene.v().getApplicationClasses().toString().contains("com.google.android.gms.ads.AdListener");
         if(this_adlistener_exists)
@@ -367,7 +367,7 @@ public class SootInstrumentationHelper
             this_soot_methodsource_generic_adclicked.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adclicked.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adclicked.this_string_method_to_inject = "void onAdClicked()";
-            this_soot_methodsource_generic_adclicked.this_string_method_name = "onAdClicked---";
+            this_soot_methodsource_generic_adclicked.this_string_method_name = App_Name + "---"  + Hash + "---" + public_variable_string_class_to_inject2 + "---onAdClicked---";
             this_soot_method_onAdClicked.setSource(this_soot_methodsource_generic_adclicked);
 
             // Generate method public void onAdClosed()
@@ -379,7 +379,7 @@ public class SootInstrumentationHelper
             this_soot_methodsource_generic_adclosed.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adclosed.this_soot_class = public_variable_soot_class;
             this_soot_methodsource_generic_adclosed.this_string_method_to_inject = "void onAdClosed()";
-            this_soot_methodsource_generic_adclosed.this_string_method_name = "onAdClosed---";
+            this_soot_methodsource_generic_adclosed.this_string_method_name = App_Name + "---"  + Hash + "---" + public_variable_string_class_to_inject2 + "---onAdClosed---";
             this_soot_method_onAdClosed.setSource(this_soot_methodsource_generic_adclosed);
 
             // Generate method public void onAdLoaded()
@@ -390,7 +390,7 @@ public class SootInstrumentationHelper
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adloaded = new ClassLiteralMethodSourceGeneric();
             this_soot_methodsource_generic_adloaded.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adloaded.this_soot_class = public_variable_soot_class;
-            this_soot_methodsource_generic_adloaded.this_string_method_name = "onAdLoaded---";
+            this_soot_methodsource_generic_adloaded.this_string_method_name = App_Name + "---"  + Hash + "---" + public_variable_string_class_to_inject2 + "---onAdLoaded---";
             this_soot_methodsource_generic_adloaded.this_string_method_to_inject = "void onAdLoaded()";
             this_soot_method_onAdLoaded.setSource(this_soot_methodsource_generic_adloaded);
             
@@ -402,7 +402,7 @@ public class SootInstrumentationHelper
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adimpression = new ClassLiteralMethodSourceGeneric();
             this_soot_methodsource_generic_adimpression.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adimpression.this_soot_class = public_variable_soot_class;
-            this_soot_methodsource_generic_adimpression.this_string_method_name = "onAdImpression---";
+            this_soot_methodsource_generic_adimpression.this_string_method_name = App_Name + "---"  + Hash + "---" + public_variable_string_class_to_inject2 + "---onAdImpression---";
             this_soot_methodsource_generic_adimpression.this_string_method_to_inject = "void onAdImpression()";
             this_soot_method_onAdImpression.setSource(this_soot_methodsource_generic_adimpression);
 
@@ -414,7 +414,7 @@ public class SootInstrumentationHelper
             ClassLiteralMethodSourceGeneric this_soot_methodsource_generic_adopened = new ClassLiteralMethodSourceGeneric();
             this_soot_methodsource_generic_adopened.public_string_class_to_inject = public_variable_soot_class.getName();
             this_soot_methodsource_generic_adopened.this_soot_class = public_variable_soot_class;
-            this_soot_methodsource_generic_adopened.this_string_method_name = "onAdOpened---";
+            this_soot_methodsource_generic_adopened.this_string_method_name = App_Name + "---"  + Hash + "---" + public_variable_string_class_to_inject2 + "---onAdOpened---";
             this_soot_methodsource_generic_adopened.this_string_method_to_inject = "void onAdOpened()";
             this_soot_method_onAdOpened.setSource(this_soot_methodsource_generic_adopened);
         }

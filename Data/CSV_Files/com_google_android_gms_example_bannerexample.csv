@@ -1,6 +1,12 @@
 class,text,index,page,clicked
 android.view.View,,0,0,True
 android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.widget.Button,Open search,1,1,False
+android.view.View,,2,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
 android.view.View,,1,1,False
 android.view.View,Google AdMob,2,1,False
 android.view.View,,0,1,False

@@ -41,7 +41,7 @@ public class BAnalysisApp {
 			SootClass adListener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
 			this_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(adListener));
 		}
-		this_Helper.InjectNewClass_AdListenerClass2(); 
+		this_Helper.InjectNewClass_AdListenerClass2(app_name_only, hash); 
 		this_Helper.InjectNewClass_AdListenerClass1();
 		
 		// INJECT CODE INTO MAINACTIVITY
