@@ -500,6 +500,17 @@ public class SootInstrumentationHelper
         }
         return false;
     }
+    // public static Boolean Return_Class_and_Methods_That_Contain_AdListener_Calls(Chain<SootClass> allClasses){
+    public static void Return_Class_and_Methods_That_Contain_AdListener_Calls(){
+        PackManager.v().getPack("jtp").add(
+            new Transform("jtp.myTransform", new BodyTransformer() {
+                protected void internalTransform(Body body, String phase, Map options) {
+                    
+                    SootMethod this_method = body.getMethod();
+                    String this_method_name = this_method.getName();
+                    G.v().out.println(this_method_name);
+        }}));
+    }
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
         List<SootClass> classes_to_return = new ArrayList<SootClass>();
         for (SootClass sootClass : classes) {

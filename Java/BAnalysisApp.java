@@ -43,7 +43,18 @@ public class BAnalysisApp {
 		}
 		this_Helper.InjectNewClass_AdListenerClass2(app_name_only, hash); 
 		this_Helper.InjectNewClass_AdListenerClass1();
-		
+		// TESTING
+		// this_Helper.prepareSoot(folder,apk_file, option);	
+		// this_Helper.Return_Class_and_Methods_That_Contain_AdListener_Calls(allClasses);
+		this_Helper.Return_Class_and_Methods_That_Contain_AdListener_Calls();
+		//  PackManager.v().getPack("jtp").add(
+        //     new Transform("jtp.myTransform", new BodyTransformer() {
+        //         protected void internalTransform(Body body, String phase, Map options) {
+                	
+        //         	SootMethod this_method = body.getMethod();
+        //         	String this_method_name = this_method.getName();
+        //             G.v().out.println(this_method_name);
+		// }}));
 		// INJECT CODE INTO MAINACTIVITY
 		if(this_Helper.Class_Contains_onCreate(mainactivity_class)){
 			SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
