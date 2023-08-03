@@ -30,6 +30,7 @@ public class BAnalysisApp {
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();
 		Chain<SootClass> allClasses = this_Helper.getAllClasses();
 		SootClass mainactivity_class = Scene.v().getSootClass(this_Helper.public_variable_mainactivity);
+		List<String> mainactivity_methods = this_Helper.Return_MainActivity_Class_Methods();
 		int lastPeriodIndex = this_Helper.public_variable_mainactivity.lastIndexOf(".");
 		String this_package = this_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
         this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
@@ -46,7 +47,8 @@ public class BAnalysisApp {
 		// TESTING
 		// this_Helper.prepareSoot(folder,apk_file, option);	
 		// this_Helper.Return_Class_and_Methods_That_Contain_AdListener_Calls(allClasses);
-		this_Helper.Return_Class_and_Methods_That_Contain_AdListener_Calls();
+		// this_Helper.Print("Methods:"+mainactivity_methods.toString());
+		this_Helper.Extract_AdListener_Call_Locations(mainactivity_methods);
 		//  PackManager.v().getPack("jtp").add(
         //     new Transform("jtp.myTransform", new BodyTransformer() {
         //         protected void internalTransform(Body body, String phase, Map options) {
