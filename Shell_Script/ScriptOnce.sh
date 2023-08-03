@@ -109,7 +109,7 @@ Function_Run_Framework_And_Output_Jimple() {
 	# java -cp ".:../../Jar_Libs/*" SootTest3 -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" SootExample -allow-phantom-refs -android-jars "../../Android/platforms" -android-api-version 33 -src-prec apk -output-format J -force-overwrite -output-dir ../sootOutput -process-dir "../../APK/$1" -process-multiple-dex -w -p db.transformations enabled:true $hash
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $1 -output-format J -force-overwrite $hash
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33 
+	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
 }
 
 Function_Compile_Framework() {
@@ -153,8 +153,14 @@ clear
 #Function_Download_New_APK_Discovered
 
 Function_Compile_Framework
+FILE=../Data/AdListenerMethods.txt
+if test -f "$FILE"; then
+    echo "$FILE exists."
+	rm ../Data/AdListenerMethods.txt
+fi
 
 ## GET MAIN ACTIVITY FROM APK
+
 Option=$1
 Folder=Google_Play_Apps
 file=$2
