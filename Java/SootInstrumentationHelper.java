@@ -131,10 +131,10 @@ public class SootInstrumentationHelper
             if(this_unit.toString().contains("virtualinvoke") && this_unit.getUseBoxes().size() > 2){
                 Value this_value = this_unit.getUseBoxes().get(2).getValue();
                 if(this_value instanceof VirtualInvokeExpr){
-                    VirtualInvokeExpr this_virtualInvokeExpr = (VirtualInvokeExpr) this_value;
-                    String this_method_name = this_virtualInvokeExpr.getMethod().getName();
-                    if(this_method_name.equals("setAdListener") && this_virtualInvokeExpr.getMethod().getDeclaringClass().getName().equals("com.google.android.gms.ads.BaseAdView")){
-                        // Print(this_virtualInvokeExpr.getMethod().getName());
+                    VirtualInvokeExpr this_this_virtualinvoke_expr = (VirtualInvokeExpr) this_value;
+                    String this_method_name = this_this_virtualinvoke_expr.getMethod().getName();
+                    if(this_method_name.equals("setAdListener") && this_this_virtualinvoke_expr.getMethod().getDeclaringClass().getName().equals("com.google.android.gms.ads.BaseAdView")){
+                        // Print(this_this_virtualinvoke_expr.getMethod().getName());
                         return true;
                     }
                 }
@@ -150,11 +150,11 @@ public class SootInstrumentationHelper
             if(this_unit.toString().contains("virtualinvoke") && this_unit.getUseBoxes().size() > 2){
                 Value this_value = this_unit.getUseBoxes().get(2).getValue();
                 if(this_value instanceof VirtualInvokeExpr){
-                    VirtualInvokeExpr this_virtualInvokeExpr = (VirtualInvokeExpr) this_value;
-                    String this_method_name = this_virtualInvokeExpr.getMethod().getName();
+                    VirtualInvokeExpr this_this_virtualinvoke_expr = (VirtualInvokeExpr) this_value;
+                    String this_method_name = this_this_virtualinvoke_expr.getMethod().getName();
                     if(this_method_name.equals("setAdListener")){
-                        // Print(this_virtualInvokeExpr.getMethod().getName());
-                        return this_virtualInvokeExpr.getMethod().getDeclaringClass();
+                        // Print(this_this_virtualinvoke_expr.getMethod().getName());
+                        return this_this_virtualinvoke_expr.getMethod().getDeclaringClass();
                     }
                 }
             }
@@ -461,14 +461,14 @@ public class SootInstrumentationHelper
                 // Generate specialinvoke r2.<com.google.android.gms.example.bannerexample.TestClass: void <init>()>();
                 SootClass class_to_inject = Scene.v().getSootClass(public_variable_string_class_to_inject);
                 SootMethodRef this_ref = class_to_inject.getMethod("void <init>()").makeRef();
-                SpecialInvokeExpr special_invokeExpr_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class, this_ref);
-                Unit u1= Jimple.v().newInvokeStmt(special_invokeExpr_to_inject);
+                SpecialInvokeExpr special_this_invoke_expression_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class, this_ref);
+                Unit u1= Jimple.v().newInvokeStmt(special_this_invoke_expression_to_inject);
                 this_units.insertAfter(u1, IdentityStmtNew);
                 
                 // Generate virtualinvoke r2.<com.google.android.gms.example.bannerexample.TestClass: void setAdListener(com.google.android.gms.ads.BaseAdView)>(r4);
                 this_ref = class_to_inject.getMethod("void setAdListener("+public_variable_baseadview+")").makeRef();
-                VirtualInvokeExpr this_virtualInvokeExpr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class,this_ref,local_this_admanager);
-                Unit u2= Jimple.v().newInvokeStmt(this_virtualInvokeExpr_to_inject);
+                VirtualInvokeExpr this_this_virtualinvoke_expr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class,this_ref,local_this_admanager);
+                Unit u2= Jimple.v().newInvokeStmt(this_this_virtualinvoke_expr_to_inject);
                 
                 this_units.insertAfter(u2, u1);
 
@@ -518,8 +518,8 @@ public class SootInstrumentationHelper
     public static void Write_To_File(String FileName, String str) {
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("../../Data/"+FileName, true));
-            writer.append('\n');
-            writer.append(str);
+            // writer.append('\n');
+            writer.append(str+"\n");
             
             writer.close();
 
@@ -530,7 +530,7 @@ public class SootInstrumentationHelper
         }
     }   
     // public static Boolean Return_Class_and_Methods_That_Contain_AdListener_Calls(Chain<SootClass> allClasses){
-    public static void Extract_AdListener_Call_Locations(List<String> mainactivity_methods){
+    public static void Extract_AdListener_Call_Locations(List<String> mainactivity_methods, String app_name_only){
         // List<String> methods_with_ad_listener = new ArrayList<String>();
         //     SootClass this_class = Scene.v().getSootClass(public_variable_mainactivity);
         //     List<SootMethod> mainactivity_class_methods = this_class.getMethods();
@@ -539,14 +539,14 @@ public class SootInstrumentationHelper
         //         for(Unit this_unit: this_units){
         //             if(this_unit instanceof InvokeStmt){
         //                 InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-        //                 InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-        //                 if (invokeExpr instanceof VirtualInvokeExpr) {
-        //                     VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
-        //                     SootMethod this_current_method = virtualInvokeExpr.getMethod();
+        //                 InvokeExpr this_invoke_expression = invokeStmt.getInvokeExpr();
+        //                 if (this_invoke_expression instanceof VirtualInvokeExpr) {
+        //                     VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
+        //                     SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
         //                     // SootClass this_invoke_class = this_current_method.getDeclaringClass();
         //                     // Boolean mainactivity_contains_method = mainactivity_methods.contains(this_method_name);
         //                     printFormattedOutput("Method:%s\n",this_current_method.getName());
-        //                     if(virtualInvokeExpr.getMethodRef().name().contains("setAdListener")){
+        //                     if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
         //                         return true;
         //                     }
         //                 }
@@ -563,20 +563,20 @@ public class SootInstrumentationHelper
                     UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
                     for(Unit this_unit: this_units){
                         if(this_unit instanceof InvokeStmt){
-                            InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-                            InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-                            if (invokeExpr instanceof VirtualInvokeExpr) {
-                                VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
-                                SootMethod this_current_method = virtualInvokeExpr.getMethod();
+                            InvokeStmt invoke_statement = (InvokeStmt) this_unit;
+                            InvokeExpr this_invoke_expression = invoke_statement.getInvokeExpr();
+                            if (this_invoke_expression instanceof VirtualInvokeExpr) {
+                                VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
+                                SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
                                 // SootClass this_invoke_class = this_current_method.getDeclaringClass();
                                 // Boolean mainactivity_contains_method = mainactivity_methods.contains(this_method_name);
-                                if(virtualInvokeExpr.getMethodRef().name().contains("setAdListener")){
-                                    // Print( "Contains Test: " + mainactivity_contains_method + " Method: "+this_method_name + " Test:"+virtualInvokeExpr.getMethodRef().name().toString());
+                                if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
+                                    // Print( "Contains Test: " + mainactivity_contains_method + " Method: "+this_method_name + " Test:"+this_virtualinvoke_expr.getMethodRef().name().toString());
                                     // methods_with_ad_listener.add(this_method_name);
                                     // if(mainactivity_contains_method){
                                         Print("FOUND!!!");
                                         // write to file;
-                                        Write_To_File("AdListenerMethods.txt",this_method.getDeclaringClass().getName()+":"+this_method.getName()+":"+this_unit.toString());
+                                        Write_To_File("AdListenerMethods.txt",app_name_only+":"+this_method.getDeclaringClass().getName()+":"+this_method.getName()+":"+this_unit.toString());
                                         // break;
                                     // }
                                 }
@@ -629,10 +629,10 @@ public class SootInstrumentationHelper
         for(Unit this_unit: this_units){
             if(this_unit instanceof InvokeStmt){
                 InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-                InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-                 if (invokeExpr instanceof VirtualInvokeExpr) {
-                    VirtualInvokeExpr virtualInvokeExpr = (VirtualInvokeExpr) invokeExpr;
-                    SootMethod this_method = virtualInvokeExpr.getMethod();
+                InvokeExpr this_invoke_expression = invokeStmt.getInvokeExpr();
+                 if (this_invoke_expression instanceof VirtualInvokeExpr) {
+                    VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
+                    SootMethod this_method = this_virtualinvoke_expr.getMethod();
                     SootClass this_invoke_class = this_method.getDeclaringClass();
                     classes_to_return.add(this_invoke_class);
                  }

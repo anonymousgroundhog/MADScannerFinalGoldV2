@@ -11,60 +11,49 @@ import java.util.*;
 
 
 public class BAnalysisApp {
-    private static SootInstrumentationHelper this_Helper = new SootInstrumentationHelper();
+    private static SootInstrumentationHelper this_Instrumentation_Helper = new SootInstrumentationHelper();
 
     public static void main(String[] args) {
     	String apk_file = args[0];
-    	String folder = args[3];
+    	String this_folder = args[3];
     	String app_name_only = apk_file.replace(".apk","");
-    	String hash = args[1];
+    	String this_hash = args[1];
     	String option = args[2];
-		this_Helper.public_variable_mainactivity = this_Helper.getMainClass();
-    	this_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, hash, this_Helper.public_variable_mainactivity, option);
+		this_Instrumentation_Helper.public_variable_mainactivity = this_Instrumentation_Helper.getMainClass();
+    	this_Instrumentation_Helper.printFormattedOutput("File:%s\nHash:%s\nMain Class:%s\nOption:%s\n",apk_file, this_hash, this_Instrumentation_Helper.public_variable_mainactivity, option);
 		
-		if (this_Helper.public_variable_mainactivity == "") {
-			this_Helper.printFormattedOutput("APK doesn't have a launchable activity!!!\n");
+		if (this_Instrumentation_Helper.public_variable_mainactivity == "") {
+			this_Instrumentation_Helper.printFormattedOutput("APK doesn't have a launchable activity!!!\n");
 		} else{	
-		this_Helper.prepareSoot(folder,apk_file, option);
+		this_Instrumentation_Helper.prepareSoot(this_folder,apk_file, option);
 		
 		// List<SootClass> registeredServices = getRegisteredServicesClasses();
-		Chain<SootClass> allClasses = this_Helper.getAllClasses();
-		SootClass mainactivity_class = Scene.v().getSootClass(this_Helper.public_variable_mainactivity);
-		List<String> mainactivity_methods = this_Helper.Return_MainActivity_Class_Methods();
-		int lastPeriodIndex = this_Helper.public_variable_mainactivity.lastIndexOf(".");
-		String this_package = this_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
-        this_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
-        this_Helper.public_variable_string_class_to_inject = this_package+"."+"MADScannerTestClass";
-        this_Helper.public_variable_string_class_to_inject2 = this_package+"."+"MADScannerTestClass$1";
+		Chain<SootClass> all_classes = this_Instrumentation_Helper.getAllClasses();
+		SootClass mainactivity_class = Scene.v().getSootClass(this_Instrumentation_Helper.public_variable_mainactivity);
+		List<String> mainactivity_methods = this_Instrumentation_Helper.Return_MainActivity_Class_Methods();
+		int lastPeriodIndex = this_Instrumentation_Helper.public_variable_mainactivity.lastIndexOf(".");
+		String this_package = this_Instrumentation_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
+        this_Instrumentation_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
+        this_Instrumentation_Helper.public_variable_string_class_to_inject = this_package+"."+"MADScannerTestClass";
+        this_Instrumentation_Helper.public_variable_string_class_to_inject2 = this_package+"."+"MADScannerTestClass$1";
 			
-		if(this_Helper.Contains_Ads(allClasses)){
-			this_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
-			SootClass adListener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
-			this_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(adListener));
+		if(this_Instrumentation_Helper.Contains_Ads(all_classes)){
+			this_Instrumentation_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
+			SootClass ad_listener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
+			this_Instrumentation_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Instrumentation_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(ad_listener));
 		}
-		this_Helper.InjectNewClass_AdListenerClass2(app_name_only, hash); 
-		this_Helper.InjectNewClass_AdListenerClass1();
+		this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
+		this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
 		// TESTING
-		// this_Helper.prepareSoot(folder,apk_file, option);	
-		// this_Helper.Return_Class_and_Methods_That_Contain_AdListener_Calls(allClasses);
-		// this_Helper.Print("Methods:"+mainactivity_methods.toString());
-		this_Helper.Extract_AdListener_Call_Locations(mainactivity_methods);
-		//  PackManager.v().getPack("jtp").add(
-        //     new Transform("jtp.myTransform", new BodyTransformer() {
-        //         protected void internalTransform(Body body, String phase, Map options) {
-                	
-        //         	SootMethod this_method = body.getMethod();
-        //         	String this_method_name = this_method.getName();
-        //             G.v().out.println(this_method_name);
-		// }}));
+		this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
 		// INJECT CODE INTO MAINACTIVITY
-		if(this_Helper.Class_Contains_onCreate(mainactivity_class)){
+		if(this_Instrumentation_Helper.Class_Contains_onCreate(mainactivity_class)){
 			SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
 			String method_signature = this_method.getSignature();
-			this_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, hash);
+			this_Instrumentation_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, this_hash);
 			//TESTING
-			//this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
-			this_Helper.printFormattedOutput("%s\n",this_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
+			//this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
+			this_Instrumentation_Helper.printFormattedOutput("%s\n",this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
 		
 			// 	r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
 
@@ -72,9 +61,9 @@ public class BAnalysisApp {
 		}
 		// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
 		// CHECK ALL CLASSES FOR GOOGLE ADMOB AND THEN INJECT LOGS
-		List<SootClass> admob_classes=this_Helper.Extract_Google_AdMob_Classes(allClasses);
-		this_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, hash);
-		this_Helper.writeClassHierarchyToFile(allClasses, "../class_hierarchy.txt");
+		List<SootClass> admob_classes=this_Instrumentation_Helper.Extract_Google_AdMob_Classes(all_classes);
+		this_Instrumentation_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, this_hash);
+		this_Instrumentation_Helper.writeClassHierarchyToFile(all_classes, "../class_hierarchy.txt");
         soot.Main.main(args);
 		}	
     }
