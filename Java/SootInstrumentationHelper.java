@@ -3,6 +3,9 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 import java.nio.file.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import soot.*;
 import soot.jimple.*;
@@ -515,6 +518,19 @@ public class SootInstrumentationHelper
             return null;
         }
     }
+    public static List<String> Return_Lines_From_File(String FileName) {
+        List<String> lines_to_return = new ArrayList<String>();
+       try {
+            Scanner scanner = new Scanner(new File("../../Data/"+FileName+".txt"));
+            while (scanner.hasNextLine()) {
+                lines_to_return.add(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return(lines_to_return);
+    }   
     public static void Write_To_File(String FileName, String str) {
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("../../Data/"+FileName, true));
@@ -529,34 +545,13 @@ public class SootInstrumentationHelper
             System.out.print(e.getMessage());
         }
     }   
+
     // public static Boolean Return_Class_and_Methods_That_Contain_AdListener_Calls(Chain<SootClass> allClasses){
     public static void Extract_AdListener_Call_Locations(List<String> mainactivity_methods, String app_name_only){
-        // List<String> methods_with_ad_listener = new ArrayList<String>();
-        //     SootClass this_class = Scene.v().getSootClass(public_variable_mainactivity);
-        //     List<SootMethod> mainactivity_class_methods = this_class.getMethods();
-        //     for(SootMethod this_method: mainactivity_class_methods){
-        //         UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
-        //         for(Unit this_unit: this_units){
-        //             if(this_unit instanceof InvokeStmt){
-        //                 InvokeStmt invokeStmt = (InvokeStmt) this_unit;
-        //                 InvokeExpr this_invoke_expression = invokeStmt.getInvokeExpr();
-        //                 if (this_invoke_expression instanceof VirtualInvokeExpr) {
-        //                     VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
-        //                     SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
-        //                     // SootClass this_invoke_class = this_current_method.getDeclaringClass();
-        //                     // Boolean mainactivity_contains_method = mainactivity_methods.contains(this_method_name);
-        //                     printFormattedOutput("Method:%s\n",this_current_method.getName());
-        //                     if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
-        //                         return true;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     return false;
         PackManager.v().getPack("jtp").add(
             new Transform("jtp.myTransform", new BodyTransformer() {
                 protected void internalTransform(Body body, String phase, Map options) {
+                    List<String> lines_to_return = new ArrayList<String>();
                     boolean return_value = false;
                     SootMethod this_method = body.getMethod();
                     String this_method_name = this_method.getName();
@@ -584,8 +579,17 @@ public class SootInstrumentationHelper
                         }
                     // return false;
                     }
+                    File f = new File("../../Data/AdListenerMethods.txt");
+                    if(f.exists()){
+                        lines_to_return=Return_Lines_From_File("AdListenerMethods");
+                        for(String line:lines_to_return){
+                            String[] this_line_array = line.split(":");
+                            if(mainactivity_methods.contains(this_line_array[2])){
+                                printFormattedOutput("Line: %s %s\n", this_line_array[1], this_line_array[2]);
+                            }
+                        }
+                    }
         }}));
-                    // System.out.println("methods with setAdListener are:"+methods_with_ad_listener.toString());
     }
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
         List<SootClass> classes_to_return = new ArrayList<SootClass>();
