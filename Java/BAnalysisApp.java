@@ -44,8 +44,9 @@ public class BAnalysisApp {
 		}
 		this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
 		this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
-		// TESTING
-		this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
+		// EXTRACT ONLY METHODS THAT CONTAIN ADLISTENER CALLS
+		// this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
+		this_Instrumentation_Helper.Extract_AdListener_Call_Locations(all_classes, app_name_only);
 		// CHECK IF MAINACTIVITY HAS ANY METHODS THAT CONTAIN A ADLISTENER CALL
 		// this_Instrumentation_Helper.Return_MainActivity_Methods_That_Contain_AdListener_Calls(mainactivity_methods);
 		// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");

@@ -545,52 +545,80 @@ public class SootInstrumentationHelper
             System.out.print(e.getMessage());
         }
     }   
-
-    // public static Boolean Return_Class_and_Methods_That_Contain_AdListener_Calls(Chain<SootClass> allClasses){
-    public static void Extract_AdListener_Call_Locations(List<String> mainactivity_methods, String app_name_only){
-        PackManager.v().getPack("jtp").add(
-            new Transform("jtp.myTransform", new BodyTransformer() {
-                protected void internalTransform(Body body, String phase, Map options) {
-                    List<String> lines_to_return = new ArrayList<String>();
-                    boolean return_value = false;
-                    SootMethod this_method = body.getMethod();
-                    String this_method_name = this_method.getName();
-                    UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
-                    for(Unit this_unit: this_units){
-                        if(this_unit instanceof InvokeStmt){
-                            InvokeStmt invoke_statement = (InvokeStmt) this_unit;
-                            InvokeExpr this_invoke_expression = invoke_statement.getInvokeExpr();
-                            if (this_invoke_expression instanceof VirtualInvokeExpr) {
-                                VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
-                                SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
-                                // SootClass this_invoke_class = this_current_method.getDeclaringClass();
-                                // Boolean mainactivity_contains_method = mainactivity_methods.contains(this_method_name);
-                                if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
-                                    // Print( "Contains Test: " + mainactivity_contains_method + " Method: "+this_method_name + " Test:"+this_virtualinvoke_expr.getMethodRef().name().toString());
-                                    // methods_with_ad_listener.add(this_method_name);
-                                    // if(mainactivity_contains_method){
+    public static void Extract_AdListener_Call_Locations(Chain<SootClass> classes, String app_name_only){
+         for (SootClass sootClass : classes) {
+            if(!sootClass.getName().contains("com.google.ads.mediation.AbstractAdViewAdapter") && !sootClass.getName().contains("com.google.android.gms.internal.ads") && !sootClass.getName().contains("androidx") && !sootClass.getName().contains("com.google.android.gms.ads") && !sootClass.getName().contains("com.google.android.gms.ads.AdListener") && !sootClass.getName().contains("MADScannerTestClass")){
+                printFormattedOutput("Class: %s\n",sootClass.getName());
+                for(SootMethod this_method: sootClass.getMethods()){
+                    if(this_method.hasActiveBody()){
+                        UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
+                        for(Unit this_unit: this_units){
+                            if(this_unit instanceof InvokeStmt){
+                                InvokeStmt invoke_statement = (InvokeStmt) this_unit;
+                                InvokeExpr this_invoke_expression = invoke_statement.getInvokeExpr();
+                                if (this_invoke_expression instanceof VirtualInvokeExpr) {
+                                    VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
+                                    SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
+                                    if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
+                                        printFormattedOutput("\tMethod:%s\n",this_method.getName());
                                         Print("FOUND!!!");
                                         // write to file;
                                         Write_To_File("AdListenerMethods.txt",app_name_only+":"+this_method.getDeclaringClass().getName()+":"+this_method.getName()+":"+this_unit.toString());
-                                        // break;
-                                    // }
+                                    }
                                 }
                             }
                         }
-                    // return false;
                     }
-                    File f = new File("../../Data/AdListenerMethods.txt");
-                    if(f.exists()){
-                        lines_to_return=Return_Lines_From_File("AdListenerMethods");
-                        for(String line:lines_to_return){
-                            String[] this_line_array = line.split(":");
-                            if(mainactivity_methods.contains(this_line_array[2])){
-                                printFormattedOutput("Line: %s %s\n", this_line_array[1], this_line_array[2]);
-                            }
-                        }
-                    }
-        }}));
+                }
+            }
+        }
+        // return false;
     }
+    // public static Boolean Return_Class_and_Methods_That_Contain_AdListener_Calls(Chain<SootClass> allClasses){
+    // public static void Extract_AdListener_Call_Locations(List<String> mainactivity_methods, String app_name_only){
+    //     PackManager.v().getPack("jtp").add(
+    //         new Transform("jtp.myTransform", new BodyTransformer() {
+    //             protected void internalTransform(Body body, String phase, Map options) {
+    //                 List<String> lines_to_return = new ArrayList<String>();
+    //                 boolean return_value = false;
+    //                 SootMethod this_method = body.getMethod();
+    //                 String this_method_name = this_method.getName();
+    //                 UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
+    //                 for(Unit this_unit: this_units){
+    //                     if(this_unit instanceof InvokeStmt){
+    //                         InvokeStmt invoke_statement = (InvokeStmt) this_unit;
+    //                         InvokeExpr this_invoke_expression = invoke_statement.getInvokeExpr();
+    //                         if (this_invoke_expression instanceof VirtualInvokeExpr) {
+    //                             VirtualInvokeExpr this_virtualinvoke_expr = (VirtualInvokeExpr) this_invoke_expression;
+    //                             SootMethod this_current_method = this_virtualinvoke_expr.getMethod();
+    //                             // SootClass this_invoke_class = this_current_method.getDeclaringClass();
+    //                             // Boolean mainactivity_contains_method = mainactivity_methods.contains(this_method_name);
+    //                             if(this_virtualinvoke_expr.getMethodRef().name().contains("setAdListener")){
+    //                                 // Print( "Contains Test: " + mainactivity_contains_method + " Method: "+this_method_name + " Test:"+this_virtualinvoke_expr.getMethodRef().name().toString());
+    //                                 // methods_with_ad_listener.add(this_method_name);
+    //                                 // if(mainactivity_contains_method){
+    //                                     Print("FOUND!!!");
+    //                                     // write to file;
+    //                                     Write_To_File("AdListenerMethods.txt",app_name_only+":"+this_method.getDeclaringClass().getName()+":"+this_method.getName()+":"+this_unit.toString());
+    //                                     // break;
+    //                                 // }
+    //                             }
+    //                         }
+    //                     }
+    //                 // return false;
+    //                 }
+    //                 // File f = new File("../../Data/AdListenerMethods.txt");
+    //                 // if(f.exists()){
+    //                 //     lines_to_return=Return_Lines_From_File("AdListenerMethods");
+    //                 //     for(String line:lines_to_return){
+    //                 //         String[] this_line_array = line.split(":");
+    //                 //         if(mainactivity_methods.contains(this_line_array[2])){
+    //                 //             printFormattedOutput("Line: %s %s\n", this_line_array[1], this_line_array[2]);
+    //                 //         }
+    //                 //     }
+    //                 // }
+    //     }}));
+    // }
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
         List<SootClass> classes_to_return = new ArrayList<SootClass>();
         for (SootClass sootClass : classes) {
