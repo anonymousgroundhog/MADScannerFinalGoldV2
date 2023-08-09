@@ -46,7 +46,7 @@ public class BAnalysisApp {
 		this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
 		// EXTRACT ONLY METHODS THAT CONTAIN ADLISTENER CALLS
 		// this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
-		this_Instrumentation_Helper.Extract_AdListener_Call_Locations(all_classes, app_name_only);
+		this_Instrumentation_Helper.Extract_AdListener_Call_Locations(all_classes, app_name_only, this_hash);
 		// CHECK IF MAINACTIVITY HAS ANY METHODS THAT CONTAIN A ADLISTENER CALL
 		// this_Instrumentation_Helper.Return_MainActivity_Methods_That_Contain_AdListener_Calls(mainactivity_methods);
 		// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");
