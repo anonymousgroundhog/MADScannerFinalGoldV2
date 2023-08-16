@@ -625,6 +625,30 @@ public class SootInstrumentationHelper
                             Unit u2= Jimple.v().newInvokeStmt(this_this_virtualinvoke_expr_to_inject);
                             this_units.insertAfter(u2, u1);
                         }
+                        else{
+                            this_units = this_body.getUnits();
+                            unit_to_inject_after = null;
+                            for(Unit this_unit: this_units){
+                                if (this_unit instanceof AssignStmt){
+                                    unit_to_inject_after = this_unit;
+                                        break;
+                                }
+                            }
+                            if(unit_to_inject_after != null && this_body.getLocals().contains("com.google.android.gms.ads.admanager.AdManagerAdView")){
+                                LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_body);
+                                Local local_this_class = Generate_Local(this_body, this_local_generator, public_variable_string_class_to_inject);
+                                Local local_this_baseadview = Generate_Local(this_body, this_local_generator, "com.google.android.gms.ads.BaseAdView");
+                                
+                                AssignStmt IdentityStmtNew = Jimple.v().newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_to_inject)));
+                                this_units.insertAfter(IdentityStmtNew, unit_to_inject_after);
+                                SootClass class_to_inject = Scene.v().getSootClass(public_variable_string_class_to_inject);
+                                SootMethodRef this_ref = class_to_inject.getMethod("void <init>()").makeRef();
+                                SpecialInvokeExpr special_this_invoke_expression_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class, this_ref);
+                                Unit u1= Jimple.v().newInvokeStmt(special_this_invoke_expression_to_inject);
+                                this_units.insertAfter(u1, IdentityStmtNew);                                    this_ref = class_to_inject.getMethod("void setAdListener("+public_variable_baseadview+")").makeRef();                                  VirtualInvokeExpr this_this_virtualinvoke_expr_to_inject = Jimple.v().newVirtualInvokeExpr(local_this_class,this_ref,local_this_baseadview);                                  Unit u2= Jimple.v().newInvokeStmt(this_this_virtualinvoke_expr_to_inject);
+                                this_units.insertAfter(u2, u1); 
+                            }
+                        }
                     }
                 }
             }

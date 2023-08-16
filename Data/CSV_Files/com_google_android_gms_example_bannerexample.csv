@@ -1,8 +1,18 @@
 class,text,index,page,clicked
 android.view.View,,0,0,True
-android.view.View,,0,1,False
 android.view.View,,1,1,False
 android.view.View,Google AdMob,2,1,False
+android.view.View,,0,1,False
+android.view.View,,1,1,False
+android.view.View,,4,1,False
+android.view.View,Tap into Google Ad Manager,5,1,False
+android.view.View,,0,1,False
+android.view.View,,7,1,False
+android.view.View,,8,1,False
+android.view.View,,0,1,False
+android.view.View,Mobile Ad Mediation,1,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
 android.widget.ImageButton,,0,1,False
 android.widget.LinearLayout,,0,1,False
 android.widget.EditText,developers.google.comads#apps,1,1,False

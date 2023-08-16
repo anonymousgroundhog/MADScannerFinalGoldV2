@@ -99,7 +99,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	fi
 ##	adb logcat FiniteState:V *:S
 	pkill adb
-	rm nohup.out
+	# rm nohup.out
 }
 
 Function_Run_Framework_And_Output_Jimple() {
