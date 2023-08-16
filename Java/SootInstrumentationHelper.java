@@ -545,7 +545,7 @@ public class SootInstrumentationHelper
             System.out.print(e.getMessage());
         }
     }   
-    public static void Extract_AdListener_Call_Locations(Chain<SootClass> classes, String app_name_only, String hash){
+    public static void Extract_AdListener_Call_Locations_And_Inject_AdListener(Chain<SootClass> classes, String app_name_only, String hash){
          for (SootClass sootClass : classes) {
             Unit unit_to_inject_after = null;
             if(!sootClass.getName().contains("com.google.ads.mediation.AbstractAdViewAdapter") && !sootClass.getName().contains("com.google.android.gms.internal.ads") && !sootClass.getName().contains("androidx") && !sootClass.getName().contains("com.google.android.gms.ads") && !sootClass.getName().contains("com.google.android.gms.ads.AdListener") && !sootClass.getName().contains("MADScannerTestClass")){
@@ -555,9 +555,6 @@ public class SootInstrumentationHelper
                         Body this_body = this_method.getActiveBody();
                         UnitPatchingChain this_units = this_method.getActiveBody().getUnits();
                         for(Unit this_unit: this_units){
-                            // if(this_unit.toString().contains("BaseAdView")){
-                            //     printFormattedOutput("BaseAdView: %s\n", this_unit.toString());
-                            // }
                             if(this_unit instanceof InvokeStmt){
                                 InvokeStmt invoke_statement = (InvokeStmt) this_unit;
                                 InvokeExpr this_invoke_expression = invoke_statement.getInvokeExpr();
@@ -610,7 +607,7 @@ public class SootInstrumentationHelper
                                 }
                             }
                         }
-                        if(unit_to_inject_after != null){
+                        if(unit_to_inject_after != null && this_body.getLocals().contains("com.google.android.gms.ads.admanager.AdManagerAdView")){
                             LocalGenerator this_local_generator = Scene.v().createLocalGenerator(this_body);
                             Local local_this_class = Generate_Local(this_body, this_local_generator, public_variable_string_class_to_inject);
                             Local local_this_baseadview = Generate_Local(this_body, this_local_generator, "com.google.android.gms.ads.BaseAdView");
@@ -628,7 +625,6 @@ public class SootInstrumentationHelper
                             Unit u2= Jimple.v().newInvokeStmt(this_this_virtualinvoke_expr_to_inject);
                             this_units.insertAfter(u2, u1);
                         }
-
                     }
                 }
             }

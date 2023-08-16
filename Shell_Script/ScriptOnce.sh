@@ -67,6 +67,9 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	#clear
 	rm *.idsig
 	adb logcat -c
+	pwd
+	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+	nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
 
 	echo "File is currently " $1
 	# pwd
@@ -95,6 +98,8 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 		echo failed
 	fi
 ##	adb logcat FiniteState:V *:S
+	pkill adb
+	rm nohup.out
 }
 
 Function_Run_Framework_And_Output_Jimple() {
@@ -181,8 +186,8 @@ elif [ $Option = apk ]
 	then
 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
 	# datetime=$(date "+%D-%T")
-	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-	adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
+	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
 else
 	echo "No such option"
 fi
