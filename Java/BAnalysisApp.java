@@ -52,6 +52,7 @@ public class BAnalysisApp {
 		// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");
 		// INJECT CODE INTO MAINACTIVITY
 		if(this_Instrumentation_Helper.Class_Contains_onCreate(mainactivity_class)){
+			this_Instrumentation_Helper.printFormattedOutput("INSIDE onCREATE!!!\n");
 			SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
 			String method_signature = this_method.getSignature();
 			this_Instrumentation_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, this_hash);

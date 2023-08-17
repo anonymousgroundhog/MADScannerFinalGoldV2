@@ -168,7 +168,7 @@ fi
 
 Option=$1
 Folder=Google_Play_Apps
-file=$2
+file=$(echo $2  | sed 's/.apk//')
 APKPath="../../"$Folder"/"$file".apk"
 adb logcat -c
 echo File is: $file

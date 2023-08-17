@@ -22,8 +22,8 @@ def Open_File_And_Generate_Dataframe(this_path):
         app_class_list.append(content_to_manipulate_list[2])
         app_method_list.append(content_to_manipulate_list[3])
         app_ad_id_list.append(content_to_manipulate_list[4])
-        print(content_to_manipulate)
-    print(app_name_list)
+        # print(content_to_manipulate)
+    # print(app_name_list)
     data = {
         'App_Name': app_name_list,
         'App_Hash': app_hash_list,
@@ -33,6 +33,10 @@ def Open_File_And_Generate_Dataframe(this_path):
     }
     df = pd.DataFrame(data)
     print(df)
+    print(df.App_Method.unique())
+    app_valid_methods = ['onCreate', 'setAdListener', 'initialize', 'findViewById']
+    # for row in df:
+    #     if
 
 for file in os.listdir("../Data/Logs"):
     path="".join(["../Data/Logs/",file])
