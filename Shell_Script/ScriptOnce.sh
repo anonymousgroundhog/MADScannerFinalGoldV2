@@ -59,57 +59,111 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	echo Hash is: $hash
 
-	pwd
+	# pwd
 	# Function_Failure
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
-	java -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33 && exit 1
+	java -Xmx2g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
 
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
 
-	zipalign -fv 4 $File $SignedFile
-	pwd
-	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+	[ -f $File ] && zipalign -fv 4 $File $SignedFile
+	echo PWD: $(pwd)
+	if [ -f $SignedFile ]; then
+		apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+		cp $SignedFile ../../APK_Files_Signed_And_Injected_Logs
 
-	#clear
-	rm *.idsig
-	adb logcat -c
-	pwd
-	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-	nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
-
-	echo "File is currently " $1
-	# pwd
-	if [ -d ../../../APK/Google_Play_Apps/$1 ]; then
-		for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
-		do
-			cp $file .
-		done
-	fi
-	
-	adb install-multiple $(ls signed*.apk)
-	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
-	# adb install $SignedFile
-	device_name=$(Get_Device_Name)
-	package=$(Get_App_Package $SignedFile)
-	activity=$(Get_App_activity $SignedFile)
-	echo Package: $package Activity: $activity
-	RESULT=$?
-	if [ $RESULT -eq 0 ]; then
-		echo success
 		#clear
-		[ -d "../../../Python" ] && cd ../../../Python
-		python3 Appium_Test.py $device_name $package $activity
-		Uninstall_App $package
-	else
-		echo failed
+		rm *.idsig
+		adb logcat -c
+		pwd
+		datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+		nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
+
+		echo "File is currently " $1
+		# pwd
+		if [ -d ../../../APK/Google_Play_Apps/$1 ]; then
+			for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
+			do
+				cp $file .
+			done
+		fi
+		
+		adb install-multiple $(ls signed*.apk)
+		#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+		# adb install $SignedFile
+		device_name=$(Get_Device_Name)
+		package=$(Get_App_Package $SignedFile)
+		activity=$(Get_App_activity $SignedFile)
+		echo Package: $package Activity: $activity
+		RESULT=$?
+		if [ $RESULT -eq 0 ]; then
+			echo success
+			#clear
+			[ -d "../../../Python" ] && cd ../../../Python
+			python3 Appium_Test.py $device_name $package $activity
+			Uninstall_App $package
+		else
+			echo failed
+		fi
+	##	adb logcat FiniteState:V *:S
+		pkill adb
 	fi
-##	adb logcat FiniteState:V *:S
-	pkill adb
 	# rm nohup.out
 	cd $current_dir
 }
 
+Function_Test_APK_Files(){
+	adb logcat -c
+	pwd
+	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+	nohup adb logcat FiniteState:V *:S > ../Data/Logs/$datetime.txt &
+
+	for SignedFile in $(ls ../Java/APK_Files_Signed_And_Injected_Logs/*.apk); do
+		adb install-multiple $SignedFile
+		device_name=$(Get_Device_Name)
+		package=$(Get_App_Package $SignedFile)
+		activity=$(Get_App_activity $SignedFile)
+		echo Package: $package Activity: $activity
+		RESULT=$?
+		if [ $RESULT -eq 0 ]; then
+			echo success
+			#clear
+			[ -d "../Python" ] && cd ../Python
+			python3 Appium_Test.py $device_name $package $activity
+			Uninstall_App $package
+		else
+			echo failed
+		fi
+	done
+	# pwd
+	# if [ -d ../../../APK/Google_Play_Apps/$1 ]; then
+	# 	for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
+	# 	do
+	# 		cp $file .
+	# 	done
+	# fi
+	
+# 	adb install-multiple $(ls signed*.apk)
+# 	#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
+# 	# adb install $SignedFile
+# 	device_name=$(Get_Device_Name)
+# 	package=$(Get_App_Package $SignedFile)
+# 	activity=$(Get_App_activity $SignedFile)
+# 	echo Package: $package Activity: $activity
+# 	RESULT=$?
+# 	if [ $RESULT -eq 0 ]; then
+# 		echo success
+# 		#clear
+# 		[ -d "../../../Python" ] && cd ../../../Python
+# 		python3 Appium_Test.py $device_name $package $activity
+# 		Uninstall_App $package
+# 	else
+# 		echo failed
+# 	fi
+# ##	adb logcat FiniteState:V *:S
+	pkill adb
+}
 Function_Run_Framework_And_Output_Jimple() {
 	echo "Running Function"
 	
@@ -132,7 +186,7 @@ Function_Compile_Framework() {
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
-	echo "Current direct is:"$(pwd)
+	# echo "Current direct is:"$(pwd)
 	File=$1
 	Folder=$2
 	main_activity=$(aapt dump badging ../APK/$Folder/$File.apk | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
@@ -206,11 +260,11 @@ do
 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
 	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
 	# Full_Path=$File/$File_Name
-	echo File is $file
+	# echo File is $file
 	FILE=../Data/AdListenerMethods.txt
 
 	if test -f "$FILE"; then
-	    echo "$FILE exists."
+	    echo "\n\n$FILE exists.\n"
 		rm ../Data/AdListenerMethods.txt
 	fi
 
@@ -219,7 +273,7 @@ do
 	# file=$(echo $2  | sed 's/.apk//')
 	APKPath="../../"$Folder"/"$file".apk"
 	adb logcat -c
-	echo File is: $file
+	# echo File is: $file
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
 	if [ $Option = J ] || [ $Option = j ]
 	then
@@ -231,14 +285,18 @@ do
 		Function_Run_Framework_And_Output_Jimple $file $Option
 	elif [ $Option = apk ]
 		then
-		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-		# datetime=$(date "+%D-%T")
-		# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-		# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
+		# Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+		echo "Testing"
 	else
 		echo "No such option"
 	fi
 done
+
+for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
+			rm $file
+done
+
+Function_Test_APK_Files
 # FILE=../Data/AdListenerMethods.txt
 
 # if test -f "$FILE"; then
