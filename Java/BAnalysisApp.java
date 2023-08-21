@@ -24,52 +24,58 @@ public class BAnalysisApp {
 		
 		if (this_Instrumentation_Helper.public_variable_mainactivity == "") {
 			this_Instrumentation_Helper.printFormattedOutput("APK doesn't have a launchable activity!!!\n");
-		} else{	
-		this_Instrumentation_Helper.prepareSoot(this_folder,apk_file, option);
-		
-		// List<SootClass> registeredServices = getRegisteredServicesClasses();
-		Chain<SootClass> all_classes = this_Instrumentation_Helper.getAllClasses();
-		SootClass mainactivity_class = Scene.v().getSootClass(this_Instrumentation_Helper.public_variable_mainactivity);
-		List<String> mainactivity_methods = this_Instrumentation_Helper.Return_MainActivity_Class_Methods();
-		int lastPeriodIndex = this_Instrumentation_Helper.public_variable_mainactivity.lastIndexOf(".");
-		String this_package = this_Instrumentation_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
-        this_Instrumentation_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
-        this_Instrumentation_Helper.public_variable_string_class_to_inject = this_package+"."+"MADScannerTestClass";
-        this_Instrumentation_Helper.public_variable_string_class_to_inject2 = this_package+"."+"MADScannerTestClass$1";
-			
-		if(this_Instrumentation_Helper.Contains_Ads(all_classes)){
-			this_Instrumentation_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
-			SootClass ad_listener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
-			this_Instrumentation_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Instrumentation_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(ad_listener));
-		}
-		this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
-		this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
-		// EXTRACT ONLY METHODS THAT CONTAIN ADLISTENER CALLS
-		// this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
-		this_Instrumentation_Helper.Extract_AdListener_Call_Locations_And_Inject_AdListener(all_classes, app_name_only, this_hash);
-		// CHECK IF MAINACTIVITY HAS ANY METHODS THAT CONTAIN A ADLISTENER CALL
-		// this_Instrumentation_Helper.Return_MainActivity_Methods_That_Contain_AdListener_Calls(mainactivity_methods);
-		// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");
-		// INJECT CODE INTO MAINACTIVITY
-		if(this_Instrumentation_Helper.Class_Contains_onCreate(mainactivity_class)){
-			this_Instrumentation_Helper.printFormattedOutput("INSIDE onCREATE!!!\n");
-			SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
-			String method_signature = this_method.getSignature();
-			this_Instrumentation_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, this_hash);
-			//TESTING
-			//this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
-			this_Instrumentation_Helper.printFormattedOutput("%s\n",this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
-		
-			// 	r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
+		} else
+		{	
+			this_Instrumentation_Helper.prepareSoot(this_folder,apk_file, option);
+			try{
+				// List<SootClass> registeredServices = getRegisteredServicesClasses();
+				Chain<SootClass> all_classes = this_Instrumentation_Helper.getAllClasses();
+				SootClass mainactivity_class = Scene.v().getSootClass(this_Instrumentation_Helper.public_variable_mainactivity);
+				List<String> mainactivity_methods = this_Instrumentation_Helper.Return_MainActivity_Class_Methods();
+				int lastPeriodIndex = this_Instrumentation_Helper.public_variable_mainactivity.lastIndexOf(".");
+				String this_package = this_Instrumentation_Helper.public_variable_mainactivity.substring(0, lastPeriodIndex);
+		        this_Instrumentation_Helper.public_variable_string_class_to_inject_adlistener = this_package+"."+"MADScannerTestClass";
+		        this_Instrumentation_Helper.public_variable_string_class_to_inject = this_package+"."+"MADScannerTestClass";
+		        this_Instrumentation_Helper.public_variable_string_class_to_inject2 = this_package+"."+"MADScannerTestClass$1";
+					
+				if(this_Instrumentation_Helper.Contains_Ads(all_classes)){
+					this_Instrumentation_Helper.printFormattedOutput("\n%s Contains ads\n\n",app_name_only);
+					SootClass ad_listener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
+					this_Instrumentation_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Instrumentation_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(ad_listener));
+				}
+				this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
+				this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
+				// EXTRACT ONLY METHODS THAT CONTAIN ADLISTENER CALLS
+				// this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
+				this_Instrumentation_Helper.Extract_AdListener_Call_Locations_And_Inject_AdListener(all_classes, app_name_only, this_hash);
+				// CHECK IF MAINACTIVITY HAS ANY METHODS THAT CONTAIN A ADLISTENER CALL
+				// this_Instrumentation_Helper.Return_MainActivity_Methods_That_Contain_AdListener_Calls(mainactivity_methods);
+				// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");
+				// INJECT CODE INTO MAINACTIVITY
+				if(this_Instrumentation_Helper.Class_Contains_onCreate(mainactivity_class)){
+					this_Instrumentation_Helper.printFormattedOutput("INSIDE onCREATE!!!\n");
+					SootMethod this_method = mainactivity_class.getMethodByName("onCreate");
+					String method_signature = this_method.getSignature();
+					this_Instrumentation_Helper.Inject_Into_Main_Activity(this_method.getActiveBody(), app_name_only, this_hash);
+					//TESTING
+					//this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate");
+					this_Instrumentation_Helper.printFormattedOutput("%s\n",this_Instrumentation_Helper.ReturnVirtualInvokeClasses(mainactivity_class,"onCreate"));
+				
+					// 	r3 = r0.<com.google.android.gms.example.bannerexample.MyActivity: com.google.android.gms.ads.admanager.AdManagerAdView adView>;
 
-	        // virtualinvoke r4.<com.google.android.gms.example.bannerexample.TestingHello: void callTestClassAdViewAdListener(com.google.android.gms.ads.BaseAdView)>(r3);
-		}
-		// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
-		// CHECK ALL CLASSES FOR GOOGLE ADMOB AND THEN INJECT LOGS
-		List<SootClass> admob_classes=this_Instrumentation_Helper.Extract_Google_AdMob_Classes(all_classes);
-		this_Instrumentation_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, this_hash);
-		this_Instrumentation_Helper.writeClassHierarchyToFile(all_classes, "../class_hierarchy.txt");
-        soot.Main.main(args);
+			        // virtualinvoke r4.<com.google.android.gms.example.bannerexample.TestingHello: void callTestClassAdViewAdListener(com.google.android.gms.ads.BaseAdView)>(r3);
+				}
+				// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
+				// CHECK ALL CLASSES FOR GOOGLE ADMOB AND THEN INJECT LOGS
+				List<SootClass> admob_classes=this_Instrumentation_Helper.Extract_Google_AdMob_Classes(all_classes);
+				this_Instrumentation_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, this_hash);
+				this_Instrumentation_Helper.writeClassHierarchyToFile(all_classes, "../class_hierarchy.txt");
+			} catch (OutOfMemoryError oome) {
+	            //Log the info
+	            System.err.println("Array size too large");
+	            System.err.println("Max JVM memory: " + Runtime.getRuntime().maxMemory());
+	        }
+	        soot.Main.main(args);
 		}	
     }
 }

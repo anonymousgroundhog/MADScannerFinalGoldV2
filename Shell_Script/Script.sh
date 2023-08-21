@@ -1,5 +1,9 @@
 #!/bin/bash
-
+Function_Failure()
+{
+    echo "$@" >&2
+    exit 1
+}
 Function_Error_Log_To_File() {
 	$(adb logcat --buffer=crash > error.txt)
 }
@@ -31,7 +35,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	echo Hash is: $hash
 
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder
+	java -ea -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder > java_code_output.txt || Function_Failure "Failed to Run"
 
 # 	[ -d "sootOutput" ] && cd sootOutput
 # 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
@@ -108,82 +112,15 @@ Uninstall_App(){
 }
 
 clear
-Function_Compile_Framework
+# Function_Compile_Framework
 
 # GET MAIN ACTIVITY FROM APK
-Option=$1
+
 Folder=Google_Play_Apps
-adb logcat -c
-for FolderToInvest in $(ls -d ../APK/$Folder/*)
+for File in $(ls ../APK/$Folder/*.apk)
 do
-	
-	# if [[ $Folder =~ .*appium.* ]]; then
-	#   echo "It's there."
-	# fi
-	if [[ ! $FolderToInvest == *"appium"* && ! $FolderToInvest == *"airdroid"* ]]; then
-	    # echo "The variable 'Folder' does not contain the words 'appium' or 'airdroid'."
-		File_Name=$(echo $FolderToInvest | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g').apk
-		# Full_Path=$FolderToInvest/$File_Name
-		Full_Path=$FolderToInvest/ParentingGuidefromLasting2.0.2Apkpure.apk
-		echo $Full_Path
-		# echo $File_Name
-		Function_Get_MainActivity_And_Write_To_File $Full_Path
-
-		if [ $Option = J ] || [ $Option = j ]
-		then
-			echo "\nJimple chosen"
-			Function_Run_Framework_And_Output_Jimple $File_Name $Option $FolderToInvest
-		elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-		then
-			echo "dex chosen"
-			Function_Run_Framework_And_Output_Jimple $File_Name $Option
-		elif [ $Option = apk ]
-			then
-			Function_Run_Framework_And_Zip_And_Sign_APK $File_Name $Option $FolderToInvest
-		else
-			echo "No such option"
-		fi
-	fi
+	File_Name=$(echo $File | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
+	Full_Path=$File/$File_Name
+	echo $File_Name
+	./ScriptOnce.sh apk $File_Name
 done
-
-# for file in $(ls ../APK/$Folder/)
-# do
-# 	echo $file
-# 	Function_Get_MainActivity_And_Write_To_File $file $Folder
-
-# 	if [ $Option = J ] || [ $Option = j ]
-# 	then
-# 		echo "\nJimple chosen"
-# 		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-# 	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-# 	then
-# 		echo "dex chosen"
-# 		Function_Run_Framework_And_Output_Jimple $file $Option
-# 	elif [ $Option = apk ]
-# 		then
-# 		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-# 	else
-# 		echo "No such option"
-# 	fi
-# done
-
-#cd ../Shell_Script
-#Function_Error_Log_To_File
-#adb logcat FiniteState:V *:S
-
-# Option=$2
-
-# if [ $Option = J ] || [ $Option = j ]
-# then
-# 	echo "Jimple chosen"
-# 	Function_Run_Framework_And_Output_Jimple $1 $Option
-# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-# then
-# 	echo "dex chosen"
-# 	Function_Run_Framework_And_Output_Jimple $1 $Option
-# elif [ $Option = apk ]
-# 	then
-# 	Function_Run_Framework_And_Zip_And_Sign_APK $1 $Option
-# else
-# 	echo "No such option"
-# fi

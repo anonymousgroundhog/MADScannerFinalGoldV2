@@ -1,4 +1,9 @@
 #!/bin/sh
+Function_Failure()
+{
+    echo "$@" >&2
+    exit 1
+}
 
 Function_Get_Packages_And_Add_To_File() {
 	adb shell pm list packages>installed.txt
@@ -55,7 +60,9 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	echo Hash is: $hash
 
 	pwd
-	java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
+	# Function_Failure
+	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
+	java -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33 && exit 1
 
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
@@ -100,6 +107,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 ##	adb logcat FiniteState:V *:S
 	pkill adb
 	# rm nohup.out
+	cd $current_dir
 }
 
 Function_Run_Framework_And_Output_Jimple() {
@@ -158,40 +166,108 @@ clear
 #Function_Download_New_APK_Discovered
 
 Function_Compile_Framework
-FILE=../Data/AdListenerMethods.txt
-if test -f "$FILE"; then
-    echo "$FILE exists."
-	rm ../Data/AdListenerMethods.txt
-fi
+# FILE=../Data/AdListenerMethods.txt
 
-## GET MAIN ACTIVITY FROM APK
+# if test -f "$FILE"; then
+#     echo "$FILE exists."
+# 	rm ../Data/AdListenerMethods.txt
+# fi
 
-Option=$1
+# Option=$1
+# Folder=Google_Play_Apps
+# file=$(echo $2  | sed 's/.apk//')
+# APKPath="../../"$Folder"/"$file".apk"
+# adb logcat -c
+# echo File is: $file
+# Function_Get_MainActivity_And_Write_To_File $file $Folder
+
+# if [ $Option = J ] || [ $Option = j ]
+# then
+# 	echo "\nJimple chosen"
+# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+# then
+# 	echo "dex chosen"
+# 	Function_Run_Framework_And_Output_Jimple $file $Option
+# elif [ $Option = apk ]
+# 	then
+# 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+# 	# datetime=$(date "+%D-%T")
+# 	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+# 	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
+# else
+# 	echo "No such option"
+# fi
+
+
 Folder=Google_Play_Apps
-file=$(echo $2  | sed 's/.apk//')
-APKPath="../../"$Folder"/"$file".apk"
-adb logcat -c
-echo File is: $file
-Function_Get_MainActivity_And_Write_To_File $file $Folder
+for FileLocation in $(ls ../APK/$Folder/*.apk)
+do
+	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
+	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
+	# Full_Path=$File/$File_Name
+	echo File is $file
+	FILE=../Data/AdListenerMethods.txt
 
-if [ $Option = J ] || [ $Option = j ]
-then
-	echo "\nJimple chosen"
-	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-then
-	echo "dex chosen"
-	Function_Run_Framework_And_Output_Jimple $file $Option
-elif [ $Option = apk ]
+	if test -f "$FILE"; then
+	    echo "$FILE exists."
+		rm ../Data/AdListenerMethods.txt
+	fi
+
+	Option=$1
+	# Folder=Google_Play_Apps
+	# file=$(echo $2  | sed 's/.apk//')
+	APKPath="../../"$Folder"/"$file".apk"
+	adb logcat -c
+	echo File is: $file
+	Function_Get_MainActivity_And_Write_To_File $file $Folder
+	if [ $Option = J ] || [ $Option = j ]
 	then
-	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-	# datetime=$(date "+%D-%T")
-	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
-else
-	echo "No such option"
-fi
+		echo "\nJimple chosen"
+		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+	then
+		echo "dex chosen"
+		Function_Run_Framework_And_Output_Jimple $file $Option
+	elif [ $Option = apk ]
+		then
+		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+		# datetime=$(date "+%D-%T")
+		# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+		# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
+	else
+		echo "No such option"
+	fi
+done
+# FILE=../Data/AdListenerMethods.txt
 
-#cd ../Shell_Script
-#Function_Error_Log_To_File
-#adb logcat FiniteState:V *:S
+# if test -f "$FILE"; then
+#     echo "$FILE exists."
+# 	rm ../Data/AdListenerMethods.txt
+# fi
+
+# Option=$1
+# Folder=Google_Play_Apps
+# file=$(echo $2  | sed 's/.apk//')
+# APKPath="../../"$Folder"/"$file".apk"
+# adb logcat -c
+# echo File is: $file
+# Function_Get_MainActivity_And_Write_To_File $file $Folder
+
+# if [ $Option = J ] || [ $Option = j ]
+# then
+# 	echo "\nJimple chosen"
+# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+# then
+# 	echo "dex chosen"
+# 	Function_Run_Framework_And_Output_Jimple $file $Option
+# elif [ $Option = apk ]
+# 	then
+# 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+# 	# datetime=$(date "+%D-%T")
+# 	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+# 	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
+# else
+# 	echo "No such option"
+# fi
