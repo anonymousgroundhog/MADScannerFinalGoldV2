@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 Function_Failure()
 {
     echo "$@" >&2
@@ -48,6 +48,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	[ -d "Classes" ] && cd Classes
 	Folder=$3
 	File=$1.apk
+	File_Name_Only=$1
 	Option=$2
 	SignedFile=signed$File
 	APKPath="../../APK/"$Folder/$File
@@ -71,7 +72,6 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	echo PWD: $(pwd)
 	if [ -f $SignedFile ]; then
 		apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
-		cp $SignedFile ../../APK_Files_Signed_And_Injected_Logs
 
 		#clear
 		rm *.idsig
@@ -88,29 +88,29 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 				cp $file .
 			done
 		fi
-		
-		adb install-multiple $(ls signed*.apk)
+		# adb install-multiple $(ls signed*.apk)
 		#Exit_Status=$(Function_Check_Command_Runs adb install $SignedFile)
 		# adb install $SignedFile
-		device_name=$(Get_Device_Name)
-		package=$(Get_App_Package $SignedFile)
-		activity=$(Get_App_activity $SignedFile)
-		echo Package: $package Activity: $activity
-		RESULT=$?
-		if [ $RESULT -eq 0 ]; then
-			echo success
-			#clear
-			[ -d "../../../Python" ] && cd ../../../Python
-			python3 Appium_Test.py $device_name $package $activity
-			Uninstall_App $package
-		else
-			echo failed
-		fi
-	##	adb logcat FiniteState:V *:S
-		pkill adb
+	# 	device_name=$(Get_Device_Name)
+	# 	package=$(Get_App_Package $SignedFile)
+	# 	activity=$(Get_App_activity $SignedFile)
+	# 	echo Package: $package Activity: $activity
+	# 	RESULT=$?
+	# 	if [ $RESULT -eq 0 ]; then
+	# 		echo success
+	# 		#clear
+	# 		[ -d "../../../Python" ] && cd ../../../Python
+	# 		python3 Appium_Test.py $device_name $package $activity
+	# 		Uninstall_App $package
+	# 	else
+	# 		echo failed
+	# 	fi
+	# ##	adb logcat FiniteState:V *:S
+	# 	pkill adb
 	fi
 	# rm nohup.out
 	cd $current_dir
+
 }
 
 Function_Test_APK_Files(){
@@ -136,6 +136,8 @@ Function_Test_APK_Files(){
 			echo failed
 		fi
 	done
+
+	
 	# pwd
 	# if [ -d ../../../APK/Google_Play_Apps/$1 ]; then
 	# 	for file in $(ls  ../../../APK/Google_Play_Apps/$1/signed*.apk | grep -v signed$1.apk)
@@ -162,7 +164,7 @@ Function_Test_APK_Files(){
 # 		echo failed
 # 	fi
 # ##	adb logcat FiniteState:V *:S
-	pkill adb
+	# pkill adb
 }
 Function_Run_Framework_And_Output_Jimple() {
 	echo "Running Function"
@@ -220,47 +222,39 @@ clear
 #Function_Download_New_APK_Discovered
 
 Function_Compile_Framework
-# FILE=../Data/AdListenerMethods.txt
-
-# if test -f "$FILE"; then
-#     echo "$FILE exists."
-# 	rm ../Data/AdListenerMethods.txt
-# fi
-
-# Option=$1
-# Folder=Google_Play_Apps
-# file=$(echo $2  | sed 's/.apk//')
-# APKPath="../../"$Folder"/"$file".apk"
-# adb logcat -c
-# echo File is: $file
-# Function_Get_MainActivity_And_Write_To_File $file $Folder
-
-# if [ $Option = J ] || [ $Option = j ]
-# then
-# 	echo "\nJimple chosen"
-# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-# then
-# 	echo "dex chosen"
-# 	Function_Run_Framework_And_Output_Jimple $file $Option
-# elif [ $Option = apk ]
-# 	then
-# 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-# 	# datetime=$(date "+%D-%T")
-# 	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-# 	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
-# else
-# 	echo "No such option"
-# fi
-
+rm ../Java/Classes/sootOutput/signed*.apk
 
 Folder=Google_Play_Apps
-for FileLocation in $(ls ../APK/$Folder/*.apk)
+
+for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
+	num_of_signed_files=$(ls $Folder | grep "signed" | wc -l) 
+	rm $Folder/signed*.apk
+
+	for File in $(ls $Folder); do
+		zipalign -fv 4 $Folder/$File $Folder/signed$File
+		apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password $Folder/signed$File
+	done
+	rm $Folder/*.idsig
+done
+
+for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
+		for File in $(ls $Folder/signed*.apk); do
+			echo File path is: $File
+			file=$(echo $File | rev | cut -d "/" -f1 | rev | sed 's/\.apk//g')
+			echo File is: $file
+			orig_file_name=$(echo $file | sed 's/signed//')
+			exists=$(echo $Folder | grep $orig_file_name | wc -l)
+			if [[ $exists > 0 ]]; then 
+				echo "It's there"; 
+				cp $File ../APK/Google_Play_Apps
+			fi
+		done
+done
+##################START OF UNCOMMENT###############################
+for FileLocation in $(ls ../APK/Google_Play_Apps/*.apk)
 do
 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
 	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
-	# Full_Path=$File/$File_Name
-	# echo File is $file
 	FILE=../Data/AdListenerMethods.txt
 
 	if test -f "$FILE"; then
@@ -269,8 +263,7 @@ do
 	fi
 
 	Option=$1
-	# Folder=Google_Play_Apps
-	# file=$(echo $2  | sed 's/.apk//')
+	Folder=Google_Play_Apps
 	APKPath="../../"$Folder"/"$file".apk"
 	adb logcat -c
 	# echo File is: $file
@@ -285,18 +278,43 @@ do
 		Function_Run_Framework_And_Output_Jimple $file $Option
 	elif [ $Option = apk ]
 		then
-		# Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-		echo "Testing"
+		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+
+		# echo "Testing"
 	else
 		echo "No such option"
 	fi
 done
 
+for File in $(ls ../Java/Classes/sootOutput/signed*.apk); do
+	echo File in sootOutput: $File
+	file_name_only=$(echo $File | sed 's/.apk//')
+	echo File Name: $file_name_only
+
+	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+done
+
+current_dir=$(pwd)
+cd ../Java/APK_Files_Signed_And_Injected_Logs
+for File in $(ls signed*.apk); do
+	echo File in APK_Files_Signed: $File
+	file_name_only=$(echo $File | sed 's/signed//')
+	mv $File $file_name_only
+	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+done
+
+cd $current_dir
+
 for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
 			rm $file
 done
 
-Function_Test_APK_Files
+# Function_Test_APK_Files
+
+##################END OF UNCOMMENT###############################
+
 # FILE=../Data/AdListenerMethods.txt
 
 # if test -f "$FILE"; then
