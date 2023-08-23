@@ -115,16 +115,33 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 
 Function_Test_APK_Files(){
 	adb logcat -c
-	pwd
+	current_dir=$(pwd)
 	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
 	nohup adb logcat FiniteState:V *:S > ../Data/Logs/$datetime.txt &
 
 	for SignedFile in $(ls ../Java/APK_Files_Signed_And_Injected_Logs/*.apk); do
-		adb install-multiple $SignedFile
+		File_Name_Only=$(echo $SignedFile | rev | cut -d "/" -f1 | rev | sed 's/\.apk//g' | sed s/"signed"//)
+		mkdir ../APK/APK_Testing/$File_Name_Only
+		cp $SignedFile ../APK/APK_Testing/$File_Name_Only
+		printf "\nApp: $File_Name_Only"
+		if [ -d ../APK/Google_Play_Apps/$File_Name_Only ]; then
+			printf "\nIt exists\n"
+			for file in $(ls ../APK/Google_Play_Apps/$File_Name_Only/signed*.apk);do
+				printf "\t$file\n"
+				file_name_only=$(echo $file | rev | cut -d "/" -f1 | rev | sed s/"signed"//)
+				echo $file_name_only
+				if ! [ $file_name_only == $File_Name_Only.apk ]; then
+					cp $file ../APK/APK_Testing/$File_Name_Only
+				fi
+			done
+		fi
+		cd ../APK/APK_Testing/$File_Name_Only
+		adb install-multiple *.apk
 		device_name=$(Get_Device_Name)
-		package=$(Get_App_Package $SignedFile)
-		activity=$(Get_App_activity $SignedFile)
+		package=$(Get_App_Package $File_Name_Only.apk)
+		activity=$(Get_App_activity $File_Name_Only.apk)
 		echo Package: $package Activity: $activity
+		cd $current_dir
 		RESULT=$?
 		if [ $RESULT -eq 0 ]; then
 			echo success
@@ -164,7 +181,7 @@ Function_Test_APK_Files(){
 # 		echo failed
 # 	fi
 # ##	adb logcat FiniteState:V *:S
-	# pkill adb
+	pkill adb
 }
 Function_Run_Framework_And_Output_Jimple() {
 	echo "Running Function"
@@ -311,7 +328,7 @@ for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
 			rm $file
 done
 
-# Function_Test_APK_Files
+Function_Test_APK_Files
 
 ##################END OF UNCOMMENT###############################
 
