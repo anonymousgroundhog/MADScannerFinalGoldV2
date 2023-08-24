@@ -240,7 +240,7 @@ clear
 
 Function_Compile_Framework
 rm ../Java/Classes/sootOutput/signed*.apk
-
+##################### PRE-SETUP #####################
 Folder=Google_Play_Apps
 
 for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
@@ -267,7 +267,7 @@ for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
 			fi
 		done
 done
-##################START OF UNCOMMENT###############################
+##################### ANALYSIS #####################
 for FileLocation in $(ls ../APK/Google_Play_Apps/*.apk)
 do
 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
@@ -303,14 +303,14 @@ do
 	fi
 done
 
-for File in $(ls ../Java/Classes/sootOutput/signed*.apk); do
-	echo File in sootOutput: $File
-	file_name_only=$(echo $File | sed 's/.apk//')
-	echo File Name: $file_name_only
+# for File in $(ls ../Java/Classes/sootOutput/signed*.apk); do
+# 	echo File in sootOutput: $File
+# 	file_name_only=$(echo $File | sed 's/.apk//')
+# 	echo File Name: $file_name_only
 
-	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-done
+# 	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+# 	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+# done
 
 current_dir=$(pwd)
 cd ../Java/APK_Files_Signed_And_Injected_Logs
