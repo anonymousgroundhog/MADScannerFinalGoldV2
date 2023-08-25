@@ -248,8 +248,12 @@ for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
 	rm $Folder/signed*.apk
 
 	for File in $(ls $Folder); do
-		zipalign -fv 4 $Folder/$File $Folder/signed$File
-		apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password $Folder/signed$File
+		if [[ ! $File == *"idsig"* ]]; then
+		  # echo "It's there!"
+			zipalign -fv 4 $Folder/$File $Folder/signed$File
+			apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password $Folder/signed$File
+		fi
+
 	done
 	rm $Folder/*.idsig
 done
@@ -303,17 +307,11 @@ do
 	fi
 done
 
-# for File in $(ls ../Java/Classes/sootOutput/signed*.apk); do
-# 	echo File in sootOutput: $File
-# 	file_name_only=$(echo $File | sed 's/.apk//')
-# 	echo File Name: $file_name_only
-
-# 	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-# 	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-# done
-
 current_dir=$(pwd)
+cp ../Java/Classes/sootOutput/*.apk ../Java/APK_Files_Signed_And_Injected_Logs
+
 cd ../Java/APK_Files_Signed_And_Injected_Logs
+
 for File in $(ls signed*.apk); do
 	echo File in APK_Files_Signed: $File
 	file_name_only=$(echo $File | sed 's/signed//')
@@ -329,38 +327,6 @@ for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
 done
 
 Function_Test_APK_Files
-
+cd ../Python
+# python3 ../Python/Generate_Model_From_Logs.py
 ##################END OF UNCOMMENT###############################
-
-# FILE=../Data/AdListenerMethods.txt
-
-# if test -f "$FILE"; then
-#     echo "$FILE exists."
-# 	rm ../Data/AdListenerMethods.txt
-# fi
-
-# Option=$1
-# Folder=Google_Play_Apps
-# file=$(echo $2  | sed 's/.apk//')
-# APKPath="../../"$Folder"/"$file".apk"
-# adb logcat -c
-# echo File is: $file
-# Function_Get_MainActivity_And_Write_To_File $file $Folder
-
-# if [ $Option = J ] || [ $Option = j ]
-# then
-# 	echo "\nJimple chosen"
-# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-# then
-# 	echo "dex chosen"
-# 	Function_Run_Framework_And_Output_Jimple $file $Option
-# elif [ $Option = apk ]
-# 	then
-# 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
-# 	# datetime=$(date "+%D-%T")
-# 	# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-# 	# adb logcat FiniteState:V *:S -d 5 > ../Data/Logs/$datetime.txt
-# else
-# 	echo "No such option"
-# fi

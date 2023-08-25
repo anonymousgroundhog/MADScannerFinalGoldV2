@@ -32,9 +32,12 @@ def Open_File_And_Generate_Dataframe(this_path):
         'App_Ad_ID':app_ad_id_list
     }
     df = pd.DataFrame(data)
-    print(df)
-    print(df.App_Method.unique())
-    app_valid_methods = ['onCreate', 'setAdListener', 'initialize', 'findViewById']
+    
+    # app_valid_methods = ['onCreate', 'setContentView', 'setAdListener', 'initialize', 'findViewById', 'loadAd', 'onAdImpression', 'onAdClicked', 'onAdLoaded']
+    
+    filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+    print(filtered_df)
+    # print(df.columns.values)
     # for row in df:
     #     if
 
