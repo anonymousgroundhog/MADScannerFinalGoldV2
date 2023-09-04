@@ -49,8 +49,9 @@ def Open_File_And_Generate_Dataframe(this_path):
     for app_name in unique_apps:
         rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
         transitions=rslt_df[['App_Method', 'App_Ad_ID']]
+        df1 = transitions.drop_duplicates(keep='first')
         print(rslt_df) 
-        print(transitions)
+        print(df1)
 
 for file in os.listdir("../Data/Logs"):
     path="".join(["../Data/Logs/",file])
