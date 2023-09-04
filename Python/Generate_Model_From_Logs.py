@@ -1,4 +1,12 @@
 import os, pandas as pd
+from functools import reduce
+
+
+def unique(list1):
+ 
+    # Print directly by using * symbol
+    ans = reduce(lambda re, x: re+[x] if x not in re else re, list1, [])
+    print(ans)
 
 df = ""
 def Open_File_And_Generate_Dataframe(this_path):
@@ -36,10 +44,13 @@ def Open_File_And_Generate_Dataframe(this_path):
     # app_valid_methods = ['onCreate', 'setContentView', 'setAdListener', 'initialize', 'findViewById', 'loadAd', 'onAdImpression', 'onAdClicked', 'onAdLoaded']
     
     filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
-    print(filtered_df)
-    # print(df.columns.values)
-    # for row in df:
-    #     if
+    unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
+    print(unique_apps)
+    for app_name in unique_apps:
+        rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
+        transitions=rslt_df[['App_Method', 'App_Ad_ID']]
+        print(rslt_df) 
+        print(transitions)
 
 for file in os.listdir("../Data/Logs"):
     path="".join(["../Data/Logs/",file])
