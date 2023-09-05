@@ -41,17 +41,27 @@ def Open_File_And_Generate_Dataframe(this_path):
     }
     df = pd.DataFrame(data)
     
-    # app_valid_methods = ['onCreate', 'setContentView', 'setAdListener', 'initialize', 'findViewById', 'loadAd', 'onAdImpression', 'onAdClicked', 'onAdLoaded']
-    
-    filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+    # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+
     unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
-    print(unique_apps)
+    # print(unique_apps)
+    print("\n\n")
     for app_name in unique_apps:
+        print("\nApp Name:" + app_name)
         rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
         transitions=rslt_df[['App_Method', 'App_Ad_ID']]
-        df1 = transitions.drop_duplicates(keep='first')
-        print(rslt_df) 
-        print(df1)
+        
+        df = transitions.loc[~((transitions['App_Ad_ID'] == 'null') & ((transitions['App_Method'] == 'onAdLoaded') | 
+                                                                        (transitions['App_Method'] == 'onAdImpression')| 
+                                                                        (transitions['App_Method'] == 'onAdClicked')))]
+        print(df)
+        # for index, row in transitions.iterrows():
+        #     print(row['App_Method'], row['App_Ad_ID'])
+        # print(transitions)
+        # df1 = transitions.drop_duplicates(keep='first')
+        # print(rslt_df) 
+        # print(df1)
 
 for file in os.listdir("../Data/Logs"):
     path="".join(["../Data/Logs/",file])
