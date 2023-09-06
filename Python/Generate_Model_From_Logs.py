@@ -1,4 +1,4 @@
-import os, pandas as pd, graphviz
+import os, pandas as pd, graphviz, numpy as np
 from functools import reduce
 
 class StateMachine:
@@ -76,6 +76,7 @@ def Open_File_And_Generate_Dataframe(this_path):
     for app_name in unique_apps:
         print("\nApp Name:" + app_name)
         rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
+        # print(rslt_df)
         transitions=rslt_df[['App_Method', 'App_Ad_ID']]
         
         transitions = transitions.loc[~((transitions['App_Ad_ID'] == 'null') & ((transitions['App_Method'] == 'onAdLoaded') | 
@@ -88,21 +89,58 @@ def Open_File_And_Generate_Dataframe(this_path):
         # list_transition_ids= transitions['App_Ad_ID']
         # print(str(list_transition_methods))
         # print(str(list_transition_ids))
+        transitions['Graph'] = np.nan
+        transitions = transitions.reset_index(drop=True)
+        set_setContentView = set(np.where(transitions.App_Method == 'setContentView')[0])
+        set_setAdListener = set(np.where(transitions.App_Method == 'setAdListener')[0])
+        set_initialize = set(np.where(transitions.App_Method == 'initialize')[0])
+
+
+        # set_empty = set(pd.isna(transitions['Graph']))
+        # set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
+        # print(set_initialize)
+        counter1 = 0
+        for loc in sorted(set_setContentView):
+            counter1=counter1+1
+            transitions.at[loc,'Graph'] = counter1
         
-        this_str=""
-        for index, row in transitions.iterrows():
-            # line=row['App_Method'], row['App_Ad_ID']
-            # print(line)
-            if this_str != "":
-                this_str = this_str + " --> " + row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
+        set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
+        print("Empty locations:",set_empty)
+        # orphans = sorted(set(set_setContentView).difference(set_empty))
+        # print(orphans)
+        counter2 = 0
+        for loc in sorted(set_empty):
+        #     # if counter == 0:
+        #     #     counter=transitions.at[(loc-1),'Graph']
+        #     # else:
+        #     counter2=counter2+1
+        #     print("Location ",loc)
+            loc2=loc-1
+            col_list = transitions["Graph"].values.tolist()
+            # print('col_list:', col_list)
+            if col_list[loc2] != np.nan:
+                print("Prev Val ",col_list[loc2])
+                transitions.at[loc,'Graph'] = col_list[loc2]
             else:
-                this_str = row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
-            # if prev != None:
-            print(this_str.split(" --> "))
-        # print(transitions)
-        # df1 = transitions.drop_duplicates(keep='first')
-        # print(rslt_df) 
-        # print(df1)
+                print("Prev Val ",col_list[loc2])
+                counter2 = counter2 + 1
+                transitions.at[loc,'Graph'] = counter2
+
+        # counter3 = 0
+        # for loc in sorted(set_initialize):
+        #     counter3=counter3+1
+        #     transitions.at[loc,'Graph'] = counter3
+        print(transitions)
+        # this_str=""
+        # for index, row in transitions.iterrows():
+        #     # line=row['App_Method'], row['App_Ad_ID']
+        #     # print(line)
+        #     if this_str != "":
+        #         this_str = this_str + " --> " + row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
+        #     else:
+        #         this_str = row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
+        #     # if prev != None:
+        #     print(this_str.split(" --> "))
 
         state_machine = StateMachine()
         state_machine.add_title("App Testing")
