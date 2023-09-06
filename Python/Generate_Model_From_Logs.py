@@ -1,5 +1,6 @@
 import os, pandas as pd, graphviz, numpy as np
 from functools import reduce
+from itertools import islice
 
 class StateMachine:
     
@@ -36,6 +37,17 @@ def unique(list1):
     ans = reduce(lambda re, x: re+[x] if x not in re else re, list1, [])
     print(ans)
 
+def sliding_window_iter(seq, n=2):
+    "Returns a sliding window (of width n) over data from the iterable"
+    "   s -> (s0,s1,...s[n-1]), (s1,s2,...,sn), ...                   "
+    it = iter(seq)
+    result = tuple(islice(it, n))
+    if len(result) == n:
+        yield result
+    for elem in it:
+        result = result[1:] + (elem,)
+        yield result
+
 df = ""
 def Open_File_And_Generate_Dataframe(this_path):
     print("\n"+this_path)
@@ -69,7 +81,7 @@ def Open_File_And_Generate_Dataframe(this_path):
     df = pd.DataFrame(data)
     
     # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
-    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "findViewById", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
 
     unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
 
@@ -105,46 +117,40 @@ def Open_File_And_Generate_Dataframe(this_path):
             transitions.at[loc,'Graph'] = counter1
         
         set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
-        print("Empty locations:",set_empty)
+        # print("Empty locations:",set_empty)
         # orphans = sorted(set(set_setContentView).difference(set_empty))
         # print(orphans)
         counter2 = 0
         for loc in sorted(set_empty):
-        #     # if counter == 0:
-        #     #     counter=transitions.at[(loc-1),'Graph']
-        #     # else:
-        #     counter2=counter2+1
-        #     print("Location ",loc)
             loc2=loc-1
             col_list = transitions["Graph"].values.tolist()
-            # print('col_list:', col_list)
-            if col_list[loc2] != np.nan:
-                print("Prev Val ",col_list[loc2])
+            # print('length:', transitions[transitions.columns[0]].count())
+            if transitions[transitions.columns[0]].count() == 1:
+                counter2 = counter2 + 1
+                transitions.at[loc,'Graph'] = counter2
+            elif col_list[loc2] != np.nan:
+                # print("Prev Val ",col_list[loc2])
                 transitions.at[loc,'Graph'] = col_list[loc2]
             else:
-                print("Prev Val ",col_list[loc2])
+                # print("Prev Val ",col_list[loc2])
                 counter2 = counter2 + 1
                 transitions.at[loc,'Graph'] = counter2
 
-        # counter3 = 0
-        # for loc in sorted(set_initialize):
-        #     counter3=counter3+1
-        #     transitions.at[loc,'Graph'] = counter3
-        print(transitions)
-        # this_str=""
-        # for index, row in transitions.iterrows():
-        #     # line=row['App_Method'], row['App_Ad_ID']
-        #     # print(line)
-        #     if this_str != "":
-        #         this_str = this_str + " --> " + row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
-        #     else:
-        #         this_str = row['App_Method'] + "(" + row['App_Ad_ID']+ ")"
-        #     # if prev != None:
-        #     print(this_str.split(" --> "))
+        # print(transitions)
 
-        state_machine = StateMachine()
-        state_machine.add_title("App Testing")
-        state_machine.add_states()
+        # Set states and add new graph for each
+        print("Unique graph numbers:",transitions['Graph'].unique())
+        for graph in transitions['Graph'].unique():
+            print("Graph: ", graph)
+            state_machine = StateMachine()
+            state_machine.add_title("App Testing"+str(graph))
+            state_machine.add_states()
+            rslt_df = transitions[transitions['Graph'] == graph]
+            this_transitions=list(sliding_window_iter(rslt_df['App_Method'], 2))
+            this_advertisement_id=list(sliding_window_iter(rslt_df['App_Ad_ID'], 2))
+            print(rslt_df)
+            print(this_transitions)
+            print(this_advertisement_id)
         # state_machine.add_dot_node("T1", "Testing")
         # state_machine.add_dot_node("T2", "Testing2")
         # state_machine.add_dot_edge("T1", "T2", 'Testing data')
