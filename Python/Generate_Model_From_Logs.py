@@ -33,8 +33,8 @@ def Open_File_And_Generate_Dataframe(this_path):
     df = pd.DataFrame(data)
     
     # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
-    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "findViewById", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
-
+    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
+    print(filtered_df)
     unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
 
     for app_name in unique_apps:
@@ -99,6 +99,6 @@ def Open_File_And_Generate_Dataframe(this_path):
             print(state_machine.digraph)
             state_machine.save_as_pdf(this_path.replace(".txt","").split("/").pop()+"_"+app_name+"_"+str(graph))
 
-for file in os.listdir("../Data/Logs"):
-    path="".join(["../Data/Logs/",file])
+for file in os.listdir("../Data/Logs2"):
+    path="".join(["../Data/Logs2/",file])
     Open_File_And_Generate_Dataframe(path)

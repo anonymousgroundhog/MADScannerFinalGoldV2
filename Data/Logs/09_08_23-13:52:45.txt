@@ -1,0 +1,5 @@
+--------- beginning of main
+--------- beginning of system
+09-08 13:53:04.870 30410 30410 D FiniteState: BannerRecyclerViewExample---50eeaffc0302dcd927336140151d049a7be70917dc71b4b7b9d9b561e404949a---com.google.android.gms.ads.MobileAdsInitProvider---attachInfo---null
+--------- beginning of crash
+09-08 13:55:19.638 30591 30591 D FiniteState: BannerRecyclerViewExample---50eeaffc0302dcd927336140151d049a7be70917dc71b4b7b9d9b561e404949a---com.google.android.gms.ads.MobileAdsInitProvider---attachInfo---null

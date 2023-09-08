@@ -1,0 +1,16 @@
+class,text,index,page,clicked
+android.view.View,,0,0,True
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.view.View,,0,1,False
+android.widget.ImageButton,,0,1,False
+android.widget.LinearLayout,,0,1,False
+android.widget.EditText,developers.google.comadmob?gclid=CjwKCAjwjOunBhB4EiwA94JWsJ0qOaU8WNMm7iyzkqTvdSWiTWHDXnpnF2GT8zNZiBJw5WNRxN-6RRoCeHkQAvD_BwE,1,1,False
+android.widget.ImageButton,,0,1,False
+android.widget.ImageButton,,1,1,False
+android.widget.ImageButton,,0,1,False
