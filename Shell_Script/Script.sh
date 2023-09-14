@@ -248,8 +248,8 @@ APKPath="../../"$Folder"/"$file".apk"
 adb logcat -c
 # echo File is: $file
 Function_Get_MainActivity_And_Write_To_File $file $Folder
-# Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
 	# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ] || [ $Option = apk ]
 	# then
 	# 	echo "dex chosen"

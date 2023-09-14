@@ -64,7 +64,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	# Function_Failure
 	# java -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
 	java -Xmx2g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp $File $hash $Option $Folder -android-api-version 33
-
+	
 	[ -d "sootOutput" ] && cd sootOutput
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
 
@@ -241,7 +241,6 @@ clear
 Function_Compile_Framework
 rm ../Java/Classes/sootOutput/signed*.apk
 ##################### PRE-SETUP #####################
-Folder=Google_Play_Apps
 
 for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
 	num_of_signed_files=$(ls $Folder | grep "signed" | wc -l) 
@@ -272,7 +271,10 @@ for Folder in $(ls -d ../APK/Google_Play_Apps/*/); do
 		done
 done
 ##################### ANALYSIS #####################
-for FileLocation in $(ls ../APK/Google_Play_Apps/*.apk)
+Folder=APK_Testing
+# clear
+echo Current directory is: $(pwd)
+for FileLocation in $(ls ../APK/$Folder/*.apk)
 do
 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
 	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
@@ -284,19 +286,26 @@ do
 	fi
 
 	Option=$1
-	Folder=Google_Play_Apps
-	APKPath="../../"$Folder"/"$file".apk"
+	Folder=APK_Testing
 	adb logcat -c
-	# echo File is: $file
+	echo File is: $file
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
 	if [ $Option = J ] || [ $Option = j ]
 	then
 		echo "\nJimple chosen"
 		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+		if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ]
+		then
+			break
+		fi
 	elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
 	then
 		echo "dex chosen"
-		Function_Run_Framework_And_Output_Jimple $file $Option
+		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+		if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ]
+		then
+			break
+		fi
 	elif [ $Option = apk ]
 		then
 		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
@@ -307,26 +316,28 @@ do
 	fi
 done
 
-current_dir=$(pwd)
-cp ../Java/Classes/sootOutput/*.apk ../Java/APK_Files_Signed_And_Injected_Logs
+# cd ../
+# current_dir=$(pwd)
+# echo Current directory is: $current_dir
+# cp ../Java/Classes/sootOutput/*.apk ../Java/APK_Files_Signed_And_Injected_Logs
 
-cd ../Java/APK_Files_Signed_And_Injected_Logs
+# cd ../Java/APK_Files_Signed_And_Injected_Logs
 
-for File in $(ls signed*.apk); do
-	echo File in APK_Files_Signed: $File
-	file_name_only=$(echo $File | sed 's/signed//')
-	mv $File $file_name_only
-	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-done
+# for File in $(ls signed*.apk); do
+# 	echo File in APK_Files_Signed: $File
+# 	file_name_only=$(echo $File | sed 's/signed//')
+# 	mv $File $file_name_only
+# 	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+# 	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+# done
 
-cd $current_dir
+# cd $current_dir
 
-for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
-			rm $file
-done
+# for file in $(find ../Data/Logs/*.txt -type f -size -5 ); do
+# 			rm $file
+# done
 
-Function_Test_APK_Files
-cd ../Python
+# Function_Test_APK_Files
+# cd ../Python
 # python3 ../Python/Generate_Model_From_Logs.py
 ##################END OF UNCOMMENT###############################
