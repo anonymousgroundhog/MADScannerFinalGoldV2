@@ -106,7 +106,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	# 		echo failed
 	# 	fi
 	# ##	adb logcat FiniteState:V *:S
-	# 	pkill adb
+		pkill adb
 	fi
 	# rm nohup.out
 	cd $current_dir
