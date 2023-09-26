@@ -7,5 +7,8 @@ digraph G {
 	apprunning_ad_impression [label="The app is running and the advertisement impression is made" pos="10,0!"]
 	apprunning_ad_engagement [label="The app is running and the advertisement engagement is made" pos="10,2!"]
 	appstarted -> appstarted_adview_set [label=setAdListener constraint=false]
+	appstarted_no_ads -> apprunning_ad_loaded [label=onAdLoaded constraint=false]
+	apprunning_ad_loaded -> apprunning_ad_impression [label=onAdImpression constraint=false]
+	apprunning_ad_impression -> apprunning_ad_engagement [label=onAdClicked constraint=false]
 	apprunning_ad_engagement -> appstarted_adview_set [label=onAdClosed constraint=false]
 }

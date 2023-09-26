@@ -1,0 +1,5 @@
+--------- beginning of main
+--------- beginning of system
+09-15 09:04:43.172  6300  6300 D FiniteState: TestClassAdViewAdListener---86d095f5edb3babc4d6668e9824d3264d568c90abc47bdfa0ce25a01df72d2a1---com.google.android.gms.ads.MobileAdsInitProvider---attachInfo---null
+09-15 09:04:43.594  6300  6300 D FiniteState: TestClassAdViewAdListener---86d095f5edb3babc4d6668e9824d3264d568c90abc47bdfa0ce25a01df72d2a1---com.google.android.gms.example.bannerexample.MyActivity---setContentView---null
+--------- beginning of crash
