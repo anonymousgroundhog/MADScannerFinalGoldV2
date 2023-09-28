@@ -1,1 +1,1 @@
-BannerRecyclerViewExample:com.google.android.gms.example.bannerrecyclerviewexample.MainActivity:loadBannerAd:virtualinvoke r3.<com.google.android.gms.ads.AdView: void setAdListener(com.google.android.gms.ads.AdListener)>($r4)
+TestClassAdViewAdListener_No_Listener_Call:com.google.android.gms.example.bannerexample.TestingHello:callTestClassAdViewAdListener:virtualinvoke r2.<com.google.android.gms.example.bannerexample.TestClassAdViewAdListener: void setAdListener(com.google.android.gms.ads.BaseAdView)>($r1)
