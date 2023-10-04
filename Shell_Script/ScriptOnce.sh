@@ -127,6 +127,7 @@ Function_Test_APK_Files(){
 		printf "\n\nFile name only is: $File_Name_Only\n"
 		cp $SignedFile .APK_Testing/$File_Name_Only.apk
 		printf "\nApp: $File_Name_Only\n"
+
 		if [ -d APK_Testing/$File_Name_Only ]; then
 			printf "\nIt exists\n"
 			for file in $(ls ../../APK/APK_Testing/$File_Name_Only/signed*.apk);do
@@ -281,6 +282,7 @@ Folder=Testing
 echo Current directory is: $(pwd)
 subdircount=$(find ../APK/$Folder/ -maxdepth 1 -type d | wc -l)
 
+##################### SETUP: Sign and setup #####################
 if [ subdircount -gt 1 ];
 then
 	for Folder in $(ls -d ../APK/$Folder/*/); do
@@ -313,7 +315,7 @@ then
 	done
 fi
 
-##################### ANALYSIS #####################
+##################### SETUP: Analysis #####################
 Folder=Testing
 # clear
 echo Current directory is: $(pwd)
@@ -435,10 +437,25 @@ for File in $(ls *.apk); do
 		apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$File
 	fi
 done
-Function_Test_APK_Files
-pkill adb
-# 
-# 
+present_dir=$(pwd)
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HERE IS WHERE YOU WANT TO COPY FILES AS NECESSARY!!!!!!!!
+cd ../../APK/APK_Testing
+printf "\n\n\nCurrent directory is: $(pwd)\n\n"
+
+for File in $(ls signed*.apk); do
+	file_name_only=$(echo $File | sed 's/signed//' | cut -d. -f1)
+	if [[ -d ../Google_Play_Apps/$file_name_only && $(ls ../Google_Play_Apps/$file_name_only | wc -l) -gt 1 ]]; then
+		echo "FOUND DIR: $file_name_only!!!"
+		mkdir $file_name_only
+		cp $File $file_name_only
+	fi
+done
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!END OF COPY FILES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cd $present_dir
+# Function_Test_APK_Files
+# pkill adb
+ 
 # cd ../Python
 # python3 ../Python/Generate_Model_From_Logs.py
 ##################END OF UNCOMMENT###############################
