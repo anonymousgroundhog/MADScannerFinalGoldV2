@@ -115,20 +115,21 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 }
 
 Function_Test_APK_Files(){
+	printf "\n\nINSIDE Function_Test_APK_Files\n"
 	adb logcat -c
 	current_dir=$(pwd)
 	datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
 	nohup adb logcat FiniteState:V *:S > ../../Data/Logs/$datetime.txt &
 	echo current_dir for Function_Test_APK_Files is $(pwd)
-	for SignedFile in $(ls *.apk); do
+	for SignedFile in $(ls signed*.apk); do
 		File_Name_Only=$(echo $SignedFile | rev | cut -d "/" -f1 | rev | sed 's/\.apk//g' | sed s/"signed"//)
 		# mkdir ../../APK/APK_Testing/$File_Name_Only
-		echo cp1
-		cp $SignedFile ../../APK/APK_Testing/$File_Name_Only
-		printf "\nApp: $File_Name_Only"
-		if [ -d ../APK/APK_Testing/$File_Name_Only ]; then
+		printf "\n\nFile name only is: $File_Name_Only\n"
+		cp $SignedFile .APK_Testing/$File_Name_Only.apk
+		printf "\nApp: $File_Name_Only\n"
+		if [ -d APK_Testing/$File_Name_Only ]; then
 			printf "\nIt exists\n"
-			for file in $(ls ../APK/APK_Testing/$File_Name_Only/signed*.apk);do
+			for file in $(ls ../../APK/APK_Testing/$File_Name_Only/signed*.apk);do
 				printf "\t$file\n"
 				file_name_only=$(echo $file | rev | cut -d "/" -f1 | rev | sed s/"signed"//)
 				echo $file_name_only
@@ -136,12 +137,13 @@ Function_Test_APK_Files(){
 					echo cp2
 					cp $file ../APK/APK_Testing/$File_Name_Only
 				fi
-			done
+			done 
+
 		fi
 		cd ../
 		echo current_dir for Function_Test_APK_Files_1 is $(pwd)
-		if [ -d ../APK/APK_Testing/$File_Name_Only ]; then
-			cd ../APK/APK_Testing/$File_Name_Only
+		if [ -d ../../APK/APK_Testing/$File_Name_Only ]; then
+			cd ../../APK/APK_Testing/$File_Name_Only
 			echo current_dir for Function_Test_APK_Files_2 $(pwd)
 			if [ -f split_config*.apk ]; then
 				adb install-multiple *.apk
@@ -164,6 +166,27 @@ Function_Test_APK_Files(){
 					echo failed
 				fi
 			fi
+		else
+			printf "\n\nFile path is now F1: $(pwd)\n"
+			cd APK/APK_Testing/
+			printf "\n\n Curent directory is now F2: $(pwd)\n\n"
+			adb install signed$File_Name_Only.apk
+			device_name=$(Get_Device_Name)
+			package=$(Get_App_Package $File_Name_Only.apk)
+			activity=$(Get_App_activity $File_Name_Only.apk)
+			echo Package: $package Activity: $activity
+			cd ../../Python
+				RESULT=$?
+				if [ $RESULT -eq 0 ]; then
+					echo success
+					# echo current_dir is $current_dir
+					#clear
+					[ -d "Python" ] && cd Python
+					python3 Appium_Test.py $device_name $package $activity
+					Uninstall_App $package
+				else
+					echo failed
+				fi
 		fi
 	done
 
@@ -218,7 +241,7 @@ Function_Compile_Framework() {
 }
 
 Function_Get_MainActivity_And_Write_To_File() {
-	# echo "Current direct is:"$(pwd)
+	echo "Current direct is:"$(pwd)
 	File=$1
 	Folder=$2
 	main_activity=$(aapt dump badging ../APK/$Folder/$File.apk | grep -m1 'launchable-activity' | cut -d ' ' -f 2 | sed "s/name//g;s/=//g;s/'//g")
@@ -254,43 +277,95 @@ clear
 Function_Compile_Framework
 rm ../Java/Classes/sootOutput/signed*.apk
 ##################### PRE-SETUP #####################
+Folder=Testing
+echo Current directory is: $(pwd)
+subdircount=$(find ../APK/$Folder/ -maxdepth 1 -type d | wc -l)
 
-for Folder in $(ls -d ../APK/APK_Testing/*/); do
-	num_of_signed_files=$(ls $Folder | grep "signed" | wc -l) 
-	rm $Folder/signed*.apk
+if [ subdircount -gt 1 ];
+then
+	for Folder in $(ls -d ../APK/$Folder/*/); do
+		num_of_signed_files=$(ls $Folder | grep "signed" | wc -l) 
+		rm $Folder/signed*.apk
 
-	for File in $(ls $Folder); do
-		if [[ ! $File == *"idsig"* ]]; then
-		  # echo "It's there!"
-			zipalign -fv 4 $Folder/$File $Folder/signed$File
-			apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password $Folder/signed$File
-		fi
-
-	done
-	rm $Folder/*.idsig
-done
-
-for Folder in $(ls -d ../APK/APK_Testing/*/); do
-		for File in $(ls $Folder/signed*.apk); do
-			echo File path is: $File
-			file=$(echo $File | rev | cut -d "/" -f1 | rev | sed 's/\.apk//g')
-			echo File is: $file
-			orig_file_name=$(echo $file | sed 's/signed//')
-			exists=$(echo $Folder | grep $orig_file_name | wc -l)
-			if [[ $exists > 0 ]]; then 
-				echo "It's there"; 
-				cp $File ../APK/APK_Testing
+		for File in $(ls $Folder); do
+			if [[ ! $File == *"idsig"* ]]; then
+			  # echo "It's there!"
+				zipalign -fv 4 $Folder/$File $Folder/signed$File
+				apksigner sign --ks ../my-release-key.keystore --ks-pass pass:password $Folder/signed$File
 			fi
+
 		done
-done
+		rm $Folder/*.idsig
+	done
+
+	for Folder in $(ls -d ../APK/APK_Testing/*/); do
+			for File in $(ls $Folder/signed*.apk); do
+				echo File path is: $File
+				file=$(echo $File | rev | cut -d "/" -f1 | rev | sed 's/\.apk//g')
+				echo File is: $file
+				orig_file_name=$(echo $file | sed 's/signed//')
+				exists=$(echo $Folder | grep $orig_file_name | wc -l)
+				if [[ $exists > 0 ]]; then 
+					echo "It's there"; 
+					cp $File ../APK/APK_Testing
+				fi
+			done
+	done
+fi
+
 ##################### ANALYSIS #####################
-Folder=APK_Testing
+Folder=Testing
 # clear
 echo Current directory is: $(pwd)
-for FileLocation in $(ls ../APK/$Folder/*.apk)
+
+# for FileLocation in $(ls ../APK/$Folder/*.apk)
+# do
+# 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
+# 	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
+# 	FILE=../Data/AdListenerMethods.txt
+
+# 	if test -f "$FILE"; then
+# 	    echo "\n\n$FILE exists.\n"
+# 		rm ../Data/AdListenerMethods.txt
+# 	fi
+
+# 	Option=$1
+# 	Folder=APK_Testing
+# 	adb logcat -c
+# 	echo File is: $file
+# 	Function_Get_MainActivity_And_Write_To_File $file $Folder
+# 	if [ $Option = J ] || [ $Option = j ]
+# 	then
+# 		echo "\nJimple chosen"
+# 		Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# 		# if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ] 
+# 		if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ]
+# 		then
+# 			break
+# 		fi
+# 	# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
+# 	# then
+# 	# 	echo "dex chosen"
+# 	# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
+# 	# 	if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ]
+# 	# 	then
+# 	# 		break
+# 	# 	fi
+# 	elif [ $Option = apk ]
+# 		then
+# 		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
+
+# 		# echo "Testing"
+# 	else
+# 		echo "No such option"
+# 	fi
+# done
+for file in $(ls ../APK/$Folder/*.apk)
 do
+	# echo "File is currently:" $(echo $file | rev | cut -d '/' -f 1 | rev)
+	
 	# file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\./_/g')
-	file=$(echo $FileLocation | rev | cut -d '/' -f 1 | rev | sed 's/\.apk//g')
+	file=$(echo $file | rev | cut -d '/' -f 1 | rev | cut -d. -f1)
 	FILE=../Data/AdListenerMethods.txt
 
 	if test -f "$FILE"; then
@@ -299,9 +374,8 @@ do
 	fi
 
 	Option=$1
-	Folder=APK_Testing
 	adb logcat -c
-	echo File is: $file
+	echo File is: $(echo $file)
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
 	if [ $Option = J ] || [ $Option = j ]
 	then
@@ -312,14 +386,6 @@ do
 		then
 			break
 		fi
-	# elif [ $Option = dex ] || [ $Option = DEX ] || [ $Option = d ] || [ $Option = D ]
-	# then
-	# 	echo "dex chosen"
-	# 	Function_Run_Framework_And_Output_Jimple $file $Option $Folder
-	# 	if [ $file == "TestClassAdViewAdListener_No_Listener_Call" ]
-	# 	then
-	# 		break
-	# 	fi
 	elif [ $Option = apk ]
 		then
 		Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
@@ -329,7 +395,6 @@ do
 		echo "No such option"
 	fi
 done
-
 cd ../
 current_dir=$(pwd)
 # echo Current directory is: $current_dir
@@ -338,16 +403,23 @@ echo Copied Files from sootOutput folder!!!
 
 
 cd Java/APK_Files_Signed_And_Injected_Logs
+# for File in $(ls *.apk); do
+# 	file_name_only=$(echo $File | sed 's/signed//' | cut -d. -f1)
+# 	if [[ "$file_name_only" != *"signed"* ]]; then
+# 		zipalign -fv 4 $File signed$File
+# 		apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$File
+# 	fi
+# done
 
 for File in $(ls signed*.apk); do
 	echo File in APK_Files_Signed: $File
-	file_name_only=$(echo $File | sed 's/signed//')
+	file_name_only=$(echo $File | sed 's/signed//' | cut -d. -f1)
 	mv $File $file_name_only
-	# mkdir ../Java/APK_Files_Signed_And_Injected_Logs/$File_Name_Only
-	# cp signed*.apk ../../APK_Files_Signed_And_Injected_Logs/$File_Name_Only
+	mkdir $File_Name_Only
+	cp $file_name_only*.apk $file_name_only/$file_name_only.apk
 done
 
-# cd $current_dir
+cd $current_dir
 
 for file in $(find Data/Logs/*.txt -type f -size -5 ); do
 			rm $file
@@ -355,7 +427,18 @@ done
 
 echo Current directory is now: $current_dir
 
+cd Java/APK_Files_Signed_And_Injected_Logs
+for File in $(ls *.apk); do
+	file_name_only=$(echo $File | sed 's/signed//' | cut -d. -f1)
+	if [[ "$file_name_only" != *"signed"* ]]; then
+		zipalign -fv 4 $File signed$File
+		apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$File
+	fi
+done
 Function_Test_APK_Files
+pkill adb
+# 
+# 
 # cd ../Python
 # python3 ../Python/Generate_Model_From_Logs.py
 ##################END OF UNCOMMENT###############################
