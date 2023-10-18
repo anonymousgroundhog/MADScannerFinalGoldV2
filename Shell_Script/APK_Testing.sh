@@ -12,6 +12,7 @@ Get_Device_Name() {
 	echo $output
 }
 
+clear
 Function_Get_MainActivity_And_Return_Data BannerRecyclerViewExample BannerRecyclerViewExample
 
 echo $main_package
