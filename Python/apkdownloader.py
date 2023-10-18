@@ -1,4 +1,4 @@
-import multiprocessing, time, requests, hashlib
+import multiprocessing, time, requests, hashlib, glob
 import urllib3, os, re, webbrowser, shutil, time, graphviz, subprocess, json, pandas as pd
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
@@ -340,15 +340,21 @@ def Return_App_Packages_That_Were_Installed(app_packages,list_of_apps_installed)
     unique_packages = [x for x in app_packages if x not in list_of_apps_installed]
     return unique_packages
 
-def Download_APK_To_File_System(package):
+def Download_APK_To_File_System(package, pwd):
+    print("Current Dir:"+ str(os.getcwd()))
     output=os.popen(' '.join(['adb shell pm path',package])).read()
     output = str(output).replace("package:","").split("\n")
     path_to_download_to=''.join(['../APK/Google_Play_Apps/',package,'/'])
-    if not os.path.exists(path_to_download_to):
+    if not os.path.exists(path_to_download_to) and os.getcwd().__contains__(pwd):
         os.mkdir(path_to_download_to)
+    
     for path in output:
         print(path)
-        os.popen(' '.join(['adb pull',path,path_to_download_to]))
+        if os.path.exists(path_to_download_to):
+            print("Path Exists for: " + path_to_download_to)
+            os.popen(' '.join(['adb pull',path,path_to_download_to]))
+        else:
+            print("No path for: " + path_to_download_to)
     
 def Get_Apps_Phase():
     pwd = os.getcwd()
@@ -360,7 +366,7 @@ def Get_Apps_Phase():
     print(unique_packages)
     for package in unique_packages:
         if not package.__contains__("appium") and not package.__contains__("airdroid"):
-            Download_APK_To_File_System(package)
+            Download_APK_To_File_System(package, pwd)
             time.sleep(1)
             # package=package.replace(".","_")
             time.sleep(2)
@@ -375,22 +381,45 @@ def Get_Apps_Phase():
             # if os.path.isfile('base.apk'):
             
             for file in os.listdir(os.getcwd()):
-                print("File:"+file)
-                cmd = ' '.join(["zipalign -fv 4", file, "signed"+file])
-                os.popen(cmd)
-                print("aligning!!!")
-                cmd = ' '.join(["apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password ", "signed"+file])
-                os.popen(cmd)
-                print("signing!!!")
-                file_to_copy="".join([package,".apk"])
-                destination="".join(["../",file_to_copy])
-                shutil.copyfile(file_to_copy, destination)
-    os.chdir(pwd)
-    # print(pwd)
+                if not file.__contains__("signed") and not file.__contains__("idsig"):
+                    print("File:"+file)
+                    cmd = ' '.join(["zipalign -fv 4", file, "signed"+file])
+                    os.popen(cmd)
+                    print("aligning!!!")
+                    cmd = ' '.join(["apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password ", "signed"+file])
+                    os.popen(cmd)
+                    print("signing!!!")
+                    file_to_copy="".join([package,".apk"])
+                    destination="".join(["../",file_to_copy])
+                    shutil.copyfile(file_to_copy, destination)
+            # cmd = ''.join(['rm ,'.idsig'])
+        print("PWD TEST:"+os.getcwd())
+        # os.system("rm *.idsig")
+        args = ('rm', '-rf', '*.idsig')
+        subprocess.call('%s %s %s' % args, shell=True)
+        os.chdir(pwd)
+    # print("PWD TEST2:" +pwd + "\npath_to_download_to:"+path_to_download_to)
+    print("COMPLETED")
     
+def Cleanup_Folders():
+    print("\n\nHello\n\n")
+    pwd = os.getcwd()
+    os.chdir('../APK/Google_Play_Apps/')
+    # List all files and folders in the directory
+    all_items = os.listdir(os.getcwd())
+    # Filter out only folders
+    folders = [item for item in all_items if os.path.isdir(os.path.join(os.getcwd(), item))]
+    print(folders)
+    for folder in folders:
+        path=''.join([os.getcwd(), '/', folder])
+        # cmd = ''.join(['rm ', path, '/*.idsig'])
+        # os.popen(cmd)
+        for f in glob.glob(path+"*.idsig"):
+            os.remove(f)
 
 clear_screen()
 Get_Apps_Phase()
+# Cleanup_Folders()
 # Part1()
 # Part2()
 # Part3()

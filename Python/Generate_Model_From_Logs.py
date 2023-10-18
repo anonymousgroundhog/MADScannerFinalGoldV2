@@ -11,6 +11,7 @@ def Open_File_And_Generate_Dataframe(this_path):
 
     with open(this_path) as file:
         lines = [line.rstrip() for line in file]
+        print("\n\nLines are: "+str(lines))
         del lines[0]
         del lines[0]
     for item in lines:
@@ -99,6 +100,9 @@ def Open_File_And_Generate_Dataframe(this_path):
             print(state_machine.digraph)
             state_machine.save_as_pdf(this_path.replace(".txt","").split("/").pop()+"_"+app_name+"_"+str(graph))
 
-for file in os.listdir("../Data/Logs2"):
-    path="".join(["../Data/Logs2/",file])
-    Open_File_And_Generate_Dataframe(path)
+for file in os.listdir("../Data/Logs"):
+    path="".join(["../Data/Logs/",file])
+    if os.path.getsize(path) != 0:
+        Open_File_And_Generate_Dataframe(path)
+    else:
+        print("Empty File!!!")
