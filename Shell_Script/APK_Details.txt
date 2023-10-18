@@ -1,2 +1,2 @@
-Main_Activity: com.google.android.gms.example.bannerexample.MyActivity
-Main_Class: com.google.android.gms.example.bannerexample
+Main_Activity: authorization.ui.AuthorizationActivity
+Main_Class: com.enflick.android.TextNow
