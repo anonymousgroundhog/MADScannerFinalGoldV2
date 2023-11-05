@@ -75,10 +75,10 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 
 		#clear
 		rm *.idsig
-		adb logcat -c
+		# adb logcat -c
 		pwd
-		datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
-		nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
+		# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
+		# nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
 
 		echo "File is currently " $1
 		cd ../../../
@@ -89,7 +89,7 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 				cp $file .
 			done
 		fi
-		pkill adb
+		# pkill adb
 	fi
 	# rm nohup.out
 	cd $current_dir
@@ -236,7 +236,7 @@ do
 	fi
 
 	Option=$1
-	adb logcat -c
+	# adb logcat -c
 	echo File is: $(echo $file)
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
 	$Option = apk

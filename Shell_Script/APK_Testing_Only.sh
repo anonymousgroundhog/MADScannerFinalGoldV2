@@ -176,15 +176,39 @@ clear
 
 cd ../Java/APK_Files_Signed_And_Injected_Logs/
 pwd
+mkdir Signed
+
+cp *.apk Signed
+cd Signed
 for file in $(ls .); do
-	if [[ $file == *"signed"* ]]; then
-		file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//')
-		echo Moving $file $file_name_only
-		mv $file $file_name_only.apk
-		zipalign -fv 4 $file signed$file
-		apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$file
-	fi
+	file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//'| sed 's/signedsigned//')
+	mv $file $file_name_only.apk
 done
+
+for file in $(ls .); do
+	# if [[ $file == *"signed"* ]]; then
+		file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//' | sed 's/signedsigned//')
+		echo Moving $file $file_name_only
+		# mv $file $file_name_only.apk
+		zipalign -fv 4 $file signed$file
+		apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password signed$file
+	# fi
+done
+rm *.idsig
+rm *.idsig.apk
+
+for file in $(ls .); do
+	file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//'| sed 's/signedsigned//')
+	mv $file $file_name_only.apk
+done
+cd ../
+rm *.apk
+cp Signed/* .
+
+# rm *.idsig.apk
+
+# rm *signed*.apk
+
 
 # for file in $(ls .); do
 # 	printf "\n\t File is $file\n"
