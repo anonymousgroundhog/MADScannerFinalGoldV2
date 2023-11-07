@@ -175,57 +175,28 @@ clear
 
 
 cd ../Java/APK_Files_Signed_And_Injected_Logs/
+rm -rf *
 pwd
-mkdir Signed
 
-cp *.apk Signed
-cd Signed
+cp ../Classes/sootOutput/signed*.apk .
+adb logcat -c
 for file in $(ls .); do
 	file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//'| sed 's/signedsigned//')
-	mv $file $file_name_only.apk
+	# mv $file $file_name_only.apk
+	mkdir $file_name_only
+	cp signed$file_name_only.apk $file_name_only
+
+	if [ -d ../../APK/Google_Play_Apps/$file_name_only ] && [ $(ls -l ../../APK/Google_Play_Apps/$file_name_only| wc -l) > 1 ]; then
+		find "../../APK/Google_Play_Apps/$file_name_only" -type f ! -name "$file_name_only.apk" ! -name "signed$file_name_only.apk" ! -name "*.idsig" -exec cp {} ./$file_name_only/ \; 
+	fi
 done
 
-for file in $(ls .); do
-	# if [[ $file == *"signed"* ]]; then
-		file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//' | sed 's/signedsigned//')
-		echo Moving $file $file_name_only
-		# mv $file $file_name_only.apk
-		zipalign -fv 4 $file signed$file
-		apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password signed$file
-	# fi
+adb logcat -c
+
+for directory in $(ls -d */); do
+	cd $directory
+	ls .
+	adb install-multiple $(ls signed*.apk)
+	cd ../
 done
-rm *.idsig
-rm *.idsig.apk
 
-for file in $(ls .); do
-	file_name_only=$(echo $file | sed 's/signed//' | sed 's/.apk//'| sed 's/signedsigned//')
-	mv $file $file_name_only.apk
-done
-cd ../
-rm *.apk
-cp Signed/* .
-
-# rm *.idsig.apk
-
-# rm *signed*.apk
-
-
-# for file in $(ls .); do
-# 	printf "\n\t File is $file\n"
-# 	zipalign -fv 4 $file signed$file
-# 	apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password signed$file
-# done
-
-# for file in $(ls .); do
-# 	if [[ $file != *"signed"* ]]; then
-# 		rm $file
-# 	fi
-# done
-
-# for file in $(ls .); do
-# 	if [[ $file != *"signedsigned"* ]]; then
-# 		file_name_only=$(echo $file | sed 's/signedsigned//' | sed 's/.apk//')
-# 		mv $file $file_name_only.apk
-# 	fi
-# done
-# rm *.idsig

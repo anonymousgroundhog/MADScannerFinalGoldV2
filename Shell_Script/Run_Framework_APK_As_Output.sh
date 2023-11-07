@@ -69,29 +69,26 @@ Function_Run_Framework_And_Zip_And_Sign_APK() {
 	apk_name=$(ls | grep *.apk | sed 's/\<apk\>//g' | sed 's/\.//g')
 
 	[ -f $File ] && zipalign -fv 4 $File $SignedFile
-	echo PWD: $(pwd)
-	if [ -f $SignedFile ]; then
-		apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
-
-		#clear
-		rm *.idsig
-		# adb logcat -c
-		pwd
+	[ -f $SignedFile ] && apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+	rm *.idsig
+	# echo PWD: $(pwd)
+	# if [ -f $SignedFile ]; then
+	# 	apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password $SignedFile
+	# 	rm *.idsig
+	# 	pwd
 		# datetime=$(echo $(date "+%D-%T") | sed -r 's/[/]+/_/g')
 		# nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
 
-		echo "File is currently " $1
-		cd ../../../
-		pwd
-		if [ -d APK/APK_Testing/$1 ]; then
-			for file in $(ls  APK/APK_Testing/$1/signed*.apk | grep -v signed$1.apk)
-			do
-				cp $file .
-			done
-		fi
-		# pkill adb
-	fi
-	# rm nohup.out
+		# echo "File is currently " $1
+		# cd ../../../
+		# pwd
+		# if [ -d APK/APK_Testing/$1 ]; then
+		# 	for file in $(ls  APK/APK_Testing/$1/signed*.apk | grep -v signed$1.apk)
+		# 	do
+		# 		cp $file .
+		# 	done
+		# fi
+	# fi
 	cd $current_dir
 
 }
@@ -239,46 +236,46 @@ do
 	# adb logcat -c
 	echo File is: $(echo $file)
 	Function_Get_MainActivity_And_Write_To_File $file $Folder
-	$Option = apk
+	$Option=apk
 	Function_Run_Framework_And_Zip_And_Sign_APK $file $Option $Folder
 done
 
-cd ../
-current_dir=$(pwd)
-cp Java/Classes/sootOutput/signed*.apk Java/APK_Files_Signed_And_Injected_Logs
-printf "\n\tCopied Files from sootOutput folder!!!\n" 
+# cd ../
+# current_dir=$(pwd)
+# cp Java/Classes/sootOutput/signed*.apk Java/APK_Files_Signed_And_Injected_Logs
+# printf "\n\tCopied Files from sootOutput folder!!!\n" 
 
 
-cd Java/APK_Files_Signed_And_Injected_Logs
-echo "DIR TEST: $(pwd)"
-rm *.idsig
-for File in $(ls signed*.apk); do
-	echo File in APK_Files_Signed: $File
-	file_name_only=$(echo $File | sed 's/signed//' | sed 's/.apk//')
-	if [[ $file_name_only != *"signed"* ]];
-	then
-		printf "\n\n\tFile Name only is: $file_name_only\n\n"
-		mv $File $file_name_only.apk
-		mkdir -p ../../APK/APK_Testing/$file_name_only
-		cp $file_name_only.apk ../../APK/APK_Testing/$file_name_only/$file_name_only.apk
-		if [[ -d ../../APK/Google_Play_Apps/$file_name_only && $(ls ../../APK/Google_Play_Apps/$file_name_only | wc -l) -gt 1 ]]; then
-			echo "FOUND DIR: $file_name_only!!!"
-			ls -1 ../../APK/Google_Play_Apps/$file_name_only/signed*.apk | grep -v '^'$file_name_only'.apk$' | grep -v '^signed'$file_name_only'.apk$' | xargs -I {} cp {} ../../APK/APK_Testing/$file_name_only
-			rm ../../APK/APK_Testing/$file_name_only/signed$file_name_only.apk
-		fi
-	fi
-done
+# cd Java/APK_Files_Signed_And_Injected_Logs
+# echo "DIR TEST: $(pwd)"
+# rm *.idsig
+# for File in $(ls signed*.apk); do
+# 	echo File in APK_Files_Signed: $File
+# 	file_name_only=$(echo $File | sed 's/signed//' | sed 's/.apk//')
+# 	if [[ $file_name_only != *"signed"* ]];
+# 	then
+# 		printf "\n\n\tFile Name only is: $file_name_only\n\n"
+# 		mv $File $file_name_only.apk
+# 		mkdir -p ../../APK/APK_Testing/$file_name_only
+# 		cp $file_name_only.apk ../../APK/APK_Testing/$file_name_only/$file_name_only.apk
+# 		if [[ -d ../../APK/Google_Play_Apps/$file_name_only && $(ls ../../APK/Google_Play_Apps/$file_name_only | wc -l) -gt 1 ]]; then
+# 			echo "FOUND DIR: $file_name_only!!!"
+# 			ls -1 ../../APK/Google_Play_Apps/$file_name_only/signed*.apk | grep -v '^'$file_name_only'.apk$' | grep -v '^signed'$file_name_only'.apk$' | xargs -I {} cp {} ../../APK/APK_Testing/$file_name_only
+# 			rm ../../APK/APK_Testing/$file_name_only/signed$file_name_only.apk
+# 		fi
+# 	fi
+# done
 
-cd ../../APK/APK_Testing/
-for dir in $(ls -d */); do
-		printf "\n\t Directory is $dir\n"
-	for file in $(ls $dir); do
-		printf "\n\t File is $file\n"
-		if [[ $file != *"signed"* ]]; then
-			zipalign -fv 4 $dir/$file $dir/signed$file
-			apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password $dir/signed$file
-		fi
-	done
-	rm $dir/*.idsig
-	rm $dir/$file
-done
+# cd ../../APK/APK_Testing/
+# for dir in $(ls -d */); do
+# 		printf "\n\t Directory is $dir\n"
+# 	for file in $(ls $dir); do
+# 		printf "\n\t File is $file\n"
+# 		if [[ $file != *"signed"* ]]; then
+# 			zipalign -fv 4 $dir/$file $dir/signed$file
+# 			apksigner sign --ks ../../my-release-key.keystore --ks-pass pass:password $dir/signed$file
+# 		fi
+# 	done
+# 	rm $dir/*.idsig
+# 	rm $dir/$file
+# done
