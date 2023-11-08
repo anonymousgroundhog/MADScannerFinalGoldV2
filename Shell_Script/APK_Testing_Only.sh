@@ -192,11 +192,17 @@ for file in $(ls .); do
 done
 
 adb logcat -c
-
 for directory in $(ls -d */); do
 	cd $directory
-	ls .
-	adb install-multiple $(ls signed*.apk)
+	file_name_only=$(echo signed$directory.apk | sed "s/\///1")
+	echo File: $file_name_only
+	device_name=$(Get_Device_Name)
+	package=$(Get_App_Package $file_name_only)
+	activity=$(Get_App_activity $file_name_only)
+	echo Package: $package Activity: $activity
+	
+	# adb install-multiple $(ls signed*.apk)
 	cd ../
+	# Uninstall_App $package
 done
 
