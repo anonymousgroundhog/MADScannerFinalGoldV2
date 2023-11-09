@@ -1,4 +1,6 @@
-import os, pandas as pd, sys, subprocess, shutil
+import os, time, pandas as pd, sys, subprocess, shutil
+
+from datetime import datetime
 
 # Android environment
 from appium import webdriver
@@ -19,10 +21,25 @@ def click_on_button_by_class_permission(driver, id):
                     print(''.join(["elem doesn't exist:",str(id)]))
                     continue
 
+def click_on_screen_by_cordinates(driver, x, y, duration, pause_time):
+	time.sleep(pause_time)
+	try:
+		TouchAction(driver).tap(None, x, y, duration).perform()
+	except:
+		print(''.join(['FAILED TRYING TO TOUCH POSITION: (', str(x), ' ', str(y), ')']))
+
+os.system("clear")
+os.system('adb logcat -c')
+# nohup adb logcat FiniteState:V *:S > ../../../Data/Logs/$datetime.txt &
+now = datetime.now()
+d4 = now.strftime("%m-%d-%Y_%H:%M:%S")
+cmd=''.join(['nohup adb logcat FiniteState:V *:S > ../Data/Logs/',str(d4),'.txt &'])
+print(cmd)
+os.system(cmd)
+
 
 phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
 phone_name=str(phone_name.stdout.decode('utf-8')).replace("\n","").replace("List of devices attached","").replace("device","")
-print("Phone:" + phone_name)
 os.chdir("../Java/APK_Files_Signed_And_Injected_Logs")
 
 
@@ -80,9 +97,28 @@ for this_dir in directories:
             "appActivity": main_activity,
             "adbExecTimeout": 30000
 	}
+	
 	driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
 	source_xml = driver.page_source
-	# print(source_xml)
 	time.sleep(2)
 	click_on_button_by_class_permission(driver,"android.widget.Button")
+	source_xml = driver.page_source
+	click_on_button_by_class_permission(driver,"android.widget.Button")
+	app_activity = driver.current_activity
+	print("Current activity is: "+str(app_activity))
+
+	click_on_screen_by_cordinates(driver,366, 82.9, 2, 3)
+	click_on_screen_by_cordinates(driver,384, 238.5, 2, 3)
+	this_activity = driver.current_activity
+	print("Activity is now:", str(this_activity))
+	if this_activity != app_activity:
+		click_on_screen_by_cordinates(driver, 582, 110, 2, 3)
+		click_on_screen_by_cordinates(driver, 719, 127, 2, 2)
+		click_on_screen_by_cordinates(driver, 363, 304, 2, 2)
+		click_on_screen_by_cordinates(driver, 547, 809, 2, 2)
+	cmd = ' '.join(['adb uninstall', package_name])
+	os.system(cmd)
+
 	os.chdir('../')
+
+os.system('pkill adb')
