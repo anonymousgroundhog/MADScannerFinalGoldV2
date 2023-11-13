@@ -219,7 +219,7 @@ fi
 Folder=Testing
 # clear
 echo Current directory is: $(pwd)
-
+Option=apk
 for file in $(ls ../APK/$Folder/*.apk)
 do
 	
