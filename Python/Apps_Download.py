@@ -18,6 +18,12 @@ class Apps_Download:
     def See_Installed_Apps(self):
         print("Apps Installed are:",self.list_of_apps_installed)
     
+    def Print_List_Installed_App_Packages(self):
+        output=os.popen('adb shell pm list packages').read()
+        output = str(output).replace("package:","").split("\n")
+        output.pop()
+        # output = output[1].replace("package:", "")
+        print(output)
     def List_Installed_App_Packages(self):
         output=os.popen('adb shell pm list packages').read()
         output = str(output).replace("package:","").split("\n")
