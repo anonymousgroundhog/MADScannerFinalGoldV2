@@ -73,7 +73,8 @@ def Function_Run_Framework_And_Zip_And_Sign_APK(file, folder, option):
 	# hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 	print(calculate_sha256(APKPath))
 	hash_value = calculate_sha256(APKPath)
-	cmd=' '.join(['java -Xmx2g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, '-android-api-version 33'])
+	android_api_version= ''.join(['-android-api-version ', str(sdkbuild_version)])
+	cmd=' '.join(['java -Xmx2g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
 	os.system(cmd)
 	os.chdir('sootOutput')
 	path_to_check=os.path.join(os.getcwd(), file)
@@ -127,19 +128,33 @@ cwd=os.getcwd()
 
 # Compile_Framework_Code()
 
-# Pre_Cleanup()
-# Test_Folder="Testing"
-# option="apk"
-# os.chdir('../Java')
-# for file in os.listdir(''.join(['../APK/',Test_Folder])):
-# 	print("File:",file)
-# 	Function_Get_MainActivity_And_Write_To_File(file, Test_Folder)
-# 	Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option)
+Pre_Cleanup()
+Test_Folder="Testing"
+option="apk"
+os.chdir('../Java')
+Error_Occured = True
+for file in os.listdir(''.join(['../APK/',Test_Folder])):
+	print("File:",file)
+	try:
+		Function_Get_MainActivity_And_Write_To_File(file, Test_Folder)
+		Error_Occured = False
+	except:
+		print("Unable to get details for:", file)
+		print(traceback.format_exc())
+		continue
+	try:
+		Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option)
+		Error_Occured = False
+	except:
+		print("Unable to Run framework for:", file)
+		print(traceback.format_exc())
+		continue
 
 os.chdir(cwd)
 instrument_apps = Instrument_Apps.Instrument_Apps()
 instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-instrument_apps.Start_Instrumenting_Folder()
+if not Error_Occured:
+	instrument_apps.Start_Instrumenting_Folder()
 # Get_Test_Instrumentation_Folder_Setup()
 # Start_Instrumenting_Folder()
 # os.chdir(cwd)

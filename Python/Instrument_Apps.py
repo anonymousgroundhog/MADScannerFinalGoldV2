@@ -110,28 +110,31 @@ class Instrument_Apps:
 			except:
 				print("Error setting desired_capabilities for: ", this_dir)
 				continue
+			try:	
+				if not Error_Occured:
+					print("Packcage:"+str(self.package_name) + " Activity:" +str(self.main_activity))
+					source_xml = self.driver.page_source
+					time.sleep(2)
+					self.click_on_button_by_class_permission("android.widget.Button")
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.Button")
+					app_activity = self.driver.current_activity
+					print("Current activity is: "+str(app_activity))
 
-			if not Error_Occured:
-				print("Packcage:"+str(self.package_name) + " Activity:" +str(self.main_activity))
-				source_xml = self.driver.page_source
-				time.sleep(2)
-				self.click_on_button_by_class_permission("android.widget.Button")
-				source_xml = self.driver.page_source
-				self.click_on_button_by_class_permission("android.widget.Button")
-				app_activity = self.driver.current_activity
-				print("Current activity is: "+str(app_activity))
-
-				self.click_on_screen_by_cordinates(366, 82.9, 2, 3)
-				self.click_on_screen_by_cordinates(384, 238.5, 2, 3)
-				this_activity = self.driver.current_activity
-				print("Activity is now:", str(this_activity))
-				if this_activity != app_activity:
-					self.click_on_screen_by_cordinates(582, 110, 2, 3)
-					self.click_on_screen_by_cordinates(719, 127, 2, 2)
-					self.click_on_screen_by_cordinates(363, 304, 2, 2)
-					self.click_on_screen_by_cordinates(547, 809, 2, 2)
-				cmd = ' '.join(['adb uninstall', self.package_name])
-				os.system(cmd)
+					self.click_on_screen_by_cordinates(366, 82.9, 2, 3)
+					self.click_on_screen_by_cordinates(384, 238.5, 2, 3)
+					this_activity = self.driver.current_activity
+					print("Activity is now:", str(this_activity))
+					if this_activity != app_activity:
+						self.click_on_screen_by_cordinates(582, 110, 2, 3)
+						self.click_on_screen_by_cordinates(719, 127, 2, 2)
+						self.click_on_screen_by_cordinates(363, 304, 2, 2)
+						self.click_on_screen_by_cordinates(547, 809, 2, 2)
+					cmd = ' '.join(['adb uninstall', self.package_name])
+					os.system(cmd)
+			except:
+				print("Error performing actions for: ", this_dir)
+				continue
 			os.system('pkill adb')
 			os.chdir('../')
 			# if os.path.isfile(this_dir):
