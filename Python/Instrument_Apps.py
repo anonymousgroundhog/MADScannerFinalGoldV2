@@ -142,7 +142,7 @@ class Instrument_Apps:
 				# 	continue	
 
 
-os.system('clear')
-instrument_apps = Instrument_Apps()
-instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-instrument_apps.Start_Instrumenting_Folder()
+# os.system('clear')
+# instrument_apps = Instrument_Apps()
+# instrument_apps.Get_Test_Instrumentation_Folder_Setup()
+# instrument_apps.Start_Instrumenting_Folder()
