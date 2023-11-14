@@ -223,7 +223,8 @@ def Cleanup_Folders_After_Download():
 
 
 os.system('clear')
-Download_And_Return_Info_On_Apps()
+cwd=os.getcwd()
+# Download_And_Return_Info_On_Apps()
 # Cleanup_Folders_After_Download()
 
 # Compile_Framework_Code()
@@ -237,7 +238,7 @@ Download_And_Return_Info_On_Apps()
 # 	Function_Get_MainActivity_And_Write_To_File(file, Test_Folder)
 # 	Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option)
 
-# os.chdir(cwd)
-# Get_Test_Instrumentation_Folder_Setup()
-# Start_Instrumenting_Folder()
+os.chdir(cwd)
+Get_Test_Instrumentation_Folder_Setup()
+Start_Instrumenting_Folder()
 # os.chdir(cwd)
