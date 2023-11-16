@@ -4,6 +4,7 @@ class Apps_Download:
     
     def __init__(self):
         self.list_of_apps_installed = [];
+        self.unique_apps = [];
     
     def create_directory_if_not_exists(self, directory_path):
         if not os.path.exists(directory_path):
@@ -55,6 +56,7 @@ class Apps_Download:
         pwd = os.getcwd()
         app_packages = self.List_Installed_App_Packages()
         unique_packages = self.Return_App_Packages_That_Were_Installed(app_packages,self.list_of_apps_installed)
+        self.unique_apps = unique_packages
         print(unique_packages)
         for package in unique_packages:
             if not package.__contains__("appium") and not package.__contains__("airdroid"):

@@ -34,11 +34,11 @@ class Copy_Files_For_Testing:
 				print(apk_path_check_2)
 				shutil.copyfile(apk_path_check_2,apk_path_check_2.split('/').pop(), follow_symlinks=True)
 
-copy_files_for_testing = Copy_Files_For_Testing()
-copy_files_for_testing.Change_Dir(copy_files_for_testing.copy_to_folder_path)
-# print(os.getcwd())
-copy_files_for_testing.Set_Copy_From_Path("Google_Play_Apps")
+# copy_files_for_testing = Copy_Files_For_Testing()
+# copy_files_for_testing.Change_Dir(copy_files_for_testing.copy_to_folder_path)
+# # print(os.getcwd())
+# copy_files_for_testing.Set_Copy_From_Path("Google_Play_Apps")
 
-copy_files_for_testing.Set_Packages_List(['com.inforcegames.app3dmodelling'])
-copy_files_for_testing.Cleanup_Folder_Testing()
-copy_files_for_testing.Copy_Files_For_Testing()
+# copy_files_for_testing.Set_Packages_List(["jp.ne.ibis.ibispaintx.app", "com.brakefield.painter", "com.naver.linewebtoon", "org.readera", "com.aige.hipaint", "com.hubx.imagination", "com.genius.gifMaster.gp"])
+# copy_files_for_testing.Cleanup_Folder_Testing()
+# copy_files_for_testing.Copy_Files_For_Testing()

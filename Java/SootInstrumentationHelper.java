@@ -308,6 +308,7 @@ public class SootInstrumentationHelper
             public_variable_soot_class = new SootClass(public_variable_string_class_to_inject);
             public_variable_soot_class.setSuperclass(Scene.v().getSootClass("java.lang.Object"));
             Scene.v().addClass(public_variable_soot_class);
+            // Scene.v().addBasicClass(public_variable_soot_class.getName(), SootClass.SIGNATURES);
             public_variable_soot_class.setApplicationClass();
             
             this_soot_method = new SootMethod("<init>", Arrays.asList(), VoidType.v(), Modifier.PUBLIC);
@@ -344,6 +345,7 @@ public class SootInstrumentationHelper
 
             public_variable_soot_class.setSuperclass(Scene.v().getSootClass("com.google.android.gms.ads.AdListener"));
             Scene.v().addClass(public_variable_soot_class);
+            // Scene.v().addBasicClass(public_variable_soot_class.getName(), SootClass.SIGNATURES);
             public_variable_soot_class.setApplicationClass();
             //CREATE FIELD: final com.google.android.gms.example.bannerexample.MyActivity this$0;
             SootField this_field_this = this_soot_util.AddFinalFieldToSootClass(public_variable_soot_class
@@ -642,6 +644,7 @@ public class SootInstrumentationHelper
                             AssignStmt IdentityStmtNew = Jimple.v().newAssignStmt(local_this_class, Jimple.v().newNewExpr(RefType.v(public_variable_string_class_to_inject)));
                             this_units.insertAfter(IdentityStmtNew, unit_to_inject_after);
                             SootClass class_to_inject = Scene.v().getSootClass(public_variable_string_class_to_inject);
+                            // Scene.v().addBasicClass(class_to_inject.getName(), SootClass.SIGNATURES); //ADDED FOR TESTING PURPOSES
                             SootMethodRef this_ref = class_to_inject.getMethod("void <init>()").makeRef();
                             SpecialInvokeExpr special_this_invoke_expression_to_inject = Jimple.v().newSpecialInvokeExpr(local_this_class, this_ref);
                             Unit u1= Jimple.v().newInvokeStmt(special_this_invoke_expression_to_inject);

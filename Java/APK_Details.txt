@@ -1,2 +1,2 @@
-Main_Activity: com.unity3d.player.UnityPlayerActivity
-Main_Class: com.inforcegames.app3dmodelling
+Main_Activity: authorization.ui.AuthorizationActivity
+Main_Class: com.enflick.android.TextNow
