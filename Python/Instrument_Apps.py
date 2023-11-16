@@ -53,15 +53,19 @@ class Instrument_Apps:
 		self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
 
 	def click_on_button_by_class_permission(self, id):
+		# elements = self.driver.find_elements(By.CLASS_NAME, id)
+		time.sleep(2)
 		for elem in self.driver.find_elements(By.CLASS_NAME, id):
+			# if elements == self.driver.find_elements(By.CLASS_NAME, id):
 			element_text = elem.text.lower()
 
 			print("Testing:",element_text.split(" "))
 			# HANDLE CASE FOR ALLOWING
-			if element_text.__contains__('allow'):
+			if element_text.__contains__('allow') or element_text.__contains__('accept'):
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
+					break
 				except:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
@@ -71,6 +75,7 @@ class Instrument_Apps:
 					cprint(element_text, 'yellow')
 					elem.click()
 					self.clicked_checkbox = True
+					break
 				except:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
@@ -79,6 +84,7 @@ class Instrument_Apps:
 			    try:
 			        cprint(element_text, 'yellow')
 			        elem.click()
+			        break
 			    except:
 			        cprint(''.join(["elem doesn't exist:",str(id)]), 'red')
 			        continue
@@ -167,6 +173,7 @@ class Instrument_Apps:
 				self.click_on_button_by_class_permission("android.widget.Button")
 				source_xml = self.driver.page_source
 				self.click_on_button_by_class_permission("android.widget.TextView")
+				source_xml = self.driver.page_source
 
 				app_activity = self.driver.current_activity
 				print("Current activity is: ",str(app_activity))
