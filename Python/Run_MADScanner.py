@@ -165,11 +165,11 @@ for file in os.listdir(''.join(['../APK/',Test_Folder])):
 
 
 # TESTING THE APP
-os.chdir(cwd)
-instrument_apps = Instrument_Apps.Instrument_Apps()
-instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-instrument_apps.Start_Logcat()
-instrument_apps.Start_Instrumenting_Folder()
-instrument_apps.Stop_Logcat()
+# os.chdir(cwd)
+# instrument_apps = Instrument_Apps.Instrument_Apps()
+# instrument_apps.Get_Test_Instrumentation_Folder_Setup()
+# instrument_apps.Start_Logcat()
+# instrument_apps.Start_Instrumenting_Folder()
+# instrument_apps.Stop_Logcat()
 
 # os.chdir(cwd)

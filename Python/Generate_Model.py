@@ -4,6 +4,7 @@ from termcolor import colored, cprint
 class Generate_Model:
 
 	def __init__(self):
+		self.fsm_path = '../Data/FSM_Models';
 		self.log_details_path = '../Data/Logs';
 		self.full_file_paths_logs = []
 		self.app_name_list = []
@@ -70,6 +71,8 @@ class Generate_Model:
 		print(self.unique_apps)
 
 	def Generate_Transitions(self):
+		cwd = os.getcwd()
+		helper = Helper.Helper()
 		for app_name in self.unique_apps:
 			cprint("\nApp Name:" + app_name, 'green')
 			rslt_df = self.filtered_df[self.filtered_df['App_Name'] == app_name]
@@ -113,6 +116,30 @@ class Generate_Model:
 
 			# Set states and add new graph for each
 			print("Unique graph numbers:",transitions['Graph'].unique())
+			# os.chdir(self.fsm_path)
+			for graph in transitions['Graph'].unique():
+				print("Graph: ", graph)
+				state_machine = StateMachine.StateMachine()
+				state_machine.add_title("App Testing"+str(graph))
+				state_machine.add_states()
+				rslt_df = transitions[transitions['Graph'] == graph]
+				this_transitions=list(helper.sliding_window_iter(rslt_df['App_Method'], 2))
+				this_advertisement_id=list(helper.sliding_window_iter(rslt_df['App_Ad_ID'], 2))
+				print(rslt_df)
+				print(this_transitions)
+				print(this_advertisement_id)
+				for trans in this_transitions:
+					print(trans[0], " ",trans[1])
+					trans_determ = state_machine.determine_transition(trans)
+					if(trans_determ != None):
+						print("Trans:"+str(trans_determ))
+						state_machine.add_dot_edge(trans_determ[0], trans_determ[1], trans_determ[2])
+				print(state_machine.digraph)
+			print(os.getcwd())
+
+			state_machine.save_as_pdf(app_name+"_"+str(graph))
+			os.chdir(cwd)
+		os.chdir(cwd)
 generate_model = Generate_Model()
 generate_model.Set_File_Paths()
 print(generate_model.full_file_paths_logs)
