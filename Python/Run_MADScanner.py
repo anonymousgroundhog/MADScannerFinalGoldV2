@@ -1,7 +1,8 @@
 import os, subprocess, traceback, hashlib, shutil, time
 import Apps_Download, Get_App_Names, Copy_Files_For_Testing
-# import Instrument_Apps
+import Instrument_Apps
 from datetime import datetime
+from termcolor import colored, cprint
 
 # Android environment
 from appium import webdriver
@@ -62,17 +63,16 @@ def Function_Run_Framework_And_Zip_And_Sign_APK(file, folder, option):
 	os.chdir("Classes")
 	SignedFile=''.join(['signed',file])
 	APKPath=''.join(["../../APK/",folder,'/',file])
-	print("\nAPK path is: ", APKPath)
-	print("Current directory is: ", os.getcwd())
+	cprint(''.join(["\nAPK path is: ", APKPath]), 'green')
+	cprint(''.join(["Current directory is: ", os.getcwd()]),'green')
 	path=''.join(['../../APK/',folder,'/',file])
 	sdkbuild_version=subprocess.run(['aapt', 'dump', 'badging', path], stdout=subprocess.PIPE)
 	sdkbuild_version=sdkbuild_version.stdout.decode('utf-8').split('\n')
 	sdkbuild_version = [item for item in sdkbuild_version if "platformBuildVersionCode=" in item]
 	sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","")
 	# sdkbuild_version=$(aapt dump badging $APKPath | grep compileSdkVersion | cut -d ' ' -f 6 | tr -d "platformBuildVersionCode='")
-	print("sdkBuild Version: ", sdkbuild_version)
+	cprint(''.join(["sdkBuild Version: ", sdkbuild_version]), 'green')
 	# hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
-	print(calculate_sha256(APKPath))
 	hash_value = calculate_sha256(APKPath)
 	android_api_version= ''.join(['-android-api-version ', str(sdkbuild_version)])
 	cmd=' '.join(['java -Xmx20g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
@@ -138,7 +138,6 @@ cwd=os.getcwd()
 # list_packages = Download_And_Return_Info_On_Apps()
 # Cleanup_Folders_After_Download()
 
-# Copy_Files_To_Test(['com.enflick.android.TextNow', 'com.aige.hipaint', 'com.genius.gifMaster.gp', 'com.bf.aistory'])
 Copy_Files_To_Test(['com.enflick.android.TextNow','text.write.font.calligraphy.writer', 'com.aige.hipaint'])
 Compile_Framework_Code()
 
@@ -148,26 +147,29 @@ option="apk"
 os.chdir('../Java')
 Error_Occured = True
 for file in os.listdir(''.join(['../APK/',Test_Folder])):
-	print("File:",file)
+	cprint(''.join(['File:',file]), 'green')
 	try:
 		Function_Get_MainActivity_And_Write_To_File(file, Test_Folder)
 		Error_Occured = False
 	except:
-		print("Unable to get details for:", file)
+		print(''.join(["Unable to get details for:", file]), 'red')
 		print(traceback.format_exc())
 		continue
 	try:
 		Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option)
 		Error_Occured = False
 	except:
-		print("Unable to Run framework for:", file)
+		print(''.join(["Unable to Run framework for:", file]), 'red')
 		print(traceback.format_exc())
 		continue
 
-# os.chdir(cwd)
-# Error_Occured = False
-# instrument_apps = Instrument_Apps.Instrument_Apps()
-# instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-# if not Error_Occured:
-# 	instrument_apps.Start_Instrumenting_Folder()
+
+# TESTING THE APP
+os.chdir(cwd)
+instrument_apps = Instrument_Apps.Instrument_Apps()
+instrument_apps.Get_Test_Instrumentation_Folder_Setup()
+instrument_apps.Start_Logcat()
+instrument_apps.Start_Instrumenting_Folder()
+instrument_apps.Stop_Logcat()
+
 # os.chdir(cwd)

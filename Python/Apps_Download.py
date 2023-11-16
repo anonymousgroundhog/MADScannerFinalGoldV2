@@ -1,4 +1,5 @@
 import os, time, shutil, subprocess
+from termcolor import colored, cprint
 
 class Apps_Download:
     

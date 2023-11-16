@@ -12,21 +12,25 @@ def Open_File_And_Generate_Dataframe(this_path):
     with open(this_path) as file:
         lines = [line.rstrip() for line in file]
         print("\n\nLines are: "+str(lines))
-        if lines[0].__contains__("--------- beginning of"):
+        while lines[0].__contains__("---------") and len(lines) > 1:
             del lines[0]
-        if lines[0].__contains__("--------- beginning of"):
-            del lines[0]
-        if lines[0].__contains__("--------- beginning of"):
-            del lines[0]
+        # if lines[0].__contains__("---------"):
+        #     del lines[0]
+        # if lines[0].__contains__("---------"):
+        #     del lines[0]
+        # if lines[0].__contains__("---------"):
+        #     del lines[0]
     for item in lines:
         content = item.split(":")
         content_to_manipulate=content.pop()
         content_to_manipulate_list = content_to_manipulate.split("---")
-        app_name_list.append(content_to_manipulate_list[0])
-        app_hash_list.append(content_to_manipulate_list[1])
-        app_class_list.append(content_to_manipulate_list[2])
-        app_method_list.append(content_to_manipulate_list[3])
-        app_ad_id_list.append(content_to_manipulate_list[4])
+        print(content_to_manipulate_list) 
+        if len(app_name_list) > 4:  
+            app_name_list.append(content_to_manipulate_list[0])
+            app_hash_list.append(content_to_manipulate_list[1])
+            app_class_list.append(content_to_manipulate_list[2])
+            app_method_list.append(content_to_manipulate_list[3])
+            app_ad_id_list.append(content_to_manipulate_list[4])
 
     data = {
         'App_Name': app_name_list,
