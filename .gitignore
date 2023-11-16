@@ -1,10 +1,9 @@
-APK/APKPure/
+APK/APKPure/*
 *.class
 Java/Classes/sootOutput/*.apk
-Shell_Script/*.swp
+Java/sootOutput/*
 *.swp
 *.jimple
-Java/sootOutput/*
 .Rproj.user
 APK/APK_Testing/*.apk
 APK/Testing/*.apk
