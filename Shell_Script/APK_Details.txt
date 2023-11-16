@@ -1,2 +1,0 @@
-Main_Activity: authorization.ui.AuthorizationActivity
-Main_Class: com.enflick.android.TextNow
