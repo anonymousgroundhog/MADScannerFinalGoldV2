@@ -6,7 +6,7 @@ Shell_Script/*.swp
 *.jimple
 Java/sootOutput/*
 .Rproj.user
-APK/APK_Testing/*
-APK/Testing/*
-APK/Google_Play_Apps/*
-Java/APK_Files_Signed_And_Injected_Logs/*
+APK/APK_Testing/*.apk
+APK/Testing/*.apk
+APK/Google_Play_Apps/*.apk
+Java/APK_Files_Signed_And_Injected_Logs/*.apk
