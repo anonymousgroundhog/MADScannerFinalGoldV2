@@ -39,7 +39,7 @@ class Generate_Model:
 		for this_path in self.full_file_paths_logs:
 			with open(this_path) as file:
 				lines = [line.rstrip() for line in file]
-				while lines[0].__contains__("---------") and len(lines) > 1:
+				while len(lines) > 1 and lines[0].__contains__("---------") and len(lines) > 1:
 					del lines[0]
 				print("\n\nLines are: ",len(lines), ' for ', this_path)
 				if len(lines) > 1:
@@ -139,6 +139,7 @@ class Generate_Model:
 				print(state_machine.digraph)
 			print(os.getcwd())
 
+			print('saved to location: ', os.getcwd())
 			state_machine.save_as_pdf(app_name+"_"+str(graph))
 			os.chdir(cwd)
 		os.chdir(cwd)

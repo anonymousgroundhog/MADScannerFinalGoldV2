@@ -75,13 +75,18 @@ class Apps_Download:
                 for file in os.listdir(os.getcwd()):
                     if not file.__contains__("signed") and not file.__contains__("idsig"):
                         print("File:"+file)
+                        cprint(os.getcwd(), 'red')
                         cmd = ' '.join(["zipalign -fv 4", file, "signed"+file])
                         os.popen(cmd)
                         print("aligning!!!")
                         cmd = ' '.join(["apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password ", "signed"+file])
                         os.popen(cmd)
                         print("signing!!!")
+                        cmd = ' '.join(['cp', file, file.lower()])
+                        os.system(cmd)
+
                         file_to_copy="".join([package,".apk"])
+                        os.rename(file,file_to_copy)
                         destination="".join(["../",file_to_copy])
                         shutil.copyfile(file_to_copy, destination)
 

@@ -29,12 +29,25 @@ class Instrument_Apps:
 		cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
 
 		app_name=''.join([this_dir, '/',this_dir,'.apk'])
-		self.package_name=subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE)
-		# print("Testing:", str(self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")))
-		self.package_name=self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")[1].replace("name=","").replace("'","")
-		self.main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-		self.main_activity = [item for item in self.main_activity if "launchable-activity" in item]
-		self.main_activity = self.main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
+		# app_name=app_name.replace('signed','')
+		aapt_details = subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
+		
+		for detail in aapt_details:
+			if detail.__contains__('package:'):
+				self.package_name= detail.split(" ")[1].replace("name=","").replace("'","")
+			if detail.__contains__('launchable-activity:'):
+				self.main_activity= detail.replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
+		# self.package_name=subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE)
+		# # print("Testing:", str(self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")))
+		# self.package_name=self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")[1]
+		# if len(self.package_name) > 1:
+		# 	self.package_name=self.package_name.replace("name=","").replace("'","")
+		# else:
+		# 	self.package_name = ''
+
+		# self.main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+		# self.main_activity = [item for item in self.main_activity if "launchable-activity" in item]
+		# self.main_activity = self.main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
 		os.chdir(this_dir)
 		os.system('adb install-multiple $(ls signed*.apk)')
 		self.phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
@@ -147,6 +160,7 @@ class Instrument_Apps:
 			except:
 				print(''.join(['Error setting desired_capabilities for:', this_dir]))
 				print(traceback.format_exc())
+				os.chdir('../')
 				continue
 			try:	
 				# if not Error_Occured:
