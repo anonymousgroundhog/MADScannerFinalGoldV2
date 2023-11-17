@@ -30,11 +30,12 @@ class Generate_Model:
 
 
 	def Print_Details(self):
-		cprint(self.app_name_list,'green')
-		cprint(self.app_hash_list,'green')
+		cprint(self.filtered_df,'green')
+		# cprint(self.app_hash_list,'green')
 
 	def Open_File_And_Generate_Dataframe(self):
 		helper = Helper.Helper()
+		lines=[]
 		for this_path in self.full_file_paths_logs:
 			with open(this_path) as file:
 				lines = [line.rstrip() for line in file]
@@ -48,12 +49,13 @@ class Generate_Model:
 			content = item.split(":")
 			content_to_manipulate=content.pop()
 			content_to_manipulate_list = content_to_manipulate.split("---")
-			# print(content_to_manipulate_list[0])
-			self.app_name_list.append(content_to_manipulate_list[0])
-			self.app_hash_list.append(content_to_manipulate_list[1])
-			self.app_class_list.append(content_to_manipulate_list[2])
-			self.app_method_list.append(content_to_manipulate_list[3])
-			self.app_ad_id_list.append(content_to_manipulate_list[4])
+			print(content_to_manipulate_list)
+			if len(content_to_manipulate_list) > 4:
+				self.app_name_list.append(content_to_manipulate_list[0])
+				self.app_hash_list.append(content_to_manipulate_list[1])
+				self.app_class_list.append(content_to_manipulate_list[2])
+				self.app_method_list.append(content_to_manipulate_list[3])
+				self.app_ad_id_list.append(content_to_manipulate_list[4])
 		
 		data = {
 			'App_Name': self.app_name_list,
@@ -65,7 +67,7 @@ class Generate_Model:
 		self.df = pd.DataFrame(data)
 
 	def Generate_Unique_Apps_List(self):
-		self.filtered_df = self.df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
+		self.filtered_df = self.df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
 		# print(filtered_df)
 		self.unique_apps=pd.unique(self.filtered_df[['App_Name']].values.ravel())
 		print(self.unique_apps)
@@ -146,3 +148,4 @@ print(generate_model.full_file_paths_logs)
 generate_model.Open_File_And_Generate_Dataframe()
 generate_model.Generate_Unique_Apps_List()
 generate_model.Generate_Transitions()
+generate_model.Print_Details()
