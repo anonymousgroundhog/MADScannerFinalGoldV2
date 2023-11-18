@@ -5,7 +5,11 @@ class Get_App_Names:
 	def __init__(self):
 		self.base_url = 'https://play.google.com/store/apps/details?id=';
 		self.directories_list = []
-	
+		self.testing_directory = 'Google_Play_Apps'
+
+	def Set_Testing_Directory(self, this_dir):
+		self.testing_directory = this_dir
+
 	def Set_Directories_To_Ignore(self, directories):
 		self.directories_list = directories
 
@@ -48,7 +52,37 @@ class Get_App_Names:
 				contains_ads="Yes"
 
 		package_name=url.split('=').pop()
-		sha256=self.Get_File_SHA256(''.join(['../APK/Google_Play_Apps/',package_name,'/',package_name,'.apk']))
+		sha256=self.Get_File_SHA256(''.join(['../APK/',self.testing_directory, '/',package_name,'/',package_name,'.apk']))
+		return url, app_title, ', '.join(app_details), ', '.join(categories), sha256, contains_ads
+
+	def Get_Content_Using_BeautifulSoup2(self, url, app_name):
+		response = requests.get(url)
+		soup = BeautifulSoup(response.text, 'html.parser')
+		headers = soup.find_all('h1')
+		app_title=""
+		app_details=[]
+		categories=[]
+		for header in headers:
+			app_title=header.get_text().strip()
+
+		elements = soup.find_all(class_='UIuSk')
+		for element in elements:
+			app_details.append(element.get_text().strip())
+		
+		hrefs = soup.find_all('a')
+		for href in hrefs:
+			if 'category' in str(href):
+				categories.append(str(href.get("href")).split('/').pop())
+
+		contains_ads="No"
+		for lines in soup.find_all(class_='UIuSk'):
+			data=lines.get_text()
+			if 'Contains ads' in data:
+				print(data)
+				contains_ads="Yes"
+
+		package_name=url.split('=').pop()
+		sha256=self.Get_File_SHA256(''.join(['../APK/',self.testing_directory, '/',app_name]))
 		return url, app_title, ', '.join(app_details), ', '.join(categories), sha256, contains_ads
 
 	def Return_DataFrame_Data(self):

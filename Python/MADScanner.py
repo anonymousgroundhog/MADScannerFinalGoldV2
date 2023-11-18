@@ -6,6 +6,14 @@ from termcolor import colored, cprint
 class MADScanner:
 	def __init__(self):
 		self.installed_apps_list = [];
+		self.copy_from_folder_path = 'Google_Play_Apps';
+		self.df_files_and_their_packages = ''
+
+	def Set_DF_Files_And_Their_Packages(self, df):
+		self.df_files_and_their_packages = df
+	
+	def Set_Copy_From_Folder_Path(self, this_path):
+		self.copy_from_folder_path = this_path
 
 	def Set_Apps_Installed(self, this_list):
 		self.installed_apps_list = this_list
@@ -106,10 +114,11 @@ class MADScanner:
 		copy_files_for_testing = Copy_Files_For_Testing.Copy_Files_For_Testing()
 		copy_files_for_testing.Change_Dir(copy_files_for_testing.copy_to_folder_path)
 		# print(os.getcwd())
-		copy_files_for_testing.Set_Copy_From_Path("Google_Play_Apps")
+		copy_files_for_testing.Set_Copy_From_Path(self.copy_from_folder_path)
 
 		copy_files_for_testing.Set_Packages_List(list_packages)
 		copy_files_for_testing.Cleanup_Folder_Testing()
+		copy_files_for_testing.Set_Copy_From_Path(''.join(['../APK/',self.copy_from_folder_path]))
 		copy_files_for_testing.Copy_Files_For_Testing()
 		os.chdir(cwd)
 
