@@ -1,6 +1,7 @@
 import os, subprocess, traceback, hashlib, shutil, time
 import Helper, Apps_Download, Copy_Files_For_Testing, Get_App_Names
 
+from subprocess import run
 from termcolor import colored, cprint
 
 class MADScanner:
@@ -44,38 +45,52 @@ class MADScanner:
 		    file.write(''.join(["Main_Activity: ",main_activity,"\n"]))
 		    file.write(''.join(["Main_Class: ",main_class]))
 
-	def Function_Run_Framework_And_Zip_And_Sign_APK(self, file, folder, option):
+	def Function_Run_Framework_And_Zip_And_Sign_APK(self, file, folder, option, sdkbuild_version):
+		stuff_to_return = ''
 		helper = Helper.Helper()
 		pwd=os.getcwd()
-		os.chdir("Classes")
+		os.chdir("../Java/Classes")
+		
 		SignedFile=''.join(['signed',file])
 		APKPath=''.join(["../../APK/",folder,'/',file])
-		cprint(''.join(["\nAPK path is: ", APKPath]), 'green')
-		cprint(''.join(["Current directory is: ", os.getcwd()]),'green')
+		cprint(''.join(["\nAPK path is: ", APKPath]), 'cyan')
+		cprint(''.join(["Current directory is: ", os.getcwd()]),'cyan')
 		path=''.join(['../../APK/',folder,'/',file])
-		sdkbuild_version=subprocess.run(['aapt', 'dump', 'badging', path], stdout=subprocess.PIPE)
-		sdkbuild_version=sdkbuild_version.stdout.decode('utf-8').split('\n')
-		sdkbuild_version = [item for item in sdkbuild_version if "platformBuildVersionCode=" in item]
-		sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","")
-		# sdkbuild_version=$(aapt dump badging $APKPath | grep compileSdkVersion | cut -d ' ' -f 6 | tr -d "platformBuildVersionCode='")
-		cprint(''.join(["sdkBuild Version: ", sdkbuild_version]), 'green')
+		cprint(''.join(["sdkBuild Version: ", sdkbuild_version]), 'cyan')
 		# hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
 		hash_value = helper.Calculate_SHA256(APKPath)
 		android_api_version= ''.join(['-android-api-version ', str(sdkbuild_version)])
+		# try:
 		cmd=' '.join(['java -Xmx20g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
-		os.system(cmd)
-		os.chdir('sootOutput')
-		path_to_check=os.path.join(os.getcwd(), file)
-		print("Checking path:",path_to_check)
-		if os.path.exists(path_to_check):
-			# sign file
-			print("PATH EXISTS!!!")
-			cmd=' '.join(['zipalign -fv 4',file, SignedFile])
-			os.system(cmd)
-			# apksigner sign --ks ../../../my-release-key.keystore --ks-pass
-			cmd=' '.join(['apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password', SignedFile])
-			os.system(cmd)
-			os.system("rm *.idsig")
+		# proc = subprocess.run([cmd], shell=True, check=True, capture_output=True)
+		data = run(cmd, capture_output=True, shell=True)
+		# print("STDOUT:", data.stdout.decode('utf-8'))
+		# print("STDERR:",data.stderr.decode('utf-8'))
+
+		# all_details = ' '.join([str(data.stdout.decode('utf-8')), str(data.stderr.decode('utf-8'))])
+		stuff_to_return = ''
+		stuff_to_return=data.stderr.decode('utf-8')
+		list_stuff_to_return = stuff_to_return.split('\n')
+		if len(list_stuff_to_return) > 2 and not '[main] INFO soot.toDex.DexPrinter - Do not forget to sign the .apk file with jarsigner and to align it with zipalign' in list_stuff_to_return:
+			cprint(''.join(['Failed to run app:', file]), 'red')
+			return list_stuff_to_return
+		else:
+			cprint(''.join(['\nSucessfully ran app:', file]), 'green')
+			os.chdir('sootOutput')
+			path_to_check=os.path.join(os.getcwd(), file)
+			if os.path.exists(path_to_check):
+				# sign file
+				cmd=' '.join(['zipalign -fv 4',file, SignedFile])
+				# os.system(cmd)
+				data = run(cmd, capture_output=True, shell=True)
+				if len(data.stderr.decode('utf-8').split('\n')) > 1:
+					print("STDERR:",data.stderr.decode('utf-8'))
+				cmd=' '.join(['apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password', SignedFile])
+				data = run(cmd, capture_output=True, shell=True)
+				if len(data.stderr.decode('utf-8').split('\n')) > 1:
+					print("STDERR:",data.stderr.decode('utf-8'))
+				os.system("rm *.idsig")
+			return ''
 		os.chdir(pwd)
 
 	def Download_And_Return_Info_On_Apps(self):

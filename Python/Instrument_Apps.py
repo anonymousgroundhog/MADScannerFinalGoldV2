@@ -1,4 +1,4 @@
-import os, subprocess, hashlib, shutil, time, traceback
+import os, subprocess, hashlib, shutil, time, traceback, pandas as pd
 from termcolor import colored, cprint
 # from termcolor import colored
 from datetime import datetime
@@ -16,6 +16,7 @@ from ppadb.client import Client as AdbClient
 class Instrument_Apps:
 
 	def __init__(self):
+		self.copy_from_folder_path = 'Google_Play_Apps';
 		self.google_play_folder_path = '../../APK/Google_Play_Apps/';
 		self.testing_folder_path = '../Java/APK_Files_Signed_And_Injected_Logs';
 		self.package_name = '';
@@ -23,44 +24,52 @@ class Instrument_Apps:
 		self.main_activity = '';
 		self.clicked_checkbox = False
 		self.driver = '';
+		self.df_app_info = ''
 
+	def Set_DF_App_Info(self, df):
+		self.df_app_info = df
+
+	def Clean_DF_App_Info(self):
+			Main_Classes = self.df_app_info['Main_Class']
+			for cl in Main_Classes:
+				cprint(cl)	
+	
+	def Set_Copy_From_Folder_Path(self, this_path):
+		self.copy_from_folder_path = this_path
+	
+	def Set_Google_Play_Folder_Path(self):
+		self.google_play_folder_path = ''.join(['../../APK/',self.copy_from_folder_path])
+	
 	def Set_Capabilities(self, this_dir):
-		cprint('\n\tSetting Capabilities!!!', 'green')
+		cprint('\n\tSetting Capabilities!!!', 'cyan')
 		cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
-
+		cprint(os.getcwd(),'green')
 		app_name=''.join([this_dir, '/',this_dir,'.apk'])
-		# app_name=app_name.replace('signed','')
 		aapt_details = subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
+		package_name = [item for item in aapt_details if "package:" in item]
+		package_name = package_name.pop().replace("package: ","").replace("name=","").replace("'","").split(' ')[0]
+		main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+		main_activity = [item for item in aapt_details if "launchable-activity" in item]
+		main_activity = main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
 		
-		for detail in aapt_details:
-			if detail.__contains__('package:'):
-				self.package_name= detail.split(" ")[1].replace("name=","").replace("'","")
-			if detail.__contains__('launchable-activity:'):
-				self.main_activity= detail.replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
-		# self.package_name=subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE)
-		# # print("Testing:", str(self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")))
-		# self.package_name=self.package_name.stdout.decode('utf-8').split("\n")[0].split(" ")[1]
-		# if len(self.package_name) > 1:
-		# 	self.package_name=self.package_name.replace("name=","").replace("'","")
-		# else:
-		# 	self.package_name = ''
-
-		# self.main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-		# self.main_activity = [item for item in self.main_activity if "launchable-activity" in item]
-		# self.main_activity = self.main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
+		package_name = package_name.replace(' ', '')
+		self.package_name = package_name
+		main_activity = main_activity.replace(' ', '')
+		print("Packcage:"+str(package_name) + " Activity:" +str(main_activity))
 		os.chdir(this_dir)
 		os.system('adb install-multiple $(ls signed*.apk)')
+		# os.chdir('../')
 		self.phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
 		self.phone_name=str(self.phone_name.stdout.decode('utf-8')).replace("\n","").replace("List of devices attached","").replace("device","").replace('\t','')
 		desired_capabilities = {
 	            "platformName": "Android",
 	            "deviceName": self.phone_name, #7040018020065015
-	            "appPackage": self.package_name,
+	            "appPackage": str(package_name),
 	            "noReset": True,
 	            "autoacceptalerts": True,
 	            "appium:wdaStartupRetries": 6,
 	            "autoGrantPermissions": True,
-	            "appActivity": self.main_activity,
+	            "appActivity": str(main_activity),
 	            "adbExecTimeout": 60000
 		};
 		self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
@@ -102,7 +111,6 @@ class Instrument_Apps:
 			        cprint(''.join(["elem doesn't exist:",str(id)]), 'red')
 			        continue
 		
-
 	def click_on_screen_by_cordinates(self, x, y, duration, pause_time):
 		time.sleep(pause_time)
 		try:
@@ -114,8 +122,13 @@ class Instrument_Apps:
 		pwd=os.getcwd()
 		os.chdir(self.testing_folder_path)
 		os.system("rm -rf *")
+		self.df_app_info = self.df_app_info[self.df_app_info['Able_To_Install'] == 'Yes']
+		for index, row in self.df_app_info.iterrows():
+			cprint(row['App_Name'],'green')
+			path= ''.join(['../Classes/sootOutput/signed',row['App_Name']])
+			shutil.copy(path, ''.join(['signed',row['App_Name']]))
 		# os.chdir('../')
-		os.system("cp ../Classes/sootOutput/signed*.apk .")
+		# os.system("cp ../Classes/sootOutput/signed*.apk .")
 
 		files=os.listdir('.')
 		for file in files:
@@ -147,15 +160,22 @@ class Instrument_Apps:
 		pwd=os.getcwd()
 
 		os.chdir(self.testing_folder_path)
+		pwd=os.getcwd()
 		entries = os.listdir('.')
 
 		# Filter out entries that are directories
 		directories = [entry for entry in entries if os.path.isdir(entry)]
 		for this_dir in directories:
 			print(' '.join(['\nInstrumenting in:', this_dir]))
+			print('Current_Dir::', os.getcwd())
 			Error_Occured = True
 			try:
+				# SET MAIN ACTIVITY AND PACKAGE
+				app_name = ''.join([this_dir.replace('signed',''),'.apk'])
+				# cprint(app_name)
+				os.chdir(pwd)
 				self.Set_Capabilities(this_dir)
+				os.chdir('../')
 				Error_Occured = False
 			except:
 				print(''.join(['Error setting desired_capabilities for:', this_dir]))
@@ -202,13 +222,13 @@ class Instrument_Apps:
 					self.click_on_screen_by_cordinates(719, 127, 2, 2)
 					self.click_on_screen_by_cordinates(363, 304, 2, 2)
 					self.click_on_screen_by_cordinates(547, 809, 2, 2)
-				cmd = ' '.join(['adb uninstall', self.package_name])
+				cmd = ' '.join(['adb uninstall', str(self.package_name)])
 				os.system(cmd)
 				os.chdir('../')
 			except:
 				print(colored(''.join(['Error performing actions for:', this_dir]), 'red'))
 				print(traceback.format_exc())
-				cmd = ' '.join(['adb uninstall', self.package_name])
+				cmd = ' '.join(['adb uninstall', str(self.package_name)])
 				os.system(cmd)
 				os.chdir('../')
 				continue
@@ -216,6 +236,10 @@ class Instrument_Apps:
 
 os.system('clear')
 instrument_apps = Instrument_Apps()
+instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
+# instrument_apps.Clean_DF_App_Info()
+instrument_apps.Set_Copy_From_Folder_Path('Testing')
+instrument_apps.Set_Google_Play_Folder_Path()
 instrument_apps.Get_Test_Instrumentation_Folder_Setup()
 instrument_apps.Start_Logcat()
 instrument_apps.Start_Instrumenting_Folder()
