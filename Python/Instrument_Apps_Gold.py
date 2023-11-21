@@ -13,7 +13,7 @@ from selenium.common.exceptions import NoSuchElementException
 from ppadb.client import Client as AdbClient
 
 
-class Instrument_Apps:
+class Instrument_Apps_Gold:
 
 	def __init__(self):
 		self.copy_from_folder_path = 'Google_Play_Apps';
@@ -25,6 +25,7 @@ class Instrument_Apps:
 		self.clicked_checkbox = False
 		self.driver = '';
 		self.df_app_info = ''
+		self.filtered_df = ''
 
 	def Set_DF_App_Info(self, df):
 		self.df_app_info = df
@@ -40,24 +41,25 @@ class Instrument_Apps:
 	def Set_Google_Play_Folder_Path(self):
 		self.google_play_folder_path = ''.join(['../../APK/',self.copy_from_folder_path])
 	
-	def Set_Capabilities(self, this_dir):
+	def Set_Capabilities(self, this_dir, package_name, main_activity):
 		cprint('\n\tSetting Capabilities!!!', 'cyan')
 		cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
 		cprint(os.getcwd(),'green')
-		app_name=''.join([this_dir, '/',this_dir,'.apk'])
-		aapt_details = subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
-		package_name = [item for item in aapt_details if "package:" in item]
-		package_name = package_name.pop().replace("package: ","").replace("name=","").replace("'","").split(' ')[0]
-		main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-		main_activity = [item for item in aapt_details if "launchable-activity" in item]
-		main_activity = main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
+		# app_name=''.join([this_dir, '/',this_dir,'.apk'])
+		# aapt_details = subprocess.run(['aapt', 'dump', 'badging', app_name ], stdout=subprocess.PIPE).stdout.decode('utf-8').split("\n")
+		# package_name = [item for item in aapt_details if "package:" in item]
+		# package_name = package_name.pop().replace("package: ","").replace("name=","").replace("'","").split(' ')[0]
+		# main_activity=subprocess.run(['aapt', 'dump', 'badging', app_name], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+		# main_activity = [item for item in aapt_details if "launchable-activity" in item]
+		# main_activity = main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
 		
 		package_name = package_name.replace(' ', '')
 		self.package_name = package_name
-		main_activity = main_activity.replace(' ', '')
+		self.main_activity = main_activity.replace(' ', '')
 		print("Packcage:"+str(package_name) + " Activity:" +str(main_activity))
 		os.chdir(this_dir)
 		os.system('adb install-multiple $(ls signed*.apk)')
+		# time.sleep(2)
 		# os.chdir('../')
 		self.phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
 		self.phone_name=str(self.phone_name.stdout.decode('utf-8')).replace("\n","").replace("List of devices attached","").replace("device","").replace('\t','')
@@ -70,20 +72,29 @@ class Instrument_Apps:
 	            "appium:wdaStartupRetries": 6,
 	            "autoGrantPermissions": True,
 	            "appActivity": str(main_activity),
-	            "adbExecTimeout": 60000
+	            "adbExecTimeout": 120000
 		};
 		self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+		time.sleep(2)
 
 	def click_on_button_by_class_permission(self, id):
-		# elements = self.driver.find_elements(By.CLASS_NAME, id)
+		cprint(id,'green')
 		time.sleep(2)
 		for elem in self.driver.find_elements(By.CLASS_NAME, id):
-			# if elements == self.driver.find_elements(By.CLASS_NAME, id):
 			element_text = elem.text.lower()
-
 			print("Testing:",element_text.split(" "))
+			
+			if id.__contains__('android.widget.TextView') and (element_text.__contains__('no') or element_text.__contains__('agree')):
+				try:
+					cprint(element_text, 'yellow')
+					elem.click()
+					break
+				except:
+					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
+					continue
+
 			# HANDLE CASE FOR ALLOWING
-			if element_text.__contains__('allow') or element_text.__contains__('accept'):
+			if element_text.__contains__('allow') or element_text.__contains__('accept') or element_text.__contains__('next'):
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
@@ -92,7 +103,7 @@ class Instrument_Apps:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
 			# HANDLE SPECIAL CASE CHECKBOX
-			if id.__contains__('android.widget.CheckBox') and element_text.__contains__('agree') and not self.clicked_checkbox:
+			if id.__contains__('android.widget.CheckBox') and (element_text.__contains__('agree') and not self.clicked_checkbox) or (element_text.__contains__('Yes') and not self.clicked_checkbox):
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
@@ -235,14 +246,124 @@ class Instrument_Apps:
 				os.chdir('../')
 				continue
 
+	def Filter_Dataframe_By_Apps(self, these_apps):
+		self.filtered_df = self.df_app_info[self.df_app_info['App_Name'].isin(these_apps)]
+
+	def Reset_Appium(self):
+		cmd = 'adb uninstall io.appium.settings'
+		os.system(cmd)
+		cmd = 'adb uninstall io.appium.uiautomator2.server'
+		os.system(cmd)
+		cmd = 'adb uninstall io.appium.uiautomator2.server.test'
+		os.system(cmd)
+
+	def Start_Instrumenting_Folder_On_Filtered_Apps(self):
+		cprint('\n\tStarting to Instrument Folder!!!', 'green')
+		print(self.filtered_df['App_Name'].tolist())
+		pwd=os.getcwd()
+
+		os.chdir(self.testing_folder_path)
+		pwd=os.getcwd()
+		entries = os.listdir('.')
+
+		# Filter out entries that are directories
+		directories = [entry for entry in entries if os.path.isdir(entry)]
+		for this_dir in directories:
+			apk_name=''.join([this_dir.replace('signed',''),'.apk'])
+			# print(apk_name)
+			if apk_name in self.filtered_df['App_Name'].tolist():
+				filtered_row = self.filtered_df[self.filtered_df['App_Name'] == apk_name]
+				app_name = ''.join([this_dir.replace('signed',''),'.apk'])
+				print(' '.join(['\nInstrumenting in:', this_dir]))
+				# print(filtered_row['Main_Activity'].iloc[0], ' ', filtered_row['Main_Class'].iloc[0])
+				# print('Current_Dir::', os.getcwd())
+				try:
+					# SET MAIN ACTIVITY AND PACKAGE
+					# cprint(app_name)
+					os.chdir(pwd)
+					self.Set_Capabilities(this_dir, str(filtered_row['Main_Class'].iloc[0]).replace(' ', ''), str(filtered_row['Main_Activity'].iloc[0].replace(' ', '')))
+					os.chdir('../')
+				except:
+					print(''.join(['Error setting desired_capabilities for:', this_dir]))
+					print(traceback.format_exc())
+					cmd = ' '.join(['adb uninstall', str(self.package_name)])
+					os.system(cmd)
+					os.chdir('../')
+					continue
+					# cmd = ' '.join(['adb uninstall', str(self.package_name)])
+					# os.system(cmd)
+				try:	
+					print("Packcage:"+str(self.package_name) + " Activity:" +str(self.main_activity))
+					source_xml = self.driver.page_source
+					time.sleep(2)
+					# android.widget.CheckBox
+					self.click_on_button_by_class_permission("android.widget.CheckBox")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.Button")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.TextView")
+					time.sleep(1)
+					
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.CheckBox")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.Button")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.TextView")
+					time.sleep(1)
+
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.CheckBox")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.Button")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.TextView")
+					time.sleep(1)
+					source_xml = self.driver.page_source
+
+					app_activity = self.driver.current_activity
+					print("Current activity is: ",str(app_activity))
+					time.sleep(2)
+					# print('\nPage source is:', source_xml)
+
+					# self.click_on_screen_by_cordinates(366, 82.9, 2, 3)
+					# self.click_on_screen_by_cordinates(384, 238.5, 2, 3)
+					# this_activity = self.driver.current_activity
+					# print("Activity is now:", str(this_activity))
+					# if this_activity != app_activity:
+					# 	self.click_on_screen_by_cordinates(582, 110, 2, 3)
+					# 	self.click_on_screen_by_cordinates(719, 127, 2, 2)
+					# 	self.click_on_screen_by_cordinates(363, 304, 2, 2)
+					# 	self.click_on_screen_by_cordinates(547, 809, 2, 2)
+					cmd = ' '.join(['adb uninstall', str(self.package_name)])
+					os.system(cmd)
+					os.chdir('../')
+				except:
+					print(colored(''.join(['Error performing actions for:', this_dir]), 'red'))
+					print(traceback.format_exc())
+					cmd = ' '.join(['adb uninstall', str(self.package_name)])
+					os.system(cmd)
+					os.chdir('../')
+					continue
 
 os.system('clear')
-instrument_apps = Instrument_Apps()
+instrument_apps = Instrument_Apps_Gold()
+instrument_apps.Reset_Appium()
 instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
 # instrument_apps.Clean_DF_App_Info()
 instrument_apps.Set_Copy_From_Folder_Path('Testing')
 instrument_apps.Set_Google_Play_Folder_Path()
-instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-instrument_apps.Start_Logcat()
-instrument_apps.Start_Instrumenting_Folder()
-instrument_apps.Stop_Logcat()
+print(instrument_apps.df_app_info)
+instrument_apps.Filter_Dataframe_By_Apps(['POCKETCOMICSPremiumWebtoon5.3.1Apkpure.apk'])
+print(instrument_apps.filtered_df)
+instrument_apps.Start_Instrumenting_Folder_On_Filtered_Apps()
+# instrument_apps.Get_Test_Instrumentation_Folder_Setup()
+# instrument_apps.Start_Logcat()
+# instrument_apps.Start_Instrumenting_Folder()
+# instrument_apps.Stop_Logcat()
