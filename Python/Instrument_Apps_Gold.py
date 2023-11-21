@@ -26,7 +26,7 @@ class Instrument_Apps_Gold:
 		self.driver = '';
 		self.df_app_info = ''
 		self.filtered_df = ''
-
+		self.no_clicked = False
 	def Set_DF_App_Info(self, df):
 		self.df_app_info = df
 
@@ -83,8 +83,17 @@ class Instrument_Apps_Gold:
 		for elem in self.driver.find_elements(By.CLASS_NAME, id):
 			element_text = elem.text.lower()
 			print("Testing:",element_text.split(" "))
-			
-			if id.__contains__('android.widget.TextView') and (element_text.__contains__('no') or element_text.__contains__('agree')):
+			if id.__contains__('android.widget.TextView') and (element_text.__contains__('no') and not self.no_clicked):
+				try:
+					cprint(element_text, 'yellow')
+					elem.click()
+					self.no_clicked = True
+					break
+				except:
+					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
+					continue
+
+			if id.__contains__('android.widget.TextView') and not element_text.__contains__('terms of use') and (element_text.__contains__('agree and start') or element_text.__contains__('agree') or element_text.__contains__('next')):
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
@@ -327,15 +336,18 @@ class Instrument_Apps_Gold:
 					time.sleep(1)
 					source_xml = self.driver.page_source
 
+					time.sleep(1)
+					source_xml = self.driver.page_source
+					self.click_on_button_by_class_permission("android.widget.TextView")
 					app_activity = self.driver.current_activity
+					time.sleep(5)
 					print("Current activity is: ",str(app_activity))
-					time.sleep(2)
 					# print('\nPage source is:', source_xml)
 
-					# self.click_on_screen_by_cordinates(366, 82.9, 2, 3)
-					# self.click_on_screen_by_cordinates(384, 238.5, 2, 3)
-					# this_activity = self.driver.current_activity
-					# print("Activity is now:", str(this_activity))
+					self.click_on_screen_by_cordinates(366, 82.9, 2, 3)
+					self.click_on_screen_by_cordinates(384, 238.5, 2, 3)
+					this_activity = self.driver.current_activity
+					print("Activity is now:", str(this_activity))
 					# if this_activity != app_activity:
 					# 	self.click_on_screen_by_cordinates(582, 110, 2, 3)
 					# 	self.click_on_screen_by_cordinates(719, 127, 2, 2)
@@ -362,8 +374,8 @@ instrument_apps.Set_Google_Play_Folder_Path()
 print(instrument_apps.df_app_info)
 instrument_apps.Filter_Dataframe_By_Apps(['POCKETCOMICSPremiumWebtoon5.3.1Apkpure.apk'])
 print(instrument_apps.filtered_df)
+instrument_apps.Start_Logcat()
 instrument_apps.Start_Instrumenting_Folder_On_Filtered_Apps()
+instrument_apps.Stop_Logcat()
 # instrument_apps.Get_Test_Instrumentation_Folder_Setup()
-# instrument_apps.Start_Logcat()
 # instrument_apps.Start_Instrumenting_Folder()
-# instrument_apps.Stop_Logcat()
