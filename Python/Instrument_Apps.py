@@ -61,6 +61,7 @@ class Instrument_Apps:
 		# os.chdir('../')
 		self.phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
 		self.phone_name=str(self.phone_name.stdout.decode('utf-8')).replace("\n","").replace("List of devices attached","").replace("device","").replace('\t','')
+		cprint(self.phone_name, 'red')
 		desired_capabilities = {
 	            "platformName": "Android",
 	            "deviceName": self.phone_name, #7040018020065015
