@@ -1,2 +1,2 @@
-Main_Activity: com.naver.linewebtoon.splash.SplashActivity
-Main_Class: com.naver.linewebtoon
+Main_Activity: app.hallow.android.scenes.RouterActivity
+Main_Class: app.hallow.android

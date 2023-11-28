@@ -23,18 +23,18 @@ class Copy_Files_For_Testing:
 		os.chdir(path)
 
 	def Copy_Files_For_Testing(self):
-		print('test:::',os.getcwd())
+		# print('test:::',os.getcwd())
 		for package in self.packages_list_to_copy:
-			print('testing:::',self.copy_from_folder_path, ' ', package)
+			# print('testing:::',self.copy_from_folder_path, ' ', package)
 			package = package.replace('.apk', '')
 			apk_path_check = ''.join(['../',self.copy_from_folder_path,'/',package,'.apk'])
 			apk_path_check_2 = ''.join(['../',self.copy_from_folder_path,'/',package, '/', package,'.apk']) 
 			if os.path.isfile(apk_path_check):
-				print(apk_path_check)
+				# print(apk_path_check)
 				shutil.copyfile(apk_path_check,apk_path_check.split('/').pop(), follow_symlinks=True)
 
 			if os.path.isfile(apk_path_check_2):
-				print(apk_path_check_2)
+				# print(apk_path_check_2)
 				shutil.copyfile(apk_path_check_2,apk_path_check_2.split('/').pop(), follow_symlinks=True)
 
 # copy_files_for_testing = Copy_Files_For_Testing()

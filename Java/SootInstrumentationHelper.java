@@ -718,7 +718,7 @@ public class SootInstrumentationHelper
     public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
         List<SootClass> classes_to_return = new ArrayList<SootClass>();
         for (SootClass sootClass : classes) {
-            if (sootClass.getName().startsWith("com.google.android.gms.ads")) {
+            if (sootClass.getName().startsWith("com.google.android.gms.ads") || sootClass.getName().startsWith("com.facebook.ads")) {
             classes_to_return.add(sootClass);
             }
         }

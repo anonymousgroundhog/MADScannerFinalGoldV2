@@ -72,10 +72,10 @@ class MADScanner:
 		stuff_to_return=data.stderr.decode('utf-8')
 		list_stuff_to_return = stuff_to_return.split('\n')
 		if len(list_stuff_to_return) > 2 and not '[main] INFO soot.toDex.DexPrinter - Do not forget to sign the .apk file with jarsigner and to align it with zipalign' in list_stuff_to_return:
-			cprint(''.join(['Failed to run app:', file]), 'red')
+			cprint(''.join(['\tFailed to run app:', file]), 'red')
 			return list_stuff_to_return
 		else:
-			cprint(''.join(['\nSucessfully ran app:', file]), 'green')
+			cprint(''.join(['\n\tSucessfully ran app:', file]), 'green')
 			os.chdir('sootOutput')
 			path_to_check=os.path.join(os.getcwd(), file)
 			if os.path.exists(path_to_check):
