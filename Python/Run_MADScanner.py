@@ -239,6 +239,7 @@ def Cleanup_Soot_Output_Folder():
 	        print(f"Removed: {file_path}")
 
 def Check_If_App_Can_Be_Installed():
+	helper = Helper.Helper()
 	cwd= os.getcwd()
 	df_app_info = pd.read_csv('../Data/App_Category_Details2.csv')
 	df_app_info = df_app_info[df_app_info['MADScanner_Injected_Logs_Sucessfully'] == 'Yes']
@@ -249,30 +250,41 @@ def Check_If_App_Can_Be_Installed():
 		package_name = row['Main_Class']
 		try:
 			print(file)
+			print(os.getcwd())
 			cmd = ' '.join(['adb install', file])
 			data = run(cmd, capture_output=True, shell=True)
 			error_msg = data.stderr.decode('utf-8').split('\n')
 			if len(error_msg) > 1:
 				df_app_info.loc[index, 'Able_To_Install'] = 'No'
-				df_app_info.loc[index, 'Install_Error_Details'] = ' '.join(error_msg)
+				# df_app_info.loc[index, 'Install_Error_Details'] = ' '.join(error_msg)
+				helper.Write_APK_Install_Error_To_File(row['App_Name'], str(error_msg))
 				cprint("Unable to Install!!!", 'red')
 				cprint(error_msg, 'red')
 			else:
 				cprint("Able to Install!!!", 'green')
 				# cprint(error_msg, 'green')
 				df_app_info.loc[index, 'Able_To_Install'] = 'Yes'
-			# print("STDOUT:", data.stdout.decode('utf-8'))
-			# print("STDERR:",data.stderr.decode('utf-8'))
 			cmd = ' '.join(['adb uninstall', package_name])
 			data = run(cmd, capture_output=True, shell=True)
-			# print("STDOUT:", data.stdout.decode('utf-8'))
-			# print("STDERR:",data.stderr.decode('utf-8'))
 		except:
 			cprint("Error!!!", 'red')
 			print(traceback.format_exc())
 
 	os.chdir(cwd)
 	df_app_info.to_csv('../Data/App_Category_Details2.csv', index=False)
+
+def Remove_Empty_Logs():
+	directory='../Data/Logs'
+	for file in os.listdir(directory):
+		file_path=''.join([directory, '/', file])
+		print(file)
+		with open(file_path, 'r') as file:
+			line_count = sum(1 for _ in file)
+			message = f"The file contains {line_count} lines."
+			print(message)
+
+		if line_count < 3:
+			os.remove(file_path)
 
 os.system('clear')
 # os.chdir('../')
@@ -287,4 +299,5 @@ os.chdir(cwd)
 Run_MADScanner_On_Apps('Testing', "APKPure")
 # Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 10)
 Cleanup_Soot_Output_Folder()
-# Check_If_App_Can_Be_Installed()
+Check_If_App_Can_Be_Installed()
+Remove_Empty_Logs()

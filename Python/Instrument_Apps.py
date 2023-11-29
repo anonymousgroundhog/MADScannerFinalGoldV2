@@ -34,6 +34,9 @@ class Instrument_Apps:
 			for cl in Main_Classes:
 				cprint(cl)	
 	
+	def Set_Testing_Folder_Path(self, this_path):
+		self.testing_folder_path = this_path
+
 	def Set_Copy_From_Folder_Path(self, this_path):
 		self.copy_from_folder_path = this_path
 	
@@ -120,16 +123,17 @@ class Instrument_Apps:
 			print(''.join(['FAILED TRYING TO TOUCH POSITION: (', str(x), ' ', str(y), ')']))
 
 	def Get_Test_Instrumentation_Folder_Setup(self):
+		print("dir is now:",os.getcwd())
 		pwd=os.getcwd()
 		os.chdir(self.testing_folder_path)
-		os.system("rm -rf *")
+		# os.system("rm -rf *")
 		self.df_app_info = self.df_app_info[self.df_app_info['Able_To_Install'] == 'Yes']
-		for index, row in self.df_app_info.iterrows():
-			cprint(row['App_Name'],'green')
-			path= ''.join(['../Classes/sootOutput/signed',row['App_Name']])
-			shutil.copy(path, ''.join(['signed',row['App_Name']]))
+		# for index, row in self.df_app_info.iterrows():
+		# 	cprint(row['App_Name'],'green')
+		# 	path= ''.join(['../Classes/sootOutput/signed',row['App_Name']])
+		# 	shutil.copy(path, ''.join(['signed',row['App_Name']]))
 		# os.chdir('../')
-		# os.system("cp ../Classes/sootOutput/signed*.apk .")
+		os.system("cp ../Java/Classes/sootOutput/signed*.apk ../Java/APK_Files_Signed_And_Injected_Logs")
 
 		files=os.listdir('.')
 		for file in files:
@@ -143,7 +147,7 @@ class Instrument_Apps:
 				for f in files:
 					path=''.join([self.google_play_folder_path,this_dir.replace('signed',''),'/',f])
 					shutil.copy(path, this_dir)
-		os.system('rm *.apk')
+		# os.system('rm *.apk')
 		os.chdir(pwd)
 
 	def Start_Logcat(self):
@@ -242,6 +246,7 @@ instrument_apps = Instrument_Apps()
 instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
 # instrument_apps.Clean_DF_App_Info()
 instrument_apps.Set_Copy_From_Folder_Path('Testing')
+# instrument_apps.Set_Testing_Folder_Path('../Java/Classes/sootOutput')
 instrument_apps.Set_Google_Play_Folder_Path()
 instrument_apps.Get_Test_Instrumentation_Folder_Setup()
 instrument_apps.Start_Logcat()
