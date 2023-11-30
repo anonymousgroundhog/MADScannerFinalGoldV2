@@ -1,6 +1,6 @@
 import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob
 # import Apps_Download, Get_App_Names, Copy_Files_For_Testing, Helper, MADScanner
-import Copy_Files_For_Testing, Helper, MADScanner, Get_App_Names
+import Copy_Files_For_Testing, Helper, MADScanner, Get_App_Names, Instrument_Apps_Gold_V2
 # import Instrument_Apps
 from datetime import datetime
 from termcolor import colored, cprint
@@ -26,7 +26,6 @@ def Copy_Files_From_Folder_To_Testing_Folder(directory_path):
 		file_path = ''.join([directory_path, '/', file])
 		shutil.copyfile(file_path, ''.join(['../APK/Testing/', file]))
 	# cprint('Files:\n'+str(files), 'green')
-
 
 def Run_MADScanner(copy_from_folder):
 	madscanner = MADScanner.MADScanner()
@@ -148,6 +147,7 @@ def Run_MADScanner_On_Apps(this_folder, copy_from_folder):
 				df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'Yes'
 		except:
 			cprint(''.join(["Unable to Run framework for:", file]), 'red')
+			df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
 			print(traceback.format_exc())
 			os.chdir(pwd)
 			continue
@@ -243,7 +243,7 @@ def Check_If_App_Can_Be_Installed():
 	cwd= os.getcwd()
 	df_app_info = pd.read_csv('../Data/App_Category_Details2.csv')
 	df_app_info = df_app_info[df_app_info['MADScanner_Injected_Logs_Sucessfully'] == 'Yes']
-	df_app_info['Install_Error_Details']=None
+	# df_app_info['Install_Error_Details']=None
 	os.chdir('../Java/Classes/sootOutput')
 	for index,row in df_app_info.iterrows():
 		file = ''.join(['signed',row['App_Name']])
@@ -273,31 +273,31 @@ def Check_If_App_Can_Be_Installed():
 	os.chdir(cwd)
 	df_app_info.to_csv('../Data/App_Category_Details2.csv', index=False)
 
-def Remove_Empty_Logs():
-	directory='../Data/Logs'
-	for file in os.listdir(directory):
-		file_path=''.join([directory, '/', file])
-		print(file)
-		with open(file_path, 'r') as file:
-			line_count = sum(1 for _ in file)
-			message = f"The file contains {line_count} lines."
-			print(message)
-
-		if line_count < 3:
-			os.remove(file_path)
-
+def Instrument_Apps():
+	instrument_apps = Instrument_Apps_Gold_V2.Instrument_Apps_Gold_V2()
+	instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
+	# print(instrument_apps.df_app_info)
+	instrument_apps.Filter_DF_App_Info()
+	# print(instrument_apps.df_apps_filtered)
+	instrument_apps.Set_Path_For_Logcat('../Data/Logs')
+	instrument_apps.Start_Logcat()
+	instrument_apps.Instrument_Apps_In_Testing_Folder_Path()
+	instrument_apps.Stop_Logcat()
 os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
-
+helper = Helper.Helper()
 # Run_MADScanner('APKPure')
 # Read_And_Save_Dataframe_Info('Testing', 'APKPure')
 
 # MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
 # cprint(os.getcwd(), 'red')
-Run_MADScanner_On_Apps('Testing', "APKPure")
+# Run_MADScanner_On_Apps('Testing', "APKPure")
 # Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 10)
-Cleanup_Soot_Output_Folder()
-Check_If_App_Can_Be_Installed()
-Remove_Empty_Logs()
+# Cleanup_Soot_Output_Folder()
+# Check_If_App_Can_Be_Installed()
+
+# helper.Remove_Empty_Logs()
+# helper.Move_Valid_APKS_To_Folder()
+Instrument_Apps()

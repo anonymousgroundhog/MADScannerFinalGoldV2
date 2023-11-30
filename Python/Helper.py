@@ -1,4 +1,4 @@
-import os, subprocess, traceback, hashlib, shutil, time
+import os, subprocess, traceback, hashlib, shutil, time, pandas as pd
 
 from termcolor import colored, cprint
 from functools import reduce
@@ -66,6 +66,37 @@ class Helper:
                     cmd = ' '.join(['rm -rf', file])
                     os.system(cmd)
 
+    def Remove_Empty_Logs(self):
+        directory='../Data/Logs'
+        for file in os.listdir(directory):
+            file_path=''.join([directory, '/', file])
+            print(file)
+            with open(file_path, 'r') as file:
+                line_count = sum(1 for _ in file)
+                message = f"The file contains {line_count} lines."
+                print(message)
+
+            if line_count < 3:
+                os.remove(file_path)
+
+    def Move_Valid_APKS_To_Folder(self):
+        pwd = os.getcwd()
+        df_app_info = pd.read_csv('../Data/App_Category_Details2.csv')
+        MADScanner_Injected_Logs_Sucessfully_Filtered = df_app_info['MADScanner_Injected_Logs_Sucessfully'] =='Yes'
+        App_Ads_Filtered = df_app_info['App_Ads'] == 'Yes'
+        Able_To_Install_Filtered = df_app_info['Able_To_Install'] == 'Yes'
+        
+        df_apps_to_copy = df_app_info[MADScanner_Injected_Logs_Sucessfully_Filtered & App_Ads_Filtered & Able_To_Install_Filtered]
+        app_names_to_copy = df_apps_to_copy['App_Name']
+        os.chdir('../APK/Valid_APK_Files_To_Test')
+        for file in app_names_to_copy:
+            file = ''.join(['signed',file])
+            # path=''.join(['../Java/Classes/sootOutput/',file])
+            source_file = os.path.join('../../Java/Classes/sootOutput/', file)
+            destination_file = os.path.join(os.getcwd(), file)
+            shutil.copy(source_file, destination_file)
+            # print(path)
+        os.chdir(pwd)
 # helper = Helper()
 # helper.Write_APK_Install_Error_To_File("Test", 'Testing error')
 # helper.Write_APK_Error_To_File("Test_App", 'This is fun\n\t Now What')
