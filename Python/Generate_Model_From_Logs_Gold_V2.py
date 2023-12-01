@@ -76,13 +76,15 @@ class Generate_Model_From_Logs_Gold_V2:
 			unique_rows_facebook = unique_rows[unique_rows['App_Label'] =='facebook']
 			unique_rows_google = unique_rows[unique_rows['App_Label'] == 'google']
 			# print(unique_rows)
-			unique_rows_facebook = unique_rows_facebook.drop(['App_Class'], axis=1)
-			unique_rows_google = unique_rows_google.drop(['App_Class'], axis=1)
+			unique_rows_facebook = unique_rows_facebook.drop(['App_Class', 'App_Label'], axis=1)
+			unique_rows_google = unique_rows_google.drop(['App_Class', 'App_Label'], axis=1)
 			if len(unique_rows_google) > 0:
-				cprint(unique_rows_google, 'green')
+				sequence_google=unique_rows_google['App_Method'].to_list()
+				cprint(''.join(['google:', str(sequence_google)]), 'green')
 			
 			if len(unique_rows_facebook) > 0:
-				cprint(unique_rows_facebook, 'green')
+				sequence_facebook = unique_rows_facebook['App_Method'].to_list()
+				cprint(''.join(['\nfacebook:', str(sequence_facebook)]), 'green')
 
 	def Generate_Unique_Apps_List(self):
 		str_methods = '","'.join(self.list_valid_methods)
