@@ -64,7 +64,7 @@ class MADScanner:
 		cmd=' '.join(['java -Xmx20g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
 		# proc = subprocess.run([cmd], shell=True, check=True, capture_output=True)
 		data = run(cmd, capture_output=True, shell=True)
-		# print("STDOUT:", data.stdout.decode('utf-8'))
+		print("STDOUT:", data.stdout.decode('utf-8'))
 		# print("STDERR:",data.stderr.decode('utf-8'))
 
 		# all_details = ' '.join([str(data.stdout.decode('utf-8')), str(data.stderr.decode('utf-8'))])

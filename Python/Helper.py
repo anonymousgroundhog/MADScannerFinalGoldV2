@@ -97,6 +97,25 @@ class Helper:
             shutil.copy(source_file, destination_file)
             # print(path)
         os.chdir(pwd)
+
+    def Filter_Dataframe_By_Keyword(self, df, this_label, word):
+        df = df[df[this_label] == word]
+        return df
+
+    def Drop_Dataframe_Rows(self, df, this_list):
+        # contains_all = all(elem in this_list for elem in df.columns.to_list())
+        is_subset = set(this_list) <= set(df.columns.to_list())
+        # print(is_subset)
+        if is_subset:
+            # print('True')
+            df = df.drop(this_list, axis=1)
+        return df
+
+    def Read_File_And_Return_Lines(self, file_path):
+        with open(file_path, 'r') as file:
+            lines = [line.strip() for line in file.readlines()]
+
+        return lines
 # helper = Helper()
 # helper.Write_APK_Install_Error_To_File("Test", 'Testing error')
 # helper.Write_APK_Error_To_File("Test_App", 'This is fun\n\t Now What')
