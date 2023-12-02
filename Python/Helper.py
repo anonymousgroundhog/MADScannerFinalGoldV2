@@ -86,9 +86,11 @@ class Helper:
         App_Ads_Filtered = df_app_info['App_Ads'] == 'Yes'
         Able_To_Install_Filtered = df_app_info['Able_To_Install'] == 'Yes'
         
-        df_apps_to_copy = df_app_info[MADScanner_Injected_Logs_Sucessfully_Filtered & App_Ads_Filtered & Able_To_Install_Filtered]
+        df_apps_to_copy = df_app_info[Able_To_Install_Filtered & App_Ads_Filtered]
+        print(df_apps_to_copy)
         app_names_to_copy = df_apps_to_copy['App_Name']
         os.chdir('../APK/Valid_APK_Files_To_Test')
+        os.system('rm *.apk')
         for file in app_names_to_copy:
             file = ''.join(['signed',file])
             # path=''.join(['../Java/Classes/sootOutput/',file])

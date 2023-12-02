@@ -287,17 +287,17 @@ os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
 helper = Helper.Helper()
-Run_MADScanner('APKPure')
+# Run_MADScanner('APKPure')
 # Read_And_Save_Dataframe_Info('Testing', 'APKPure')
-
+# 
 # MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
 # cprint(os.getcwd(), 'red')
 # Run_MADScanner_On_Apps('Testing', "APKPure")
-Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
+# Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
 # Cleanup_Soot_Output_Folder()
 # Check_If_App_Can_Be_Installed()
 
 # helper.Remove_Empty_Logs()
-# helper.Move_Valid_APKS_To_Folder()
+helper.Move_Valid_APKS_To_Folder()
 # Instrument_Apps()
