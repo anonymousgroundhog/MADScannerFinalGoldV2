@@ -6,7 +6,11 @@ class Apps_Download:
     def __init__(self):
         self.list_of_apps_installed = [];
         self.unique_apps = [];
-    
+        self.google_play_folder_path = '';
+
+    def Set_Google_Play_Folder_Path(self, this_path):
+        self.google_play_folder_path = this_path
+
     def create_directory_if_not_exists(self, directory_path):
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
@@ -37,7 +41,7 @@ class Apps_Download:
         print("Current Dir:"+ str(os.getcwd()))
         output=os.popen(' '.join(['adb shell pm path',package])).read()
         output = str(output).replace("package:","").split("\n")
-        path_to_download_to=''.join(['../APK/Google_Play_Apps/',package,'/'])
+        path_to_download_to=''.join([self.google_play_folder_path,package,'/'])
         if not os.path.exists(path_to_download_to) and os.getcwd().__contains__(pwd):
             os.mkdir(path_to_download_to)
         
@@ -65,7 +69,7 @@ class Apps_Download:
                 time.sleep(1)
                 # package=package.replace(".","_")
                 time.sleep(2)
-                path_to_download_to=''.join(['../APK/Google_Play_Apps/',package,'/'])
+                path_to_download_to=''.join([self.google_play_folder_path,package,'/'])
                 self.create_directory_if_not_exists(path_to_download_to)
                 os.chdir(path_to_download_to)
 

@@ -1,4 +1,4 @@
-import os, subprocess, hashlib, shutil, time, traceback, pandas as pd
+import os, subprocess, hashlib, shutil, time, traceback, pandas as pd, Helper
 from termcolor import colored, cprint
 # from termcolor import colored
 from datetime import datetime
@@ -19,16 +19,25 @@ class Instrument_Apps_Gold_V2:
 		self.copy_from_folder_path = 'Google_Play_Apps';
 		self.google_play_folder_path = '../../APK/Google_Play_Apps/';
 		self.testing_folder_path = '../APK/Valid_APK_Files_To_Test';
+		self.Overide_Contains_Ads = False;
 		self.logcat_path = '';
-		self.app_name = ''
+		self.app_name = '';
 		self.package_name = '';
 		self.phone_name = '';
 		self.main_activity = '';
 		self.clicked_checkbox = False
 		self.driver = '';
-		self.df_app_info = ''
-		self.df_apps_filtered = ''
-		self.generic_file_name = ''
+		self.df_app_info = '';
+		self.df_apps_filtered = '';
+		self.generic_file_name = '';
+		self.source_xml = ''
+	
+	def Set_Source_XML(self):
+		self.source_xml = self.driver.page_source
+
+	def Set_Overide_Contains_Ads(self, bool_option):
+		self.Overide_Contains_Ads = bool_option
+	
 	def Set_Path_For_Logcat(self, this_path):
 		now = datetime.now()
 		d4 = now.strftime("%m-%d-%Y_%H:%M:%S")
@@ -54,27 +63,61 @@ class Instrument_Apps_Gold_V2:
 		MADScanner_Injected_Logs_Sucessfully_Filtered = self.df_app_info['MADScanner_Injected_Logs_Sucessfully'] =='Yes'
 		App_Ads_Filtered = self.df_app_info['App_Ads'] == 'Yes'
 		Able_To_Install_Filtered = self.df_app_info['Able_To_Install'] == 'Yes'
-		self.df_apps_filtered = self.df_app_info[MADScanner_Injected_Logs_Sucessfully_Filtered & App_Ads_Filtered & Able_To_Install_Filtered]
+		if self.Overide_Contains_Ads == True:
+			print("Filtering!!!")
+			self.df_apps_filtered = self.df_app_info[Able_To_Install_Filtered]
+		else:
+			self.df_apps_filtered = self.df_app_info[MADScanner_Injected_Logs_Sucessfully_Filtered & App_Ads_Filtered & Able_To_Install_Filtered]
 
 	def Instrument_Apps_In_Testing_Folder_Path(self):
+		
+		cmds = ['adb uninstall io.appium.uiautomator2.server', 'adb uninstall io.appium.settings', 'adb uninstall io.appium.uiautomator2.server.test']
+		
+		for cmd in cmds:
+			try:
+				os.system(cmd)
+			except:
+				continue
 		pwd = os.getcwd()
 		os.chdir(self.testing_folder_path)
 		self.Set_Phone_Name()
 		print('Phone name is: ', self.phone_name, '\n')
 		self.df_app_info['Try_Manual_Testing'] = 'No'
+		os.system("rm *.csv")
+		number_of_apps = len(os.listdir())
+
+		app_counter=0
 		for file in os.listdir():
-			generic_file_name = file.replace('signed', '')
+			generic_file_name = file.replace('signed', '').replace(' ', '')
 			self.generic_file_name = generic_file_name
 			df_filtered = self.df_apps_filtered['App_Name'] == generic_file_name
 			df_filtered = self.df_apps_filtered[df_filtered]
-			main_class = df_filtered['Main_Class'].to_string().split(' ').pop()
-			main_activity = df_filtered['Main_Activity'].to_string().split(' ').pop()
+			# print("DF class is now: ", df_filtered)
+			aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+			main_activity = [item for item in aapt_details if "launchable-activity" in item]
+			main_class = [item for item in aapt_details if "package" in item]
+			# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
+			if len(main_activity) > 0:
+				main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
+			else:
+				main_activity = ''
+
+			if len(main_class) > 0:
+				main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+			else:
+				main_class = ''
+
+			# print(result)
+			# main_class = df_filtered['Main_Class'].to_string().split(' ').pop()
+			# main_activity = df_filtered['Main_Activity'].to_string().split(' ').pop()
 			if main_class == '':
 				main_class=''
 			if main_activity == 'NaN':
 				main_activity = ''
 			self.Set_Package_Name(main_class)
 			self.Set_Main_Activity_Name(main_activity)
+			app_counter=app_counter+1
+			cprint(''.join(['\tRunning app: ', str(app_counter),' of ',str(number_of_apps)]), 'green')
 			print('\nApp_Name:', generic_file_name)
 			print('Package name is:', self.package_name)
 			print('Main Activity name is:', self.main_activity)
@@ -139,6 +182,9 @@ class Instrument_Apps_Gold_V2:
 		self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
 
 	def click_on_button_by_class_permission(self, id):
+		helper = Helper.Helper()
+		when_to_manual_test_params = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_by_class_permission_manual_test_params.txt')
+		test_params_permissions = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_allow_or_sign_in.txt')
 		# elements = self.driver.find_elements(By.CLASS_NAME, id)
 		time.sleep(2)
 		list_of_elements = self.driver.find_elements(By.CLASS_NAME, id)
@@ -148,10 +194,19 @@ class Instrument_Apps_Gold_V2:
 
 			list_element_text = element_text.split(" ")
 			print("Testing:",list_element_text)
-			if 'phone' in list_element_text:
-				self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
+			manual_test=False
+			for item in list_element_text:
+				if item in when_to_manual_test_params:
+					self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
+					manual_test = True
+					break;	
+
+			if manual_test:
 				break;
-			if 'continue' in list_element_text and 'with' in list_element_text and 'google' in list_element_text:
+			# if 'phone' in list_element_text:
+			# 	self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
+			# 	break;
+			if element_text == 'continue with google' or 'sign up later':
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
@@ -169,7 +224,7 @@ class Instrument_Apps_Gold_V2:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
 			# HANDLE CASE FOR ALLOWING
-			if element_text.__contains__('allow') or element_text.__contains__('accept') or element_text.__contains__('yes') or element_text.__contains__('skip') or element_text.__contains__('next'):
+			if element_text in test_params_permissions:
 				try:
 					cprint(element_text, 'yellow')
 					elem.click()
@@ -177,6 +232,14 @@ class Instrument_Apps_Gold_V2:
 				except:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
+			# if element_text.__contains__('allow') or element_text.__contains__('accept') or element_text.__contains__('yes') or element_text.__contains__('skip') or element_text.__contains__('next'):
+			# 	try:
+			# 		cprint(element_text, 'yellow')
+			# 		elem.click()
+			# 		break
+			# 	except:
+			# 		cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
+			# 		continue
 			# HANDLE SPECIAL CASE CHECKBOX
 			if id.__contains__('android.widget.CheckBox') and element_text.__contains__('agree') and not self.clicked_checkbox:
 				try:
@@ -188,7 +251,7 @@ class Instrument_Apps_Gold_V2:
 					cprint(''.join(["elem doesn't exist (Unique case):",str(id)]), 'red')
 					continue
 
-			if (elem.text =='Agree' or elem.text =='Accept') and self.clicked_checkbox:
+			if element_text in ['agree', 'accept'] and self.clicked_checkbox:
 			    try:
 			        cprint(element_text, 'yellow')
 			        elem.click()
@@ -197,6 +260,20 @@ class Instrument_Apps_Gold_V2:
 			        cprint(''.join(["elem doesn't exist:",str(id)]), 'red')
 			        continue
 		
+	def click_on_button_by_class_advertisement(self, id):
+		# helper = Helper.Helper()
+		# when_to_manual_test_params = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_by_class_permission_manual_test_params.txt')
+		# test_params_permissions = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_allow_or_sign_in.txt')
+		# elements = self.driver.find_elements(By.CLASS_NAME, id)
+		time.sleep(2)
+		list_of_elements = self.driver.find_elements(By.CLASS_NAME, id)
+		for elem in list_of_elements:
+			if self.source_xml == self.driver.page_source:
+				elem.click()
+			else:
+				cprint('page source xml not same. Exiting!!!', 'red')
+				break
+	
 	def click_on_screen_by_cordinates(self, x, y, duration, pause_time):
 		time.sleep(pause_time)
 		try:
@@ -241,30 +318,22 @@ class Instrument_Apps_Gold_V2:
 		try:	
 			# if not Error_Occured:
 			# print("Packcage:"+str(self.package_name) + " Activity:" +str(self.main_activity))
+			helper = Helper.Helper()
+			classes_to_filter_on = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_by_class_permission.txt')
 			source_xml = self.driver.page_source
+			# cprint(source_xml, 'cyan')
 			time.sleep(2)
-			# android.widget.CheckBox
-			self.click_on_button_by_class_permission("android.widget.CheckBox")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.Button")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.TextView")
-			
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.CheckBox")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.Button")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.TextView")
-
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.CheckBox")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.Button")
-			source_xml = self.driver.page_source
-			self.click_on_button_by_class_permission("android.widget.TextView")
-			source_xml = self.driver.page_source
-
+			counter=0
+			while counter < 5:
+				for cl in classes_to_filter_on:
+					self.click_on_button_by_class_permission(cl)
+				# source_xml = self.driver.page_source
+				counter=counter+1
+			self.Set_Source_XML()
+			classes_to_filter_on_ad_specific = ['android.widget.TextView']
+			cprint( "Starting to click on ad specific now!!!",'red')
+			for cl in classes_to_filter_on_ad_specific:
+					self.click_on_button_by_class_advertisement(cl)
 			app_activity = self.driver.current_activity
 			print("Current activity is: ",str(app_activity))
 			# print('\nPage source is:', source_xml)
@@ -279,7 +348,7 @@ class Instrument_Apps_Gold_V2:
 				self.click_on_screen_by_cordinates(363, 304, 2, 2)
 				self.click_on_screen_by_cordinates(547, 809, 2, 2)
 		except:
-			print(colored(''.join(['Error performing actions for:', this_dir]), 'red'))
+			# print(colored(''.join(['Error performing actions for:', this_dir]), 'red'))
 			print(traceback.format_exc())
 
 	def Start_Instrumenting_Folder(self):

@@ -1,0 +1,3 @@
+android.widget.CheckBox
+android.widget.Button
+android.widget.TextView

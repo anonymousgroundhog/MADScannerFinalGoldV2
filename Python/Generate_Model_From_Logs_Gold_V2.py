@@ -76,7 +76,7 @@ class Generate_Model_From_Logs_Gold_V2:
 		helper = Helper.Helper()
 		self.unique_apps=self.df['App_Name'].unique()
 		# print(self.unique_apps)
-		words_to_filter_on = helper.Read_File_And_Return_Lines('Keywords_To_Investigate/keywords_to_investigate.txt')
+		words_to_filter_on = helper.Read_File_And_Return_Lines('Instrumentation_Helper_Files/keywords_to_investigate.txt')
 		for app in self.unique_apps:
 			cprint(''.join(['\n\t',app, '\n']), 'cyan')
 			Apps_Filtered = self.df['App_Name'] == app

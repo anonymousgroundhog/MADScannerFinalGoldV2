@@ -86,8 +86,8 @@ class Get_App_Names:
 		return url, app_title, ', '.join(app_details), ', '.join(categories), sha256, contains_ads
 
 	def Return_DataFrame_Data(self):
-		directories_list = self.List_Directories('../APK/Google_Play_Apps', self.directories_list)
-		columns = ['Package Name', 'App Name', 'URL', 'Category', 'SHA256', 'Has Ads']
+		directories_list = self.List_Directories(''.join(['../APK/',self.testing_directory]), self.directories_list)
+		columns = ['Package Name', 'App_Name', 'URL', 'Category', 'SHA256', 'Has Ads']
 		df = pd.DataFrame(columns=columns)
 		for this_dir in directories_list:
 			full_url=''.join([self.base_url,this_dir])

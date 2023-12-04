@@ -1,0 +1,12 @@
+allow
+accept
+yes
+skip
+next
+sign
+agree
+later
+login
+remind
+skip
+ok

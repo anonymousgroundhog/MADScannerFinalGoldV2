@@ -8,7 +8,7 @@ class MADScanner:
 	def __init__(self):
 		self.installed_apps_list = [];
 		self.copy_from_folder_path = 'Google_Play_Apps';
-		self.df_files_and_their_packages = ''
+		self.df_files_and_their_packages = '';
 
 	def Set_DF_Files_And_Their_Packages(self, df):
 		self.df_files_and_their_packages = df
@@ -93,25 +93,27 @@ class MADScanner:
 			return ''
 		os.chdir(pwd)
 
-	def Download_And_Return_Info_On_Apps(self):
+	def Download_And_Return_Info_On_Apps(self, google_play_folder_path):
 		cwd=os.getcwd()
 		appsdownload = Apps_Download.Apps_Download()
 		# appsdownload.Print_List_Installed_App_Packages()
 		appsdownload.Set_Installed_Apps(self.installed_apps_list)
 		# appsdownload.See_Installed_Apps()
 		cprint(cwd,'red')
+		appsdownload.Set_Google_Play_Folder_Path(google_play_folder_path)
 		appsdownload.Get_Apps_Phase()
 		os.chdir(cwd)
 		get_app_names = Get_App_Names.Get_App_Names()
+		get_app_names.Set_Testing_Directory('Google_Play_Download_Test')
 		get_app_names.Set_Directories_To_Ignore(['BannerRecyclerViewExample', 'TestClassAdViewAdListener'])
 		df = get_app_names.Return_DataFrame_Data() 
 		print(df)
 		return appsdownload.unique_apps
 
-	def Cleanup_Folders_After_Download(self, ):
+	def Cleanup_Folders_After_Download(self):
 		print("Performing Cleanup of Folders!!")
 		cwd= os.getcwd()
-		os.chdir("../APK/Google_Play_Apps")
+		os.chdir("../APK/Google_Play_Download_Test")
 
 		entries = os.listdir('.')
 		directories = [entry for entry in entries if os.path.isdir(entry)]

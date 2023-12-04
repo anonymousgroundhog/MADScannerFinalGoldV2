@@ -324,3 +324,211 @@ B612AIPhotoVideoEditor12.1.25Apkpure.apk
 ['adb: failed to install signedB612AIPhotoVideoEditor12.1.25Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
 Cars.com–NewUsedVehicles9.7.1.8363Apkpure.apk 
 ['adb: failed to install signedCars.com–NewUsedVehicles9.7.1.8363Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Roblox_2.568.524_Apkpure.apk 
+['adb: failed to install signedRoblox_2.568.524_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+GooglePaySaveandPay181.1.3arm64-v8areleaseflutterApkpure.apk 
+['adb: failed to install signedGooglePaySaveandPay181.1.3arm64-v8areleaseflutterApkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+GoogleTranslate7.6.30.538653321.1-releaseApkpure.apk 
+['adb: failed to install signedGoogleTranslate7.6.30.538653321.1-releaseApkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+YouCamMakeup-SelfieEditor6.10.1Apkpure.apk 
+['adb: failed to install signedYouCamMakeup-SelfieEditor6.10.1Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Starfall3.1.66Apkpure.apk 
+['adb: failed to install signedStarfall3.1.66Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Houzz-HomeDesignRemodel23.6.20Apkpure.apk 
+['adb: failed to install signedHouzz-HomeDesignRemodel23.6.20Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AmazonBusinessB2BShopping26.12.0.451Apkpure.apk 
+['adb: failed to install signedAmazonBusinessB2BShopping26.12.0.451Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+NerdWalletManageYourMoney11.1.0Apkpure.apk 
+['adb: failed to install signedNerdWalletManageYourMoney11.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AutotraderShopCarsForSale4.1.22Apkpure.apk 
+['adb: failed to install signedAutotraderShopCarsForSale4.1.22Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MangaToon-MangaReader3.05.06Apkpure.apk 
+['adb: failed to install signedMangaToon-MangaReader3.05.06Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Grindr-Gaychat9.11.0Apkpure.apk 
+['adb: failed to install signedGrindr-Gaychat9.11.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MarvelUnlimited7.46.0Apkpure.apk 
+['adb: failed to install signedMarvelUnlimited7.46.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MeetupSocialEventsGroups2023.05.31.1571Apkpure1.apk 
+['adb: failed to install signedMeetupSocialEventsGroups2023.05.31.1571Apkpure1.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Google14.24.9.28.arm64Apkpure.apk 
+['adb: failed to install signedGoogle14.24.9.28.arm64Apkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.googlequicksearchbox signatures do not match newer version; ignoring!]', ''] 
+KhanAcademyKidsLearning!5.1.7Apkpure.apk 
+['adb: failed to install signedKhanAcademyKidsLearning!5.1.7Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+VivaVideo-VideoEditorMaker9.9.7Apkpure.apk 
+['adb: failed to install signedVivaVideo-VideoEditorMaker9.9.7Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+AllEventsinCity-Discover10.1Apkpure.apk 
+['adb: failed to install signedAllEventsinCity-Discover10.1Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+WeatherbyWeatherBug5.62.0-38Apkpure.apk 
+['adb: failed to install signedWeatherbyWeatherBug5.62.0-38Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WildHookup,Meet,DatingMe2.8.2Apkpure.apk 
+['adb: failed to install signedWildHookup,Meet,DatingMe2.8.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MAPS.MEOfflinemapsGPSNavv14.7.71581-googleReleaseApkpure.apk 
+['adb: failed to install signedMAPS.MEOfflinemapsGPSNavv14.7.71581-googleReleaseApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MantaUnlimitedComics23.5.279Apkpure.apk 
+['adb: failed to install signedMantaUnlimitedComics23.5.279Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AndroidAuto9.8.632413-releaseApkpure.apk 
+['adb: failed to install signedAndroidAuto9.8.632413-releaseApkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+VideoMaker1.485.136Apkpure.apk 
+['adb: failed to install signedVideoMaker1.485.136Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Clash_of_Clans_15.83.29_Apkpure.apk 
+['adb: failed to install signedClash_of_Clans_15.83.29_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+StubHub-LiveEventTickets79.2.1Apkpure.apk 
+['adb: failed to install signedStubHub-LiveEventTickets79.2.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+TheNewYorkTimes10.18.0Apkpure.apk 
+['adb: failed to install signedTheNewYorkTimes10.18.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+ZillowHomesForSaleRent14.6.2.72284Apkpure.apk 
+['adb: failed to install signedZillowHomesForSaleRent14.6.2.72284Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Tapas–ComicsandNovels6.9.0Apkpure.apk 
+['adb: failed to install signedTapas–ComicsandNovels6.9.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AmazonKindle8.81.1.01.3.290180.0Apkpure.apk 
+['adb: failed to install signedAmazonKindle8.81.1.01.3.290180.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+FilmoraMovieVideoEditor8.7.11Apkpure.apk 
+['adb: failed to install signedFilmoraMovieVideoEditor8.7.11Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+SephoraBuyMakeupSkincare23.12Apkpure.apk 
+['adb: failed to install signedSephoraBuyMakeupSkincare23.12Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Gmail2023.05.28.540443362.ReleaseApkpure.apk 
+['adb: failed to install signedGmail2023.05.28.540443362.ReleaseApkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.gm signatures do not match newer version; ignoring!]', ''] 
+MicrosoftTeams14161.0.0.2023053702Apkpure.apk 
+['adb: failed to install signedMicrosoftTeams14161.0.0.2023053702Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+GoogleEarth9.180.0.1Apkpure.apk 
+['adb: failed to install signedGoogleEarth9.180.0.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+YouTubeMusic6.07.50Apkpure.apk 
+['adb: failed to install signedYouTubeMusic6.07.50Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+CourseraLearncareerskills4.7.1Apkpure.apk 
+['adb: failed to install signedCourseraLearncareerskills4.7.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+LifestyleAI1.8.22Apkpure.apk 
+['adb: failed to install signedLifestyleAI1.8.22Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WOMBODream-AIArtGenerator3.1.3Apkpure.apk 
+['adb: failed to install signedWOMBODream-AIArtGenerator3.1.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+YahooFinanceStockNews12.9.0Apkpure.apk 
+['adb: failed to install signedYahooFinanceStockNews12.9.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+BooDatingFriendsApp1.13.4Apkpure.apk 
+['adb: failed to install signedBooDatingFriendsApp1.13.4Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+BusinessGame8.0Apkpure.apk 
+['adb: failed to install signedBusinessGame8.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+BeautyCam-BeautifyAIArt11.5.20Apkpure.apk 
+['adb: failed to install signedBeautyCam-BeautifyAIArt11.5.20Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+TinderDatingapp.MeetPeople14.11.0Apkpure.apk 
+['adb: failed to install signedTinderDatingapp.MeetPeople14.11.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Whiteout_Survival_1.7.9_Apkpure.apk 
+['adb: failed to install signedWhiteout_Survival_1.7.9_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Zooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk 
+['adb: failed to install signedZooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+SmartNewsLocalBreakingNews23.6.30Apkpure.apk 
+['adb: failed to install signedSmartNewsLocalBreakingNews23.6.30Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+BeautyPlus-Retouch,Filters7.6.034Apkpure.apk 
+['adb: failed to install signedBeautyPlus-Retouch,Filters7.6.034Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+KhanAcademy7.10.1Apkpure.apk 
+['adb: failed to install signedKhanAcademy7.10.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+ParentLab–DailyParentingApp4.5.0Apkpure.apk 
+['adb: failed to install signedParentLab–DailyParentingApp4.5.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+OkCupidDating,LoveFun78.1.0Apkpure.apk 
+['adb: failed to install signedOkCupidDating,LoveFun78.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Tasty1.80.0Apkpure.apk 
+['adb: failed to install signedTasty1.80.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AdobeExpressGraphicDesign8.17.0Apkpure.apk 
+['adb: failed to install signedAdobeExpressGraphicDesign8.17.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+LoseWeightatHomein30Days1.071.72GPApkpure.apk 
+['adb: failed to install signedLoseWeightatHomein30Days1.071.72GPApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AutolistUsedCarMarketplace13.1.0Apkpure.apk 
+['adb: failed to install signedAutolistUsedCarMarketplace13.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+DCUNIVERSEINFINITE5.8.1Apkpure.apk 
+['adb: failed to install signedDCUNIVERSEINFINITE5.8.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Toca_Life_World_Build_a_Story_1.63_Apkpure.apk 
+['adb: failed to install signedToca_Life_World_Build_a_Story_1.63_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+BadooDating.Chat.Meet.5.324.0Apkpure.apk 
+['adb: failed to install signedBadooDating.Chat.Meet.5.324.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+BumbleDatingFriendsapp5.324.0Apkpure.apk 
+['adb: failed to install signedBumbleDatingFriendsapp5.324.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+HeyBeautyLovePuzzle1.0.4.8Apkpure.apk 
+['adb: failed to install signedHeyBeautyLovePuzzle1.0.4.8Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Clock7.5535768093Apkpure.apk 
+['adb: failed to install signedClock7.5535768093Apkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.deskclock signatures do not match newer version; ignoring!]', ''] 
+ArtistryVirtualBeauty5.18.1Apkpure.apk 
+['adb: failed to install signedArtistryVirtualBeauty5.18.1Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+TheWeatherChannel-Radar10.65.0Apkpure.apk 
+['adb: failed to install signedTheWeatherChannel-Radar10.65.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+CanvaDesign,PhotoVideo2.220.0Apkpure.apk 
+['adb: failed to install signedCanvaDesign,PhotoVideo2.220.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AIChat-AIChatbotAssistant1.1.3Apkpure.apk 
+['adb: failed to install signedAIChat-AIChatbotAssistant1.1.3Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+DJMusicmixer-DJMixStudio1.2.6Apkpure.apk 
+['adb: failed to install signedDJMusicmixer-DJMixStudio1.2.6Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Roblox2.578.564Apkpure.apk 
+['adb: failed to install signedRoblox2.578.564Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+GoogleDrive2.23.241.0.all.alldpiApkpure.apk 
+['adb: failed to install signedGoogleDrive2.23.241.0.all.alldpiApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Weatherdatamicroclimate6.13.2Apkpure.apk 
+['adb: failed to install signedWeatherdatamicroclimate6.13.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+DesignHomeLifestyleGame1.97.075Apkpure.apk 
+['adb: failed to install signedDesignHomeLifestyleGame1.97.075Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Angry_Birds_2_3.11.3_Apkpure.apk 
+['adb: failed to install signedAngry_Birds_2_3.11.3_Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+WeChat8.0.37Apkpure.apk 
+['adb: failed to install signedWeChat8.0.37Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+1WeatherForecastsRadar6.0.0.3Apkpure.apk 
+['adb: failed to install signed1WeatherForecastsRadar6.0.0.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+SERIES3.34.0Apkpure.apk 
+['adb: failed to install signedSERIES3.34.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+MeetupSocialEventsGroups2023.05.31.1571Apkpure.apk 
+['adb: failed to install signedMeetupSocialEventsGroups2023.05.31.1571Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Perfect365MakeupPhotoEditor8.4.0Apkpure.apk 
+['adb: failed to install signedPerfect365MakeupPhotoEditor8.4.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+AmazonMusicSongsPodcasts23.8.0Apkpure.apk 
+['adb: failed to install signedAmazonMusicSongsPodcasts23.8.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Skype8.96.0.502Apkpure.apk 
+['adb: failed to install signedSkype8.96.0.502Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+MyRadarWeatherRadar8.48.2Apkpure.apk 
+['adb: failed to install signedMyRadarWeatherRadar8.48.2Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+WOMBODream-AIArtGenerator3.1.2Apkpure.apk 
+['adb: failed to install signedWOMBODream-AIArtGenerator3.1.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+CrossyRoad5.3.1Apkpure.apk 
+['adb: failed to install signedCrossyRoad5.3.1Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+AmazonBusinessShopandSave26.12.0.451Apkpure.apk 
+['adb: failed to install signedAmazonBusinessShopandSave26.12.0.451Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Argenta4.0.0.0Apkpure.apk 
+['adb: failed to install signedArgenta4.0.0.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+PhonebyGoogle106.0.536237016-pixel2022Apkpure.apk 
+['adb: failed to install signedPhonebyGoogle106.0.536237016-pixel2022Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+MintBudgetTrackBills8.37.0Apkpure.apk 
+['adb: failed to install signedMintBudgetTrackBills8.37.0Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+GoogleDrive2.23.251.0.all.alldpiApkpure.apk 
+['adb: failed to install signedGoogleDrive2.23.251.0.all.alldpiApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+GoogleChromeFastSecure114.0.5735.131Apkpure.apk 
+['adb: failed to install signedGoogleChromeFastSecure114.0.5735.131Apkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.android.chrome signatures do not match newer version; ignoring!]', ''] 
+GoogleTranslate7.7.0.540337148.2-releaseApkpure.apk 
+['adb: failed to install signedGoogleTranslate7.7.0.540337148.2-releaseApkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+AmazonPrimeVideo3.0.348.23947Apkpure.apk 
+['adb: failed to install signedAmazonPrimeVideo3.0.348.23947Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+TheGuardian-NewsSport6.106.18915Apkpure.apk 
+['adb: failed to install signedTheGuardian-NewsSport6.106.18915Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+HEREWeGoMapsNavigation4.8.250Apkpure.apk 
+['adb: failed to install signedHEREWeGoMapsNavigation4.8.250Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+B612AIPhotoVideoEditor12.1.25Apkpure.apk 
+['adb: failed to install signedB612AIPhotoVideoEditor12.1.25Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Cars.com–NewUsedVehicles9.7.1.8363Apkpure.apk 
+['adb: failed to install signedCars.com–NewUsedVehicles9.7.1.8363Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', 'adb: no devices/emulators found', ''] 
+banner_example_2.apk 
+['adb: no devices/emulators found', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 
+banner_example.apk 
+['* daemon not running; starting now at tcp:5037', '* daemon started successfully', ''] 

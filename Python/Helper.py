@@ -37,6 +37,7 @@ class Helper:
 
     def Pre_Cleanup(self):
         if os.getcwd().split("/").pop().__contains__("Python"):
+            os.system('rm ../Data/App_Category_Details*.csv')
             os.system('rm ../Java/Classes/sootOutput/*')
             os.system('rm -rf ../Java/APK_Files_Signed_And_Injected_Logs/*')
             cprint("Completed Pre_Cleanup!!!", 'green')
@@ -118,6 +119,18 @@ class Helper:
             lines = [line.strip() for line in file.readlines()]
 
         return lines
+
+    def Read_CSV_Apps_And_Check_If_Manual_Test(self, this_path):
+        df = pd.read_csv(this_path)
+        df_app_unable_to_install = df['Able_To_Install'] == 'No'
+        df_app_empty_activity = df['Main_Activity'].isna()
+        df_app_has_ads = df['App_Ads'] == 'Yes'
+        df_madscanner_injected_logs_sucessfully = df['MADScanner_Injected_Logs_Sucessfully'] == 'Yes'
+        combined_condition = df_app_unable_to_install & df_app_empty_activity & df_app_has_ads & df_madscanner_injected_logs_sucessfully
+        df.loc[combined_condition, 'Try_Manual_Testing'] = 'Yes'
+        df.to_csv(this_path, index=False)
+        print(df[combined_condition])
+
 # helper = Helper()
 # helper.Write_APK_Install_Error_To_File("Test", 'Testing error')
 # helper.Write_APK_Error_To_File("Test_App", 'This is fun\n\t Now What')

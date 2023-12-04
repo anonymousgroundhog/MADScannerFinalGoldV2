@@ -226,7 +226,9 @@ public class SootInstrumentationHelper
         }
     }
     public static List<SootClass> ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(SootClass sootClass){
-    List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        List<String> fileLines = readFileIntoList("../Classes_To_Exclude/exclude_class_libraries.txt");
+        // System.out.println("Classes to Exclude are:"+fileLines.toString());
         Hierarchy hierarchy = Scene.v().getActiveHierarchy();
         if(!sootClass.isInterface()){
             // List<SootClass> this_subclasses = hierarchy.getSubclassesOf(sootClass);
@@ -236,7 +238,15 @@ public class SootInstrumentationHelper
             if(number_of_subclasses > 0){
                 for (SootClass subClass : this_subclasses) {
             String subClassName = subClass.getName();
-            if(!subClassName.contains("com.google.android.gms.ads") && !subClassName.contains("com.google.android.gms.internal.ads") && !subClassName.contains("com.google.ads")){
+            boolean matchFound = false;
+            for (String substring : fileLines) {
+                if (subClassName.contains(substring)) {
+                    matchFound = true;
+                    break;
+                }
+            }
+            // if(!subClassName.contains("com.google.android.gms.ads") && !subClassName.contains("com.google.android.gms.internal.ads") && !subClassName.contains("com.google.ads") && !subClassName.contains("com.facebook.ads")){
+            if(!matchFound){
                 classes_to_return.add(subClass);
             }
                 }
@@ -714,12 +724,31 @@ public class SootInstrumentationHelper
         }
         // return false;
     }
-    
-    public static List<SootClass> Extract_Google_AdMob_Classes(Chain<SootClass> classes){
+    public static List<String> readFileIntoList(String filePath) {
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle exceptions appropriately
+        }
+
+        return lines;
+    }
+    public static List<SootClass> Extract_Advertising_Classes(Chain<SootClass> classes){
         List<SootClass> classes_to_return = new ArrayList<SootClass>();
+        List<String> fileLines = readFileIntoList("../Classes_To_Inject_Logs_Into/classes_to_inject_logs.txt");
+        // Do something with fileLines, like printing them
+        // fileLines.forEach(System.out::println);
         for (SootClass sootClass : classes) {
-            if (sootClass.getName().startsWith("com.google.android.gms.ads") || sootClass.getName().startsWith("com.facebook.ads")) {
-            classes_to_return.add(sootClass);
+            for (String line : fileLines) {
+                if(sootClass.getName().startsWith(line)){
+                    // System.out.println("FOUND!!! "+sootClass);
+                    classes_to_return.add(sootClass);
+                }
             }
         }
         return classes_to_return;

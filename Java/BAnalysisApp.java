@@ -43,11 +43,12 @@ public class BAnalysisApp {
 					SootClass ad_listener = Scene.v().getSootClass("com.google.android.gms.ads.AdListener");
 					this_Instrumentation_Helper.printFormattedOutput("Classes to Look into:%s\n",this_Instrumentation_Helper.ReturnClassHierarchyForSpecificClassAndExcludeAdLibraries(ad_listener));
 				}
-				this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
-				this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
+				// UNCOMMENT BELOW FOR INJECTING AD LISTENER INTO ANDROID APP
+				// this_Instrumentation_Helper.InjectNewClass_AdListenerClass2(app_name_only, this_hash); 
+				// this_Instrumentation_Helper.InjectNewClass_AdListenerClass1();
+				// this_Instrumentation_Helper.Extract_AdListener_Call_Locations_And_Inject_AdListener(all_classes, app_name_only, this_hash);
 				// EXTRACT ONLY METHODS THAT CONTAIN ADLISTENER CALLS
 				// this_Instrumentation_Helper.Extract_AdListener_Call_Locations(mainactivity_methods, app_name_only);
-				this_Instrumentation_Helper.Extract_AdListener_Call_Locations_And_Inject_AdListener(all_classes, app_name_only, this_hash);
 				// CHECK IF MAINACTIVITY HAS ANY METHODS THAT CONTAIN A ADLISTENER CALL
 				// this_Instrumentation_Helper.Return_MainActivity_Methods_That_Contain_AdListener_Calls(mainactivity_methods);
 				// this_Instrumentation_Helper.Return_Lines_From_File("AdListenerMethods");
@@ -67,7 +68,7 @@ public class BAnalysisApp {
 				}
 				// PackManager.v().getPack("jtp").add(new Transform("jtp.myTransform", new MyTransform()));
 				// CHECK ALL CLASSES FOR GOOGLE ADMOB AND THEN INJECT LOGS
-				List<SootClass> admob_classes=this_Instrumentation_Helper.Extract_Google_AdMob_Classes(all_classes);
+				List<SootClass> admob_classes=this_Instrumentation_Helper.Extract_Advertising_Classes(all_classes);
 				this_Instrumentation_Helper.Inject_Into_Google_Libs_Log_Message(admob_classes, app_name_only, this_hash);
 				this_Instrumentation_Helper.writeClassHierarchyToFile(all_classes, "../class_hierarchy.txt");
 			} catch (OutOfMemoryError oome) {
