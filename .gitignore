@@ -1,4 +1,5 @@
 APK/APKPure/*
+APK/Backup*/*.apk
 APK/Valid_APK_Files_To_Test/*.apk
 *.class
 Java/Classes/sootOutput/*.apk
