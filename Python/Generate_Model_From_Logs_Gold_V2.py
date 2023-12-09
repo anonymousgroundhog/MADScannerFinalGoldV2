@@ -75,8 +75,8 @@ class Generate_Model_From_Logs_Gold_V2:
 	def Generate_Unique_Method_Calls_For_Each_App(self):
 		helper = Helper.Helper()
 		self.unique_apps=self.df['App_Name'].unique()
-		# print(self.unique_apps)
-		words_to_filter_on = helper.Read_File_And_Return_Lines('Instrumentation_Helper_Files/keywords_to_investigate.txt')
+		print(os.getcwd())
+		words_to_filter_on = helper.Read_File_And_Return_Lines('Keywords_To_Investigate/keywords_to_investigate.txt')
 		for app in self.unique_apps:
 			cprint(''.join(['\n\t',app, '\n']), 'cyan')
 			Apps_Filtered = self.df['App_Name'] == app
@@ -135,7 +135,9 @@ class Generate_Model_From_Logs_Gold_V2:
 
 os.system('clear')
 model = Generate_Model_From_Logs_Gold_V2()
-model.Set_List_Valid_Methods(['onCreate','loadad','setContentView', 'setAdListener', 'initialize', 'onAdImpression', 'onAdClicked', 'onAdLoaded', 'onAdClosed'])
+list_of_valid_methods = ['attachInfo', 'initialize', 'build', 'setRequestConfiguration', 'onAdLoaded', 'onStart', 'onResume', 'onUserLeaveHint', 'onPause', 'onAdClicked', 'onAdLoaded', 'onAdImpression', 'onDestroy']
+# model.Set_List_Valid_Methods(['onCreate','loadad','setContentView', 'setAdListener', 'initialize', 'onAdImpression', 'onAdClicked', 'onAdLoaded', 'onAdClosed'])
+model.Set_List_Valid_Methods(list_of_valid_methods)
 model.Set_Logs_Path('../Data/Logs/')
 model.Generate_Dataframe_From_Logs()
 model.Label_Dataframe_Rows()
