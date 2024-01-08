@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/symmetry" style="@style/SectionTitle" />
+    <LinearLayout android:layout_gravity="center" android:padding="8.0dip" android:visibility="gone" android:layout_width="240.0dip" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_large">
+        <ImageView android:id="@id/sym_type_x" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/sym_y" android:layout_weight="1.0">
+            <tag android:value="@string/mappings_symmetry_horizontal" android:id="@id/ui_binding_key" />
+        </ImageView>
+        <ImageView android:id="@id/sym_type_y" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/sym_x" android:layout_weight="1.0">
+            <tag android:value="@string/mappings_symmetry_vertical" android:id="@id/ui_binding_key" />
+        </ImageView>
+        <ImageView android:id="@id/sym_type_r" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/sym_r" android:layout_weight="1.0">
+            <tag android:value="@string/mappings_symmetry_radial" android:id="@id/ui_binding_key" />
+        </ImageView>
+        <ImageView android:id="@id/sym_type_k" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/sym_k" android:layout_weight="1.0">
+            <tag android:value="@string/mappings_symmetry_kaleido" android:id="@id/ui_binding_key" />
+        </ImageView>
+    </LinearLayout>
+    <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_small" android:layout_gravity="center|top" android:id="@id/symmetry_text" android:padding="@dimen/padding_large" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+        <com.brakefield.painter.ui.SymPreview android:layout_gravity="center" android:id="@id/sym_preview" android:layout_width="180.0dip" android:layout_height="180.0dip" android:layout_margin="@dimen/margin_large" />
+    </FrameLayout>
+    <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/planes_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/planes" app:ui_binding_key="@string/mappings_symmetry_settings_planes" />
+    <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/fan_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/fan" app:ui_binding_key="@string/mappings_symmetry_radial_settings_fan" />
+    <LinearLayout android:orientation="horizontal" android:padding="@dimen/padding_medium" android:paddingLeft="@dimen/padding_very_large" android:paddingRight="@dimen/padding_very_large" android:layout_width="@dimen/more_width" android:layout_height="wrap_content">
+        <FrameLayout android:id="@id/symmetry_lock_button" style="@style/Tile">
+            <tag android:value="@string/mappings_symmetry_settings_lock" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/symmetry_lock_image" android:src="@drawable/lock_outline" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/lock" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/symmetry_clip_button" style="@style/Tile">
+            <tag android:value="@string/mappings_symmetry_settings_clip" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/symmetry_clip_image" android:src="@drawable/clip_on" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/crop" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/symmetry_reset_button" style="@style/Tile">
+            <tag android:value="@string/mappings_symmetry_settings_reset" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/symmetry_reset_image" android:src="@drawable/reset" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/reset" style="@style/TileLabel" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

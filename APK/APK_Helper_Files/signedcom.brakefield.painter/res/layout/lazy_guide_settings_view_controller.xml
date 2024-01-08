@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_lazy_tool_settings" android:id="@id/ui_binding_key" />
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guide_lazy" style="@style/SectionTitle" />
+    <LinearLayout android:orientation="vertical" android:id="@id/cursor_settings_table" android:padding="8.0dip" android:layout_width="@dimen/dialog_background_width" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/radius_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/radius" app:ui_binding_key="@string/mappings_lazy_settings_radius" />
+        <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/elastic_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/elastic" app:ui_binding_key="@string/mappings_lazy_settings_elastic" />
+    </LinearLayout>
+</LinearLayout>

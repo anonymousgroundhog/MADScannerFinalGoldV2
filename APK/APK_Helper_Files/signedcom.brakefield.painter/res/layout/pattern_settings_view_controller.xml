@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="320.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_pattern_adjustments" android:id="@id/ui_binding_key" />
+    <LinearLayout android:orientation="vertical" android:padding="8.0dip" android:layout_width="@dimen/dialog_inner_width" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/hue_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:is_centered="true" app:title="@string/hue" app:ui_binding_key="@string/mappings_pattern_settings_hue" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/saturation_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:is_centered="true" app:title="@string/saturation" app:ui_binding_key="@string/mappings_pattern_settings_saturation" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/brightness_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:is_centered="true" app:title="@string/brightness" app:ui_binding_key="@string/mappings_pattern_settings_brightness" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/contrast_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:is_centered="true" app:title="@string/contrast" app:ui_binding_key="@string/mappings_pattern_settings_contrast" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/opacity_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/opacity" app:ui_binding_key="@string/mappings_pattern_settings_opacity" />
+    </LinearLayout>
+</LinearLayout>

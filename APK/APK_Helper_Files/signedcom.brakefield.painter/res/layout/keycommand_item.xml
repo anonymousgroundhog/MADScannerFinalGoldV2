@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_very_large" android:layout_gravity="left" android:id="@id/description_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_very_large" android:layout_gravity="right" android:id="@id/keycommand_text" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</FrameLayout>

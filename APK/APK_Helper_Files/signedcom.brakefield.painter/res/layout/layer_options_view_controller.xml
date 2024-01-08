@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="8.0dip" android:paddingTop="16.0dip" android:paddingRight="8.0dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_layer_options" android:id="@id/ui_binding_key" />
+    <Button android:id="@id/layer_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Layer 1" android:lines="1" android:textAllCaps="false" style="@style/TextButton">
+        <tag android:value="@string/mappings_layer_options_name" android:id="@id/ui_binding_key" />
+    </Button>
+    <Button android:gravity="center" android:layout_gravity="center" android:id="@id/blend_mode_text" android:paddingLeft="4.0dip" android:layout_width="196.0dip" android:layout_height="wrap_content" android:backgroundTint="#11888888" app:icon="@drawable/spinner_arrow" app:iconGravity="end" app:iconSize="24.0dip" style="@style/TextButton">
+        <tag android:value="@string/mappings_layer_options_blending_mode" android:id="@id/ui_binding_key" />
+    </Button>
+    <com.brakefield.infinitestudio.ui.CustomSlider android:id="@id/opacity_slider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" style="@style/SliderBar">
+        <tag android:value="@string/mappings_layer_options_opacity" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.CustomSlider>
+    <GridLayout android:id="@id/layer_options" android:layout_width="wrap_content" android:layout_height="wrap_content" android:columnCount="3">
+        <FrameLayout android:id="@id/visibility_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_visibility" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/visibility_button_image" android:src="@drawable/visibility_on" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/visibility_button_text" android:text="@string/hide" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/duplicate_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_duplicate" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/duplicate_button_image" android:src="@drawable/duplicate" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/duplicate_button_text" android:text="@string/duplicate" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/clear_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_clear" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/clear_button_image" android:src="@drawable/clear" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/clear_button_text" android:text="@string/clear" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/lock_transparency_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_lock_transparency" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/lock_transparency_button_image" android:src="@drawable/lock_transparency" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/lock_transparency_button_text" android:text="@string/lock" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/merge_down_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_merge" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/merge_down_button_image" android:src="@drawable/merge" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/merge_down_button_text" android:text="@string/merge" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/delete_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_delete" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/delete_button_image" android:src="@drawable/delete" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/delete_button_text" android:text="@string/delete" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/clip_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_clip" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/clip_button_image" android:src="@drawable/clipping_mask" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/clip_below" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_select" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_button_image" android:src="@drawable/selection_layer" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/selection" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/mask_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_mask" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/mask_button_image" android:src="@drawable/layer_mask" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mask" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/target_button" android:visibility="gone" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_options_source" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/target_button_image" android:src="@drawable/target" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/target_button_text" android:text="@string/source" style="@style/TileLabel" />
+        </FrameLayout>
+    </GridLayout>
+    <ImageView android:layout_gravity="right" android:id="@id/layer_options_more" android:padding="@dimen/padding_medium" android:src="@drawable/more" style="@style/Icon">
+        <tag android:value="@string/mappings_layer_options_more_options" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/hide_from_playback_toggle" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/hide_from_playback" app:ui_binding_key="@string/mappings_layer_options_hide_from_recording" />
+</LinearLayout>

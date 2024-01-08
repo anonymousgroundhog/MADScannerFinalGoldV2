@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <tag android:value="@string/mappings_layer_select_options" android:id="@id/ui_binding_key" />
+    <GridLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:columnCount="3">
+        <FrameLayout android:id="@id/select_replace_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_replace" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_replace_image" android:src="@drawable/selection_replace" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/replace" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_union_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_add" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_union_image" android:src="@drawable/selection_union" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/add" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_subtract_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_subtract" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_subtract_image" android:src="@drawable/selection_subtract" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/subtract" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_reverse_subtract_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_subtract_reverse" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_reverse_subtract_image" android:src="@drawable/selection_reverse_subtract" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/subtract" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_intersect_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_intersect" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_intersect_image" android:src="@drawable/selection_intersect" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/intersect" style="@style/TileLabel" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/select_difference_button" style="@style/Tile">
+            <tag android:value="@string/mappings_layer_select_difference" android:id="@id/ui_binding_key" />
+            <ImageView android:id="@id/select_difference_image" android:src="@drawable/selection_difference" style="@style/TileIcon" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/difference" style="@style/TileLabel" />
+        </FrameLayout>
+    </GridLayout>
+</FrameLayout>

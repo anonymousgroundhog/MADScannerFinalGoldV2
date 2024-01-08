@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/root" android:background="#44000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_gravity="center" android:background="@drawable/rounded_white" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="@dimen/help_dialog" android:layout_height="@dimen/help_dialog">
+            <androidx.viewpager2.widget.ViewPager2 android:id="@id/viewPager" android:saveEnabled="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+            <com.google.android.material.tabs.TabLayout android:layout_gravity="bottom" android:id="@id/page_indicators" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" app:tabBackground="@drawable/tab_pager_selector" app:tabGravity="center" app:tabIndicatorHeight="0.0dip" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/paint_mix_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mix" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/mix_amount_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/mix_in" app:ui_binding_key="@string/mappings_brush_settings_paint_mix_mixin" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/mix_dilution_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/dilution" app:ui_binding_key="@string/mappings_brush_settings_paint_mix_dilution" />
+                <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/wet_paint_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/wet_paint" app:ui_binding_key="@string/mappings_brush_settings_paint_mix_wet" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/paint_blend_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/blend" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/blend_blur_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/filter_blur" app:ui_binding_key="@string/mappings_brush_settings_paint_blend_blur" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/blend_pull_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/pull" app:ui_binding_key="@string/mappings_brush_settings_paint_blend_pull" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/blend_flow_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/flow" app:ui_binding_key="@string/mappings_brush_settings_paint_blend_flow" />
+                <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/sample_bottom_layers_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/sample_lower_layers" app:ui_binding_key="@string/mappings_brush_settings_paint_blend_sample_lower_layers" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/paint_dynamics_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/dynamics" style="@style/SectionTitle" />
+                <include android:id="@id/dilution_dynamics" layout="@layout/brush_settings_dynamics" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/paint_jitter_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/jitter_initial" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_initial_hue_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/hue" app:ui_binding_key="@string/mappings_brush_settings_paint_color_hue_jitter_initial" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_initial_saturation_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/saturation" app:ui_binding_key="@string/mappings_brush_settings_paint_color_saturation_jitter_initial" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_initial_brightness_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/brightness" app:ui_binding_key="@string/mappings_brush_settings_paint_color_brightness_jitter_initial" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_marginTop="16.0dip" android:text="@string/jitter_continuous" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_hue_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/hue" app:ui_binding_key="@string/mappings_brush_settings_paint_color_hue_jitter_continuous" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_saturation_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/saturation" app:ui_binding_key="@string/mappings_brush_settings_paint_color_saturation_jitter_continuous" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_brightness_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/brightness" app:ui_binding_key="@string/mappings_brush_settings_paint_color_brightness_jitter_continuous" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

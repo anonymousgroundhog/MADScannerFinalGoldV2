@@ -43,7 +43,6 @@ def Run_MADScanner(copy_from_folder):
 	file_list = os.listdir(''.join(['../APK/',copy_from_folder]))
 	madscanner.Copy_Files_To_Test(file_list)
 	os.chdir('../Python')
-	helper = Helper.Helper()
 	helper.Pre_Cleanup() #Uncomment this when done
 
 def Read_And_Save_Dataframe_Info(Test_Folder, copy_from_folder):
@@ -110,6 +109,7 @@ def Run_MADScanner_On_Apps(this_folder, copy_from_folder):
 	# cmd = ''.join(['cp ../APK/', copy_from_folder, '/*.apk ../APK/Testing'])
 	# os.system(cmd)
 	option="apk"
+	# option="j"
 	Test_Folder = this_folder
 	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
 	cprint("test folder is: " + str(Test_Folder), 'green')
@@ -273,7 +273,7 @@ os.chdir(cwd)
 # cprint(os.getcwd(), 'red')
 Run_MADScanner_On_Apps('Testing', "Google_Play_Download_Test")
 # Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
-# Cleanup_Soot_Output_Folder()
+Cleanup_Soot_Output_Folder()
 Check_If_App_Can_Be_Installed()
 
 Instrument_Apps()

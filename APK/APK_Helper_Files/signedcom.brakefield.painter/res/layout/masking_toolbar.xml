@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/masking_toolbar" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner android:id="@id/mask_tools_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip">
+        <tag android:value="@string/mappings_modify_color_mask_selector" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner>
+    <ImageView android:id="@id/invert_mask" android:layout_margin="@dimen/margin_small" android:layout_marginLeft="4.0dip" android:src="@drawable/selection_invert" android:contentDescription="@string/invert" style="@style/Icon">
+        <tag android:value="@string/mappings_mask_options_invert" android:id="@id/ui_binding_key" />
+    </ImageView>
+</LinearLayout>

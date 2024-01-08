@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/color_settings" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/color_mode_tabs" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginTop="@dimen/margin_large">
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/hsb_tab" android:layout_width="60.0dip" android:layout_height="32.0dip" android:text="HSB">
+            <tag android:value="@string/mappings_color_settings_modes_hsb" android:id="@id/ui_binding_key" />
+        </com.brakefield.infinitestudio.ui.AutosizeTextView>
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/rgb_tab" android:layout_width="60.0dip" android:layout_height="32.0dip" android:text="RGB">
+            <tag android:value="@string/mappings_color_settings_modes_rgb" android:id="@id/ui_binding_key" />
+        </com.brakefield.infinitestudio.ui.AutosizeTextView>
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/lab_tab" android:layout_width="60.0dip" android:layout_height="32.0dip" android:text="LAB">
+            <tag android:value="@string/mappings_color_settings_modes_lab" android:id="@id/ui_binding_key" />
+        </com.brakefield.infinitestudio.ui.AutosizeTextView>
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/cmyk_tab" android:layout_width="60.0dip" android:layout_height="32.0dip" android:text="CMYK">
+            <tag android:value="@string/mappings_color_settings_modes_cmyk" android:id="@id/ui_binding_key" />
+        </com.brakefield.infinitestudio.ui.AutosizeTextView>
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/color_settings_section" android:background="@drawable/section" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/color_sliders_hsb" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/color_settings_hsb_x" />
+        <include android:id="@id/color_sliders_rgb" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/color_settings_rgb_x" />
+        <include android:id="@id/color_sliders_lab" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/color_settings_lab_x" />
+        <include android:id="@id/color_sliders_cmyk" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" layout="@layout/color_settings_cmyk_x" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingLeft="@dimen/padding_very_large" android:paddingRight="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="@dimen/button_size" android:layout_marginTop="@dimen/margin_large">
+        <tag android:value="@string/mappings_color_settings_hexadecimal" android:id="@id/ui_binding_key" />
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center|left" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/hexadecimal" android:lines="1" android:layout_weight="1.0" />
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\#" android:lines="1" />
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/hexadecimal_value" android:padding="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="000000" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/eyedropper_settings_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/eyedropper" style="@style/SectionTitle" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/eyedropper_sample_size_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/sample_size" app:ui_binding_key="@string/mappings_eyedropper_settings_sample_area" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="@dimen/layer_thumb_size" android:layout_height="@dimen/layer_thumb_size"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/selected_border" android:background="#ffcccccc" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="2.0dip" />
+    <ImageView android:id="@id/ref_image" android:background="#ff111111" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:src="@null" android:scaleType="centerCrop" />
+    <ImageView android:id="@id/ref_lock_stripes" android:background="@drawable/stripes_pattern" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" />
+    <ImageView android:id="@id/ref_over_button" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

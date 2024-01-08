@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="brush_dialog_height">640.0dip</dimen>
+    <dimen name="head_source_size">400.0dip</dimen>
+    <dimen name="head_source_size_small">160.0dip</dimen>
+    <dimen name="padding_settings">16.0dip</dimen>
+</resources>

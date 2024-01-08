@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection$$ExternalSyntheticLambda3;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Lcom/brakefield/infinitestudio/ui/OnSeekBarProgressChangedListener;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/brakefield/painter/brushes/settings/SpecialSettings$WatercolorSection;->lambda$setup$3$com-brakefield-painter-brushes-settings-SpecialSettings$WatercolorSection(Landroid/widget/SeekBar;IZ)V
+
+    return-void
+.end method

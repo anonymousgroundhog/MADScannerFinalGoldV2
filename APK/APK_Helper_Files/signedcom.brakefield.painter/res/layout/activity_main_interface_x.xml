@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/interface_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/top_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_begin="8.0dip" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="horizontal" android:id="@id/bottom_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_end="8.0dip" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/start_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_begin="8.0dip" />
+    <androidx.constraintlayout.widget.Guideline android:orientation="vertical" android:id="@id/end_guideline" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_end="8.0dip" />
+    <ImageView android:id="@id/float_remove" android:visibility="gone" android:layout_width="@dimen/button_size_large" android:layout_height="@dimen/button_size_large" android:src="@drawable/cancel" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <View android:id="@id/bottom_options" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="@id/bottom_extra_bar" app:layout_constraintEnd_toEndOf="@id/bottom_options_barrier_end" app:layout_constraintStart_toStartOf="@id/bottom_options_barrier_start" app:layout_constraintTop_toTopOf="@id/bottom_accept_bar" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/bottom_accept_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toTopOf="@id/bottom_extra_bar" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/bottom_extra_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Barrier android:id="@id/bottom_options_barrier_start" android:layout_width="wrap_content" android:layout_height="0.0dip" app:barrierDirection="start" app:constraint_referenced_ids="bottom_accept_bar,bottom_extra_bar" />
+    <androidx.constraintlayout.widget.Barrier android:id="@id/bottom_options_barrier_end" android:layout_width="wrap_content" android:layout_height="0.0dip" app:barrierDirection="end" app:constraint_referenced_ids="bottom_accept_bar,bottom_extra_bar" />
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/undo_button" android:layout_marginBottom="8.0dip" android:src="@drawable/undo" android:contentDescription="@string/undo" app:layout_constraintBottom_toTopOf="@id/bottom_accept_bar" app:layout_constraintLeft_toLeftOf="@id/start_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_undo" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/no_undo_button" android:visibility="gone" android:layout_marginBottom="8.0dip" android:src="@drawable/no_eraser" android:contentDescription="@string/undo" android:alpha="0.5" app:layout_constraintBottom_toTopOf="@id/bottom_accept_bar" app:layout_constraintLeft_toLeftOf="@id/start_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_undo" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/redo_button" android:layout_marginLeft="12.0dip" android:src="@drawable/redo" android:contentDescription="@string/redo" app:layout_constraintBottom_toBottomOf="@id/undo_button" app:layout_constraintLeft_toRightOf="@id/undo_button" style="@style/Icon">
+        <tag android:value="@string/mappings_main_redo" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/undo_history_button" android:visibility="gone" android:src="@drawable/recent" android:contentDescription="@string/history" app:layout_constraintBottom_toTopOf="@id/undo_button" app:layout_constraintLeft_toLeftOf="@id/start_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_undo_history" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.CustomSlider android:id="@id/undo_history_slider" android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="@dimen/button_size" android:max="100" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintLeft_toRightOf="@id/undo_history_button" app:layout_constraintRight_toRightOf="@id/end_guideline" app:layout_constraintTop_toTopOf="@id/undo_history_button" app:layout_constraintWidth_max="420.0dip" style="@style/SliderBar">
+        <tag android:value="@string/mappings_undo_history" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.CustomSlider>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/home_button" android:src="@drawable/home" android:contentDescription="@string/home" app:layout_constraintStart_toStartOf="@id/start_guideline" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_home" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/top_settings" android:src="@drawable/settings_gear" android:contentDescription="@string/settings" app:layout_constraintStart_toEndOf="@id/home_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_tool_settings" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/mask_options_button" android:src="@drawable/select_options" android:contentDescription="@string/options" app:layout_constraintStart_toEndOf="@id/top_settings" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_mask_options" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/mask_toggle" android:src="@drawable/mask_off" android:contentDescription="@string/selection_mask" app:layout_constraintStart_toEndOf="@id/mask_options_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_mask_toggle" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <FrameLayout android:gravity="center" android:id="@id/quick_bar_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/button_size_2x" app:layout_constraintEnd_toStartOf="@id/creative_tools_button" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/quick_bar" android:padding="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginRight="@dimen/margin_medium" android:minWidth="@dimen/button_size">
+            <tag android:value="@string/mappings_main_custom_toolbar" android:id="@id/ui_binding_key" />
+        </LinearLayout>
+    </FrameLayout>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/creative_tools_button" android:src="@drawable/tools" android:contentDescription="@string/tools" app:layout_constraintEnd_toStartOf="@id/editing_tools_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_creative_tools" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/editing_tools_button" android:src="@drawable/tools_editing" android:contentDescription="@string/tools" app:layout_constraintEnd_toStartOf="@id/refs_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_editing_tools" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/refs_button" android:src="@drawable/refs" android:contentDescription="@string/reference" app:layout_constraintEnd_toStartOf="@id/layer_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_references" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/layer_button" android:src="@drawable/simple_layers_thin" android:contentDescription="@string/layers" app:layout_constraintEnd_toStartOf="@id/options_button" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_layers" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/options_button" android:src="@drawable/options" android:contentDescription="@string/options" app:layout_constraintEnd_toEndOf="@id/end_guideline" app:layout_constraintTop_toTopOf="@id/top_guideline" style="@style/Icon">
+        <tag android:value="@string/mappings_main_options" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.ShadowImageView>
+    <FrameLayout android:id="@id/layers_container" android:layout_width="@dimen/layer_panel_collapsed_width" android:layout_height="0.0dip" app:layout_constraintBottom_toTopOf="@id/bottom_options" app:layout_constraintHeight_max="wrap" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/options_button" app:layout_constraintVertical_bias="0.0">
+        <tag android:value="@string/mappings_main_layers_panel" android:id="@id/ui_binding_key" />
+        <include android:id="@id/layers_panel" layout="@layout/layers_panel" />
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/mini_toolbars" android:paddingRight="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintEnd_toStartOf="@id/layers_container" app:layout_constraintTop_toBottomOf="@id/options_button" />
+    <FrameLayout android:layout_gravity="center" android:id="@id/top_accept_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/float_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <androidx.constraintlayout.helper.widget.Layer android:id="@id/undo_options" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="undo_button,no_undo_button,redo_button,undo_history_button,undo_history_slider" />
+    <androidx.constraintlayout.helper.widget.Layer android:id="@id/top_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" app:constraint_referenced_ids="home_button,top_settings,mask_options_button,mask_toggle,top_accept_bar,quick_bar_container,creative_tools_button,editing_tools_button,refs_button,layer_button,options_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

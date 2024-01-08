@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:id="@id/scroll_view" android:paddingTop="@dimen/title_cover_size_small" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/padding_settings" android:layout_marginRight="@dimen/padding_settings">
+            <include android:id="@id/developer_settings" layout="@layout/developer_settings" />
+            <include android:id="@id/account_settings" layout="@layout/account_settings" />
+            <include android:id="@id/interface_settings" layout="@layout/interface_settings" />
+            <include android:id="@id/language_settings" layout="@layout/language_settings" />
+            <include android:id="@id/workflow_settings" layout="@layout/workflow_settings" />
+            <include android:id="@id/rendering_settings" layout="@layout/rendering_settings" />
+            <include android:id="@id/saving_settings" layout="@layout/saving_settings" />
+            <include android:id="@id/gestures_settings" layout="@layout/gestures_settings" />
+            <include android:id="@id/global_brush_settings" layout="@layout/global_brush_settings" />
+            <include android:id="@id/device_settings" layout="@layout/device_settings" />
+            <include android:id="@id/stylus_settings" layout="@layout/stylus_settings" />
+            <include android:id="@id/about_settings" layout="@layout/about_settings" />
+            <include android:id="@id/companion_settings" layout="@layout/companion_settings" />
+            <include android:id="@id/beta_testing_settings" layout="@layout/beta_testing_settings" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_small" android:layout_gravity="right" android:id="@id/copyright_text" android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="© Infinite Studio LLC" android:lines="1" />
+        </LinearLayout>
+    </ScrollView>
+</merge>

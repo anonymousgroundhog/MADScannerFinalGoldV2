@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout style="@style/Tile"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/drag_handle" style="@style/Tile">
+        <ImageView android:id="@id/preview" style="@style/TileIcon" />
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:id="@id/name" style="@style/TileLabel" />
+    </FrameLayout>
+</FrameLayout>

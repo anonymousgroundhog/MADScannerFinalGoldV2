@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/developer_settings" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:id="@id/card" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:layout_marginBottom="4.0dip">
+        <LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="Developer" style="@style/SectionTitle" />
+            <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/debug_ui_press_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="Debug UI press" />
+            <com.brakefield.infinitestudio.ui.LabeledDropdownLayout android:id="@id/test_version_dropdown" android:layout_width="fill_parent" android:layout_height="@dimen/ui_dropdown_height" app:title="Test version" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/settings_collection" android:paddingTop="@dimen/padding_medium" android:paddingBottom="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

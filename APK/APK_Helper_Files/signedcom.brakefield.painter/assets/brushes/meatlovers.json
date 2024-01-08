@@ -1,0 +1,136 @@
+{
+   "blend-properties" : {
+      "flow" : 1,
+      "mix-in" : 0,
+      "mix-in dilution" : 0,
+      "smudge" : 0,
+      "strength" : 0.20000000298023224
+   },
+   "display-name" : "Savory",
+   "dynamics-properties" : {
+      "pressure - effects flow" : false,
+      "pressure - effects scatter" : false,
+      "pressure - effects size" : true,
+      "pressure - effects texture" : true,
+      "pressure profile - flow" : [
+         0.0016891881823539734,
+         0.7734375,
+         0.33445948362350464,
+         0.20703125,
+         1,
+         0
+      ],
+      "pressure profile - scatter" : [ 0, 1, 0.5, 0.89999997615814209, 1, 0.60000002384185791 ],
+      "pressure profile - size" : [
+         0,
+         0.59765625,
+         0.31925678253173828,
+         0.419921875,
+         0.67398649454116821,
+         0.12890625,
+         1,
+         0
+      ],
+      "pressure profile - texture" : [
+         0,
+         1,
+         0.41385135054588318,
+         0.82421875,
+         0.72297298908233643,
+         0.220703125,
+         1,
+         0
+      ],
+      "tilt - effects flow" : false,
+      "tilt - effects scatter" : false,
+      "tilt - effects size" : true,
+      "tilt - effects texture" : false,
+      "tilt - offset" : 0.80000001192092896,
+      "tilt profile - flow" : [ 0, 0, 0.31418919563293457, 0, 0.68581080436706543, 0.611328125, 1, 1 ],
+      "tilt profile - scatter" : [ 0, 1, 0.5, 1, 1, 0.39999997615814209 ],
+      "tilt profile - size" : [ 0, 1, 0.5, 1, 1, 0 ],
+      "tilt profile - texture" : [ 0, 0, 0.56925672292709351, 0.134765625, 1, 0.544921875 ],
+      "velocity - effects flow" : false,
+      "velocity - effects scatter" : false,
+      "velocity - effects size" : false,
+      "velocity - effects texture" : false,
+      "velocity profile - flow" : [
+         0,
+         0,
+         0.37668919563293457,
+         0.13671875,
+         0.67229729890823364,
+         0.4296875,
+         0.98479729890823364,
+         0.646484375
+      ],
+      "velocity profile - scatter" : [
+         0,
+         1,
+         0.62162160873413086,
+         0.91015625,
+         0.87837839126586914,
+         0.47265625,
+         1,
+         0
+      ],
+      "velocity profile - size" : [ 0, 0, 0.5, 0.5, 1, 1 ],
+      "velocity profile - texture" : [ 0, 1, 0.5, 0.5, 1, 0 ]
+   },
+   "head-properties" : {
+      "angle" : 0.062831848859786987,
+      "flow" : 1,
+      "rotation" : 0.98000001907348633,
+      "softness" : 0.17307694256305695,
+      "spacing" : 0.10062134265899658,
+      "structure" : 0,
+      "style" : 0,
+      "use-trajectory" : false
+   },
+   "jitter-properties" : {
+      "angle" : 0.11057688295841217,
+      "color-brightness" : 0,
+      "color-hue" : 0,
+      "color-saturation" : 0,
+      "flow" : 0,
+      "scatter" : 0,
+      "size" : 0,
+      "texture-position" : 0,
+      "texture-scale" : 0
+   },
+   "parent" : 100,
+   "source-properties" : {
+      "custom-head" : "",
+      "custom-stroke texture" : "",
+      "head" : "",
+      "head - color" : false,
+      "head - conversion format" : 1,
+      "head - profile" : [ 0, 1, 1, 0 ],
+      "stroke texture" : "brush_texture_pizza",
+      "stroke texture - color" : true,
+      "stroke texture - profile" : [ 0, 1, 1, 0 ]
+   },
+   "stroke-properties" : {
+      "blend-opacity" : 1,
+      "blend-size" : 40,
+      "blendmode" : 0,
+      "erase-opacity" : 1,
+      "erase-size" : 40,
+      "flow-profile" : [ 0, 0, 0.30000001192092896, 0, 1, 1 ],
+      "has-flow-profile" : false,
+      "has-size-profile" : false,
+      "paint-opacity" : 1,
+      "paint-size" : 67.125007629394531,
+      "size-maximum" : 0.70538532733917236,
+      "size-profile" : [ 0, 1, 0.5, 0, 1, 1 ]
+   },
+   "texture-properties" : {
+      "invert" : true,
+      "pressure" : 0.30567276477813721,
+      "scale" : 0.80000096559524536,
+      "scale-size" : false,
+      "stretch" : 1,
+      "structure" : 0,
+      "style" : 0
+   }
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button android:gravity="start|center" android:id="@id/button" android:layout_width="0.0dip" android:layout_height="60.0dip" android:lines="1" android:paddingEnd="8.0dip" android:elevation="2.0dip" app:iconPadding="8.0dip" app:iconSize="32.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/RoundedButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/unlock_frame" android:layout_margin="@dimen/margin_small" android:src="@drawable/lock_outline" android:contentDescription="@string/lock" style="@style/Icon">
+        <tag android:value="@string/mappings_transform_options_unlock_frame" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
+    <com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner android:id="@id/transform_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="120.0dip">
+        <tag android:value="@string/mappings_transform_modes" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner>
+    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
+    <ImageView android:id="@id/flip_horizontal" android:layout_margin="@dimen/margin_small" android:src="@drawable/flip_horizontal_thin" android:contentDescription="@string/flip" style="@style/Icon">
+        <tag android:value="@string/mappings_transform_options_flip" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <ImageView android:id="@id/rotate" android:layout_margin="@dimen/margin_small" android:src="@drawable/rotate_90_cw" android:contentDescription="@string/rotate" style="@style/Icon">
+        <tag android:value="@string/mappings_transform_options_rotate" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <ImageView android:id="@id/stamp" android:layout_margin="@dimen/margin_small" android:src="@drawable/stamp" android:contentDescription="@string/duplicate" style="@style/Icon">
+        <tag android:value="@string/mappings_transform_options_stamp" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
+    <ImageView android:id="@id/options" android:visibility="gone" android:layout_margin="@dimen/margin_small" android:src="@drawable/expand_more" android:contentDescription="@string/options" style="@style/Icon" />
+</LinearLayout>

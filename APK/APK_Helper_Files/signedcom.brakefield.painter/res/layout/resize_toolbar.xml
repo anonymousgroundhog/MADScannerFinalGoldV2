@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:gravity="center|right" android:id="@id/resize_width_text" android:layout_width="48.0dip" android:layout_height="@dimen/button_size" android:text="1200" android:lines="1">
+        <tag android:value="@string/mappings_resize_width" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.AutosizeTextView>
+    <ImageView android:id="@id/resize_link_button" android:src="@drawable/link" android:contentDescription="@string/lock" style="@style/Icon">
+        <tag android:value="@string/mappings_resize_lock_ratio" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:gravity="center|left" android:id="@id/resize_height_text" android:layout_width="48.0dip" android:layout_height="@dimen/button_size" android:text="2560" android:lines="1">
+        <tag android:value="@string/mappings_resize_height" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.AutosizeTextView>
+    <ImageView android:id="@id/resize_lock_button" android:src="@drawable/lock_outline" android:contentDescription="@string/scale" style="@style/Icon">
+        <tag android:value="@string/mappings_resize_content_toggle" android:id="@id/ui_binding_key" />
+    </ImageView>
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/watercolor_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <include android:id="@id/watercolor_settings" layout="@layout/settings_brush_bleed" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/screentone_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <include android:id="@id/screentone_settings" layout="@layout/settings_brush_pixel_snap" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/particles_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <include android:id="@id/particle_settings" layout="@layout/settings_brush_particles" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/filters_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <include android:id="@id/filters_settings" layout="@layout/settings_brush_filter_effects" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

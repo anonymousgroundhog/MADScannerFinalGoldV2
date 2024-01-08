@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/select_color_range_settings" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" />
+    <com.brakefield.infinitestudio.ui.CustomSlider android:id="@id/adjustment_slider" android:layout_width="0.0dip" android:layout_height="@dimen/button_size" android:max="100" android:layout_weight="1.0" style="@style/SliderBar">
+        <tag android:value="@string/mappings_filter_value" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.CustomSlider>
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:layout_gravity="center" android:id="@id/adjustment_slider_value" android:layout_width="40.0dip" android:layout_height="wrap_content" android:text="100%" android:lines="1" />
+    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" />
+    <ImageView android:id="@id/compare" android:layout_marginRight="8.0dip" android:src="@drawable/visibility_on" style="@style/Icon">
+        <tag android:value="@string/mappings_filter_options_compare" android:id="@id/ui_binding_key" />
+    </ImageView>
+</LinearLayout>

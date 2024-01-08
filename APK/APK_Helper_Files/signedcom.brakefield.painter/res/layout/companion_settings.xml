@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/companion_settings" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:id="@id/card" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:layout_marginBottom="4.0dip">
+        <LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/companion_devices" style="@style/SectionTitle" />
+            <include android:id="@id/instapick_service" layout="@layout/companion_settings_item" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

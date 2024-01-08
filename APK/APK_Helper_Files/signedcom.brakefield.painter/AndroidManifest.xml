@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" package="com.brakefield.painter" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-feature android:glEsVersion="0x00030000"/>
+    <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.any" android:required="false"/>
+    <uses-feature android:name="android.hardware.type.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <permission android:name="com.brakefield.painter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.brakefield.painter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <queries>
+        <intent>
+            <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:hasFragileUserData="true" android:icon="@mipmap/icon" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.pairip.application.Application" android:requestLegacyExternalStorage="true" android:resizeableActivity="true" android:roundIcon="@mipmap/icon_round" android:theme="@style/DarkThemeNoBackground">
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="@bool/usesMultiWindow"/>
+        <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:documentLaunchMode="never" android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.brakefield.painter.activities.ActivityStartup" android:theme="@style/SplashTheme">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+            <layout android:minHeight="400.0dip" android:minWidth="400.0dip"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.pntr"/>
+                <data android:pathPattern=".*\\..*\\.pntr"/>
+                <data android:pathPattern=".*\\..*\\..*\\.pntr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.pntr"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.prbr"/>
+                <data android:pathPattern=".*\\..*\\.prbr"/>
+                <data android:pathPattern=".*\\..*\\..*\\.prbr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.prbr"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.przp"/>
+                <data android:pathPattern=".*\\..*\\.przp"/>
+                <data android:pathPattern=".*\\..*\\..*\\.przp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.przp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.psd"/>
+                <data android:pathPattern=".*\\..*\\.psd"/>
+                <data android:pathPattern=".*\\..*\\..*\\.psd"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.psd"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="image/jpeg"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="image/png"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:documentLaunchMode="never" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.brakefield.painter.activities.ActivityMain">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivityBrushes">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivityClassroom">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivityHelp" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivityPlayback">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ResourcesActivity" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.FiltersActivity" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivitySettings">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.ActivityDrive" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.BrushHeadResourcesActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.BrushTextureResourcesActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.PatternResourcesActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.ClipboardActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.ExportedItemsActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.ImageSearchActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.ActivityOnlineGallery">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.PalettesActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.PatternsActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.activities.ActivityWeb">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.settings.ColorPickerSetup" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.infinitestudio.account.LoginActivity" android:theme="@style/Transparent">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.brakefield.painter.activities.XComposeTestActivity">
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize"/>
+            <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape"/>
+        </activity>
+        <meta-data android:name="io.fabric.ApiKey" android:value="f84669843d786c7030c305c6006a6ab6ac7b4d03"/>
+        <provider android:authorities="com.brakefield.painter.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <receiver android:enabled="false" android:exported="true" android:name="com.brakefield.painter.receivers.SPenDetachIntentBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.samsung.pen.INSERT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.brakefield.painter.receivers.SPenAirButtonIntentBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.sec.android.intent.action.AIR_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.brakefield.painter.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.brakefield.painter.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="6.0.1"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11003"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <activity android:exported="false" android:name="com.infinite.instapick.MainActivity"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/rendering_settings" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:id="@id/card" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:layout_marginBottom="4.0dip">
+        <LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/rendering" style="@style/SectionTitle" />
+            <com.brakefield.infinitestudio.ui.LabeledDropdownLayout android:id="@id/color_modes_dropdown" android:layout_width="fill_parent" android:layout_height="@dimen/ui_dropdown_height" app:title="@string/color_mode" app:ui_binding_key="@string/mappings_settings_rendering_color_mode" />
+            <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/gamma_correction_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/gamma_correction" app:ui_binding_key="@string/mappings_settings_rendering_gamma_correction" />
+            <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/color_depth_64_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/color_depth_64" app:ui_binding_key="@string/mappings_settings_rendering_deep_color" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

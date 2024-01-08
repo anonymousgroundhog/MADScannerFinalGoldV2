@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/cancel" android:src="@drawable/cancel" android:contentDescription="@string/cancel" style="@style/Icon" />
+        <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
+        <com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner android:id="@id/selection_tool_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip">
+            <tag android:value="@string/mappings_selection_tool_selector" android:id="@id/ui_binding_key" />
+        </com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner>
+        <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" />
+        <ImageView android:id="@id/selection_mode" android:layout_margin="@dimen/margin_small" android:src="@drawable/selection_union" android:contentDescription="@string/add" style="@style/Icon">
+            <tag android:value="@string/mappings_selection_mode_add_subtract" android:id="@id/ui_binding_key" />
+        </ImageView>
+        <ImageView android:id="@id/sample_from" android:layout_margin="@dimen/margin_small" android:src="@drawable/sample_all_layers" style="@style/Icon">
+            <tag android:value="@string/mappings_selection_target" android:id="@id/ui_binding_key" />
+        </ImageView>
+        <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
+        <ImageView android:id="@id/apply" android:src="@drawable/accept" android:contentDescription="@string/accept" style="@style/Icon" />
+    </LinearLayout>
+    <include android:id="@id/select_color_range_settings" android:visibility="gone" layout="@layout/select_color_range_toolbar" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.HorizontalPager android:layout_gravity="center" android:id="@id/selection_pager" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/tile_size">
+                <FrameLayout android:id="@id/select_all_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_all" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_all_image" android:src="@drawable/selection_all3" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/select_all" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_invert_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_invert" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_invert_image" android:src="@drawable/selection_invert4" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/invert" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_clear_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_clear" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_clear_image" android:src="@drawable/selection_clear3" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/clear" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_transform_mask_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_transform" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_transform_mask_image" android:src="@drawable/selection_transform" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/transform" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_expand_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_expand" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_expand_image" android:src="@drawable/selection_expand" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/expand" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_contract_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_contract" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_contract_image" android:src="@drawable/selection_contract" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/contract" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_feather_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_mask_feather" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_feather_image" android:src="@drawable/selection_feather" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/feather" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_transform_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_transform" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_transform_image" android:src="@drawable/transform" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/transform" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_duplicate_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_duplicate" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_duplicate_image" android:src="@drawable/duplicate" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/duplicate" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_copy_merged_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_copy_merged" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_copy_merged_image" android:src="@drawable/copy_merge" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/copy_merged" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_isolate_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_isolate" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_isolate_image" android:src="@drawable/cut2" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/isolate" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_delete_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_delete" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_delete_image" android:src="@drawable/delete" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/delete" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_clip_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_clipboard" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_clip_image" android:src="@drawable/clipboard" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/clipboard" style="@style/TileLabel" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/select_brush_button" style="@style/Tile">
+                    <tag android:value="@string/mappings_selection_options_content_brush" android:id="@id/ui_binding_key" />
+                    <ImageView android:id="@id/select_brush_image" android:src="@drawable/create_brush" style="@style/TileIcon" />
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/brush" style="@style/TileLabel" />
+                </FrameLayout>
+            </LinearLayout>
+        </com.brakefield.infinitestudio.ui.HorizontalPager>
+        <ImageView android:layout_gravity="center|left" android:id="@id/selection_pager_hint_left" android:visibility="gone" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/chevron_left" />
+        <ImageView android:layout_gravity="center|right" android:id="@id/selection_pager_hint_right" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/chevron_right" />
+    </FrameLayout>
+</LinearLayout>

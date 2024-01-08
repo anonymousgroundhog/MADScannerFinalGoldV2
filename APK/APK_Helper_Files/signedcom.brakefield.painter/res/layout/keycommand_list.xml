@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large" android:layout_marginBottom="@dimen/margin_large"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:padding="@dimen/padding_very_large" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/group_list_left" android:layout_width="@dimen/dialog_width" android:layout_height="wrap_content" />
+            <View android:background="#33000000" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+            <LinearLayout android:orientation="vertical" android:id="@id/group_list_right" android:layout_width="@dimen/dialog_width" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

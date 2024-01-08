@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="@dimen/more_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                <LinearLayout android:orientation="vertical" android:id="@id/tools_row" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/tools" style="@style/ToolsSectionTitle" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/tools_row_items" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <FrameLayout android:id="@id/fill_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_fills_solid" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/fill_image" android:src="@drawable/bucket" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/fill" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/fill_gradient_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_fills_gradient" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/fill_gradient_image" android:src="@drawable/fill_gradient" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/gradient" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/fill_pattern_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_fills_pattern" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/fill_pattern_image" android:src="@drawable/fill_dynamic" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/pattern" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/clone_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_tools_clone" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/clone_image" android:src="@drawable/clone" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/clone" style="@style/TileLabel" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/guides_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guides" style="@style/ToolsSectionTitle" />
+                    <FrameLayout android:id="@id/guides_row_items" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <com.brakefield.infinitestudio.ui.HorizontalPager android:id="@id/guides_pager" android:layout_width="wrap_content" android:layout_height="wrap_content" android:overScrollMode="never">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <FrameLayout android:id="@id/guide_linear_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_guides_lines" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/guide_lines_image" android:src="@drawable/linear" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guide_linear" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/guide_elliptical_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_guides_ellipse" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/guide_ellipse_image" android:src="@drawable/elliptical" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guide_elliptical" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/guide_hatching_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_guides_hatching" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/guide_hatching_image" android:src="@drawable/hatching" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/hatching" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/guide_lazy_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_guides_lazy" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/guide_lazy_image" android:src="@drawable/lazy_finger" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guide_lazy" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/guide_curve_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_guides_path" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/guide_curve_image" android:src="@drawable/quick_curve" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/guide_pen" style="@style/TileLabel" />
+                                </FrameLayout>
+                            </LinearLayout>
+                        </com.brakefield.infinitestudio.ui.HorizontalPager>
+                        <ImageView android:layout_gravity="center|left" android:id="@id/guides_pager_hint_left" android:visibility="gone" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/chevron_left" />
+                        <ImageView android:layout_gravity="center|right" android:id="@id/guides_pager_hint_right" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginRight="16.0dip" android:src="@drawable/chevron_right" />
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/shapes_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/shapes" style="@style/ToolsSectionTitle" />
+                    <FrameLayout android:id="@id/shapes_row_items" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <com.brakefield.infinitestudio.ui.HorizontalPager android:id="@id/shapes_pager" android:layout_width="wrap_content" android:layout_height="wrap_content" android:overScrollMode="never">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <FrameLayout android:id="@id/mode_line_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_shapes_line" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/mode_line_image" android:src="@drawable/line" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mode_line" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/mode_rect_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_shapes_rect" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/mode_rect_image" android:src="@drawable/rect" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mode_rectangle" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/mode_oval_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_shapes_circle" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/mode_oval_image" android:src="@drawable/ellipse" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mode_oval" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/mode_polyline_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_shapes_path" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/mode_polyline_image" android:src="@drawable/shapes_path" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/maestro_path" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/mode_arc_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_shapes_arc" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/mode_arc_image" android:src="@drawable/arc" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/mode_arc" style="@style/TileLabel" />
+                                </FrameLayout>
+                            </LinearLayout>
+                        </com.brakefield.infinitestudio.ui.HorizontalPager>
+                        <ImageView android:layout_gravity="center|left" android:id="@id/shapes_pager_hint_left" android:visibility="gone" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/chevron_left" />
+                        <ImageView android:layout_gravity="center|right" android:id="@id/shapes_pager_hint_right" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginRight="16.0dip" android:src="@drawable/chevron_right" />
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/symmetry_row" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/symmetry" style="@style/ToolsSectionTitle" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/symmetry_row_items" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <FrameLayout android:id="@id/sym_y_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_symmetry_horizontal" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/sym_y_image" android:src="@drawable/sym_y" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/sym_x" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/sym_x_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_symmetry_vertical" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/sym_x_image" android:src="@drawable/sym_x" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/sym_y" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/sym_r_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_symmetry_radial" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/sym_r_image" android:src="@drawable/sym_r" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/sym_r" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/sym_k_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_symmetry_kaleido" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/sym_k_image" android:src="@drawable/sym_k" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/sym_k" style="@style/TileLabel" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/perspectives_row" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspectives" style="@style/ToolsSectionTitle" />
+                    <FrameLayout android:id="@id/perspectives_row_items" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <com.brakefield.infinitestudio.ui.HorizontalPager android:id="@id/perspectives_pager" android:layout_width="wrap_content" android:layout_height="wrap_content" android:overScrollMode="never">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <FrameLayout android:id="@id/perspective_one_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_1" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_one_image" android:src="@drawable/perspective_1" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspective_1" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/perspective_two_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_2" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_two_image" android:src="@drawable/perspective_2" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspective_2" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/perspective_three_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_3" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_three_image" android:src="@drawable/perspective_3" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspective_3" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/perspective_five_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_5" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_five_image" android:src="@drawable/perspective_5" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspective_5" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/perspective_iso_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_iso" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_iso_image" android:src="@drawable/perspective_iso" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/perspective_iso" style="@style/TileLabel" />
+                                </FrameLayout>
+                                <FrameLayout android:id="@id/perspective_grid_button" style="@style/Tile">
+                                    <tag android:value="@string/mappings_perspective_grid" android:id="@id/ui_binding_key" />
+                                    <ImageView android:id="@id/perspective_grid_image" android:src="@drawable/grid" style="@style/TileIcon" />
+                                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/grid" style="@style/TileLabel" />
+                                </FrameLayout>
+                            </LinearLayout>
+                        </com.brakefield.infinitestudio.ui.HorizontalPager>
+                        <ImageView android:layout_gravity="center|left" android:id="@id/perspectives_pager_hint_left" android:visibility="gone" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/chevron_left" />
+                        <ImageView android:layout_gravity="center|right" android:id="@id/perspectives_pager_hint_right" android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginRight="16.0dip" android:src="@drawable/chevron_right" />
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/camera_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium">
+                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/camera" style="@style/ToolsSectionTitle" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/camera_row_items" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <FrameLayout android:id="@id/reset_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_camera_fit" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/reset_image" android:src="@drawable/camera_reset" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/fit" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/flip_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_camera_flip" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/flip_image" android:src="@drawable/flip_horizontal_thin" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/flip" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/camera_lock_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_camera_lock" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/camera_lock_image" android:src="@drawable/camera_lock" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/lock" style="@style/TileLabel" />
+                        </FrameLayout>
+                        <FrameLayout android:id="@id/camera_navigator_button" style="@style/Tile">
+                            <tag android:value="@string/mappings_camera_preview" android:id="@id/ui_binding_key" />
+                            <ImageView android:id="@id/camera_navigator_image" android:src="@drawable/navigator" style="@style/TileIcon" />
+                            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/navigator" style="@style/TileLabel" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</FrameLayout>

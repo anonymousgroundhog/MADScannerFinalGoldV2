@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" app:cardCornerRadius="4.0dip">
+        <GridView android:id="@id/swatch_collection" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="0.0dip" android:verticalSpacing="0.0dip" android:stretchMode="columnWidth" android:columnWidth="@dimen/button_size_small" android:numColumns="10" />
+    </androidx.cardview.widget.CardView>
+</merge>

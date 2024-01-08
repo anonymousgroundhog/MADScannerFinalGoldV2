@@ -1,0 +1,114 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "appId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logApp",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logClass",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logMethod",
+				"type": "string"
+			}
+		],
+		"name": "addLog",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "appId",
+				"type": "string"
+			}
+		],
+		"name": "getLogs",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "app_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "log_class",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "log_method",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MultiAppLogTracker.Log[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "appId",
+				"type": "string"
+			}
+		],
+		"name": "getLogsClasses",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "appId",
+				"type": "string"
+			}
+		],
+		"name": "getLogsMethods",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

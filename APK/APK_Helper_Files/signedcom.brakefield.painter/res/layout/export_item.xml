@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="@dimen/image_thumbnail_size" android:layout_height="@dimen/image_thumbnail_size" android:layout_margin="2.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/background" android:background="@color/dark_gray" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/preview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/small_name_bar" android:background="#44000000" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:textColor="#ffffffff" android:id="@id/small_name" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Project 1" android:lines="1" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center" android:id="@id/hint_type" android:layout_width="@dimen/button_size_small" android:layout_height="@dimen/button_size_small" android:src="@drawable/image" android:tint="#ffffffff" />
+    </LinearLayout>
+</FrameLayout>

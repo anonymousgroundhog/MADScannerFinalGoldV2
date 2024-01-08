@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/padding_medium" android:paddingBottom="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" />
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:gravity="center|left" android:id="@id/text" android:paddingRight="@dimen/padding_very_large" android:layout_width="wrap_content" android:layout_height="@dimen/button_size" android:layout_marginLeft="@dimen/margin_large" android:lines="1" />
+</LinearLayout>

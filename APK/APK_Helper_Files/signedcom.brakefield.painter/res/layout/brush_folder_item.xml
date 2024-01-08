@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/drag_handle" android:layout_width="@dimen/brush_folder_width" android:layout_height="@dimen/button_size_large"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="@dimen/button_size_small" android:layout_height="@dimen/button_size_small" android:layout_marginLeft="@dimen/margin_small">
+        <ImageView android:id="@id/brush_folder_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textAppearance="@style/TextAppearance.Material3.TitleSmall" android:gravity="center" android:layout_gravity="center" android:id="@id/brush_folder_custom_icon" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:id="@id/brush_folder_text" android:padding="@dimen/padding_medium" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:text="Graphite" android:maxLines="2" />
+</LinearLayout>

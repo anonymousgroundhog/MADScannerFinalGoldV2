@@ -1,4 +1,4 @@
-import os, subprocess, traceback, hashlib, shutil, time, pandas as pd
+import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, itertools, sys
 
 from termcolor import colored, cprint
 from functools import reduce
@@ -56,6 +56,43 @@ class Helper:
 
     def list_directories(self, path):
         return [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+
+    def list_combinations(self, lst):
+        combs = []
+
+        for i in range(1, len(lst)+1):
+            # combs.append(i)
+            els = [list(x) for x in itertools.combinations(lst, i)]
+            combs.append(els)
+        return combs
+
+    def Get_Library_Helper_File_Names(self, dir):
+        pwd = os.getcwd()
+        this_path = ''.join(['../APK/', dir])
+        unique_files = []
+        os.chdir(this_path)
+        these_directories = self.list_directories(os.getcwd())
+
+        for this_dir in these_directories:
+            # cprint(this_dir, 'green')
+            for file in os.listdir(this_dir):
+                if not file.__contains__(this_dir) and file.__contains__('signed'):
+                    # print(file)
+                    if file not in unique_files:
+                        shutil.copyfile(''.join([this_dir,'/',file]), ''.join(['../APK_Helper_Files/'+file]))
+                        unique_files.append(file)
+
+        # cprint(''.join(['Files are:', str(unique_files)]), 'cyan')
+
+        combinations=self.list_combinations(unique_files)
+        unique_apk_files_list = []
+        for comb in combinations:
+            # print(comb)
+            for items in comb:
+                unique_apk_files_list.append(' '.join(items))
+
+        os.chdir(pwd)
+        return unique_apk_files_list
 
     def cleanup_folder_google_play(self, this_list):
         os.chdir('../APK/Google_Play_Apps')

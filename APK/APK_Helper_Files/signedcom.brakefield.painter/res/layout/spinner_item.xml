@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="horizontal" android:paddingTop="@dimen/padding_medium" android:paddingBottom="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:gravity="start|center" android:id="@id/text" android:layout_width="wrap_content" android:layout_height="@dimen/button_size" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:lines="1" android:paddingStart="@dimen/padding_very_large"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</FrameLayout>

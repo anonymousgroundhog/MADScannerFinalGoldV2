@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_large">17.0dip</dimen>
+    <dimen name="text_size_normal">15.0dip</dimen>
+    <dimen name="text_size_small">11.0dip</dimen>
+    <dimen name="text_size_title">22.0dip</dimen>
+    <dimen name="text_size_very_large">19.0dip</dimen>
+    <dimen name="text_size_very_small">7.0dip</dimen>
+</resources>

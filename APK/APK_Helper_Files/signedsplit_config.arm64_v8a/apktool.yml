@@ -1,0 +1,17 @@
+version: 2.9.0
+apkFileName: signedsplit_config.arm64_v8a.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+packageInfo:
+  forcedPackageId: null
+  renameManifestPackage: null
+versionInfo:
+  versionCode: 400724
+  versionName: null
+resourcesAreCompressed: false
+sharedLibrary: false
+sparseResources: true

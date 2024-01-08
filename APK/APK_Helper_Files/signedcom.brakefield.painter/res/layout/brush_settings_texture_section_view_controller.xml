@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/texture_source_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/source" style="@style/SectionTitle" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <FrameLayout android:id="@id/brush_texture_container" android:layout_width="100.0dip" android:layout_height="100.0dip">
+                        <ImageView android:id="@id/brush_texture_image" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <tag android:value="@string/mappings_brush_settings_texture_source" android:id="@id/ui_binding_key" />
+                        </ImageView>
+                        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:layout_gravity="center" android:id="@id/brush_texture_select_image_text" android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/select_image" android:lines="1" />
+                        <ImageView android:layout_gravity="center|left|top" android:id="@id/brush_texture_remove" android:layout_width="@dimen/button_size_small" android:layout_height="@dimen/button_size_small" android:src="@drawable/cancel">
+                            <tag android:value="@string/mappings_brush_settings_texture_source_remove" android:id="@id/ui_binding_key" />
+                        </ImageView>
+                    </FrameLayout>
+                    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="100.0dip" android:layout_marginLeft="4.0dip" android:layout_weight="1.0">
+                        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/button_size">
+                            <Button android:textSize="@dimen/text_size_normal" android:id="@id/texture_source_invert" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_small" android:text="@string/invert" android:layout_weight="1.0" style="@style/OutlinedButton">
+                                <tag android:value="@string/mappings_brush_settings_texture_invert" android:id="@id/ui_binding_key" />
+                            </Button>
+                            <Button android:textSize="@dimen/text_size_normal" android:id="@id/texture_source_colorize" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/margin_small" android:text="@string/color" android:layout_weight="1.0" style="@style/OutlinedButton">
+                                <tag android:value="@string/mappings_brush_settings_texture_color" android:id="@id/ui_binding_key" />
+                            </Button>
+                        </LinearLayout>
+                        <com.brakefield.painter.ui.ProfileView android:id="@id/stroke_texture_profile_view" android:padding="@dimen/padding_small" android:layout_width="fill_parent" android:layout_height="@dimen/button_size_long" android:layout_weight="1.0">
+                            <tag android:value="@string/mappings_brush_settings_texture_luminosity_graph" android:id="@id/ui_binding_key" />
+                        </com.brakefield.painter.ui.ProfileView>
+                    </LinearLayout>
+                </LinearLayout>
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/colorize_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/colorize" app:ui_binding_key="@string/mappings_brush_settings_texture_colorize" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/texture_settings_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/texture" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledDropdownLayout android:id="@id/styles_dropdown" android:layout_width="fill_parent" android:layout_height="@dimen/ui_dropdown_height" app:title="@string/style" app:ui_binding_key="@string/mappings_brush_settings_texture_rotation" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/depth_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/depth" app:ui_binding_key="@string/mappings_brush_settings_texture_depth" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/scale_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/scale" app:ui_binding_key="@string/mappings_brush_settings_texture_scale" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/stretch_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/stretch" app:ui_binding_key="@string/mappings_brush_settings_texture_stretch" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/structure_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/structure" app:ui_binding_key="@string/mappings_brush_settings_texture_structure" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/softness_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/softness" app:ui_binding_key="@string/mappings_brush_settings_texture_softness" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/angle_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:is_centered="true" app:title="@string/angle" app:ui_binding_key="@string/mappings_brush_settings_texture_angle" />
+                <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/scale_with_size_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/scale_with_size" app:ui_binding_key="@string/mappings_brush_settings_texture_scale_with_size" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/texture_dynamics_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/dynamics" style="@style/SectionTitle" />
+                <include android:id="@id/depth_dynamics" layout="@layout/brush_settings_dynamics" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/tilt_gradation_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/gradation" app:ui_binding_key="@string/mappings_brush_settings_texture_depth_dynamics_tilt_gradation" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/texture_jitter_section" android:background="@drawable/section" android:padding="@dimen/padding_very_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_large">
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/jitter_initial" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_initial_position_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/position" app:ui_binding_key="@string/mappings_brush_settings_texture_position_jitter_initial" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_marginTop="16.0dip" android:text="@string/jitter_continuous" style="@style/SectionTitle" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_position_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/position" app:ui_binding_key="@string/mappings_brush_settings_texture_position_jitter_continuous" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_scale_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/scale" app:ui_binding_key="@string/mappings_brush_settings_texture_scale_jitter_continuous" />
+                <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/jitter_continuous_angle_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/angle" app:ui_binding_key="@string/mappings_brush_settings_texture_angle_jitter_continuous" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

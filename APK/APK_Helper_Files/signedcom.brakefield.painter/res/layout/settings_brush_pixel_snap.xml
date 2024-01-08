@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/screentone_settings" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/screentone_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/screentone" app:ui_binding_key="@string/mappings_brush_settings_special_screentone_toggle" />
+    <LinearLayout android:orientation="vertical" android:id="@id/settings" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/spacing_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/spacing" app:ui_binding_key="@string/mappings_brush_settings_special_screentone_size" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/angle_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/angle" app:ui_binding_key="@string/mappings_brush_settings_special_screentone_angle" />
+        <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/scale_with_size_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/scale_with_size" app:ui_binding_key="@string/mappings_brush_settings_special_screentone_scale_with_size" />
+    </LinearLayout>
+</LinearLayout>

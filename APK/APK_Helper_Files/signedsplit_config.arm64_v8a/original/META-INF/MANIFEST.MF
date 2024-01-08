@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA1-Digest: SGtpOJcvOsTRctEDcN6ECvzdVtE=
+
+Name: lib/arm64-v8a/libcrashlytics-common.so
+SHA1-Digest: ZhsW9tFwfIWaEeG1RL5GIKKV59A=
+
+Name: lib/arm64-v8a/libcrashlytics-handler.so
+SHA1-Digest: Bk3F7wL53n3awIS1/CN2RdpgGR0=
+
+Name: lib/arm64-v8a/libcrashlytics-trampoline.so
+SHA1-Digest: zdbyM4bRFdwDdbnM1dtQO0MLrwQ=
+
+Name: lib/arm64-v8a/libcrashlytics.so
+SHA1-Digest: V1jYcdp+4rAjdtvy2Jg3LYWPnzA=
+
+Name: lib/arm64-v8a/libibispaint.so
+SHA1-Digest: AowSxODArO5F4bo8o6PnlO8dfYk=
+
+Name: lib/arm64-v8a/libtapjoy.so
+SHA1-Digest: enduplIsbR14K1TrepTvew+mpqg=
+
+Name: lib/arm64-v8a/libtensorflowlite_gpu_jni.so
+SHA1-Digest: pa2cpzqSxLISk+RVrGF0iSLZqCI=
+
+Name: lib/arm64-v8a/libtensorflowlite_jni.so
+SHA1-Digest: LQQbpfVcO03sA3FjENDlkEW08pM=
+

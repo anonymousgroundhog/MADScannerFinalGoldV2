@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="30.0dip" android:layout_marginBottom="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/path_imageview" android:layout_width="200.0dip" android:layout_height="200.0dip" android:scaleType="fitCenter" android:layout_centerHorizontal="true" />
+    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_below="@id/path_imageview">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TableLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:stretchColumns="*">
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Points" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/points_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/points_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Asterize" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/aster_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/aster_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Spin" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/spin_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/spin_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Outer Smooth" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/outer_smooth_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/outer_smooth_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Inner Smooth" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/inner_smooth_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/inner_smooth_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Basic Transformations" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Stretch" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/stretch_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/stretch_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Squash" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/squash_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/squash_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Skew-X" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/skew_x_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/skew_x_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Skew-Y" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/skew_y_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/skew_y_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:textSize="8.0pt" android:padding="3.0dip" android:text="Rotate" />
+                    <TextView android:textSize="8.0pt" android:layout_gravity="right" android:id="@id/rotate_value" android:padding="3.0dip" android:text="--" />
+                </TableRow>
+                <TableRow>
+                    <SeekBar android:id="@id/rotate_slider" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="300.0dip" android:layout_height="wrap_content" android:max="100" android:layout_span="2" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/section" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" android:paddingStart="16.0dip" android:paddingEnd="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_create_project_paper" android:id="@id/ui_binding_key" />
+    <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/paper_visibility_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:layout_constraintEnd_toStartOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:title="@string/paper" app:ui_binding_key="@string/mappings_project_paper_toggle" />
+    <LinearLayout android:orientation="vertical" android:id="@id/paper_settings" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <FrameLayout android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height">
+            <tag android:value="@string/mappings_paper_settings_color" android:id="@id/ui_binding_key" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/color" style="@style/SettingsLabel" />
+            <com.brakefield.infinitestudio.ui.ColorFillButton android:layout_gravity="end" android:id="@id/paper_color" android:background="#ffffffff" style="@style/Icon" />
+        </FrameLayout>
+        <FrameLayout android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height">
+            <tag android:value="@string/mappings_paper_settings_texture" android:id="@id/ui_binding_key" />
+            <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/texture" style="@style/SettingsLabel" />
+            <LinearLayout android:layout_gravity="end" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <Button android:id="@id/remove_texture" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/remove" style="@style/TextButton" />
+                <com.brakefield.infinitestudio.ui.ColorFillButton android:id="@id/paper_texture" android:background="#ffffffff" style="@style/Icon" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

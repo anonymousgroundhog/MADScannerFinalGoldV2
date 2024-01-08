@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/particle_settings" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_brush_settings_special_particles" android:id="@id/ui_binding_key" />
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/particles" style="@style/SettingsLabel" />
+    <LinearLayout android:orientation="vertical" android:id="@id/settings" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/attractors_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/attractors" app:ui_binding_key="@string/mappings_brush_settings_special_particles_attractors" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/particles_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/particles" app:ui_binding_key="@string/mappings_brush_settings_special_particles_particles" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/radius_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/radius" app:ui_binding_key="@string/mappings_brush_settings_special_particles_radius" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/particle_size_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/size" app:ui_binding_key="@string/mappings_brush_settings_special_particles_size" />
+        <com.brakefield.infinitestudio.ui.LabeledSliderLayout android:id="@id/overshoot_slider" android:layout_width="fill_parent" android:layout_height="@dimen/ui_slider_height" app:title="@string/overshoot" app:ui_binding_key="@string/mappings_brush_settings_special_particles_overshoot" />
+    </LinearLayout>
+</LinearLayout>

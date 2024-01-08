@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tag android:value="@string/mappings_modify_color_toolbar" android:id="@id/ui_binding_key" />
+    <ImageView android:id="@id/cancel" android:src="@drawable/cancel" android:contentDescription="@string/cancel" app:layout_constraintBottom_toBottomOf="@id/masking_toolbar" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="@id/masking_toolbar" style="@style/Icon">
+        <tag android:value="@string/mappings_tool_cancel" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <ImageView android:id="@id/apply" android:src="@drawable/accept" android:contentDescription="@string/accept" app:layout_constraintBottom_toBottomOf="@id/masking_toolbar" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@id/masking_toolbar" style="@style/Icon">
+        <tag android:value="@string/mappings_tool_apply" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <include android:id="@id/masking_toolbar" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintBottom_toTopOf="@id/adjustment_slider" app:layout_constraintLeft_toRightOf="@id/cancel" app:layout_constraintRight_toLeftOf="@id/apply" app:layout_constraintTop_toTopOf="parent" layout="@layout/masking_toolbar" />
+    <ImageView android:id="@id/compare" android:src="@drawable/visibility_on" app:layout_constraintBottom_toTopOf="@id/adjustments_pager" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/masking_toolbar" style="@style/Icon">
+        <tag android:value="@string/mappings_adjust_options_compare" android:id="@id/ui_binding_key" />
+    </ImageView>
+    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:layout_gravity="center" android:id="@id/adjustment_slider_value" android:layout_width="40.0dip" android:layout_height="wrap_content" android:lines="1" app:layout_constraintBottom_toTopOf="@id/adjustments_pager" app:layout_constraintRight_toLeftOf="@id/compare" app:layout_constraintTop_toTopOf="@id/compare" />
+    <com.brakefield.infinitestudio.ui.CustomSlider android:id="@id/adjustment_slider" android:layout_width="0.0dip" android:layout_height="@dimen/button_size" android:max="100" android:layout_weight="1.0" app:layout_constraintBottom_toTopOf="@id/adjustments_pager" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toLeftOf="@id/adjustment_slider_value" app:layout_constraintTop_toTopOf="@id/compare" style="@style/SliderBar">
+        <tag android:value="@string/mappings_adjust_value" android:id="@id/ui_binding_key" />
+    </com.brakefield.infinitestudio.ui.CustomSlider>
+    <com.brakefield.infinitestudio.ui.HorizontalPager android:id="@id/adjustments_pager" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="@dimen/tile_size">
+            <FrameLayout android:id="@id/brightness_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_brightness" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/brightness_image" android:src="@drawable/adjust_brightness" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/brightness" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/contrast_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_contrast" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/contrast_image" android:src="@drawable/adjust_contrast" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/contrast" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/exposure_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_exposure" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/exposure_image" android:src="@drawable/adjust_exposure" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/exposure" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/gamma_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_gamma" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/gamma_image" android:src="@drawable/color_channel_gamma" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/gamma" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/saturation_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_saturation" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/saturation_image" android:src="@drawable/adjust_saturation" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/saturation" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/vibrance_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_vibrance" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/vibrance_image" android:src="@drawable/adjust_vibrance" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/vibrance" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/temperature_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_temperature" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/temperature_image" android:src="@drawable/adjust_temperature" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/temperature" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/tint_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_tint" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/tint_image" android:src="@drawable/adjust_tint" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/tint" style="@style/TileLabel" />
+            </FrameLayout>
+            <FrameLayout android:id="@id/hue_button" style="@style/Tile">
+                <tag android:value="@string/mappings_adjust_color_hue" android:id="@id/ui_binding_key" />
+                <ImageView android:id="@id/hue_image" android:src="@drawable/adjust_hue" style="@style/TileIcon" />
+                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/hue" style="@style/TileLabel" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.brakefield.infinitestudio.ui.HorizontalPager>
+</androidx.constraintlayout.widget.ConstraintLayout>
