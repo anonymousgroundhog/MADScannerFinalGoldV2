@@ -1,82 +1,60 @@
+
 import os
-from web3 import Web3, EthereumTesterProvider
+# from web3 import Web3, EthereumTesterProvider
+from web3 import Web3, HTTPProvider
+# from eth_abi import encode
+
 class Blockchain:
 	def __init__(self):
-		self.w3 = ''
-		self.provider_url = 'http://127.0.0.1:7545'
+		self.web3 = ''
+		self.blockchain_address = 'http://127.0.0.1:7545'
 		self.abi = ''
 		self.contract_address = ''
 		self.contract_instance = ''
-		self.private_key = "0xd68e25a0467fbe20eabfe5e09b3a8a208763b38651d98f2210c68bd9df275cf3"
+		self.sender_address = ''
+		self.private_key = ''
 
-	def Set_ABI(self, file_path):
-		with open(file_path, 'r') as file:
-		    long_string = file.read().replace('\n', '')
-		self.abi = long_string
+	def Set_Sender_Address(self, key):
+		self.sender_address = key
+
+	def Set_Private_key(self, key):
+		self.private_key = key
+
+	def Set_ABI(self, abi):
+		self.abi = abi
     
 	def Set_Contract_Address(self, str_addr):
 		self.contract_address = str_addr
     
 	def Connect(self):
-	    # provider_url = 'http://127.0.0.1:7545'
-	    self.w3 = Web3(Web3.HTTPProvider(self.provider_url))
-	    # print(self.w3.is_connected())
+		self.web3 = Web3(HTTPProvider(self.blockchain_address)) 
+		# web3.eth.defaultAccount = web3.eth.accounts[0]
+	    
 
 	def Set_Contract_Instance(self):
-		self.contract_instance = self.w3.eth.contract(address=self.contract_address, abi=self.abi)
+		self.contract_instance = self.web3.eth.contract(address=self.contract_address, abi=self.abi)
+		print(self.web3.is_connected())
+		# print(self.web3.eth.defaultAccount)
 
-	def Call_Contract(self):
-		storage_sol = self.w3.eth.contract(abi=self.abi, address=tx_receipt.contractAddress)
-		call_fun = storage_sol.functions.store(5).buildTransaction(
-		    {"chainId": chain_id, "from": my_address, "nonce": nonce + 1}
-		)
-		sign_call_fun = w3.eth.account.signTransaction(call_fun, private_key=private_key)
-		tx_call_fun_hash = w3.eth.send_raw_transaction(sign_call_fun.rawTransaction)
-		tx_call_fun_receipt = w3.eth.wait_for_transaction_receipt(tx_call_fun_hash)
+	def Read_Data(self, id):
+		output = self.contract_instance.functions.getLogs(id).call()
+		print(output)
 
-		print(storage_sol.functions.retrieve().call())
-
-os.system('clear')
+	def Add_Data(self, id, app_name, this_class, this_method):
+		nonce = self.web3.eth.get_transaction_count(self.sender_address)
+		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method).build_transaction({'nonce': nonce, 'gas': 3000000})
+		signed_tx = self.web3.eth.account.sign_transaction(tx, private_key=self.private_key)
+		self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+# os.system('clear')
 # blockchain = Blockchain()
 # blockchain.Connect()
-# blockchain.Set_ABI('../Data/Blockchain/abi.txt')
-# blockchain.Set_Contract_Address('0x41fBF27676522D3189904d2643de84B3c2E073Cd')
+# blockchain.Set_Private_key('0x6869b9522e5b2c3c9dc84f91d8ec1eef86819ec1c10c47d1e76c58d1e2376315')
+# blockchain.Set_Sender_Address('0xDf63815Bde257E17150ef37afa498cbdaa976D1F')
+# blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logApp", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "app_name", "type": "string" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsClasses", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsMethods", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" } ]')
+# blockchain.Set_Contract_Address('0x3c342AB06C17BbD9E75A14607A495191f4fCa099')
 # blockchain.Set_Contract_Instance()
+# blockchain.Add_Data('id2', 'app1', 'class1', 'method1')
+# blockchain.Add_Data('id2', 'app1', 'class2', 'method2')
+# blockchain.Add_Data('id2', 'app1', 'class3', 'method3')
+# blockchain.Read_Data('id2')
 # print(blockchain.contract_instance.functions.getLogs('id1').call())
-
-
-infura_url = 'http://127.0.0.1:7545'
-web3 = Web3(Web3.HTTPProvider(infura_url))
-
-print(web3.is_connected())
-
-print(web3.eth.block_number)
-
-# Fill in your account here
-balance = web3.eth.get_balance("0x41fBF27676522D3189904d2643de84B3c2E073Cd")
-print(web3.from_wei(balance, "ether"))
-
-with open('../Data/Blockchain/abi.txt', 'r') as file:
-	long_string = file.read().replace('\n', '')
-
-abi = long_string
-address = "0x41fBF27676522D3189904d2643de84B3c2E073Cd"
-private_key='0xd68e25a0467fbe20eabfe5e09b3a8a208763b38651d98f2210c68bd9df275cf3'
-contract = web3.eth.contract(address=address, abi=abi)
-Chain_id = web3.eth.chain_id
-nonce = web3.eth.get_transaction_count(address)
-
-# Call your function
-# call_function = contract.functions.getLogs('id1').build_transaction({"chainId": Chain_id, "from": address, "nonce": nonce})
-
-# Sign transaction
-# signed_tx = web3.eth.account.sign_transaction(call_function, private_key=private_key)
-
-# Send transaction
-# send_tx = web3.eth.send_raw_transaction(signed_tx.rawTransaction)
-
-# Wait for transaction receipt
-# tx_receipt = web3.eth.wait_for_transaction_receipt(send_tx)
-# print(tx_receipt)
-call_function = contract.functions.getLogs("id1").call()
-print(call_function)

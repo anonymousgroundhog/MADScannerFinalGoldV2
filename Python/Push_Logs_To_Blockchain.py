@@ -1,4 +1,4 @@
-import os, pandas as pd, graphviz, numpy as np, StateMachine, Helper
+import os, pandas as pd, graphviz, numpy as np, StateMachine, Helper, Blockchain
 from web3 import Web3, EthereumTesterProvider
 def Generate_Dataframe_From_Logs(this_path):
     app_name_list = []
@@ -158,11 +158,15 @@ for file in os.listdir(logs_dir):
         # Open_File_And_Generate_Dataframe(path)
         df = Generate_Dataframe_From_Logs(path)
         df = Label_Dataframe_Rows(df)
-        # df.to_csv(''.join([logs_dir,'Testing.csv']), index=False)
         print(df)
     else:
         print("Empty File!!!")
 
-provider_url = 'http://127.0.0.1:7545'
-w3 = Web3(Web3.HTTPProvider(provider_url))
-print(w3.is_connected())
+blockchain = Blockchain.Blockchain()
+blockchain.Connect()
+blockchain.Set_Private_key('0x6869b9522e5b2c3c9dc84f91d8ec1eef86819ec1c10c47d1e76c58d1e2376315')
+blockchain.Set_Sender_Address('0xDf63815Bde257E17150ef37afa498cbdaa976D1F')
+blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logApp", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "app_name", "type": "string" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsClasses", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsMethods", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" } ]')
+blockchain.Set_Contract_Address('0x3c342AB06C17BbD9E75A14607A495191f4fCa099')
+blockchain.Set_Contract_Instance()
+blockchain.Read_Data('id2')
