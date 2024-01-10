@@ -1,5 +1,5 @@
 
-import os
+import os, time
 # from web3 import Web3, EthereumTesterProvider
 from web3 import Web3, HTTPProvider
 # from eth_abi import encode
@@ -7,7 +7,7 @@ from web3 import Web3, HTTPProvider
 class Blockchain:
 	def __init__(self):
 		self.web3 = ''
-		self.blockchain_address = 'http://127.0.0.1:7545'
+		self.blockchain_address = 'http://127.0.0.1:8545'
 		self.abi = ''
 		self.contract_address = ''
 		self.contract_instance = ''
@@ -42,9 +42,12 @@ class Blockchain:
 
 	def Add_Data(self, id, app_name, this_class, this_method):
 		nonce = self.web3.eth.get_transaction_count(self.sender_address)
-		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method).build_transaction({'nonce': nonce, 'gas': 3000000})
+		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method).build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
 		signed_tx = self.web3.eth.account.sign_transaction(tx, private_key=self.private_key)
-		self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+		txid = send.hex()
+		print(self.web3.eth.get_transaction_receipt(txid))
+		# time.sleep(1)
 # os.system('clear')
 # blockchain = Blockchain()
 # blockchain.Connect()
