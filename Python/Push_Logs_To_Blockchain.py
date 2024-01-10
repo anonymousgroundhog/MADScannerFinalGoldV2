@@ -6,6 +6,7 @@ def Generate_Dataframe_From_Logs(this_path):
     app_class_list = []
     app_method_list = []
     app_ad_id_list = []
+    app_ad_date_list = []
 
     with open(this_path) as file:
         lines = [line.rstrip() for line in file]
@@ -25,13 +26,15 @@ def Generate_Dataframe_From_Logs(this_path):
             app_class_list.append(content_to_manipulate_list[2])
             app_method_list.append(content_to_manipulate_list[3])
             app_ad_id_list.append(content_to_manipulate_list[4])
+            app_ad_date_list.append(this_path.split('/').pop().replace(".txt", ""))
 
     data = {
         'App_Name': app_name_list,
         'App_Hash': app_hash_list,
         'App_Class': app_class_list,
         'App_Method':app_method_list,
-        'App_Ad_ID':app_ad_id_list
+        'App_Ad_ID':app_ad_id_list,
+        'App_Date':app_ad_date_list
     }
     df = pd.DataFrame(data)
     return df
@@ -155,8 +158,8 @@ blockchain = Blockchain.Blockchain()
 blockchain.Connect()
 blockchain.Set_Sender_Address('0x1c7E75956b24890d7c76944a47EA372C2F0dcf04')
 blockchain.Set_Private_key('0xeb08a4f346cbc07e3909448c02d89429833349f4dcbd43c4e77c742f8e73fb5f')
-blockchain.Set_Contract_Address('0x840941B310e48a1C95294498bB782a5b5F2F9De0')
-blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logApp", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "getLogIds", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "app_name", "type": "string" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsClasses", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsMethods", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "uint256", "name": "", "type": "uint256" } ], "name": "log_ids", "outputs": [{"internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" } ]')
+blockchain.Set_Contract_Address('0x55bB652C0EDBa899627DdEAeF9820dd494E8cbae')
+blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logApp", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" }, {"internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "getLogIds", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "app_name", "type": "string" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "string", "name": "log_date_and_time", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsClasses", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogsMethods", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "uint256", "name": "", "type": "uint256" } ], "name": "log_ids", "outputs": [{"internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" } ]')
 blockchain.Set_Contract_Instance()
 
 logs_dir = '../Data/Logs/'
@@ -166,7 +169,8 @@ data = {
         'App_Hash': [],
         'App_Class': [],
         'App_Method':[],
-        'App_Ad_ID':[]
+        'App_Ad_ID':[],
+        'App_Date':[]
     }
 all_data_df = pd.DataFrame(data)
 for file in os.listdir(logs_dir):
@@ -178,11 +182,19 @@ for file in os.listdir(logs_dir):
         all_data_df = pd.concat([all_data_df, df])
     else:
         print("Empty File!!!")
+print(all_data_df)
+# for index,row in all_data_df.drop_duplicates(keep='first').iterrows():
+#     app_name = row['App_Name'].replace(' ', '')
+#     app_class = row['App_Class'].replace(' ', '')
+#     app_method = row['App_Method'].replace(' ', '')
+#     app_date = row['App_Date'].replace(' ', '')
+#     blockchain.Add_Data(app_name, app_name, app_class, app_method, app_date)
 
-for index,row in all_data_df.drop_duplicates(keep='first').iterrows():
-    app_name = row['App_Name'].replace(' ', '')
-    app_class = row['App_Class'].replace(' ', '')
-    app_method = row['App_Method'].replace(' ', '')
-    blockchain.Add_Data(app_name, app_name, app_class, app_method)
-    # break
-blockchain.Read_Data('banner_example')
+all_blockchain_results = blockchain.Read_Data('banner_example')
+for item in all_blockchain_results:
+    app_name=item[1]
+    app_class=item[2]
+    app_method = item[3]
+    app_date = item[4]
+    block_timestamp = item[5]
+    print(app_date, ' ', app_name, ' ', app_class, ' ', app_method)

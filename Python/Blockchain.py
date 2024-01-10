@@ -34,15 +34,14 @@ class Blockchain:
 	def Set_Contract_Instance(self):
 		self.contract_instance = self.web3.eth.contract(address=self.contract_address, abi=self.abi)
 		print(self.web3.is_connected())
-		# print(self.web3.eth.defaultAccount)
 
 	def Read_Data(self, id):
 		output = self.contract_instance.functions.getLogs(id).call()
-		print(output)
+		return(output)
 
-	def Add_Data(self, id, app_name, this_class, this_method):
+	def Add_Data(self, id, app_name, this_class, this_method, this_date_and_time):
 		nonce = self.web3.eth.get_transaction_count(self.sender_address)
-		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method).build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
+		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method, this_date_and_time).build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
 		signed_tx = self.web3.eth.account.sign_transaction(tx, private_key=self.private_key)
 		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
 		txid = send.hex()
