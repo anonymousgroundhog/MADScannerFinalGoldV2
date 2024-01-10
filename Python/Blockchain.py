@@ -39,6 +39,10 @@ class Blockchain:
 		output = self.contract_instance.functions.getLogs(id).call()
 		return(output)
 
+	def Return_Available_Log_IDs(self):
+		output = self.contract_instance.functions.getLogIds().call()
+		return(output)
+	
 	def Add_Data(self, id, app_name, this_class, this_method, this_date_and_time):
 		nonce = self.web3.eth.get_transaction_count(self.sender_address)
 		tx = self.contract_instance.functions.addLog(id, app_name, this_class, this_method, this_date_and_time).build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
