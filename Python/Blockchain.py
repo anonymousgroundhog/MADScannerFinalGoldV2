@@ -1,4 +1,3 @@
-
 import os, time
 # from web3 import Web3, EthereumTesterProvider
 from web3 import Web3, HTTPProvider
@@ -27,7 +26,7 @@ class Blockchain:
 		self.contract_address = str_addr
     
 	def Connect(self):
-		self.web3 = Web3(HTTPProvider(self.blockchain_address)) 
+		self.web3 = Web3(HTTPProvider(self.blockchain_address, request_kwargs={'timeout': 60})) 
 		# web3.eth.defaultAccount = web3.eth.accounts[0]
 	    
 
@@ -50,7 +49,7 @@ class Blockchain:
 		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
 		txid = send.hex()
 		print(self.web3.eth.get_transaction_receipt(txid))
-		# time.sleep(1)
+
 # os.system('clear')
 # blockchain = Blockchain()
 # blockchain.Connect()
