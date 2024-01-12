@@ -150,6 +150,50 @@ def Run_MADScanner_On_Apps(this_folder, copy_from_folder):
 	os.chdir(pwd)
 	df_app_info.to_csv('../Data/App_Category_Details2.csv', index=False)
 
+def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
+	pwd= os.getcwd()
+	helper = Helper.Helper()
+	madscanner = MADScanner.MADScanner()
+	installed_app_packages = helper.Read_File_And_Return_Lines('Emulator_Installed_Packages/installed_packages.txt')
+	madscanner.Set_Apps_Installed(installed_app_packages)
+	madscanner.Compile_Framework_Code()
+	madscanner.Set_Copy_From_Folder_Path(copy_from_folder)
+	option="j"
+	Test_Folder = this_folder
+	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
+	cprint("test folder is: " + str(Test_Folder), 'green')
+	folder_path_for_testing = ''.join(['../APK/',str(Test_Folder)])
+	files_of_interest = [item for item in str(os.listdir(folder_path_for_testing)) if item in df_app_info['App_Name']]
+	os.system('rm -rf ../Java/Classes/sootOutput')
+	for index,row in df_app_info.iterrows():
+		print(row)
+		file = str(row['App_Name'])
+		cprint(''.join(['\n\tRunning app:', str(index),'/',str(len(df_app_info))]), 'magenta')
+		cprint(''.join(['\nFile:',file]), 'cyan')
+		error_msg = ''
+		sdkbuild_version = row['SDK_Build_Version']
+		try:
+			if file.__contains__('banner_example'):
+				error_msg = madscanner.Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option, str(sdkbuild_version))
+				os.chdir(pwd)
+				# print(file, ' ', sdkbuild_version)
+				if error_msg != '':
+					df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
+					helper.Write_APK_Error_To_File(file, ' '.join(error_msg))
+					cprint(error_msg, 'red')
+				else:
+					df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'Yes'
+		except:
+			cprint(''.join(["Unable to Run framework for:", file]), 'red')
+			df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
+			print(traceback.format_exc())
+			os.chdir(pwd)
+			continue
+
+	print(os.getcwd())
+	os.chdir(pwd)
+	# df_app_info.to_csv('../Data/App_Category_Details2.csv', index=False)
+
 def Run_MADScanner_On_N_Number_Of_Apps(this_folder, copy_from_folder, first_n_apps):
 	pwd= os.getcwd()
 	helper = Helper.Helper()
@@ -271,11 +315,11 @@ Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
 # MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
 # cprint(os.getcwd(), 'red')
-Run_MADScanner_On_Apps('Testing', "Google_Play_Download_Test")
+Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
 # Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
-Cleanup_Soot_Output_Folder()
-Check_If_App_Can_Be_Installed()
+# Cleanup_Soot_Output_Folder()
+# Check_If_App_Can_Be_Installed()
 
-Instrument_Apps()
-helper.Remove_Empty_Logs()
+# Instrument_Apps()
+# helper.Remove_Empty_Logs()
 # helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')
