@@ -22,7 +22,7 @@ class Helper:
      
         # Print directly by using * symbol
         ans = reduce(lambda re, x: re+[x] if x not in re else re, list1, [])
-        print(ans)
+        return(ans)
 
     def sliding_window_iter(self, seq, n):
         "Returns a sliding window (of width n) over data from the iterable"
