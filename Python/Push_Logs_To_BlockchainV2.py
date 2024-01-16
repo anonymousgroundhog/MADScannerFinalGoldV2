@@ -156,10 +156,10 @@ def Open_File_And_Generate_Dataframe(this_path):
 os.system('clear')
 blockchain = Blockchain.Blockchain()
 blockchain.Connect()
-blockchain.Set_Sender_Address('0x6514bb2A4D551499F8385C060938705be887fE40')
-blockchain.Set_Private_key('0xccee1a79a9cf34a72289f79640ab59dea427b51f1d4104009e25cf804f27b1ac')
-blockchain.Set_Contract_Address('0x86a461D5650F93D53B8fab5C1DE2035113e29231')
-blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logApp", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "app_name", "type": "string" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "name": "log_ids", "outputs": [ { "internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" } ]')
+blockchain.Set_Sender_Address('0xb5753a314681e6e491B06251Ae622402d466775C')
+blockchain.Set_Private_key('0x30875b364f647aa64e9d7ec26fad84655ffd922cf5ad0f553445d9aa6dfbe1c2')
+blockchain.Set_Contract_Address('0x4Aa548B27DDe7aCe0ea5513F4145ddEe93314B0E')
+blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logLibrary", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_library", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "name": "log_ids", "outputs": [ { "internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" } ]')
 blockchain.Set_Contract_Instance()
 
 logs_dir = '../Data/Logs/'
@@ -186,9 +186,11 @@ print(all_data_df)
 for index,row in all_data_df.drop_duplicates(keep='first').iterrows():
      app_name = row['App_Name'].replace(' ', '')
      app_class = row['App_Class'].replace(' ', '')
+     app_library = app_class.split(".")
+     app_library = app_library[1]
      app_method = row['App_Method'].replace(' ', '')
      app_date = row['App_Date'].replace(' ', '')
-     blockchain.Add_Data(app_name, app_name, app_class, app_method, app_date)
+     blockchain.Add_Data(app_name, app_library, app_class, app_method, app_date)
 
 all_blockchain_results = blockchain.Read_Data('WEBTOON2.12.10Apkpure')
 for item in all_blockchain_results:
