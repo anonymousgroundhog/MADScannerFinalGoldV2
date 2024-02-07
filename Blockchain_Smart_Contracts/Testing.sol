@@ -5,6 +5,7 @@
     contract MultiAppLogTracker {
         string[] public log_ids;
         string[] public things_to_check;
+        string[] public valid_model_transitions;
         // Structure to hold log details
         struct Log {
             address sender;
@@ -27,6 +28,10 @@
             apps[appId].push(App(msg.sender, false));
         }
 
+        // Function to add a valid model transition entry
+        function addValidModelTransitions(string calldata this_transition) external {
+                valid_model_transitions.push(this_transition);
+        }
         // Function to add a transition entry for an app
         function addValidTransitions(string calldata this_transition) external {
             require(keccak256(bytes(this_transition)) != keccak256(bytes("")), "Invalid Name");
@@ -76,6 +81,13 @@
                 // things_to_return[x] = logs[appId][x].log_method;
                 if (x < logs[appId].length-1){
                     console.log(logs[appId][x].log_method, logs[appId][x+1].log_method);
+                    string memory stringtocheck = string.concat(logs[appId][x].log_method, " -> ", logs[appId][x+1].log_method);
+                    string memory model_check = valid_model_transitions[0];
+                    if(sha256(abi.encodePacked(stringtocheck)) == sha256(abi.encodePacked(model_check))){
+                        console.log("true");
+                    }else{
+                        console.log("false");
+                    }
                 }
             } 
             
@@ -85,6 +97,8 @@
         function Populate() public {
             this.addValidTransitions("m");
             this.addValidTransitions("m2");
+            this.addValidModelTransitions("m -> m2");
+
             this.addLog("a1", "c", "lm", "m", "d");
             this.addLog("a1", "c", "lm", "m2", "d");
             this.addLog("a1", "c", "lm", "m", "d");
