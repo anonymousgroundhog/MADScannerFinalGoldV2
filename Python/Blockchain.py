@@ -38,6 +38,13 @@ class Blockchain:
 		output = self.contract_instance.functions.getLogs(id).call()
 		return(output)
 
+	def Setup_Model(self):
+		nonce = self.web3.eth.get_transaction_count(self.sender_address)
+		tx = self.contract_instance.functions.Setup_Model().build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
+		signed_tx = self.web3.eth.account.sign_transaction(tx, private_key=self.private_key)
+		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+		txid = send.hex()
+		print(self.web3.eth.get_transaction_receipt(txid))
 	def Return_Available_Log_IDs(self):
 		output = self.contract_instance.functions.getLogIds().call()
 		return(output)
@@ -49,6 +56,16 @@ class Blockchain:
 		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
 		txid = send.hex()
 		print(self.web3.eth.get_transaction_receipt(txid))
+
+	def Validate_Transitions(self, t1, t2):
+		output = self.contract_instance.functions.Check_Transition(t1, t2).call()
+		return(output)
+#		nonce = self.web3.eth.get_transaction_count(self.sender_address)
+#		tx = self.contract_instance.functions.Check_Transition(t1, t2).build_transaction({'nonce': nonce, 'gas': 3000000})#1,000,000,008
+#		signed_tx = self.web3.eth.account.sign_transaction(tx, private_key=self.private_key)
+#		send = self.web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+#		txid = send.hex()
+#		print(self.web3.eth.get_transaction_receipt(txid))
 
 # os.system('clear')
 # blockchain = Blockchain()

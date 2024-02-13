@@ -1,5 +1,6 @@
-import os, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain
+import os, nltk, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain
 
+from nltk import bigrams
 from termcolor import colored, cprint
 from web3 import Web3, EthereumTesterProvider
 
@@ -120,10 +121,11 @@ def Open_File_And_Generate_Dataframe(this_path):
 os.system('clear')
 blockchain = Blockchain.Blockchain()
 blockchain.Connect()
-blockchain.Set_Sender_Address('0xb5753a314681e6e491B06251Ae622402d466775C')
-blockchain.Set_Private_key('0x30875b364f647aa64e9d7ec26fad84655ffd922cf5ad0f553445d9aa6dfbe1c2')
-blockchain.Set_Contract_Address('0x4Aa548B27DDe7aCe0ea5513F4145ddEe93314B0E')
-blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logLibrary", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_library", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "name": "log_ids", "outputs": [ { "internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" } ]')
+blockchain.Set_Sender_Address('0x22208c734B1E120414845a270cD5Bae1FF7dB0f3')
+blockchain.Set_Private_key('0x48bd1eaaf1ade0a75a67cf2c7a49597b0e4ea46511b1bbe531926e874be28824')
+blockchain.Set_Contract_Address('0x38100b998Aa9F41B9263c4C04Ae45D5F40e106C9')
+blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "Transition_1", "type": "string" }, { "internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [ { "internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logLibrary", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_library", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
+
 blockchain.Set_Contract_Instance()
 
 
@@ -164,11 +166,17 @@ data = {
         'App_Date': lst_app_dates
     }
 all_data_df = pd.DataFrame(data)
-#print(all_data_df[['App_Name', 'App_Library', 'App_Method']])
+print(all_data_df[['App_Name', 'App_Library', 'App_Method']])
 
 for app in this_apps:
-	cprint(app, 'cyan')
+	cprint('\n' + app, 'cyan')
 	filtered_df = all_data_df[all_data_df['App_Name'] == app]
-	filtered_df = filtered_df [filtered_df ['App_Library'] == 'google']
-	print(filtered_df[['App_Name', 'App_Library', 'App_Method']])
+	filtered_df = filtered_df [filtered_df ['App_Library'].str.contains('google')]
+	#print(filtered_df[['App_Method']])
+	#print(list(bigrams(filtered_df['App_Method'].tolist())))
+	for item in list(bigrams(filtered_df['App_Method'].tolist())):
+		t1 = item[0]
+		t2 = item[1]
+		print(t1, ' ->', t2)
+		print(blockchain.Validate_Transitions(t1, t2))
 
