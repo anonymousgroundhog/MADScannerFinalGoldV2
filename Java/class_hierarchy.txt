@@ -156,6 +156,9 @@ Class: com.google.android.gms.internal.ads.zzfsx$zza
 Class: com.google.android.gms.internal.ads.zzbne
 	Subclasses:
 	com.google.android.gms.internal.ads.zzbnc
+Class: androidx.recyclerview.widget.ItemTouchHelper$RecoverAnimation
+	Subclasses:
+	androidx.recyclerview.widget.ItemTouchHelper$3
 Class: com.google.android.gms.internal.ads.zzfsx$zzi
 	Subclasses:
 	com.google.android.gms.internal.ads.zzfvc
@@ -198,6 +201,10 @@ Class: com.google.android.gms.internal.ads.zzbbf
 Class: androidx.core.view.WindowInsetsCompat$BuilderImpl29
 	Subclasses:
 	androidx.core.view.WindowInsetsCompat$BuilderImpl30
+Class: androidx.recyclerview.widget.SnapHelper
+	Subclasses:
+	androidx.recyclerview.widget.LinearSnapHelper
+	androidx.recyclerview.widget.PagerSnapHelper
 Class: com.google.android.gms.internal.ads.zzbaj
 	Subclasses:
 	com.google.android.gms.internal.ads.zzbad
@@ -663,6 +670,10 @@ Class: com.google.android.gms.internal.ads.zzasm
 Class: androidx.sqlite.db.framework.FrameworkSQLiteProgram
 	Subclasses:
 	androidx.sqlite.db.framework.FrameworkSQLiteStatement
+Class: androidx.recyclerview.widget.RecyclerView$ViewHolder
+	Subclasses:
+	com.google.android.gms.example.bannerrecyclerviewexample.RecyclerViewAdapter$AdViewHolder
+	com.google.android.gms.example.bannerrecyclerviewexample.RecyclerViewAdapter$MenuItemViewHolder
 Class: com.google.android.gms.internal.ads.zzagy
 	Subclasses:
 	com.google.android.gms.internal.ads.zzago
@@ -767,6 +778,9 @@ Class: com.google.android.gms.internal.ads.zzaaw
 Class: com.google.android.gms.internal.ads.zzaai
 	Subclasses:
 	com.google.android.gms.internal.ads.zzacl
+Class: androidx.recyclerview.widget.SimpleItemAnimator
+	Subclasses:
+	androidx.recyclerview.widget.DefaultItemAnimator
 Class: androidx.core.graphics.drawable.RoundedBitmapDrawable
 	Subclasses:
 	androidx.core.graphics.drawable.RoundedBitmapDrawable21
@@ -858,7 +872,7 @@ Class: com.google.android.gms.ads.appopen.AppOpenAd$AppOpenAdLoadCallback
 	com.google.android.gms.internal.ads.zzdsr
 Class: androidx.core.app.ComponentActivity
 	Subclasses:
-	com.google.android.gms.example.bannerexample.MyActivity
+	com.google.android.gms.example.bannerrecyclerviewexample.MainActivity
 	androidx.appcompat.app.AppCompatActivity
 	androidx.fragment.app.FragmentActivity
 	androidx.activity.ComponentActivity
@@ -1180,6 +1194,9 @@ Class: com.google.android.gms.internal.ads.zzfrc
 Class: com.google.android.gms.internal.ads.zzfrb
 	Subclasses:
 	com.google.android.gms.internal.ads.zzfoq
+Class: androidx.recyclerview.widget.LinearLayoutManager
+	Subclasses:
+	androidx.recyclerview.widget.GridLayoutManager
 Class: com.google.android.gms.internal.ads.zzfoo
 	Subclasses:
 	com.google.android.gms.internal.ads.zzfro
@@ -1601,6 +1618,11 @@ Class: androidx.concurrent.futures.AbstractResolvableFuture
 Class: androidx.fragment.app.FragmentManager
 	Subclasses:
 	androidx.fragment.app.FragmentManagerImpl
+Class: androidx.recyclerview.widget.RecyclerView$ItemDecoration
+	Subclasses:
+	androidx.recyclerview.widget.DividerItemDecoration
+	androidx.recyclerview.widget.FastScroller
+	androidx.recyclerview.widget.ItemTouchHelper
 Class: com.google.ads.mediation.AbstractAdViewAdapter
 	Subclasses:
 	com.google.ads.mediation.admob.AdMobAdapter
@@ -1622,6 +1644,9 @@ Class: com.google.android.gms.internal.ads.zzeqf
 Class: com.google.android.gms.internal.ads.zzequ
 	Subclasses:
 	com.google.android.gms.internal.ads.zzchq
+Class: androidx.recyclerview.widget.GridLayoutManager$SpanSizeLookup
+	Subclasses:
+	androidx.recyclerview.widget.GridLayoutManager$DefaultSpanSizeLookup
 Class: com.google.android.gms.internal.ads.zzeqw
 	Subclasses:
 	com.google.android.gms.internal.ads.zzchu
@@ -1683,6 +1708,7 @@ Class: com.google.android.gms.ads.AdListener
 	com.google.android.gms.ads.internal.client.zzaz
 	com.google.ads.mediation.zzb
 	com.google.ads.mediation.zze
+	com.google.android.gms.example.bannerrecyclerviewexample.MainActivity$1
 	com.google.android.gms.internal.ads.zzdss
 	com.google.android.gms.internal.ads.zzdsw
 Class: androidx.arch.core.executor.TaskExecutor
@@ -1705,6 +1731,11 @@ Class: com.google.android.gms.internal.ads.zzdzo
 	Subclasses:
 	com.google.android.gms.internal.ads.zzdzn
 	com.google.android.gms.internal.ads.zzdzj
+Class: androidx.documentfile.provider.DocumentFile
+	Subclasses:
+	androidx.documentfile.provider.RawDocumentFile
+	androidx.documentfile.provider.SingleDocumentFile
+	androidx.documentfile.provider.TreeDocumentFile
 Class: androidx.room.RoomDatabase$Callback
 	Subclasses:
 	androidx.work.impl.WorkDatabase$2
@@ -1718,6 +1749,11 @@ Class: com.google.android.gms.internal.ads.zzdlz
 Class: com.google.android.gms.internal.ads.zzdlv
 	Subclasses:
 	com.google.android.gms.internal.ads.zzcjw
+Class: androidx.recyclerview.widget.RecyclerView$SmoothScroller
+	Subclasses:
+	androidx.recyclerview.widget.PagerSnapHelper$1
+	androidx.recyclerview.widget.SnapHelper$2
+	androidx.recyclerview.widget.LinearSmoothScroller
 Class: com.google.android.gms.internal.ads.zzdks
 	Subclasses:
 	com.google.android.gms.internal.ads.zzdli
@@ -1758,6 +1794,11 @@ Class: androidx.appcompat.app.ActionBar$Tab
 Class: com.google.android.gms.internal.ads.zzdes
 	Subclasses:
 	com.google.android.gms.internal.ads.zzchk
+Class: androidx.recyclerview.widget.RecyclerView$LayoutManager
+	Subclasses:
+	androidx.recyclerview.widget.GridLayoutManager
+	androidx.recyclerview.widget.LinearLayoutManager
+	androidx.recyclerview.widget.StaggeredGridLayoutManager
 Class: com.google.android.gms.internal.ads.zzdcw
 	Subclasses:
 	com.google.android.gms.internal.ads.zzcji
@@ -1871,6 +1912,10 @@ Class: com.google.android.gms.internal.ads.zzcqm
 	com.google.android.gms.internal.ads.zzdlu
 	com.google.android.gms.internal.ads.zzcoe
 	com.google.android.gms.internal.ads.zzdgd
+Class: androidx.recyclerview.widget.RecyclerView$OnScrollListener
+	Subclasses:
+	androidx.recyclerview.widget.FastScroller$2
+	androidx.recyclerview.widget.SnapHelper$1
 Class: androidx.core.app.FrameMetricsAggregator$FrameMetricsBaseImpl
 	Subclasses:
 	androidx.core.app.FrameMetricsAggregator$FrameMetricsApi24Impl
@@ -2039,6 +2084,9 @@ Class: androidx.core.view.AccessibilityDelegateCompat
 	androidx.core.widget.NestedScrollView$AccessibilityDelegate
 	androidx.customview.widget.ExploreByTouchHelper
 	androidx.drawerlayout.widget.DrawerLayout$AccessibilityDelegate
+	androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate
+	androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate$ItemDelegate
+	androidx.slidingpanelayout.widget.SlidingPaneLayout$AccessibilityDelegate
 	androidx.viewpager.widget.ViewPager$MyAccessibilityDelegate
 Class: androidx.core.view.ViewPropertyAnimatorListenerAdapter
 	Subclasses:
@@ -2204,6 +2252,10 @@ Class: androidx.work.Operation$State
 	androidx.work.Operation$State$IN_PROGRESS
 	androidx.work.Operation$State$SUCCESS
 	androidx.work.Operation$State$FAILURE
+Class: androidx.recyclerview.widget.RecyclerView$Adapter
+	Subclasses:
+	androidx.recyclerview.widget.ListAdapter
+	com.google.android.gms.example.bannerrecyclerviewexample.RecyclerViewAdapter
 Class: androidx.fragment.app.FragmentHostCallback
 	Subclasses:
 	androidx.fragment.app.FragmentActivity$HostCallbacks
@@ -2238,6 +2290,10 @@ Class: androidx.core.view.WindowInsetsCompat$Impl
 	androidx.core.view.WindowInsetsCompat$Impl28
 	androidx.core.view.WindowInsetsCompat$Impl21
 	androidx.core.view.WindowInsetsCompat$Impl20
+Class: androidx.recyclerview.widget.SortedList$Callback
+	Subclasses:
+	androidx.recyclerview.widget.SortedList$BatchedCallback
+	androidx.recyclerview.widget.SortedListAdapterCallback
 Class: androidx.core.view.WindowInsetsCompat$Impl21
 	Subclasses:
 	androidx.core.view.WindowInsetsCompat$Impl30
@@ -2296,6 +2352,9 @@ Class: androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracke
 Class: androidx.core.widget.AutoScrollHelper
 	Subclasses:
 	androidx.core.widget.ListViewAutoScrollHelper
+Class: androidx.recyclerview.widget.DiffUtil$Callback
+	Subclasses:
+	androidx.recyclerview.widget.AsyncListDiffer$1$1
 Class: com.google.android.gms.internal.ads.zzgts
 	Subclasses:
 	com.google.android.gms.internal.ads.zzgtt
@@ -2651,6 +2710,9 @@ Class: com.google.android.gms.internal.ads.zzgwf
 Class: com.google.android.gms.common.internal.GmsClientSupervisor
 	Subclasses:
 	com.google.android.gms.common.internal.zzr
+Class: androidx.recyclerview.widget.ItemTouchHelper$Callback
+	Subclasses:
+	androidx.recyclerview.widget.ItemTouchHelper$SimpleCallback
 Class: com.google.android.gms.internal.ads.zzgon
 	Subclasses:
 	com.google.android.gms.internal.ads.zzawz
@@ -2953,6 +3015,9 @@ Class: com.google.android.gms.internal.ads.zzgot
 	com.google.android.gms.internal.ads.zzgpo
 	com.google.android.gms.internal.ads.zzgpp
 	com.google.android.gms.internal.ads.zzgpt
+Class: androidx.recyclerview.widget.RecyclerView$AdapterDataObserver
+	Subclasses:
+	androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver
 Class: com.google.android.gms.internal.ads.zzgcu
 	Subclasses:
 	com.google.android.gms.internal.ads.zzgbc
@@ -3114,6 +3179,9 @@ Class: com.google.android.gms.internal.ads.zzgp
 	Subclasses:
 	com.google.android.gms.internal.ads.zzxo
 	com.google.android.gms.internal.ads.zzqv
+Class: androidx.cardview.widget.CardViewBaseImpl
+	Subclasses:
+	androidx.cardview.widget.CardViewApi17Impl
 Class: com.google.android.gms.internal.ads.zzfa
 	Subclasses:
 	com.google.android.gms.internal.ads.zzft
@@ -3178,7 +3246,10 @@ Class: androidx.customview.view.AbsSavedState
 	androidx.appcompat.widget.SearchView$SavedState
 	androidx.customview.view.AbsSavedState$1
 	androidx.appcompat.widget.Toolbar$SavedState
+	androidx.coordinatorlayout.widget.CoordinatorLayout$SavedState
 	androidx.drawerlayout.widget.DrawerLayout$SavedState
+	androidx.recyclerview.widget.RecyclerView$SavedState
+	androidx.slidingpanelayout.widget.SlidingPaneLayout$SavedState
 	androidx.viewpager.widget.ViewPager$SavedState
 Class: androidx.lifecycle.LifecycleService
 	Subclasses:
@@ -3420,12 +3491,20 @@ Class: com.google.android.gms.internal.measurement.zzmh
 Class: com.google.android.gms.common.api.Response
 	Subclasses:
 	com.google.android.gms.common.api.DataBufferResponse
+Class: androidx.recyclerview.widget.LinearSmoothScroller
+	Subclasses:
+	androidx.recyclerview.widget.PagerSnapHelper$1
+	androidx.recyclerview.widget.SnapHelper$2
 Class: androidx.appcompat.app.AppCompatActivity
 	Subclasses:
-	com.google.android.gms.example.bannerexample.MyActivity
+	com.google.android.gms.example.bannerrecyclerviewexample.MainActivity
 Class: androidx.browser.customtabs.CustomTabsClient
 	Subclasses:
 	androidx.browser.customtabs.CustomTabsServiceConnection$1
+Class: androidx.recyclerview.widget.RecyclerView$LayoutParams
+	Subclasses:
+	androidx.recyclerview.widget.GridLayoutManager$LayoutParams
+	androidx.recyclerview.widget.StaggeredGridLayoutManager$LayoutParams
 Class: com.google.android.gms.ads.FullScreenContentCallback
 	Subclasses:
 	com.google.ads.mediation.zzd
@@ -3534,9 +3613,13 @@ Class: androidx.work.impl.constraints.trackers.ConstraintTracker
 	androidx.work.impl.constraints.trackers.StorageNotLowTracker
 	androidx.work.impl.constraints.trackers.BroadcastReceiverConstraintTracker
 	androidx.work.impl.constraints.trackers.NetworkStateTracker
+Class: androidx.recyclerview.widget.RecyclerView$ItemAnimator
+	Subclasses:
+	androidx.recyclerview.widget.DefaultItemAnimator
+	androidx.recyclerview.widget.SimpleItemAnimator
 Class: androidx.fragment.app.FragmentActivity
 	Subclasses:
-	com.google.android.gms.example.bannerexample.MyActivity
+	com.google.android.gms.example.bannerrecyclerviewexample.MainActivity
 	androidx.appcompat.app.AppCompatActivity
 Class: com.google.android.gms.common.api.PendingResult
 	Subclasses:
@@ -3565,9 +3648,18 @@ Class: com.google.android.gms.common.internal.IAccountAccessor$Stub
 Class: com.google.firebase.FirebaseException
 	Subclasses:
 	com.google.firebase.FirebaseApiNotAvailableException
+Class: androidx.recyclerview.widget.OrientationHelper
+	Subclasses:
+	androidx.recyclerview.widget.OrientationHelper$1
+	androidx.recyclerview.widget.OrientationHelper$2
 Class: androidx.appcompat.widget.AbsActionBarView
 	Subclasses:
 	androidx.appcompat.widget.ActionBarContextView
+Class: androidx.recyclerview.widget.RecyclerView$OnFlingListener
+	Subclasses:
+	androidx.recyclerview.widget.LinearSnapHelper
+	androidx.recyclerview.widget.PagerSnapHelper
+	androidx.recyclerview.widget.SnapHelper
 Class: com.google.android.gms.ads.internal.client.zzcd
 	Subclasses:
 	com.google.android.gms.ads.internal.ClientApi
@@ -3640,6 +3732,7 @@ Class: androidx.core.view.accessibility.AccessibilityNodeProviderCompat
 Class: androidx.customview.widget.ViewDragHelper$Callback
 	Subclasses:
 	androidx.drawerlayout.widget.DrawerLayout$ViewDragCallback
+	androidx.slidingpanelayout.widget.SlidingPaneLayout$DragHelperCallback
 Class: androidx.core.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19
 	Subclasses:
 	androidx.core.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi26
@@ -3778,7 +3871,7 @@ Class: androidx.appcompat.view.menu.MenuWrapperICS
 	androidx.appcompat.view.menu.SubMenuWrapperICS
 Class: androidx.activity.ComponentActivity
 	Subclasses:
-	com.google.android.gms.example.bannerexample.MyActivity
+	com.google.android.gms.example.bannerrecyclerviewexample.MainActivity
 	androidx.appcompat.app.AppCompatActivity
 	androidx.fragment.app.FragmentActivity
 Class: androidx.core.view.WindowInsetsAnimationCompat$Impl

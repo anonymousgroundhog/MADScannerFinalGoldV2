@@ -158,7 +158,7 @@ def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
 	madscanner.Set_Apps_Installed(installed_app_packages)
 	madscanner.Compile_Framework_Code()
 	madscanner.Set_Copy_From_Folder_Path(copy_from_folder)
-	option="j"
+	option="dex"
 	Test_Folder = this_folder
 	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
 	cprint("test folder is: " + str(Test_Folder), 'green')
@@ -173,16 +173,17 @@ def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
 		error_msg = ''
 		sdkbuild_version = row['SDK_Build_Version']
 		try:
-			if file.__contains__('banner_example'):
-				error_msg = madscanner.Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option, str(sdkbuild_version))
-				os.chdir(pwd)
-				# print(file, ' ', sdkbuild_version)
-				if error_msg != '':
-					df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
-					helper.Write_APK_Error_To_File(file, ' '.join(error_msg))
-					cprint(error_msg, 'red')
-				else:
-					df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'Yes'
+			# if file.__contains__('banner_example'):
+			error_msg = madscanner.Function_Run_Framework_And_Zip_And_Sign_APK(file, Test_Folder, option, str(sdkbuild_version))
+			os.chdir(pwd)
+			print(error_msg)
+			# print(file, ' ', sdkbuild_version)
+			if error_msg != '':
+				df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
+				helper.Write_APK_Error_To_File(file, ' '.join(error_msg))
+				cprint(error_msg, 'red')
+			else:
+				df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'Yes'
 		except:
 			cprint(''.join(["Unable to Run framework for:", file]), 'red')
 			df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
@@ -231,6 +232,7 @@ def Run_MADScanner_On_N_Number_Of_Apps(this_folder, copy_from_folder, first_n_ap
 				helper.Write_APK_Error_To_File(file, ' '.join(error_msg))
 				cprint(error_msg, 'red')
 			else:
+
 				df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'Yes'
 		except:
 			cprint(''.join(["Unable to Run framework for:", file]), 'red')
@@ -255,13 +257,16 @@ def Cleanup_Soot_Output_Folder():
 	        print(f"Removed: {file_path}")
 
 def Check_If_App_Can_Be_Installed():
-	os.system('rm ../APK/Valid_APK_Files_To_Test/*.apk')
+	# os.system('rm ../APK/Valid_APK_Files_To_Test/*.apk >/dev/null 2>&1')
+	cprint("In Check_If_App_Can_Be_Installed()!!!", "yellow")
+	cprint(os.getcwd(), 'yellow')
 	helper = Helper.Helper()
 	cwd= os.getcwd()
-	df_app_info = pd.read_csv('../Data/App_Category_Details2.csv')
-	df_app_info = df_app_info[df_app_info['MADScanner_Injected_Logs_Sucessfully'] == 'Yes']
+	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
+	# df_app_info = df_app_info[df_app_info['MADScanner_Injected_Logs_Sucessfully'] == 'Yes']
 	# df_app_info['Install_Error_Details']=None
 	os.chdir('../Java/Classes/sootOutput')
+	cprint(df_app_info, 'red')
 	for index,row in df_app_info.iterrows():
 		file = ''.join(['signed',row['App_Name']])
 		package_name = row['Main_Class']
@@ -314,12 +319,12 @@ Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
 # 
 # MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
-# cprint(os.getcwd(), 'red')
+cprint(os.getcwd(), 'red')
 Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
 # Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
-# Cleanup_Soot_Output_Folder()
-# Check_If_App_Can_Be_Installed()
+Cleanup_Soot_Output_Folder()
+Check_If_App_Can_Be_Installed()
 
-# Instrument_Apps()
+Instrument_Apps()
 # helper.Remove_Empty_Logs()
 # helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')

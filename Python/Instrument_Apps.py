@@ -243,7 +243,8 @@ class Instrument_Apps:
 
 os.system('clear')
 instrument_apps = Instrument_Apps()
-instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
+cprint(os.getcwd(), 'red')
+instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details.csv'))
 # instrument_apps.Clean_DF_App_Info()
 instrument_apps.Set_Copy_From_Folder_Path('Testing')
 # instrument_apps.Set_Testing_Folder_Path('../Java/Classes/sootOutput')
