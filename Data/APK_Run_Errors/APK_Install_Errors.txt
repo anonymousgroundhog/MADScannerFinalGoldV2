@@ -556,3 +556,41 @@ banner_example_3_overlayed.apk
 ['adb: insufficient permissions for device: user seansanders is not in the plugdev group', 'See [http://developer.android.com/tools/device.html] for more information', ''] 
 banner_example_2.apk 
 ['adb: insufficient permissions for device: user seansanders is not in the plugdev group', 'See [http://developer.android.com/tools/device.html] for more information', ''] 
+AdvanceAutoParts2.5.2Apkpure.apk 
+['adb: failed to stat signedAdvanceAutoParts2.5.2Apkpure.apk: No such file or directory', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AdobeExpressGraphicDesign8.17.0Apkpure.apk 
+['adb: failed to install signedAdobeExpressGraphicDesign8.17.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+1WeatherForecastsRadar6.0.0.3Apkpure.apk 
+['adb: failed to install signed1WeatherForecastsRadar6.0.0.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+3DTuningCarGameSimulator3.7.608Apkpure.apk 
+['adb: failed to stat signed3DTuningCarGameSimulator3.7.608Apkpure.apk: No such file or directory', ''] 
+AdvanceAutoParts2.5.2Apkpure.apk 
+['adb: failed to stat signedAdvanceAutoParts2.5.2Apkpure.apk: No such file or directory', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AdobeExpressGraphicDesign8.17.0Apkpure.apk 
+['adb: failed to install signedAdobeExpressGraphicDesign8.17.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+1WeatherForecastsRadar6.0.0.3Apkpure.apk 
+['adb: failed to install signed1WeatherForecastsRadar6.0.0.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+3DTuningCarGameSimulator3.7.608Apkpure.apk 
+['adb: failed to stat signed3DTuningCarGameSimulator3.7.608Apkpure.apk: No such file or directory', ''] 
+AdvanceAutoParts2.5.2Apkpure.apk 
+['adb: failed to stat signedAdvanceAutoParts2.5.2Apkpure.apk: No such file or directory', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AdobeExpressGraphicDesign8.17.0Apkpure.apk 
+['adb: failed to install signedAdobeExpressGraphicDesign8.17.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+1WeatherForecastsRadar6.0.0.3Apkpure.apk 
+['adb: failed to install signed1WeatherForecastsRadar6.0.0.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+3DTuningCarGameSimulator3.7.608Apkpure.apk 
+['adb: failed to stat signed3DTuningCarGameSimulator3.7.608Apkpure.apk: No such file or directory', ''] 
+com.tayasui.sketches.apk 
+['adb: failed to stat signedcom.tayasui.sketches.apk: No such file or directory', ''] 
+com.bf.aistory.apk 
+['adb: failed to stat signedcom.bf.aistory.apk: No such file or directory', ''] 
+com.brakefield.painter.apk 
+['adb: failed to stat signedcom.brakefield.painter.apk: No such file or directory', ''] 
+com.zhiliaoapp.musically.apk 
+['adb: failed to stat signedcom.zhiliaoapp.musically.apk: No such file or directory', ''] 
