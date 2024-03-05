@@ -5,6 +5,9 @@ from functools import reduce
 from itertools import islice
 
 class Helper:
+    def Remove_Directory_Files(self, dir):
+        for f in os.listdir(dir):
+                os.remove(os.path.join(dir, f))
     def Write_APK_Error_To_File(self, str_app_name, str_error):
         file1 = open(''.join(['../Data/APK_Run_Errors/Errors.txt']), "a")  # append mode
         file1.write(''.join([str_app_name," \n"]))

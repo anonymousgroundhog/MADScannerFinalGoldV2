@@ -313,10 +313,12 @@ def Instrument_Apps():
 os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
+
 helper = Helper.Helper()
+helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
 Run_MADScanner('Google_Play_Download_Test')
 Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
-# 
+
 # MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
 cprint(os.getcwd(), 'red')
