@@ -319,14 +319,14 @@ helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
 Run_MADScanner('Google_Play_Download_Test')
 Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
 
-# MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-os.chdir(cwd)
-cprint(os.getcwd(), 'red')
-Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
-# Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
+## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
+#os.chdir(cwd)
+#cprint(os.getcwd(), 'red')
+#Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
+## Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
 Cleanup_Soot_Output_Folder()
 Check_If_App_Can_Be_Installed()
 
 Instrument_Apps()
-# helper.Remove_Empty_Logs()
+helper.Remove_Empty_Logs()
 # helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')
