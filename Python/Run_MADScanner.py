@@ -247,14 +247,14 @@ def Run_MADScanner_On_N_Number_Of_Apps(this_folder, copy_from_folder, first_n_ap
 def Cleanup_Soot_Output_Folder():
 	directory='../Java/Classes/sootOutput'
 	for filename in os.listdir(directory):
-	    # Construct full file path
-	    file_path = os.path.join(directory, filename)
+		# Construct full file path
+		file_path = os.path.join(directory, filename)
 
-	    # Check if 'signed' is not in the file name and if it's a file
-	    if 'signed' not in filename and os.path.isfile(file_path):
-	        # Remove the file
-	        os.remove(file_path)
-	        print(f"Removed: {file_path}")
+		# Check if 'signed' is not in the file name and if it's a file
+		if 'signed' not in filename and os.path.isfile(file_path):
+			# Remove the file
+			os.remove(file_path)
+			print(f"Removed: {file_path}")
 
 def Check_If_App_Can_Be_Installed():
 	# os.system('rm ../APK/Valid_APK_Files_To_Test/*.apk >/dev/null 2>&1')
@@ -320,13 +320,13 @@ Run_MADScanner('Google_Play_Download_Test')
 Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
 
 ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-#os.chdir(cwd)
-#cprint(os.getcwd(), 'red')
-#Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
-## Run_MADScanner_On_N_Number_Of_Apps('Testing', 'APKPure', 2)
-Cleanup_Soot_Output_Folder()
-Check_If_App_Can_Be_Installed()
-
-Instrument_Apps()
-helper.Remove_Empty_Logs()
+os.chdir(cwd)
+Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
+cprint(os.getcwd(), 'red')
+directory='../Java/Classes/sootOutput'
+if os.path.exists(directory):
+	Cleanup_Soot_Output_Folder()
+	Check_If_App_Can_Be_Installed()
+	Instrument_Apps()
+	helper.Remove_Empty_Logs()
 # helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')
