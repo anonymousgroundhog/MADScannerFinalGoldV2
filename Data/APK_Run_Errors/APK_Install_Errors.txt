@@ -594,3 +594,191 @@ com.brakefield.painter.apk
 ['adb: failed to stat signedcom.brakefield.painter.apk: No such file or directory', ''] 
 com.zhiliaoapp.musically.apk 
 ['adb: failed to stat signedcom.zhiliaoapp.musically.apk: No such file or directory', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+GooglePaySaveandPay181.1.3arm64-v8areleaseflutterApkpure.apk 
+['adb: failed to install signedGooglePaySaveandPay181.1.3arm64-v8areleaseflutterApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WebComics-WebtoonManga3.1.91Apkpure.apk 
+['adb: failed to stat signedWebComics-WebtoonManga3.1.91Apkpure.apk: No such file or directory', ''] 
+Turo-Findyourdrive23.23.2Apkpure.apk 
+['adb: failed to stat signedTuro-Findyourdrive23.23.2Apkpure.apk: No such file or directory', ''] 
+Houzz-HomeDesignRemodel23.6.20Apkpure.apk 
+['adb: failed to install signedHouzz-HomeDesignRemodel23.6.20Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WhatsAppBusiness2.23.12.78Apkpure.apk 
+['adb: failed to stat signedWhatsAppBusiness2.23.12.78Apkpure.apk: No such file or directory', ''] 
+NerdWalletManageYourMoney11.1.0Apkpure.apk 
+['adb: failed to install signedNerdWalletManageYourMoney11.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AutotraderShopCarsForSale4.1.22Apkpure.apk 
+['adb: failed to install signedAutotraderShopCarsForSale4.1.22Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Grindr-Gaychat9.11.0Apkpure.apk 
+['adb: failed to install signedGrindr-Gaychat9.11.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MarvelUnlimited7.46.0Apkpure.apk 
+['adb: failed to install signedMarvelUnlimited7.46.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MeetupSocialEventsGroups2023.05.31.1571Apkpure1.apk 
+['adb: failed to install signedMeetupSocialEventsGroups2023.05.31.1571Apkpure1.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Google14.24.9.28.arm64Apkpure.apk 
+['adb: failed to install signedGoogle14.24.9.28.arm64Apkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.googlequicksearchbox signatures do not match newer version; ignoring!]', ''] 
+TayasuiSketches1.4.0Apkpure.apk 
+['adb: failed to stat signedTayasuiSketches1.4.0Apkpure.apk: No such file or directory', ''] 
+AdvanceAutoParts2.5.2Apkpure.apk 
+['adb: failed to stat signedAdvanceAutoParts2.5.2Apkpure.apk: No such file or directory', ''] 
+WeatherbyWeatherBug5.62.0-38Apkpure.apk 
+['adb: failed to install signedWeatherbyWeatherBug5.62.0-38Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MetaBusinessSuite411.0.0.32.62Apkpure.apk 
+['adb: failed to stat signedMetaBusinessSuite411.0.0.32.62Apkpure.apk: No such file or directory', ''] 
+WildHookup,Meet,DatingMe2.8.2Apkpure.apk 
+['adb: failed to install signedWildHookup,Meet,DatingMe2.8.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MAPS.MEOfflinemapsGPSNavv14.7.71581-googleReleaseApkpure.apk 
+['adb: failed to install signedMAPS.MEOfflinemapsGPSNavv14.7.71581-googleReleaseApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MantaUnlimitedComics23.5.279Apkpure.apk 
+['adb: failed to install signedMantaUnlimitedComics23.5.279Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AndroidAuto9.8.632413-releaseApkpure.apk 
+['adb: failed to install signedAndroidAuto9.8.632413-releaseApkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+Weatherapp6.6Apkpure.apk 
+['adb: failed to stat signedWeatherapp6.6Apkpure.apk: No such file or directory', ''] 
+StubHub-LiveEventTickets79.2.1Apkpure.apk 
+['adb: failed to install signedStubHub-LiveEventTickets79.2.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+TheNewYorkTimes10.18.0Apkpure.apk 
+['adb: failed to install signedTheNewYorkTimes10.18.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+ZillowHomesForSaleRent14.6.2.72284Apkpure.apk 
+['adb: failed to install signedZillowHomesForSaleRent14.6.2.72284Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Tapas–ComicsandNovels6.9.0Apkpure.apk 
+['adb: failed to install signedTapas–ComicsandNovels6.9.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+PlanTrip-LibraryDemoOnly1.0.1Apkpure.apk 
+['adb: failed to stat signedPlanTrip-LibraryDemoOnly1.0.1Apkpure.apk: No such file or directory', ''] 
+Vero-TrueSocial2.1.2.03Apkpure.apk 
+['adb: failed to stat signedVero-TrueSocial2.1.2.03Apkpure.apk: No such file or directory', ''] 
+FilmoraMovieVideoEditor8.7.11Apkpure.apk 
+['adb: failed to stat signedFilmoraMovieVideoEditor8.7.11Apkpure.apk: No such file or directory', ''] 
+SephoraBuyMakeupSkincare23.12Apkpure.apk 
+['adb: failed to install signedSephoraBuyMakeupSkincare23.12Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Gmail2023.05.28.540443362.ReleaseApkpure.apk 
+['adb: failed to install signedGmail2023.05.28.540443362.ReleaseApkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.gm signatures do not match newer version; ignoring!]', ''] 
+MicrosoftTeams14161.0.0.2023053702Apkpure.apk 
+['adb: failed to install signedMicrosoftTeams14161.0.0.2023053702Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+GoogleEarth9.180.0.1Apkpure.apk 
+['adb: failed to install signedGoogleEarth9.180.0.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+YouTubeMusic6.07.50Apkpure.apk 
+['adb: failed to install signedYouTubeMusic6.07.50Apkpure.apk: Failure [INSTALL_FAILED_NO_MATCHING_ABIS: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113]', ''] 
+CourseraLearncareerskills4.7.1Apkpure.apk 
+['adb: failed to install signedCourseraLearncareerskills4.7.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+LifestyleAI1.8.22Apkpure.apk 
+['adb: failed to install signedLifestyleAI1.8.22Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WOMBODream-AIArtGenerator3.1.3Apkpure.apk 
+['adb: failed to install signedWOMBODream-AIArtGenerator3.1.3Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Starbucks6.50Apkpure.apk 
+['adb: failed to stat signedStarbucks6.50Apkpure.apk: No such file or directory', ''] 
+YahooFinanceStockNews12.9.0Apkpure.apk 
+['adb: failed to install signedYahooFinanceStockNews12.9.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+BooDatingFriendsApp1.13.4Apkpure.apk 
+['adb: failed to install signedBooDatingFriendsApp1.13.4Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Telegram9.6.7Apkpure.apk 
+['adb: failed to stat signedTelegram9.6.7Apkpure.apk: No such file or directory', ''] 
+Airbnb23.25Apkpure.apk 
+['adb: failed to stat signedAirbnb23.25Apkpure.apk: No such file or directory', ''] 
+TinderDatingapp.MeetPeople14.11.0Apkpure.apk 
+['adb: failed to install signedTinderDatingapp.MeetPeople14.11.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Zooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk 
+['adb: failed to install signedZooba_Fun_Battle_Royale_Games_4.7.2_Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+CapCut-VideoEditor8.6.0Apkpure.apk 
+['adb: failed to stat signedCapCut-VideoEditor8.6.0Apkpure.apk: No such file or directory', ''] 
+SmartNewsLocalBreakingNews23.6.30Apkpure.apk 
+['adb: failed to install signedSmartNewsLocalBreakingNews23.6.30Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+DoorDash-FoodDelivery15.112.22Apkpure.apk 
+['adb: failed to stat signedDoorDash-FoodDelivery15.112.22Apkpure.apk: No such file or directory', ''] 
+AccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk 
+['adb: failed to install signedAccuWeatherWeatherRadar8.11.0-24-googleApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+KhanAcademy7.10.1Apkpure.apk 
+['adb: failed to install signedKhanAcademy7.10.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+VLCforAndroid3.5.4Apkpure.apk 
+['adb: failed to stat signedVLCforAndroid3.5.4Apkpure.apk: No such file or directory', ''] 
+McDonalds7.11.3Apkpure.apk 
+['adb: failed to stat signedMcDonalds7.11.3Apkpure.apk: No such file or directory', ''] 
+OkCupidDating,LoveFun78.1.0Apkpure.apk 
+['adb: failed to install signedOkCupidDating,LoveFun78.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Tasty1.80.0Apkpure.apk 
+['adb: failed to stat signedTasty1.80.0Apkpure.apk: No such file or directory', ''] 
+PaperColor2.6.2Apkpure.apk 
+['adb: failed to stat signedPaperColor2.6.2Apkpure.apk: No such file or directory', ''] 
+YelpforBusiness23.25.0-26232512Apkpure.apk 
+['adb: failed to stat signedYelpforBusiness23.25.0-26232512Apkpure.apk: No such file or directory', ''] 
+AdobeExpressGraphicDesign8.17.0Apkpure.apk 
+['adb: failed to install signedAdobeExpressGraphicDesign8.17.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Wendy’s10.1.0Apkpure.apk 
+['adb: failed to stat signedWendy’s10.1.0Apkpure.apk: No such file or directory', ''] 
+Ticketmaster－Buy,SellTickets243.1Apkpure.apk 
+['adb: failed to stat signedTicketmaster－Buy,SellTickets243.1Apkpure.apk: No such file or directory', ''] 
+LoseWeightatHomein30Days1.071.72GPApkpure.apk 
+['adb: failed to install signedLoseWeightatHomein30Days1.071.72GPApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+AutolistUsedCarMarketplace13.1.0Apkpure.apk 
+['adb: failed to install signedAutolistUsedCarMarketplace13.1.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+DCUNIVERSEINFINITE5.8.1Apkpure.apk 
+['adb: failed to install signedDCUNIVERSEINFINITE5.8.1Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+LifestylebyBioTechUSA1.0.1Apkpure.apk 
+['adb: failed to stat signedLifestylebyBioTechUSA1.0.1Apkpure.apk: No such file or directory', ''] 
+LoseWeightAppforWomen2.0.5Apkpure.apk 
+['adb: failed to stat signedLoseWeightAppforWomen2.0.5Apkpure.apk: No such file or directory', ''] 
+Messenger414.0.0.17.61Apkpure.apk 
+['adb: failed to stat signedMessenger414.0.0.17.61Apkpure.apk: No such file or directory', ''] 
+Clock7.5535768093Apkpure.apk 
+['adb: failed to install signedClock7.5535768093Apkpure.apk: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Existing package com.google.android.deskclock signatures do not match newer version; ignoring!]', ''] 
+리디-웹툰,웹소설,전자책모두여기에!23.5.1Apkpure.apk 
+['adb: failed to stat signed리디-웹툰,웹소설,전자책모두여기에!23.5.1Apkpure.apk: No such file or directory', ''] 
+ExpediaHotels,FlightsCar23.24.1Apkpure.apk 
+['adb: failed to stat signedExpediaHotels,FlightsCar23.24.1Apkpure.apk: No such file or directory', ''] 
+TheWeatherChannel-Radar10.65.0Apkpure.apk 
+['adb: failed to install signedTheWeatherChannel-Radar10.65.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WebComics-WebtoonManga3.2.00Apkpure.apk 
+['adb: failed to stat signedWebComics-WebtoonManga3.2.00Apkpure.apk: No such file or directory', ''] 
+CanvaDesign,PhotoVideo2.220.0Apkpure.apk 
+['adb: failed to install signedCanvaDesign,PhotoVideo2.220.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Instagram288.1.0.22.66Apkpure.apk 
+['adb: failed to stat signedInstagram288.1.0.22.66Apkpure.apk: No such file or directory', ''] 
+GoogleDrive2.23.241.0.all.alldpiApkpure.apk 
+['adb: failed to install signedGoogleDrive2.23.241.0.all.alldpiApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Weatherdatamicroclimate6.13.2Apkpure.apk 
+['adb: failed to install signedWeatherdatamicroclimate6.13.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+FruitNinja®3.34.1Apkpure.apk 
+['adb: failed to stat signedFruitNinja®3.34.1Apkpure.apk: No such file or directory', ''] 
+NewsBreakLocalNewsAlerts23.25.0Apkpure.apk 
+['adb: failed to stat signedNewsBreakLocalNewsAlerts23.25.0Apkpure.apk: No such file or directory', ''] 
+1WeatherForecastsRadar6.0.0.3Apkpure.apk 
+['adb: failed to stat signed1WeatherForecastsRadar6.0.0.3Apkpure.apk: No such file or directory', ''] 
+SERIES3.34.0Apkpure.apk 
+['adb: failed to install signedSERIES3.34.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MeetupSocialEventsGroups2023.05.31.1571Apkpure.apk 
+['adb: failed to install signedMeetupSocialEventsGroups2023.05.31.1571Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+3DTuningCarGameSimulator3.7.608Apkpure.apk 
+['adb: failed to stat signed3DTuningCarGameSimulator3.7.608Apkpure.apk: No such file or directory', ''] 
+e＋イープラスアプリ-チケット・ニュース・スマチケ5.5.1Apkpure.apk 
+['adb: failed to stat signede＋イープラスアプリ-チケット・ニュース・スマチケ5.5.1Apkpure.apk: No such file or directory', ''] 
+SeatGeek–TicketstoEvents2023.06.121299Apkpure.apk 
+['adb: failed to stat signedSeatGeek–TicketstoEvents2023.06.121299Apkpure.apk: No such file or directory', ''] 
+FeverLocalEventsTickets5.48.1Apkpure.apk 
+['adb: failed to stat signedFeverLocalEventsTickets5.48.1Apkpure.apk: No such file or directory', ''] 
+Snapchat12.39.0.48Apkpure.apk 
+['adb: failed to stat signedSnapchat12.39.0.48Apkpure.apk: No such file or directory', ''] 
+MyRadarWeatherRadar8.48.2Apkpure.apk 
+['adb: failed to install signedMyRadarWeatherRadar8.48.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+WOMBODream-AIArtGenerator3.1.2Apkpure.apk 
+['adb: failed to install signedWOMBODream-AIArtGenerator3.1.2Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+MicrosoftAuthenticator6.2305.3477Apkpure.apk 
+['adb: failed to stat signedMicrosoftAuthenticator6.2305.3477Apkpure.apk: No such file or directory', ''] 
+TapColorProColorByNumber7.1.7Apkpure.apk 
+['adb: failed to stat signedTapColorProColorByNumber7.1.7Apkpure.apk: No such file or directory', ''] 
+Argenta4.0.0.0Apkpure.apk 
+['adb: failed to install signedArgenta4.0.0.0Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+PhonebyGoogle106.0.536237016-pixel2022Apkpure.apk 
+['adb: failed to install signedPhonebyGoogle106.0.536237016-pixel2022Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+QuickBooksOnlineAccounting27.57.0+1Apkpure.apk 
+['adb: failed to stat signedQuickBooksOnlineAccounting27.57.0+1Apkpure.apk: No such file or directory', ''] 
+MintBudgetTrackBills8.37.0Apkpure.apk 
+['adb: failed to stat signedMintBudgetTrackBills8.37.0Apkpure.apk: No such file or directory', ''] 
+GoogleDrive2.23.251.0.all.alldpiApkpure.apk 
+['adb: failed to install signedGoogleDrive2.23.251.0.all.alldpiApkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+GoogleChromeFastSecure114.0.5735.131Apkpure.apk 
+['adb: failed to stat signedGoogleChromeFastSecure114.0.5735.131Apkpure.apk: No such file or directory', ''] 
+TheGuardian-NewsSport6.106.18915Apkpure.apk 
+['adb: failed to install signedTheGuardian-NewsSport6.106.18915Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
+Cars.com–NewUsedVehicles9.7.1.8363Apkpure.apk 
+['adb: failed to install signedCars.com–NewUsedVehicles9.7.1.8363Apkpure.apk: Failure [INSTALL_FAILED_INVALID_APK: INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]', ''] 
