@@ -74,25 +74,36 @@ for file in os.listdir(logs_dir):
 # print(all_data_df)
 
 filtered_df = all_data_df.query( 'App_Label == "google"' )
-# print(filtered_df)
 unique_apps_google=pd.unique(filtered_df[['App_Name']].values.ravel())
-
-filtered_df = all_data_df.query( 'App_Label == "facebook"' )
-# print(filtered_df)
-unique_apps_facebook=pd.unique(filtered_df[['App_Name']].values.ravel())
-
 # print(unique_apps_google)
 
-filtered_df = all_data_df[all_data_df['App_Label'].str.contains('google|facebook', case=False)]
-unique_apps_facebook_and_google = pd.unique(filtered_df[['App_Name']].values.ravel())
-# print(unique_apps_facebook_and_google)
+filtered_df = all_data_df.query( 'App_Label == "facebook"' )
+unique_apps_facebook=pd.unique(filtered_df[['App_Name']].values.ravel())
+print(unique_apps_facebook)
 
-# print(unique_apps_facebook)
 
-filtered_df = df[df['App_Label'].str.contains('google', case=False) & ~df['App_Label'].str.contains('facebook', case=False)]
-unique_apps_google_only = pd.unique(filtered_df[['App_Name']].values.ravel())
-# print(unique_apps_google_only)
+# filtered_df = all_data_df[all_data_df['App_Label'].str.contains('google|facebook', case=False)]
+# unique_apps_facebook_and_google = pd.unique(filtered_df[['App_Name']].values.ravel())
+# # print(unique_apps_facebook_and_google)
 
-filtered_df = df[df['App_Label'].str.contains('facebook', case=False) & ~df['App_Label'].str.contains('google', case=False)]
-unique_apps_facebook_only = pd.unique(filtered_df[['App_Name']].values.ravel())
-print(unique_apps_facebook_only)
+# # print(unique_apps_facebook)
+
+# filtered_df = all_data_df[all_data_df['App_Label'].str.contains('google', case=False) & ~all_data_df['App_Label'].str.contains('facebook', case=False)]
+# unique_apps_google_only = pd.unique(filtered_df[['App_Name']].values.ravel())
+# # print(unique_apps_google_only)
+
+# filtered_df = all_data_df[all_data_df['App_Label'].str.contains('facebook', case=False) & ~all_data_df['App_Label'].str.contains('google', case=False)]
+# unique_apps_facebook_only = pd.unique(filtered_df[['App_Name']].values.ravel())
+# print(unique_apps_facebook_only)
+
+
+# filtered_df = all_data_df.query( 'App_Label == "facebook" and App_Label != "google"' )
+# unique_apps_facebook=pd.unique(filtered_df[['App_Name']].values.ravel())
+
+# filtered_df = all_data_df.query( 'App_Label == "google" and App_Label != "facebook"' )
+# unique_apps_google=pd.unique(filtered_df[['App_Name']].values.ravel())
+# print(unique_apps_google)
+
+# filtered_df = df[(df.str.contains("google") == True) & (df.str.contains("facebook") == False)]
+# unique_apps_google_only = pd.unique(filtered_df[['App_Name']].values.ravel())
+# print((df.str.contains("google") == True))
