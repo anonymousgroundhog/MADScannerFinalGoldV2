@@ -39,6 +39,7 @@ from pypdf import PdfReader
 # driver.execute_script('window.print();')
 
 from pyhtml2pdf import converter
+Files_To_Check_Captcha = []
 
 def Get_Data_From_VirusTotal(df):
 	pwd=os.getcwd()
@@ -51,8 +52,11 @@ def Get_Data_From_VirusTotal(df):
 		if not file_name in os.listdir():
 			try:
 				converter.convert(url, file_name)
-				time.sleep(2)
+				Files_To_Check_Captcha.append(file_name)
 			except:
+				f = open("errors.txt", "a")
+				f.write(file_name+'\n')
+				f.close()
 				cprint(''.join(["Unable to Run framework for:", hash_value]), 'red')
 				print(traceback.format_exc())
 				continue
@@ -62,20 +66,22 @@ def Remove_Files_With_Capcha():
 	pwd=os.getcwd()
 	os.chdir('../Data/VirusTotal_Screenshots')
 	for file in os.listdir():
-		reader = PdfReader(file) 
-		  
-		# printing number of pages in pdf file 
-		# print(len(reader.pages)) 
-		  
-		# creating a page object 
-		page = reader.pages[0] 
-		
-		cprint(file, 'green')
-		# extracting text from page 
-		cprint(page.extract_text())
-		if page.extract_text().__contains__('reCAPTCHAI'):
-			os.remove(file) 
-
+		try:
+			# if file in Files_To_Check_Captcha and not file == 'error.txt':
+			if not file == 'error.txt':
+				reader = PdfReader(file) 
+				# creating a page object 
+				page = reader.pages[0] 
+				
+				cprint(file, 'green')
+				# extracting text from page 
+				cprint(page.extract_text())
+				page_text = page.extract_text()
+				if page_text.__contains__('reCAPTCHAI') or page_text.__contains__('recaptcha'):
+					os.remove(file)
+		except: 
+			cprint(''.join(["Unable to Run framework for:", file]), 'red')
+			print(traceback.format_exc())
 	os.chdir(pwd)
 
 def Analyze_PDF_Files():
@@ -85,24 +91,23 @@ def Analyze_PDF_Files():
 	words=['undetected', 'unable', 'summary', 'timeout', 'join', 'api', '?']
 
 	for file in os.listdir():
-		reader = PdfReader(file)
-		cprint(file, 'green')
-		for page in reader.pages:
-			content = page.extract_text()
-			text_lower = content.lower()
-			# print(text_lower.split('\n'))
-			for line in text_lower.split('\n'):
-				# lst_line = line.split()
-				if not any(word in line for word in words):
-					print(line)
+		if not file == 'errors.txt':
+			reader = PdfReader(file)
+			cprint(file, 'green')
+			for page in reader.pages:
+				content = page.extract_text()
+				text_lower = content.lower()
+				# print(text_lower.split('\n'))
+				for line in text_lower.split('\n'):
+					# lst_line = line.split()
+					if not any(word in line for word in words):
+						print(line)
 	os.chdir(pwd)
 
 os.system('clear')
 
 df = pd.read_csv('../Data/App_VirusTotal_Details.csv')
 
-# Get_Data_From_VirusTotal(df)
-
-
+Get_Data_From_VirusTotal(df)
 Remove_Files_With_Capcha()
 # Analyze_PDF_Files()
