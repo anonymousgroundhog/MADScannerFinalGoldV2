@@ -27,6 +27,7 @@ os.chdir('../Data/Androzoo')
 # df_filtered.to_csv('results.csv', index=False)
 df = pd.read_csv('results.csv')
 
+os.chdir('../../APK/Androzoo')
 user_api_key = input("Enter in api key and press enter: ")
 
 cprint(' '.join(['API key is',user_api_key]), 'green')

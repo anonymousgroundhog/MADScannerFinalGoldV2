@@ -262,3 +262,5 @@ APK/Google_Play_Apps/compeoplefunwordcross.apk filter=lfs diff=lfs merge=lfs -te
 APK/Google_Play_Apps/comroviobaba.apk filter=lfs diff=lfs merge=lfs -text
 Blockchain_Smart_Contracts/MultiAppLogTracker.sol filter=lfs diff=lfs merge=lfs -text
 Blockchain_Smart_Contracts/MultiAppLogTrackerV2.sol filter=lfs diff=lfs merge=lfs -text
+Androzoo/latest.csv filter=lfs diff=lfs merge=lfs -text
+Data/Androzoo/results.csv filter=lfs diff=lfs merge=lfs -text
