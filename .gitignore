@@ -13,5 +13,6 @@ APK/APK_Testing/*.apk
 APK/Testing/*.apk
 APK/Google_Play_Apps/*.apk
 APK/Google_Play_Apps/*/*.apk
+Androzoo/*
 Java/APK_Files_Signed_And_Injected_Logs/*/*.apk
 Java/Classes/sootOutput/*
