@@ -95,7 +95,7 @@ class Instrumenting_Final_Verson_Apps:
 		desired_caps['appium:wdaStartupRetries'] = '6'
 
 		desired_caps['adbExecTimeout'] = '120000'
-		desired_caps['app'] = self.file
+		desired_caps['app'] = ''.join([os.getcwd(),'/',self.file])
 		appium_server_url = 'http://localhost:4723/wd/hub'
 		self.driver = webdriver.Remote(self.appium_server_url, desired_caps)
 
@@ -363,14 +363,14 @@ class Instrumenting_Final_Verson_Apps:
 				print('Package name is:', self.package_name)
 				print('Main Activity name is:', self.main_activity)
 				
-				cmd= ' '.join(['adb install-multiple', file])
-				os.system(cmd)
+				# cmd= ' '.join(['adb install-multiple', file])
+				# os.system(cmd)
 				if main_activity != '' and main_class != '':
-					try:
+					# try:
 						self.Set_Capabilities()
-						time.sleep(2)
-					except:
-						cprint(''.join(['Unable to start', file]), 'red')
+						time.sleep(5)
+					# except:
+					# 	cprint(''.join(['Unable to start', file]), 'red')
 				else:
 					cprint("main_activity or main_class is empty!!!", 'red')
 					self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
@@ -390,6 +390,7 @@ class Instrumenting_Final_Verson_Apps:
 			os.system(cmd)
 		
 	def Stop_Logcat(self):
+		os.system('pkill adb')
 
 # def Set_Capabilities(phone_name, package_name, main_activity, file):
 # 		cprint('\n\tSetting Capabilities!!!', 'cyan')
@@ -408,7 +409,6 @@ class Instrumenting_Final_Verson_Apps:
 # 		# driver.implicitly_wait(20)
 # 		return driver
 
-	os.system('pkill adb')
 # def click_on_button_by_class_permission(driver, id):
 # 		helper = Helper.Helper()
 # 		when_to_manual_test_params = helper.Read_File_And_Return_Lines('../../Python/Instrumentation_Helper_Files/click_on_button_by_class_permission_manual_test_params.txt')
