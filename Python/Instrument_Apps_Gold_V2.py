@@ -6,6 +6,7 @@ from datetime import datetime
 # Android environment
 from appium import webdriver
 from appium.webdriver.common.touch_action import TouchAction
+# from appium.options.common import AppiumOptions
 from xml.etree import ElementTree as ET
 from appium import webdriver
 from selenium.webdriver.common.by import By
@@ -85,7 +86,7 @@ class Instrument_Apps_Gold_V2:
 		self.df_app_info['Try_Manual_Testing'] = 'No'
 		os.system("rm *.csv")
 		number_of_apps = len(os.listdir())
-
+		cprint("Phone name:"+self.phone_name, 'yellow')
 		app_counter=0
 		for file in os.listdir():
 			generic_file_name = file.replace('signed', '').replace(' ', '')
@@ -107,9 +108,6 @@ class Instrument_Apps_Gold_V2:
 			else:
 				main_class = ''
 
-			# print(result)
-			# main_class = df_filtered['Main_Class'].to_string().split(' ').pop()
-			# main_activity = df_filtered['Main_Activity'].to_string().split(' ').pop()
 			if main_class == '':
 				main_class=''
 			if main_activity == 'NaN':
@@ -124,7 +122,6 @@ class Instrument_Apps_Gold_V2:
 			
 			cmd= ' '.join(['adb install-multiple', file])
 			os.system(cmd)
-
 			if main_activity != '' and main_class != '':
 				try:
 					self.Set_Capabilities()
@@ -179,7 +176,23 @@ class Instrument_Apps_Gold_V2:
 	            "appActivity": self.main_activity,
 	            "adbExecTimeout": 60000
 		};
-		self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+		desired_caps = {}
+		desired_caps['platformName'] = 'Android'
+		# desired_caps['platformVersion'] = '33'
+		# desired_caps['automationName'] = 'uiautomator2'
+		desired_caps['deviceName'] = '7040018020065015'
+		desired_caps['appPackage'] = str(self.package_name)
+		desired_caps['appActivity'] = str(self.main_activity)
+		desired_caps['autoGrantPermissions'] = True
+		desired_caps['noReset'] = True
+		desired_caps['appium:wdaStartupRetries'] = '6'
+
+		desired_caps['adbExecTimeout'] = '120000'
+		# desired_caps['app'] = file
+		appium_server_url = 'http://localhost:4723/wd/hub'
+		driver = webdriver.Remote(appium_server_url, desired_caps)
+		# option = AppiumOptions().load_capabilities(desired_capabilities)
+		# self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
 
 	def click_on_button_by_class_permission(self, id):
 		helper = Helper.Helper()
@@ -450,4 +463,19 @@ class Instrument_Apps_Gold_V2:
 # instrument_apps.Get_Test_Instrumentation_Folder_Setup()
 # instrument_apps.Start_Logcat()
 # instrument_apps.Start_Instrumenting_Folder()
+# instrument_apps.Stop_Logcat()
+
+
+
+
+instrument_apps = Instrument_Apps_Gold_V2()
+instrument_apps.Set_DF_App_Info(pd.read_csv('../Data/App_Category_Details2.csv'))
+# print(instrument_apps.df_app_info)
+instrument_apps.Set_Overide_Contains_Ads(True)
+instrument_apps.Filter_DF_App_Info()
+print(instrument_apps.df_apps_filtered)
+instrument_apps.Set_Path_For_Logcat('../Data/Logs')
+instrument_apps.Set_Copy_From_Folder_Path('Valid_APK_Files_To_Test')
+# instrument_apps.Start_Logcat()
+instrument_apps.Instrument_Apps_In_Testing_Folder_Path()
 # instrument_apps.Stop_Logcat()

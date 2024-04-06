@@ -156,9 +156,9 @@ def Open_File_And_Generate_Dataframe(this_path):
 os.system('clear')
 blockchain = Blockchain.Blockchain()
 blockchain.Connect()
-blockchain.Set_Sender_Address('0x173c916A1fC0fC179e8E6da83319382053Bd458e')
-blockchain.Set_Private_key('0x37fe626f8ee456c10975137fb9ba9ee0fce97e911a96d309b3a6801ff5ece7a3')
-blockchain.Set_Contract_Address('0xc8c3bd66D8D29593FC4837E30eDBc5FEFBFF1989')
+blockchain.Set_Sender_Address('0x3de6411cd182355c1b2FA9c7d0e3B3F44A105910')
+blockchain.Set_Private_key('0xc0d5ed36820ef2b5f7006ce077ec070330795c0e1f907dfd93f5b14e86ca7d7a')
+blockchain.Set_Contract_Address('0x5D05D8De1a65667c6f83b5b926473dA4cE55778A')
 blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "Transition_1", "type": "string" }, {"internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [{"internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, {"inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logLibrary", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" }, {"internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "getLogIds", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_library", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "string", "name": "log_date_and_time", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
 
 blockchain.Set_Contract_Instance()
@@ -176,14 +176,16 @@ data = {
     }
 all_data_df = pd.DataFrame(data)
 for file in os.listdir(logs_dir):
-    path="".join([logs_dir,file])
-    if os.path.getsize(path) != 0:
-        # Open_File_And_Generate_Dataframe(path)
-        df = Generate_Dataframe_From_Logs(path)
-        df = Label_Dataframe_Rows(df)
-        all_data_df = pd.concat([all_data_df, df])
-    else:
-        print("Empty File!!!")
+    if file.__contains__('.txt'):
+        path="".join([logs_dir,file])
+        if os.path.getsize(path) != 0:
+            print(file)
+            # Open_File_And_Generate_Dataframe(path)
+            df = Generate_Dataframe_From_Logs(path)
+            df = Label_Dataframe_Rows(df)
+            all_data_df = pd.concat([all_data_df, df])
+        else:
+            print("Empty File!!!")
 print(all_data_df)
 for index,row in all_data_df.drop_duplicates(keep='first').iterrows():
      app_name = row['App_Name'].replace(' ', '')
@@ -192,7 +194,7 @@ for index,row in all_data_df.drop_duplicates(keep='first').iterrows():
      app_library = app_library[1]
      app_method = row['App_Method'].replace(' ', '')
      app_date = row['App_Date'].replace(' ', '')
-     blockchain.Add_Data(app_name, app_class, app_library, app_method, app_date)
+     # blockchain.Add_Data(app_name, app_class, app_library, app_method, app_date)
 
 # all_blockchain_results = blockchain.Read_Data('WEBTOON2.12.10Apkpure')
 # for item in all_blockchain_results:

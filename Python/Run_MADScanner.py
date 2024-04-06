@@ -61,7 +61,7 @@ def Read_And_Save_Dataframe_Info(Test_Folder, copy_from_folder):
 	df = pd.DataFrame(columns=columns) 
 
 	for file in os.listdir(''.join(['../APK/',Test_Folder])):
-		# cprint('\t File is Currently:'+file, 'green')
+		cprint('\t File is Currently:'+file, 'green')
 		path = ''.join(['../APK/',Test_Folder,'/',file])
 		# print('path is currently:', path)
 		try:
@@ -76,14 +76,26 @@ def Read_And_Save_Dataframe_Info(Test_Folder, copy_from_folder):
 			main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
 			base_url = 'https://play.google.com/store/apps/details?id=';
 			sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
-			print("sdkbuild_version:", sdkbuild_version)
-			sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
-			content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
-			new_row = {'App_Name': str(file), 'Google_Play_Name': content_details[1], 'App_Category': content_details[3], 
-			'Main_Activity': main_activity, 'Main_Class': main_class, 'URL': content_details[0], 
-			'App_Ads': content_details[5], 'SHA256' : content_details[4], 
-			'SDK_Build_Version': sdkbuild_version}
-			df.loc[len(df),:] = new_row
+			if len(sdkbuild_version) < 1:
+				sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
+				# print("sdkbuild_version:", sdkbuild_version)
+				sdkbuild_version = sdkbuild_version[0].replace("targetSdkVersion:","").replace("'",'')
+				cprint('current sdkbuild_version: '+str(sdkbuild_version), 'yellow')
+				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+				new_row = {'App_Name': str(file), 'Google_Play_Name': content_details[1], 'App_Category': content_details[3], 
+				'Main_Activity': main_activity, 'Main_Class': main_class, 'URL': content_details[0], 
+				'App_Ads': content_details[5], 'SHA256' : content_details[4], 
+				'SDK_Build_Version': sdkbuild_version}
+				df.loc[len(df),:] = new_row
+			else:
+				print("sdkbuild_version:", sdkbuild_version)
+				sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
+				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+				new_row = {'App_Name': str(file), 'Google_Play_Name': content_details[1], 'App_Category': content_details[3], 
+				'Main_Activity': main_activity, 'Main_Class': main_class, 'URL': content_details[0], 
+				'App_Ads': content_details[5], 'SHA256' : content_details[4], 
+				'SDK_Build_Version': sdkbuild_version}
+				df.loc[len(df),:] = new_row
 			
 		except:
 			print(traceback.format_exc())
@@ -164,6 +176,7 @@ def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
 	cprint("test folder is: " + str(Test_Folder), 'green')
 	folder_path_for_testing = ''.join(['../APK/',str(Test_Folder)])
 	files_of_interest = [item for item in str(os.listdir(folder_path_for_testing)) if item in df_app_info['App_Name']]
+	# cprint(files_of_interest,'yellow')
 	os.system('rm -rf ../Java/Classes/sootOutput')
 	for index,row in df_app_info.iterrows():
 		print(row)
@@ -305,7 +318,7 @@ def Instrument_Apps():
 	instrument_apps.Filter_DF_App_Info()
 	print(instrument_apps.df_apps_filtered)
 	instrument_apps.Set_Path_For_Logcat('../Data/Logs')
-	instrument_apps.Set_Copy_From_Folder_Path('Google_Play_Download_Test')
+	instrument_apps.Set_Copy_From_Folder_Path('Valid_APK_Files_To_Test')
 	instrument_apps.Start_Logcat()
 	instrument_apps.Instrument_Apps_In_Testing_Folder_Path()
 	instrument_apps.Stop_Logcat()
@@ -315,18 +328,22 @@ os.system('clear')
 cwd=os.getcwd()
 
 helper = Helper.Helper()
-helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
-Run_MADScanner('Google_Play_Download_Test')
-Read_And_Save_Dataframe_Info('Testing', 'Google_Play_Download_Test')
+# helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
+# # Run_MADScanner('Google_Play_Download_Test')
+# Run_MADScanner('Androzoo_Testing')
+# Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
 
-## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-os.chdir(cwd)
-Run_MADScanner_On_Apps2('Testing', "Google_Play_Download_Test")
-cprint(os.getcwd(), 'red')
+# ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
+# os.chdir(cwd)
+# Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
+# cprint(os.getcwd(), 'red')
 directory='../Java/Classes/sootOutput'
 if os.path.exists(directory):
 	Cleanup_Soot_Output_Folder()
 	Check_If_App_Can_Be_Installed()
 	Instrument_Apps()
 	helper.Remove_Empty_Logs()
+
+
+
 # helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')
