@@ -314,70 +314,79 @@ class Instrumenting_Final_Verson_Apps:
 
 	def Instrument_Apps_In_Testing_Folder_Path_Install_And_Start(self):
 			
-			cmds = ['adb uninstall io.appium.uiautomator2.server', 'adb uninstall io.appium.settings', 'adb uninstall io.appium.uiautomator2.server.test']
+			# cmds = ['adb uninstall io.appium.uiautomator2.server', 'adb uninstall io.appium.settings', 'adb uninstall io.appium.uiautomator2.server.test']
 			
-			for cmd in cmds:
-				try:
-					os.system(cmd)
-				except:
-					continue
+			# for cmd in cmds:
+			# 	try:
+			# 		os.system(cmd)
+			# 	except:
+			# 		continue
 			pwd = os.getcwd()
+			df_all_apps = pd.read_csv('../Data/App_Category_Details2.csv')
+			df_all_apps  = df_all_apps.loc[df_all_apps['Able_To_Install'] == 'Yes']
+			# lst_valid_apps= df_all_apps['']
+			print(df_all_apps)
 			os.chdir(self.testing_folder_path)
 			self.Set_Phone_Name()
 			print('Phone name is: ', self.phone_name, '\n')
 			self.df_app_info['Try_Manual_Testing'] = 'No'
 			os.system("rm *.csv")
-			number_of_apps = len(os.listdir())
+			number_of_apps = len(df_all_apps['Able_To_Install'].values)
 			cprint("Phone name:"+self.phone_name, 'yellow')
 			app_counter=0
+			# print(os.getcwd())
+			# print(df_all_apps['App_Name'])
 			for file in os.listdir():
 				self.file = file
 				generic_file_name = file.replace('signed', '').replace(' ', '')
 				self.generic_file_name = generic_file_name
-				df_filtered = self.df_apps_filtered['App_Name'] == generic_file_name
-				df_filtered = self.df_apps_filtered[df_filtered]
-				# print("DF class is now: ", df_filtered)
-				aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-				main_activity = [item for item in aapt_details if "launchable-activity" in item]
-				main_class = [item for item in aapt_details if "package" in item]
-				# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
-				if len(main_activity) > 0:
-					main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
-				else:
-					main_activity = ''
+				# cprint(self.generic_file_name, 'yellow')
+				if self.generic_file_name in df_all_apps['App_Name'].values:
+					cmd= ' '.join(['adb install-multiple', file])
+					os.system(cmd)
+					# cprint(file, 'green')
+					df_filtered = self.df_apps_filtered['App_Name'] == generic_file_name
+					df_filtered = self.df_apps_filtered[df_filtered]
+					# print("DF class is now: ", df_filtered)
+					aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+					main_activity = [item for item in aapt_details if "launchable-activity" in item]
+					main_class = [item for item in aapt_details if "package" in item]
+					# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
+					if len(main_activity) > 0:
+						main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
+					else:
+						main_activity = ''
 
-				if len(main_class) > 0:
-					main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
-				else:
-					main_class = ''
+					if len(main_class) > 0:
+						main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+					else:
+						main_class = ''
 
-				if main_class == '':
-					main_class=''
-				if main_activity == 'NaN':
-					main_activity = ''
-				self.Set_Package_Name(main_class)
-				self.Set_Main_Activity_Name(main_activity)
-				app_counter=app_counter+1
-				cprint(''.join(['\tRunning app: ', str(app_counter),' of ',str(number_of_apps)]), 'green')
-				print('\nApp_Name:', generic_file_name)
-				print('Package name is:', self.package_name)
-				print('Main Activity name is:', self.main_activity)
-				
-				# cmd= ' '.join(['adb install-multiple', file])
-				# os.system(cmd)
-				if main_activity != '' and main_class != '':
-					# try:
-						self.Set_Capabilities()
-						time.sleep(5)
-					# except:
-					# 	cprint(''.join(['Unable to start', file]), 'red')
-				else:
-					cprint("main_activity or main_class is empty!!!", 'red')
-					self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
+					if main_class == '':
+						main_class=''
+					if main_activity == 'NaN':
+						main_activity = ''
+					self.Set_Package_Name(main_class)
+					self.Set_Main_Activity_Name(main_activity)
+					app_counter=app_counter+1
+					cprint(''.join(['\tRunning app: ', str(app_counter),' of ',str(number_of_apps)]), 'green')
+					print('\nApp_Name:', generic_file_name)
+					print('Package name is:', self.package_name)
+					print('Main Activity name is:', self.main_activity)
+					
+					if main_activity != '' and main_class != '':
+						try:
+							self.Set_Capabilities()
+							time.sleep(5)
+						except:
+							cprint(''.join(['Unable to start', file]), 'red')
+					else:
+						cprint("main_activity or main_class is empty!!!", 'red')
+						self.df_app_info.loc[self.df_app_info['App_Name'] == generic_file_name, 'Try_Manual_Testing'] = 'Yes'
 
 
-				cmd = ' '.join(['adb uninstall', self.package_name])
-				os.system(cmd)
+					cmd = ' '.join(['adb uninstall', self.package_name])
+					os.system(cmd)
 			print(self.df_app_info)
 			self.df_app_info.to_csv('testing.csv', index=False)
 			os.chdir(pwd)

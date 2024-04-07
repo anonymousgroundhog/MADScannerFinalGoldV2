@@ -1,6 +1,6 @@
 import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob
 # import Apps_Download, Get_App_Names, Copy_Files_For_Testing, Helper, MADScanner
-import Copy_Files_For_Testing, Helper, MADScanner, Get_App_Names, Instrument_Apps_Gold_V2
+import Copy_Files_For_Testing, Helper, MADScanner, Get_App_Names#, Instrument_Apps_Gold_V2
 # import Instrument_Apps
 from datetime import datetime
 from termcolor import colored, cprint
@@ -73,7 +73,11 @@ def Read_And_Save_Dataframe_Info(Test_Folder, copy_from_folder):
 				main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
 			else:
 				main_activity = ''
-			main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+			try:
+				main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+			except:
+				cprint("main class was unable to be found!!!", 'red')
+				main_class=''
 			base_url = 'https://play.google.com/store/apps/details?id=';
 			sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
 			if len(sdkbuild_version) < 1:
@@ -328,21 +332,21 @@ os.system('clear')
 cwd=os.getcwd()
 
 helper = Helper.Helper()
-# helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
-# # Run_MADScanner('Google_Play_Download_Test')
-# Run_MADScanner('Androzoo_Testing')
-# Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
+helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
+# Run_MADScanner('Google_Play_Download_Test')
+Run_MADScanner('Androzoo')
+Read_And_Save_Dataframe_Info('Androzoo', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-# os.chdir(cwd)
-# Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
+os.chdir(cwd)
+Run_MADScanner_On_Apps2('Androzoo', "Testing")
 # cprint(os.getcwd(), 'red')
 directory='../Java/Classes/sootOutput'
 if os.path.exists(directory):
 	Cleanup_Soot_Output_Folder()
 	Check_If_App_Can_Be_Installed()
-	Instrument_Apps()
-	helper.Remove_Empty_Logs()
+# 	Instrument_Apps()
+# 	helper.Remove_Empty_Logs()
 
 
 
