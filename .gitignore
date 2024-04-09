@@ -1,6 +1,7 @@
 APK/Google_Play_Download_Test/*
 APK/APKPure/*
 APK/Androzoo/*.apk
+APK/Androzoo_Testing/*.apk
 APK/Backup*/*.apk
 APK/Valid_APK_Files_To_Test/*.apk
 *.class
