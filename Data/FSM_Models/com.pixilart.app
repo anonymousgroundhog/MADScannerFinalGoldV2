@@ -1,0 +1,13 @@
+// com.pixilart.app
+digraph G {
+	appstarted [label="The app has started" pos="0,5!"]
+	appstarted_adview_set [label="The app has started and an adView was set" pos="0,4!"]
+	appstarted_no_ads [label="The app has started with no Ads displayed" pos="0,3!"]
+	apprunning_ad_loaded [label="The app is running and the advertisement is loaded" pos="0,2!"]
+	appstarted_with_ads [label="The app has started with ads displayed" pos="0,1!"]
+	apprunning_ad_impression [label="The app is running and the advertisement impression is made" pos="10,0!"]
+	apprunning_ad_engagement [label="The app is running and the advertisement engagement is made" pos="10,2!"]
+	label="com.pixilart.app"
+	appstarted -> appstarted_adview_set [constraint=false]
+	appstarted_adview_set -> appstarted_no_ads [constraint=false]
+}
