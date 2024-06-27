@@ -766,6 +766,7 @@ public class SootInstrumentationHelper
             Unit unit_to_insert_after = ReturnUnitToInjectAfter(thisunits);
 
             if(unit_to_insert_after != null){
+                System.out.println(InvokeStatementLog.toString());
                 thisunits.insertAfter(InvokeStatementLog, unit_to_insert_after);
             } 
         }

@@ -174,7 +174,8 @@ def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
 	madscanner.Set_Apps_Installed(installed_app_packages)
 	madscanner.Compile_Framework_Code()
 	madscanner.Set_Copy_From_Folder_Path(copy_from_folder)
-	option="dex"
+	# option="dex"
+	option="J"
 	Test_Folder = this_folder
 	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
 	cprint("test folder is: " + str(Test_Folder), 'green')
@@ -334,20 +335,14 @@ cwd=os.getcwd()
 helper = Helper.Helper()
 helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
 # Run_MADScanner('Google_Play_Download_Test')
-Run_MADScanner('Androzoo')
-Read_And_Save_Dataframe_Info('Androzoo', 'Testing')
+Run_MADScanner('Testing_Google_Ads_Logs')
+Read_And_Save_Dataframe_Info('Testing_Google_Ads_Logs', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
-Run_MADScanner_On_Apps2('Androzoo', "Testing")
-# cprint(os.getcwd(), 'red')
+Run_MADScanner_On_Apps2('Testing_Google_Ads_Logs', "Testing")
+
 directory='../Java/Classes/sootOutput'
-if os.path.exists(directory):
-	Cleanup_Soot_Output_Folder()
-	Check_If_App_Can_Be_Installed()
-# 	Instrument_Apps()
-# 	helper.Remove_Empty_Logs()
-
-
-
-# helper.Read_CSV_Apps_And_Check_If_Manual_Test('../APK/Valid_APK_Files_To_Test/testing.csv')
+# if os.path.exists(directory):
+# 	Cleanup_Soot_Output_Folder()
+# 	Check_If_App_Can_Be_Installed()
