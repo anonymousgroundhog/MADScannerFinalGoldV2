@@ -174,8 +174,8 @@ def Run_MADScanner_On_Apps2(this_folder, copy_from_folder):
 	madscanner.Set_Apps_Installed(installed_app_packages)
 	madscanner.Compile_Framework_Code()
 	madscanner.Set_Copy_From_Folder_Path(copy_from_folder)
-	# option="dex"
-	option="J"
+	option="dex"
+	# option="J"
 	Test_Folder = this_folder
 	df_app_info = pd.read_csv('../Data/App_Category_Details.csv')
 	cprint("test folder is: " + str(Test_Folder), 'green')
@@ -333,14 +333,14 @@ os.system('clear')
 cwd=os.getcwd()
 
 helper = Helper.Helper()
-helper.Remove_Directory_Files('../APK/Valid_APK_Files_To_Test')
+# helper.Remove_Directory_Files('../APK/Androzoo_Testing')
 # Run_MADScanner('Google_Play_Download_Test')
-Run_MADScanner('Testing_Google_Ads_Logs')
-Read_And_Save_Dataframe_Info('Testing_Google_Ads_Logs', 'Testing')
+Run_MADScanner('Androzoo_Testing')
+Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
-Run_MADScanner_On_Apps2('Testing_Google_Ads_Logs', "Testing")
+Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
 
 directory='../Java/Classes/sootOutput'
 # if os.path.exists(directory):
