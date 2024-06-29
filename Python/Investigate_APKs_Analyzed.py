@@ -1,6 +1,13 @@
 import os, shutil, hashlib, subprocess, pandas as pd
-
 from google_play_scraper import app
+
+def Get_File_Size(file_path):
+	file_size_bytes = os.path.getsize(file_path)
+	file_size_kb = file_size_bytes / 1024
+	file_size_mb = file_size_kb / 1024
+	file_size_gb = file_size_mb / 1024
+	return(file_size_mb)
+
 def Get_Google_Play_Data(package):
 	result = app(
 	    package,
@@ -8,6 +15,16 @@ def Get_Google_Play_Data(package):
 	    country='us' # defaults to 'us'
 	)
 	return result
+
+def Get_App_SDK_Version(file):
+	aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+	sdk = [item for item in aapt_details if "sdkVersion" in item]
+	if len(sdk) > 0:
+		sdk = sdk[0].split(":")[1].replace("'", '')
+	else:
+		sdk = ''
+	return sdk
+
 def Get_App_Activity(file):
 	aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
 	main_activity = [item for item in aapt_details if "package" in item]
@@ -35,6 +52,128 @@ def get_apk_hash(file_path, algorithm='sha256'):
 
 def Get_App_Hash(file):
 	return sha256_hash(file)
+
+def Get_Necessary_Google_Play_Data_Based_on_DF(df, package_col_name):
+	lst_genre=[]
+	lst_installs=[]
+	lst_reviews=[]
+	lst_score=[]
+	lst_contains_ads=[]
+	lst_developer=[]
+	lst_url=[]
+
+	for item in df[package_col_name]:
+		try:
+			data=Get_Google_Play_Data(item.replace(' ', ''))
+			print(item, '\n')
+			print('Genre:', data['genre'])
+			print('Installs:', data['installs'])
+			print('Reviews:', data['reviews'])
+			print('Score:', data['score'])
+			print('Contains Ads:', data['containsAds'])
+			print('Developer:', data['developer'])
+			print('URL', data['url'], '\n')
+
+			lst_genre.append(data['genre'])
+			lst_installs.append(data['installs'])
+			lst_reviews.append(data['reviews'])
+			lst_score.append(data['score'])
+			lst_contains_ads.append(data['containsAds'])
+			lst_developer.append(data['developer'])
+			lst_url.append(data['url'])
+		except:
+			print(item, 'None\n')
+			lst_genre.append('None')
+			lst_installs.append('None')
+			lst_reviews.append('None')
+			lst_contains_ads.append('None')
+			lst_score.append('None')
+			lst_developer.append('None')
+			lst_url.append('None')
+
+	df['Genre']=lst_genre
+	df['User_Installs']=lst_installs
+	df['Number_Of_Reviews']=lst_reviews
+	df['Score']=lst_score
+	df['Has_Ads']=lst_contains_ads
+	df['Developer']=lst_developer
+	df['URL']=lst_url
+
+	return(df)
+
+def Malicious_Apps_Analysis():
+	pwd=os.getcwd()
+	os.chdir('../Data')
+	df = pd.read_csv('Application Analysis Gold - Malicious_Apps_Analyzed.csv')
+	lst_app_size_mb = []
+	lst_sdk_version = []
+	for app in df['App Name']:
+		file_path=''.join(['../APK/Final_Testing/',app,'.apk'])
+		file_size=Get_File_Size(file_path)
+		lst_app_size_mb.append(file_size)
+		try:
+			lst_sdk_version.append(Get_App_SDK_Version(file_path))
+		except:
+			lst_sdk_version.append('None')
+	
+	df['File_Size (MB)']=lst_app_size_mb
+	df['SDKVersion']=lst_sdk_version
+	df=Get_Necessary_Google_Play_Data_Based_on_DF(df, 'App_Activity')
+	df = df.drop('URL', axis=1)
+	df = df.drop('Reviews', axis=1)
+	df.to_csv('APKS_Analyzed_Stats.csv', index=False)
+	os.chdir(pwd)
+
+def Androzoo_Analysis():
+	pwd=os.getcwd()
+	os.chdir('../Data')
+	df = pd.read_csv('Application Analysis Gold - Working_On_Data_Interpreting_Androzoo.csv')
+	lst_app_size_mb = []
+	lst_sdk_version = []
+	for app in df['Hash']:
+		file_path=''.join(['../APK/Androzoo/',app,'.apk'])
+		file_size=Get_File_Size(file_path)
+		lst_app_size_mb.append(file_size)
+		try:
+			lst_sdk_version.append(Get_App_SDK_Version(file_path))
+		except:
+			lst_sdk_version.append('None')
+	
+	df['File_Size (MB)']=lst_app_size_mb
+	df['SDKVersion']=lst_sdk_version
+
+	df=Get_Necessary_Google_Play_Data_Based_on_DF(df, 'Package')
+	df.to_csv('Androzoo_Stats.csv', index=False)
+	os.chdir(pwd)
+
+def APKPure_Analysis():
+	pwd=os.getcwd()
+	os.chdir('../Data')
+	df = pd.read_csv('Application Analysis Gold - Apps_Analysis_VirusTotal_Google_Play_APKPure.csv')
+	df = df.drop('App Manually Inspect', axis=1)
+	df = df.drop('Additional Details for install and testing', axis=1)
+	df = df.drop('Has only Google Ads', axis=1)
+	df = df.drop('Suspicious App Based on Manual Analysis', axis=1)
+
+	lst_app_size_mb = []
+	lst_package = []
+	lst_sdk_version = []
+
+	for app in df['App_Name']:
+		file_path=''.join(['../APK/APKPure/',app,'.apk'])
+		file_size=Get_File_Size(file_path)
+		lst_app_size_mb.append(file_size)
+
+		lst_package.append(Get_App_Activity(file_path))
+		lst_sdk_version.append(Get_App_SDK_Version(file_path))
+	
+	df['File_Size (MB)']=lst_app_size_mb
+	df['Package']=lst_package
+	df['SDKVersion']=lst_sdk_version
+	df=Get_Necessary_Google_Play_Data_Based_on_DF(df, 'Package')
+	print(df)
+	df.to_csv('APKPure_Stats.csv', index=False)
+	os.chdir(pwd)
 
 os.system('clear')
 # os.chdir('../APK/Final_Testing')
@@ -64,44 +203,9 @@ os.system('clear')
 # for file in os.listdir():
 	# print(file, get_apk_hash(file))
 	# print(file, Get_App_Activity(file))
-os.chdir('../Data')
-df = pd.read_csv('Application Analysis Gold - Malicious_Apps_Analyzed.csv')
 
-# print(df)
 
-lst_genre=[]
-lst_installs=[]
-lst_reviews=[]
-lst_contains_ads=[]
-lst_url=[]
 
-for item in df['App_Activity']:
-	try:
-		data=Get_Google_Play_Data(item.replace(' ', ''))
-		print(item, '\n')
-		print('Genre:', data['genre'])
-		print('Installs:', data['installs'])
-		print('Reviews:', data['reviews'])
-		print('Contains Ads:', data['containsAds'])
-		print('URL', data['url'], '\n')
-
-		lst_genre.append(data['genre'])
-		lst_installs.append(data['installs'])
-		lst_reviews.append(data['reviews'])
-		lst_contains_ads.append(data['containsAds'])
-		lst_url.append(data['url'])
-	except:
-		print(item, 'none\n')
-		lst_genre.append('none')
-		lst_installs.append('none')
-		lst_reviews.append('none')
-		lst_contains_ads.append('none')
-		lst_url.append('none')
-
-df['Genre']=lst_genre
-df['User_Installs']=lst_installs
-df['Reviews_Score']=lst_reviews
-df['Has_Ads']=lst_contains_ads
-df['URL']=lst_url
-print(df)
-df.to_csv('APKS_Analyzed.csv')
+Malicious_Apps_Analysis()
+# Androzoo_Analysis()
+# APKPure_Analysis()
