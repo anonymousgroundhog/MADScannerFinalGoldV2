@@ -101,8 +101,9 @@ def Analyze_PDF_Files():
 
 os.system('clear')
 
-df = pd.read_csv('../Data/Application Analysis Gold - Apps_Analysis_VirusTotal.csv')
+# df = pd.read_csv('../Data/Application Analysis Gold - Apps_Analysis_VirusTotal.csv')
 
-Get_Data_From_VirusTotal_Based_On_List(df['App_Hash'])
+# Get_Data_From_VirusTotal_Based_On_List(df['App_Hash'])
+Get_Data_From_VirusTotal_Based_On_List(['e811f04491b9a7859602f8fad9165d1df7127696cc03418ffb5c8ca0914c64da','f4da643b2b9a310fdc1cc7a3cbaee83e106a0d654119fddc608a4b587c5552a3'])
 Remove_Files_With_Capcha()
-# Analyze_PDF_Files()
+Analyze_PDF_Files()

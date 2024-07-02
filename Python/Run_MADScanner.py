@@ -26,6 +26,13 @@ def Copy_Files_From_Folder_To_Testing_Folder(directory_path):
 		file_path = ''.join([directory_path, '/', file])
 		shutil.copyfile(file_path, ''.join(['../APK/Testing/', file]))
 	# cprint('Files:\n'+str(files), 'green')
+def Copy_Files_To_Testing_Folder():
+	# Remove_All_Files_From_Directory('../APK/Testing')
+	directory_path = '../Java/Classes/sootOutput'
+	files = [f for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
+	for file in files:
+		file_path = ''.join([directory_path, '/', file])
+		shutil.copyfile(file_path, ''.join(['../APK/Valid_APK_Files_To_Test/', file]))
 
 def Run_MADScanner(copy_from_folder):
 	helper = Helper.Helper()
@@ -343,6 +350,7 @@ os.chdir(cwd)
 Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
 
 directory='../Java/Classes/sootOutput'
-# if os.path.exists(directory):
-# 	Cleanup_Soot_Output_Folder()
-# 	Check_If_App_Can_Be_Installed()
+if os.path.exists(directory):
+	Cleanup_Soot_Output_Folder()
+	# Copy_Files_To_Testing_Folder()
+	Check_If_App_Can_Be_Installed()

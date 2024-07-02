@@ -175,6 +175,33 @@ def APKPure_Analysis():
 	df.to_csv('APKPure_Stats.csv', index=False)
 	os.chdir(pwd)
 
+def Valid_APK_Files_To_Test_Analysis():
+	pwd=os.getcwd()
+	os.chdir('../APK/Valid_APK_Files_To_Test')
+	df = pd.read_csv('testing.csv')
+	columns=['Hash', 'Package', 'vt_detection', 'vt_labels', 'File_Size', 'SDKVersion', 'Genre', 'User_Installs', 'Number_Of_Reviews', 'Score', 'Has_Ads', 'Developer', 'URL']
+	df_to_output = pd.DataFrame(columns=columns)
+	
+	lst_app_size_mb = []
+	lst_package = []
+	lst_sdk_version = []
+
+	for app in os.listdir():
+		# file_path=''.join(['../APK/APKPure/',app,'.apk'])
+		file_size=Get_File_Size(app)
+		lst_app_size_mb.append(file_size)
+
+		lst_package.append(Get_App_Activity(app))
+		lst_sdk_version.append(Get_App_SDK_Version(file_path))
+	
+	df_to_output['File_Size (MB)']=lst_app_size_mb
+	df_to_output['Package']=lst_package
+	df_to_output['SDKVersion']=lst_sdk_version
+	df_to_output=Get_Necessary_Google_Play_Data_Based_on_DF(df, 'Package')
+	print(df_to_output)
+	df_to_output.to_csv('APKPure_Stats.csv', index=False)
+	os.chdir(pwd)
+
 os.system('clear')
 # os.chdir('../APK/Final_Testing')
 
@@ -206,6 +233,6 @@ os.system('clear')
 
 
 
-Malicious_Apps_Analysis()
+# Malicious_Apps_Analysis()
 # Androzoo_Analysis()
 # APKPure_Analysis()
