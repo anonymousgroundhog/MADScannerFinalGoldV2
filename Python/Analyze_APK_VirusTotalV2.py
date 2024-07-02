@@ -1,4 +1,4 @@
-import os, time, json, pandas as pd, traceback, re 
+import os, time, json, pandas as pd, traceback, re, hashlib
 from selenium.webdriver.common.by import By
 
 
@@ -10,6 +10,7 @@ from pypdf import PdfReader
 
 from pyhtml2pdf import converter
 Files_To_Check_Captcha = []
+
 def Get_Data_From_VirusTotal(df):
 	pwd=os.getcwd()
 	os.chdir('../Data/VirusTotal_Screenshots')
@@ -144,9 +145,10 @@ def Analyze_PDF_Files():
 os.system('clear')
 
 # df = pd.read_csv('../Data/App_VirusTotal_Details.csv')
-
 # Get_Data_From_VirusTotal_Based_On_List(['e811f04491b9a7859602f8fad9165d1df7127696cc03418ffb5c8ca0914c64da','f4da643b2b9a310fdc1cc7a3cbaee83e106a0d654119fddc608a4b587c5552a3'])
 # Remove_Files_With_Capcha()
 # Get_Data_From_VirusTotal(df)
+
+
 Analyze_PDF_Files()
 

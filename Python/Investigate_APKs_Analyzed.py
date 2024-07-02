@@ -1,6 +1,20 @@
 import os, shutil, hashlib, subprocess, pandas as pd
 from google_play_scraper import app
 
+
+def Change_File_Names_To_Hashes(lst_folders):
+	pwd = os.getcwd()
+	os.chdir('../APK/')
+	for folder in lst_folders:
+		os.chdir(folder)
+		for this_app in os.listdir():
+			this_apps_hash = Get_App_Hash(this_app)
+			this_apps_hash_name = ''.join([this_apps_hash, '.apk'])
+			os.rename(this_app, this_apps_hash_name)
+			print(this_app, this_apps_hash_name)
+		os.chdir('../')
+	os.chdir(pwd)
+
 def Get_File_Size(file_path):
 	file_size_bytes = os.path.getsize(file_path)
 	file_size_kb = file_size_bytes / 1024
@@ -51,7 +65,7 @@ def get_apk_hash(file_path, algorithm='sha256'):
     return hash_alg.hexdigest()
 
 def Get_App_Hash(file):
-	return sha256_hash(file)
+	return get_apk_hash(file)
 
 def Get_Necessary_Google_Play_Data_Based_on_DF(df, package_col_name):
 	lst_genre=[]
@@ -178,28 +192,36 @@ def APKPure_Analysis():
 def Valid_APK_Files_To_Test_Analysis():
 	pwd=os.getcwd()
 	os.chdir('../APK/Valid_APK_Files_To_Test')
-	df = pd.read_csv('testing.csv')
+	df = pd.read_csv('../../Data/VirusTotal_Screenshots/detections.csv')
 	columns=['Hash', 'Package', 'vt_detection', 'vt_labels', 'File_Size', 'SDKVersion', 'Genre', 'User_Installs', 'Number_Of_Reviews', 'Score', 'Has_Ads', 'Developer', 'URL']
 	df_to_output = pd.DataFrame(columns=columns)
-	
+	lst_app_folders=['Valid_APK_Files_To_Test', 'APKPure', 'Androzoo', 'Androzoo_Testing', 'Google_Play_Apps']
 	lst_app_size_mb = []
 	lst_package = []
 	lst_sdk_version = []
 
-	for app in os.listdir():
-		# file_path=''.join(['../APK/APKPure/',app,'.apk'])
-		file_size=Get_File_Size(app)
-		lst_app_size_mb.append(file_size)
-
-		lst_package.append(Get_App_Activity(app))
-		lst_sdk_version.append(Get_App_SDK_Version(file_path))
-	
+	for this_hash in df['Hash']:
+		file_name = ''.join([this_hash, '.apk'])
+		print(file_name)
+		for this_folder in lst_app_folders:
+			this_path=''.join(['../',this_folder])
+			if file_name in os.listdir(this_path):
+				print('Found: ',file_name)
+				this_file_path=''.join([this_path,'/',file_name])
+				file_size=Get_File_Size(this_file_path)
+				lst_app_size_mb.append(file_size)
+				lst_package.append(Get_App_Activity(this_file_path))
+				lst_sdk_version.append(Get_App_SDK_Version(this_file_path))
+	print(len(df), len(df_to_output))
+	df_to_output['Hash']=df['Hash']
+	df_to_output['vt_detection']=df['vt_detection']
+	df_to_output['vt_labels']=df['vt_labels']
 	df_to_output['File_Size (MB)']=lst_app_size_mb
 	df_to_output['Package']=lst_package
 	df_to_output['SDKVersion']=lst_sdk_version
-	df_to_output=Get_Necessary_Google_Play_Data_Based_on_DF(df, 'Package')
+	df_to_output=Get_Necessary_Google_Play_Data_Based_on_DF(df_to_output, 'Package')
 	print(df_to_output)
-	df_to_output.to_csv('APKPure_Stats.csv', index=False)
+	df_to_output.to_csv('VirusTotal_Screenshots.csv', index=False)
 	os.chdir(pwd)
 
 os.system('clear')
@@ -236,3 +258,5 @@ os.system('clear')
 # Malicious_Apps_Analysis()
 # Androzoo_Analysis()
 # APKPure_Analysis()
+# Change_File_Names_To_Hashes(['Testing_Google_Ads_Logs', 'APKPure'])
+Valid_APK_Files_To_Test_Analysis()
