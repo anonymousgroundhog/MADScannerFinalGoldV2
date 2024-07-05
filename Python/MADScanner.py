@@ -92,7 +92,7 @@ class MADScanner:
 				os.system("rm *.idsig")
 			return ''
 		os.chdir(pwd)
-def Function_Run_Framework_And_Copy_Jimple_Files(self, file, folder, option, sdkbuild_version):
+	def Function_Run_Framework_And_Copy_Jimple_Files(self, file, folder, option, sdkbuild_version):
 		stuff_to_return = ''
 		helper = Helper.Helper()
 		pwd=os.getcwd()

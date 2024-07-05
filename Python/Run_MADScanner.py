@@ -237,13 +237,13 @@ def Run_MADScanner_On_Apps_Jimple_Only(this_folder, copy_from_folder):
 	files_of_interest = [item for item in str(os.listdir(folder_path_for_testing)) if item in df_app_info['App_Name']]
 	# cprint(files_of_interest,'yellow')
 	os.system('rm -rf ../Java/Classes/sootOutput')
-	for index,row in df_app_info.iterrows():
-		print(row)
-		file = str(row['App_Name'])
-		cprint(''.join(['\n\tRunning app:', str(index),'/',str(len(df_app_info))]), 'magenta')
+	for file in os.listdir(folder_path_for_testing):
+		# print(row)
+		# file = str(row['App_Name'])
+		# cprint(''.join(['\n\tRunning app:', str(index),'/',str(len(df_app_info))]), 'magenta')
 		cprint(''.join(['\nFile:',file]), 'cyan')
 		error_msg = ''
-		sdkbuild_version = row['SDK_Build_Version']
+		sdkbuild_version = helper.Get_App_SDK_Version(''.join(['../APK/',this_folder, '/',file]))
 		try:
 			# if file.__contains__('banner_example'):
 			error_msg = madscanner.Function_Run_Framework_And_Copy_Jimple_Files(file, Test_Folder, option, str(sdkbuild_version))
@@ -251,7 +251,7 @@ def Run_MADScanner_On_Apps_Jimple_Only(this_folder, copy_from_folder):
 			print(error_msg)
 		except:
 			cprint(''.join(["Unable to Run framework for:", file]), 'red')
-			df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
+			# df_app_info.loc[index, 'MADScanner_Injected_Logs_Sucessfully'] = 'No'
 			print(traceback.format_exc())
 			os.chdir(pwd)
 			continue
@@ -387,20 +387,66 @@ def Copy_Apps_To_Folder_For_Testing(lst_directories):
 				shutil.copy(full_path, copy_to_path)
 				print(full_path)
 
+def Copy_Files_To_Appropriate_Folders():
+	cwd=os.getcwd()
+	dir_to_move_files_to='../../Data/Application_Analysis'
+	os.chdir('../Java/Classes')
+	lst_folders_to_ignore=['Utils','Logging', 'JavaHelper', 'ClassHelper', 'Conditions', 'Constants','FileHandler', 'FileParser', 'FileWriter', 'Soot', 'soot', 'Once']
+	dir_list = [directory for directory in os.listdir() if os.path.isdir(directory) and directory not in lst_folders_to_ignore]
+	# print(dir_list)
+	for this_dir in dir_list:
+		result = [v for v in os.listdir(this_dir) if v.endswith('jimple')]
+		if(len(result)>0):
+			print(this_dir)
+			shutil.move(this_dir, dir_to_move_files_to)
+		else:
+			# print(os.listdir(this_dir))
+			# print('do Nothing')
+			if os.path.exists('sootOutput'):
+				shutil.move(''.join([this_dir,'/',this_dir]), 'sootOutput/')
+			else:
+				os.mkdir('sootOutput')
+				shutil.move(''.join([this_dir,'/',this_dir]), 'sootOutput/')
+	os.chdir(cwd)
+
+def Generate_Dataframe_Of_Apps_And_Classes():
+	cwd=os.getcwd()
+	os.chdir('../Data/Application_Analysis')
+	lst_folders = os.listdir()
+	print((lst_folders))
+	df = pd.DataFrame(columns=['App_Name', 'Jimple_Classes'])
+	lst_apps=[]
+	lst_classes=[]
+	for this_folder in lst_folders:
+		print(this_folder)
+		lst_apps.append(this_folder)
+		lst_classes.append(os.listdir(this_folder))
+		# for file in os.listdir(this_folder):
+		# 	if not file.startswith('android'):
+		# 		print(file)
+	df['App_Name']=lst_apps
+	df['Jimple_Classes']=lst_classes
+	print(df)
+	os.chdir(cwd)
+
+
 os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
 
 helper = Helper.Helper()
-# helper.Remove_Directory_Files('../APK/Androzoo_Testing')
+# helper.Remove_Directory_Files('../APK/Testing')
 # Run_MADScanner('Google_Play_Download_Test')
 Run_MADScanner('Androzoo_Testing')
 Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
-Copy_Apps_To_Folder_For_Testing(['Androzoo', 'APKPure'])
-Run_MADScanner_On_Apps_Jimple_Only('Testing_Library_Checks','Testing')
+# Copy_Apps_To_Folder_For_Testing(['Androzoo', 'APKPure'])
+# Run_MADScanner_On_Apps_Jimple_Only('Testing_Library_Checks','Testing')
+# print(cwd)
+Copy_Files_To_Appropriate_Folders()
+Generate_Dataframe_Of_Apps_And_Classes()
 # Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
 
 # directory='../Java/Classes/sootOutput'

@@ -184,9 +184,11 @@ public class SootInstrumentationHelper
         System.out.printf(format, args);
     }
     public static void prepareSoot(String folder, String app_name, String option) {
+        System.out.println("App name is"+String.valueOf(app_name));
         soot.G.reset();
         Options.v().set_src_prec(Options.src_prec_apk);
         Options.v().set_process_dir(Arrays.asList("../../APK/"+folder+"/"+app_name));
+        Options.v().set_output_dir(app_name);
         Options.v().set_process_multiple_dex(true);
         Options.v().set_android_jars("../../Android/platforms");
         Options.v().set_whole_program(true);

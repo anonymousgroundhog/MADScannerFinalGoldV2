@@ -5,6 +5,15 @@ from functools import reduce
 from itertools import islice
 
 class Helper:
+    def Get_App_SDK_Version(self, file):
+        aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+        sdk = [item for item in aapt_details if "sdkVersion" in item]
+        if len(sdk) > 0:
+            sdk = sdk[0].split(":")[1].replace("'", '')
+        else:
+            sdk = ''
+        return sdk
+
     def Remove_Directory_Files(self, dir):
         for f in os.listdir(dir):
                 os.remove(os.path.join(dir, f))
