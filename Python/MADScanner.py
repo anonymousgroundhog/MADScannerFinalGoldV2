@@ -92,6 +92,40 @@ class MADScanner:
 				os.system("rm *.idsig")
 			return ''
 		os.chdir(pwd)
+def Function_Run_Framework_And_Copy_Jimple_Files(self, file, folder, option, sdkbuild_version):
+		stuff_to_return = ''
+		helper = Helper.Helper()
+		pwd=os.getcwd()
+		os.chdir("../Java/Classes")
+		
+		SignedFile=''.join(['signed',file])
+		APKPath=''.join(["../../APK/",folder,'/',file])
+		cprint(''.join(["\nAPK path is: ", APKPath]), 'cyan')
+		cprint(''.join(["Current directory is: ", os.getcwd()]),'cyan')
+		path=''.join(['../../APK/',folder,'/',file])
+		cprint(''.join(["sdkBuild Version: ", sdkbuild_version]), 'cyan')
+		# hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
+		hash_value = helper.Calculate_SHA256(APKPath)
+		android_api_version= ''.join(['-android-api-version ', str(sdkbuild_version)])
+		# try:
+		cmd=' '.join(['java -Xmx20g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
+		# proc = subprocess.run([cmd], shell=True, check=True, capture_output=True)
+		data = run(cmd, capture_output=True, shell=True)
+		print("STDOUT:", data.stdout.decode('utf-8'))
+		# print("STDERR:",data.stderr.decode('utf-8'))
+
+		# all_details = ' '.join([str(data.stdout.decode('utf-8')), str(data.stderr.decode('utf-8'))])
+		stuff_to_return = ''
+		stuff_to_return=data.stderr.decode('utf-8')
+		list_stuff_to_return = stuff_to_return.split('\n')
+		if len(list_stuff_to_return) > 2 and not '[main] INFO soot.toDex.DexPrinter - Do not forget to sign the .apk file with jarsigner and to align it with zipalign' in list_stuff_to_return:
+			cprint(''.join(['\tFailed to run app:', file]), 'red')
+			return list_stuff_to_return
+		else:
+			cprint(''.join(['\n\tSucessfully ran app:', file]), 'green')
+			os.chdir('sootOutput')
+			
+		os.chdir(pwd)
 
 	def Download_And_Return_Info_On_Apps(self, google_play_folder_path):
 		cwd=os.getcwd()

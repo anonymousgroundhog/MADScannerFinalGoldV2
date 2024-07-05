@@ -1,4 +1,4 @@
-import os, shutil, hashlib, subprocess, pandas as pd
+import os, shutil, hashlib, subprocess, pandas as pd, Helper
 from google_play_scraper import app
 
 
@@ -224,6 +224,32 @@ def Valid_APK_Files_To_Test_Analysis():
 	df_to_output.to_csv('VirusTotal_Screenshots.csv', index=False)
 	os.chdir(pwd)
 
+def Get_Apps_That_Failed():
+	helper = Helper.Helper()
+	pwd=os.getcwd()
+	os.chdir('../Data/APK_Run_Errors')
+	file_path='Errors.txt'
+	file = open(file_path, 'r')
+	lines = file.readlines()
+	lst_apks_with_errors = []
+	lst_apks_with_install_errors = []
+	for line in lines:
+		if line.endswith('.apk \n'):#line.__contains__('.apk') and not line.__contains__('['):
+			# print('FOUND!!!:',line)
+			lst_apks_with_errors.append(line.replace(' \n', ''))
+	lst_apks_with_errors = helper.unique(lst_apks_with_errors)
+	# print(lst_apks_with_errors)
+	file_path='APK_Install_Errors.txt'
+	file = open(file_path, 'r')
+	lines = file.readlines()
+	for line in lines:
+		if line.endswith('.apk \n'):
+			try:
+				lst_apks_with_errors.remove(line.replace(' \n', ''))
+			except:
+				pass
+	print(lst_apks_with_errors)
+	os.chdir(pwd)
 os.system('clear')
 # os.chdir('../APK/Final_Testing')
 
@@ -259,4 +285,5 @@ os.system('clear')
 # Androzoo_Analysis()
 # APKPure_Analysis()
 # Change_File_Names_To_Hashes(['Testing_Google_Ads_Logs', 'APKPure'])
-Valid_APK_Files_To_Test_Analysis()
+# Valid_APK_Files_To_Test_Analysis()
+Get_Apps_That_Failed()
