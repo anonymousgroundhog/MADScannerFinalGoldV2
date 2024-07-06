@@ -1,4 +1,4 @@
-import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob
+import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob, numpy as np
 # import Apps_Download, Get_App_Names, Copy_Files_For_Testing, Helper, MADScanner
 import Copy_Files_For_Testing, Helper, MADScanner, Get_App_Names#, Instrument_Apps_Gold_V2
 # import Instrument_Apps
@@ -409,25 +409,35 @@ def Copy_Files_To_Appropriate_Folders():
 				shutil.move(''.join([this_dir,'/',this_dir]), 'sootOutput/')
 	os.chdir(cwd)
 
-def Generate_Dataframe_Of_Apps_And_Classes():
+def Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific():
+	helper = Helper.Helper()
 	cwd=os.getcwd()
 	os.chdir('../Data/Application_Analysis')
 	lst_folders = os.listdir()
-	print((lst_folders))
+	# print((lst_folders))
 	df = pd.DataFrame(columns=['App_Name', 'Jimple_Classes'])
 	lst_apps=[]
 	lst_classes=[]
+	lst_number_of_classes=[]
 	for this_folder in lst_folders:
 		print(this_folder)
 		lst_apps.append(this_folder)
-		lst_classes.append(os.listdir(this_folder))
-		# for file in os.listdir(this_folder):
-		# 	if not file.startswith('android'):
-		# 		print(file)
+		lst_temp_classes=[]
+		for file in os.listdir(this_folder):
+			# print(file)
+			if not file.startswith('com.google') and not file.startswith('com.facebook') and helper.Find_in_File_String(''.join([this_folder,'/',file]), 'loadAd'):
+				lst_temp_classes.append(file)
+		lst_classes.append(lst_temp_classes)
+		lst_number_of_classes.append(len(lst_temp_classes))
+		# lst_classes.append(os.listdir(this_folder))
 	df['App_Name']=lst_apps
 	df['Jimple_Classes']=lst_classes
+	df['Jimple_Classes'] = df['Jimple_Classes'].replace([], np.nan)
+	df['Number_Of_Items'] = lst_number_of_classes
+	df = df[df.Number_Of_Items != 0]
 	print(df)
 	os.chdir(cwd)
+	df.to_csv('../Data/apps_and_jimple_classes.csv', index=False);
 
 
 os.system('clear')
@@ -446,7 +456,7 @@ os.chdir(cwd)
 # Run_MADScanner_On_Apps_Jimple_Only('Testing_Library_Checks','Testing')
 # print(cwd)
 Copy_Files_To_Appropriate_Folders()
-Generate_Dataframe_Of_Apps_And_Classes()
+Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific()
 # Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")
 
 # directory='../Java/Classes/sootOutput'

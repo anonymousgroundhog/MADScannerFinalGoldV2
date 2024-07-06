@@ -5,6 +5,16 @@ from functools import reduce
 from itertools import islice
 
 class Helper:
+    def Find_in_File_String(self, file, this_str):
+        with open(file, 'r') as file:
+            # read all content from a file using read()
+            content = file.read()
+            # check if string present or not
+            if this_str in content:
+                return True
+            # else:
+            #     print('string does not exist')
+
     def Get_App_SDK_Version(self, file):
         aapt_details=subprocess.run(['aapt', 'dump', 'badging', file], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
         sdk = [item for item in aapt_details if "sdkVersion" in item]
