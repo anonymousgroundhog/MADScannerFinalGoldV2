@@ -421,7 +421,7 @@ def Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific():
 	lst_number_of_classes=[]
 	for this_folder in lst_folders:
 		print(this_folder)
-		lst_apps.append(this_folder)
+		lst_apps.append(this_folder.replace('.apk','').lower())
 		lst_temp_classes=[]
 		for file in os.listdir(this_folder):
 			# print(file)
