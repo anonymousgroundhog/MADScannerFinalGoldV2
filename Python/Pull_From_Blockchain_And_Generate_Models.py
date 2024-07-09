@@ -1,121 +1,36 @@
-import os, nltk, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain
+import os, nltk, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain, more_itertools
 
 from nltk import bigrams
 from termcolor import colored, cprint
 from web3 import Web3, EthereumTesterProvider
+from graphviz import Digraph
 
-# def Label_Dataframe_Rows(df):
-#     labels = []
-#     for index, row in df.iterrows():
-#         labels.append(row['App_Class'].split('.')[1])
-#     df['App_Label'] = labels
-#     return(df)
+def Return_Lines_From_File(this_path):
+    # path = 'App_Transitions2.txt'
+    if os.path.exists(this_path):
+        with open(this_path, "r") as file:
+            return(file.readlines())
+    else:
+        return('')
 
-# def Open_File_And_Generate_Dataframe(this_path):
-#     helper = Helper.Helper()
-#     print("\n"+this_path)
-#     app_name_list = []
-#     app_hash_list = []
-#     app_class_list = []
-#     app_method_list = []
-#     app_ad_id_list = []
-
-#     with open(this_path) as file:
-#         lines = [line.rstrip() for line in file]
-#         print("\n\nLines are: "+str(lines))
-#         while lines[0].__contains__("---------") and len(lines) > 1:
-#             del lines[0]
-#         # if lines[0].__contains__("---------"):
-#         #     del lines[0]
-#         # if lines[0].__contains__("---------"):
-#         #     del lines[0]
-#         # if lines[0].__contains__("---------"):
-#         #     del lines[0]
-#     for item in lines:
-#         content = item.split(":")
-#         content_to_manipulate=content.pop()
-#         content_to_manipulate_list = content_to_manipulate.split("---")
-#         print(content_to_manipulate_list) 
-#         if len(app_name_list) > 4:  
-#             app_name_list.append(content_to_manipulate_list[0])
-#             app_hash_list.append(content_to_manipulate_list[1])
-#             app_class_list.append(content_to_manipulate_list[2])
-#             app_method_list.append(content_to_manipulate_list[3])
-#             app_ad_id_list.append(content_to_manipulate_list[4])
-
-#     data = {
-#         'App_Name': app_name_list,
-#         'App_Hash': app_hash_list,
-#         'App_Class': app_class_list,
-#         'App_Method':app_method_list,
-#         'App_Ad_ID':app_ad_id_list
-#     }
-#     df = pd.DataFrame(data)
-    
-#     # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
-#     filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
-#     print(filtered_df)
-#     unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
-
-#     for app_name in unique_apps:
-#         print("\nApp Name:" + app_name)
-#         rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
-#         # print(rslt_df)
-#         transitions=rslt_df[['App_Method', 'App_Ad_ID']]
-        
-#         transitions = transitions.loc[~((transitions['App_Ad_ID'] == 'null') & ((transitions['App_Method'] == 'onAdLoaded') | 
-#                                                                         (transitions['App_Method'] == 'onAdImpression')| 
-#                                                                         (transitions['App_Method'] == 'onAdClicked')))]
-        
-#         transitions['Graph'] = np.nan
-#         transitions = transitions.reset_index(drop=True)
-#         set_setContentView = set(np.where(transitions.App_Method == 'setContentView')[0])
-#         set_setAdListener = set(np.where(transitions.App_Method == 'setAdListener')[0])
-#         set_initialize = set(np.where(transitions.App_Method == 'initialize')[0])
-
-#         counter1 = 0
-#         for loc in sorted(set_setContentView):
-#             counter1=counter1+1
-#             transitions.at[loc,'Graph'] = counter1
-        
-#         set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
-#         counter2 = 0
-#         for loc in sorted(set_empty):
-#             loc2=loc-1
-#             col_list = transitions["Graph"].values.tolist()
-#             # print('length:', transitions[transitions.columns[0]].count())
-#             if transitions[transitions.columns[0]].count() == 1:
-#                 counter2 = counter2 + 1
-#                 transitions.at[loc,'Graph'] = counter2
-#             elif col_list[loc2] != np.nan:
-#                 # print("Prev Val ",col_list[loc2])
-#                 transitions.at[loc,'Graph'] = col_list[loc2]
-#             else:
-#                 # print("Prev Val ",col_list[loc2])
-#                 counter2 = counter2 + 1
-#                 transitions.at[loc,'Graph'] = counter2
-
-#         # Set states and add new graph for each
-#         print("Unique graph numbers:",transitions['Graph'].unique())
-#         for graph in transitions['Graph'].unique():
-#             print("Graph: ", graph)
-#             state_machine = StateMachine.StateMachine()
-#             state_machine.add_title("App Testing"+str(graph))
-#             state_machine.add_states()
-#             rslt_df = transitions[transitions['Graph'] == graph]
-#             this_transitions=list(helper.sliding_window_iter(rslt_df['App_Method'], 2))
-#             this_advertisement_id=list(helper.sliding_window_iter(rslt_df['App_Ad_ID'], 2))
-#             print(rslt_df)
-#             print(this_transitions)
-#             print(this_advertisement_id)
-#             for trans in this_transitions:
-#                 print(trans[0], " ",trans[1])
-#                 trans_determ = state_machine.determine_transition(trans)
-#                 if(trans_determ != None):
-#                     print("Trans:"+str(trans_determ))
-#                     state_machine.add_dot_edge(trans_determ[0], trans_determ[1], trans_determ[2])
-#             print(state_machine.digraph)
-#             state_machine.save_as_pdf(this_path.replace(".txt","").split("/").pop()+"_"+app_name+"_"+str(graph))
+def Generate_Model_From_List(this_model_name, this_list_of_states):
+    digraph = Digraph('G', engine='neato', comment=this_model_name, format='png')
+    digraph.node('appstarted', 'The app has started', pos='0,5!')
+    digraph.node('appstarted_adview_set', 'The app has started and an adView was set', pos='0,4!')
+    digraph.node('appstarted_no_ads', 'The app has started with no Ads displayed', pos='0,3!')
+    digraph.node('apprunning_ad_loaded', 'The app is running and the advertisement is loaded', pos='0,2!')
+    digraph.node('appstarted_with_ads', 'The app has started with ads displayed', pos='0,1!')
+    digraph.node('apprunning_ad_impression', 'The app is running and the advertisement impression is made', pos='10,0!')
+    digraph.node('apprunning_ad_engagement', 'The app is running and the advertisement engagement is made', pos='10,2!')
+    digraph.attr(label=this_model_name)
+    # print()
+    for states in list(more_itertools.windowed(this_list_of_states,2)):
+        print(states)
+        if states[1] == None:
+            digraph.edge(states[0], states[0], constraint='false')
+        else:
+            digraph.edge(states[0], states[1], constraint='false')
+    digraph.render('FSM_Models/'+this_model_name)
 
 def Return_DF_And_Apps_From_Blockchain_Data(this_sender_address, this_private_key, this_contract_address):
     blockchain = Blockchain.Blockchain()
@@ -194,72 +109,95 @@ def Generate_Log_File_For_App_Names_And_Transitions(all_data_df, this_apps, bloc
                     file.write(t1 + ' ->' + t2+'\n')
     os.chdir(pwd)
 
-def Cleanup_File_App_Transitions_And_Return_Lines():
+def Cleanup_File_App_Transitions():
     pwd=os.getcwd()
     os.chdir('../Data/')
     lst_app_data=[]
     
+    path = 'App_Transitions2.txt'
+    lines=Return_Lines_From_File(path)
+    method_counter=0
+    this_app=''
+    dict_apps={}
 
-    if os.path.exists('App_Transitions2.txt'):
-        with open("App_Transitions2.txt", "r") as file:
-            lines = file.readlines()
-        
-        method_counter=0
-        this_app=''
-        dict_apps={}
-
-        for line in lines:
+    for line in lines:
+        # print(line)
+        if not line.__contains__("->"):
             # print(line)
-            if not line.__contains__("->"):
-                # print(line)
-                this_app=line.strip()
-                method_counter=0
+            this_app=line.strip()
+            method_counter=0
 
-            if line.__contains__("->"):
-                method_counter=method_counter+1
-                # print(line, " ", method_counter)
-                dict_apps[this_app]=method_counter
-        
-        dict_apps = {k: v for k, v in dict_apps.items() if 'banner' not in k and 'Banner' not in k}
-        
-        # print(dict_apps.keys())
-        
-        new_lines=[]
-        for line in lines:
-            if not "->" in line:
-                if line.strip() in dict_apps.keys():
-                    # print('APP (Keep):',line)
-                    # pass
-                    new_lines.append(line)
-                # else:
-                #     print('APP (Remove):',line)
-            else:
+        if line.__contains__("->"):
+            method_counter=method_counter+1
+            # print(line, " ", method_counter)
+            dict_apps[this_app]=method_counter
+    
+    dict_apps = {k: v for k, v in dict_apps.items() if 'banner' not in k and 'Banner' not in k}        
+    new_lines=[]
+    for line in lines:
+        if not "->" in line:
+            if line.strip() in dict_apps.keys():
                 new_lines.append(line)
-        print_this=False
-        method_counter=0
-        print_app=False
-        this_app=''
-        new_lines2=[]
-        for line in new_lines:
-            if not "->" in line:
-                print_app=True
-                this_app = line.strip()
-                method_counter=0
-                # print(line.strip())
-                new_lines2.append(line.strip())
-            if print_app and not (this_app == line.strip()):
-                method_counter=method_counter+1
-                # print(line.strip())
-                new_lines2.append(line.strip())
-                # print(method_counter)
+        else:
+            new_lines.append(line)
+    print_this=False
+    method_counter=0
+    print_app=False
+    this_app=''
+    new_lines2=[]
+    for line in new_lines:
+        if not "->" in line:
+            print_app=True
+            this_app = line.strip()
+            method_counter=0
+            # print(line.strip())
+            new_lines2.append(line)
+        if print_app and not (this_app == line.strip()):
+            method_counter=method_counter+1
+            # print(line.strip())
+            new_lines2.append(line)
+            # print(method_counter)
+    with open(path, "w") as file:
+        file.writelines(new_lines2)
     os.chdir(pwd)
     return(new_lines2)
+
+def Generate_Model_From_Lines_in_File(this_path):
+    pwd=os.getcwd()
+    os.chdir('../Data/')
+    this_lines=Return_Lines_From_File(this_path)
+    this_app = ''
+    dict_apps={}
+    for line in this_lines:
+        if not line.__contains__("->"):
+            # print('App:', line)
+            this_app=line.strip()
+            dict_apps[this_app]=[]
+        else:
+            # print(line.strip(),'(',this_app,')')
+            dict_apps[this_app].append(line.strip())
+    
+    # print(dict_apps.keys())
+    for this_key in dict_apps.keys():
+        # print(this_key, dict_apps[this_key])
+        Generate_Model_From_List(this_key, dict_apps[this_key])
+    os.chdir(pwd)
+
+def Cleanup_FSM_Model_Folder():
+    pwd=os.getcwd()
+    os.chdir('../Data/FSM_Models')
+    # print(os.listdir())
+    for file in os.listdir():
+        if not file.__contains__('.png'):
+            os.remove(file)
+    os.chdir(pwd)
+
 os.system('clear')
 
 # all_data_from_blockchain=Return_DF_And_Apps_From_Blockchain_Data('0xdE2ED5049eb256D14d5F88b77bc041C77daf0702', '0xf189036b58739d7b93eb7a2404e609aa1a483f7aaa034b04cfa697bf6133c2f7', '0x6eC04225C7ca6b4F1B0552ED72835e8722ec491b')
 # print(all_data_from_blockchain[0])
 # print(all_data_from_blockchain[1])
 # Generate_Log_File_For_App_Names_And_Transitions(all_data_from_blockchain[0], all_data_from_blockchain[1], all_data_from_blockchain[2])
-this_lines=Cleanup_File_App_Transitions_And_Return_Lines()
-
-print(this_lines)
+# Cleanup_File_App_Transitions()
+# Generate_Model_From_Lines_in_File('App_Transitions2.txt')
+Cleanup_FSM_Model_Folder()
