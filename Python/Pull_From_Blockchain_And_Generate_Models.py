@@ -13,6 +13,28 @@ def Return_Lines_From_File(this_path):
     else:
         return('')
 
+def Return_States_Based_On_Transitions(this_transition_list):
+    lst_states=[]
+    if len(this_transition_list) > 0:
+        for idx,transition in enumerate(this_transition_list):
+            transition=str(transition).replace(' ', '').split('->')
+            if(transition[0] == 'attachInfo' and transition[1] == 'attachInfo') or (transition[0] == 'attachInfo' and transition[1] == 'build'):
+                lst_states.append('appstarted')
+            if (transition[0] == 'attachInfo' and transition[1] == 'build') or (transition[0] == 'build' and transition[1] == 'build'):
+                lst_states.append('appstarted_adview_set')
+            if (transition[0] == 'build' and transition[1] == 'initialize') or (transition[0] == 'initialize' and transition[1] == 'initialize'):
+                lst_states.append('appstarted_no_ads')
+            if (transition[0] == 'initialize' and transition[1] == 'onAdLoaded') or (transition[0] == 'onAdLoaded' and transition[1] == 'onAdLoaded'):
+                lst_states.append('apprunning_ad_loaded')
+            if (transition[0] == 'onAdLoaded' and transition[1] == 'onResume') or (transition[0] == 'onResume' and transition[1] == 'onResume'):
+                lst_states.append('apprunning_ad_impression')
+            if (transition[0] == 'onResume' and transition[1] == 'onPause') or (transition[0] == 'onPause' and transition[1] == 'onPause'):
+                lst_states.append('apprunning_ad_engagement')
+            if (transition[0] == 'onAdLoaded' and transition[1] == 'onAdImpression'):
+                lst_states.append('The app has started with Ads displayed')
+        return lst_states
+
+
 def Generate_Model_From_List(this_model_name, this_list_of_states):
     digraph = Digraph('G', engine='neato', comment=this_model_name, format='png')
     digraph.node('appstarted', 'The app has started', pos='0,5!')
@@ -163,6 +185,7 @@ def Cleanup_File_App_Transitions():
     return(new_lines2)
 
 def Generate_Model_From_Lines_in_File(this_path):
+    helper=Helper.Helper()
     pwd=os.getcwd()
     os.chdir('../Data/')
     this_lines=Return_Lines_From_File(this_path)
@@ -180,7 +203,9 @@ def Generate_Model_From_Lines_in_File(this_path):
     # print(dict_apps.keys())
     for this_key in dict_apps.keys():
         # print(this_key, dict_apps[this_key])
-        Generate_Model_From_List(this_key, dict_apps[this_key])
+        this_states=Return_States_Based_On_Transitions(helper.unique(dict_apps[this_key]))
+        print(this_key, this_states)
+        Generate_Model_From_List(this_key, this_states)
     os.chdir(pwd)
 
 def Cleanup_FSM_Model_Folder():
@@ -199,5 +224,5 @@ os.system('clear')
 # print(all_data_from_blockchain[1])
 # Generate_Log_File_For_App_Names_And_Transitions(all_data_from_blockchain[0], all_data_from_blockchain[1], all_data_from_blockchain[2])
 # Cleanup_File_App_Transitions()
-# Generate_Model_From_Lines_in_File('App_Transitions2.txt')
+Generate_Model_From_Lines_in_File('App_Transitions2.txt')
 Cleanup_FSM_Model_Folder()
