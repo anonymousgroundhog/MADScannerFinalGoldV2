@@ -4,179 +4,262 @@ from nltk import bigrams
 from termcolor import colored, cprint
 from web3 import Web3, EthereumTesterProvider
 
-def Label_Dataframe_Rows(df):
-    labels = []
-    for index, row in df.iterrows():
-        labels.append(row['App_Class'].split('.')[1])
-    df['App_Label'] = labels
-    return(df)
+# def Label_Dataframe_Rows(df):
+#     labels = []
+#     for index, row in df.iterrows():
+#         labels.append(row['App_Class'].split('.')[1])
+#     df['App_Label'] = labels
+#     return(df)
 
-def Open_File_And_Generate_Dataframe(this_path):
+# def Open_File_And_Generate_Dataframe(this_path):
+#     helper = Helper.Helper()
+#     print("\n"+this_path)
+#     app_name_list = []
+#     app_hash_list = []
+#     app_class_list = []
+#     app_method_list = []
+#     app_ad_id_list = []
+
+#     with open(this_path) as file:
+#         lines = [line.rstrip() for line in file]
+#         print("\n\nLines are: "+str(lines))
+#         while lines[0].__contains__("---------") and len(lines) > 1:
+#             del lines[0]
+#         # if lines[0].__contains__("---------"):
+#         #     del lines[0]
+#         # if lines[0].__contains__("---------"):
+#         #     del lines[0]
+#         # if lines[0].__contains__("---------"):
+#         #     del lines[0]
+#     for item in lines:
+#         content = item.split(":")
+#         content_to_manipulate=content.pop()
+#         content_to_manipulate_list = content_to_manipulate.split("---")
+#         print(content_to_manipulate_list) 
+#         if len(app_name_list) > 4:  
+#             app_name_list.append(content_to_manipulate_list[0])
+#             app_hash_list.append(content_to_manipulate_list[1])
+#             app_class_list.append(content_to_manipulate_list[2])
+#             app_method_list.append(content_to_manipulate_list[3])
+#             app_ad_id_list.append(content_to_manipulate_list[4])
+
+#     data = {
+#         'App_Name': app_name_list,
+#         'App_Hash': app_hash_list,
+#         'App_Class': app_class_list,
+#         'App_Method':app_method_list,
+#         'App_Ad_ID':app_ad_id_list
+#     }
+#     df = pd.DataFrame(data)
+    
+#     # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
+#     filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
+#     print(filtered_df)
+#     unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
+
+#     for app_name in unique_apps:
+#         print("\nApp Name:" + app_name)
+#         rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
+#         # print(rslt_df)
+#         transitions=rslt_df[['App_Method', 'App_Ad_ID']]
+        
+#         transitions = transitions.loc[~((transitions['App_Ad_ID'] == 'null') & ((transitions['App_Method'] == 'onAdLoaded') | 
+#                                                                         (transitions['App_Method'] == 'onAdImpression')| 
+#                                                                         (transitions['App_Method'] == 'onAdClicked')))]
+        
+#         transitions['Graph'] = np.nan
+#         transitions = transitions.reset_index(drop=True)
+#         set_setContentView = set(np.where(transitions.App_Method == 'setContentView')[0])
+#         set_setAdListener = set(np.where(transitions.App_Method == 'setAdListener')[0])
+#         set_initialize = set(np.where(transitions.App_Method == 'initialize')[0])
+
+#         counter1 = 0
+#         for loc in sorted(set_setContentView):
+#             counter1=counter1+1
+#             transitions.at[loc,'Graph'] = counter1
+        
+#         set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
+#         counter2 = 0
+#         for loc in sorted(set_empty):
+#             loc2=loc-1
+#             col_list = transitions["Graph"].values.tolist()
+#             # print('length:', transitions[transitions.columns[0]].count())
+#             if transitions[transitions.columns[0]].count() == 1:
+#                 counter2 = counter2 + 1
+#                 transitions.at[loc,'Graph'] = counter2
+#             elif col_list[loc2] != np.nan:
+#                 # print("Prev Val ",col_list[loc2])
+#                 transitions.at[loc,'Graph'] = col_list[loc2]
+#             else:
+#                 # print("Prev Val ",col_list[loc2])
+#                 counter2 = counter2 + 1
+#                 transitions.at[loc,'Graph'] = counter2
+
+#         # Set states and add new graph for each
+#         print("Unique graph numbers:",transitions['Graph'].unique())
+#         for graph in transitions['Graph'].unique():
+#             print("Graph: ", graph)
+#             state_machine = StateMachine.StateMachine()
+#             state_machine.add_title("App Testing"+str(graph))
+#             state_machine.add_states()
+#             rslt_df = transitions[transitions['Graph'] == graph]
+#             this_transitions=list(helper.sliding_window_iter(rslt_df['App_Method'], 2))
+#             this_advertisement_id=list(helper.sliding_window_iter(rslt_df['App_Ad_ID'], 2))
+#             print(rslt_df)
+#             print(this_transitions)
+#             print(this_advertisement_id)
+#             for trans in this_transitions:
+#                 print(trans[0], " ",trans[1])
+#                 trans_determ = state_machine.determine_transition(trans)
+#                 if(trans_determ != None):
+#                     print("Trans:"+str(trans_determ))
+#                     state_machine.add_dot_edge(trans_determ[0], trans_determ[1], trans_determ[2])
+#             print(state_machine.digraph)
+#             state_machine.save_as_pdf(this_path.replace(".txt","").split("/").pop()+"_"+app_name+"_"+str(graph))
+
+def Return_DF_And_Apps_From_Blockchain_Data(this_sender_address, this_private_key, this_contract_address):
+    blockchain = Blockchain.Blockchain()
+    blockchain.Connect()
+    # blockchain.Set_Sender_Address('0xdE2ED5049eb256D14d5F88b77bc041C77daf0702')
+    # blockchain.Set_Private_key('0xf189036b58739d7b93eb7a2404e609aa1a483f7aaa034b04cfa697bf6133c2f7')
+    # blockchain.Set_Contract_Address('0x6eC04225C7ca6b4F1B0552ED72835e8722ec491b')
+    blockchain.Set_Sender_Address(this_sender_address)
+    blockchain.Set_Private_key(this_private_key)
+    blockchain.Set_Contract_Address(this_contract_address)
+    # blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "Transition_1", "type": "string" }, { "internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [ { "internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logLibrary", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_library", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
+    blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logLibrary", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" }, {"internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "Transition_1", "type": "string" }, {"internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [{"internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, {"inputs": [], "name": "getLogIds", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_library", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "string", "name": "log_date_and_time", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
+    blockchain.Set_Contract_Instance()
+
+
+
     helper = Helper.Helper()
-    print("\n"+this_path)
-    app_name_list = []
-    app_hash_list = []
-    app_class_list = []
-    app_method_list = []
-    app_ad_id_list = []
+    this_apps = helper.unique(blockchain.Return_Available_Log_IDs())
+    lst_app_names = []
+    lst_app_classes = []
+    lst_app_libraries = []
+    lst_app_methods = []
+    lst_app_dates = []
 
-    with open(this_path) as file:
-        lines = [line.rstrip() for line in file]
-        print("\n\nLines are: "+str(lines))
-        while lines[0].__contains__("---------") and len(lines) > 1:
-            del lines[0]
-        # if lines[0].__contains__("---------"):
-        #     del lines[0]
-        # if lines[0].__contains__("---------"):
-        #     del lines[0]
-        # if lines[0].__contains__("---------"):
-        #     del lines[0]
-    for item in lines:
-        content = item.split(":")
-        content_to_manipulate=content.pop()
-        content_to_manipulate_list = content_to_manipulate.split("---")
-        print(content_to_manipulate_list) 
-        if len(app_name_list) > 4:  
-            app_name_list.append(content_to_manipulate_list[0])
-            app_hash_list.append(content_to_manipulate_list[1])
-            app_class_list.append(content_to_manipulate_list[2])
-            app_method_list.append(content_to_manipulate_list[3])
-            app_ad_id_list.append(content_to_manipulate_list[4])
+    for app in this_apps:
+        all_blockchain_results = blockchain.Read_Data(app)
+        for item in all_blockchain_results:
+            app_library=item[1]
+            app_class=item[2]
+            app_method = item[3]
+            app_date = item[4]
+            block_timestamp = item[5]
+            lst_app_names.append(app)
+            if len(app_date) != '':
+                lst_app_dates.append(app_date)
+                lst_app_libraries.append(app_library)
+                lst_app_classes.append(app_class)
+                lst_app_methods.append(app_method)
+            else:
+                lst_app_dates.append('')
+                lst_app_libraries.append('')
+                lst_app_classes.append('')
+                lst_app_methods.append('')
 
     data = {
-        'App_Name': app_name_list,
-        'App_Hash': app_hash_list,
-        'App_Class': app_class_list,
-        'App_Method':app_method_list,
-        'App_Ad_ID':app_ad_id_list
-    }
-    df = pd.DataFrame(data)
+            'App_Name': lst_app_names,
+            'App_Class': lst_app_classes,
+            'App_Library': lst_app_libraries,
+            'App_Method': lst_app_methods,
+            'App_Date': lst_app_dates
+        }
+    all_data_df = pd.DataFrame(data)
+    all_data_df = all_data_df.dropna()
+    # print(all_data_df[['App_Name', 'App_Library', 'App_Method']])
+    return (all_data_df, this_apps, blockchain)
+
+def Generate_Log_File_For_App_Names_And_Transitions(all_data_df, this_apps, blockchain):
+    pwd=os.getcwd()
+    os.chdir('../Data/')
+    if os.path.exists('App_Transitions2.txt'):
+        os.remove('App_Transitions2.txt')
+
+    with open("App_Transitions2.txt", "a") as file:
+        for app in this_apps:
+            cprint('\n' + app, 'cyan')
+            file.write(app+'\n')
+            filtered_df = all_data_df[all_data_df['App_Name'] == app]
+            filtered_df = filtered_df [filtered_df ['App_Library'].str.contains('google')]
+            #print(filtered_df[['App_Method']])
+            #print(list(bigrams(filtered_df['App_Method'].tolist())))
+            for item in list(bigrams(filtered_df['App_Method'].tolist())):
+                t1 = item[0]
+                t2 = item[1]
+                if blockchain.Validate_Transitions(t1, t2):
+                    print(t1, ' ->', t2)
+                    file.write(t1 + ' ->' + t2+'\n')
+    os.chdir(pwd)
+
+def Cleanup_File_App_Transitions_And_Return_Lines():
+    pwd=os.getcwd()
+    os.chdir('../Data/')
+    lst_app_data=[]
     
-    # filtered_df = df.query( 'App_Method == ["onCreate", "setContentView", "setAdListener", "initialize", "findViewById", "loadAd", "onAdImpression", "onAdClicked", "onAdLoaded"]' )
-    filtered_df = df.query( 'App_Method == ["setContentView", "setAdListener", "initialize", "onAdImpression", "onAdClicked", "onAdLoaded", "onAdClosed"]' )
-    print(filtered_df)
-    unique_apps=pd.unique(filtered_df[['App_Name']].values.ravel())
 
-    for app_name in unique_apps:
-        print("\nApp Name:" + app_name)
-        rslt_df = filtered_df[filtered_df['App_Name'] == app_name]
-        # print(rslt_df)
-        transitions=rslt_df[['App_Method', 'App_Ad_ID']]
+    if os.path.exists('App_Transitions2.txt'):
+        with open("App_Transitions2.txt", "r") as file:
+            lines = file.readlines()
         
-        transitions = transitions.loc[~((transitions['App_Ad_ID'] == 'null') & ((transitions['App_Method'] == 'onAdLoaded') | 
-                                                                        (transitions['App_Method'] == 'onAdImpression')| 
-                                                                        (transitions['App_Method'] == 'onAdClicked')))]
-        
-        transitions['Graph'] = np.nan
-        transitions = transitions.reset_index(drop=True)
-        set_setContentView = set(np.where(transitions.App_Method == 'setContentView')[0])
-        set_setAdListener = set(np.where(transitions.App_Method == 'setAdListener')[0])
-        set_initialize = set(np.where(transitions.App_Method == 'initialize')[0])
+        method_counter=0
+        this_app=''
+        dict_apps={}
 
-        counter1 = 0
-        for loc in sorted(set_setContentView):
-            counter1=counter1+1
-            transitions.at[loc,'Graph'] = counter1
+        for line in lines:
+            # print(line)
+            if not line.__contains__("->"):
+                # print(line)
+                this_app=line.strip()
+                method_counter=0
+
+            if line.__contains__("->"):
+                method_counter=method_counter+1
+                # print(line, " ", method_counter)
+                dict_apps[this_app]=method_counter
         
-        set_empty = set(np.where(pd.isna(transitions['Graph']))[0])
-        counter2 = 0
-        for loc in sorted(set_empty):
-            loc2=loc-1
-            col_list = transitions["Graph"].values.tolist()
-            # print('length:', transitions[transitions.columns[0]].count())
-            if transitions[transitions.columns[0]].count() == 1:
-                counter2 = counter2 + 1
-                transitions.at[loc,'Graph'] = counter2
-            elif col_list[loc2] != np.nan:
-                # print("Prev Val ",col_list[loc2])
-                transitions.at[loc,'Graph'] = col_list[loc2]
+        dict_apps = {k: v for k, v in dict_apps.items() if 'banner' not in k and 'Banner' not in k}
+        
+        # print(dict_apps.keys())
+        
+        new_lines=[]
+        for line in lines:
+            if not "->" in line:
+                if line.strip() in dict_apps.keys():
+                    # print('APP (Keep):',line)
+                    # pass
+                    new_lines.append(line)
+                # else:
+                #     print('APP (Remove):',line)
             else:
-                # print("Prev Val ",col_list[loc2])
-                counter2 = counter2 + 1
-                transitions.at[loc,'Graph'] = counter2
-
-        # Set states and add new graph for each
-        print("Unique graph numbers:",transitions['Graph'].unique())
-        for graph in transitions['Graph'].unique():
-            print("Graph: ", graph)
-            state_machine = StateMachine.StateMachine()
-            state_machine.add_title("App Testing"+str(graph))
-            state_machine.add_states()
-            rslt_df = transitions[transitions['Graph'] == graph]
-            this_transitions=list(helper.sliding_window_iter(rslt_df['App_Method'], 2))
-            this_advertisement_id=list(helper.sliding_window_iter(rslt_df['App_Ad_ID'], 2))
-            print(rslt_df)
-            print(this_transitions)
-            print(this_advertisement_id)
-            for trans in this_transitions:
-                print(trans[0], " ",trans[1])
-                trans_determ = state_machine.determine_transition(trans)
-                if(trans_determ != None):
-                    print("Trans:"+str(trans_determ))
-                    state_machine.add_dot_edge(trans_determ[0], trans_determ[1], trans_determ[2])
-            print(state_machine.digraph)
-            state_machine.save_as_pdf(this_path.replace(".txt","").split("/").pop()+"_"+app_name+"_"+str(graph))
-
-
+                new_lines.append(line)
+        print_this=False
+        method_counter=0
+        print_app=False
+        this_app=''
+        new_lines2=[]
+        for line in new_lines:
+            if not "->" in line:
+                print_app=True
+                this_app = line.strip()
+                method_counter=0
+                # print(line.strip())
+                new_lines2.append(line.strip())
+            if print_app and not (this_app == line.strip()):
+                method_counter=method_counter+1
+                # print(line.strip())
+                new_lines2.append(line.strip())
+                # print(method_counter)
+    os.chdir(pwd)
+    return(new_lines2)
 os.system('clear')
-blockchain = Blockchain.Blockchain()
-blockchain.Connect()
-blockchain.Set_Sender_Address('0xdE2ED5049eb256D14d5F88b77bc041C77daf0702')
-blockchain.Set_Private_key('0xf189036b58739d7b93eb7a2404e609aa1a483f7aaa034b04cfa697bf6133c2f7')
-blockchain.Set_Contract_Address('0x6eC04225C7ca6b4F1B0552ED72835e8722ec491b')
-# blockchain.Set_ABI('[ { "inputs": [ { "internalType": "string", "name": "Transition_1", "type": "string" }, { "internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [ { "internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" }, { "internalType": "string", "name": "logClass", "type": "string" }, { "internalType": "string", "name": "logLibrary", "type": "string" }, { "internalType": "string", "name": "logMethod", "type": "string" }, { "internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getLogIds", "outputs": [ { "internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [ { "components": [ { "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "string", "name": "log_class", "type": "string" }, { "internalType": "string", "name": "log_library", "type": "string" }, { "internalType": "string", "name": "log_method", "type": "string" }, { "internalType": "string", "name": "log_date_and_time", "type": "string" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
-blockchain.Set_ABI('[{"inputs": [{"internalType": "string", "name": "appId", "type": "string" }, {"internalType": "string", "name": "logClass", "type": "string" }, {"internalType": "string", "name": "logLibrary", "type": "string" }, {"internalType": "string", "name": "logMethod", "type": "string" }, {"internalType": "string", "name": "logDateAndTime", "type": "string" } ], "name": "addLog", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "this_transition", "type": "string" } ], "name": "addValidTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "clearValidModelTransitions", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [], "name": "Setup_Model", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, {"inputs": [{"internalType": "string", "name": "Transition_1", "type": "string" }, {"internalType": "string", "name": "Transition_2", "type": "string" } ], "name": "Check_Transition", "outputs": [{"internalType": "bool", "name": "", "type": "bool" } ], "stateMutability": "view", "type": "function" }, {"inputs": [], "name": "getLogIds", "outputs": [{"internalType": "string[]", "name": "", "type": "string[]" } ], "stateMutability": "view", "type": "function" }, {"inputs": [{"internalType": "string", "name": "appId", "type": "string" } ], "name": "getLogs", "outputs": [{"components": [{"internalType": "address", "name": "sender", "type": "address" }, {"internalType": "string", "name": "log_class", "type": "string" }, {"internalType": "string", "name": "log_library", "type": "string" }, {"internalType": "string", "name": "log_method", "type": "string" }, {"internalType": "string", "name": "log_date_and_time", "type": "string" }, {"internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "internalType": "struct MultiAppLogTracker.Log[]", "name": "", "type": "tuple[]" } ], "stateMutability": "view", "type": "function" } ]')
-blockchain.Set_Contract_Instance()
 
+# all_data_from_blockchain=Return_DF_And_Apps_From_Blockchain_Data('0xdE2ED5049eb256D14d5F88b77bc041C77daf0702', '0xf189036b58739d7b93eb7a2404e609aa1a483f7aaa034b04cfa697bf6133c2f7', '0x6eC04225C7ca6b4F1B0552ED72835e8722ec491b')
+# print(all_data_from_blockchain[0])
+# print(all_data_from_blockchain[1])
+# Generate_Log_File_For_App_Names_And_Transitions(all_data_from_blockchain[0], all_data_from_blockchain[1], all_data_from_blockchain[2])
+this_lines=Cleanup_File_App_Transitions_And_Return_Lines()
 
-
-helper = Helper.Helper()
-this_apps = helper.unique(blockchain.Return_Available_Log_IDs())
-lst_app_names = []
-lst_app_classes = []
-lst_app_libraries = []
-lst_app_methods = []
-lst_app_dates = []
-
-for app in this_apps:
-	all_blockchain_results = blockchain.Read_Data(app)
-	for item in all_blockchain_results:
-		app_library=item[1]
-		app_class=item[2]
-		app_method = item[3]
-		app_date = item[4]
-		block_timestamp = item[5]
-		lst_app_names.append(app)
-		if len(app_date) != '':
-			lst_app_dates.append(app_date)
-			lst_app_libraries.append(app_library)
-			lst_app_classes.append(app_class)
-			lst_app_methods.append(app_method)
-		else:
-			lst_app_dates.append('')
-			lst_app_libraries.append('')
-			lst_app_classes.append('')
-			lst_app_methods.append('')
-
-data = {
-        'App_Name': lst_app_names,
-        'App_Class': lst_app_classes,
-        'App_Library': lst_app_libraries,
-        'App_Method': lst_app_methods,
-        'App_Date': lst_app_dates
-    }
-all_data_df = pd.DataFrame(data)
-print(all_data_df[['App_Name', 'App_Library', 'App_Method']])
-
-for app in this_apps:
-	cprint('\n' + app, 'cyan')
-	filtered_df = all_data_df[all_data_df['App_Name'] == app]
-	filtered_df = filtered_df [filtered_df ['App_Library'].str.contains('google')]
-	#print(filtered_df[['App_Method']])
-	#print(list(bigrams(filtered_df['App_Method'].tolist())))
-	for item in list(bigrams(filtered_df['App_Method'].tolist())):
-		t1 = item[0]
-		t2 = item[1]
-		print(t1, ' ->', t2)
-		print(blockchain.Validate_Transitions(t1, t2))
-
+print(this_lines)
