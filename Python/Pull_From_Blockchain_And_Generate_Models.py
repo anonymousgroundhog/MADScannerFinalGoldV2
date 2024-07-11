@@ -1,10 +1,30 @@
-import os, nltk, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain, more_itertools
-
+import os, nltk, pandas as pd, graphviz, numpy as np, time, StateMachine, Helper, Blockchain, more_itertools, img2pdf
+from PIL import Image
 from nltk import bigrams
 from termcolor import colored, cprint
 from web3 import Web3, EthereumTesterProvider
 from graphviz import Digraph
 
+def Convert_PNG_To_PDF(file):
+    image = Image.open(file)
+ 
+    # converting into chunks using img2pdf
+    pdf_bytes = img2pdf.convert(image.filename)
+     
+    # opening or creating pdf file
+    file = open(file.replace('.png', '.pdf'), "wb")
+     
+    # writing pdf files with chunks
+    file.write(pdf_bytes)
+     
+    # closing image file
+    image.close()
+     
+    # closing pdf file
+    file.close()
+     
+    # # output
+    # print("Successfully made pdf file")
 def Return_Lines_From_File(this_path):
     # path = 'App_Transitions2.txt'
     if os.path.exists(this_path):
@@ -33,7 +53,6 @@ def Return_States_Based_On_Transitions(this_transition_list):
             if (transition[0] == 'onAdLoaded' and transition[1] == 'onAdImpression'):
                 lst_states.append('The app has started with Ads displayed')
         return lst_states
-
 
 def Generate_Model_From_List(this_model_name, this_list_of_states):
     digraph = Digraph('G', engine='neato', comment=this_model_name, format='png')
@@ -215,6 +234,9 @@ def Cleanup_FSM_Model_Folder():
     for file in os.listdir():
         if not file.__contains__('.png'):
             os.remove(file)
+        else:
+          Convert_PNG_To_PDF(file)
+          os.remove(file)  
     os.chdir(pwd)
 
 os.system('clear')
