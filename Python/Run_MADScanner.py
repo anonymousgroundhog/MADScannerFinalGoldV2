@@ -517,73 +517,72 @@ def Zip_Sign_And_Install_APK_In_SootOutput_Folder():
 			madscanner.Zip_And_Sign_APK(this_apk)
 	os.chdir(cwd)
 
-
-os.system('clear')
-# os.chdir('../')
-cwd=os.getcwd()
-
 def Get_APK_Details_In_APK_Folder(location):
+	helper = Helper.Helper()
 	cwd=os.getcwd()
 	full_path=''.join(['../APK/', location])
 	if os.path.exists(full_path):
+		lst_apps=[]
+		lst_main_activity=[]
+		lst_main_class=[]
+		lst_hashes=[]
+		lst_has_ads=[]
 		for file in os.listdir(full_path):
 			file_path=''.join([full_path,'/',file])
 			print(file_path)
 			get_app_names = Get_App_Names.Get_App_Names()
 			get_app_names.Set_Testing_Directory(location)
-			# main_activity=subprocess.run(['aapt', 'dump', 'badging', file_path], stdout=subprocess.PIPE)
-			# main_activity=main_activity.stdout.decode('utf-8').split('\n')
-			# main_activity = [item for item in main_activity if "launchable-activity" in item]
-			# main_activity = main_activity[0].replace("launchable-activity: ","").split(" ")[0].replace("name=","").replace("'","")
-			# # print(main_activity)
 
-			# main_class=subprocess.run(['aapt', 'dump', 'badging', file_path], stdout=subprocess.PIPE)
-			# main_class=main_class.stdout.decode('utf-8').split('\n')
-			# main_class = [item for item in main_class if "package" in item]
-			# main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
-			# print('main_activity:',main_activity, ' main_class:', main_class)
-			aapt_details=subprocess.run(['aapt', 'dump', 'badging', file_path], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-			main_activity = [item for item in aapt_details if "launchable-activity" in item]
-			main_class = [item for item in aapt_details if "package" in item]
-			# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
-			if len(main_activity) > 0:
-				main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
-			else:
-				main_activity = ''
 			try:
-				main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+				aapt_details=subprocess.run(['aapt', 'dump', 'badging', file_path], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
+				main_activity = [item for item in aapt_details if "launchable-activity" in item]
+				main_class = [item for item in aapt_details if "package" in item]
+				# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
+				if len(main_activity) > 0:
+					main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
+				else:
+					main_activity = ''
+				try:
+					main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+				except:
+					cprint("main class was unable to be found!!!", 'red')
+					main_class=''
+				base_url = 'https://play.google.com/store/apps/details?id=';
+				sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
+				if len(sdkbuild_version) < 1:
+					sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
+					# print("sdkbuild_version:", sdkbuild_version)
+					sdkbuild_version = sdkbuild_version[0].replace("targetSdkVersion:","").replace("'",'')
+					# cprint('current sdkbuild_version: '+str(sdkbuild_version), 'yellow')
+					content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+					has_ads = content_details[5]
+					sha_256=content_details[4]
+				else:
+					# print("sdkbuild_version:", sdkbuild_version)
+					sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
+					content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+					has_ads = content_details[5]
+					sha_256=content_details[4]
+				outside_libs=0
+				lst_classes=[]
+				if os.path.exists(''.join(['../Data/Application_Analysis/',file])):
+					for this_file in os.listdir(''.join(['../Data/Application_Analysis/',file])):
+						jimple_file_path=''.join(['../Data/Application_Analysis/',file,'/',this_file])
+						if this_file.endswith('.jimple') and not this_file.startswith('com.google') and not this_file.startswith('com.facebook'):
+							# print(jimple_file_path)
+							if helper.Find_in_File_String(jimple_file_path, 'loadAd') or helper.Find_in_File_String(jimple_file_path, 'showAd') or helper.Find_in_File_String(jimple_file_path, 'onAdLoaded'):
+								lst_classes.append(this_file)
+					# if len(lst_classes) > 0:
+					# 	print(lst_classes)
+				
+				cprint(' '.join(['App_Name:',file,"SDK_Build_Version:", sdkbuild_version, 'Main_Class:', main_class, '', 'Main_Activity:', main_activity, 'App_Ads:',has_ads, 'Hash_SHA_256:', sha_256, 'Advertising_Classes:',str(lst_classes)]), 'yellow')
 			except:
-				cprint("main class was unable to be found!!!", 'red')
-				main_class=''
-			base_url = 'https://play.google.com/store/apps/details?id=';
-			sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
-			if len(sdkbuild_version) < 1:
-				sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
-				# print("sdkbuild_version:", sdkbuild_version)
-				sdkbuild_version = sdkbuild_version[0].replace("targetSdkVersion:","").replace("'",'')
-				# cprint('current sdkbuild_version: '+str(sdkbuild_version), 'yellow')
-				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
-				has_ads = content_details[5]
-				sha_256=content_details[4]
-				# new_row = {'App_Name': str(file), 'Google_Play_Name': content_details[1], 'App_Category': content_details[3], 
-				# 'Main_Activity': main_activity, 'Main_Class': main_class, 'URL': content_details[0], 
-				# 'App_Ads': content_details[5], 'SHA256' : content_details[4], 
-				# 'SDK_Build_Version': sdkbuild_version}
-				# df.loc[len(df),:] = new_row
-			else:
-				# print("sdkbuild_version:", sdkbuild_version)
-				sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
-				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
-				has_ads = content_details[5]
-				sha_256=content_details[4]
-				# new_row = {'App_Name': str(file), 'Google_Play_Name': content_details[1], 'App_Category': content_details[3], 
-				# 'Main_Activity': main_activity, 'Main_Class': main_class, 'URL': content_details[0], 
-				# 'App_Ads': content_details[5], 'SHA256' : content_details[4], 
-				# 'SDK_Build_Version': sdkbuild_version}
-				# df.loc[len(df),:] = new_row
-			cprint(' '.join(["SDK_Build_Version:", sdkbuild_version, 'main_class:', main_class, '', 'Main_Activity:', main_activity, 'App_Ads:',has_ads, 'Hash_SHA_256', sha_256]), 'yellow')
+				print('Error trying to process:',file)
 	os.chdir(cwd)
 
+os.system('clear')
+# os.chdir('../')
+cwd=os.getcwd()
 # helper = Helper.Helper()
 # helper.Remove_Directory_Files('../APK/Testing')
 # Run_MADScanner('Google_Play_Download_Test')
@@ -594,10 +593,13 @@ def Get_APK_Details_In_APK_Folder(location):
 os.chdir(cwd)
 # Copy_Apps_To_Folder_For_Testing(['Androzoo', 'APKPure'])
 # Run_MADScanner_On_Apps_Gold('Testing','Testing', 'dex')
+# Run_MADScanner_On_Apps_Gold('Testing','Testing', 'J')
 # Copy_Files_To_Appropriate_Folders()
 # Copy_Files_To_SootOutput_Folder()
 # Zip_Sign_And_Install_APK_In_SootOutput_Folder()
-Get_APK_Details_In_APK_Folder("Testing")
+Get_APK_Details_In_APK_Folder("Androzoo")
+
+# CHECK IF CAN BE INSTALLED ON EMULATOR
 
 # Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific()
 # Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")

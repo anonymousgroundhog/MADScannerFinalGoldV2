@@ -48,7 +48,7 @@ class Get_App_Names:
 		for lines in soup.find_all(class_='UIuSk'):
 			data=lines.get_text()
 			if 'Contains ads' in data:
-				print(data)
+				# print(data)
 				contains_ads="Yes"
 
 		package_name=url.split('=').pop()
