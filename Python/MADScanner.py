@@ -92,6 +92,7 @@ class MADScanner:
 				os.system("rm *.idsig")
 			return ''
 		os.chdir(pwd)
+
 	def Function_Run_Framework_And_Copy_Jimple_Files(self, file, folder, option, sdkbuild_version):
 		stuff_to_return = ''
 		helper = Helper.Helper()
@@ -113,8 +114,6 @@ class MADScanner:
 		data = run(cmd, capture_output=True, shell=True)
 		print("STDOUT:", data.stdout.decode('utf-8'))
 		# print("STDERR:",data.stderr.decode('utf-8'))
-
-		# all_details = ' '.join([str(data.stdout.decode('utf-8')), str(data.stderr.decode('utf-8'))])
 		stuff_to_return = ''
 		stuff_to_return=data.stderr.decode('utf-8')
 		list_stuff_to_return = stuff_to_return.split('\n')
