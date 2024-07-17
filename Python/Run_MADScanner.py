@@ -444,6 +444,7 @@ def Copy_Files_To_Appropriate_Folders():
 			if os.path.isdir(dir_to_move_files_to+'/'+this_dir):
 				shutil.rmtree(dir_to_move_files_to+'/'+this_dir)
 			shutil.move(this_dir, dir_to_move_files_to)
+			
 
 		else:
 			# print(os.listdir(this_dir))
@@ -456,8 +457,8 @@ def Copy_Files_To_Appropriate_Folders():
 				os.mkdir('sootOutput')
 				if os.path.exists(this_path):
 					shutil.move(this_path, 'sootOutput/')
-		os.remove(this_dir)
-
+		if this_dir.endswith('.apk') and os.path.exists(this_dir):
+				os.rmdir(this_dir)
 	os.chdir(cwd)
 
 def Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific():
