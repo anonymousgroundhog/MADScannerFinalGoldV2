@@ -527,57 +527,96 @@ def Get_APK_Details_In_APK_Folder(location):
 		lst_main_class=[]
 		lst_hashes=[]
 		lst_has_ads=[]
+		lst_sdkversion=[]
+		lst_advert_classes=[]
+		lst_file_size=[]
+		lst_is_suspicious=[]
+
+		df = pd.DataFrame(columns=['App_Name', 'SDK_Build_Version', 'Main_Class', 'Main_Activity', 'Has_Ads', 'Hash_SHA_256','Advertising_Classes'])
 		for file in os.listdir(full_path):
 			file_path=''.join([full_path,'/',file])
-			print(file_path)
+			this_file_size = os.path.getsize(file_path) >> 20
+			lst_file_size.append(this_file_size)
+			# print(file_path)
 			get_app_names = Get_App_Names.Get_App_Names()
 			get_app_names.Set_Testing_Directory(location)
 
+			# try:
 			try:
 				aapt_details=subprocess.run(['aapt', 'dump', 'badging', file_path], stdout=subprocess.PIPE).stdout.decode('utf-8').split('\n')
-				main_activity = [item for item in aapt_details if "launchable-activity" in item]
-				main_class = [item for item in aapt_details if "package" in item]
-				# cprint(''.join(['Main activity is now: ',str(main_activity)]), 'green')
-				if len(main_activity) > 0:
-					main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
-				else:
-					main_activity = ''
-				try:
-					main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
-				except:
-					cprint("main class was unable to be found!!!", 'red')
-					main_class=''
-				base_url = 'https://play.google.com/store/apps/details?id=';
-				sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
-				if len(sdkbuild_version) < 1:
-					sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
-					# print("sdkbuild_version:", sdkbuild_version)
-					sdkbuild_version = sdkbuild_version[0].replace("targetSdkVersion:","").replace("'",'')
-					# cprint('current sdkbuild_version: '+str(sdkbuild_version), 'yellow')
-					content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
-					has_ads = content_details[5]
-					sha_256=content_details[4]
-				else:
-					# print("sdkbuild_version:", sdkbuild_version)
-					sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
-					content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
-					has_ads = content_details[5]
-					sha_256=content_details[4]
-				outside_libs=0
-				lst_classes=[]
-				if os.path.exists(''.join(['../Data/Application_Analysis/',file])):
-					for this_file in os.listdir(''.join(['../Data/Application_Analysis/',file])):
-						jimple_file_path=''.join(['../Data/Application_Analysis/',file,'/',this_file])
-						if this_file.endswith('.jimple') and not this_file.startswith('com.google') and not this_file.startswith('com.facebook'):
-							# print(jimple_file_path)
-							if helper.Find_in_File_String(jimple_file_path, 'loadAd') or helper.Find_in_File_String(jimple_file_path, 'showAd') or helper.Find_in_File_String(jimple_file_path, 'onAdLoaded'):
-								lst_classes.append(this_file)
-					# if len(lst_classes) > 0:
-					# 	print(lst_classes)
-				
-				cprint(' '.join(['App_Name:',file,"SDK_Build_Version:", sdkbuild_version, 'Main_Class:', main_class, '', 'Main_Activity:', main_activity, 'App_Ads:',has_ads, 'Hash_SHA_256:', sha_256, 'Advertising_Classes:',str(lst_classes)]), 'yellow')
 			except:
-				print('Error trying to process:',file)
+				aapt_details=[]
+			main_activity = [item for item in aapt_details if "launchable-activity" in item]
+			main_class = [item for item in aapt_details if "package" in item]
+			try:
+				main_activity = main_activity[0].split(" ")[1].replace("name=","").replace("'","")
+			except:
+				main_activity = ''
+			try:
+				main_class = main_class[0].replace("package: ","").split(" ")[0].replace("name=","").replace("'","")
+			except:
+				cprint("main class was unable to be found!!!", 'red')
+				main_class=''
+			base_url = 'https://play.google.com/store/apps/details?id=';
+			sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
+			
+			if len(sdkbuild_version) < 1:
+				try:
+					sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
+					sdkbuild_version = sdkbuild_version[0].replace("targetSdkVersion:","").replace("'",'')
+				except:
+					sdkbuild_version=''
+				# lst_sdkversion.append(sdkbuild_version)
+				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+				has_ads = content_details[5]
+				sha_256=content_details[4]
+			else:
+				sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
+				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+				has_ads = content_details[5]
+				sha_256=content_details[4]
+			outside_libs=0
+			lst_classes=[]
+			if os.path.exists(''.join(['../Data/Application_Analysis/',file])):
+				for this_file in os.listdir(''.join(['../Data/Application_Analysis/',file])):
+					jimple_file_path=''.join(['../Data/Application_Analysis/',file,'/',this_file])
+					if this_file.endswith('.jimple') and not this_file.startswith('com.google') and not this_file.startswith('com.facebook'):
+						# print(jimple_file_path)
+						if helper.Find_in_File_String(jimple_file_path, 'loadAd') or helper.Find_in_File_String(jimple_file_path, 'showAd') or helper.Find_in_File_String(jimple_file_path, 'onAdLoaded'):
+							lst_classes.append(str(this_file))
+			else:
+				lst_classes=[]
+
+			cprint(' '.join(['App_Name:',file,"SDK_Build_Version:", sdkbuild_version, 'Main_Class:', main_class, '', 'Main_Activity:', main_activity, 'App_Ads:',has_ads, 'Hash_SHA_256:', sha_256, 'Advertising_Classes:',str(lst_classes)]), 'yellow')
+			if len(lst_classes) > 0:
+				lst_is_suspicious.append(True)
+			else:
+				lst_is_suspicious.append(False)
+
+			lst_apps.append(file)
+			lst_main_activity.append(main_activity)
+			lst_main_class.append(main_class)
+			lst_sdkversion.append(sdkbuild_version)
+			lst_hashes.append(sha_256)
+			lst_has_ads.append(has_ads)
+			lst_advert_classes.append(lst_classes)
+			# lst_file_size.append(lst_file_size)
+
+		# print('lst_apps', len(lst_apps), 'lst_sdkversion', len(lst_sdkversion), 'lst_main_activity', len(lst_main_activity), 'lst_main_class', len(lst_main_class), 'lst_hashes', len(lst_hashes), 'lst_has_ads', len(lst_has_ads), 'lst_advert_classes', len(lst_advert_classes))
+		df['App_Name']=lst_apps
+		df['SDK_Build_Version']=lst_sdkversion
+		df['File_Size_In_MB']=lst_file_size
+		df['Main_Activity']=lst_main_activity
+		df['Main_Class']=lst_main_class
+		df['Hash_SHA_256']=lst_hashes
+		df['Has_Ads']=lst_has_ads
+		df['Advertising_Classes']=lst_advert_classes
+		df['Suspicous']=lst_is_suspicious
+		print(df)
+		os.chdir('../Data/')
+		df.to_csv(''.join([location,'.csv']), index=False)
+			# except:
+			# 	print('Error trying to process:',file)
 	os.chdir(cwd)
 
 os.system('clear')
