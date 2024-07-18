@@ -458,7 +458,8 @@ def Copy_Files_To_Appropriate_Folders():
 				if os.path.exists(this_path):
 					shutil.move(this_path, 'sootOutput/')
 		if this_dir.endswith('.apk') and os.path.exists(this_dir):
-				os.rmdir(this_dir)
+				# os.rmdir(this_dir)
+				shutil.rmtree(this_dir)
 	os.chdir(cwd)
 
 def Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific():
@@ -517,12 +518,31 @@ def Zip_Sign_And_Install_APK_In_SootOutput_Folder():
 			madscanner.Zip_And_Sign_APK(this_apk)
 	os.chdir(cwd)
 
-def Get_APK_Details_In_APK_Folder(location):
+def Zip_Sign_APK_In_Folder(dir_destination):
+	madscanner = MADScanner.MADScanner()
+
+	cwd=os.getcwd()
+	# dir_destination='../Java/Classes/sootOutput'
+	os.chdir(dir_destination)
+	print(os.getcwd())
+	for this_apk in os.listdir():
+		# full_path=''.join([dir_destination,'/',this_dir])
+		if this_apk.endswith('.apk'):
+			# this_path=''.join([dir_destination, '/',this_apk])
+			os.chdir(this_apk)
+			if os.path.exists(this_apk):
+				print('signed ', this_apk)
+				madscanner.Zip_And_Sign_APK(this_apk)
+			os.chdir('../')
+	os.chdir(cwd)
+
+def Get_APK_Details_In_APK_Folder_And_Save_As_DF(location):
 	helper = Helper.Helper()
 	cwd=os.getcwd()
 	full_path=''.join(['../APK/', location])
 	if os.path.exists(full_path):
 		lst_apps=[]
+		lst_genre=[]
 		lst_main_activity=[]
 		lst_main_class=[]
 		lst_hashes=[]
@@ -559,7 +579,7 @@ def Get_APK_Details_In_APK_Folder(location):
 				main_class=''
 			base_url = 'https://play.google.com/store/apps/details?id=';
 			sdkbuild_version = [item for item in aapt_details if "platformBuildVersionCode=" in item]
-			
+			# this_genre=[]
 			if len(sdkbuild_version) < 1:
 				try:
 					sdkbuild_version = [item for item in aapt_details if "targetSdkVersion" in item]
@@ -570,11 +590,13 @@ def Get_APK_Details_In_APK_Folder(location):
 				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
 				has_ads = content_details[5]
 				sha_256=content_details[4]
+				this_genre=content_details[3]
 			else:
 				sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
 				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
 				has_ads = content_details[5]
 				sha_256=content_details[4]
+				this_genre=content_details[3]
 			outside_libs=0
 			lst_classes=[]
 			if os.path.exists(''.join(['../Data/Application_Analysis/',file])):
@@ -593,6 +615,7 @@ def Get_APK_Details_In_APK_Folder(location):
 			else:
 				lst_is_suspicious.append(False)
 
+			lst_genre.append(helper.unique(str(this_genre).split(',')))
 			lst_apps.append(file)
 			lst_main_activity.append(main_activity)
 			lst_main_class.append(main_class)
@@ -604,6 +627,7 @@ def Get_APK_Details_In_APK_Folder(location):
 
 		# print('lst_apps', len(lst_apps), 'lst_sdkversion', len(lst_sdkversion), 'lst_main_activity', len(lst_main_activity), 'lst_main_class', len(lst_main_class), 'lst_hashes', len(lst_hashes), 'lst_has_ads', len(lst_has_ads), 'lst_advert_classes', len(lst_advert_classes))
 		df['App_Name']=lst_apps
+		df['Genere']=lst_genre
 		df['SDK_Build_Version']=lst_sdkversion
 		df['File_Size_In_MB']=lst_file_size
 		df['Main_Activity']=lst_main_activity
@@ -619,6 +643,55 @@ def Get_APK_Details_In_APK_Folder(location):
 			# 	print('Error trying to process:',file)
 	os.chdir(cwd)
 
+def Start_Logcat(logcat_path):
+	cprint("Logging to: "+logcat_path, 'yellow')
+	os.system('adb logcat -c')
+	now = datetime.now()
+	d4 = now.strftime("%m-%d-%Y_%H:%M:%S")
+	cmd=''.join(['nohup adb logcat FiniteState:V *:S > ',logcat_path,' &'])
+	os.system(cmd)
+		
+def Stop_Logcat():
+	os.system('pkill adb')
+
+def Set_Capabilities(package_name, main_activity, file):
+		cprint('\n\tSetting Capabilities!!!', 'cyan')
+		# cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
+		cprint(os.getcwd(),'green')
+		desired_caps = {}
+		desired_caps['platformName'] = 'Android'
+		# desired_caps['platformVersion'] = '33'
+		# desired_caps['automationName'] = 'uiautomator2'
+		desired_caps['deviceName'] =  'emulator-5554' #'7040018020065015'
+		desired_caps['appPackage'] = package_name
+		desired_caps['appActivity'] = main_activity
+		desired_caps['appium:wdaStartupRetries'] = '6'
+
+		desired_caps['adbExecTimeout'] = '120000'
+		desired_caps['app'] = ''.join([os.getcwd(),'/',self.file])
+		appium_server_url = 'http://localhost:4723/wd/hub'
+		driver = webdriver.Remote(appium_server_url, desired_caps)
+		return driver
+
+def Instrument_Apps(testing_folder_path, this_test_folder_path):
+	pwd = os.getcwd()
+	df = pd.read_csv(''.join(['../Data/',this_test_folder_path,'.csv']))
+	os.chdir(testing_folder_path)
+	# FILTER ON APPS THAT CONTAIN ADS (Has_Ads == TRUE)
+	df=df[df['Has_Ads'] == 'Yes']
+	if df.size > 0:
+		print('Do Something')
+	else:
+		print('Empty DataFrame')
+	# START LOGGING
+	# Start_Logcat('../../Data/Logs')
+	# RUN APPS
+	# time.sleep(5)
+	# END LOGGING
+	# Stop_Logcat()
+	# print(df)
+	os.chdir(pwd)
+
 os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
@@ -629,15 +702,15 @@ cwd=os.getcwd()
 # Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-os.chdir(cwd)
-# Copy_Apps_To_Folder_For_Testing(['Androzoo', 'APKPure'])
-# Run_MADScanner_On_Apps_Gold('Testing','Testing', 'dex')
-# Run_MADScanner_On_Apps_Gold('Testing','Testing', 'J')
-# Copy_Files_To_Appropriate_Folders()
+# os.chdir(cwd)
+# Run_MADScanner_On_Apps_Gold('Androzoo','Androzoo', 'dex')
+# Run_MADScanner_On_Apps_Gold('Androzoo','Androzoo', 'J')
+# Zip_Sign_APK_In_Folder('../Java/Classes')
+Copy_Files_To_Appropriate_Folders()
 # Copy_Files_To_SootOutput_Folder()
 # Zip_Sign_And_Install_APK_In_SootOutput_Folder()
-Get_APK_Details_In_APK_Folder("Androzoo")
-
+# Get_APK_Details_In_APK_Folder_And_Save_As_DF("Androzoo")
+# Instrument_sApps('../Java/Classes/sootOutput', 'Androzoo')
 # CHECK IF CAN BE INSTALLED ON EMULATOR
 
 # Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific()
