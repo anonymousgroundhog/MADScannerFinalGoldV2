@@ -588,15 +588,16 @@ def Get_APK_Details_In_APK_Folder_And_Save_As_DF(location):
 					sdkbuild_version=''
 				# lst_sdkversion.append(sdkbuild_version)
 				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
+				print('Content Details:', str(content_details[3]))
 				has_ads = content_details[5]
 				sha_256=content_details[4]
-				this_genre=content_details[3]
+				this_genre=str(content_details[3]).strip().split(',')
 			else:
 				sdkbuild_version = sdkbuild_version[0].replace("package: ","").split(" ")[5].replace("compileSdkVersion=","").replace("'","").replace('platformBuildVersionCode=', '')
 				content_details = get_app_names.Get_Content_Using_BeautifulSoup2(''.join([base_url,main_class]), file)
 				has_ads = content_details[5]
 				sha_256=content_details[4]
-				this_genre=content_details[3]
+				this_genre=str(content_details[3]).strip().split(',')
 			outside_libs=0
 			lst_classes=[]
 			if os.path.exists(''.join(['../Data/Application_Analysis/',file])):
@@ -604,7 +605,7 @@ def Get_APK_Details_In_APK_Folder_And_Save_As_DF(location):
 					jimple_file_path=''.join(['../Data/Application_Analysis/',file,'/',this_file])
 					if this_file.endswith('.jimple') and not this_file.startswith('com.google') and not this_file.startswith('com.facebook'):
 						# print(jimple_file_path)
-						if helper.Find_in_File_String(jimple_file_path, 'loadAd') or helper.Find_in_File_String(jimple_file_path, 'showAd') or helper.Find_in_File_String(jimple_file_path, 'onAdLoaded'):
+						if helper.Find_in_File_String_Ad_Specific(jimple_file_path, 'loadAd', 'com.google') or helper.Find_in_File_String_Ad_Specific(jimple_file_path, 'showAd', 'com.google') or helper.Find_in_File_String_Ad_Specific(jimple_file_path, 'onAdLoaded', 'com.google'):
 							lst_classes.append(str(this_file))
 			else:
 				lst_classes=[]
@@ -614,8 +615,8 @@ def Get_APK_Details_In_APK_Folder_And_Save_As_DF(location):
 				lst_is_suspicious.append(True)
 			else:
 				lst_is_suspicious.append(False)
-
-			lst_genre.append(helper.unique(str(this_genre).split(',')))
+			# if this_genre not in lst_genre:
+			lst_genre.append(str(this_genre))
 			lst_apps.append(file)
 			lst_main_activity.append(main_activity)
 			lst_main_class.append(main_class)
@@ -627,7 +628,7 @@ def Get_APK_Details_In_APK_Folder_And_Save_As_DF(location):
 
 		# print('lst_apps', len(lst_apps), 'lst_sdkversion', len(lst_sdkversion), 'lst_main_activity', len(lst_main_activity), 'lst_main_class', len(lst_main_class), 'lst_hashes', len(lst_hashes), 'lst_has_ads', len(lst_has_ads), 'lst_advert_classes', len(lst_advert_classes))
 		df['App_Name']=lst_apps
-		df['Genere']=lst_genre
+		df['Genre']=lst_genre
 		df['SDK_Build_Version']=lst_sdkversion
 		df['File_Size_In_MB']=lst_file_size
 		df['Main_Activity']=lst_main_activity
@@ -648,13 +649,13 @@ def Start_Logcat(logcat_path):
 	os.system('adb logcat -c')
 	now = datetime.now()
 	d4 = now.strftime("%m-%d-%Y_%H:%M:%S")
-	cmd=''.join(['nohup adb logcat FiniteState:V *:S > ',logcat_path,' &'])
+	cmd=''.join(['nohup adb logcat FiniteState:V *:S > ',''.join([logcat_path,'/',str(d4),'.txt']),' &'])
 	os.system(cmd)
 		
 def Stop_Logcat():
 	os.system('pkill adb')
 
-def Set_Capabilities(package_name, main_activity, file):
+def Set_Capabilities(phone_name, package_name, main_activity, this_file_path):
 		cprint('\n\tSetting Capabilities!!!', 'cyan')
 		# cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
 		cprint(os.getcwd(),'green')
@@ -662,13 +663,13 @@ def Set_Capabilities(package_name, main_activity, file):
 		desired_caps['platformName'] = 'Android'
 		# desired_caps['platformVersion'] = '33'
 		# desired_caps['automationName'] = 'uiautomator2'
-		desired_caps['deviceName'] =  'emulator-5554' #'7040018020065015'
+		desired_caps['deviceName'] =  phone_name #'7040018020065015'
 		desired_caps['appPackage'] = package_name
 		desired_caps['appActivity'] = main_activity
 		desired_caps['appium:wdaStartupRetries'] = '6'
 
 		desired_caps['adbExecTimeout'] = '120000'
-		desired_caps['app'] = ''.join([os.getcwd(),'/',self.file])
+		# desired_caps['app'] = this_file_path
 		appium_server_url = 'http://localhost:4723/wd/hub'
 		driver = webdriver.Remote(appium_server_url, desired_caps)
 		return driver
@@ -696,11 +697,14 @@ def Instrument_Apps(testing_folder_path, this_test_folder_path):
 	df['Able_To_Instrument']='No'
 	df['Able_To_Install']='No'
 	df['Signed_Location']=None
+	df['Try_Manual_Testing']=None
 	
 	this_phone_name=Get_Phone_Name()
 	if len(this_phone_name) > 0:
+		# START LOGGING
 		# print(this_phone_name)
 		if df.size > 0:
+			Start_Logcat('../Data/Logs')
 			for idx,row in df.iterrows():
 				# print(' '.join([row['App_Name'],row['Main_Class'],row['Main_Activity']]))
 				this_app_name=row['App_Name']
@@ -713,25 +717,51 @@ def Instrument_Apps(testing_folder_path, this_test_folder_path):
 					cprint(this_file_path,'green')
 					df.at[idx, 'Signed_Location'] = this_file_path
 					# CHECK IF YOU CAN INSTALL APP
-					df.at[idx, 'Able_To_Install'] = 'Yes'
-					
+					try:
+						cmd= ' '.join(['adb install-multiple', this_file_path])
+						os.system(cmd)
+						df.at[idx, 'Able_To_Install'] = 'Yes'
+					except:
+						df.at[idx, 'Able_To_Install'] = 'No'
+
 					# CHECK IF YOU CAN START APP
-					df.at[idx, 'Able_To_Start'] = 'Yes'
+					if this_main_activity != '' and this_main_class != '':
+						try:
+							Set_Capabilities(this_phone_name, this_main_class, this_main_activity, this_file_path)
+
+							time.sleep(5)
+							df.at[idx, 'Try_Manual_Testing'] = 'No'
+						except:
+							cprint(''.join(['Unable to start', this_file_path]), 'red')
+					else:
+						cprint("main_activity or main_class is empty!!!", 'red')
+						df.at[idx, 'Try_Manual_Testing'] = 'Yes'
+
+					cmd = ' '.join(['adb uninstall', this_main_class])
+					os.system(cmd)
+			os.chdir('../Data/')
+			df.to_csv(''.join([this_test_folder_path, '.csv']), index=False)
+			Stop_Logcat()
 		else:
 			print('Empty DataFrame')
 	else:
 		cprint('No Emulator Found!!!','red')
 	
 	print(df)
-	# START LOGGING
-	# Start_Logcat('../../Data/Logs')
-	# RUN APPS
-	# time.sleep(5)
-	# END LOGGING
-	# Stop_Logcat()
-	# print(df)
+	# df = pd.to_csv(''.join(['../Data/',this_test_folder_path,'.csv']), index=False)
 	os.chdir(pwd)
 
+def Remove_Empty_Log_Files():
+	pwd = os.getcwd()
+	os.chdir('../Data/Logs')
+
+	for file in os.listdir():
+		if file.endswith('.txt'):
+			this_file_size = os.path.getsize(file)
+			if this_file_size == 0:
+				os.remove(file)
+			print(file,' ',this_file_size)
+	os.chdir(pwd)
 os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
@@ -742,16 +772,19 @@ cwd=os.getcwd()
 # Read_And_Save_Dataframe_Info('Androzoo_Testing', 'Testing')
 
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
-# os.chdir(cwd)
-# Run_MADScanner_On_Apps_Gold('Androzoo','Androzoo', 'dex')
-# Run_MADScanner_On_Apps_Gold('Androzoo','Androzoo', 'J')
+os.chdir(cwd)
+# Run_MADScanner_On_Apps_Gold('APKPure','APKPure', 'dex')
+Run_MADScanner_On_Apps_Gold('APKPure','APKPure', 'J')
 # Zip_Sign_APK_In_Folder('../Java/Classes')
 # Copy_Files_To_Appropriate_Folders()
 # Copy_Files_To_SootOutput_Folder()
 # Zip_Sign_And_Install_APK_In_SootOutput_Folder()
-# Get_APK_Details_In_APK_Folder_And_Save_As_DF("Androzoo")
+# Get_APK_Details_In_APK_Folder_And_Save_As_DF("APKPure")
 # CHECK IF CAN BE INSTALLED ON EMULATOR
-Instrument_Apps('../Data/Application_Analysis', 'Androzoo')
+# Instrument_Apps('../Data/Application_Analysis', 'APKPure')
+# Remove_Empty_Log_Files()
+
+
 
 # Generate_Dataframe_Of_Apps_And_Classes_Ad_Specific()
 # Run_MADScanner_On_Apps2('Androzoo_Testing', "Testing")

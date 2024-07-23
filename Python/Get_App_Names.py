@@ -1,4 +1,4 @@
-import requests, csv, os, pandas as pd, hashlib
+import requests, csv, os, pandas as pd, hashlib, Helper
 from bs4 import BeautifulSoup
 
 class Get_App_Names:
@@ -56,6 +56,7 @@ class Get_App_Names:
 		return url, app_title, ', '.join(app_details), ', '.join(categories), sha256, contains_ads
 
 	def Get_Content_Using_BeautifulSoup2(self, url, app_name):
+		helper = Helper.Helper()
 		response = requests.get(url)
 		soup = BeautifulSoup(response.text, 'html.parser')
 		headers = soup.find_all('h1')
@@ -83,7 +84,7 @@ class Get_App_Names:
 
 		package_name=url.split('=').pop()
 		sha256=self.Get_File_SHA256(''.join(['../APK/',self.testing_directory, '/',app_name]))
-		return url, app_title, ', '.join(app_details), ', '.join(categories), sha256, contains_ads
+		return url, app_title, ', '.join(app_details), ', '.join(helper.unique(categories)), sha256, contains_ads
 
 	def Return_DataFrame_Data(self):
 		directories_list = self.List_Directories(''.join(['../APK/',self.testing_directory]), self.directories_list)

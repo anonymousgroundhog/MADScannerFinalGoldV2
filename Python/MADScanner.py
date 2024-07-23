@@ -170,7 +170,7 @@ class MADScanner:
 			return list_stuff_to_return
 		else:
 			cprint(''.join(['\n\tSucessfully ran app:', file]), 'green')
-			os.chdir('sootOutput')
+			# os.chdir('sootOutput')
 			
 		os.chdir(pwd)
 
