@@ -98,46 +98,27 @@ class MADScanner:
 		helper = Helper.Helper()
 		pwd=os.getcwd()
 		# os.chdir("../Java/Classes")
-		
+		cprint(pwd, 'green')
 		SignedFile=''.join(['signed',file])
-		# APKPath=''.join(["../../APK/",folder,'/',file])
-		# cprint(''.join(["\nAPK path is: ", APKPath]), 'cyan')
-		# cprint(''.join(["Current directory is: ", os.getcwd()]),'cyan')
-		# path=''.join(['../../APK/',folder,'/',file])
-		# cprint(''.join(["sdkBuild Version: ", sdkbuild_version]), 'cyan')
-		# # hash=$([ -e $APKPath ] && sha256sum $APKPath | cut -d " " -f1)
-		# hash_value = helper.Calculate_SHA256(APKPath)
-		# android_api_version= ''.join(['-android-api-version ', str(sdkbuild_version)])
-		# # try:
-		# cmd=' '.join(['java -Xmx20g -XX:+ExitOnOutOfMemoryError -cp ".:../../Jar_Libs/*" BAnalysisApp', file, hash_value, option, folder, android_api_version])
-		# # proc = subprocess.run([cmd], shell=True, check=True, capture_output=True)
-		# data = run(cmd, capture_output=True, shell=True)
-		# print("STDOUT:", data.stdout.decode('utf-8'))
-		# # print("STDERR:",data.stderr.decode('utf-8'))
-
-		# # all_details = ' '.join([str(data.stdout.decode('utf-8')), str(data.stderr.decode('utf-8'))])
-		# stuff_to_return = ''
-		# stuff_to_return=data.stderr.decode('utf-8')
-		# list_stuff_to_return = stuff_to_return.split('\n')
-		# if len(list_stuff_to_return) > 2 and not '[main] INFO soot.toDex.DexPrinter - Do not forget to sign the .apk file with jarsigner and to align it with zipalign' in list_stuff_to_return:
-		# 	cprint(''.join(['\tFailed to run app:', file]), 'red')
-		# 	return list_stuff_to_return
-		# else:
-		# 	cprint(''.join(['\n\tSucessfully ran app:', file]), 'green')
-		# 	os.chdir('sootOutput')
 		path_to_check=os.path.join(os.getcwd(), file)
 		if os.path.exists(path_to_check):
 			# sign file
-			cmd=' '.join(['zipalign -fv 4',file, SignedFile])
-			# os.system(cmd)
-			data = run(cmd, capture_output=True, shell=True)
+			data=''
+			try:
+				cmd=' '.join(['zipalign -fv 4',file, SignedFile])
+				# os.system(cmd)
+				data = run(cmd, capture_output=True, shell=True)
+			except:
+				cprint(''.join(['unable to run',file]),'red')
+
 			if len(data.stderr.decode('utf-8').split('\n')) > 1:
 				print("STDERR:",data.stderr.decode('utf-8'))
-			cmd=' '.join(['apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password', SignedFile])
-			data = run(cmd, capture_output=True, shell=True)
-			if len(data.stderr.decode('utf-8').split('\n')) > 1:
-				print("STDERR:",data.stderr.decode('utf-8'))
-			os.system("rm *.idsig")
+			else:
+				cmd=' '.join(['apksigner sign --ks ../../../my-release-key.keystore --ks-pass pass:password', SignedFile])
+				data = run(cmd, capture_output=True, shell=True)
+				if len(data.stderr.decode('utf-8').split('\n')) > 1:
+					print("STDERR:",data.stderr.decode('utf-8'))
+				os.system("rm *.idsig")
 		# return ''
 		os.chdir(pwd)
 

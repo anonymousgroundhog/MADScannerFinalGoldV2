@@ -5,6 +5,19 @@ from functools import reduce
 from itertools import islice
 
 class Helper:
+    def Copy_Files_In_Directory_To_Other_Directory(self, src_dir, dst_dir):
+        if not os.path.exists(dst_dir):
+            os.makedirs(dst_dir)
+
+        # Get a list of all files in the source directory
+        files = os.listdir(src_dir)
+
+        # Iterate over all files and copy them to the destination directory
+        for file_name in files:
+            full_file_name = os.path.join(src_dir, file_name)
+            if os.path.isfile(full_file_name):
+                shutil.copy2(full_file_name, dst_dir)
+        
     def Find_in_File_String_Ad_Specific(self, file, this_str, ad_specific_library_class):
         with open(file, 'r') as file:
             # read all content from a file using read()
