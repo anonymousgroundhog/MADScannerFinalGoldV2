@@ -1,12 +1,3 @@
-allow
-accept
-yes
-skip
-next
-sign
-agree
-later
-login
-remind
-skip
-ok
+version https://git-lfs.github.com/spec/v1
+oid sha256:9a57451e442c8dee65bcfb1ff1f0b9c3be14c8ba16ac71c23c15a149afa549bc
+size 64

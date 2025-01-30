@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/mm2;
-.super Ljava/lang/Object;
-.source "mm2.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/Area;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4643ba7fe898484aa1453995245998054aa13986e679ba835852fffb90177c49
+size 898

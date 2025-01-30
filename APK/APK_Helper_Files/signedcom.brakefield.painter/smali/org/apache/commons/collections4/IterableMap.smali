@@ -1,27 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/IterableMap;
-.super Ljava/lang/Object;
-.source "IterableMap.java"
-
-# interfaces
-.implements Ljava/util/Map;
-.implements Lorg/apache/commons/collections4/Put;
-.implements Lorg/apache/commons/collections4/IterableGet;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/Map<",
-        "TK;TV;>;",
-        "Lorg/apache/commons/collections4/Put<",
-        "TK;TV;>;",
-        "Lorg/apache/commons/collections4/IterableGet<",
-        "TK;TV;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e60f9595ed47e8bc0f13901eb0d8eb9f6af00f4350aa532b1bbf9849545c5f8
+size 707

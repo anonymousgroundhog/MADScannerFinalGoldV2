@@ -1,1 +1,3 @@
-task ':lifecycle:lifecycle-viewmodel-ktx:writeVersionFile' property 'version'
+version https://git-lfs.github.com/spec/v1
+oid sha256:02f2e9cb451318a9c495a3d04fede9483a87475b03374e250c3ddf79a7c88bbf
+size 78

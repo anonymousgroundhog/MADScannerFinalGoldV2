@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/TelemetryLoggingClient;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/HasApiKey;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/google/android/gms/common/api/HasApiKey<",
-        "Lcom/google/android/gms/common/internal/TelemetryLoggingOptions;",
-        ">;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract log(Lcom/google/android/gms/common/internal/TelemetryData;)Lcom/google/android/gms/tasks/Task;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/common/internal/TelemetryData;",
-            ")",
-            "Lcom/google/android/gms/tasks/Task<",
-            "Ljava/lang/Void;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f4a9320db82864e86894334214631d5304061f55b33a60de41df760e9f7dd60
+size 988

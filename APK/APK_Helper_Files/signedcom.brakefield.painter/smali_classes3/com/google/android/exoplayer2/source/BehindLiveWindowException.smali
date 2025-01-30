@@ -1,19 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/source/BehindLiveWindowException;
-.super Ljava/io/IOException;
-.source "BehindLiveWindowException.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0}, Ljava/io/IOException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9e127ae89da77a0ea0d70dcfe8d8ccfd35b63f705372a91a65d162bf540d0056
+size 400

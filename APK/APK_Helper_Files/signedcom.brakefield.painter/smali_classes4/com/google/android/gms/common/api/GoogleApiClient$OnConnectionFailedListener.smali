@@ -1,20 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/internal/OnConnectionFailedListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/GoogleApiClient;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnConnectionFailedListener"
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1eac8c51cae6342e4b8898d75f17dd98ebd88bbbe68943b7b5e3b507e476d92
+size 637

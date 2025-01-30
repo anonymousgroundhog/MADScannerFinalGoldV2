@@ -1,21 +1,3 @@
-.class public interface abstract Lcom/google/api/client/googleapis/services/GoogleClientRequestInitializer;
-.super Ljava/lang/Object;
-.source "GoogleClientRequestInitializer.java"
-
-
-# virtual methods
-.method public abstract initialize(Lcom/google/api/client/googleapis/services/AbstractGoogleClientRequest;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/api/client/googleapis/services/AbstractGoogleClientRequest<",
-            "*>;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4bc693d9619506f5016126b16df891abafe09126985a976446e5b91061c054da
+size 679

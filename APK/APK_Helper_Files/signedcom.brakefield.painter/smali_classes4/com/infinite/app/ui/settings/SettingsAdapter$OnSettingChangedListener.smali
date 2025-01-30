@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/infinite/app/ui/settings/SettingsAdapter$OnSettingChangedListener;
-.super Ljava/lang/Object;
-.source "SettingsAdapter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/infinite/app/ui/settings/SettingsAdapter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnSettingChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSettingChanged(Lcom/infinite/app/ui/settings/Setting;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bddeb7fc52ea8ea11dd7fd9f7a79a79667cb7594457e921d5cf13718b06f4880
+size 550

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/mediacodec/MediaCodecUtil$1;
-.super Ljava/lang/Object;
-.source "MediaCodecUtil.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/mediacodec/MediaCodecUtil;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3518c964c6ef55b7ab2e1ff1cf718ad52a2d5e76e4709855f67edf1c6edb5d0f
+size 397

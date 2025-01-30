@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/CholeskyLDLDecomposition_F32;
-.super Ljava/lang/Object;
-.source "CholeskyLDLDecomposition_F32.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/CholeskyLDLDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<MatrixType::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/CholeskyLDLDecomposition<",
-        "TMatrixType;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getDiagonal()[F
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:064eecb731d69f5ffab0fe35f4bf1687dfe470cb8ac22450b4d710ac504c43c0
+size 627

@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/lock/qual/MayReleaseLocks;
-.super Ljava/lang/Object;
-.source "MayReleaseLocks.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9470713e426cb8e5fea96e49434290b3f710f3a2caf2ed3b08e12ce33ae42de2
+size 851

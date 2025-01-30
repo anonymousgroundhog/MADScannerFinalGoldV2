@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/widgets/Helper;
-.super Ljava/lang/Object;
-.source "Helper.java"
-
-
-# virtual methods
-.method public abstract add(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-.end method
-
-.method public abstract removeAllIds()V
-.end method
-
-.method public abstract updateConstraints(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:07be1bf62bd8a128fd94204699d4dbd29106f22e6aaaa07c48408aba62ca0c2a
+size 426

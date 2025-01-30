@@ -1,22 +1,3 @@
-.class interface abstract Lcom/brakefield/painter/billing/PainterTrial$TrialStrategy;
-.super Ljava/lang/Object;
-.source "PainterTrial.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/billing/PainterTrial;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "TrialStrategy"
-.end annotation
-
-
-# virtual methods
-.method public abstract getRemainingDays(Lcom/brakefield/painter/billing/PainterTrial$TrialProperties;)I
-.end method
-
-.method public abstract getState(Lcom/brakefield/painter/billing/PainterTrial$TrialProperties;)Lcom/brakefield/painter/billing/PainterTrial$TrialState;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6afc549d72f536a943192cdfcddfd8cd14f0f6d8ea82265ef7cb309ae64275c3
+size 704

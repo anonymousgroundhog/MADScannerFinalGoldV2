@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/i18n/qual/LocalizableKey;
-.super Ljava/lang/Object;
-.source "LocalizableKey.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/i18n/qual/UnknownLocalizableKey;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e6a23deee8b61bd100b4eb6c368ae2c51e16f96b9c612f3f76df05e5dfe1155a
+size 935

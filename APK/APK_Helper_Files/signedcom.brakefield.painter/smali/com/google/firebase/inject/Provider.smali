@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/firebase/inject/Provider;
-.super Ljava/lang/Object;
-.source "Provider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract get()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ca879487886b58a71c9c0271d567502a19e60df957ed039289116259ba841ec
+size 510

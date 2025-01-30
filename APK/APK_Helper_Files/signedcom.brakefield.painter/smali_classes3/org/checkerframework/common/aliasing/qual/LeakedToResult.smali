@@ -1,27 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/aliasing/qual/LeakedToResult;
-.super Ljava/lang/Object;
-.source "LeakedToResult.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/common/aliasing/qual/NonLeaked;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:22c5588f4c9f22e75054e0daa1a93f76979dd8cbd6efb2dd308923bd1d2755b6
+size 828

@@ -1,32 +1,3 @@
-.class public final Landroidx/constraintlayout/widget/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/constraintlayout/widget/R$anim;,
-        Landroidx/constraintlayout/widget/R$attr;,
-        Landroidx/constraintlayout/widget/R$bool;,
-        Landroidx/constraintlayout/widget/R$color;,
-        Landroidx/constraintlayout/widget/R$dimen;,
-        Landroidx/constraintlayout/widget/R$drawable;,
-        Landroidx/constraintlayout/widget/R$id;,
-        Landroidx/constraintlayout/widget/R$integer;,
-        Landroidx/constraintlayout/widget/R$interpolator;,
-        Landroidx/constraintlayout/widget/R$layout;,
-        Landroidx/constraintlayout/widget/R$string;,
-        Landroidx/constraintlayout/widget/R$style;,
-        Landroidx/constraintlayout/widget/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:547f0f521d5201b02ba9c237c7842ad08c50a81ef08a4311f3e8fd47b2e78e0a
+size 1030

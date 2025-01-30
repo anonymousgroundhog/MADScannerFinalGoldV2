@@ -1,34 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ExoPlayer$AudioOffloadListener;
-.super Ljava/lang/Object;
-.source "ExoPlayer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ExoPlayer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AudioOffloadListener"
-.end annotation
-
-
-# virtual methods
-.method public onExperimentalOffloadSchedulingEnabledChanged(Z)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onExperimentalOffloadedPlayback(Z)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onExperimentalSleepingForOffloadChanged(Z)V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:78a51c41512113f4fc0e6b8e5985e44479443b3e945f2f0bd5956cc8f1d46c89
+size 738

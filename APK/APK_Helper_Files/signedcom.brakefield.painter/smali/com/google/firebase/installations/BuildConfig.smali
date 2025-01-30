@@ -1,24 +1,3 @@
-.class public final Lcom/google/firebase/installations/BuildConfig;
-.super Ljava/lang/Object;
-.source "BuildConfig.java"
-
-
-# static fields
-.field public static final BUILD_TYPE:Ljava/lang/String; = "release"
-
-.field public static final DEBUG:Z = false
-
-.field public static final LIBRARY_PACKAGE_NAME:Ljava/lang/String; = "com.google.firebase.installations"
-
-.field public static final VERSION_NAME:Ljava/lang/String; = "17.1.3"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 6
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6fc745699e776a92ca5b0dd7d0e1e5f970c6f1ac456f6ceb1545159c0715c89a
+size 595

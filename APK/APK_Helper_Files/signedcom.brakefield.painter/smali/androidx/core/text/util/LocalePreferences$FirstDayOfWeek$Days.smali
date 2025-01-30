@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/text/util/LocalePreferences$FirstDayOfWeek$Days;
-.super Ljava/lang/Object;
-.source "LocalePreferences.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/text/util/LocalePreferences$FirstDayOfWeek;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Days"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bd31ada1b8c06015e934fc5f540697ea57f82293486b2ea0765fb05098cb861c
+size 668

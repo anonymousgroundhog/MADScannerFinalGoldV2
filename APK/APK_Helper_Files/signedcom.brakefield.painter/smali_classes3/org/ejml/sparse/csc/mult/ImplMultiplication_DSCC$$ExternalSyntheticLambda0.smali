@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/sparse/csc/mult/ImplMultiplication_DSCC$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lorg/ejml/ops/DOperatorBinary;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(DD)D
-    .locals 0
-
-    invoke-static {p1, p2, p3, p4}, Lorg/ejml/sparse/csc/mult/ImplMultiplication_DSCC;->lambda$multTransA$0(DD)D
-
-    move-result-wide p1
-
-    return-wide p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe652ff440d5b017274d01826ea662dbab470ebabc06c0a09392ff40afc0c44a
+size 620

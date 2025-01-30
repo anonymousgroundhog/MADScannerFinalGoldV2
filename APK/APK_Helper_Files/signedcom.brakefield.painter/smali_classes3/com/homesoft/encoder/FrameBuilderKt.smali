@@ -1,30 +1,3 @@
-.class public final Lcom/homesoft/encoder/FrameBuilderKt;
-.super Ljava/lang/Object;
-.source "FrameBuilder.kt"
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\n\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0003"
-    }
-    d2 = {
-        "SECOND_IN_USEC",
-        "",
-        "TIMEOUT_USEC",
-        "painter_release"
-    }
-    k = 0x2
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
-
-# static fields
-.field public static final SECOND_IN_USEC:I = 0xf4240
-
-.field public static final TIMEOUT_USEC:I = 0x2710
+version https://git-lfs.github.com/spec/v1
+oid sha256:513482345cc12810ae07cdeaa823f009c6bcaedfae2455474c574d3a1127140a
+size 738

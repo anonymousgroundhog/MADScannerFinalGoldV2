@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/google/android/material/color/utilities/PointProvider;
-.super Ljava/lang/Object;
-.source "PointProvider.java"
-
-
-# virtual methods
-.method public abstract distance([D[D)D
-.end method
-
-.method public abstract fromInt(I)[D
-.end method
-
-.method public abstract toInt([D)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:446edf96069559adaeee761729759eefbffeed2ded8432bfb9fbed30f041a1b6
+size 318

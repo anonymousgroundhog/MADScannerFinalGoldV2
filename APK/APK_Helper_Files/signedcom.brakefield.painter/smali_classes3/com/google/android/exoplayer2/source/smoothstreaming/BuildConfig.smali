@@ -1,22 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/source/smoothstreaming/BuildConfig;
-.super Ljava/lang/Object;
-.source "BuildConfig.java"
-
-
-# static fields
-.field public static final BUILD_TYPE:Ljava/lang/String; = "release"
-
-.field public static final DEBUG:Z = false
-
-.field public static final LIBRARY_PACKAGE_NAME:Ljava/lang/String; = "com.google.android.exoplayer2.source.smoothstreaming"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 6
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff1d8cf76a287be775c765ff4d6cbbc66ffa0f60c8e40d5a3dc007c1a3bc3a9c
+size 562

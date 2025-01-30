@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:color="?android:colorForeground" android:alpha="0.1" />
-    <item android:state_checked="true" android:color="?colorControlActivated" android:alpha="0.3" />
-    <item android:color="?android:colorForeground" android:alpha="0.3" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:d1e4dc91d0b76aa879d12f8a618506f30fbe3514dafbeae40a0c8cb86faca115
+size 401

@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/datepicker/MaterialCalendar$OnDayClickListener;
-.super Ljava/lang/Object;
-.source "MaterialCalendar.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/datepicker/MaterialCalendar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "OnDayClickListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDayClick(J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:db7c71268b337690da4d3c0c7cc2b5adeb39991b69961644b3ad2553f4706bed
+size 511

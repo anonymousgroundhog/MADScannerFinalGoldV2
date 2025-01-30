@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/UpsellViewController$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/List;
-
-
-# direct methods
-.method public synthetic constructor <init>(Ljava/util/List;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/UpsellViewController$$ExternalSyntheticLambda1;->f$0:Ljava/util/List;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onConfigureTab(Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/UpsellViewController$$ExternalSyntheticLambda1;->f$0:Ljava/util/List;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/UpsellViewController;->lambda$getView$0(Ljava/util/List;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5fa249224402448d636ae66b9cd7bba9b2ee10ff40985ef8d87d6d6e999287c
+size 1142

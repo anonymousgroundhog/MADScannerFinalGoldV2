@@ -1,10 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/reflect_x" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/reflect_off" android:contentDescription="@string/reflect">
-        <tag android:value="@string/mappings_pattern_quilt_settings_flip_horizontal" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/reflect_y" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/reflect_off" android:contentDescription="@string/reflect" android:rotation="90.0">
-        <tag android:value="@string/mappings_pattern_quilt_settings_flip_vertical" android:id="@id/ui_binding_key" />
-    </ImageView>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:d53fda1550bf04decff23cc2144894980a0b4494e7ee8efe98a048a9e083d2a6
+size 973

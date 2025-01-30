@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/addons/OnDemandAddon$OnInstallListener;
-.super Ljava/lang/Object;
-.source "OnDemandAddon.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/addons/OnDemandAddon;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnInstallListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCompleted(Z)V
-.end method
-
-.method public abstract updateProgress(II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e8a08135782f5a4d1d628159976073ffaa97c30bc8cd798afa48efcce6a4415
+size 547

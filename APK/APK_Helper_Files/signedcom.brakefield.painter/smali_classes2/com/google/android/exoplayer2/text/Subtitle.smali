@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/text/Subtitle;
-.super Ljava/lang/Object;
-.source "Subtitle.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getCues(J)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(J)",
-            "Ljava/util/List<",
-            "Lcom/google/android/exoplayer2/text/Cue;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getEventTime(I)J
-.end method
-
-.method public abstract getEventTimeCount()I
-.end method
-
-.method public abstract getNextEventTimeIndex(J)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5285308a658aeb7465f65fa4f14510fc9af207028c822de8abfda030efcf0c0c
+size 687

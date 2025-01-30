@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/progressindicator/LinearProgressIndicator$IndeterminateAnimationType;
-.super Ljava/lang/Object;
-.source "LinearProgressIndicator.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/progressindicator/LinearProgressIndicator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "IndeterminateAnimationType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:01de8840e4c971198f180ee5d9b079892316438a41df34a9c716cc2a12af9044
+size 744

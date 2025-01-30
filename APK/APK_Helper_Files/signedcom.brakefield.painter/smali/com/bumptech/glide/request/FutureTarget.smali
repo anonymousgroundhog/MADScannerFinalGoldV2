@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/request/FutureTarget;
-.super Ljava/lang/Object;
-.source "FutureTarget.java"
-
-# interfaces
-.implements Ljava/util/concurrent/Future;
-.implements Lcom/bumptech/glide/request/target/Target;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<R:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/concurrent/Future<",
-        "TR;>;",
-        "Lcom/bumptech/glide/request/target/Target<",
-        "TR;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:922dd70b142733bfe0452b6f3906570799d958bdbc92e590d9555fee18a8abc9
+size 557

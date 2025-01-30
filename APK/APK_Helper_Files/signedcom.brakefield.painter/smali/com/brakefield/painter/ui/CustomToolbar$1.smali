@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/painter/ui/CustomToolbar$1;
-.super Ljava/lang/Object;
-.source "CustomToolbar.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/CustomToolbar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c2ffc8304772f78752aa72084493d00060c1ca503fcc5df193b485ae1522e9c8
+size 364

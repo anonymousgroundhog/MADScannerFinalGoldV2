@@ -1,28 +1,3 @@
-.class interface abstract Lcom/google/common/util/concurrent/AbstractFuture$Trusted;
-.super Ljava/lang/Object;
-.source "AbstractFuture.java"
-
-# interfaces
-.implements Lcom/google/common/util/concurrent/ListenableFuture;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/util/concurrent/AbstractFuture;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Trusted"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/google/common/util/concurrent/ListenableFuture<",
-        "TV;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:581f099ea56f8e638239c531c6b772515a35e5d6dc98b5bd7bbfb16b28600f0e
+size 735

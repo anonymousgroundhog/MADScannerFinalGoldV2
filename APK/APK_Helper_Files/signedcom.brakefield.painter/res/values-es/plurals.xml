@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
-        <item quantity="other">Avanzar %d segundos</item>
-        <item quantity="one">Avanzar %d segundo</item>
-    </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
-        <item quantity="other">Retroceder %d segundos</item>
-        <item quantity="one">Retroceder %d segundo</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
-        <item quantity="other">%d notificaciones nuevas</item>
-        <item quantity="one">%d notificación nueva</item>
-    </plurals>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:d65f24a5f97af903ce82c4902c8c0e29daf7bbd490cc925a04fd2162608f1c54
+size 652

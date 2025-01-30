@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/FrameMetricsAggregator$MetricType;
-.super Ljava/lang/Object;
-.source "FrameMetricsAggregator.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/FrameMetricsAggregator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "MetricType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:77f7cdbfdcce034bef27e89f14b06d2b7d6ce57c53e118486802cb8db6089a27
+size 653

@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$TitledBorderJustification;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TitledBorderJustification"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e23b89c0184649fef1e246d3ffacd6d1379f28d7471e249fcb2a4ae3933d563
+size 503

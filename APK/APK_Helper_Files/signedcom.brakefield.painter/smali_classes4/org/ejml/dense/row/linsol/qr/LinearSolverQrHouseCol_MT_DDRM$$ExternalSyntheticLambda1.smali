@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/dense/row/linsol/qr/LinearSolverQrHouseCol_MT_DDRM$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lpabeles/concurrency/ConcurrencyOps$NewInstance;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final newInstance()Ljava/lang/Object;
-    .locals 1
-
-    invoke-static {}, Lorg/ejml/dense/row/linsol/qr/LinearSolverQrHouseCol_MT_DDRM;->lambda$new$0()Lorg/ejml/dense/row/linsol/qr/LinearSolverQrHouseCol_MT_DDRM$Work;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:418f64b4730b1e29bbedf97e1e6d2080ecbe45cc3920d8847fdedc184e45e9eb
+size 727

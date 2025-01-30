@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/upstream/experimental/CombinedParallelSampleBandwidthEstimator$1;
-.super Ljava/lang/Object;
-.source "CombinedParallelSampleBandwidthEstimator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/experimental/CombinedParallelSampleBandwidthEstimator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c6d0227f1da8fca55080983b64fd3e0d799d598fb5bc9245e9f3274b1e648367
+size 497

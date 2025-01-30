@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/ConsumeResponseListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract onConsumeResponse(Lcom/android/billingclient/api/BillingResult;Ljava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:21c9bad333976da7b288a679e3ffebe6dbb9f57cdc9161d4d0665c803bd7f697
+size 306

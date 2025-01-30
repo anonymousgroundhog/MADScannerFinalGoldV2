@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/InAppMessageResponseListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract onInAppMessageResponse(Lcom/android/billingclient/api/InAppMessageResult;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b1aa369e48d13c297bc4564698426f57113c516bac46f86e995134a33743e21
+size 303

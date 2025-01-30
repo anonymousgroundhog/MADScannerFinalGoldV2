@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/Speed;
-.super Ljava/lang/Object;
-.source "Speed.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/UnknownUnits;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4861a294fb2122be42308ba956dade9abfa3731257a0b7415862931c6e9be9e0
+size 910

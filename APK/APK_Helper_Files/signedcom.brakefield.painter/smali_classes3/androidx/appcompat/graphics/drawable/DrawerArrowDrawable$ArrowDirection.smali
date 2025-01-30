@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable$ArrowDirection;
-.super Ljava/lang/Object;
-.source "DrawerArrowDrawable.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ArrowDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d1b8d8a74836e69e284a5318b229129b5943944230c6c63d6a01d24d93c50d5
+size 690

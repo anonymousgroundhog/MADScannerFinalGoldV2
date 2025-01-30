@@ -1,32 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/FileManager$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/Comparator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Ljava/io/File;
-
-    check-cast p2, Ljava/io/File;
-
-    invoke-static {p1, p2}, Lcom/brakefield/infinitestudio/FileManager;->lambda$getDirectories$2(Ljava/io/File;Ljava/io/File;)I
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ddc65657c19046420b4e4a4cd841319e05c1dd5f0f55567f0beb3584dbd0f3a
+size 716

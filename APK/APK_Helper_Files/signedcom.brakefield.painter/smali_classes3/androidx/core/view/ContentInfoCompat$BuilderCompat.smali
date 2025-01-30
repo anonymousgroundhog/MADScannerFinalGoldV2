@@ -1,34 +1,3 @@
-.class interface abstract Landroidx/core/view/ContentInfoCompat$BuilderCompat;
-.super Ljava/lang/Object;
-.source "ContentInfoCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ContentInfoCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "BuilderCompat"
-.end annotation
-
-
-# virtual methods
-.method public abstract build()Landroidx/core/view/ContentInfoCompat;
-.end method
-
-.method public abstract setClip(Landroid/content/ClipData;)V
-.end method
-
-.method public abstract setExtras(Landroid/os/Bundle;)V
-.end method
-
-.method public abstract setFlags(I)V
-.end method
-
-.method public abstract setLinkUri(Landroid/net/Uri;)V
-.end method
-
-.method public abstract setSource(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:be86b20ceba6784fde64fbb37b4bfea4fe153cd4df3db667db8c5075714e692e
+size 807

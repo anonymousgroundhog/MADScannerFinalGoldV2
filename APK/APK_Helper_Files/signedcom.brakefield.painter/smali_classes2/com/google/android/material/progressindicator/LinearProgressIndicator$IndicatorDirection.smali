@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/progressindicator/LinearProgressIndicator$IndicatorDirection;
-.super Ljava/lang/Object;
-.source "LinearProgressIndicator.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/progressindicator/LinearProgressIndicator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "IndicatorDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2d9012b694476535e58693fb181188265fadc2f7692cff25a403bfd3a97e5dbd
+size 728

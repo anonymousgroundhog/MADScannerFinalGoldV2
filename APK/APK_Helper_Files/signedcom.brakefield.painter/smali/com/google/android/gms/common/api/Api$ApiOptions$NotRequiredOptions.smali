@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/Api$ApiOptions$NotRequiredOptions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/Api$ApiOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "NotRequiredOptions"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:50185f87fe2bda1ee70fce7be140875224799cd2af190977b5ff53d340b9f9d3
+size 538

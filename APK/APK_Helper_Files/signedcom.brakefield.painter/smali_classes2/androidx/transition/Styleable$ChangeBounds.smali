@@ -1,18 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$ChangeBounds;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "ChangeBounds"
-.end annotation
-
-
-# static fields
-.field public static final RESIZE_CLIP:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e07c72908c9a4dffb806c8a69cd4cf830cf84d11da54b2360226820ffb485cb
+size 428

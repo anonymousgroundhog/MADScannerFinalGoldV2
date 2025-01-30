@@ -1,19 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/Signed;
-.super Ljava/lang/Object;
-.source "Signed.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nonnegative;
-    when = .enum Ljavax/annotation/meta/When;->UNKNOWN:Ljavax/annotation/meta/When;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba80e72147abe30e3704c6f0fe043f44e6028a30e0ef152f0cba5472d57b3694
+size 591

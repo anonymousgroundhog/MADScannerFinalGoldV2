@@ -1,32 +1,3 @@
-.class public Lcom/brakefield/infinitestudio/image/svg/SVGParseException;
-.super Ljava/lang/RuntimeException;
-.source "SVGParseException.java"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 11
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
-
-    .line 15
-    invoke-direct {p0, p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
-
-    .line 19
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f6dfe1da1e179ef25df0cd218287b3d92ac55db54df57d96bdfc36b094a7e13
+size 810

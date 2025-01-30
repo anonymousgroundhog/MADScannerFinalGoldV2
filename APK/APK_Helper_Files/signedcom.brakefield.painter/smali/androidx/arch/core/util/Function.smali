@@ -1,26 +1,3 @@
-.class public interface abstract Landroidx/arch/core/util/Function;
-.super Ljava/lang/Object;
-.source "Function.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<I:",
-        "Ljava/lang/Object;",
-        "O:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TI;)TO;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9497dc55e70d564974c427cee0c772d55537b08ffcded915f203f4d8f3c04f2f
+size 574

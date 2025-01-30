@@ -1,34 +1,3 @@
-.class public final Landroidx/core/database/CursorWindowCompat;
-.super Ljava/lang/Object;
-.source "CursorWindowCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/core/database/CursorWindowCompat$Api28Impl;,
-        Landroidx/core/database/CursorWindowCompat$Api15Impl;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static create(Ljava/lang/String;J)Landroid/database/CursorWindow;
-    .locals 0
-
-    .line 45
-    invoke-static {p0, p1, p2}, Landroidx/core/database/CursorWindowCompat$Api28Impl;->createCursorWindow(Ljava/lang/String;J)Landroid/database/CursorWindow;
-
-    move-result-object p0
-
-    return-object p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:109ebadb0873824eb8c00cca04d67fd1ea4d1689a3bac48b52c993156ef5155b
+size 851

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/extractor/ogg/DefaultOggSeeker$1;
-.super Ljava/lang/Object;
-.source "DefaultOggSeeker.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/extractor/ogg/DefaultOggSeeker;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4c1166c1a6e00b502ef83567226f1ef83083eb8f6824016ebcbe62211fe656d
+size 409

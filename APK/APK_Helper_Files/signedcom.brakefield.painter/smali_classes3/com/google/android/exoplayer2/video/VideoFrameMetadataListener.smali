@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/video/VideoFrameMetadataListener;
-.super Ljava/lang/Object;
-.source "VideoFrameMetadataListener.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onVideoFrameAboutToBeRendered(JJLcom/google/android/exoplayer2/Format;Landroid/media/MediaFormat;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5a215f0fa9a03b5fdcb507ca6ad502413e1bf6e52b1efa9aa72c1820bd15ac4
+size 397

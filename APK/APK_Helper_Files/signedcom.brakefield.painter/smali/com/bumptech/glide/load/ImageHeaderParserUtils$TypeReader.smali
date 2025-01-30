@@ -1,24 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/ImageHeaderParserUtils$TypeReader;
-.super Ljava/lang/Object;
-.source "ImageHeaderParserUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/ImageHeaderParserUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "TypeReader"
-.end annotation
-
-
-# virtual methods
-.method public abstract getType(Lcom/bumptech/glide/load/ImageHeaderParser;)Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e62954aa0ecd5c8707de0eafecdc8909a330a8b6270d3bfcf125a3356f54ba54
+size 706

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/mediacodec/AsynchronousMediaCodecAdapter$1;
-.super Ljava/lang/Object;
-.source "AsynchronousMediaCodecAdapter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/mediacodec/AsynchronousMediaCodecAdapter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bed01471d196939f5ef9363760ba03c6bfd2cd2f36143dcd785607b4becbe0b1
+size 442

@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/UtilEjml$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lpabeles/concurrency/ConcurrencyOps$NewInstance;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final newInstance()Ljava/lang/Object;
-    .locals 1
-
-    new-instance v0, Lorg/ejml/data/DGrowArray;
-
-    invoke-direct {v0}, Lorg/ejml/data/DGrowArray;-><init>()V
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:691e90293d5732a9a0ad8f3fae817bed950f860d642ad3e450ccdc79143de322
+size 603

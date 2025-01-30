@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:drawable="@drawable/mtrl_ic_arrow_drop_up" />
-    <item android:drawable="@drawable/mtrl_ic_arrow_drop_down" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:5bcc577358263af7983bf7fb119540fbc2a049713522cb6b8f962da8cba359cb
+size 281

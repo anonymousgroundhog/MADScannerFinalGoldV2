@@ -1,25 +1,3 @@
-.class public final Lcom/google/common/cache/CacheLoader$InvalidCacheLoadException;
-.super Ljava/lang/RuntimeException;
-.source "CacheLoader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/cache/CacheLoader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "InvalidCacheLoadException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 254
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ee9fcd119ef63306c3d03db9d9dd5f58bc7538bcec13eabbbb307e03aa68fb4
+size 630

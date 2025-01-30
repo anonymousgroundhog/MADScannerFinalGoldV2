@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/FileManager$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/media/MediaScannerConnection$OnScanCompletedListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/infinitestudio/FileManager;->lambda$updateGallery$1(Ljava/lang/String;Landroid/net/Uri;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:89a63f358bde8c705a61783469162291f15a3e4a5195106b9fd4639bd6dc9690
+size 681

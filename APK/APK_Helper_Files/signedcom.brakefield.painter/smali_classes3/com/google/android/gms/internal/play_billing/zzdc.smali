@@ -1,14 +1,3 @@
-.class interface abstract Lcom/google/android/gms/internal/play_billing/zzdc;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract zza()Lcom/google/android/gms/internal/play_billing/zzdf;
-.end method
-
-.method public abstract zzb()Z
-.end method
-
-.method public abstract zzc()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:efd07ce05f1151b891a614dc55f9d222829c1446aacaa0c07966b160c2d4a79d
+size 356

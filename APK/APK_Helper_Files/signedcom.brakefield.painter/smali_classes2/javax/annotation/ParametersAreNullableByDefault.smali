@@ -1,24 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/ParametersAreNullableByDefault;
-.super Ljava/lang/Object;
-.source "ParametersAreNullableByDefault.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nullable;
-.end annotation
-
-.annotation runtime Ljavax/annotation/meta/TypeQualifierDefault;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:de982ec096cff6a70053ef5fc016761ae7b77241fdf609950026705a1a1cb630
+size 749

@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/measurement/AppMeasurement$OnEventListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement-impl@@21.2.2"
-
-# interfaces
-.implements Lcom/google/android/gms/measurement/internal/zzhf;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/measurement/AppMeasurement;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnEventListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d2e4afc35e29d26580447bdc6ce93c97a9658cca8c45fd52e130ba517b3e8e0
+size 669

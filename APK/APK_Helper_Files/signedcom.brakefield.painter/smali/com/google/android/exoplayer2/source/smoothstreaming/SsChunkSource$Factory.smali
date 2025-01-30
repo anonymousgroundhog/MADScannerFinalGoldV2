@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/smoothstreaming/SsChunkSource$Factory;
-.super Ljava/lang/Object;
-.source "SsChunkSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/smoothstreaming/SsChunkSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Factory"
-.end annotation
-
-
-# virtual methods
-.method public abstract createChunkSource(Lcom/google/android/exoplayer2/upstream/LoaderErrorThrower;Lcom/google/android/exoplayer2/source/smoothstreaming/manifest/SsManifest;ILcom/google/android/exoplayer2/trackselection/ExoTrackSelection;Lcom/google/android/exoplayer2/upstream/TransferListener;Lcom/google/android/exoplayer2/upstream/CmcdConfiguration;)Lcom/google/android/exoplayer2/source/smoothstreaming/SsChunkSource;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:04b92d51c6811e6ebb97a63036eb56949bb0a3ad096d61db7a4607f867bbd423
+size 901

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/content/res/FontResourcesParserCompat$FetchStrategy;
-.super Ljava/lang/Object;
-.source "FontResourcesParserCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/res/FontResourcesParserCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FetchStrategy"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f19ef7a9b3e711cd29d4445f7bfd082425e674ca0a8e4ea5da6c5b4432e021e
+size 684

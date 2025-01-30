@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/analytics/DefaultAnalyticsCollector$$ExternalSyntheticLambda18;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/util/ListenerSet$Event;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/analytics/AnalyticsListener$EventTime;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/analytics/AnalyticsListener$EventTime;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/analytics/DefaultAnalyticsCollector$$ExternalSyntheticLambda18;->f$0:Lcom/google/android/exoplayer2/analytics/AnalyticsListener$EventTime;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final invoke(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/analytics/DefaultAnalyticsCollector$$ExternalSyntheticLambda18;->f$0:Lcom/google/android/exoplayer2/analytics/AnalyticsListener$EventTime;
-
-    check-cast p1, Lcom/google/android/exoplayer2/analytics/AnalyticsListener;
-
-    invoke-static {v0, p1}, Lcom/google/android/exoplayer2/analytics/DefaultAnalyticsCollector;->lambda$onDrmKeysLoaded$62(Lcom/google/android/exoplayer2/analytics/AnalyticsListener$EventTime;Lcom/google/android/exoplayer2/analytics/AnalyticsListener;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d0b467a3586ecad5e0d9847228d4127d20f1194f5d3c1e47646461df4dd0b3a3
+size 1455

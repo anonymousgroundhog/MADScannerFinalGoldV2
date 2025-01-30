@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/SlideshowView$SlideshowListener;
-.super Ljava/lang/Object;
-.source "SlideshowView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/SlideshowView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "SlideshowListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPullDown(F)V
-.end method
-
-.method public abstract onStart()V
-.end method
-
-.method public abstract onStop()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:86102b33392ca7eb6596e71f60ad64abfaaba21aa2ea6f8980327bbad73f4c23
+size 590

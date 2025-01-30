@@ -1,6 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/Identifier;
-.super Ljava/lang/Object;
-.source "Identifier.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
+version https://git-lfs.github.com/spec/v1
+oid sha256:a3a7f646fcf7dc4bdf5bf17fe9015ec54a821e845ea9161e605951f5d74c20b8
+size 199

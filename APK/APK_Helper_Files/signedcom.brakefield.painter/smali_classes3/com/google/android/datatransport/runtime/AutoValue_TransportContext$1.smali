@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/AutoValue_TransportContext$1;
-.super Ljava/lang/Object;
-.source "AutoValue_TransportContext.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/AutoValue_TransportContext;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:686496447f6134f2080e23829f029c2d1064b0e95b0eac953c1b61602dc20eb2
+size 433

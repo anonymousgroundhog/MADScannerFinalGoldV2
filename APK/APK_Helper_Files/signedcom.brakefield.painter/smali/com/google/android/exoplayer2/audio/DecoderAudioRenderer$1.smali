@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/audio/DecoderAudioRenderer$1;
-.super Ljava/lang/Object;
-.source "DecoderAudioRenderer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/audio/DecoderAudioRenderer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:19d4f2f30ebb0dea408a0cccd1782461b0ebacb6a66c135f89f43672a2f9af6a
+size 405

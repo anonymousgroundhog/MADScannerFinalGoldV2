@@ -1,24 +1,3 @@
-.class public Lcom/brakefield/painter/zeroLatency/DebugConfig;
-.super Ljava/lang/Object;
-.source "DebugConfig.java"
-
-
-# static fields
-.field static final DEBUG:Z = false
-
-.field static final DEBUG_LATENCY:Z = false
-
-.field static final DEBUG_ROTATION:Z = false
-
-.field static final TAG_ZL:Ljava/lang/String; = "ZeroLatency"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 3
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b23aa5e25ad9191a3cbcea506e59017f2f5d497bba9eb9e7aab40e65cf0aa38f
+size 490

@@ -1,13 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/extractor/avi/AviChunk;
-.super Ljava/lang/Object;
-.source "AviChunk.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getType()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d9a2c82e1483d608bdf732df9c04d1528f5e9e2946cdce67a3ee280e42b0178a
+size 273

@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/extractor/ogg/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:98c6b4a3ed76f6a99f103915bacdc7d8df842ccebb336a8b602db01b8e3e38b2
+size 149

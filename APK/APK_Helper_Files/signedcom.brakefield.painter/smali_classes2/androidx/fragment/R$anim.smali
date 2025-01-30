@@ -1,27 +1,3 @@
-.class public final Landroidx/fragment/R$anim;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/fragment/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "anim"
-.end annotation
-
-
-# static fields
-.field public static final fragment_fast_out_extra_slow_in:I = 0x7f010022
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:469c6bf2ca1f9d6b8e79c0dc108a7ed8fa8d3c36fa09eb26f3397183290c364a
+size 548

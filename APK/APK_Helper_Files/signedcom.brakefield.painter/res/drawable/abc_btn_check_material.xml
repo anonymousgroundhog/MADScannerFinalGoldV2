@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:drawable="@null" />
-    <item android:drawable="@null" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:56d24398bb1040ef3754a6c39bb302ecb139192f0d33da73cc78db75277b3d2f
+size 227

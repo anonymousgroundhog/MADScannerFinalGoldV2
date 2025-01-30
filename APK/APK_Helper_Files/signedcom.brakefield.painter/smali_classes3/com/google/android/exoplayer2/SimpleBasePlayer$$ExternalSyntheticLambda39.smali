@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda39;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/util/ListenerSet$Event;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/SimpleBasePlayer$State;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda39;->f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final invoke(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda39;->f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-    check-cast p1, Lcom/google/android/exoplayer2/Player$Listener;
-
-    invoke-static {v0, p1}, Lcom/google/android/exoplayer2/SimpleBasePlayer;->lambda$updateStateAndInformListeners$60(Lcom/google/android/exoplayer2/SimpleBasePlayer$State;Lcom/google/android/exoplayer2/Player$Listener;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d2f04f4b6993a5e0a2801d05613e93542f7ca2c527753a942d6147f63431c2ae
+size 1294

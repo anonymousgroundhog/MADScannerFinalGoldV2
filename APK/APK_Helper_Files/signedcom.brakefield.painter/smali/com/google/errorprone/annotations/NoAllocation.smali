@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/NoAllocation;
-.super Ljava/lang/Object;
-.source "NoAllocation.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:27961fea6cf6e63829077c2b88dae7915500fb6d564ecf2a3d31525b3f56d6bf
+size 472

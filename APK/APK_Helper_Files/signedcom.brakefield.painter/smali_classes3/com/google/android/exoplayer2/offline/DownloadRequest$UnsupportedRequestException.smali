@@ -1,25 +1,3 @@
-.class public Lcom/google/android/exoplayer2/offline/DownloadRequest$UnsupportedRequestException;
-.super Ljava/io/IOException;
-.source "DownloadRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/offline/DownloadRequest;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "UnsupportedRequestException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 48
-    invoke-direct {p0}, Ljava/io/IOException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:318426d62312a2dcc92fdec17a27b8ca4b1d2dc506f81023f5847dbcdd7db65e
+size 612

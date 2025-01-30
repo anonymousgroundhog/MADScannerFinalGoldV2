@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/source/ProgressiveMediaPeriod$Listener;
-.super Ljava/lang/Object;
-.source "ProgressiveMediaPeriod.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/ProgressiveMediaPeriod;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSourceInfoRefreshed(JZZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a501fa5ffca2146edef9116f8ab0305c737c56a0c7292ac265918b23e4395baf
+size 518

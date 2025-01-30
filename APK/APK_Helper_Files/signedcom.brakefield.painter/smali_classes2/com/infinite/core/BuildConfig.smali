@@ -1,22 +1,3 @@
-.class public final Lcom/infinite/core/BuildConfig;
-.super Ljava/lang/Object;
-.source "BuildConfig.java"
-
-
-# static fields
-.field public static final BUILD_TYPE:Ljava/lang/String; = "release"
-
-.field public static final DEBUG:Z = false
-
-.field public static final LIBRARY_PACKAGE_NAME:Ljava/lang/String; = "com.infinite.core"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 6
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5f918adabdb3d39198374f46a484e3e7ba873b7b2407acf16abf8993de1eb160
+size 492

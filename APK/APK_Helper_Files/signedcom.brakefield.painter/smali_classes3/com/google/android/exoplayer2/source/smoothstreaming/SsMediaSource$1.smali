@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/smoothstreaming/SsMediaSource$1;
-.super Ljava/lang/Object;
-.source "SsMediaSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/smoothstreaming/SsMediaSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ffa03114295ac8022b174d8a7259e16da4684256032fd0f5ec44108cae30d219
+size 418

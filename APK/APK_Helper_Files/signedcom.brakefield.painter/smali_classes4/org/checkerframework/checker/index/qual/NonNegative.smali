@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/NonNegative;
-.super Ljava/lang/Object;
-.source "NonNegative.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/index/qual/GTENegativeOne;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a9fabbe7977c2870dc80e344eac5dbd4ca036f98a6391e044cee8c4744b043ae
+size 924

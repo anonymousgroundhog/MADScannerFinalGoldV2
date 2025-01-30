@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/PurchasesUpdatedListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract onPurchasesUpdated(Lcom/android/billingclient/api/BillingResult;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/billingclient/api/BillingResult;",
-            "Ljava/util/List<",
-            "Lcom/android/billingclient/api/Purchase;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:faafbd19f72fa99734bcdc5f8115af05a4b6284eda012458829237372cf676cd
+size 592

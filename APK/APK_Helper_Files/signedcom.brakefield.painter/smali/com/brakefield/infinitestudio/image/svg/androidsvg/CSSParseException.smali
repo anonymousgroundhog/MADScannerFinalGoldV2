@@ -1,23 +1,3 @@
-.class public Lcom/brakefield/infinitestudio/image/svg/androidsvg/CSSParseException;
-.super Ljava/lang/Exception;
-.source "CSSParseException.java"
-
-
-# direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:51efd085cfb4b4bea9794d579ff5b7f7ac016440446d5840284fd57e7667ddcd
+size 581

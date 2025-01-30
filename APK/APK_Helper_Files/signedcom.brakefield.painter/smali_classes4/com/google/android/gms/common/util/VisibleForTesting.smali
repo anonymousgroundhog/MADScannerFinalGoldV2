@@ -1,6 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/common/util/VisibleForTesting;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
+version https://git-lfs.github.com/spec/v1
+oid sha256:c09f558c3be2786c94d79dd25a1f09cac7cd25f8244658211bf376a73156522c
+size 249

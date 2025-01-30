@@ -1,29 +1,3 @@
-.class public final Landroidx/loader/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/loader/R$attr;,
-        Landroidx/loader/R$color;,
-        Landroidx/loader/R$dimen;,
-        Landroidx/loader/R$drawable;,
-        Landroidx/loader/R$id;,
-        Landroidx/loader/R$integer;,
-        Landroidx/loader/R$layout;,
-        Landroidx/loader/R$string;,
-        Landroidx/loader/R$style;,
-        Landroidx/loader/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd16416463c7c81581499a73535b161549b5ce7e1579cab0c47189b5472841c6
+size 682

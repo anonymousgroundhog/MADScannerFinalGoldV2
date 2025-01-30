@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/CanonicalNameAndBinaryName;
-.super Ljava/lang/Object;
-.source "CanonicalNameAndBinaryName.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/CanonicalName;,
-        Lorg/checkerframework/checker/signature/qual/DotSeparatedIdentifiers;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a03c89858ef52a2ae0296a5e258cf57444dfc98617b85ad8ba668edbb37f572
+size 1040

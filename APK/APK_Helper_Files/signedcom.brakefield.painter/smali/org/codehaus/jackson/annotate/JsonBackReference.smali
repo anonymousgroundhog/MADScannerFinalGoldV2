@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/codehaus/jackson/annotate/JsonBackReference;
-.super Ljava/lang/Object;
-.source "JsonBackReference.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lorg/codehaus/jackson/annotate/JsonBackReference;
-        value = "defaultReference"
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/codehaus/jackson/annotate/JacksonAnnotation;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa022b6605da2557eaf4d4d76f4796bf3c9853cd649b24114e827dfca796fdc3
+size 1052

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/util/SystemHandlerWrapper$1;
-.super Ljava/lang/Object;
-.source "SystemHandlerWrapper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/util/SystemHandlerWrapper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:09e3fa5a2424ab1769879b7e24b85d13da233fa98274be5fa5e4940023bbfab4
+size 403

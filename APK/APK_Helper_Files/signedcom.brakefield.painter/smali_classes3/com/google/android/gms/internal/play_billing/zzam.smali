@@ -1,17 +1,3 @@
-.class final Lcom/google/android/gms/internal/play_billing/zzam;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# static fields
-.field public static final synthetic zza:I
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Llibcore/io/Memory;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a2d18acbda409eaf225d4269fcf3e03bd17f55be53476f00e007cc026be1862
+size 345

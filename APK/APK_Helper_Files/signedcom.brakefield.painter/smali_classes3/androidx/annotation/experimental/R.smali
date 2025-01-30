@@ -1,12 +1,3 @@
-.class public final Landroidx/annotation/experimental/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:92382b3cd9f6eabf40b0ee1087443a419666b4de5f64b885a1449d068bd501dd
+size 238

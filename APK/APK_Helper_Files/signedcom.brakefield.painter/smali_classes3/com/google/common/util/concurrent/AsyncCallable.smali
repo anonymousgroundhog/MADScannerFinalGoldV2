@@ -1,35 +1,3 @@
-.class public interface abstract Lcom/google/common/util/concurrent/AsyncCallable;
-.super Ljava/lang/Object;
-.source "AsyncCallable.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract call()Lcom/google/common/util/concurrent/ListenableFuture;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "TV;>;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f035205b0221fb099b31e4cba1b63613ce2becc54bd4f9dce7291a148d6d08e5
+size 886

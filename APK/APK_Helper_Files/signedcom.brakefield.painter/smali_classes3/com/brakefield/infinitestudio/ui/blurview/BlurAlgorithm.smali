@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/blurview/BlurAlgorithm;
-.super Ljava/lang/Object;
-.source "BlurAlgorithm.java"
-
-
-# virtual methods
-.method public abstract blur(Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract canModifyBitmap()Z
-.end method
-
-.method public abstract destroy()V
-.end method
-
-.method public abstract getSupportedBitmapConfig()Landroid/graphics/Bitmap$Config;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:38710d3373e8eef0681b2be8b1d8d80912e6a9056db6e7916f946b2417c45e00
+size 460

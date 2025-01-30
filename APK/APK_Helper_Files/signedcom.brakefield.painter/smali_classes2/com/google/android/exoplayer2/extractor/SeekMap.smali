@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/extractor/SeekMap;
-.super Ljava/lang/Object;
-.source "SeekMap.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/extractor/SeekMap$SeekPoints;,
-        Lcom/google/android/exoplayer2/extractor/SeekMap$Unseekable;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getDurationUs()J
-.end method
-
-.method public abstract getSeekPoints(J)Lcom/google/android/exoplayer2/extractor/SeekMap$SeekPoints;
-.end method
-
-.method public abstract isSeekable()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b75e2ab51de6b71fd4542d97d5db9b08d394f911e68a59d91c7613bc3a0eac66
+size 674

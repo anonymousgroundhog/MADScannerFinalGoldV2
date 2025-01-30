@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/PolyIndex;
-.super Ljava/lang/Object;
-.source "PolyIndex.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/PolymorphicQualifier;
-    value = Lorg/checkerframework/checker/index/qual/UpperBoundUnknown;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8cf287e05a7bd69de75b84029c5fed05824f75b396d60b6f05d55343bdee14b
+size 918

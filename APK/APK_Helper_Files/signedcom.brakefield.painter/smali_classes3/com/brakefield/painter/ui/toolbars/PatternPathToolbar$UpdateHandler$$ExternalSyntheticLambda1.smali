@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/PatternPathToolbar$UpdateHandler$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/PatternPathToolbarBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/PatternPathToolbarBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/PatternPathToolbar$UpdateHandler$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/databinding/PatternPathToolbarBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/PatternPathToolbar$UpdateHandler$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/databinding/PatternPathToolbarBinding;
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/toolbars/PatternPathToolbar$UpdateHandler;->lambda$new$1(Lcom/brakefield/painter/databinding/PatternPathToolbarBinding;Ljava/lang/Integer;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:23668bff5b293aec4d7c80d7ebaf1669c527fd4ea05ca3f329d6f47d39a2eb13
+size 1332

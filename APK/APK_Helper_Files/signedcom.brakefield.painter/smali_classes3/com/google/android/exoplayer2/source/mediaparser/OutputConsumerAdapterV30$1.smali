@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/mediaparser/OutputConsumerAdapterV30$1;
-.super Ljava/lang/Object;
-.source "OutputConsumerAdapterV30.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/mediaparser/OutputConsumerAdapterV30;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:32c34b53fb328bbc1dbcb3c711d18d1db9c9e4b7eed30974d7dbb04f368f8bb6
+size 443

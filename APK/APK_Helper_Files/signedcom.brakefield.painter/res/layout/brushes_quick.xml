@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
-        <include android:layout_width="@dimen/item_card_width" android:layout_height="fill_parent" layout="@layout/fragment_recyclerview" />
-    </FrameLayout>
-</FrameLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:19636d001e383ccfa9b5ba1217dfc33dcc16a0e01c55579feed006f86a85bba6
+size 519

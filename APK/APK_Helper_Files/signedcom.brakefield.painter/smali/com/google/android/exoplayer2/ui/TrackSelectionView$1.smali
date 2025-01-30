@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/ui/TrackSelectionView$1;
-.super Ljava/lang/Object;
-.source "TrackSelectionView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ui/TrackSelectionView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1264dad63df2d089dbc8d4935f8be691a5276fc917ebeb112f4fe55b29553fa3
+size 393

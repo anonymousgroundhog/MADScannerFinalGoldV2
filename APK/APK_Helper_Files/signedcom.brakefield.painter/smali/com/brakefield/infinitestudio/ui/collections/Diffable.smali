@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/collections/Diffable;
-.super Ljava/lang/Object;
-.source "Diffable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract id()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9fd521cc3dc1f3cb33f8ee09ecf626973e7ea2ea5e7cabef2def1459de4af6b6
+size 527

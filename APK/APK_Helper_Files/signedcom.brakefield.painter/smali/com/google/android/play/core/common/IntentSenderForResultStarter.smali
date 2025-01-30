@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/common/IntentSenderForResultStarter;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# virtual methods
-.method public abstract startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/IntentSender$SendIntentException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a6c8596ab75b3f5830f6290dbe7c6006f90ca9bdd724f8a05c80d5f6efab7879
+size 497

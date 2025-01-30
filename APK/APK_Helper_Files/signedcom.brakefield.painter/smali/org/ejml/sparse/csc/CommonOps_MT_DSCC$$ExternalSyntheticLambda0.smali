@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/sparse/csc/CommonOps_MT_DSCC$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lpabeles/concurrency/ConcurrencyOps$NewInstance;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final newInstance()Ljava/lang/Object;
-    .locals 1
-
-    new-instance v0, Lorg/ejml/sparse/csc/mult/Workspace_MT_DSCC;
-
-    invoke-direct {v0}, Lorg/ejml/sparse/csc/mult/Workspace_MT_DSCC;-><init>()V
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:342930372940c408eb335c44e1ede6b73577647c2bd634a6526b179b04f9c262
+size 659

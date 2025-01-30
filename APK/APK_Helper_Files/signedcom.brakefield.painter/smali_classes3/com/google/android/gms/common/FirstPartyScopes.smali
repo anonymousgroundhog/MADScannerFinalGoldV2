@@ -1,17 +1,3 @@
-.class public Lcom/google/android/gms/common/FirstPartyScopes;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# static fields
-.field public static final GAMES_1P:Ljava/lang/String; = "https://www.googleapis.com/auth/games.firstparty"
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4943ce26912544cbc30a92fb615b63aff2bb360bbe94daab2850e4417c12dd05
+size 434

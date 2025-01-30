@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;
-.super Ljava/lang/Object;
-.source "CircularRevealHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/circularreveal/CircularRevealHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Delegate"
-.end annotation
-
-
-# virtual methods
-.method public abstract actualDraw(Landroid/graphics/Canvas;)V
-.end method
-
-.method public abstract actualIsOpaque()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:44322b0a5cd0f37c53fc92166449c0674be62abe0b17d3f74e303acde8f0e8b5
+size 597

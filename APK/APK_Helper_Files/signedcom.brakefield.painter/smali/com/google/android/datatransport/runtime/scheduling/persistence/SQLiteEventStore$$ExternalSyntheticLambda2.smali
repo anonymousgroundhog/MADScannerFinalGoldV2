@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$Producer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final produce()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;
-
-    invoke-static {v0}, Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore;->$r8$lambda$pZuvEfO_xLfFaI7wN1aaaWpYHdo(Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;)Landroid/database/sqlite/SQLiteDatabase;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5add38cefc23465ab5cd68311cb42b0b36e6a8dfc4b7a35b5ec567d9b427f609
+size 1540

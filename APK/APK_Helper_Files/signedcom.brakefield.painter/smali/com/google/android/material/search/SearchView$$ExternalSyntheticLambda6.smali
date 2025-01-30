@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/material/search/SearchView;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchView;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda6;->f$0:Lcom/google/android/material/search/SearchView;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda6;->f$0:Lcom/google/android/material/search/SearchView;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/material/search/SearchView;->lambda$setupWithSearchBar$7$com-google-android-material-search-SearchView(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:70d4844adeb252d5bf8b170a6a2a68da7e030af8519063d5b31d7c184938d0ec
+size 1127

@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/appcompat/widget/Toolbar$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/appcompat/widget/Toolbar;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/appcompat/widget/Toolbar;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/appcompat/widget/Toolbar$$ExternalSyntheticLambda1;->f$0:Landroidx/appcompat/widget/Toolbar;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/Toolbar$$ExternalSyntheticLambda1;->f$0:Landroidx/appcompat/widget/Toolbar;
-
-    invoke-virtual {v0}, Landroidx/appcompat/widget/Toolbar;->collapseActionView()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8710b8ac69d08030895d1f8c8673912c1eacc7431b1ae0f99c7484f1c09b6cb8
+size 915

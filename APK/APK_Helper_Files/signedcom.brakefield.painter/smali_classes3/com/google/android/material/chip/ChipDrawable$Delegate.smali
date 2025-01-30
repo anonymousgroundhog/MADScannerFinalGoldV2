@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/chip/ChipDrawable$Delegate;
-.super Ljava/lang/Object;
-.source "ChipDrawable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/chip/ChipDrawable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Delegate"
-.end annotation
-
-
-# virtual methods
-.method public abstract onChipDrawableSizeChange()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1e2a3b5085502820774243b45f9711a12caf87944c52009708a9a4ca84c5cc1
+size 487

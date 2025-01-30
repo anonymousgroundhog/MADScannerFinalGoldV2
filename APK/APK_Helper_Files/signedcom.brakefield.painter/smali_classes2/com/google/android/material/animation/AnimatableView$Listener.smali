@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/animation/AnimatableView$Listener;
-.super Ljava/lang/Object;
-.source "AnimatableView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/animation/AnimatableView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAnimationEnd()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb958a75c567645e2fbbc76b061a22b5dcbf9f15179ab9a56994dc2acf8648cb
+size 493

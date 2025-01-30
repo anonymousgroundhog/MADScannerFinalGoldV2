@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$TreeSelectionMode;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TreeSelectionMode"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5d7b817225e45f550fdfd1aee45a9578096cb8b3375aae6068f6498a6067aeb
+size 487

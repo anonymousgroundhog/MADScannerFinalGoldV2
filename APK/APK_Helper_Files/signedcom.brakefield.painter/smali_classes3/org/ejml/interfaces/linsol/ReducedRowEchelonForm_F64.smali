@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/linsol/ReducedRowEchelonForm_F64;
-.super Ljava/lang/Object;
-.source "ReducedRowEchelonForm_F64.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/linsol/ReducedRowEchelonForm;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/linsol/ReducedRowEchelonForm<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract setTolerance(D)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a2927dfc6ba10578eecbdac9f5e76afd7dd8292615f504727b23aadccdc1d7cd
+size 577

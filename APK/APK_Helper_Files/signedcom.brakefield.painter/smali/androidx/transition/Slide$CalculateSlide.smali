@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/transition/Slide$CalculateSlide;
-.super Ljava/lang/Object;
-.source "Slide.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Slide;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "CalculateSlide"
-.end annotation
-
-
-# virtual methods
-.method public abstract getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
-.end method
-
-.method public abstract getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3d59bec46a3d7a0f8d13f058c8106ef982fdae62c0ce53ef66eaa7a11c36518f
+size 564

@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$ScrollState;
-.super Ljava/lang/Object;
-.source "HideBottomViewOnScrollBehavior.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ScrollState"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fd747f288a11e733c20a3b02e8238620612823af047576dac2d0e4334b882a59
+size 543

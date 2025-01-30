@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/offline/DownloadHelper$Callback;
-.super Ljava/lang/Object;
-.source "DownloadHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/offline/DownloadHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Callback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPrepareError(Lcom/google/android/exoplayer2/offline/DownloadHelper;Ljava/io/IOException;)V
-.end method
-
-.method public abstract onPrepared(Lcom/google/android/exoplayer2/offline/DownloadHelper;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9015ace4dee921c2fb97c60b9f521c90e7c0ee3b04472d71d26b4495dd8452a2
+size 673

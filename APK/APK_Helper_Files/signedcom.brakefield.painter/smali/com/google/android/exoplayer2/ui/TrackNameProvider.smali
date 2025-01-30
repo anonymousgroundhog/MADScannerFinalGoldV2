@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ui/TrackNameProvider;
-.super Ljava/lang/Object;
-.source "TrackNameProvider.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getTrackName(Lcom/google/android/exoplayer2/Format;)Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:663a70adbcd48b5445bf7fc9e0f1ddc9b8fe162989d2d81f7fdadfac29fd5315
+size 347

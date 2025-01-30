@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/widget/NestedScrollView$OnScrollChangeListener;
-.super Ljava/lang/Object;
-.source "NestedScrollView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/widget/NestedScrollView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnScrollChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onScrollChange(Landroidx/core/widget/NestedScrollView;IIII)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:79608956c5ff32dea73484698c6b7af63e3d8253cbeee14bb2b808d12a42e190
+size 536

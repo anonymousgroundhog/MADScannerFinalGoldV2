@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/api/client/auth/oauth2/AuthorizationCodeFlow$CredentialCreatedListener;
-.super Ljava/lang/Object;
-.source "AuthorizationCodeFlow.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/api/client/auth/oauth2/AuthorizationCodeFlow;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "CredentialCreatedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCredentialCreated(Lcom/google/api/client/auth/oauth2/Credential;Lcom/google/api/client/auth/oauth2/TokenResponse;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:772086826fd6421555c0ff73796328182342f0f0cd4b7b1f5d965c9eca196f5c
+size 772

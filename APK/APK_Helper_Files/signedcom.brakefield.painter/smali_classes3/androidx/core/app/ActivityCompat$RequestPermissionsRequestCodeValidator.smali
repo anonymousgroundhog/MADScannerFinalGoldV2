@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/app/ActivityCompat$RequestPermissionsRequestCodeValidator;
-.super Ljava/lang/Object;
-.source "ActivityCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/ActivityCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RequestPermissionsRequestCodeValidator"
-.end annotation
-
-
-# virtual methods
-.method public abstract validateRequestPermissionsRequestCode(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a664292bf5ec67408856623ec1e3e361e12acd433325e1021849e4c592ce8f0
+size 537

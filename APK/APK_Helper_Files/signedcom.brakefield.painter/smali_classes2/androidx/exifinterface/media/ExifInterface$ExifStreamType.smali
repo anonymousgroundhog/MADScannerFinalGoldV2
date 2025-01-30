@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/exifinterface/media/ExifInterface$ExifStreamType;
-.super Ljava/lang/Object;
-.source "ExifInterface.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/exifinterface/media/ExifInterface;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ExifStreamType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1dbc6d6f04b6f0e53d10a85fdc5e43505343adc8629f8169f35437281eaa744
+size 656

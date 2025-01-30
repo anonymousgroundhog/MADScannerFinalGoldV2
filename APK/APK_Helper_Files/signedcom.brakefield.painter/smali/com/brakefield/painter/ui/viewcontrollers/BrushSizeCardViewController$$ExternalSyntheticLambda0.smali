@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/BrushSizeCardViewController$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/UI$OnDisplayProgressValue;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getDisplayValue(F)Ljava/lang/String;
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/painter/ui/viewcontrollers/BrushSizeCardViewController;->lambda$getView$0(F)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:73e73358152c90d9b9f62d872c85b4ae13c1ed763cd2eb4e11a427cf1e895cea
+size 723

@@ -1,22 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator$ScreenDimensions;
-.super Ljava/lang/Object;
-.source "MemorySizeCalculator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "ScreenDimensions"
-.end annotation
-
-
-# virtual methods
-.method public abstract getHeightPixels()I
-.end method
-
-.method public abstract getWidthPixels()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b0d141cd78c238f123d78fb040c3483e1cb735dfe9161d2b13fd3670b4bf82b
+size 574

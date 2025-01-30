@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/google/android/datatransport/runtime/TransportImpl$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/datatransport/TransportScheduleCallback;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onSchedule(Ljava/lang/Exception;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/datatransport/runtime/TransportImpl;->lambda$send$0(Ljava/lang/Exception;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d2c70a27cb7ec7693ce7307c741872d6e3b864ddd87f7476046ca9729c4e3076
+size 659

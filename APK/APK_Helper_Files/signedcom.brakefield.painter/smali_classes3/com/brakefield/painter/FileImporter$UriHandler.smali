@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/FileImporter$UriHandler;
-.super Ljava/lang/Object;
-.source "FileImporter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/FileImporter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "UriHandler"
-.end annotation
-
-
-# virtual methods
-.method public abstract handleUri(Lcom/brakefield/painter/FileImporter$ImportUri;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7375112a22f16f3d56c33f5eac1bf3afe7639ececdfd7ade5e678f7e90c3f2b9
+size 503

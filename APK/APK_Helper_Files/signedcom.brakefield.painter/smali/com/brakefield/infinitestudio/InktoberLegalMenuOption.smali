@@ -1,14 +1,3 @@
-.class public abstract Lcom/brakefield/infinitestudio/InktoberLegalMenuOption;
-.super Lcom/brakefield/infinitestudio/MenuOption;
-.source "InktoberLegalMenuOption.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 3
-    invoke-direct {p0}, Lcom/brakefield/infinitestudio/MenuOption;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f15ad695093c807f86aa37fa4878761e7cd7ded73dc1886372118336ef355536
+size 358

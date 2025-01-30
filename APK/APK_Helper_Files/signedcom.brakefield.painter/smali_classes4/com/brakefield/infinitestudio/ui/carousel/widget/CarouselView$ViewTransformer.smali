@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/carousel/widget/CarouselView$ViewTransformer;
-.super Ljava/lang/Object;
-.source "CarouselView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/carousel/widget/CarouselView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ViewTransformer"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAttach(Lcom/brakefield/infinitestudio/ui/carousel/manager/CarouselLayoutManager;)V
-.end method
-
-.method public abstract transform(Landroid/view/View;F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbd39d14363369ade6df20effcc6d8a6e104f3f2b7ccc1275d5d64fba3fd99da
+size 660

@@ -1,23 +1,3 @@
-.class public interface abstract Landroidx/core/view/NestedScrollingParent2;
-.super Ljava/lang/Object;
-.source "NestedScrollingParent2.java"
-
-# interfaces
-.implements Landroidx/core/view/NestedScrollingParent;
-
-
-# virtual methods
-.method public abstract onNestedPreScroll(Landroid/view/View;II[II)V
-.end method
-
-.method public abstract onNestedScroll(Landroid/view/View;IIIII)V
-.end method
-
-.method public abstract onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
-.end method
-
-.method public abstract onStartNestedScroll(Landroid/view/View;Landroid/view/View;II)Z
-.end method
-
-.method public abstract onStopNestedScroll(Landroid/view/View;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d580cf6d30b7d4888f1eee4531f1dc6221a7cfb7988cd0daed77cba2346c816
+size 672

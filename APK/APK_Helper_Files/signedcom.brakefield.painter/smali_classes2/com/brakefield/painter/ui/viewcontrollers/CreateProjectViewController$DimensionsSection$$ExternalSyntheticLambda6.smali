@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection;
-
-    check-cast p1, Ljava/lang/String;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$DimensionsSection;->lambda$new$2$com-brakefield-painter-ui-viewcontrollers-CreateProjectViewController$DimensionsSection(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d5cab5311f7a695265e94687264fc1652ec3b01fdd92fed2f3c195c51e33c9b
+size 1545

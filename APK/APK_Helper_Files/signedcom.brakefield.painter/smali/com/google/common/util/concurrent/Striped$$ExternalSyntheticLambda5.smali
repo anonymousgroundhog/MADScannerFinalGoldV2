@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/common/util/concurrent/Striped$$ExternalSyntheticLambda5;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/common/base/Supplier;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
-
-    new-instance v0, Lcom/google/common/util/concurrent/Striped$PaddedLock;
-
-    invoke-direct {v0}, Lcom/google/common/util/concurrent/Striped$PaddedLock;-><init>()V
-
-    check-cast v0, Ljava/util/concurrent/locks/Lock;
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e30a79c12cbe4ef2a0bb211c3d1248aac1c0230d2f019fbc6789429c0b4d6091
+size 714

@@ -1,35 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/NegativeIndexFor;
-.super Ljava/lang/Object;
-.source "NegativeIndexFor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/index/qual/SearchIndexFor;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-    .annotation runtime Lorg/checkerframework/framework/qual/JavaExpression;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4846679aaee5e36901e235b80cb11951d171fe0b2f4a0cfb70d77b6108404a1d
+size 1114

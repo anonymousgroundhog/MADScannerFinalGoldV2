@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/api/client/auth/oauth/OAuthSigner;
-.super Ljava/lang/Object;
-.source "OAuthSigner.java"
-
-
-# virtual methods
-.method public abstract computeSignature(Ljava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/GeneralSecurityException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getSignatureMethod()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:45ead0d43da4d6b4853ee457e16b0dd326370e52e4fb1a7ddcacd10b34bb3e23
+size 471

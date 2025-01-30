@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/CompositeSequenceableLoaderFactory;
-.super Ljava/lang/Object;
-.source "CompositeSequenceableLoaderFactory.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public varargs abstract createCompositeSequenceableLoader([Lcom/google/android/exoplayer2/source/SequenceableLoader;)Lcom/google/android/exoplayer2/source/SequenceableLoader;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c4c850c30efeb43324e40664284e00f3edfe80c400b6c7f276014c43ca2caace
+size 473

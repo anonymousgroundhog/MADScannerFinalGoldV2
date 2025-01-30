@@ -1,21 +1,3 @@
-.class public final Lcom/google/android/gms/common/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/R$integer;,
-        Lcom/google/android/gms/common/R$string;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbe01ee85478ed999d8a93e7281b8972c4ca03f7267961ade900f93be378b3f5
+size 440

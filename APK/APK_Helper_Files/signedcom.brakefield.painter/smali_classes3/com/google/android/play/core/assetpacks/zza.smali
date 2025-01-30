@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/assetpacks/zza;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# virtual methods
-.method public abstract zza()Lcom/google/android/play/core/assetpacks/AssetPackManager;
-.end method
-
-.method public abstract zzb(Lcom/google/android/play/core/assetpacks/AssetPackExtractionService;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3905dd7c91b8666b1709dc775f2b747d75dd610306727fd9dbdbb500b0bff0ee
+size 384

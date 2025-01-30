@@ -1,29 +1,3 @@
-.class public final Lcom/brakefield/painter/R$mipmap;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "mipmap"
-.end annotation
-
-
-# static fields
-.field public static final icon:I = 0x7f0f0000
-
-.field public static final icon_round:I = 0x7f0f0001
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c04f7b1eebe2fd7baa5d1c92243ef85fc99f718be411f084d6f5c7d1d8d3615d
+size 589

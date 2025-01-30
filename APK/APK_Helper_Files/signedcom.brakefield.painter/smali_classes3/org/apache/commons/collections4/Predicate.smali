@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/Predicate;
-.super Ljava/lang/Object;
-.source "Predicate.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract evaluate(Ljava/lang/Object;)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ef708cf674cef36bab4a274c1d3d0bba360bd8d661068baa14e01c85c1f3a149
+size 524

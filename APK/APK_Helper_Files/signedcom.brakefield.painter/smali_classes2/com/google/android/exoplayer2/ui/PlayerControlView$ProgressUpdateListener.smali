@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ui/PlayerControlView$ProgressUpdateListener;
-.super Ljava/lang/Object;
-.source "PlayerControlView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ui/PlayerControlView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ProgressUpdateListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onProgressUpdate(JJ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1473db25ccee0666822405e26b59d3696b650c279d3e8d21b1a9904965978361
+size 524

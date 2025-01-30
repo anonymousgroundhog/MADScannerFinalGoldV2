@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/extractor/mkv/DefaultEbmlReader$1;
-.super Ljava/lang/Object;
-.source "DefaultEbmlReader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/extractor/mkv/DefaultEbmlReader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc4f6bcdc70afd8fd41d72887fafd757ef17a4d0d549fd02554fe5c9a2d4ab96
+size 412

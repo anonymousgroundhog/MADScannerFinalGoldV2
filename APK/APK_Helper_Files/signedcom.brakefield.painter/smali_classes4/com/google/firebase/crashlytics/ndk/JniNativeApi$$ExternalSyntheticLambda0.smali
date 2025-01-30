@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/firebase/crashlytics/ndk/JniNativeApi$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/io/FilenameFilter;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/google/firebase/crashlytics/ndk/JniNativeApi;->lambda$static$0(Ljava/io/File;Ljava/lang/String;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba32930b4bf3f783e2267f6b0ffb420ff467efbf9958228f1c3784bb5a39405a
+size 653

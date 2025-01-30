@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/constants/ListAppsActivityContract;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# static fields
-.field public static final ACTION_APPS:Ljava/lang/String; = "com.google.android.gms.plus.action.MANAGE_APPS"
-
-.field public static final EXTRA_PRESELECTED_FILTER:Ljava/lang/String; = "com.google.android.gms.extras.PRESELECTED_FILTER"
-
-.field public static final PRESELECTED_FILTER_FITNESS_APPS:I = 0x2
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b04c3dd547b79f22cd2141f4296f30ebb63ada4a1f2522a686f482c1eb70ea8
+size 519

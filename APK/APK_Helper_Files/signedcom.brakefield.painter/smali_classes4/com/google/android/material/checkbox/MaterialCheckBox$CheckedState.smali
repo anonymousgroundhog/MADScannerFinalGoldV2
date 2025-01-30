@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/checkbox/MaterialCheckBox$CheckedState;
-.super Ljava/lang/Object;
-.source "MaterialCheckBox.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/checkbox/MaterialCheckBox;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "CheckedState"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8a0eaf4f8d4bd2368d329e647f7f4f6d9bba111560d5262475dcbc8f7ebe7f5
+size 677

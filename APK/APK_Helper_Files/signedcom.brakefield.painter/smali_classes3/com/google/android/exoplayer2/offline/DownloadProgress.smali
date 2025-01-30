@@ -1,25 +1,3 @@
-.class public Lcom/google/android/exoplayer2/offline/DownloadProgress;
-.super Ljava/lang/Object;
-.source "DownloadProgress.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# instance fields
-.field public volatile bytesDownloaded:J
-
-.field public volatile percentDownloaded:F
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 29
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0603155ce06b56994c0868d77250cfb16527ede66114e5c1ba2b592fb26983ff
+size 476

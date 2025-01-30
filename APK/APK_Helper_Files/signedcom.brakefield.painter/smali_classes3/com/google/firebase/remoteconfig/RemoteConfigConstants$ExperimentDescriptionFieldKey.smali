@@ -1,27 +1,3 @@
-.class public interface abstract annotation Lcom/google/firebase/remoteconfig/RemoteConfigConstants$ExperimentDescriptionFieldKey;
-.super Ljava/lang/Object;
-.source "RemoteConfigConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/remoteconfig/RemoteConfigConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ExperimentDescriptionFieldKey"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final EXPERIMENT_ID:Ljava/lang/String; = "experimentId"
-
-.field public static final VARIANT_ID:Ljava/lang/String; = "variantId"
+version https://git-lfs.github.com/spec/v1
+oid sha256:4014b0302351537248a8d0c6b5439e847d18940e342a2142473aaf7ee3ef4050
+size 885

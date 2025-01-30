@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/StandardTable$1;
-.super Ljava/lang/Object;
-.source "StandardTable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/StandardTable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fd944a1e4b51fdd388148176ca1cb3ca27dcd6c73ef23d47cedd6837e58e136c
+size 364

@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/Destination;
-.super Ljava/lang/Object;
-.source "Destination.java"
-
-
-# virtual methods
-.method public abstract getExtras()[B
-.end method
-
-.method public abstract getName()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1619e7f05eb5623a95ba0761f55baa23b3b741f6e7ac66eb02272297763c24b8
+size 276

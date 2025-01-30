@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/cache/Cache$Listener;
-.super Ljava/lang/Object;
-.source "Cache.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/cache/Cache;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSpanAdded(Lcom/google/android/exoplayer2/upstream/cache/Cache;Lcom/google/android/exoplayer2/upstream/cache/CacheSpan;)V
-.end method
-
-.method public abstract onSpanRemoved(Lcom/google/android/exoplayer2/upstream/cache/Cache;Lcom/google/android/exoplayer2/upstream/cache/CacheSpan;)V
-.end method
-
-.method public abstract onSpanTouched(Lcom/google/android/exoplayer2/upstream/cache/Cache;Lcom/google/android/exoplayer2/upstream/cache/CacheSpan;Lcom/google/android/exoplayer2/upstream/cache/CacheSpan;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:749e51a20b372d0a3436a23341d2eb7738d03c6dd9566b1b14b207a33cb7a408
+size 965

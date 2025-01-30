@@ -1,14 +1,3 @@
-.class interface abstract Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$NotDirectlyRendered;
-.super Ljava/lang/Object;
-.source "SVG.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "NotDirectlyRendered"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c795cf705ddfae2df6dfed04ed7132013f09c081bc57efb0d392b6ee40a3e418
+size 427

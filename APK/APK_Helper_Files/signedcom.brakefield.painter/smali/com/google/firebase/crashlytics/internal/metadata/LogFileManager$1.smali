@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/crashlytics/internal/metadata/LogFileManager$1;
-.super Ljava/lang/Object;
-.source "LogFileManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/metadata/LogFileManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:cc6b8d6c2c312ec48f57445b70fca21c0583a08236d7bb2e763d9d09fde9855e
+size 415

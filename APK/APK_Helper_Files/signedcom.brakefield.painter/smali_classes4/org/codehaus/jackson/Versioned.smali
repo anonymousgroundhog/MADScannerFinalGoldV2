@@ -1,8 +1,3 @@
-.class public interface abstract Lorg/codehaus/jackson/Versioned;
-.super Ljava/lang/Object;
-.source "Versioned.java"
-
-
-# virtual methods
-.method public abstract version()Lorg/codehaus/jackson/Version;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:af67d6541d60fcb35efc30a2a70a2a2796f41fde584f53d54e5ed7270b8cbf7f
+size 213

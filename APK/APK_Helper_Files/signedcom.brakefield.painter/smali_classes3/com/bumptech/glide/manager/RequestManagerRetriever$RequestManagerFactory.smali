@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/manager/RequestManagerRetriever$RequestManagerFactory;
-.super Ljava/lang/Object;
-.source "RequestManagerRetriever.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/manager/RequestManagerRetriever;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RequestManagerFactory"
-.end annotation
-
-
-# virtual methods
-.method public abstract build(Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/manager/Lifecycle;Lcom/bumptech/glide/manager/RequestManagerTreeNode;Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:765f3f4a8579ff6d5029556668233d66e395f2915f14f84c4f47a7cb16ec7c93
+size 689

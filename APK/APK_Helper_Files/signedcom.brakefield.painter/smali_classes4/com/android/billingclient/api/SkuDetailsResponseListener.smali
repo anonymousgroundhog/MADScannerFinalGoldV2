@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/SkuDetailsResponseListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onSkuDetailsResponse(Lcom/android/billingclient/api/BillingResult;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/billingclient/api/BillingResult;",
-            "Ljava/util/List<",
-            "Lcom/android/billingclient/api/SkuDetails;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7128b22997743ec7233716c98726c5f688f9180d20d1541a5c8092ae403e27bb
+size 673

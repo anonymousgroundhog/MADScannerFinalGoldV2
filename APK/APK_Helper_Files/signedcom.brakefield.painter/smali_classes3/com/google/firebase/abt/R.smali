@@ -1,30 +1,3 @@
-.class public final Lcom/google/firebase/abt/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/firebase/abt/R$attr;,
-        Lcom/google/firebase/abt/R$color;,
-        Lcom/google/firebase/abt/R$dimen;,
-        Lcom/google/firebase/abt/R$drawable;,
-        Lcom/google/firebase/abt/R$id;,
-        Lcom/google/firebase/abt/R$integer;,
-        Lcom/google/firebase/abt/R$layout;,
-        Lcom/google/firebase/abt/R$raw;,
-        Lcom/google/firebase/abt/R$string;,
-        Lcom/google/firebase/abt/R$style;,
-        Lcom/google/firebase/abt/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4794cf7b76f227d2161c6d6cfead04e8f0457c1438740b4d51af299191a1477
+size 811

@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/FilterToolbar$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/SimpleUI;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/FilterToolbar$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/FilterToolbar$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/toolbars/FilterToolbar;->lambda$getView$0(Lcom/brakefield/painter/ui/SimpleUI;Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4954d097f7a772c81dd42f5446cf6b81f753c163afdee573cfcc804502fca80
+size 1147

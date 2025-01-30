@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/ResultCallback;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<R::",
-        "Lcom/google/android/gms/common/api/Result;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onResult(Lcom/google/android/gms/common/api/Result;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TR;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dab2b240a59228e45089b68190043545ca95179eb1b180387220f50abacb452e
+size 619

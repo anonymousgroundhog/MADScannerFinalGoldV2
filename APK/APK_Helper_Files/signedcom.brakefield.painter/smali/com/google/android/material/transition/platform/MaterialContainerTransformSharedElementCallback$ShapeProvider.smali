@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback$ShapeProvider;
-.super Ljava/lang/Object;
-.source "MaterialContainerTransformSharedElementCallback.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/MaterialContainerTransformSharedElementCallback;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ShapeProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract provideShape(Landroid/view/View;)Lcom/google/android/material/shape/ShapeAppearanceModel;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbda2b3f42733677ccc7c0c2a43122ed9ef7833604d3fecfd6884c7cbaa637c0
+size 694

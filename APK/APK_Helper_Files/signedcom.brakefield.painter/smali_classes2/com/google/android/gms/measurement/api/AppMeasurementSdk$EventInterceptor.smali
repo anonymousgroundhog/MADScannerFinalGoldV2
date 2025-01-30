@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/measurement/api/AppMeasurementSdk$EventInterceptor;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement-sdk-api@@21.2.2"
-
-# interfaces
-.implements Lcom/google/android/gms/measurement/internal/zzhe;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/measurement/api/AppMeasurementSdk;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "EventInterceptor"
-.end annotation
-
-
-# virtual methods
-.method public abstract interceptEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7fc248218685ca3d6479bbabb919d2f97bbf61a266f4611cd53b86e657233c44
+size 695

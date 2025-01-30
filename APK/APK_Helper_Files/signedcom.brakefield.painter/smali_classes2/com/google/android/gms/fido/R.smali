@@ -1,12 +1,3 @@
-.class public final Lcom/google/android/gms/fido/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:03fe6819dab98513b1b1869cc3af7bb71fda14050ee0685d74a9a86288f1b82f
+size 233

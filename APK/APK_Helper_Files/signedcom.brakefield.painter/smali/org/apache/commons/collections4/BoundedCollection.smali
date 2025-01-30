@@ -1,27 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/BoundedCollection;
-.super Ljava/lang/Object;
-.source "BoundedCollection.java"
-
-# interfaces
-.implements Ljava/util/Collection;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<E:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/Collection<",
-        "TE;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract isFull()Z
-.end method
-
-.method public abstract maxSize()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5631db373a476786afb37ea4c824a72fcfecf11c94cf12f36e6f46f1b26877cd
+size 546

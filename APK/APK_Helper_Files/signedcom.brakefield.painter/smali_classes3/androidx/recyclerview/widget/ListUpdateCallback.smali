@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/ListUpdateCallback;
-.super Ljava/lang/Object;
-.source "ListUpdateCallback.java"
-
-
-# virtual methods
-.method public abstract onChanged(IILjava/lang/Object;)V
-.end method
-
-.method public abstract onInserted(II)V
-.end method
-
-.method public abstract onMoved(II)V
-.end method
-
-.method public abstract onRemoved(II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8b9ae067006480c832a2779b9127713d8c79b524f9603d3f07b0e0a2c8ad139
+size 387

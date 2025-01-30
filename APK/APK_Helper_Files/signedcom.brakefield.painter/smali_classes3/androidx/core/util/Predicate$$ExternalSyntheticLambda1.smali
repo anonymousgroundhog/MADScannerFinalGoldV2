@@ -1,28 +1,3 @@
-.class public final synthetic Landroidx/core/util/Predicate$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/core/util/Predicate;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
-
-    invoke-static {p1}, Landroidx/core/util/Predicate;->lambda$isEqual$3(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:12abb11ba6db4a929d38d659b9450d04d84c2b9569c18c6d03bbc7a455904eaa
+size 586

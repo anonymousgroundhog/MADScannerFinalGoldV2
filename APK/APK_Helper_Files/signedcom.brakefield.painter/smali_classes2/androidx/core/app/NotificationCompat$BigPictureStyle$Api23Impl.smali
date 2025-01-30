@@ -1,34 +1,3 @@
-.class Landroidx/core/app/NotificationCompat$BigPictureStyle$Api23Impl;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat$BigPictureStyle;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "Api23Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 3509
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static setBigLargeIcon(Landroid/app/Notification$BigPictureStyle;Landroid/graphics/drawable/Icon;)V
-    .locals 0
-
-    .line 3517
-    invoke-virtual {p0, p1}, Landroid/app/Notification$BigPictureStyle;->bigLargeIcon(Landroid/graphics/drawable/Icon;)Landroid/app/Notification$BigPictureStyle;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d058578f89387ac035a325e2e668b2c96f869ffea0193601d6c795f4b96e5344
+size 897

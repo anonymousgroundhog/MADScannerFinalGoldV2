@@ -1,19 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/Tainted;
-.super Ljava/lang/Object;
-.source "Tainted.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/Untainted;
-    when = .enum Ljavax/annotation/meta/When;->MAYBE:Ljavax/annotation/meta/When;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ce5df50d7c389532971c075d4b792a646ab1176ba0c670aa9c80a6e46b8e66ff
+size 589

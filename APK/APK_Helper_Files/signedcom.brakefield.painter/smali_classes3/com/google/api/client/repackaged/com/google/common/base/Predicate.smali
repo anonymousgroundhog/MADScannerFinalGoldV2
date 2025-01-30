@@ -1,35 +1,3 @@
-.class public interface abstract Lcom/google/api/client/repackaged/com/google/common/base/Predicate;
-.super Ljava/lang/Object;
-.source "Predicate.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(Ljava/lang/Object;)Z
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Ljavax/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
-.end method
-
-.method public abstract equals(Ljava/lang/Object;)Z
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Ljavax/annotation/Nullable;
-        .end annotation
-    .end param
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8176fbe9c38282a7bf84be5f0af17831685e0d0c29807c72eddbf682b5a16e2
+size 876

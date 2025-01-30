@@ -1,31 +1,3 @@
-.class public final Lcom/google/android/gms/internal/measurement/zzbs;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement@@21.2.2"
-
-
-# static fields
-.field public static final zza:I
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1f
-
-    if-lt v0, v1, :cond_0
-
-    const/high16 v0, 0x2000000
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    sput v0, Lcom/google/android/gms/internal/measurement/zzbs;->zza:I
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b79704c9b3e50d85f8a90a14e5b21ac1f40d787c6db3c39e2e797b337ff6fed
+size 585

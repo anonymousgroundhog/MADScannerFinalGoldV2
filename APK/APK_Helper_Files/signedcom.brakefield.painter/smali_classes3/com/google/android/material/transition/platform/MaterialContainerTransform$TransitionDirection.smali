@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/transition/platform/MaterialContainerTransform$TransitionDirection;
-.super Ljava/lang/Object;
-.source "MaterialContainerTransform.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/MaterialContainerTransform;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TransitionDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f862eecfcdb4579c2b31c0ee27474297c9d89ae310a2170143a07752414c15da
+size 743

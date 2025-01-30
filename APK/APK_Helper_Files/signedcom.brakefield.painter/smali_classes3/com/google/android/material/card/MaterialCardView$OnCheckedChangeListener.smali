@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/card/MaterialCardView$OnCheckedChangeListener;
-.super Ljava/lang/Object;
-.source "MaterialCardView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/card/MaterialCardView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnCheckedChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCheckedChanged(Lcom/google/android/material/card/MaterialCardView;Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8c87f4664dde785c44b926520230b8041e49f72092f4c4b65eef87098d0ddbfc
+size 573

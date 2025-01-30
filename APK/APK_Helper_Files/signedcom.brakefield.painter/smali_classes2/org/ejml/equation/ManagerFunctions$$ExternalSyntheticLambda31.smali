@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/equation/ManagerFunctions$$ExternalSyntheticLambda31;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lorg/ejml/equation/ManagerFunctions$Input1;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final create(Lorg/ejml/equation/Variable;Lorg/ejml/equation/ManagerTempVariables;)Lorg/ejml/equation/Operation$Info;
-    .locals 0
-
-    invoke-static {p1, p2}, Lorg/ejml/equation/Operation;->log(Lorg/ejml/equation/Variable;Lorg/ejml/equation/ManagerTempVariables;)Lorg/ejml/equation/Operation$Info;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:17d99c90afb9a4d0e489651e54e9b2e0dcd91da1e7d9b9134af2753bb56b0790
+size 778

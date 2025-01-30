@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/decoder/CryptoInfo$1;
-.super Ljava/lang/Object;
-.source "CryptoInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/decoder/CryptoInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa46c34a25265dd1c853f25000d1a0733f1e3287e9afda061c371856c465ecd6
+size 379

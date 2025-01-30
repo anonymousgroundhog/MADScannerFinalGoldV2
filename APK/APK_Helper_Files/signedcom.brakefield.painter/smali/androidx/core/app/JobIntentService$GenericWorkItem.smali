@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/core/app/JobIntentService$GenericWorkItem;
-.super Ljava/lang/Object;
-.source "JobIntentService.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/JobIntentService;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "GenericWorkItem"
-.end annotation
-
-
-# virtual methods
-.method public abstract complete()V
-.end method
-
-.method public abstract getIntent()Landroid/content/Intent;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7c6532aedb9619c57479b6be6f08e40f4ae47946bce31cd75e0b8634d16fea4
+size 533

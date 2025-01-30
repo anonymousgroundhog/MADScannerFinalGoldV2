@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
-.super Ljava/lang/Object;
-.source "ResourceTranscoder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<Z:",
-        "Ljava/lang/Object;",
-        "R:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract transcode(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bumptech/glide/load/engine/Resource<",
-            "TZ;>;",
-            "Lcom/bumptech/glide/load/Options;",
-            ")",
-            "Lcom/bumptech/glide/load/engine/Resource<",
-            "TR;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:db7a07b255f8126ec80af5e5dc875d13f18c6cb3b776faa117c2f66630e19bf2
+size 911

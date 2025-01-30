@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/infinitestudio/gestures/SlideGesture$1;
-.super Ljava/lang/Object;
-.source "SlideGesture.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/gestures/SlideGesture;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fc7b45f9ed96e290d6a03c7963333d8d35b7987f77417a30a6eb4e4425a93a8b
+size 387

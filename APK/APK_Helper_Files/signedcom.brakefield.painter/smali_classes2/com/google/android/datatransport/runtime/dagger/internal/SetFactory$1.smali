@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/dagger/internal/SetFactory$1;
-.super Ljava/lang/Object;
-.source "SetFactory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/dagger/internal/SetFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ed396b6a1d80bfc1f746e614f50b920edd54e415b6085de7ac906f9ea6b526a0
+size 417

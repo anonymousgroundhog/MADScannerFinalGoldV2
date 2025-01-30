@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/Serialization$1;
-.super Ljava/lang/Object;
-.source "Serialization.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/Serialization;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9dc76f832dc494ab70cada12bfb1f0ec81e4302b1773c62656a8f28307f42c68
+size 364

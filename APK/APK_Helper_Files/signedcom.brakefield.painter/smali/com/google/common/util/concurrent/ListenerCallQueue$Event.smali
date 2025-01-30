@@ -1,35 +1,3 @@
-.class interface abstract Lcom/google/common/util/concurrent/ListenerCallQueue$Event;
-.super Ljava/lang/Object;
-.source "ListenerCallQueue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/util/concurrent/ListenerCallQueue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Event"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<",
-        "L:Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract call(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(T",
-            "L;",
-            ")V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b0597ff764ad59a1606598e43d190409d6d027b09c77f988f4f087cf2f9f8169
+size 816

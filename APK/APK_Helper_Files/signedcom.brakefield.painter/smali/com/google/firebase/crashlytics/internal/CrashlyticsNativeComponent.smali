@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/firebase/crashlytics/internal/CrashlyticsNativeComponent;
-.super Ljava/lang/Object;
-.source "CrashlyticsNativeComponent.java"
-
-
-# virtual methods
-.method public abstract getSessionFileProvider(Ljava/lang/String;)Lcom/google/firebase/crashlytics/internal/NativeSessionFileProvider;
-.end method
-
-.method public abstract hasCrashDataForCurrentSession()Z
-.end method
-
-.method public abstract hasCrashDataForSession(Ljava/lang/String;)Z
-.end method
-
-.method public abstract prepareNativeSession(Ljava/lang/String;Ljava/lang/String;JLcom/google/firebase/crashlytics/internal/model/StaticSessionData;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e5854e38c6de911a4ec714b21b81d676070fb44e9ed98eab106985806246cc4
+size 653

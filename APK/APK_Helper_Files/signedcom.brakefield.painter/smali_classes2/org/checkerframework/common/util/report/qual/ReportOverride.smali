@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/util/report/qual/ReportOverride;
-.super Ljava/lang/Object;
-.source "ReportOverride.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:dc6b08d5e9b68a7eac15889de3e90520665a9df229c0a4f483d9fe4732578f1a
+size 662

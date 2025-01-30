@@ -1,28 +1,3 @@
-.class Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuHeaderItem;
-.super Ljava/lang/Object;
-.source "NavigationMenuPresenter.java"
-
-# interfaces
-.implements Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuItem;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/internal/NavigationMenuPresenter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "NavigationMenuHeaderItem"
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 909
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:58c6f2172fe7028f15b04d19bc192f36c5979498e2c82d483dfc86e5c0bbbe7e
+size 717

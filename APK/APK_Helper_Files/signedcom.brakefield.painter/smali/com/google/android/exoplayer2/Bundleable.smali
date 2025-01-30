@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/Bundleable;
-.super Ljava/lang/Object;
-.source "Bundleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/Bundleable$Creator;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract toBundle()Landroid/os/Bundle;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f381a4a4bd10e104535dcfa06bb94779e258d056c67408d101400be5ba66a46d
+size 438

@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/assetpacks/AssetPackStateUpdateListener;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-# interfaces
-.implements Lcom/google/android/play/core/listener/StateUpdatedListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/google/android/play/core/listener/StateUpdatedListener<",
-        "Lcom/google/android/play/core/assetpacks/AssetPackState;",
-        ">;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3457130e716bb5ef976e0aafff83c9be63402aa6d1b2e6f5fd4ebf5be81933f5
+size 548

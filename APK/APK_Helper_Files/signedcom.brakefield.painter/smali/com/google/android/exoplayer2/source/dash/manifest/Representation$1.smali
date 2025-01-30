@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/dash/manifest/Representation$1;
-.super Ljava/lang/Object;
-.source "Representation.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/dash/manifest/Representation;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:261a9ac10d274479996834c5244e8e2c8bc9c99dbef972ed1d901d106addde71
+size 417

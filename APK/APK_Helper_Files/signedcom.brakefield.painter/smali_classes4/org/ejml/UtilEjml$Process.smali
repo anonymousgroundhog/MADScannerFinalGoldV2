@@ -1,19 +1,3 @@
-.class public interface abstract Lorg/ejml/UtilEjml$Process;
-.super Ljava/lang/Object;
-.source "UtilEjml.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/ejml/UtilEjml;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Process"
-.end annotation
-
-
-# virtual methods
-.method public abstract process()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:295b3f90a28d2727dee703a0f7bc1de6c6fee24560249f7eb7071b952f7d8407
+size 408

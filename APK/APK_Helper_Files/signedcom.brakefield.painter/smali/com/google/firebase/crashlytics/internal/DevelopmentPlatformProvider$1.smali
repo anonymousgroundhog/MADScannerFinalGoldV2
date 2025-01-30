@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/crashlytics/internal/DevelopmentPlatformProvider$1;
-.super Ljava/lang/Object;
-.source "DevelopmentPlatformProvider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/DevelopmentPlatformProvider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca403301cf218911062f3085346453128c8337554b33b6959a9da33815cdcfbf
+size 436

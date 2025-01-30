@@ -1,35 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/QRPDecomposition;
-.super Ljava/lang/Object;
-.source "QRPDecomposition.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/QRDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/QRDecomposition<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getColPivotMatrix(Lorg/ejml/data/Matrix;)Lorg/ejml/data/Matrix;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)TT;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getColPivots()[I
-.end method
-
-.method public abstract getRank()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d0cce164d8b6b812257a8df3d458245d3c39fb74bf0d94affd0affdd059a50a
+size 841

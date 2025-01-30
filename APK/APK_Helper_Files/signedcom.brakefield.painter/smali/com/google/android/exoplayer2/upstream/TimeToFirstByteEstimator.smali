@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/TimeToFirstByteEstimator;
-.super Ljava/lang/Object;
-.source "TimeToFirstByteEstimator.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getTimeToFirstByteEstimateUs()J
-.end method
-
-.method public abstract onTransferInitializing(Lcom/google/android/exoplayer2/upstream/DataSpec;)V
-.end method
-
-.method public abstract onTransferStart(Lcom/google/android/exoplayer2/upstream/DataSpec;)V
-.end method
-
-.method public abstract reset()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:261bd04ae2dd76f16e52492248521214cb2c8da142bd4d89304caeb7be615966
+size 591

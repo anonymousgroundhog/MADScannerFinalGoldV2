@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/util/concurrent/Striped$1;
-.super Ljava/lang/Object;
-.source "Striped.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/util/concurrent/Striped;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0f083380e60ab863af43f66f6da49b5f8471227030a0fca2bb619f8f9fab5452
+size 362

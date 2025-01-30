@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
-        <item quantity="other">%d초 빨리 감기</item>
-        <item quantity="one">%d초 빨리 감기</item>
-    </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
-        <item quantity="other">%d초 되감기</item>
-        <item quantity="one">%d초 되감기</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
-        <item quantity="other">새 알림 %d개</item>
-        <item quantity="one">새 알림 %d개</item>
-    </plurals>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e4fc0391cc8319f2afe8188ce63f5be136c3a49ccfe80614ebdb2971af8c4c6
+size 620

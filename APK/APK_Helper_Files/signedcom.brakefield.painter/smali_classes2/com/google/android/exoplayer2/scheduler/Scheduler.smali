@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/scheduler/Scheduler;
-.super Ljava/lang/Object;
-.source "Scheduler.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract cancel()Z
-.end method
-
-.method public abstract getSupportedRequirements(Lcom/google/android/exoplayer2/scheduler/Requirements;)Lcom/google/android/exoplayer2/scheduler/Requirements;
-.end method
-
-.method public abstract schedule(Lcom/google/android/exoplayer2/scheduler/Requirements;Ljava/lang/String;Ljava/lang/String;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ac30906880779b16058cc66097f1f48b781f8f0d80fa25305fe76fee4ded111
+size 588

@@ -1,25 +1,3 @@
-.class Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$Switch;
-.super Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$Group;
-.source "SVG.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Switch"
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 1883
-    invoke-direct {p0}, Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$Group;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdecf73781d462e0a7dfc94051389ab001f6bb815b53c0b801c69f1b3403f13b
+size 630

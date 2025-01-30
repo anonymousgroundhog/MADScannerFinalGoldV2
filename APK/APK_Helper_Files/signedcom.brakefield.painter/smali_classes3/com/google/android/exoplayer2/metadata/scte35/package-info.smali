@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/metadata/scte35/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:75b09b2d4717203f9c93e0d88a41e4f74e7443a272c37463a08e8a1dd5e6e534
+size 151

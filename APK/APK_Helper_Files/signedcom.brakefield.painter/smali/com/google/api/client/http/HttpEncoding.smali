@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/HttpEncoding;
-.super Ljava/lang/Object;
-.source "HttpEncoding.java"
-
-
-# virtual methods
-.method public abstract encode(Lcom/google/api/client/util/StreamingContent;Ljava/io/OutputStream;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getName()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f0926489257b049d3f3a52fc6d11eb868b9661a1320dd76271cd5b7045200b9
+size 459

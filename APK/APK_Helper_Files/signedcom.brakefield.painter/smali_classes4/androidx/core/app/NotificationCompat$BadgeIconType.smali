@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/NotificationCompat$BadgeIconType;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "BadgeIconType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:62b49608dedf42241f487bfbe45bc1418d5aef11ace8ce0fb88fa88e2938a4cc
+size 647

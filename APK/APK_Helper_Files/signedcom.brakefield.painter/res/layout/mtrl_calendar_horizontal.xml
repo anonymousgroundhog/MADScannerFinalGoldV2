@@ -1,12 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <include layout="@layout/mtrl_calendar_month_navigation" />
-    <FrameLayout android:id="@id/mtrl_calendar_selection_frame" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center_horizontal" android:id="@id/mtrl_calendar_year_selector_frame" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="fill_parent" />
-        <LinearLayout android:orientation="vertical" android:id="@id/mtrl_calendar_day_selector_frame" android:layout_width="wrap_content" android:layout_height="fill_parent">
-            <include layout="@layout/mtrl_calendar_days_of_week" />
-            <include layout="@layout/mtrl_calendar_months" />
-        </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:c4dec5a9578381000d1c6209b6fd9a0f6a774b309c5811a1ca1a8102444b3bf2
+size 1027

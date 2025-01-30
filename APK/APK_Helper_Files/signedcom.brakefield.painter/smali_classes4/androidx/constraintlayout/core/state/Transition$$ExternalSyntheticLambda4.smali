@@ -1,28 +1,3 @@
-.class public final synthetic Landroidx/constraintlayout/core/state/Transition$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/constraintlayout/core/state/Interpolator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getInterpolation(F)F
-    .locals 0
-
-    invoke-static {p1}, Landroidx/constraintlayout/core/state/Transition;->lambda$getInterpolator$4(F)F
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8db31552f8a201c971eae816795d60c26630cbceefe7c3c2f878dd8507ddb2e3
+size 631

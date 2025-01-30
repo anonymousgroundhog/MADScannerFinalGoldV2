@@ -1,35 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/hls/playlist/HlsPlaylistParserFactory;
-.super Ljava/lang/Object;
-.source "HlsPlaylistParserFactory.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract createPlaylistParser()Lcom/google/android/exoplayer2/upstream/ParsingLoadable$Parser;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/android/exoplayer2/upstream/ParsingLoadable$Parser<",
-            "Lcom/google/android/exoplayer2/source/hls/playlist/HlsPlaylist;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract createPlaylistParser(Lcom/google/android/exoplayer2/source/hls/playlist/HlsMultivariantPlaylist;Lcom/google/android/exoplayer2/source/hls/playlist/HlsMediaPlaylist;)Lcom/google/android/exoplayer2/upstream/ParsingLoadable$Parser;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/exoplayer2/source/hls/playlist/HlsMultivariantPlaylist;",
-            "Lcom/google/android/exoplayer2/source/hls/playlist/HlsMediaPlaylist;",
-            ")",
-            "Lcom/google/android/exoplayer2/upstream/ParsingLoadable$Parser<",
-            "Lcom/google/android/exoplayer2/source/hls/playlist/HlsPlaylist;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9f24054358950a9998fc899c90636679c6ef4324fca5682fcf39ccfc8ed0000c
+size 1438

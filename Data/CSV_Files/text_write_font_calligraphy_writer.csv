@@ -1,8 +1,3 @@
-class,text,index,page,clicked
-android.widget.Button,OK,0,0,True
-android.widget.ImageButton,,0,1,False
-android.widget.LinearLayout,,0,1,False
-android.widget.EditText,developers.google.comads#apps,1,1,False
-android.widget.ImageButton,,0,1,False
-android.widget.ImageButton,,1,1,False
-android.widget.ImageButton,,0,1,False
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c234ef27ac2c9c34305d44078c3d5f1457b8e40c06f0fb16312c44398a97691
+size 319

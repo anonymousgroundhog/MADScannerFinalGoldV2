@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/base/Equivalence$1;
-.super Ljava/lang/Object;
-.source "Equivalence.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/base/Equivalence;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e597b88cfd2e273c8113a00977f19ecf91c14a45d65ba026403253650f3e02bd
+size 352

@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/BinaryName;
-.super Ljava/lang/Object;
-.source "BinaryName.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/BinaryNameOrPrimitiveType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c95488eee860149e1a8d5789373168ceeb28f4affef032df2f6fb5a134a9e329
+size 941

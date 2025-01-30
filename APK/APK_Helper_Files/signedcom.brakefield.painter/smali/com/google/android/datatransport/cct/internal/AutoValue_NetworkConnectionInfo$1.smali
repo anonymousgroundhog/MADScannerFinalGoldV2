@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/cct/internal/AutoValue_NetworkConnectionInfo$1;
-.super Ljava/lang/Object;
-.source "AutoValue_NetworkConnectionInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/cct/internal/AutoValue_NetworkConnectionInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6da59e8b833efcd8bdec44cdea39f26d84f02df01d2b68d97867e51e5d05c330
+size 458

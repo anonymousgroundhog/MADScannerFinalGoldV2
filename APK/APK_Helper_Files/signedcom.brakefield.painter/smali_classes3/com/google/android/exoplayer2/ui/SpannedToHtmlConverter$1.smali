@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/ui/SpannedToHtmlConverter$1;
-.super Ljava/lang/Object;
-.source "SpannedToHtmlConverter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ui/SpannedToHtmlConverter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0919ef76bb0db142ccfb8a1132f24d33bddbdfe2d3bacdb78e33698c4721073
+size 405

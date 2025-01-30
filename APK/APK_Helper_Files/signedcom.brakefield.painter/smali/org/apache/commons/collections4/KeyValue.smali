@@ -1,34 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/KeyValue;
-.super Ljava/lang/Object;
-.source "KeyValue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getKey()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TK;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getValue()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TV;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:628738b926aabe5625595583052d4c07b333ce680972547a01a94094ff2c0ae3
+size 749

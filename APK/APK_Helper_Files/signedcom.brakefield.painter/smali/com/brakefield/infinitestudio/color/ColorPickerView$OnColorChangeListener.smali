@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/color/ColorPickerView$OnColorChangeListener;
-.super Ljava/lang/Object;
-.source "ColorPickerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/color/ColorPickerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnColorChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract colorChanged(IZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:63749fdbc7c81058280238da2432b2e8c298de6f95f8ba0217975e543aad864b
+size 518

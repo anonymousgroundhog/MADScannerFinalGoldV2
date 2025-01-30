@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/color/DynamicColors$Precondition;
-.super Ljava/lang/Object;
-.source "DynamicColors.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/color/DynamicColors;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Precondition"
-.end annotation
-
-
-# virtual methods
-.method public abstract shouldApplyDynamicColors(Landroid/app/Activity;I)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:adf46a3d7dd698ef3a3befc71786ea7c444b8eb5580ec9ab6e187989ec8e3f6d
+size 523

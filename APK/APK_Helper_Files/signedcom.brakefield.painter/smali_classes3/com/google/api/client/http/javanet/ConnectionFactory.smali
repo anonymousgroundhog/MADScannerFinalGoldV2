@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/javanet/ConnectionFactory;
-.super Ljava/lang/Object;
-.source "ConnectionFactory.java"
-
-
-# virtual methods
-.method public abstract openConnection(Ljava/net/URL;)Ljava/net/HttpURLConnection;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;,
-            Ljava/lang/ClassCastException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:81d94e1ba6280cacca3577694c9c5031d89e564dd15c582bdf17f6d3f46e2619
+size 438

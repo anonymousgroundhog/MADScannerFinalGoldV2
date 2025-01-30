@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="oval"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/notification_icon_bg_color" />
-</shape>
+version https://git-lfs.github.com/spec/v1
+oid sha256:96697d47993dc4afa4683888efa97c55e6433e49ab0adf9b38126d5ada7b4a95
+size 201

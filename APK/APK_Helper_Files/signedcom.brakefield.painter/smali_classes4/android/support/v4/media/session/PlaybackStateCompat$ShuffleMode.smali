@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroid/support/v4/media/session/PlaybackStateCompat$ShuffleMode;
-.super Ljava/lang/Object;
-.source "PlaybackStateCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/session/PlaybackStateCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ShuffleMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff5aff57bc60dfeba34fc8c1806d2e273516ec6f268650787375831c0e227970
+size 676

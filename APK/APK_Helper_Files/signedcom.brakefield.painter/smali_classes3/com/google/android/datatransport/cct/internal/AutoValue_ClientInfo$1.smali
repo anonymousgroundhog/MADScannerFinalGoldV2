@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/cct/internal/AutoValue_ClientInfo$1;
-.super Ljava/lang/Object;
-.source "AutoValue_ClientInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/cct/internal/AutoValue_ClientInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:77d4b7b7bb1befd5ba43e20fde7d5146263ca9343fca21a604344daec5644fe9
+size 425

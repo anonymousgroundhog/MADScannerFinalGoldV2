@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/Transformation;
-.super Ljava/lang/Object;
-.source "Transformation.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/Key;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/Key;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/bumptech/glide/load/engine/Resource<",
-            "TT;>;II)",
-            "Lcom/bumptech/glide/load/engine/Resource<",
-            "TT;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3078c16163360a4a2c17c67564de66fb137d5821a32d9847656d308c9c0519a8
+size 909

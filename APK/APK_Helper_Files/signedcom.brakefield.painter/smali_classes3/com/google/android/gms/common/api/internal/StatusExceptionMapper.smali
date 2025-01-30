@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/internal/StatusExceptionMapper;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# virtual methods
-.method public abstract getException(Lcom/google/android/gms/common/api/Status;)Ljava/lang/Exception;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b52dd94a408be3d312e0cdd2b6f2e0b6b66d8cc326065ce17656b41af2995042
+size 324

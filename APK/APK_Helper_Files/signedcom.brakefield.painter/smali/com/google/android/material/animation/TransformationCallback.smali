@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/google/android/material/animation/TransformationCallback;
-.super Ljava/lang/Object;
-.source "TransformationCallback.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Landroid/view/View;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onScaleChanged(Landroid/view/View;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract onTranslationChanged(Landroid/view/View;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:26e52b2e6bfe0cc6dee9b47ea989ccee6caff089560dff78e2a708b268bc0b7b
+size 766

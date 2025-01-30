@@ -1,24 +1,3 @@
-.class public final Landroidx/cardview/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/cardview/R$attr;,
-        Landroidx/cardview/R$color;,
-        Landroidx/cardview/R$dimen;,
-        Landroidx/cardview/R$style;,
-        Landroidx/cardview/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ca331f331c2fa58bd81bee50d26acf160451fe028e4fa48899817816c3adb56
+size 515

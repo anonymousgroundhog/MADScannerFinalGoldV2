@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/util/concurrent/InterruptibleTask$1;
-.super Ljava/lang/Object;
-.source "InterruptibleTask.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/util/concurrent/InterruptibleTask;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ebaced449fddbfea218ae305926f574e5622d9f999584e64185257fc151c3f22
+size 392

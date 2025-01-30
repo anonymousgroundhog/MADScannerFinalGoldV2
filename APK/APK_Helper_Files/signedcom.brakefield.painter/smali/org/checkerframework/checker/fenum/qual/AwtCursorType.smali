@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/fenum/qual/AwtCursorType;
-.super Ljava/lang/Object;
-.source "AwtCursorType.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/fenum/qual/FenumTop;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:68eef44d32b4c2c2a9141170de67f1768ed0622676c5418de30899209364d838
+size 922

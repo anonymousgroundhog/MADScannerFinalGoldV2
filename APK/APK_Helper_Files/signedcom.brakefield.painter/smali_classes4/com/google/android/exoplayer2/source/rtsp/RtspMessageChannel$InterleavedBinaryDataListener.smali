@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/rtsp/RtspMessageChannel$InterleavedBinaryDataListener;
-.super Ljava/lang/Object;
-.source "RtspMessageChannel.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/RtspMessageChannel;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "InterleavedBinaryDataListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onInterleavedBinaryDataReceived([B)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba9b84d8285a9a65a284591ba58b7d9a4e4f9a03551fc549dcd52d36d62e94ed
+size 574

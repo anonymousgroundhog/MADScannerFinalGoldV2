@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/value/qual/IntVal;
-.super Ljava/lang/Object;
-.source "IntVal.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/common/value/qual/UnknownVal;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:367059afc3e7a35613a81d65f6319d3c892285be9bd28db97c16e1d3f6a8f8d8
+size 974

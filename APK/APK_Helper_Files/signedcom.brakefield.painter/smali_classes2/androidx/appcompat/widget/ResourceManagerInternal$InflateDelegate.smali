@@ -1,19 +1,3 @@
-.class interface abstract Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;
-.super Ljava/lang/Object;
-.source "ResourceManagerInternal.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/ResourceManagerInternal;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "InflateDelegate"
-.end annotation
-
-
-# virtual methods
-.method public abstract createFromXmlInner(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:49467f0aa629756c3e10d562ed1260957bac89a5311f5fd6c99176bc770673cf
+size 661

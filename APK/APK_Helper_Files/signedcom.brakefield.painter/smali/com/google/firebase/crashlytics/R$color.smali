@@ -1,33 +1,3 @@
-.class public final Lcom/google/firebase/crashlytics/R$color;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "color"
-.end annotation
-
-
-# static fields
-.field public static final notification_action_color_filter:I = 0x7f06028d
-
-.field public static final notification_icon_bg_color:I = 0x7f06028e
-
-.field public static final ripple_material_light:I = 0x7f06029a
-
-.field public static final secondary_text_default_material_light:I = 0x7f06029c
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:64815d935067ce4ce83e2f7cd31695d5381c0f93f28f1ce40855d5f56da86c5a
+size 795

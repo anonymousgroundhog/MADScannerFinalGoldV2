@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/internal/LifecycleFragment;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# virtual methods
-.method public abstract addCallback(Ljava/lang/String;Lcom/google/android/gms/common/api/internal/LifecycleCallback;)V
-.end method
-
-.method public abstract getCallbackOrNull(Ljava/lang/String;Ljava/lang/Class;)Lcom/google/android/gms/common/api/internal/LifecycleCallback;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Lcom/google/android/gms/common/api/internal/LifecycleCallback;",
-            ">(",
-            "Ljava/lang/String;",
-            "Ljava/lang/Class<",
-            "TT;>;)TT;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getLifecycleActivity()Landroid/app/Activity;
-.end method
-
-.method public abstract isCreated()Z
-.end method
-
-.method public abstract isStarted()Z
-.end method
-
-.method public abstract startActivityForResult(Landroid/content/Intent;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:38cf084447aea0834adbb2b56abd72ed8066e9f9b4564981b102ead59e59f088
+size 1068

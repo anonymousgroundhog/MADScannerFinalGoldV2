@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher$OnLoginListener;
-.super Ljava/lang/Object;
-.source "LoginActivity.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnLoginListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract handle(Ljava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:179d0efe48fd0e39d34b24ff8420573d05661ac41e397b328d3da5fa655ae213
+size 532

@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/QRPDecomposition_F64;
-.super Ljava/lang/Object;
-.source "QRPDecomposition_F64.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/QRPDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/QRPDecomposition<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract setSingularThreshold(D)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5314233d81a02443cee329c39b33517707aa41b28028b85f66a980a940c989b6
+size 586

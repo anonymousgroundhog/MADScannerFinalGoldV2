@@ -1,29 +1,3 @@
-.class public final Lcom/brakefield/painter/R$raw;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "raw"
-.end annotation
-
-
-# static fields
-.field public static final deviant_map:I = 0x7f110000
-
-.field public static final firebase_common_keep:I = 0x7f110001
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:535795fdbab308f4ea929294c32ec5198f457fddafd6c645ecb5a23bf6a0b6dc
+size 600

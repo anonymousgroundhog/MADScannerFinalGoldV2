@@ -1,33 +1,3 @@
-.class public final Lcom/google/firebase/abt/R$color;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/abt/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "color"
-.end annotation
-
-
-# static fields
-.field public static final notification_action_color_filter:I = 0x7f06028d
-
-.field public static final notification_icon_bg_color:I = 0x7f06028e
-
-.field public static final ripple_material_light:I = 0x7f06029a
-
-.field public static final secondary_text_default_material_light:I = 0x7f06029c
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:32c65a0b701e05f79b2c49e900a75e08f5453e0f63efea57776274a5cb6dc6c8
+size 779

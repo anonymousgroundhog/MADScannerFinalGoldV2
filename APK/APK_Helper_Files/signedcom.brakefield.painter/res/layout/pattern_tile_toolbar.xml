@@ -1,20 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/reflect_x" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/reflect_off" android:contentDescription="@string/reflect">
-        <tag android:value="@string/mappings_pattern_tile_settings_flip_x" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/reflect_y" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/reflect_off" android:contentDescription="@string/reflect" android:rotation="90.0">
-        <tag android:value="@string/mappings_pattern_tile_settings_flip_y" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/rotate_x" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/rotate_x_off" android:contentDescription="@string/rotate">
-        <tag android:value="@string/mappings_pattern_tile_settings_rotate_x" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/rotate_y" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/rotate_y_off" android:contentDescription="@string/rotate">
-        <tag android:value="@string/mappings_pattern_tile_settings_rotate_y" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
-    <ImageView android:id="@id/save" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/save_thin" android:contentDescription="@string/save_pattern">
-        <tag android:value="@string/mappings_pattern_save" android:id="@id/ui_binding_key" />
-    </ImageView>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:bbc9ed99df077ae8fe9358ccce2cb310d891037e3312cc8bdc13a91f3a52097d
+size 2062

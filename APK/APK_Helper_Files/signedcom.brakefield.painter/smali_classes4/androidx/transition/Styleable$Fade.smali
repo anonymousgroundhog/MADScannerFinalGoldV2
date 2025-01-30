@@ -1,18 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$Fade;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Fade"
-.end annotation
-
-
-# static fields
-.field public static final FADING_MODE:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:17822e3c23de2036f2a9a77efc9d7c2ee343c09869ede52dce8cd49bbbb2cc04
+size 412

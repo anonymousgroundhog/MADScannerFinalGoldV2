@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/base/Platform$1;
-.super Ljava/lang/Object;
-.source "Platform.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/base/Platform;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:03f0be8a7da45d43c37f9350dde76421dbfdef9ae6a6ae808cd10a9506ce6389
+size 343

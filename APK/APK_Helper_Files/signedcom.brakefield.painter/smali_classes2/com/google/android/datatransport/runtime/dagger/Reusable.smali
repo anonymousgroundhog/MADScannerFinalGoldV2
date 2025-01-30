@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/Reusable;
-.super Ljava/lang/Object;
-.source "Reusable.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/inject/Scope;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8a2ba5dd40e8ebda9bc7f5c407cea800b8b623df0bd49db68574465e35546933
+size 532

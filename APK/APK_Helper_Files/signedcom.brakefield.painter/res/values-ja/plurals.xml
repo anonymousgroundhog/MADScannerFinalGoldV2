@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
-        <item quantity="other">%d 秒早送り</item>
-        <item quantity="one">%d 秒早送り</item>
-    </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
-        <item quantity="other">%d 秒巻き戻し</item>
-        <item quantity="one">%d 秒巻き戻し</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
-        <item quantity="other">%d 件の新しい通知</item>
-        <item quantity="one">%d 件の新しい通知</item>
-    </plurals>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3c231db7270e331783ae0fea859a8b769525cb8e077c24c0205c209baf22a763
+size 634

@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/audio/DefaultAudioSink$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/audio/AudioCapabilitiesReceiver$Listener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/audio/DefaultAudioSink;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/audio/DefaultAudioSink;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/audio/DefaultAudioSink$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/exoplayer2/audio/DefaultAudioSink;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onAudioCapabilitiesChanged(Lcom/google/android/exoplayer2/audio/AudioCapabilities;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/audio/DefaultAudioSink$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/exoplayer2/audio/DefaultAudioSink;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/exoplayer2/audio/DefaultAudioSink;->onAudioCapabilitiesChanged(Lcom/google/android/exoplayer2/audio/AudioCapabilities;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:054171d80cd5eb2ed2b76e07717e471e88ee1ee03e1fab8652252da9fb326aa9
+size 1264

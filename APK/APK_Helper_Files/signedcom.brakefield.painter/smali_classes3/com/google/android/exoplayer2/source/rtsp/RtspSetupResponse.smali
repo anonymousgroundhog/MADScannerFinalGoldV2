@@ -1,36 +1,3 @@
-.class final Lcom/google/android/exoplayer2/source/rtsp/RtspSetupResponse;
-.super Ljava/lang/Object;
-.source "RtspSetupResponse.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# instance fields
-.field public final sessionHeader:Lcom/google/android/exoplayer2/source/rtsp/RtspMessageUtil$RtspSessionHeader;
-
-.field public final status:I
-
-.field public final transport:Ljava/lang/String;
-
-
-# direct methods
-.method public constructor <init>(ILcom/google/android/exoplayer2/source/rtsp/RtspMessageUtil$RtspSessionHeader;Ljava/lang/String;)V
-    .locals 0
-
-    .line 44
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 45
-    iput p1, p0, Lcom/google/android/exoplayer2/source/rtsp/RtspSetupResponse;->status:I
-
-    .line 46
-    iput-object p2, p0, Lcom/google/android/exoplayer2/source/rtsp/RtspSetupResponse;->sessionHeader:Lcom/google/android/exoplayer2/source/rtsp/RtspMessageUtil$RtspSessionHeader;
-
-    .line 47
-    iput-object p3, p0, Lcom/google/android/exoplayer2/source/rtsp/RtspSetupResponse;->transport:Ljava/lang/String;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9ac0164b6a37b2f22b029af3770c1176dba956f88e7937f637565e4e8668a1b3
+size 1110

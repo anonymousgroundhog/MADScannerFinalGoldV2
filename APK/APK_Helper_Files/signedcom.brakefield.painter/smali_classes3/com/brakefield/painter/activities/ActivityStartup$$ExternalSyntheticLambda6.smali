@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/activities/ActivityStartup;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/activities/ActivityStartup;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/activities/ActivityStartup;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/activities/ActivityStartup;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/painter/activities/ActivityStartup;->lambda$showReasonForPermissions$4$com-brakefield-painter-activities-ActivityStartup(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c3e13e0282bb2b71d2a5ca1835b7633e85730d1c84118bd31a0ce047cd27c423
+size 1217

@@ -1,20 +1,3 @@
-.class public final Landroidx/customview/poolingcontainer/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/customview/poolingcontainer/R$id;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8bc842bf8d122539a6cae1db16335bfb3868156c507a48aa4cd58d2e55b8cee6
+size 399

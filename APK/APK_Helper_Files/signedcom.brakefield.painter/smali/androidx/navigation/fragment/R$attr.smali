@@ -1,27 +1,3 @@
-.class public final Landroidx/navigation/fragment/R$attr;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/navigation/fragment/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "attr"
-.end annotation
-
-
-# static fields
-.field public static final defaultNavHost:I = 0x7f040168
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7fb9808302c93c961658a85ba6bb66e5377c399e6eb16024db1a9b2733933bf7
+size 553

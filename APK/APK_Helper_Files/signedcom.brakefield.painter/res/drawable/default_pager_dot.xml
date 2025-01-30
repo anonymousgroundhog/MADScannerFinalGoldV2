@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="ring" android:useLevel="false" android:innerRadius="0.0dip" android:thickness="4.0dip">
-            <solid android:color="@color/light" />
-        </shape>
-    </item>
-</layer-list>
+version https://git-lfs.github.com/spec/v1
+oid sha256:86ea107f6874fd983b5e5065740c36bb17e29a8ffcea1d16e61076ccf1d7d8fb
+size 335

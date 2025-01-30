@@ -1,28 +1,3 @@
-.class public Landroidx/multidex/MultiDexApplication;
-.super Landroid/app/Application;
-.source "MultiDexApplication.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 35
-    invoke-direct {p0}, Landroid/app/Application;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method protected attachBaseContext(Landroid/content/Context;)V
-    .locals 0
-
-    .line 38
-    invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
-
-    .line 39
-    invoke-static {p0}, Landroidx/multidex/MultiDex;->install(Landroid/content/Context;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2db3571e22fe590a89fed22104f6ea2f1081c811d8a15900f46b4d48561e00a5
+size 641

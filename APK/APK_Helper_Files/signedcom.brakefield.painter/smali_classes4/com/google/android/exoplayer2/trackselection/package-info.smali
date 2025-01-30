@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/trackselection/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2f567404966c153b2b606bc951ee20bbe1f58d494f431408565d19f22085e18
+size 150

@@ -1,25 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/extractor/mp3/Seeker;
-.super Ljava/lang/Object;
-.source "Seeker.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/extractor/SeekMap;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/extractor/mp3/Seeker$UnseekableSeeker;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getDataEndPosition()J
-.end method
-
-.method public abstract getTimeUs(J)J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5340f7420bb84bba028642dfd057348cabb2b55f75197fb1cdb20362da0335c7
+size 575

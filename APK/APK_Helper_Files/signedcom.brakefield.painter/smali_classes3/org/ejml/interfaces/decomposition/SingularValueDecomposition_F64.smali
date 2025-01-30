@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/SingularValueDecomposition_F64;
-.super Ljava/lang/Object;
-.source "SingularValueDecomposition_F64.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/SingularValueDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/SingularValueDecomposition<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getSingularValues()[D
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e70bfcbe11684b5f694c2c7377f662c07a074129087b705f8a1b9e3692f64478
+size 623

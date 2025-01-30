@@ -1,22 +1,3 @@
-.class public abstract Lcom/google/android/gms/fido/fido2/api/common/AuthenticatorResponse;
-.super Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract getClientDataJSON()[B
-.end method
-
-.method public abstract serializeToBytes()[B
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:717524e8f0435f3c73fcc3e7bd84bda881760adbac0dec310882d399bb042895
+size 592

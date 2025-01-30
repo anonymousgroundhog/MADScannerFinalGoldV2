@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/bumptech/glide/annotation/GlideExtension;
-.super Ljava/lang/Object;
-.source "GlideExtension.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:59caab4018fe3deb5d57f38df96cf5959b1716e5990604a00a365c86b32f3e9b
+size 572

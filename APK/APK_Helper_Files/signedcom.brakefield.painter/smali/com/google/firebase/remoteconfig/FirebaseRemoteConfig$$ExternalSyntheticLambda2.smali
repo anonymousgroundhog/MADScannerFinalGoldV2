@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/concurrent/Callable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig$$ExternalSyntheticLambda2;->f$0:Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final call()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig$$ExternalSyntheticLambda2;->f$0:Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;
-
-    invoke-virtual {v0}, Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;->lambda$reset$6$com-google-firebase-remoteconfig-FirebaseRemoteConfig()Ljava/lang/Void;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b0199b24b446ebbd70b3cdc2f84c7e47be6820598a09ae55e3bd5d01875e96aa
+size 1201

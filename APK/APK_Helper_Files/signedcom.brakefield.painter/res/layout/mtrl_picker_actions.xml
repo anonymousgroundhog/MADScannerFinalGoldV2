@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="end" android:orientation="horizontal" android:id="@id/date_picker_actions" android:paddingRight="@dimen/mtrl_calendar_action_padding" android:layout_width="fill_parent" android:layout_height="@dimen/mtrl_calendar_action_height" android:paddingEnd="@dimen/mtrl_calendar_action_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:layout_gravity="center_vertical" android:id="@id/cancel_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mtrl_picker_cancel" style="?buttonBarNegativeButtonStyle" />
-    <Button android:layout_gravity="center_vertical" android:id="@id/confirm_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/mtrl_calendar_action_confirm_button_min_width" android:text="@string/mtrl_picker_confirm" style="?buttonBarPositiveButtonStyle" />
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:cdfa9a766824a6eb0f739b034f03124e78c5ef40e29d2437aa3089cc532e008d
+size 986

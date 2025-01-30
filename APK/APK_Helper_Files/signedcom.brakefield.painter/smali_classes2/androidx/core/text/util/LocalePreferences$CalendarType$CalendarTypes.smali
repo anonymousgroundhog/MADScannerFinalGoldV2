@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/text/util/LocalePreferences$CalendarType$CalendarTypes;
-.super Ljava/lang/Object;
-.source "LocalePreferences.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/text/util/LocalePreferences$CalendarType;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "CalendarTypes"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:75562aaf6f760e4ce81639c867a4db80d175cfe9f7bf91816f5b725265b7721c
+size 682

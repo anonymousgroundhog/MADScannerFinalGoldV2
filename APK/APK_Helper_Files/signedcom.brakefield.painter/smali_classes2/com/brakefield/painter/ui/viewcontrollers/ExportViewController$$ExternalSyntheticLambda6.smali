@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/ExportViewController$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/app/Activity;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/app/Activity;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/ExportViewController$$ExternalSyntheticLambda6;->f$0:Landroid/app/Activity;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/ExportViewController$$ExternalSyntheticLambda6;->f$0:Landroid/app/Activity;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/ExportViewController;->lambda$show$6(Landroid/app/Activity;Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:671b410c06acfa078286510b27bd1ad52ab9719d2f6b0c83cffb2df520ac9f12
+size 1104

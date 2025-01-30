@@ -1,30 +1,3 @@
-.class public abstract Landroidx/emoji2/text/FontRequestEmojiCompatConfig$RetryPolicy;
-.super Ljava/lang/Object;
-.source "FontRequestEmojiCompatConfig.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/emoji2/text/FontRequestEmojiCompatConfig;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "RetryPolicy"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 58
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract getRetryDelay()J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2becd8a0bb0a5c213317144d84bd10a1f2007a85f48e3612f18f57df62603c8c
+size 663

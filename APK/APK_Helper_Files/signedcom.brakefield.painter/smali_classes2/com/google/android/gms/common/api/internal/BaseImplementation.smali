@@ -1,22 +1,3 @@
-.class public Lcom/google/android/gms/common/api/internal/BaseImplementation;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/api/internal/BaseImplementation$ApiMethodImpl;,
-        Lcom/google/android/gms/common/api/internal/BaseImplementation$ResultHolder;
-    }
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8aa84ead7046f61a69c0800082abe82143cae640cbf4035c6677d46017924afe
+size 595

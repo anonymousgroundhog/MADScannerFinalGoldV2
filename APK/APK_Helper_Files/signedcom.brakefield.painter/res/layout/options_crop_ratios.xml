@@ -1,35 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ratios" android:lines="1" />
-        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <FrameLayout android:id="@id/ratio_custom_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_custom_image" android:src="@drawable/ratio_free" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/free" style="@style/TileLabel" />
-            </FrameLayout>
-            <FrameLayout android:id="@id/ratio_1_1_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_1_1_image" android:src="@drawable/ratio_1_1" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/square" style="@style/TileLabel" />
-            </FrameLayout>
-            <FrameLayout android:id="@id/ratio_4_3_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_4_3_image" android:src="@drawable/ratio_3_4" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="3:4" style="@style/TileLabel" />
-            </FrameLayout>
-            <FrameLayout android:id="@id/ratio_3_2_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_3_2_image" android:src="@drawable/ratio_2_3" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="2:3" style="@style/TileLabel" />
-            </FrameLayout>
-            <FrameLayout android:id="@id/ratio_2_1_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_2_1_image" android:src="@drawable/ratio_5_7" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="5:7" style="@style/TileLabel" />
-            </FrameLayout>
-        </LinearLayout>
-        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <FrameLayout android:id="@id/ratio_16_9_button" style="@style/Tile">
-                <ImageView android:id="@id/ratio_16_9_image" android:src="@drawable/ratio_16_9" style="@style/TileIcon" />
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="16:9" style="@style/TileLabel" />
-            </FrameLayout>
-        </LinearLayout>
-    </LinearLayout>
-</FrameLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:ecd8b43ddbe4f72ca1f79f6aa80d50d8252c8055c371f0dada8bce15db5f12ab
+size 3036

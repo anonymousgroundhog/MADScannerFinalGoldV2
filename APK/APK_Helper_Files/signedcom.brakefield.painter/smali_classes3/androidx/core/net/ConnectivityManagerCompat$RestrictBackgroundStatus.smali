@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/net/ConnectivityManagerCompat$RestrictBackgroundStatus;
-.super Ljava/lang/Object;
-.source "ConnectivityManagerCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/net/ConnectivityManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "RestrictBackgroundStatus"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c9899c3bd72c871db8f843074adb457a828f0d8f10385ad71c7c4928920e8c6
+size 690

@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/LayerOptionsViewController;->lambda$getView$4$com-brakefield-painter-ui-viewcontrollers-LayerOptionsViewController(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c2e6856892cd08aead32e4ca55896ff7f40b39f553bdfb55ca6c3555630ba32a
+size 1323

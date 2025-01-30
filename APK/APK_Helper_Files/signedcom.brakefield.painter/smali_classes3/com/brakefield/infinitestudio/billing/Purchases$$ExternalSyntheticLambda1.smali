@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/billing/Purchases$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/function/IntFunction;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(I)Ljava/lang/Object;
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/infinitestudio/billing/Purchases;->lambda$merge$0(I)[Lcom/brakefield/infinitestudio/billing/InAppPurchase;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9077f9283445772b77db46b656b83ded84e62c28aaffa65e1f7dcad763790d66
+size 675

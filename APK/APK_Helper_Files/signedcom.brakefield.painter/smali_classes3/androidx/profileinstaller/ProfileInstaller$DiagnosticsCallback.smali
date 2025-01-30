@@ -1,22 +1,3 @@
-.class public interface abstract Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
-.super Ljava/lang/Object;
-.source "ProfileInstaller.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/profileinstaller/ProfileInstaller;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "DiagnosticsCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDiagnosticReceived(ILjava/lang/Object;)V
-.end method
-
-.method public abstract onResultReceived(ILjava/lang/Object;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c94282d15fe924c4de0c85d276af06f44f82f9ee80d7ff03c199c7cacedd8b43
+size 598

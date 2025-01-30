@@ -1,23 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/request/ResourceCallback;
-.super Ljava/lang/Object;
-.source "ResourceCallback.java"
-
-
-# virtual methods
-.method public abstract getLock()Ljava/lang/Object;
-.end method
-
-.method public abstract onLoadFailed(Lcom/bumptech/glide/load/engine/GlideException;)V
-.end method
-
-.method public abstract onResourceReady(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/DataSource;Z)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bumptech/glide/load/engine/Resource<",
-            "*>;",
-            "Lcom/bumptech/glide/load/DataSource;",
-            "Z)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c34ce7a18c83222525d39c84179f1537311518c881d6d524a47e1b628dceec45
+size 719

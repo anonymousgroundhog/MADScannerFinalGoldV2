@@ -1,25 +1,3 @@
-.class public Landroidx/versionedparcelable/VersionedParcel$ParcelException;
-.super Ljava/lang/RuntimeException;
-.source "VersionedParcel.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/versionedparcelable/VersionedParcel;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "ParcelException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 0
-
-    .line 1642
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:02a7053cd74c8194168ed6b703b2048bdf57b3ee806b2cdf8401dd08892ae2bc
+size 632

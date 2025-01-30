@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view" android:paddingTop="@dimen/top_bar_height" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
-    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_large" android:layout_gravity="center" android:id="@id/empty_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_saved_items" android:lines="1" android:layout_centerInParent="true" />
-</merge>
+version https://git-lfs.github.com/spec/v1
+oid sha256:f50befcb51eaff6f6e96faa05ac2bec347747b82c1ae0aa9e7e17ee2537604af
+size 766

@@ -1,16 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector android:constantSize="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:state_pressed="true">
-        <bitmap android:gravity="center" android:src="@null" />
-    </item>
-    <item android:state_enabled="false">
-        <bitmap android:gravity="center" android:src="@null" />
-    </item>
-    <item android:state_pressed="true">
-        <bitmap android:gravity="center" android:src="@null" />
-    </item>
-    <item>
-        <bitmap android:gravity="center" android:src="@null" />
-    </item>
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:a401249fd76bba823ac1369e642b5865d95dd0c12807364929e5ea60b32866d1
+size 616

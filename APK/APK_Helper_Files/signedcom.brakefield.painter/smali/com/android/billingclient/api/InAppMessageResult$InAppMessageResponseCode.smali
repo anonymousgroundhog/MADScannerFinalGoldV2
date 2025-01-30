@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/InAppMessageResult$InAppMessageResponseCode;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/billingclient/api/InAppMessageResult;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "InAppMessageResponseCode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final NO_ACTION_NEEDED:I = 0x0
-
-.field public static final SUBSCRIPTION_STATUS_UPDATED:I = 0x1
+version https://git-lfs.github.com/spec/v1
+oid sha256:e87dc6145421e6e010df964be9469ded6a865bf94005167bf04b8785fa14a73f
+size 833

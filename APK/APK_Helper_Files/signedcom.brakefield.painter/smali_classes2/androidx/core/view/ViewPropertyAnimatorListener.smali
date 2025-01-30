@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/core/view/ViewPropertyAnimatorListener;
-.super Ljava/lang/Object;
-.source "ViewPropertyAnimatorListener.java"
-
-
-# virtual methods
-.method public abstract onAnimationCancel(Landroid/view/View;)V
-.end method
-
-.method public abstract onAnimationEnd(Landroid/view/View;)V
-.end method
-
-.method public abstract onAnimationStart(Landroid/view/View;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:92f7c2c22dc5b69570130b0d4c000cb8626f42120312755fd529b03c07f3ffbd
+size 399

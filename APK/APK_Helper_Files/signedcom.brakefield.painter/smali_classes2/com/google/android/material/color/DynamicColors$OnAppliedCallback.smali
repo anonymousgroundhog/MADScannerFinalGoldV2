@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/color/DynamicColors$OnAppliedCallback;
-.super Ljava/lang/Object;
-.source "DynamicColors.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/color/DynamicColors;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnAppliedCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onApplied(Landroid/app/Activity;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3d06952ab4948904ae37f02fee5008094caf23c96fee097d9bcde4b7b3588572
+size 517

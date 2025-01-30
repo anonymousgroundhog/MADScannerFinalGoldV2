@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/timepicker/ClockHandView$OnActionUpListener;
-.super Ljava/lang/Object;
-.source "ClockHandView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/timepicker/ClockHandView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnActionUpListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onActionUp(FZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a9f298ef69a102b9f390cf24ab6fc348468e90b3083cf7f691895901305166f
+size 510

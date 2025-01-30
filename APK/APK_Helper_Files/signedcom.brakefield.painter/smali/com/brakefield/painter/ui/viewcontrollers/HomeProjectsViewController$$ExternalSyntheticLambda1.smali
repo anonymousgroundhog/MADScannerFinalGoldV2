@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/SimpleUI;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    invoke-static {v0}, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController;->lambda$createNewProject$18(Lcom/brakefield/painter/ui/SimpleUI;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bf649a470717f1d980613e818310ac9befb6128bcdae222f977447fbb39888d
+size 1102

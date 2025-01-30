@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/media/AudioAttributesCompat$AttributeUsage;
-.super Ljava/lang/Object;
-.source "AudioAttributesCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/AudioAttributesCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "AttributeUsage"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:79d2c94ce977eac059e34ca249474286832e7cc25f777696d0f64930708b5cb6
+size 652

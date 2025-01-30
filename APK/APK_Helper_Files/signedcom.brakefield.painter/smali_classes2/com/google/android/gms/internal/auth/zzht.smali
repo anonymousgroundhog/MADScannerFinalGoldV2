@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/auth/zzht;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth-base@@18.0.4"
-
-
-# virtual methods
-.method public abstract zza()Lcom/google/android/gms/internal/auth/zzhr;
-.end method
-
-.method public abstract zzb()Z
-.end method
-
-.method public abstract zzc()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:83fd60cf486bc271286340f91010e8c724258569a810ff90e2bd0ecf559cb0c4
+size 361

@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/firebase/components/ComponentFactory;
-.super Ljava/lang/Object;
-.source "ComponentFactory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/firebase/components/ComponentContainer;",
-            ")TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0a7c4ae038e87cd127d9b2a7f739571bd654a16e51c1316a1d22f7e9d2e3b932
+size 667

@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/MustBeClosed;
-.super Ljava/lang/Object;
-.source "MustBeClosed.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ebfa239238121888d591e3c2a274584b5dc2c45b27e13e47b491e53a28c356b
+size 570

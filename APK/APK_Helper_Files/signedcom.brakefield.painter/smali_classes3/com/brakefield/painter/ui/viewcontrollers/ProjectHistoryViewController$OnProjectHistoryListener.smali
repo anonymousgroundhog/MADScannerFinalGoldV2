@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/ui/viewcontrollers/ProjectHistoryViewController$OnProjectHistoryListener;
-.super Ljava/lang/Object;
-.source "ProjectHistoryViewController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/viewcontrollers/ProjectHistoryViewController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnProjectHistoryListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract callDismiss()V
-.end method
-
-.method public abstract onProjectRestore(Ljava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:edb8bbeb7e45ef993ec95d744fdbd534bb7cea8ab4dce7561b503c50c3256f1f
+size 647

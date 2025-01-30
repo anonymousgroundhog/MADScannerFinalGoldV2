@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/offline/FilterableManifest;
-.super Ljava/lang/Object;
-.source "FilterableManifest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract copy(Ljava/util/List;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/google/android/exoplayer2/offline/StreamKey;",
-            ">;)TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:aea3583767c5e3b0eadcfa534d51fb709de362f65e5212e82b77f5c597824820
+size 733

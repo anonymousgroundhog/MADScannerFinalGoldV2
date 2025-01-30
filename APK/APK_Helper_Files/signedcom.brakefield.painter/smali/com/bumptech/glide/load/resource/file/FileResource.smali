@@ -1,24 +1,3 @@
-.class public Lcom/bumptech/glide/load/resource/file/FileResource;
-.super Lcom/bumptech/glide/load/resource/SimpleResource;
-.source "FileResource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/bumptech/glide/load/resource/SimpleResource<",
-        "Ljava/io/File;",
-        ">;"
-    }
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Ljava/io/File;)V
-    .locals 0
-
-    .line 11
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/SimpleResource;-><init>(Ljava/lang/Object;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f6ea1372382690232c8dc60cfe00deb1bb89bf7a62edd2523bda07f149bea7e4
+size 587

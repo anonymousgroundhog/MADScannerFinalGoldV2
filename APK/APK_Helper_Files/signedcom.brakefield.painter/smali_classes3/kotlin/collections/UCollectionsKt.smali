@@ -1,29 +1,3 @@
-.class public final Lkotlin/collections/UCollectionsKt;
-.super Lkotlin/collections/UCollectionsKt___UCollectionsKt;
-.source "_UCollections.kt"
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/collections/UCollectionsKt___UCollectionsKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/collections/UCollectionsKt___UCollectionsKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:daab02b2ca6a813758084e6771ef16e31e0d0e4e75dfcbab01a9552954c4e3f5
+size 573

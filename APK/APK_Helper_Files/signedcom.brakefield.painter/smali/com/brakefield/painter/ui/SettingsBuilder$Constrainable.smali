@@ -1,19 +1,3 @@
-.class interface abstract Lcom/brakefield/painter/ui/SettingsBuilder$Constrainable;
-.super Ljava/lang/Object;
-.source "SettingsBuilder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/SettingsBuilder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "Constrainable"
-.end annotation
-
-
-# virtual methods
-.method public abstract constrain(Landroidx/constraintlayout/widget/ConstraintSet;II)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:11cb6627e9820866522ea8776068eecc962b7a30153b9369cd7f93a82cacf815
+size 520

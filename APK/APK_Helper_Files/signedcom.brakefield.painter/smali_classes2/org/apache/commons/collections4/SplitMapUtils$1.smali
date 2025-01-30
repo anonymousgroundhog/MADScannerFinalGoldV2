@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/SplitMapUtils$1;
-.super Ljava/lang/Object;
-.source "SplitMapUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/SplitMapUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ae970e08cc1330fe309b8eaca07c1d0364a9256a841abbc6155ef6446af4b65
+size 376

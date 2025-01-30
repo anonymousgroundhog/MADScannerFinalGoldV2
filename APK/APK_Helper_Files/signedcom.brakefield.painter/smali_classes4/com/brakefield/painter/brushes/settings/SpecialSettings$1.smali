@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/painter/brushes/settings/SpecialSettings$1;
-.super Ljava/lang/Object;
-.source "SpecialSettings.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/brushes/settings/SpecialSettings;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f77a92f31fbcdac5cb6f66db883c8fae8d13a673a9b843c472ddaaf52913eab8
+size 398

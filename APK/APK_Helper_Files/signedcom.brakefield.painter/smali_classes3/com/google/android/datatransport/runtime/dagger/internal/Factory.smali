@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/dagger/internal/Factory;
-.super Ljava/lang/Object;
-.source "Factory.java"
-
-# interfaces
-.implements Ljavax/inject/Provider;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljavax/inject/Provider<",
-        "TT;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:dff260ae8ca9cdad1a8de79dc79c1db35d86d688b68476dc397370fff97bc202
+size 439

@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/Closure;
-.super Ljava/lang/Object;
-.source "Closure.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract execute(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c4eab519103509d2ca9438d312c2e6f07d06f2b722b4088ba29d135386659f5
+size 519

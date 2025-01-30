@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/manager/Lifecycle;
-.super Ljava/lang/Object;
-.source "Lifecycle.java"
-
-
-# virtual methods
-.method public abstract addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
-.end method
-
-.method public abstract removeListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:445f1002c02852a9f9c29f85df89a01de01fddb77e7230787e5cb1ec7748850a
+size 341

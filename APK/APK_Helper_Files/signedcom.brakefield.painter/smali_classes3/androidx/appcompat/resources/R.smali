@@ -1,21 +1,3 @@
-.class public final Landroidx/appcompat/resources/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/resources/R$drawable;,
-        Landroidx/appcompat/resources/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:21b16e83cb3e0a3fe0f076fa60f5f878e92ab210a89c4ce9f2ff20362eebea91
+size 441

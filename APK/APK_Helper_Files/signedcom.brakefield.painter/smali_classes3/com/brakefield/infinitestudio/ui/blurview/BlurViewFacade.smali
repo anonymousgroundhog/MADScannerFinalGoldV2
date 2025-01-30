@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.super Ljava/lang/Object;
-.source "BlurViewFacade.java"
-
-
-# virtual methods
-.method public abstract setBlurAlgorithm(Lcom/brakefield/infinitestudio/ui/blurview/BlurAlgorithm;)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setBlurAutoUpdate(Z)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setBlurEnabled(Z)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setBlurRadius(F)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setFrameClearDrawable(Landroid/graphics/drawable/Drawable;)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setHasFixedTransformationMatrix(Z)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
-
-.method public abstract setOverlayColor(I)Lcom/brakefield/infinitestudio/ui/blurview/BlurViewFacade;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d48c53cfb566b9c5b07a1af52468fae2e2611f06952b6c297c51562e3aaf8f9a
+size 1078

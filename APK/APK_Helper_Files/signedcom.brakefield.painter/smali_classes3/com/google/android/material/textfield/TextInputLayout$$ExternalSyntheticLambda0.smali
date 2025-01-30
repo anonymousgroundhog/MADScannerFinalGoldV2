@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/material/textfield/TextInputLayout$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/material/textfield/TextInputLayout$LengthCounter;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final countLength(Landroid/text/Editable;)I
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/material/textfield/TextInputLayout;->lambda$new$0(Landroid/text/Editable;)I
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6dabe75d2979ef3ed02d7414aeac0d8cb9d381c636dde3df12874470151de7f3
+size 688

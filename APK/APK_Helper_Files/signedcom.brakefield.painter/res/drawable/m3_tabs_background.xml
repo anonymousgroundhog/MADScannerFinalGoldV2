@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="?colorSurface" />
-        </shape>
-    </item>
-    <item android:gravity="bottom">
-        <shape>
-            <size android:height="@dimen/m3_comp_primary_navigation_tab_divider_height" />
-            <solid android:color="?colorSurfaceVariant" />
-        </shape>
-    </item>
-</layer-list>
+version https://git-lfs.github.com/spec/v1
+oid sha256:762f06afbd431f229d4cf3ee3bda13c9a4b6d97c5831523cd75cfa417d716c60
+size 491

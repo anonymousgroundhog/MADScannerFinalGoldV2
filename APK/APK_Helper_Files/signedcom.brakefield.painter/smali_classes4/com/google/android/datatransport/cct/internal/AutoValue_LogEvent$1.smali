@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/cct/internal/AutoValue_LogEvent$1;
-.super Ljava/lang/Object;
-.source "AutoValue_LogEvent.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/cct/internal/AutoValue_LogEvent;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d97b55456a895fad109ea1b09c02ca5c5989e3edf717ff69d1ef071d94deeae1
+size 419

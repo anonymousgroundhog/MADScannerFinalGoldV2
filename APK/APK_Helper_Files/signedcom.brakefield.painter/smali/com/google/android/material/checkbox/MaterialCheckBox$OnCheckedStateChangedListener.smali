@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/checkbox/MaterialCheckBox$OnCheckedStateChangedListener;
-.super Ljava/lang/Object;
-.source "MaterialCheckBox.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/checkbox/MaterialCheckBox;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnCheckedStateChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCheckedStateChangedListener(Lcom/google/android/material/checkbox/MaterialCheckBox;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:302a3dc4e095c96f25e2d51f79bf014ca8368e4479486b013a225c04673d0e8f
+size 610

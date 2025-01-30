@@ -1,33 +1,3 @@
-.class public abstract Lcom/google/firebase/crashlytics/internal/model/CrashlyticsReport$Session$User$Builder;
-.super Ljava/lang/Object;
-.source "CrashlyticsReport.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/model/CrashlyticsReport$Session$User;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "Builder"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 394
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract build()Lcom/google/firebase/crashlytics/internal/model/CrashlyticsReport$Session$User;
-.end method
-
-.method public abstract setIdentifier(Ljava/lang/String;)Lcom/google/firebase/crashlytics/internal/model/CrashlyticsReport$Session$User$Builder;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:be030b34aa438f2d21a128e49c2ce24a1ec61b33f0f80afbd81d46cc75908ada
+size 929

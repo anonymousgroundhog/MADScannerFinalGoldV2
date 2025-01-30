@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/LoaderErrorThrower;
-.super Ljava/lang/Object;
-.source "LoaderErrorThrower.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/upstream/LoaderErrorThrower$Placeholder;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract maybeThrowError()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract maybeThrowError(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:261b068ecfbf969ba9849566f48b6e80e83df85f1965b5bcd23c5f81a1ff9477
+size 794

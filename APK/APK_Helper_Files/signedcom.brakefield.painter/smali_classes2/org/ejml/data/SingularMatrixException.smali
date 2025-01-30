@@ -1,23 +1,3 @@
-.class public Lorg/ejml/data/SingularMatrixException;
-.super Ljava/lang/RuntimeException;
-.source "SingularMatrixException.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 36
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e24721a82bf048425c70e79865eaebfac11e8c46e2b22508371510de4264e496
+size 505

@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/app/CoreComponentFactory$CompatWrapped;
-.super Ljava/lang/Object;
-.source "CoreComponentFactory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/CoreComponentFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "CompatWrapped"
-.end annotation
-
-
-# virtual methods
-.method public abstract getWrapper()Ljava/lang/Object;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:df3ff39c6e3d007333d6cd77b8ed22a080f893579f20789076d2c5b386193168
+size 494

@@ -1,27 +1,3 @@
-.class final Lcom/google/android/play/core/assetpacks/zzdb;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# instance fields
-.field final zza:I
-
-.field final zzb:I
-
-.field final zzc:Lcom/google/android/play/core/assetpacks/zzda;
-
-
-# direct methods
-.method constructor <init>(IILcom/google/android/play/core/assetpacks/zzda;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/google/android/play/core/assetpacks/zzdb;->zza:I
-
-    iput p2, p0, Lcom/google/android/play/core/assetpacks/zzdb;->zzb:I
-
-    iput-object p3, p0, Lcom/google/android/play/core/assetpacks/zzdb;->zzc:Lcom/google/android/play/core/assetpacks/zzda;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c7962240c9c6a7bda01f25561f0b2964c28302d87d128d9f74a97f0a75d3f4f
+size 720

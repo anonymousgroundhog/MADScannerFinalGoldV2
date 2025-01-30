@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/profileinstaller/ProfileVerifier$CompilationStatus$ResultCode;
-.super Ljava/lang/Object;
-.source "ProfileVerifier.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/profileinstaller/ProfileVerifier$CompilationStatus;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ResultCode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d4a539237175d0ddf777fa9bbc219009c3e028cba762548381d38bc6dfe35378
+size 684

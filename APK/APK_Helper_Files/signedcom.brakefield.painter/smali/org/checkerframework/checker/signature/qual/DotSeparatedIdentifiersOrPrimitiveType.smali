@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/DotSeparatedIdentifiersOrPrimitiveType;
-.super Ljava/lang/Object;
-.source "DotSeparatedIdentifiersOrPrimitiveType.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/FullyQualifiedName;,
-        Lorg/checkerframework/checker/signature/qual/BinaryNameOrPrimitiveType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4ffb838ac1c5c0c7c3ecceedc6a4fe2748e4696b0f6b0eeb12433ef588516d65
+size 1071

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/ConcatenatingMediaSource2$1;
-.super Ljava/lang/Object;
-.source "ConcatenatingMediaSource2.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/ConcatenatingMediaSource2;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b447e1f1270f706bfd3c1923be898d27e18219fafa8ca78ee91ad3ee315d8008
+size 422

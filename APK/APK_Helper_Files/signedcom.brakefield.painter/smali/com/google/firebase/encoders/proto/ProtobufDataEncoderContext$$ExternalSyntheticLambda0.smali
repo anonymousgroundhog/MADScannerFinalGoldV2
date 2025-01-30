@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/firebase/encoders/proto/ProtobufDataEncoderContext$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/firebase/encoders/ObjectEncoder;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final encode(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Ljava/util/Map$Entry;
-
-    check-cast p2, Lcom/google/firebase/encoders/ObjectEncoderContext;
-
-    invoke-static {p1, p2}, Lcom/google/firebase/encoders/proto/ProtobufDataEncoderContext;->lambda$static$0(Ljava/util/Map$Entry;Lcom/google/firebase/encoders/ObjectEncoderContext;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:924fce46ee90b2fed727ab79785f6f3ad1b58be81a94bc7e3fb73c5617eea3bf
+size 839

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/images/ImageManager$OnImageLoadedListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/images/ImageManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnImageLoadedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onImageLoaded(Landroid/net/Uri;Landroid/graphics/drawable/Drawable;Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c39af1fe3427a2b905b30bc6504bd21fdf4e3b0a4c6be7d03d14b8aefef4b4d
+size 596

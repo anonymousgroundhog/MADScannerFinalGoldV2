@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="?colorOnSurface" android:alpha="@dimen/material_emphasis_high_type" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:aa540f553deedfbb46a5bdffb1770de80d6f350aa001940e436a3480601b5972
+size 218

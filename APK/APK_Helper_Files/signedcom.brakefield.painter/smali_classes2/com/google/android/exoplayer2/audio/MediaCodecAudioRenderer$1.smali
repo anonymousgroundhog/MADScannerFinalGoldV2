@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/audio/MediaCodecAudioRenderer$1;
-.super Ljava/lang/Object;
-.source "MediaCodecAudioRenderer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/audio/MediaCodecAudioRenderer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:66299cc6de01c8038c201754ffbfcb7a4205d971b59b1a7623836a3d694b25b1
+size 414

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/FileImporter$MessageHandler;
-.super Ljava/lang/Object;
-.source "FileImporter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/FileImporter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "MessageHandler"
-.end annotation
-
-
-# virtual methods
-.method public abstract show(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:512ce9f74e65d5f839fbb20bc9328f5fc4eaa42b7e662b009277f29000355d0d
+size 460

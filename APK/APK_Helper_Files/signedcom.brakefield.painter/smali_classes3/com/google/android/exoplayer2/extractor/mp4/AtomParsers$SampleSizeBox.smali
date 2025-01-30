@@ -1,25 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/extractor/mp4/AtomParsers$SampleSizeBox;
-.super Ljava/lang/Object;
-.source "AtomParsers.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/extractor/mp4/AtomParsers;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "SampleSizeBox"
-.end annotation
-
-
-# virtual methods
-.method public abstract getFixedSampleSize()I
-.end method
-
-.method public abstract getSampleCount()I
-.end method
-
-.method public abstract readNextSampleSize()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f42274796739aed6dc92f98c93c0b63d2c02215f3057c7276cae9c61c2635e7
+size 617

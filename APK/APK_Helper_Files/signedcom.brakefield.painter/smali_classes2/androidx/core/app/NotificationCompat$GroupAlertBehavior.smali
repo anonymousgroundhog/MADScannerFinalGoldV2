@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/NotificationCompat$GroupAlertBehavior;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "GroupAlertBehavior"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5f9a603e422d65788e1d755c915de86972ef18ee97acf57be874fce683f39028
+size 657

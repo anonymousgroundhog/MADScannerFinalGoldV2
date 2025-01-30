@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/metadata/mp4/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:feeb4a16715a6d17ef0e1b7357e41474c169620313293f217301a2cb3206779d
+size 148

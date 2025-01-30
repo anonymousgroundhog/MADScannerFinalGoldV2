@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/drawables/DrawableState$OnStateChangedListener;
-.super Ljava/lang/Object;
-.source "DrawableState.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/drawables/DrawableState;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnStateChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onStateChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ec1595ed77c29f85891cf1e1bbb30e8c9c38989e966b4db6160e728ca715729
+size 529

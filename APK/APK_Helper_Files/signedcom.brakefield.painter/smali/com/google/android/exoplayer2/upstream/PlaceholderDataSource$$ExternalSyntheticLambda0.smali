@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/upstream/PlaceholderDataSource$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/upstream/DataSource$Factory;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final createDataSource()Lcom/google/android/exoplayer2/upstream/DataSource;
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/exoplayer2/upstream/PlaceholderDataSource;->$r8$lambda$Qku_15DubQGfyuKLu3QSDqilS4U()Lcom/google/android/exoplayer2/upstream/PlaceholderDataSource;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/exoplayer2/upstream/DataSource;
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:32bfdad162a6c0b5e46c240bed95c6ea639e7f6f9e5f1d3b22f3ba4cf41e50d8
+size 872

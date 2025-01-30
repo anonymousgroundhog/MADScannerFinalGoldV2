@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Constructor"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e0024a34eb562f37bd3113fdae5144da4264dd937b6fb34cd5ca314a706814b
+size 555

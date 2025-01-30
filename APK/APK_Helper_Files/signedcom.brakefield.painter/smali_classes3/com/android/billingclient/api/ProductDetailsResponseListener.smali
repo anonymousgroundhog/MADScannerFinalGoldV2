@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/ProductDetailsResponseListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract onProductDetailsResponse(Lcom/android/billingclient/api/BillingResult;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/billingclient/api/BillingResult;",
-            "Ljava/util/List<",
-            "Lcom/android/billingclient/api/ProductDetails;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9cba0de8a595a0afc2c5cc2f27362300d406029daf34c3e595be7ab1b078c90e
+size 610

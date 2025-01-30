@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomappbar/BottomAppBar$FabAnchorMode;
-.super Ljava/lang/Object;
-.source "BottomAppBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomappbar/BottomAppBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FabAnchorMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:04035a64967c1fd42afa20c731dcfb17e9ce7b26aa3813e3d4d357838c31ea13
+size 675

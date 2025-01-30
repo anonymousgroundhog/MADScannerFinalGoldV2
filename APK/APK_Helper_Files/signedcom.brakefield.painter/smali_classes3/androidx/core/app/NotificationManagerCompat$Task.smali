@@ -1,24 +1,3 @@
-.class interface abstract Landroidx/core/app/NotificationManagerCompat$Task;
-.super Ljava/lang/Object;
-.source "NotificationManagerCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "Task"
-.end annotation
-
-
-# virtual methods
-.method public abstract send(Landroid/support/v4/app/INotificationSideChannel;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b47313df94f03c12eb8ca46ee47880506fbc3b3cc84dbca93b9aae0ed4637be6
+size 649

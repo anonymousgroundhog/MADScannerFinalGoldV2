@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/DenseImmutableTable$1;
-.super Ljava/lang/Object;
-.source "DenseImmutableTable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/DenseImmutableTable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:eec1ab767659164b987a006a6812b85f742564dd5f88a3d5d91e090a2ce47dfe
+size 382

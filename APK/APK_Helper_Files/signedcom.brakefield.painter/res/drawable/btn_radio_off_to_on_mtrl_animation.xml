@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animated-vector android:drawable="@drawable/btn_radio_off_mtrl"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <target android:name="ring_outer" android:animation="@anim/btn_radio_to_on_mtrl_ring_outer_animation" />
-    <target android:name="ring_outer_path" android:animation="@anim/btn_radio_to_on_mtrl_ring_outer_path_animation" />
-    <target android:name="dot_group" android:animation="@anim/btn_radio_to_on_mtrl_dot_group_animation" />
-</animated-vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:b26cd6dcd63ce4a0bcc484371c1017368db165b2a1cee979bfb3083f79f8a46c
+size 519

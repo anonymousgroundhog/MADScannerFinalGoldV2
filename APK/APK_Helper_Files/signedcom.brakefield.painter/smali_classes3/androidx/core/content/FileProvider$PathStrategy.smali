@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/core/content/FileProvider$PathStrategy;
-.super Ljava/lang/Object;
-.source "FileProvider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/FileProvider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "PathStrategy"
-.end annotation
-
-
-# virtual methods
-.method public abstract getFileForUri(Landroid/net/Uri;)Ljava/io/File;
-.end method
-
-.method public abstract getUriForFile(Ljava/io/File;)Landroid/net/Uri;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7788bc6502a3f3be38aa11a340a85f633a5abd993bc8db5959a12de8d8d97e8
+size 569

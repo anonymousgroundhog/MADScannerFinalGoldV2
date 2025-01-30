@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/google/common/graph/PredecessorsFunction;
-.super Ljava/lang/Object;
-.source "PredecessorsFunction.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/graph/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Implement with a lambda, or use GraphBuilder to build a Graph with the desired edges"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<N:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract predecessors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TN;)",
-            "Ljava/lang/Iterable<",
-            "+TN;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e59ee80c524e9552ccd03b967493b9b9421b461333aaf4938d9a41fe1007e30f
+size 895

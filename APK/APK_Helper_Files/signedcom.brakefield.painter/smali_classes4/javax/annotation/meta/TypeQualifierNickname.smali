@@ -1,17 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/meta/TypeQualifierNickname;
-.super Ljava/lang/Object;
-.source "TypeQualifierNickname.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:857fa636cb54cde2318c84f7dac6ab5f9e2397dd64d6785872b72865919013a4
+size 487

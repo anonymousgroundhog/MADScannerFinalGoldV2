@@ -1,12 +1,3 @@
-.class public final Landroidx/exifinterface/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:434691be8bbb2cf0b89d18c6f8e455211869315500f19090469a1771cba4163e
+size 228

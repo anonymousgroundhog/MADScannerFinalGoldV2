@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <translate android:interpolator="@android:anim/decelerate_interpolator" android:duration="60" android:fromXDelta="-4.999995%p" android:toXDelta="0.0" />
-    <alpha android:interpolator="@android:anim/accelerate_interpolator" android:duration="50" android:fromAlpha="0.0" android:toAlpha="1.0" />
-</set>
+version https://git-lfs.github.com/spec/v1
+oid sha256:e7e173fb26e51f1aea8f29c207051e38be2987ec73e2f1484c88f2aff0793c67
+size 412

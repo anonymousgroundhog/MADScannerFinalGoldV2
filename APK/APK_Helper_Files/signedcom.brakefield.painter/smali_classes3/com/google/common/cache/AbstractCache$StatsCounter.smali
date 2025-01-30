@@ -1,34 +1,3 @@
-.class public interface abstract Lcom/google/common/cache/AbstractCache$StatsCounter;
-.super Ljava/lang/Object;
-.source "AbstractCache.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/cache/AbstractCache;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "StatsCounter"
-.end annotation
-
-
-# virtual methods
-.method public abstract recordEviction()V
-.end method
-
-.method public abstract recordHits(I)V
-.end method
-
-.method public abstract recordLoadException(J)V
-.end method
-
-.method public abstract recordLoadSuccess(J)V
-.end method
-
-.method public abstract recordMisses(I)V
-.end method
-
-.method public abstract snapshot()Lcom/google/common/cache/CacheStats;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb30c6205ae292d9d50c31b62bd9d1e6cc490a12cc00da16e631cbf579065b2d
+size 780

@@ -1,32 +1,3 @@
-.class public interface abstract annotation Landroidx/versionedparcelable/ParcelField;
-.super Ljava/lang/Object;
-.source "ParcelField.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Landroidx/versionedparcelable/ParcelField;
-        defaultValue = ""
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract defaultValue()Ljava/lang/String;
-.end method
-
-.method public abstract value()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d2a7b206b6c6ba6fcbd34e334cb9652f00f32b31067b7c35575cbee48bb4a8b
+size 895

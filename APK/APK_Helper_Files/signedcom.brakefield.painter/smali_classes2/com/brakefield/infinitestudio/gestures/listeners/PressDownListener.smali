@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/PressDownListener;
-.super Ljava/lang/Object;
-.source "PressDownListener.java"
-
-
-# virtual methods
-.method public abstract onPressDown(Landroid/view/MotionEvent;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c7792fc9305c268b4a5a8cedfc2d32cb72e3d2b182facae9f8a9e5700093cfc9
+size 258

@@ -1,22 +1,3 @@
-.class public final Lcom/facebook/shimmer/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/facebook/shimmer/R$attr;,
-        Lcom/facebook/shimmer/R$id;,
-        Lcom/facebook/shimmer/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:55a53da76cbadaa77c4ba7548b5033e18103d5bbe845df0db75a5150c11f4d0a
+size 450

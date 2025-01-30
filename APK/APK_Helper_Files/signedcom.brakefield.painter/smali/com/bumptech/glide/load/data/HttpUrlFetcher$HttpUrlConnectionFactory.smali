@@ -1,24 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/data/HttpUrlFetcher$HttpUrlConnectionFactory;
-.super Ljava/lang/Object;
-.source "HttpUrlFetcher.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/data/HttpUrlFetcher;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "HttpUrlConnectionFactory"
-.end annotation
-
-
-# virtual methods
-.method public abstract build(Ljava/net/URL;)Ljava/net/HttpURLConnection;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3bd583c3223b53a20f0e8c89cc1beae5048e98ac5883008e620fcf63f1a992be
+size 664

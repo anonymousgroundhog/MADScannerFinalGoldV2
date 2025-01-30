@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/RecyclerView$RecyclerListener;
-.super Ljava/lang/Object;
-.source "RecyclerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/RecyclerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RecyclerListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onViewRecycled(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1aaca75b41d2cba37523c26e822c24e6b63231d0ee3d0693e5dcffbab444a74
+size 539

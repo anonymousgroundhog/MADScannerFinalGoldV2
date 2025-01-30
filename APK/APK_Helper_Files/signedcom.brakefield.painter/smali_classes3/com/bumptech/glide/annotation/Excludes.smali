@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lcom/bumptech/glide/annotation/Excludes;
-.super Ljava/lang/Object;
-.source "Excludes.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/Class;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()[",
-            "Ljava/lang/Class<",
-            "*>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dc5013144b2fa0cdea3764f8b69ff2f64e04903651c8e52cd67d16cce61623da
+size 815

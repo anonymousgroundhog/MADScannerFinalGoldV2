@@ -1,19 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/CheckForSigned;
-.super Ljava/lang/Object;
-.source "CheckForSigned.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nonnegative;
-    when = .enum Ljavax/annotation/meta/When;->MAYBE:Ljavax/annotation/meta/When;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9ff9c0436ea1d3ea27fdb2d12d6a6171b20e2be1fec346594d8c292859837799
+size 605

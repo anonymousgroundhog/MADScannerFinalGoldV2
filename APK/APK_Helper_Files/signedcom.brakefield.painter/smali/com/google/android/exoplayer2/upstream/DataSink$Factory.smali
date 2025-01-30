@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/DataSink$Factory;
-.super Ljava/lang/Object;
-.source "DataSink.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/DataSink;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Factory"
-.end annotation
-
-
-# virtual methods
-.method public abstract createDataSink()Lcom/google/android/exoplayer2/upstream/DataSink;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbf0d9e836a5cffc7b5ad54960f377595c9ead9e83ed41667530539cace25ed0
+size 523

@@ -1,34 +1,3 @@
-.class final Lcom/google/android/gms/internal/play_billing/zzq;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# direct methods
-.method static zza(I)I
-    .locals 4
-
-    int-to-long v0, p0
-
-    const-wide/32 v2, -0x3361d2af
-
-    mul-long/2addr v0, v2
-
-    long-to-int p0, v0
-
-    const/16 v0, 0xf
-
-    .line 1
-    invoke-static {p0, v0}, Ljava/lang/Integer;->rotateLeft(II)I
-
-    move-result p0
-
-    int-to-long v0, p0
-
-    const-wide/32 v2, 0x1b873593
-
-    mul-long/2addr v0, v2
-
-    long-to-int p0, v0
-
-    return p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:faef1083c7299999117145ffad854c3bb9156d91ce4668ff0a57f4d3b95028ab
+size 563

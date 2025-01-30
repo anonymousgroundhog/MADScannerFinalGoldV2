@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/upstream/HttpDataSource$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/common/base/Predicate;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Z
-    .locals 0
-
-    check-cast p1, Ljava/lang/String;
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/upstream/HttpDataSource;->lambda$static$0(Ljava/lang/String;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b45b6fc4998926c860e1aa337f330ce2a5236c672ba9c5a48c0d1996bd19be3
+size 679
