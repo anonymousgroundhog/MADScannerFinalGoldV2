@@ -265,9 +265,9 @@ Blockchain_Smart_Contracts/MultiAppLogTrackerV2.sol filter=lfs diff=lfs merge=lf
 Androzoo/latest.csv filter=lfs diff=lfs merge=lfs -text
 Data/Androzoo/results.csv filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
+*.apk filter=lfs diff=lfs merge=lfs -text
 *.gitignore filter=lfs diff=lfs merge=lfs -text
 *.txt filter=lfs diff=lfs merge=lfs -text
-*.apk filter=lfs diff=lfs merge=lfs -text
 *.xml filter=lfs diff=lfs merge=lfs -text
 *.JsonFactory filter=lfs diff=lfs merge=lfs -text
 *.CoroutineExceptionHandler filter=lfs diff=lfs merge=lfs -text
