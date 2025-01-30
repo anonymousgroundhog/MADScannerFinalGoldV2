@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController$OnOpacityChangeListener;
-.super Ljava/lang/Object;
-.source "ColorWheelViewController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnOpacityChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract get()F
-.end method
-
-.method public abstract onChanged()V
-.end method
-
-.method public abstract set(F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3ca630ea7fa4a14e287f648bf7f49a6e4cc31c7fa2ea47fb8f2929514392b003
+size 645

@@ -1,30 +1,3 @@
-.class public final Lcom/google/firebase/remoteconfig/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/firebase/remoteconfig/R$attr;,
-        Lcom/google/firebase/remoteconfig/R$color;,
-        Lcom/google/firebase/remoteconfig/R$dimen;,
-        Lcom/google/firebase/remoteconfig/R$drawable;,
-        Lcom/google/firebase/remoteconfig/R$id;,
-        Lcom/google/firebase/remoteconfig/R$integer;,
-        Lcom/google/firebase/remoteconfig/R$layout;,
-        Lcom/google/firebase/remoteconfig/R$raw;,
-        Lcom/google/firebase/remoteconfig/R$string;,
-        Lcom/google/firebase/remoteconfig/R$style;,
-        Lcom/google/firebase/remoteconfig/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1209a7e4515d03f3aee6e27d90012df35906757827218f81a961646c283bee7c
+size 919

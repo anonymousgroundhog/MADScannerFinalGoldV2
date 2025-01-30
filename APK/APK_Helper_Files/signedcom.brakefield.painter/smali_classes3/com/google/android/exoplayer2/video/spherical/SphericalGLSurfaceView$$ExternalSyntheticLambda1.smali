@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;
-
-    invoke-virtual {v0}, Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;->lambda$onDetachedFromWindow$0$com-google-android-exoplayer2-video-spherical-SphericalGLSurfaceView()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9cf44ba7d78156f1fc7d66f28167247cbf3dbe8af5eb358114cfea8e30560e3d
+size 1275

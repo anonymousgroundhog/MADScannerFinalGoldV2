@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/snackbar/BaseTransientBottomBar$AnimationMode;
-.super Ljava/lang/Object;
-.source "BaseTransientBottomBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "AnimationMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:27af318366674070d734dd374e03a644db477c6dd8192639801bd7c2a7c100eb
+size 697

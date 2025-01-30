@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda8;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/painter/FileImporter$MessageHandler;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/app/Activity;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/app/Activity;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda8;->f$0:Landroid/app/Activity;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final show(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda8;->f$0:Landroid/app/Activity;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;->lambda$setup$5(Landroid/app/Activity;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:22b67badf11dc30abce6c1a4581dc54ca5546a2440a0321cb5f92ca939456362
+size 1143

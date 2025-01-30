@@ -1,25 +1,3 @@
-.class public abstract Lcom/brakefield/infinitestudio/image/filters/PhotoFilter;
-.super Ljava/lang/Object;
-.source "PhotoFilter.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 5
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract apply(Landroid/graphics/Bitmap;)V
-.end method
-
-.method public abstract chain(I)I
-.end method
-
-.method public abstract isLinear()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0a329fc594e3db1aa7b1d30ddf205b2de0cf2a46797e216349bda4aa93fa8e95
+size 486

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/io/ByteSink$1;
-.super Ljava/lang/Object;
-.source "ByteSink.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/io/ByteSink;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8531b0890c6569d37af1e96f5b4ae6173fbaaab4023c209dc4a2eedaac919175
+size 339

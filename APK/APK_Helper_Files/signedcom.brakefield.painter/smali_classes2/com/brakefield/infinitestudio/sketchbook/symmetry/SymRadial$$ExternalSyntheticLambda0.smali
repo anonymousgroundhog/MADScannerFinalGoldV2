@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/sketchbook/symmetry/SymRadial$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/UI$OnDisplayProgressValue;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getDisplayValue(F)Ljava/lang/String;
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/infinitestudio/sketchbook/symmetry/SymRadial;->lambda$bindSettings$0(F)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0f7f42acbdb186ebb7c1874abdac7a4b4c0b338d9a9232d2c05adf3ef4c61e1a
+size 708

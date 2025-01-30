@@ -1,12 +1,3 @@
-.class public final Lcom/google/android/gms/auth/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:40bb5ce3fe4bb99af9dae0cea95ffd67043eb83dd3a540b0776510e6c79df74d
+size 233

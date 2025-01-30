@@ -1,20 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/common/annotation/KeepForSdk;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1fd856f0b95066c36f129b90ecfa1bcc31ab2894e0c07af13203e6862fbdbfe4
+size 794

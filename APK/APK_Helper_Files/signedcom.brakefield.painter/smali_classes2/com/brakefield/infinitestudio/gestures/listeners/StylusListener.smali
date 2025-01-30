@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/StylusListener;
-.super Ljava/lang/Object;
-.source "StylusListener.java"
-
-
-# virtual methods
-.method public abstract onCancel()V
-.end method
-
-.method public abstract onDown(Lcom/brakefield/infinitestudio/sketchbook/Pointer;ZZ)V
-.end method
-
-.method public abstract onMove(Lcom/brakefield/infinitestudio/sketchbook/Pointer;IIZZ)V
-.end method
-
-.method public abstract onUp(Lcom/brakefield/infinitestudio/sketchbook/Pointer;ZZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f309a293f96f04e33f409e29190cb606ba99de639ae7f26ab68548606137504c
+size 520

@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/core/app/JobIntentService$CompatJobEngine;
-.super Ljava/lang/Object;
-.source "JobIntentService.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/JobIntentService;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "CompatJobEngine"
-.end annotation
-
-
-# virtual methods
-.method public abstract compatGetBinder()Landroid/os/IBinder;
-.end method
-
-.method public abstract dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:77e2eab1d13e87c122a690d847814c2b7672b6208d8f1356044d6adec4f18082
+size 589

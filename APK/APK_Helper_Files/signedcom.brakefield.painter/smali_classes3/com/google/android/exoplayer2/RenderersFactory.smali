@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/RenderersFactory;
-.super Ljava/lang/Object;
-.source "RenderersFactory.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract createRenderers(Landroid/os/Handler;Lcom/google/android/exoplayer2/video/VideoRendererEventListener;Lcom/google/android/exoplayer2/audio/AudioRendererEventListener;Lcom/google/android/exoplayer2/text/TextOutput;Lcom/google/android/exoplayer2/metadata/MetadataOutput;)[Lcom/google/android/exoplayer2/Renderer;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c013fa5ba44f7e6862a734c96c148250ee486ada3da347ec879bf2d88524a93
+size 580

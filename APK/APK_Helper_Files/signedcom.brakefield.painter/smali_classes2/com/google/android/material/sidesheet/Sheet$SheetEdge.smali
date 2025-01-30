@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/sidesheet/Sheet$SheetEdge;
-.super Ljava/lang/Object;
-.source "Sheet.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/sidesheet/Sheet;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "SheetEdge"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:cea06e60e7bce2c1b2f44e101e5a13ffead9491610e3cfa53dede0a1b00069be
+size 640

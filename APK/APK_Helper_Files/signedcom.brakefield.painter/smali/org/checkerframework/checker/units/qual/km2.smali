@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/km2;
-.super Ljava/lang/Object;
-.source "km2.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/Area;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e7644d7235b620df220b7d0daed5909b450b75f39621b765372e8d26eb338c8
+size 898

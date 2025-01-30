@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/exoplayer2/text/ttml/TtmlStyle$FontSizeUnit;
-.super Ljava/lang/Object;
-.source "TtmlStyle.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/text/ttml/TtmlStyle;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FontSizeUnit"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:db4a51611b4abda13c084e3a8a53b606450f94b82fbc6e8a5455d2f16b4a06f9
+size 914

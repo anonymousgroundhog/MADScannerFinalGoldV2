@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/material/transition/platform/VisibilityAnimatorProvider;
-.super Ljava/lang/Object;
-.source "VisibilityAnimatorProvider.java"
-
-
-# virtual methods
-.method public abstract createAppear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-.end method
-
-.method public abstract createDisappear(Landroid/view/ViewGroup;Landroid/view/View;)Landroid/animation/Animator;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d592cbc6ed15cf3b8434c4c5f3a9d8f0eb37ee27e3bc19c78919b1486de24a4a
+size 446

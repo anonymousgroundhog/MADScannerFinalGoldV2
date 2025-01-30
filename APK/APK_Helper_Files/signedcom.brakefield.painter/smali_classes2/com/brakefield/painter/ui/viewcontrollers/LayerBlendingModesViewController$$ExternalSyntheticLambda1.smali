@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/LayerBlendingModesViewController$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/LayerBlendingModesViewController;->lambda$getView$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:584892e5f5573698dbadc1c65472a33ca81604907f89a4bc4d0faf0db2c3e8a7
+size 744

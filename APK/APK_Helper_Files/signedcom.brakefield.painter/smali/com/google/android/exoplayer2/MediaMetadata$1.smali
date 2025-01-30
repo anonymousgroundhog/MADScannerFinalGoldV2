@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/MediaMetadata$1;
-.super Ljava/lang/Object;
-.source "MediaMetadata.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/MediaMetadata;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d848af68d4a1b99cb0a38d1b1e0fe42c7e81f193fb4f77c8899f8f8e085680d2
+size 372

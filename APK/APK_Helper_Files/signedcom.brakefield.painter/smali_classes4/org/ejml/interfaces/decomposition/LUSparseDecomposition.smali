@@ -1,22 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/LUSparseDecomposition;
-.super Ljava/lang/Object;
-.source "LUSparseDecomposition.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/LUDecomposition;
-.implements Lorg/ejml/interfaces/decomposition/DecompositionSparseInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<MatrixType::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/LUDecomposition<",
-        "TMatrixType;>;",
-        "Lorg/ejml/interfaces/decomposition/DecompositionSparseInterface<",
-        "TMatrixType;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5da75fc1210e4c97cd14e75e6ccd8c458d21b7be664c3ceba9bd13c5902a5ac
+size 702

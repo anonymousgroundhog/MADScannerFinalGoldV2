@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/AnnotatedFor;
-.super Ljava/lang/Object;
-.source "AnnotatedFor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f6f301b84a0b269bdb285aa2ec88c20b33d529a0975ae9b3dace958d0fb76b4
+size 1014

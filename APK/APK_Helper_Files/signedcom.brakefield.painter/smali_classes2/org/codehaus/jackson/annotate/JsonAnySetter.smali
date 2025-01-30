@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/codehaus/jackson/annotate/JsonAnySetter;
-.super Ljava/lang/Object;
-.source "JsonAnySetter.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/codehaus/jackson/annotate/JacksonAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:afd0a9cae986623c1bf26a721d55107352090e94d0fd98f95b94a13efd84bc73
+size 661

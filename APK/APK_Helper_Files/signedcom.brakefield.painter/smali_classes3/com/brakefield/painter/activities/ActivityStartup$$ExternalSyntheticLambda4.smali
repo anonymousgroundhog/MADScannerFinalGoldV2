@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/StartupMigrationBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/StartupMigrationBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/databinding/StartupMigrationBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/activities/ActivityStartup$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/databinding/StartupMigrationBinding;
-
-    invoke-static {v0}, Lcom/brakefield/painter/activities/ActivityStartup;->lambda$showMigrationScreen$9(Lcom/brakefield/painter/databinding/StartupMigrationBinding;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b14701b9976787e3ca26811792f867d6c650892dd642d6c8cbf29813d9aded93
+size 1148

@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/exoplayer2/text/ttml/TtmlStyle$StyleFlags;
-.super Ljava/lang/Object;
-.source "TtmlStyle.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/text/ttml/TtmlStyle;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StyleFlags"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a948769ad4ca77feadf83977238b24037ec1e1e41fdcff74a198ccfe9856f169
+size 910

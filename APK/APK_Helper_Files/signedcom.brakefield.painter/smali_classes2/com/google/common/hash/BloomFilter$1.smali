@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/hash/BloomFilter$1;
-.super Ljava/lang/Object;
-.source "BloomFilter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/hash/BloomFilter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:792b9534214199cd5aa15b35b0eeffcc362487fdcf806a2a4a1954d0acb63926
+size 352

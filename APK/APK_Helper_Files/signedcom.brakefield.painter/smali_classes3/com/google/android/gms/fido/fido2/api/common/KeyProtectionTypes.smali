@@ -1,25 +1,3 @@
-.class public final Lcom/google/android/gms/fido/fido2/api/common/KeyProtectionTypes;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-
-# static fields
-.field public static final KEY_PROTECTION_HARDWARE:S = 0x2s
-
-.field public static final KEY_PROTECTION_REMOTE_HANDLE:S = 0x10s
-
-.field public static final KEY_PROTECTION_SECURE_ELEMENT:S = 0x8s
-
-.field public static final KEY_PROTECTION_SOFTWARE:S = 0x1s
-
-.field public static final KEY_PROTECTION_TEE:S = 0x4s
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f3352cd2128f12c8245b74d1e6eb5c37c9d923c2c0c28b6abc7e3f8c950dbbfe
+size 656

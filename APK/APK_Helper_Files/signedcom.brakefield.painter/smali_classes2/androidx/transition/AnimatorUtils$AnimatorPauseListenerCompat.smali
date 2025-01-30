@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/transition/AnimatorUtils$AnimatorPauseListenerCompat;
-.super Ljava/lang/Object;
-.source "AnimatorUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/AnimatorUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "AnimatorPauseListenerCompat"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAnimationPause(Landroid/animation/Animator;)V
-.end method
-
-.method public abstract onAnimationResume(Landroid/animation/Animator;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c02ac9747d9a617dced0b3494b72a7bee6e65a4cbb8b6814ab9b7b5b824d0c52
+size 601

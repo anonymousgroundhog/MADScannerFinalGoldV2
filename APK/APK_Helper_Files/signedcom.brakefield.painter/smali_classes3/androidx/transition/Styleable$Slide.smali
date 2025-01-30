@@ -1,18 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$Slide;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Slide"
-.end annotation
-
-
-# static fields
-.field public static final SLIDE_EDGE:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:f033518c7f72120547f418354c455c09895270e80aafb766ca982b520808f347
+size 413

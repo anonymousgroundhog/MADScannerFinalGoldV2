@@ -1,2 +1,3 @@
-com.google.android.gms.ads
-com.facebook.ads
+version https://git-lfs.github.com/spec/v1
+oid sha256:f731902c031d8d8d619d7f412f4eb5b7c775ee4a1707cfd1fdfa5abfaecdc251
+size 43

@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@id/account_settings" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView android:id="@id/card" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:layout_marginBottom="4.0dip">
-        <TableLayout android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="*">
-            <TableRow>
-                <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_span="2" android:text="@string/account" style="@style/SectionTitle" />
-            </TableRow>
-            <TableRow android:paddingBottom="@dimen/padding_medium">
-                <LinearLayout android:orientation="vertical" android:layout_span="2">
-                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_large" android:id="@id/user_name_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
-                    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:id="@id/user_email_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
-                </LinearLayout>
-            </TableRow>
-            <TableRow android:paddingTop="@dimen/padding_large" android:paddingBottom="@dimen/padding_medium">
-                <FrameLayout android:layout_span="2">
-                    <Button android:gravity="center" android:layout_gravity="center|left" android:id="@id/verify_button" android:layout_width="180.0dip" android:layout_height="wrap_content" android:text="Verify Email" style="@style/OutlinedButton" />
-                    <Button android:gravity="center" android:layout_gravity="center|right" android:id="@id/login_button" android:layout_width="140.0dip" android:layout_height="wrap_content" style="@style/OutlinedButton" />
-                </FrameLayout>
-            </TableRow>
-        </TableLayout>
-    </androidx.cardview.widget.CardView>
-</FrameLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec0bea5f47049c552d500e3b9d7dcb4688a9a25a48d3fa4389c3504ebeb0b6a7
+size 2349

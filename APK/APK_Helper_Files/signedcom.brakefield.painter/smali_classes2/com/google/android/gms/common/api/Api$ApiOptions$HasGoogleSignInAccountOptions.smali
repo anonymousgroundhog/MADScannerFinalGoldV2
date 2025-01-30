@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/Api$ApiOptions$HasGoogleSignInAccountOptions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions$HasOptions;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/Api$ApiOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "HasGoogleSignInAccountOptions"
-.end annotation
-
-
-# virtual methods
-.method public abstract getGoogleSignInAccount()Lcom/google/android/gms/auth/api/signin/GoogleSignInAccount;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c422f9b45bec2cf5c985a3a2ff179182fada5b69b31fca3ec3f6672acd219a0c
+size 712

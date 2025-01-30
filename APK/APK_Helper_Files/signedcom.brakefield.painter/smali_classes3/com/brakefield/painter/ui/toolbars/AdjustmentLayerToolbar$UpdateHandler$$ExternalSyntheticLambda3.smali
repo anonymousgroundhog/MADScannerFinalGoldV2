@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/AdjustmentLayerToolbar$UpdateHandler$$ExternalSyntheticLambda3;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/AdjustmentLayerToolbarBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/AdjustmentLayerToolbarBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/AdjustmentLayerToolbar$UpdateHandler$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/databinding/AdjustmentLayerToolbarBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/AdjustmentLayerToolbar$UpdateHandler$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/databinding/AdjustmentLayerToolbarBinding;
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/toolbars/AdjustmentLayerToolbar$UpdateHandler;->lambda$new$3(Lcom/brakefield/painter/databinding/AdjustmentLayerToolbarBinding;Ljava/lang/Float;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8cd868947f075883c7d1f59ab2fc91e17c32e6ee7fca5db3c03ce18fe31ffc1c
+size 1364

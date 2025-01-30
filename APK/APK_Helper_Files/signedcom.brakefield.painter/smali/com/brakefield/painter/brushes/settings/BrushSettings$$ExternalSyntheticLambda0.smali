@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/brushes/settings/BrushSettings$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 0
-
-    invoke-static {}, Lcom/brakefield/painter/brushes/BrushSettingsDialog;->updatePreview()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6348c882bc424f2ddb1606bc79709262978958f27afdc3877c93e50fc642b136
+size 563

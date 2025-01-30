@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/bumptech/glide/gifdecoder/GifDecoder$GifDecodeStatus;
-.super Ljava/lang/Object;
-.source "GifDecoder.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/gifdecoder/GifDecoder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "GifDecodeStatus"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:929bc59b8bc4e369e75c3d611b84361526307bd8df6c26a71662fa350b05d9f8
+size 651

@@ -1,31 +1,3 @@
-.class abstract Lcom/google/common/collect/BaseImmutableMultimap;
-.super Lcom/google/common/collect/AbstractMultimap;
-.source "BaseImmutableMultimap.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/google/common/collect/AbstractMultimap<",
-        "TK;TV;>;"
-    }
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 26
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractMultimap;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:92c6abd2c827566ee683447d5531db38488a7a1aabc21051a79acb7f259764cc
+size 716

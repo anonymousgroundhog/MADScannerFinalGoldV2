@@ -1,16 +1,3 @@
-.class interface abstract Lcom/google/common/base/PatternCompiler;
-.super Ljava/lang/Object;
-.source "PatternCompiler.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# virtual methods
-.method public abstract compile(Ljava/lang/String;)Lcom/google/common/base/CommonPattern;
-.end method
-
-.method public abstract isPcreLike()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa842223bb70eece48468b5c2f030815a3cdec47d2c1e809619392343923af6e
+size 406

@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/IGmsServiceBroker;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/internal/IGmsServiceBroker$Stub;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getService(Lcom/google/android/gms/common/internal/IGmsCallbacks;Lcom/google/android/gms/common/internal/GetServiceRequest;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e26e710b6c4dced95be6811e00f9187060d73d930a0794a6c8788254f7b533a
+size 730

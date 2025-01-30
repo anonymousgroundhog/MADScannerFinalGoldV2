@@ -1,35 +1,3 @@
-.class interface abstract Landroidx/emoji2/text/flatbuffer/ReadBuf;
-.super Ljava/lang/Object;
-.source "ReadBuf.java"
-
-
-# virtual methods
-.method public abstract data()[B
-.end method
-
-.method public abstract get(I)B
-.end method
-
-.method public abstract getBoolean(I)Z
-.end method
-
-.method public abstract getDouble(I)D
-.end method
-
-.method public abstract getFloat(I)F
-.end method
-
-.method public abstract getInt(I)I
-.end method
-
-.method public abstract getLong(I)J
-.end method
-
-.method public abstract getShort(I)S
-.end method
-
-.method public abstract getString(II)Ljava/lang/String;
-.end method
-
-.method public abstract limit()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9f0645aab6439e57bcd668f1e203f3433a5cb5405df8ee7eff6581deaae1e67
+size 642

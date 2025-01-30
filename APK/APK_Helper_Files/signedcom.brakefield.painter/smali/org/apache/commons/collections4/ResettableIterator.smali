@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/ResettableIterator;
-.super Ljava/lang/Object;
-.source "ResettableIterator.java"
-
-# interfaces
-.implements Ljava/util/Iterator;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<E:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
-        "TE;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract reset()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a39ae896640a3af448c39cf607dff8a4283cc51f8a42297484c55ec049ebace5
+size 495

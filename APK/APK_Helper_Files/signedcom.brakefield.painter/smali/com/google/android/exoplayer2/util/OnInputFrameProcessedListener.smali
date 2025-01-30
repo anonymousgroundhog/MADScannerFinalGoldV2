@@ -1,18 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/util/OnInputFrameProcessedListener;
-.super Ljava/lang/Object;
-.source "OnInputFrameProcessedListener.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onInputFrameProcessed(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/exoplayer2/util/VideoFrameProcessingException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e7d5d9106a124f97328e8d351f4e58944dc055d7e03637d1add3d7696980476
+size 505

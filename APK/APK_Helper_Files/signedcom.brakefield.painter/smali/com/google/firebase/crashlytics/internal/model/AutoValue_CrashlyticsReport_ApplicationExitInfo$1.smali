@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/crashlytics/internal/model/AutoValue_CrashlyticsReport_ApplicationExitInfo$1;
-.super Ljava/lang/Object;
-.source "AutoValue_CrashlyticsReport_ApplicationExitInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/model/AutoValue_CrashlyticsReport_ApplicationExitInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0d692be54eab517e8f98d17991d70e0356731ba82ba0ba1271561ee579642fb
+size 508

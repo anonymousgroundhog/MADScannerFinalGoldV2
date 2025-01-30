@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/upstream/Loader$1;
-.super Ljava/lang/Object;
-.source "Loader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/Loader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ad865fb0b535dcd9c3c2422797dd186c9c34a697b1ea05bac1e3c3ee3a7a10ce
+size 369

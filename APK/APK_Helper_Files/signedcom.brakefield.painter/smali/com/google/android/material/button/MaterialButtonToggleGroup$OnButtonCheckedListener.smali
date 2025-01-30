@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;
-.super Ljava/lang/Object;
-.source "MaterialButtonToggleGroup.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/button/MaterialButtonToggleGroup;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnButtonCheckedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onButtonChecked(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c73facbf4b95c1413343d607a437cedc1ad844078c810a5337730b0221f113ac
+size 615

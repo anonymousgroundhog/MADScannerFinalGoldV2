@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/util/report/qual/ReportReadWrite;
-.super Ljava/lang/Object;
-.source "ReportReadWrite.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:943d25ae2e3d9f65398acae42e51ac39dea9b57ae249d2f7d4fef61d28ca69e4
+size 663

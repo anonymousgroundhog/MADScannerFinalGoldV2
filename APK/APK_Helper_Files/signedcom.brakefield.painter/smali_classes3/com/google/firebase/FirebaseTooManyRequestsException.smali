@@ -1,14 +1,3 @@
-.class public Lcom/google/firebase/FirebaseTooManyRequestsException;
-.super Lcom/google/firebase/FirebaseException;
-.source "FirebaseTooManyRequestsException.java"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 26
-    invoke-direct {p0, p1}, Lcom/google/firebase/FirebaseException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1db97e02d0bf87d9cc5f4ae708ceae4a456d364393cd21e91f88598360c7e5e
+size 392

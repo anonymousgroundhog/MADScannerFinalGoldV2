@@ -1,23 +1,3 @@
-.class public interface abstract Landroidx/core/view/MenuProvider;
-.super Ljava/lang/Object;
-.source "MenuProvider.java"
-
-
-# virtual methods
-.method public abstract onCreateMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-.end method
-
-.method public onMenuClosed(Landroid/view/Menu;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public abstract onMenuItemSelected(Landroid/view/MenuItem;)Z
-.end method
-
-.method public onPrepareMenu(Landroid/view/Menu;)V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c3db6ef6ee916769d6edaf4af5459679663e08eafbff5d023f58e9b03d99d630
+size 510

@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/util/SntpClient$InitializationCallback;
-.super Ljava/lang/Object;
-.source "SntpClient.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/util/SntpClient;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "InitializationCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onInitializationFailed(Ljava/io/IOException;)V
-.end method
-
-.method public abstract onInitialized()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0672a2d530a3e3954b0bb8c184964c6cf1729ac05355599a3d4824cf6f423db9
+size 586

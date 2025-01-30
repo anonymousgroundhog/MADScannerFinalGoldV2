@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/exoplayer2/upstream/CmcdHeadersFactory$StreamingFormat;
-.super Ljava/lang/Object;
-.source "CmcdHeadersFactory.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/CmcdHeadersFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StreamingFormat"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5378a88a8d3f168e5eecba8a65556ef145b83141aabb5aaeb6ed8847b2bf6128
+size 945

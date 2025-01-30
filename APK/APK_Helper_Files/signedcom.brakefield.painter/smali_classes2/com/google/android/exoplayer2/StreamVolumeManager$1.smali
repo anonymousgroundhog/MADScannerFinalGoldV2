@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/StreamVolumeManager$1;
-.super Ljava/lang/Object;
-.source "StreamVolumeManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/StreamVolumeManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:224c212b779a5cde8aea08c57cb66b4d9fc5ce0a36bde6d02040d37f1df85842
+size 390

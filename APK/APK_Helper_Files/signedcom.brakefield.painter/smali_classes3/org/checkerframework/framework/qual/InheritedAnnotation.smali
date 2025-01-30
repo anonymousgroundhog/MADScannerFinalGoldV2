@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.super Ljava/lang/Object;
-.source "InheritedAnnotation.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:47b6cfadd7650cf141189f610dc8b116bb8bccc47ae0e9253227037902a70a4d
+size 672

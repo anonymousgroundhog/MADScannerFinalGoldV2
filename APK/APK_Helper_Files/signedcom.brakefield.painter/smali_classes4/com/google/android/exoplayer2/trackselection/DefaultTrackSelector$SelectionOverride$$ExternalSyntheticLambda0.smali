@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/trackselection/DefaultTrackSelector$SelectionOverride$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/Bundleable$Creator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final fromBundle(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Bundleable;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/trackselection/DefaultTrackSelector$SelectionOverride;->lambda$static$0(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/trackselection/DefaultTrackSelector$SelectionOverride;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e89e562e49a5de3f98699492de674da815010805db6757e5bff2561ec6eea45
+size 862

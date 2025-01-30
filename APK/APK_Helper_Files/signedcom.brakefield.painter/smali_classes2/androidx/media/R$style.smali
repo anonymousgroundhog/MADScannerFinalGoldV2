@@ -1,35 +1,3 @@
-.class public final Landroidx/media/R$style;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "style"
-.end annotation
-
-
-# static fields
-.field public static final TextAppearance_Compat_Notification_Info_Media:I = 0x7f13020d
-
-.field public static final TextAppearance_Compat_Notification_Line2_Media:I = 0x7f13020f
-
-.field public static final TextAppearance_Compat_Notification_Media:I = 0x7f130210
-
-.field public static final TextAppearance_Compat_Notification_Time_Media:I = 0x7f130212
-
-.field public static final TextAppearance_Compat_Notification_Title_Media:I = 0x7f130214
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c08e690968bde7083e706c1507581892bc2be6a7ce813113892399f6e99c1446
+size 911

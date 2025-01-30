@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/google/api/client/util/Clock;
-.super Ljava/lang/Object;
-.source "Clock.java"
-
-
-# static fields
-.field public static final SYSTEM:Lcom/google/api/client/util/Clock;
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .line 39
-    new-instance v0, Lcom/google/api/client/util/Clock$1;
-
-    invoke-direct {v0}, Lcom/google/api/client/util/Clock$1;-><init>()V
-
-    sput-object v0, Lcom/google/api/client/util/Clock;->SYSTEM:Lcom/google/api/client/util/Clock;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract currentTimeMillis()J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc8b511f5dd49dc577e288edb7e67ec62e1208b4fb0e31a5b8d83d8d802ce378
+size 624

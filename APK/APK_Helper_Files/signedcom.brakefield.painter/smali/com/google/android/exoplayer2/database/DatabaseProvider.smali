@@ -1,20 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/database/DatabaseProvider;
-.super Ljava/lang/Object;
-.source "DatabaseProvider.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# static fields
-.field public static final TABLE_PREFIX:Ljava/lang/String; = "ExoPlayer"
-
-
-# virtual methods
-.method public abstract getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
-.end method
-
-.method public abstract getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1605128cf2e04487174c0b4660754df740d23bb10b78954a9868a5dd918c789b
+size 532

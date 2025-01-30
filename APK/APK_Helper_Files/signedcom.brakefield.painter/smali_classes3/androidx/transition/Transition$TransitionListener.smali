@@ -1,31 +1,3 @@
-.class public interface abstract Landroidx/transition/Transition$TransitionListener;
-.super Ljava/lang/Object;
-.source "Transition.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Transition;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "TransitionListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onTransitionCancel(Landroidx/transition/Transition;)V
-.end method
-
-.method public abstract onTransitionEnd(Landroidx/transition/Transition;)V
-.end method
-
-.method public abstract onTransitionPause(Landroidx/transition/Transition;)V
-.end method
-
-.method public abstract onTransitionResume(Landroidx/transition/Transition;)V
-.end method
-
-.method public abstract onTransitionStart(Landroidx/transition/Transition;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a098cd42146af6469ca8a13b2b45a067720b094250f8f17df0d8046cb4ae1f35
+size 860

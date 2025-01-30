@@ -1,33 +1,3 @@
-.class Lcom/google/android/material/internal/NavigationMenuPresenter$SubheaderViewHolder;
-.super Lcom/google/android/material/internal/NavigationMenuPresenter$ViewHolder;
-.source "NavigationMenuPresenter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/internal/NavigationMenuPresenter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "SubheaderViewHolder"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)V
-    .locals 2
-
-    .line 465
-    sget v0, Lcom/google/android/material/R$layout;->design_navigation_item_subheader:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter$ViewHolder;-><init>(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c5e2f3e050afd95a23ea53c5be53dcdedfb50a9c134715c4990ab7c1926fe895
+size 1053

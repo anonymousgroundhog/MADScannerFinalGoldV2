@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/common/reflect/TypeToken$InterfaceSet$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/common/base/Predicate;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Z
-    .locals 0
-
-    check-cast p1, Ljava/lang/Class;
-
-    invoke-static {p1}, Lcom/google/common/reflect/TypeToken$InterfaceSet;->$r8$lambda$0SGStd0oa85ahG7so0zg-KQ3eHE(Ljava/lang/Class;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:21045fe944d46ea3eca6f579b126f9d02eba5099bc9a91da43ca34a9b182c667
+size 690

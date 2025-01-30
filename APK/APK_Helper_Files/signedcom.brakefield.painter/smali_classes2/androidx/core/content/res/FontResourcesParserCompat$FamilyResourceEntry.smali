@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/core/content/res/FontResourcesParserCompat$FamilyResourceEntry;
-.super Ljava/lang/Object;
-.source "FontResourcesParserCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/res/FontResourcesParserCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "FamilyResourceEntry"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0398d2f88a1b77d43d91796e9589e6cf154a1c7dca549aabcb0b00db33ab941b
+size 450

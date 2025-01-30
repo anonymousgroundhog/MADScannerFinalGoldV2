@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/SearchIndexUnknown;
-.super Ljava/lang/Object;
-.source "SearchIndexUnknown.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultQualifierInHierarchy;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {}
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1e729d19169dc7233c245186bf31b3db76c15b319f897acc7711427e802ce89a
+size 971

@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/color/ColorPickerView$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnHoverListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/color/ColorPickerView;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/color/ColorPickerView;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/color/ColorPickerView$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/color/ColorPickerView;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/color/ColorPickerView$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/color/ColorPickerView;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/infinitestudio/color/ColorPickerView;->lambda$setup$0$com-brakefield-infinitestudio-color-ColorPickerView(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3a7d812cd25662270cb12f3e280bdff647231f79cdb0bc645da916a93beeeb3d
+size 1242

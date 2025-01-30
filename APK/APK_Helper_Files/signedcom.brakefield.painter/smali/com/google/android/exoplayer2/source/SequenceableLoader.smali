@@ -1,31 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/SequenceableLoader;
-.super Ljava/lang/Object;
-.source "SequenceableLoader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/source/SequenceableLoader$Callback;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract continueLoading(J)Z
-.end method
-
-.method public abstract getBufferedPositionUs()J
-.end method
-
-.method public abstract getNextLoadPositionUs()J
-.end method
-
-.method public abstract isLoading()Z
-.end method
-
-.method public abstract reevaluateBuffer(J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f7c9f500d1613d8cf18fdf928975e0b3685b4d729a2c2d0f15be3edcade6a3a8
+size 699

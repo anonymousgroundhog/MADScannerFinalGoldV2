@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/AudioFocusManager$PlayerControl;
-.super Ljava/lang/Object;
-.source "AudioFocusManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/AudioFocusManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "PlayerControl"
-.end annotation
-
-
-# virtual methods
-.method public abstract executePlayerCommand(I)V
-.end method
-
-.method public abstract setVolumeMultiplier(F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:57c72d909ded45d47f341f9e0da339409b26e9404729a40cbfa0934a3f0666eb
+size 564

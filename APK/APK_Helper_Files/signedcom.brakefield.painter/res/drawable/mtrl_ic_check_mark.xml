@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:height="32.0dip" android:width="32.0dip" android:viewportWidth="32.0" android:viewportHeight="32.0"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:name="@string/mtrl_checkbox_button_icon_path_group_name" android:pivotX="16.0" android:pivotY="16.0">
-        <path android:name="@string/mtrl_checkbox_button_icon_path_name" android:fillColor="@android:color/white" android:pathData="@string/mtrl_checkbox_button_icon_path_checked" />
-    </group>
-</vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e5933c102d155d7b712ca6df9c709ce98cca4b222ec9c8eef49b7a14a8c2e29
+size 543

@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/core/graphics/drawable/TintAwareDrawable;
-.super Ljava/lang/Object;
-.source "TintAwareDrawable.java"
-
-
-# virtual methods
-.method public abstract setTint(I)V
-.end method
-
-.method public abstract setTintList(Landroid/content/res/ColorStateList;)V
-.end method
-
-.method public abstract setTintMode(Landroid/graphics/PorterDuff$Mode;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bcd59b0eb86025e200ec60bf61323ec707144383b4d563253d8582d041e3a5ad
+size 386

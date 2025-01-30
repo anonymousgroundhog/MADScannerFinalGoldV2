@@ -1,19 +1,3 @@
-.class public interface abstract annotation Lcom/google/firebase/annotations/concurrent/Background;
-.super Ljava/lang/Object;
-.source "Background.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Ljavax/inject/Qualifier;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4f5d7539078863d5c007dccefca78883513d424c289e3b61e4f0943ced5c211
+size 656

@@ -1,29 +1,3 @@
-.class public interface abstract annotation Ljavax/inject/Named;
-.super Ljava/lang/Object;
-.source "Named.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Ljavax/inject/Named;
-        value = ""
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/inject/Qualifier;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:962c2a04e0267aa8302ee76dce9c665031f201d35eeaeac2bc1c21f74372ca9f
+size 741

@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/billing/GooglePlayBilling$BillingListener;
-.super Ljava/lang/Object;
-.source "GooglePlayBilling.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/billing/GooglePlayBilling;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "BillingListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onBillingUnavailable()V
-.end method
-
-.method public abstract onPurchased(Lcom/brakefield/infinitestudio/billing/InAppPurchase;)V
-.end method
-
-.method public abstract onPurchasesRefreshed()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:952b2761d338dbd651223a3ca4a996c4ce3efa09c98254efbc1bbcfb65b2ba0b
+size 688

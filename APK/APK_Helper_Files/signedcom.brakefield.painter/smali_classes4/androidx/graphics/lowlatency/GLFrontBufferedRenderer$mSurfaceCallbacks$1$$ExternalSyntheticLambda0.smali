@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$mSurfaceCallbacks$1$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/CountDownLatch;
-
-
-# direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/CountDownLatch;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$mSurfaceCallbacks$1$$ExternalSyntheticLambda0;->f$0:Ljava/util/concurrent/CountDownLatch;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$mSurfaceCallbacks$1$$ExternalSyntheticLambda0;->f$0:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-static {v0}, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$mSurfaceCallbacks$1;->$r8$lambda$BRLU-SMO-Pw9qY_hPFR6LhYbxgk(Ljava/util/concurrent/CountDownLatch;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c5e24bb24767f1f3788a5457acad5169c9745d1f90778a4ef657857e8bb7321c
+size 1135

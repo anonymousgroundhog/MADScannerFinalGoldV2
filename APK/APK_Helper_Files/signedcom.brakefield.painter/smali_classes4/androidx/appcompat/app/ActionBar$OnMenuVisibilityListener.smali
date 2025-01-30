@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/app/ActionBar$OnMenuVisibilityListener;
-.super Ljava/lang/Object;
-.source "ActionBar.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/ActionBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnMenuVisibilityListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onMenuVisibilityChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dfe56432c6ab09f77b740a9ca6d9350e1f04a3b44a537b4d4a31d4acedf35f73
+size 490

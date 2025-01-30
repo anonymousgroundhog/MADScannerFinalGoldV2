@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/core/service/quicksettings/TileServiceCompat$TileServiceWrapper;
-.super Ljava/lang/Object;
-.source "TileServiceCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/service/quicksettings/TileServiceCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TileServiceWrapper"
-.end annotation
-
-
-# virtual methods
-.method public abstract startActivityAndCollapse(Landroid/app/PendingIntent;)V
-.end method
-
-.method public abstract startActivityAndCollapse(Landroid/content/Intent;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f866bb6a3c4c76556f152e1862fafcdfb8c50875e024223e4c8805abc30f4c5f
+size 637

@@ -1,20 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$ChangeTransform;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "ChangeTransform"
-.end annotation
-
-
-# static fields
-.field public static final REPARENT:I = 0x0
-
-.field public static final REPARENT_WITH_OVERLAY:I = 0x1
+version https://git-lfs.github.com/spec/v1
+oid sha256:a313a39a0909997027005eb324b323b65bd71435096815af45ef3729568bc60c
+size 495

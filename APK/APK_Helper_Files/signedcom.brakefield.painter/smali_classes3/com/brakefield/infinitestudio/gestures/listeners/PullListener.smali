@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/PullListener;
-.super Ljava/lang/Object;
-.source "PullListener.java"
-
-
-# virtual methods
-.method public abstract onPull(FFFFF)V
-.end method
-
-.method public abstract onPullFinish()V
-.end method
-
-.method public abstract onPullStart()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bdb21ac1f78738eedec456402ba7370dc9fbc96edb35b131c6cdc382e09c99a
+size 327

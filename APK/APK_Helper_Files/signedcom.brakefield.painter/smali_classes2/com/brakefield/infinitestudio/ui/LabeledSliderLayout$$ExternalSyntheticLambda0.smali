@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ui/LabeledSliderLayout$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/infinitestudio/ui/LabeledSliderLayout;->lambda$addSlider$0(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:609b2819125be8a5299c2315a3684e27eec46e50899ff7a4fc7b87673925cdbd
+size 628

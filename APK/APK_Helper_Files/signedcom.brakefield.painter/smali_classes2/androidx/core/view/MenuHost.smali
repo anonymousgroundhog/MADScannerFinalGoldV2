@@ -1,20 +1,3 @@
-.class public interface abstract Landroidx/core/view/MenuHost;
-.super Ljava/lang/Object;
-.source "MenuHost.java"
-
-
-# virtual methods
-.method public abstract addMenuProvider(Landroidx/core/view/MenuProvider;)V
-.end method
-
-.method public abstract addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;)V
-.end method
-
-.method public abstract addMenuProvider(Landroidx/core/view/MenuProvider;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;)V
-.end method
-
-.method public abstract invalidateMenu()V
-.end method
-
-.method public abstract removeMenuProvider(Landroidx/core/view/MenuProvider;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7e3439fb1eabe0f218e6e464a1e89f706a455287c5e60eeec0b91778ae1b964
+size 652

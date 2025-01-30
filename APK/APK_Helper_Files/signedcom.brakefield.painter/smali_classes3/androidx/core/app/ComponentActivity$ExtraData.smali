@@ -1,28 +1,3 @@
-.class public Landroidx/core/app/ComponentActivity$ExtraData;
-.super Ljava/lang/Object;
-.source "ComponentActivity.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/ComponentActivity;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "ExtraData"
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 190
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:afdfad59075e37dcfc47ea95121dbb1b186b9f90e42dc197ce7d287498c395ca
+size 597

@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/Result;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# virtual methods
-.method public abstract getStatus()Lcom/google/android/gms/common/api/Status;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5f34fa318df0fd40d989b01e29d947d60cec5c5ea32b4cec0f0092ad5f12abff
+size 276

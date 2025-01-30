@@ -1,15 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/internal/Beta;
-.super Ljava/lang/Object;
-.source "Beta.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:89e2fe61d238f1e0ccf90877a34e642eaaa7b8c9989a966f6b127614110be926
+size 474

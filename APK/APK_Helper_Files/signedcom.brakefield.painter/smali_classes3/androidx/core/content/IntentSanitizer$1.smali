@@ -1,14 +1,3 @@
-.class synthetic Landroidx/core/content/IntentSanitizer$1;
-.super Ljava/lang/Object;
-.source "IntentSanitizer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/IntentSanitizer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:79842c57e1cc02e7b7dfe106c42fe2197bf7445b5448783aecf68e2d8bccd007
+size 362

@@ -1,27 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/IndexFor;
-.super Ljava/lang/Object;
-.source "IndexFor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b49896c5588b98deb5be9561c974731b6a427f52d51873cfaf3d1de11200234f
+size 831

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/profileinstaller/ProfileInstaller$ResultCode;
-.super Ljava/lang/Object;
-.source "ProfileInstaller.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/profileinstaller/ProfileInstaller;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ResultCode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3169f9ae00e19cb6b358f216a582245604ecef2c70757a8ad7a5110fab31c1b
+size 651

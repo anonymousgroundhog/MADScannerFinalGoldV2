@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/BidiagonalDecomposition_F32;
-.super Ljava/lang/Object;
-.source "BidiagonalDecomposition_F32.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/BidiagonalDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/BidiagonalDecomposition<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getDiagonal([F[F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:172f7e10e0ba6f485e62819e170f178349f785a08e9744c418ca69421ce0fbac
+size 608

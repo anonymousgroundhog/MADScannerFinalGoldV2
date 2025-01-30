@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager$Migration;
-.super Ljava/lang/Object;
-.source "SchemaManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Migration"
-.end annotation
-
-
-# virtual methods
-.method public abstract upgrade(Landroid/database/sqlite/SQLiteDatabase;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0f317bea536fdd6b268a1df32cf81690ab948b1b32fc98d643f8705259372668
+size 577

@@ -1,25 +1,3 @@
-.class final Lcom/google/common/util/concurrent/Partially;
-.super Ljava/lang/Object;
-.source "Partially.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/common/util/concurrent/Partially$GwtIncompatible;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 49
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c90aaa2338d05dc9e18c0b9125ad343dd5f449b5912ce91e5e29c65d8947b63a
+size 558

@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/metadata/id3/Id3Decoder$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/metadata/id3/Id3Decoder$FramePredicate;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final evaluate(IIIII)Z
-    .locals 0
-
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/google/android/exoplayer2/metadata/id3/Id3Decoder;->lambda$static$0(IIIII)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2028d445bf406d4f58f36f333f3e3baec741d93ef7606840e93f5e167d699d23
+size 669

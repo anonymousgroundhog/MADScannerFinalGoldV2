@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/exoplayer2/upstream/CmcdConfiguration$HeaderKey;
-.super Ljava/lang/Object;
-.source "CmcdConfiguration.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/CmcdConfiguration;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "HeaderKey"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:489c886ecc53049e80846f0d7e5aa364d803a32e0eda67dea7f10a2c7b54d438
+size 930

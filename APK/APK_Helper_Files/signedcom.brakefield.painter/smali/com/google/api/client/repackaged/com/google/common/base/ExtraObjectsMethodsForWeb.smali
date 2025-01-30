@@ -1,14 +1,3 @@
-.class abstract Lcom/google/api/client/repackaged/com/google/common/base/ExtraObjectsMethodsForWeb;
-.super Ljava/lang/Object;
-.source "ExtraObjectsMethodsForWeb.java"
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 24
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:faaf5e538cd5598b1d35e94a257008eb1ffb0dbde541507f5cb39e541fff7c34
+size 327

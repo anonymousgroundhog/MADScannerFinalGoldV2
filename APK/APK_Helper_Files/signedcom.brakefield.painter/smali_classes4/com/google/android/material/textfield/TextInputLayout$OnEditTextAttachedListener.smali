@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/textfield/TextInputLayout$OnEditTextAttachedListener;
-.super Ljava/lang/Object;
-.source "TextInputLayout.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/textfield/TextInputLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnEditTextAttachedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onEditTextAttached(Lcom/google/android/material/textfield/TextInputLayout;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:787ff26b563baa1d311ff4746764d71fc6d056feeae49bf1ece8c335a3a3a67a
+size 591

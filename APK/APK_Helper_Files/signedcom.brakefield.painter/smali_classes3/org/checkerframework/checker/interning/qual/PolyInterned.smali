@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/interning/qual/PolyInterned;
-.super Ljava/lang/Object;
-.source "PolyInterned.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/PolymorphicQualifier;
-    value = Lorg/checkerframework/checker/interning/qual/UnknownInterned;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:045ffd146741aeba2f0dc16fe137f312de127da1512c43a74ac104ae95a57758
+size 930

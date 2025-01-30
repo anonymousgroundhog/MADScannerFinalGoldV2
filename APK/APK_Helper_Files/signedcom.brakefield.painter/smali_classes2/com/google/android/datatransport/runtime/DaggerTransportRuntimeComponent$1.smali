@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/DaggerTransportRuntimeComponent$1;
-.super Ljava/lang/Object;
-.source "DaggerTransportRuntimeComponent.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/DaggerTransportRuntimeComponent;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1328932446484b8d1bb65ef14b99f782a7f57bb1658d0fbb7afd9b7c8111394a
+size 448

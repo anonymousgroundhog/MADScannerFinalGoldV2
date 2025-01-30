@@ -1,14 +1,3 @@
-.class public Lorg/ejml/simple/ConvertToDenseException;
-.super Ljava/lang/RuntimeException;
-.source "ConvertToDenseException.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:312ff4c5db16e83bb4b678a17cfe9c80f8f28a0ec0ee7c8a884613aa17710934
+size 308

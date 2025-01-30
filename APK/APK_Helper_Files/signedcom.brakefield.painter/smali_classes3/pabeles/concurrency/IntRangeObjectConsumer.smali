@@ -1,27 +1,3 @@
-.class public interface abstract Lpabeles/concurrency/IntRangeObjectConsumer;
-.super Ljava/lang/Object;
-.source "IntRangeObjectConsumer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/FunctionalInterface;
-.end annotation
-
-
-# virtual methods
-.method public abstract accept(Ljava/lang/Object;II)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;II)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec2038188501b136395e83321c9ebf0ffd5b1df00773c8d905d2b921f3955a3d
+size 609

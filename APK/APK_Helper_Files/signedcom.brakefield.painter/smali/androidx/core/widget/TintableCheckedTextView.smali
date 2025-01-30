@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/core/widget/TintableCheckedTextView;
-.super Ljava/lang/Object;
-.source "TintableCheckedTextView.java"
-
-
-# virtual methods
-.method public abstract getSupportCheckMarkTintList()Landroid/content/res/ColorStateList;
-.end method
-
-.method public abstract getSupportCheckMarkTintMode()Landroid/graphics/PorterDuff$Mode;
-.end method
-
-.method public abstract setSupportCheckMarkTintList(Landroid/content/res/ColorStateList;)V
-.end method
-
-.method public abstract setSupportCheckMarkTintMode(Landroid/graphics/PorterDuff$Mode;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d06029d56fe29aa079b26c1b06676315d7b2d78ea01ea832ecfa170d85c4e206
+size 574

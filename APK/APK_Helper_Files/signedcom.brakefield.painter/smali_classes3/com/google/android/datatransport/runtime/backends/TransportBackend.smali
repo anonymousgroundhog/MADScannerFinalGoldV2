@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/backends/TransportBackend;
-.super Ljava/lang/Object;
-.source "TransportBackend.java"
-
-
-# virtual methods
-.method public abstract decorate(Lcom/google/android/datatransport/runtime/EventInternal;)Lcom/google/android/datatransport/runtime/EventInternal;
-.end method
-
-.method public abstract send(Lcom/google/android/datatransport/runtime/backends/BackendRequest;)Lcom/google/android/datatransport/runtime/backends/BackendResponse;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:886899a932ec3b902e8a7aea34a23c507a3e681553814a9ce57c223613239e4c
+size 516

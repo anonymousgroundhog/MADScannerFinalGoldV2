@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/textfield/TextInputLayout$OnEndIconChangedListener;
-.super Ljava/lang/Object;
-.source "TextInputLayout.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/textfield/TextInputLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnEndIconChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onEndIconChanged(Lcom/google/android/material/textfield/TextInputLayout;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:069412f37bca7a7633a5b9bab5929ca171156a7270e1d08b3bd48df7171b7ce4
+size 586

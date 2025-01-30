@@ -1,24 +1,3 @@
-.class interface abstract annotation Lcom/google/common/html/ParametricNullness;
-.super Ljava/lang/Object;
-.source "ParametricNullness.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nonnull;
-    when = .enum Ljavax/annotation/meta/When;->UNKNOWN:Ljavax/annotation/meta/When;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7f5b29442efed9b491e756d488b0be4fb837ad1a1113c68b4fedd7a451316b2e
+size 906

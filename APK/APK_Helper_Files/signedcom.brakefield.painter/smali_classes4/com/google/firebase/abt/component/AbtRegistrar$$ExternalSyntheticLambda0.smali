@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/firebase/abt/component/AbtRegistrar$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/firebase/components/ComponentFactory;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/firebase/abt/component/AbtRegistrar;->lambda$getComponents$0(Lcom/google/firebase/components/ComponentContainer;)Lcom/google/firebase/abt/component/AbtComponent;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4ad776eca6d56a4bd1ce21ee95b66a19a52fb64691b079e5b0d9efe012ea02d
+size 793

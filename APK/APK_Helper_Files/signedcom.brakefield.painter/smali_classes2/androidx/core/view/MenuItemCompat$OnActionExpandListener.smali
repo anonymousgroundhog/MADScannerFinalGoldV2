@@ -1,25 +1,3 @@
-.class public interface abstract Landroidx/core/view/MenuItemCompat$OnActionExpandListener;
-.super Ljava/lang/Object;
-.source "MenuItemCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/MenuItemCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnActionExpandListener"
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
-.end method
-
-.method public abstract onMenuItemActionExpand(Landroid/view/MenuItem;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ebb8e10998cfdab2fa94a386931792d6762a75d6cfb98e85c424164b636e650a
+size 662

@@ -1,13 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:state_enabled="true" app:state_liftable="true" app:state_lifted="false">
-        <objectAnimator android:duration="@integer/app_bar_elevation_anim_duration" android:valueTo="0.0dip" android:valueType="floatType" android:propertyName="elevation" />
-    </item>
-    <item android:state_enabled="true">
-        <objectAnimator android:duration="@integer/app_bar_elevation_anim_duration" android:valueTo="@dimen/design_appbar_elevation" android:valueType="floatType" android:propertyName="elevation" />
-    </item>
-    <item>
-        <objectAnimator android:duration="0" android:valueTo="0" android:valueType="floatType" android:propertyName="elevation" />
-    </item>
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b9fbaf9b4eae092ffebca9cf46abede2002eca026bb7283506c91b0642015eb
+size 857

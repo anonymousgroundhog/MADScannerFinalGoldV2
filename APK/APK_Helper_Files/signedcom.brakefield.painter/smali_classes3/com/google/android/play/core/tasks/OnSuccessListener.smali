@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/tasks/OnSuccessListener;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<ResultT:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onSuccess(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TResultT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:21fc4bc82751467da4cc24123cf31aec4d8a7977c05feac8fae7eca1d241f582
+size 570

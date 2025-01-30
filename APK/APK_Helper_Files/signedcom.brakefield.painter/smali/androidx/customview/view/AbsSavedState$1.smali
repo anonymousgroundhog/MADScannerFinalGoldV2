@@ -1,27 +1,3 @@
-.class Landroidx/customview/view/AbsSavedState$1;
-.super Landroidx/customview/view/AbsSavedState;
-.source "AbsSavedState.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/customview/view/AbsSavedState;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    .line 32
-    invoke-direct {p0, v0}, Landroidx/customview/view/AbsSavedState;-><init>(Landroidx/customview/view/AbsSavedState$1;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:23078c54495ad548cf5c1156e048e1ede5e3777811e0d806d73a80c52fe0ec86
+size 620

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/crashlytics/internal/model/AutoValue_CrashlyticsReport_Session_Event_Application_Execution_Exception$1;
-.super Ljava/lang/Object;
-.source "AutoValue_CrashlyticsReport_Session_Event_Application_Execution_Exception.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/model/AutoValue_CrashlyticsReport_Session_Event_Application_Execution_Exception;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3632b00da1204b7650a0e89ab9b4312daeadbbfb55972fc04252812ab51738c6
+size 586

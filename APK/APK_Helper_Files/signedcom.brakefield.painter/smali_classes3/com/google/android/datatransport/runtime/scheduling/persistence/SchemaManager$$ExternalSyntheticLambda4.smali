@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager$Migration;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final upgrade(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/SchemaManager;->lambda$static$4(Landroid/database/sqlite/SQLiteDatabase;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8dec0b56348f17cd0e911530bd63f2d16c30cf0601cbf78f949148f5f2f70fb9
+size 771

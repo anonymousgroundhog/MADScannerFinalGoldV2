@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/BaseGmsClient$ConnectionProgressReportCallbacks;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/internal/BaseGmsClient;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ConnectionProgressReportCallbacks"
-.end annotation
-
-
-# virtual methods
-.method public abstract onReportServiceBinding(Lcom/google/android/gms/common/ConnectionResult;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c881db40527be6f664b263d1244f2dcfee800329788007da25e21c1b216f77a
+size 633

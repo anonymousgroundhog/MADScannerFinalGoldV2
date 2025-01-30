@@ -1,29 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/request/Request;
-.super Ljava/lang/Object;
-.source "Request.java"
-
-
-# virtual methods
-.method public abstract begin()V
-.end method
-
-.method public abstract clear()V
-.end method
-
-.method public abstract isAnyResourceSet()Z
-.end method
-
-.method public abstract isCleared()Z
-.end method
-
-.method public abstract isComplete()Z
-.end method
-
-.method public abstract isEquivalentTo(Lcom/bumptech/glide/request/Request;)Z
-.end method
-
-.method public abstract isRunning()Z
-.end method
-
-.method public abstract pause()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bee5c9bb6d9f534ae8242838f74e4029d991fc341df754aaa8957a78b197f9f6
+size 575

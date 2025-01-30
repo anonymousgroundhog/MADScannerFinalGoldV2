@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/infinitestudio/image/svg/SVGParser$1;
-.super Ljava/lang/Object;
-.source "SVGParser.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/image/svg/SVGParser;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:938a7de5049d982b09bdacf88a8418f44070196ceb338de2d7c058d12c5fd565
+size 380

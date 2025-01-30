@@ -1,3 +1,3 @@
-.class public final synthetic Lcom/android/billingclient/api/zzi;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
+version https://git-lfs.github.com/spec/v1
+oid sha256:a6d7dabb915b47d7519ed1f4adf35256c7144407b40737e284a0d947359da6a4
+size 143

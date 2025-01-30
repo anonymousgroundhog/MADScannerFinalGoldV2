@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/MainViewX$13$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/MainViewX$13;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/MainViewX$13;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/MainViewX$13$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/MainViewX$13;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/MainViewX$13$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/MainViewX$13;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/painter/ui/MainViewX$13;->lambda$onDown$0$com-brakefield-painter-ui-MainViewX$13(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cdf57d60cdd726adc78b4e093e96efe634f9bc9220e92246ebe0627331dda7d3
+size 1111

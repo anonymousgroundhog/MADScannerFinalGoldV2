@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/api/client/repackaged/org/apache/commons/codec/BinaryEncoder;
-.super Ljava/lang/Object;
-.source "BinaryEncoder.java"
-
-# interfaces
-.implements Lcom/google/api/client/repackaged/org/apache/commons/codec/Encoder;
-
-
-# virtual methods
-.method public abstract encode([B)[B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/api/client/repackaged/org/apache/commons/codec/EncoderException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:63ac88837ddbe3331eb7199c0f329ead5188bf291933f5f52018abbdc6a73522
+size 512

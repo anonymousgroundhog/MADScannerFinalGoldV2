@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/firebase/heartbeatinfo/HeartBeatController;
-.super Ljava/lang/Object;
-.source "HeartBeatController.java"
-
-
-# virtual methods
-.method public abstract getHeartBeatsHeader()Lcom/google/android/gms/tasks/Task;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/android/gms/tasks/Task<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:57d4a2dd21f0807d757a3e1d1bacb91771fd1539a5af30d5ae3fef9fd3b777d4
+size 484

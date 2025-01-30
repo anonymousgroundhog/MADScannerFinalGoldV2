@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:color="?colorOnSurfaceVariant" android:alpha="@dimen/material_emphasis_disabled" />
-    <item android:state_checked="true" android:color="?colorOnSecondaryContainer" />
-    <item android:color="?colorOnSurfaceVariant" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3afbb4745b2fa93dcda8a2f18c9ca89f794c7a2f275109464a78030a6aad6f7
+size 391

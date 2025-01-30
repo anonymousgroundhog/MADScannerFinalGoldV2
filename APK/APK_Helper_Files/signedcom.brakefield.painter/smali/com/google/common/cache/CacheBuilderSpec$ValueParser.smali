@@ -1,23 +1,3 @@
-.class interface abstract Lcom/google/common/cache/CacheBuilderSpec$ValueParser;
-.super Ljava/lang/Object;
-.source "CacheBuilderSpec.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/cache/CacheBuilderSpec;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "ValueParser"
-.end annotation
-
-
-# virtual methods
-.method public abstract parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
-    .param p3    # Ljava/lang/String;
-        .annotation runtime Ljavax/annotation/CheckForNull;
-        .end annotation
-    .end param
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:27678dd96c47567a4f1152fc631c6af7be5dea0997f64cedacf93ba860337c9f
+size 676

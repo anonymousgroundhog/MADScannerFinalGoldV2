@@ -1,27 +1,3 @@
-.class public final Lcom/google/firebase/remoteconfig/R$raw;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/remoteconfig/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "raw"
-.end annotation
-
-
-# static fields
-.field public static final firebase_common_keep:I = 0x7f110001
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:853f8922b3fe19a2b03e4d4b4d54c97a56e0bc4d472f8993476a8f2f7206b52c
+size 565

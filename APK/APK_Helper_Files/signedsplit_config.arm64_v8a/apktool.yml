@@ -1,17 +1,3 @@
-version: 2.9.0
-apkFileName: signedsplit_config.arm64_v8a.apk
-isFrameworkApk: false
-usesFramework:
-  ids:
-  - 1
-  tag: null
-sdkInfo:
-packageInfo:
-  forcedPackageId: null
-  renameManifestPackage: null
-versionInfo:
-  versionCode: 400724
-  versionName: null
-resourcesAreCompressed: false
-sharedLibrary: false
-sparseResources: true
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b5d65f495e8b9c8aad43546cf067e7fa97835b2d5ee6f6722f2c59209e7109a
+size 327

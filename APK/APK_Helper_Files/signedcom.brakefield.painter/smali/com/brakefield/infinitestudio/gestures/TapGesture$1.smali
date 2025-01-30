@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/infinitestudio/gestures/TapGesture$1;
-.super Ljava/lang/Object;
-.source "TapGesture.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/gestures/TapGesture;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1ee3de64bdca6f354ce1a6a6b0be07112246556377c068ed92bec2b6955c602e
+size 381

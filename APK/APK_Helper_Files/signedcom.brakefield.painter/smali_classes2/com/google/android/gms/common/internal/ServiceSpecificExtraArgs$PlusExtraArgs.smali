@@ -1,18 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/ServiceSpecificExtraArgs$PlusExtraArgs;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/internal/ServiceSpecificExtraArgs;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "PlusExtraArgs"
-.end annotation
-
-
-# static fields
-.field public static final PLUS_AUTH_PACKAGE:Ljava/lang/String; = "auth_package"
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbd0d17d23348df7f9976ce0abd447b18dacd771e2c36ac43dfadb1b4de7d433
+size 584

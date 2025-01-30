@@ -1,35 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/nullness/qual/KeyFor;
-.super Ljava/lang/Object;
-.source "KeyFor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/nullness/qual/UnknownKeyFor;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-    .annotation runtime Lorg/checkerframework/framework/qual/JavaExpression;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2958f01d831ac91ece858684918ca7e295bdf9d45e8c34f1146423ca7529a81a
+size 1099

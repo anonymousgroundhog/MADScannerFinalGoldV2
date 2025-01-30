@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/play_billing/zzbr;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/Comparable;
-
-
-# virtual methods
-.method public abstract zza()I
-.end method
-
-.method public abstract zzb()Lcom/google/android/gms/internal/play_billing/zzew;
-.end method
-
-.method public abstract zzc()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ac41a084414a0a83a4d6522e2d316239d98dce623d79447909a89a8a287b26f0
+size 412

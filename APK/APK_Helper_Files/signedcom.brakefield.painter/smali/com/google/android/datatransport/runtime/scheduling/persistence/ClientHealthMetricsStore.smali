@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;
-.super Ljava/lang/Object;
-.source "ClientHealthMetricsStore.java"
-
-
-# virtual methods
-.method public abstract loadClientMetrics()Lcom/google/android/datatransport/runtime/firebase/transport/ClientMetrics;
-.end method
-
-.method public abstract recordLogEventDropped(JLcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Reason;Ljava/lang/String;)V
-.end method
-
-.method public abstract resetClientMetrics()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9727390031f72a3ee6a7531dfdc30fed9d5fabb60241b143cfa19ea6e1088592
+size 565

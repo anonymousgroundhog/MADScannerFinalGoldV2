@@ -1,25 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/ResettableListIterator;
-.super Ljava/lang/Object;
-.source "ResettableListIterator.java"
-
-# interfaces
-.implements Ljava/util/ListIterator;
-.implements Lorg/apache/commons/collections4/ResettableIterator;
-.implements Lorg/apache/commons/collections4/OrderedIterator;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<E:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/ListIterator<",
-        "TE;>;",
-        "Lorg/apache/commons/collections4/ResettableIterator<",
-        "TE;>;",
-        "Lorg/apache/commons/collections4/OrderedIterator<",
-        "TE;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:cabb5eb70ac9666fa5c53b09538ee977eaacd320f4484b8217511826f4692570
+size 732

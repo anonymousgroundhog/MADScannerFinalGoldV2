@@ -1,28 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/data/DataBufferObserver;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/data/DataBufferObserver$Observable;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onDataChanged()V
-.end method
-
-.method public abstract onDataRangeChanged(II)V
-.end method
-
-.method public abstract onDataRangeInserted(II)V
-.end method
-
-.method public abstract onDataRangeMoved(III)V
-.end method
-
-.method public abstract onDataRangeRemoved(II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e94701028c74d688255886557b9723bc5f6cd9ca6e262da781a6f42ea4b216af
+size 672

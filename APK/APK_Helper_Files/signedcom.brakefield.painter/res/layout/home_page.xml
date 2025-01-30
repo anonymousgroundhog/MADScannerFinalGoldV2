@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.brakefield.infinitestudio.gestures.GestureLayout android:id="@id/collection_gestures" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.recyclerview.widget.RecyclerView android:id="@id/collection" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
-</com.brakefield.infinitestudio.gestures.GestureLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:b1c3b27315c38d42695e0389006699c459fb07434a163e9a25d969bbe4f6b4a1
+size 689

@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/firebase/components/ComponentRegistrar;
-.super Ljava/lang/Object;
-.source "ComponentRegistrar.java"
-
-
-# virtual methods
-.method public abstract getComponents()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/google/firebase/components/Component<",
-            "*>;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:972f3c251434ff0fb8bb67af7b9d3ef29e32defa277bd5d359bce5ecf6897cc5
+size 462

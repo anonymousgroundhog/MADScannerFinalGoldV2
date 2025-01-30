@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/color/ColorPickerView$OnTwoDownListener;
-.super Ljava/lang/Object;
-.source "ColorPickerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/color/ColorPickerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnTwoDownListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onTwoDown(FF)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e57cdc8ccbab6e3e6b40cbfaac403b9bb48e6367bcf2c9d9a61bdaed12f2fa97
+size 507

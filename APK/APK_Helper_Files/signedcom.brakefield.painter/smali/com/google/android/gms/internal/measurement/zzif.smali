@@ -1,3 +1,3 @@
-.class Lcom/google/android/gms/internal/measurement/zzif;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement-base@@21.2.2"
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa38dd1b484a450e99bfda4515f02673a61320414db50d6d03592a517ea03539
+size 156

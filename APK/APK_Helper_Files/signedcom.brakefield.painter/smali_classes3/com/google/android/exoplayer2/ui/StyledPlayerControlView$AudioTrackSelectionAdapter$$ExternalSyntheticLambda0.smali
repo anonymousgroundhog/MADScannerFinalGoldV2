@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/exoplayer2/ui/StyledPlayerControlView$AudioTrackSelectionAdapter;->lambda$onBindViewHolderAtZeroPosition$0$com-google-android-exoplayer2-ui-StyledPlayerControlView$AudioTrackSelectionAdapter(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cabf83a137f52d9870c9b5cccca3f2464a5dc9119b1786dc5e5ead43458cb52f
+size 1481

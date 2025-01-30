@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$AdjustableOrientation;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "AdjustableOrientation"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2048b4c2d5fe0191b1137bcabd005fd09bb8d9f136a7b3f9f540f480c5f2737e
+size 495

@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/transition/platform/TransitionUtils$CornerSizeBinaryOperator;
-.super Ljava/lang/Object;
-.source "TransitionUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/TransitionUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "CornerSizeBinaryOperator"
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d645b3b1fc53bb82950b64bf352a54b02856cd765faac4e38909c2dd89739537
+size 669

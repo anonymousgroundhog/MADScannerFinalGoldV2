@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/components/ComponentRuntime$Builder$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/firebase/inject/Provider;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/firebase/components/ComponentRegistrar;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/firebase/components/ComponentRegistrar;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/components/ComponentRuntime$Builder$$ExternalSyntheticLambda0;->f$0:Lcom/google/firebase/components/ComponentRegistrar;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/components/ComponentRuntime$Builder$$ExternalSyntheticLambda0;->f$0:Lcom/google/firebase/components/ComponentRegistrar;
-
-    invoke-static {v0}, Lcom/google/firebase/components/ComponentRuntime$Builder;->lambda$addComponentRegistrar$0(Lcom/google/firebase/components/ComponentRegistrar;)Lcom/google/firebase/components/ComponentRegistrar;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5598708cc36fdcae62866577155b89936101b5827395e7e307d6060f0a511dbf
+size 1245

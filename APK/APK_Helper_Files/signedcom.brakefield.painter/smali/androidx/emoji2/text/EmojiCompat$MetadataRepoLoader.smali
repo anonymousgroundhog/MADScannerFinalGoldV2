@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoader;
-.super Ljava/lang/Object;
-.source "EmojiCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/emoji2/text/EmojiCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "MetadataRepoLoader"
-.end annotation
-
-
-# virtual methods
-.method public abstract load(Landroidx/emoji2/text/EmojiCompat$MetadataRepoLoaderCallback;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:488f47a5e7695f5acb015d23a32fcbf974c292b0f63a7142022b73c991554547
+size 521

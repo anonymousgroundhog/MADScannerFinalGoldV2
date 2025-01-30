@@ -1,25 +1,3 @@
-.class final Lcom/bumptech/glide/manager/FirstFrameWaiter;
-.super Ljava/lang/Object;
-.source "FirstFrameWaiter.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/manager/FrameWaiter;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 8
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public registerSelf(Landroid/app/Activity;)V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3832219750c73440740ae89d05e6f9ee73c19c596983e5a8a204fce6bdaf7160
+size 459

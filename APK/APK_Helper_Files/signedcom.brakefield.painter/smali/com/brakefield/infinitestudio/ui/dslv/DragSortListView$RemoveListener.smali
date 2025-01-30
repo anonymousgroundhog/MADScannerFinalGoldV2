@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/dslv/DragSortListView$RemoveListener;
-.super Ljava/lang/Object;
-.source "DragSortListView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/dslv/DragSortListView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RemoveListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract remove(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9c2c01a619e0fe3f06194f9f543b663bf622fc473b51a49305bc63e34eaf50f
+size 504

@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;
-.super Ljava/lang/Object;
-.source "SwipeDismissBehavior.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/behavior/SwipeDismissBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnDismissListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDismiss(Landroid/view/View;)V
-.end method
-
-.method public abstract onDragStateChanged(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0df4239ba44966e1f5fb4e6cd173ba3be0527b8d8edde68f5c24f2496715bf9c
+size 601

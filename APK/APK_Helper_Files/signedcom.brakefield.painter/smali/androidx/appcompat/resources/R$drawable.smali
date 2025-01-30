@@ -1,27 +1,3 @@
-.class public final Landroidx/appcompat/resources/R$drawable;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/resources/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "drawable"
-.end annotation
-
-
-# static fields
-.field public static final abc_vector_test:I = 0x7f080077
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b8be6f2d19d2a62951467734efc570f0f4e55cc908aaa54f49de77b2960f0458
+size 562

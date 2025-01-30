@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/view/VelocityTrackerCompat$VelocityTrackableMotionEventAxis;
-.super Ljava/lang/Object;
-.source "VelocityTrackerCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/VelocityTrackerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "VelocityTrackableMotionEventAxis"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:11eb3a39f8079d00b6192167af5d933069d22270327dc05b86e968a5daa49cb8
+size 696

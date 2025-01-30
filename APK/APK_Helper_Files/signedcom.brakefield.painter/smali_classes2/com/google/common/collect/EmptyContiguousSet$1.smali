@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/EmptyContiguousSet$1;
-.super Ljava/lang/Object;
-.source "EmptyContiguousSet.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/EmptyContiguousSet;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd9b900ef53e4b3756de7de71ee3f4915a777ae88ef79991ef571fd8647c9bca
+size 379

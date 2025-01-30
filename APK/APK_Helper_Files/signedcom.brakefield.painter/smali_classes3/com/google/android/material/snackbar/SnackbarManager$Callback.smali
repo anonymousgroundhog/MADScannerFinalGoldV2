@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/android/material/snackbar/SnackbarManager$Callback;
-.super Ljava/lang/Object;
-.source "SnackbarManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/snackbar/SnackbarManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Callback"
-.end annotation
-
-
-# virtual methods
-.method public abstract dismiss(I)V
-.end method
-
-.method public abstract show()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bf85102092f87ea619041d1b7191b5d294009bdff0240ec88a4c3bad83a1b83b
+size 526

@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:color="@android:color/transparent" />
-    <item android:state_selected="true" android:color="?colorSecondaryContainer" />
-    <item android:state_checked="true" android:color="?colorSecondaryContainer" />
-    <item android:color="?colorSurface" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:6f2d73ca2d31792cfaca4c2a2dcd253a89f1c1e18e97299106eaea6fa39bd1d6
+size 418

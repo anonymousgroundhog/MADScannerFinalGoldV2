@@ -1,34 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/fenum/qual/FenumUnqualified;
-.super Ljava/lang/Object;
-.source "FenumUnqualified.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultFor;
-    value = {
-        .enum Lorg/checkerframework/framework/qual/TypeUseLocation;->EXCEPTION_PARAMETER:Lorg/checkerframework/framework/qual/TypeUseLocation;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultQualifierInHierarchy;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/fenum/qual/FenumTop;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:63152771c30757ff32f0fc10276c2ca5fbf4abdceeab7e1b124b98481c8c73e8
+size 1080

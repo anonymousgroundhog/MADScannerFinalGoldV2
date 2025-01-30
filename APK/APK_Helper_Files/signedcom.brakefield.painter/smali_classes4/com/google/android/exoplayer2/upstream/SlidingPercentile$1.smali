@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/upstream/SlidingPercentile$1;
-.super Ljava/lang/Object;
-.source "SlidingPercentile.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/SlidingPercentile;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a20414e9c8251cf6d268f08a138aa8c20cb0ea8a8745d6a957b3dbdd964e6702
+size 402

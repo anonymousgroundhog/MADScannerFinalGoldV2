@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/offline/Downloader$ProgressListener;
-.super Ljava/lang/Object;
-.source "Downloader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/offline/Downloader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ProgressListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onProgress(JJF)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b782fb63de47dd74ab4fdce882e5f24fb5ba2b813ba31dac4a8c8006128331f0
+size 496

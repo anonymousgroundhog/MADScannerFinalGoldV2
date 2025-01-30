@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$TitledBorderTitlePosition;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TitledBorderTitlePosition"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0bc9b6af7f8f0dbb7da5c2ea1dc44765d7f6ef9c5de55ded897e0560661ff882
+size 503

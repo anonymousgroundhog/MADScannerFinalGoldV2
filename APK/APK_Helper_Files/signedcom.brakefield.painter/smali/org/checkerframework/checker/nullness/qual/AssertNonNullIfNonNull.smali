@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/nullness/qual/AssertNonNullIfNonNull;
-.super Ljava/lang/Object;
-.source "AssertNonNullIfNonNull.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6426218341bda6ab405471c8529cc10110aa13e818181ea3edbde7d21ed63931
+size 759

@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_linear_in" android:duration="200" android:startOffset="0" android:propertyName="opacity" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_linear_in" android:duration="200" android:startOffset="0" android:propertyName="scale" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="0" android:startOffset="200" android:propertyName="iconScale" />
-</set>
+version https://git-lfs.github.com/spec/v1
+oid sha256:a0c61fd04f9d7afa03e65b9a5bf5e7f8a68fcf3f903bccef371f1ca49fc37a9e
+size 596

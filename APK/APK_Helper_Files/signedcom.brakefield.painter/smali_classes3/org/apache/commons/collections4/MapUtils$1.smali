@@ -1,32 +1,3 @@
-.class final Lorg/apache/commons/collections4/MapUtils$1;
-.super Lorg/apache/commons/collections4/map/AbstractMapDecorator;
-.source "MapUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lorg/apache/commons/collections4/MapUtils;->iterableMap(Ljava/util/Map;)Lorg/apache/commons/collections4/IterableMap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lorg/apache/commons/collections4/map/AbstractMapDecorator<",
-        "TK;TV;>;"
-    }
-.end annotation
-
-
-# direct methods
-.method constructor <init>(Ljava/util/Map;)V
-    .locals 0
-
-    .line 1775
-    invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2baffcb85b527f7af30153c840ae92b8fa5fc0e404ab2c284c5bcf4466c9b449
+size 881

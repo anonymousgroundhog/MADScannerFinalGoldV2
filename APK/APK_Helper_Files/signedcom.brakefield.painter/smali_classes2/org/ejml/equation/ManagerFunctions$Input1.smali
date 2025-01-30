@@ -1,19 +1,3 @@
-.class public interface abstract Lorg/ejml/equation/ManagerFunctions$Input1;
-.super Ljava/lang/Object;
-.source "ManagerFunctions.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/ejml/equation/ManagerFunctions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Input1"
-.end annotation
-
-
-# virtual methods
-.method public abstract create(Lorg/ejml/equation/Variable;Lorg/ejml/equation/ManagerTempVariables;)Lorg/ejml/equation/Operation$Info;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d11034bbd217b2b666e0b5adc0e283254922cb2ad101d1d969b4754d93719a6f
+size 548

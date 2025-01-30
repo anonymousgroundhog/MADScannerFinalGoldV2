@@ -1,32 +1,3 @@
-.class public interface abstract annotation Lorg/codehaus/jackson/annotate/JsonValue;
-.super Ljava/lang/Object;
-.source "JsonValue.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lorg/codehaus/jackson/annotate/JsonValue;
-        value = true
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/codehaus/jackson/annotate/JacksonAnnotation;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:144c709cd77abc78fdc1928c8610a2c3ddde374f510a512e15dd4bbbbcd57265
+size 905

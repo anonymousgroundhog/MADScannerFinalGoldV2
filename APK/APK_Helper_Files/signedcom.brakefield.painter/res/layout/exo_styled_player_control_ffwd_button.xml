@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:id="@id/exo_ffwd_with_amount" style="@style/ExoStyledControls.Button.Center.FfwdWithAmount" />
-</merge>
+version https://git-lfs.github.com/spec/v1
+oid sha256:47a04b4a8b53b509be46ca0fa5febfb91315fbdd55e7ead865ce50c5ce808760
+size 231

@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/extractor/ts/SectionPayloadReader;
-.super Ljava/lang/Object;
-.source "SectionPayloadReader.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract consume(Lcom/google/android/exoplayer2/util/ParsableByteArray;)V
-.end method
-
-.method public abstract init(Lcom/google/android/exoplayer2/util/TimestampAdjuster;Lcom/google/android/exoplayer2/extractor/ExtractorOutput;Lcom/google/android/exoplayer2/extractor/ts/TsPayloadReader$TrackIdGenerator;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:419165178484ef0a9a577f1ede0f48f9158391c6a02bbdd847e38b87897e08c1
+size 590

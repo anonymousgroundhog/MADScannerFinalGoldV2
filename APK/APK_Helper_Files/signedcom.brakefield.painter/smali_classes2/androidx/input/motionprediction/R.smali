@@ -1,12 +1,3 @@
-.class public final Landroidx/input/motionprediction/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:82350633ff9db066465ef7ac8629b42e855af3288776d50bc9fcf408382871a6
+size 237

@@ -1,11 +1,3 @@
-.class interface abstract synthetic Lcom/google/common/hash/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
-
-
-# annotations
-.annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
-.end annotation
-
-.annotation runtime Ljavax/annotation/ParametersAreNonnullByDefault;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4166410c46ef80d999d7fe678ae0b5ee4f2effa6a99438a441ec7769d88cc8b1
+size 319

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/util/report/qual/ReportInherit;
-.super Ljava/lang/Object;
-.source "ReportInherit.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f678723dfba24780a1e862cea09af460ccbd9f3537a5ec5d02ef451d3eadf4a0
+size 658

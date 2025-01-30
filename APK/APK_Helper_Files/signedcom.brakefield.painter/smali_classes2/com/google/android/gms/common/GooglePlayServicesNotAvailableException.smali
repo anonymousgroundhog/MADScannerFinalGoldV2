@@ -1,20 +1,3 @@
-.class public final Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException;
-.super Ljava/lang/Exception;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# instance fields
-.field public final errorCode:I
-
-
-# direct methods
-.method public constructor <init>(I)V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
-
-    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException;->errorCode:I
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:332f66836e69ec7acc9d960b7777de49a072189fe8a633ed81186100aa417b46
+size 510

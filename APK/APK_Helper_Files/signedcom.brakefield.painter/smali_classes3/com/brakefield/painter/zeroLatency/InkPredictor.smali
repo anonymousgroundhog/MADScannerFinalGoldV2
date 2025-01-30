@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/zeroLatency/InkPredictor;
-.super Ljava/lang/Object;
-.source "InkPredictor.java"
-
-
-# virtual methods
-.method public abstract addPoints(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/brakefield/painter/zeroLatency/InkPoint;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract calculatePrediction()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/brakefield/painter/zeroLatency/InkPoint;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract reset()V
-.end method
-
-.method public abstract setPredictionTarget(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a95ed672b78bdd5fb77cfc3396615849c4d7cc3c5fb078a415237bc2272dfc1f
+size 863

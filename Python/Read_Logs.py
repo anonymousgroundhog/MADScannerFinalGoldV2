@@ -1,22 +1,3 @@
-import pandas as pd, sys
-
-def read_and_transform_file(file_path):
-    # Read the file line by line
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-
-    # Split each line by the delimiter '---'
-    # data = [line.strip().split('---') for line in lines]
-    data = [line.split('---') for line in lines]
-
-    # Create a pandas DataFrame
-    df = pd.DataFrame(data, columns=['Timestamp', 'App', 'Hash', 'Provider', 'Method', 'Arguments', 'ReturnValue'])
-
-    return df
-
-# Example usage
-# file_path = 'input.txt'  # Replace this with the path to your text file
-# df = read_and_transform_file(file_path)
-# print(df)
-
-print(read_and_transform_file(sys.argv[1]))
+version https://git-lfs.github.com/spec/v1
+oid sha256:e349838b97cb704aab00df3225dcdd8913ddbbe4e423d8d18dad22ffbd602751
+size 678

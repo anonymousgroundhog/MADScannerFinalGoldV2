@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SaveFlags;
-.super Ljava/lang/Object;
-.source "BottomSheetBehavior.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "SaveFlags"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b214a4a3d833dce051a4963eeba09ec55324e5c60d3d968f09501589c1a54c8a
+size 686

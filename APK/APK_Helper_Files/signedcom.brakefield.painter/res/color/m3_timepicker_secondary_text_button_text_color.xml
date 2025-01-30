@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true" android:color="?colorOnSurfaceVariant" />
-    <item android:color="?colorOnSurface" android:alpha="0.38" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:f0b3c9868b322748893ee981e9e276ad895e395e7bd47369884898f8f994c24f
+size 269

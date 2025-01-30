@@ -1,11 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/background" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <WebView android:id="@id/web_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
-    <FrameLayout android:gravity="center" android:id="@id/title_cover" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <com.brakefield.infinitestudio.ui.ShadowImageView android:id="@id/back" android:visibility="gone" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/back" android:tint="#ffffffff" />
-            <ImageView android:layout_width="fill_parent" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
-        </LinearLayout>
-    </FrameLayout>
-</RelativeLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:83ab1c82c58063b121e84a3702b114a30d1584fad10ae894876692d6340bcd3b
+size 1132

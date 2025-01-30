@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/ICancelToken;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/internal/ICancelToken$Stub;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract cancel()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7fbaa3913bbb052e619e74a3866b4f6310bc583af27cf868f0d2a044a53d4801
+size 604

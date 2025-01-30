@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/remoteconfig/internal/ConfigCacheClient$1;
-.super Ljava/lang/Object;
-.source "ConfigCacheClient.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/remoteconfig/internal/ConfigCacheClient;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7275f6e3860b4b503176bec09cdf1be95e812386ff9856ff96c69da1653eec60
+size 408

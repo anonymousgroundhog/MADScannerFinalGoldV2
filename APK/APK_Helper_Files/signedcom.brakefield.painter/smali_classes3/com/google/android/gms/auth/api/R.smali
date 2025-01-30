@@ -1,31 +1,3 @@
-.class public final Lcom/google/android/gms/auth/api/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/auth/api/R$anim;,
-        Lcom/google/android/gms/auth/api/R$animator;,
-        Lcom/google/android/gms/auth/api/R$attr;,
-        Lcom/google/android/gms/auth/api/R$color;,
-        Lcom/google/android/gms/auth/api/R$dimen;,
-        Lcom/google/android/gms/auth/api/R$drawable;,
-        Lcom/google/android/gms/auth/api/R$id;,
-        Lcom/google/android/gms/auth/api/R$integer;,
-        Lcom/google/android/gms/auth/api/R$layout;,
-        Lcom/google/android/gms/auth/api/R$string;,
-        Lcom/google/android/gms/auth/api/R$style;,
-        Lcom/google/android/gms/auth/api/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5303d2600db02a528c67d106be636bf0cc3eee927dae173a932ed6e7d6bbdd80
+size 962

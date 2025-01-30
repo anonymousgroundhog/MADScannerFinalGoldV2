@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/LanguageInstaller$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/play/core/tasks/OnSuccessListener;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/atomic/AtomicInteger;
-
-
-# direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicInteger;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/LanguageInstaller$$ExternalSyntheticLambda1;->f$0:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onSuccess(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/LanguageInstaller$$ExternalSyntheticLambda1;->f$0:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-static {v0, p1}, Lcom/brakefield/infinitestudio/LanguageInstaller;->lambda$install$1(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Integer;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:46f4fdd99bec672f59066ae2ca30944f570375743e443db32fe003f988a6097e
+size 1164

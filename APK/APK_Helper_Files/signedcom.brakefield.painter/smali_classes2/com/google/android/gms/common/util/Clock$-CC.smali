@@ -1,24 +1,3 @@
-.class public final synthetic Lcom/google/android/gms/common/util/Clock$-CC;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# direct methods
-.method public static $default$currentThreadTimeMillis(Lcom/google/android/gms/common/util/Clock;)J
-    .locals 2
-
-    .line 1
-    invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e598c7a203b5d0f8fa31961fab71179010adee67baf20d1533f523dc790e00ed
+size 575

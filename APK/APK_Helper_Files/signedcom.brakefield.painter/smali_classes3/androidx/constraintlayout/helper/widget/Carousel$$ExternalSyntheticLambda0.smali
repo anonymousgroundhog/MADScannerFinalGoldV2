@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/constraintlayout/helper/widget/Carousel$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/constraintlayout/helper/widget/Carousel;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/constraintlayout/helper/widget/Carousel;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/constraintlayout/helper/widget/Carousel$$ExternalSyntheticLambda0;->f$0:Landroidx/constraintlayout/helper/widget/Carousel;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/constraintlayout/helper/widget/Carousel$$ExternalSyntheticLambda0;->f$0:Landroidx/constraintlayout/helper/widget/Carousel;
-
-    invoke-virtual {v0}, Landroidx/constraintlayout/helper/widget/Carousel;->lambda$updateItems$0$androidx-constraintlayout-helper-widget-Carousel()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:84f6e6de3eefc278e636c719a7c50411bb5ea2e79b4ae52741f478ba0679a427
+size 1086

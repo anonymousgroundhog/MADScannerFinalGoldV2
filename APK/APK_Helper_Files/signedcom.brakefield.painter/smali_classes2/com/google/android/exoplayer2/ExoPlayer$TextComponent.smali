@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ExoPlayer$TextComponent;
-.super Ljava/lang/Object;
-.source "ExoPlayer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ExoPlayer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "TextComponent"
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getCurrentCues()Lcom/google/android/exoplayer2/text/CueGroup;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:583b766059ea91d1d880b4abc67f0005a1b47b4cc1236af0dbac61588341ffff
+size 643

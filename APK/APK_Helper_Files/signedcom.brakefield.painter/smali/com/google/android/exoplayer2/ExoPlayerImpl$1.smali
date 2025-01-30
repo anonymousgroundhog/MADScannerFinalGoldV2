@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/ExoPlayerImpl$1;
-.super Ljava/lang/Object;
-.source "ExoPlayerImpl.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ExoPlayerImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8972bfc86ea1fd06a9c913ae5331c5a6a92028748c39d0b62d43e957862ba180
+size 372

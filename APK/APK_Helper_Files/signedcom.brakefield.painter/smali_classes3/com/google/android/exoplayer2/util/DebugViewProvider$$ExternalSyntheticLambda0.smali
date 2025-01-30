@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/util/DebugViewProvider$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/util/DebugViewProvider;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getDebugPreviewSurfaceView(II)Landroid/view/SurfaceView;
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/google/android/exoplayer2/util/DebugViewProvider;->lambda$static$0(II)Landroid/view/SurfaceView;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8462ee1e75824a3c262f80c7d80879b7c37887b4465d75d30e3b94dc75796e18
+size 715

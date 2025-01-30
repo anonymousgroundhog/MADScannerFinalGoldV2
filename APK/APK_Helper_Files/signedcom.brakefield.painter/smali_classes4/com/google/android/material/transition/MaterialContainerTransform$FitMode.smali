@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/transition/MaterialContainerTransform$FitMode;
-.super Ljava/lang/Object;
-.source "MaterialContainerTransform.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/MaterialContainerTransform;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FitMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb3de24ec039c579eaf1358918e1e4828a6bd17d078e6fed258088904c0e1c7e
+size 701

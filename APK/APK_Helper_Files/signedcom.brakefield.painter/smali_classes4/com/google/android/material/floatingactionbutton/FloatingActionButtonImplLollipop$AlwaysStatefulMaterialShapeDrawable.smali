@@ -1,35 +1,3 @@
-.class Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop$AlwaysStatefulMaterialShapeDrawable;
-.super Lcom/google/android/material/shape/MaterialShapeDrawable;
-.source "FloatingActionButtonImplLollipop.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "AlwaysStatefulMaterialShapeDrawable"
-.end annotation
-
-
-# direct methods
-.method constructor <init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-    .locals 0
-
-    .line 268
-    invoke-direct {p0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public isStateful()Z
-    .locals 1
-
-    const/4 v0, 0x1
-
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7cc4aca7bc54b693cf07b28df50452bba6ddb9aaf185e67bcf8fd329ec79470
+size 987

@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/SubstringIndexUnknown;
-.super Ljava/lang/Object;
-.source "SubstringIndexUnknown.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultQualifierInHierarchy;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {}
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:107369e198b2cdf6b4694dd945aa7f3a4210494888d1212e1326d81c1199e880
+size 977

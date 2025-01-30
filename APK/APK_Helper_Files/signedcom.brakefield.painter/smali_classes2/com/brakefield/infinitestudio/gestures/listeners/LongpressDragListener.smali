@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/LongpressDragListener;
-.super Ljava/lang/Object;
-.source "LongpressDragListener.java"
-
-
-# virtual methods
-.method public abstract onDown(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)Z
-.end method
-
-.method public abstract onMove(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
-
-.method public abstract onUp(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e297c13dba010fc93be79dfdc178762b133e3e7230ba1997fe79ede62e236455
+size 477

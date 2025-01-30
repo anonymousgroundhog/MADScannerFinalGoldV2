@@ -1,23 +1,3 @@
-.class public final Landroidx/navigation/ui/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/navigation/ui/R$anim;,
-        Landroidx/navigation/ui/R$animator;,
-        Landroidx/navigation/ui/R$integer;,
-        Landroidx/navigation/ui/R$string;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa278d84e51e00d44eb24b525765f68d1b8b4bc77833e6f1f6af705a992c056a
+size 505

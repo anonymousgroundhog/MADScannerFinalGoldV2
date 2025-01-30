@@ -1,36 +1,3 @@
-.class Landroidx/core/graphics/PaintCompat$Api29Impl;
-.super Ljava/lang/Object;
-.source "PaintCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/graphics/PaintCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api29Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 165
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static setBlendMode(Landroid/graphics/Paint;Ljava/lang/Object;)V
-    .locals 0
-
-    .line 171
-    check-cast p1, Landroid/graphics/BlendMode;
-
-    invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setBlendMode(Landroid/graphics/BlendMode;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f54db153b81bc22fc4a22f1631d6c230a31f86ff8729d7cf6d8af22d90545de0
+size 803

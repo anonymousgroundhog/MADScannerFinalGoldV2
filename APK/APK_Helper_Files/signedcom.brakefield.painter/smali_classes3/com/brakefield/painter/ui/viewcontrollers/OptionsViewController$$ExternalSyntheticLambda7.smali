@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/OptionsViewController$$ExternalSyntheticLambda7;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/infinite/app/OnBindListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/view/View$OnClickListener;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/view/View$OnClickListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/OptionsViewController$$ExternalSyntheticLambda7;->f$0:Landroid/view/View$OnClickListener;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onBind(Landroid/view/View;Lcom/infinite/app/ui/UIComponent;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/OptionsViewController$$ExternalSyntheticLambda7;->f$0:Landroid/view/View$OnClickListener;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/OptionsViewController;->lambda$bindUI$6(Landroid/view/View$OnClickListener;Landroid/view/View;Lcom/infinite/app/ui/UIComponent;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ea56a0ec58bd6fe763833466aa717ed577d60e7e7682ad38734d148db18331e
+size 1194

@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/internal/zzan;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# virtual methods
-.method public abstract zza(Landroid/os/IBinder;)Ljava/lang/Object;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d9a73ff15ead12ca2cd2a07a26d9983145673e26ccbf288f24d6f4b35533e39a
+size 251

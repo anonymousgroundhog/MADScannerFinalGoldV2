@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$TabLayoutPolicy;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TabLayoutPolicy"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3cf0f215bb37c4cede9ac80fc7987701cc5d4589ce175b14020fba9adaa175e2
+size 483

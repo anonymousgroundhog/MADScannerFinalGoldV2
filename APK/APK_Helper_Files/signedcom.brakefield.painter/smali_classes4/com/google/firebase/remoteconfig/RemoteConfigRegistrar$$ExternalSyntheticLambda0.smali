@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/remoteconfig/RemoteConfigRegistrar$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/firebase/components/ComponentFactory;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/firebase/components/Qualified;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/firebase/components/Qualified;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/remoteconfig/RemoteConfigRegistrar$$ExternalSyntheticLambda0;->f$0:Lcom/google/firebase/components/Qualified;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/remoteconfig/RemoteConfigRegistrar$$ExternalSyntheticLambda0;->f$0:Lcom/google/firebase/components/Qualified;
-
-    invoke-static {v0, p1}, Lcom/google/firebase/remoteconfig/RemoteConfigRegistrar;->lambda$getComponents$0(Lcom/google/firebase/components/Qualified;Lcom/google/firebase/components/ComponentContainer;)Lcom/google/firebase/remoteconfig/RemoteConfigComponent;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:521d8af12e04eddd2abeb4282f77d648d51356e78ca5f7be9d2f9bc0bb1f1bc2
+size 1314

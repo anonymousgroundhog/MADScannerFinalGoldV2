@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/api/client/util/Value;
-.super Ljava/lang/Object;
-.source "Value.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lcom/google/api/client/util/Value;
-        value = "##default"
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:49a26d52fdd6aaca8225c766e9a6d19468fc307ed1e4dca30534342c050bb44f
+size 823

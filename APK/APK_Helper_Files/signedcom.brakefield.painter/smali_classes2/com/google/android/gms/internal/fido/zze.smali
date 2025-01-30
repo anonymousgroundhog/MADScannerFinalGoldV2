@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/fido/zze;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# virtual methods
-.method public abstract zzb(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract zzc(Lcom/google/android/gms/common/api/Status;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2427da420f46b749b563fd85f5ce4bec384afea703326b51fb861f8fed14b92c
+size 640

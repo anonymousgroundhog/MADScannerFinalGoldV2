@@ -1,12 +1,3 @@
-.class public final Landroidx/savedstate/ktx/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c3f9a2ed67af33590677d2391cd6e88f8cebbc247fcae2640f17bba9bd04ca89
+size 229

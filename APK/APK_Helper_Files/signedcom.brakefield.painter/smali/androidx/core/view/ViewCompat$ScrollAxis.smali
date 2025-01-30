@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/view/ViewCompat$ScrollAxis;
-.super Ljava/lang/Object;
-.source "ViewCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ScrollAxis"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d22f39243924f26f2f251b2d2eac1d99f345bd977cde2ea0ed298e778eb9a5cd
+size 619

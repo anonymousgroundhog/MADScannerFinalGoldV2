@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/api/client/googleapis/testing/auth/oauth2/MockGoogleCredential$1;
-.super Ljava/lang/Object;
-.source "MockGoogleCredential.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/api/client/googleapis/testing/auth/oauth2/MockGoogleCredential;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:899392db5ae9fdfc43c48d3c288f3560fa04809db02e207bde9112d9a2e7e61c
+size 439

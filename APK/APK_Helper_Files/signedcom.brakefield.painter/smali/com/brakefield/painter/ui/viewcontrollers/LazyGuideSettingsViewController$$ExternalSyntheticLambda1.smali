@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/LazyGuideSettingsViewController$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/LazyGuideSettingsViewController;->lambda$getView$1(Landroid/widget/CompoundButton;Z)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f2597f20ff97273571cab155e7c02178794149fd2d6085323e7300513b20c42
+size 727

@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/Covariant;
-.super Ljava/lang/Object;
-.source "Covariant.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e323d1ef97588ba7f84509bd1e26642e2ad0a881710fec8b3a357d10705f77d9
+size 707

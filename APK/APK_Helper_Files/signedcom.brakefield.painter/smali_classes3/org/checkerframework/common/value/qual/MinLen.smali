@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/value/qual/MinLen;
-.super Ljava/lang/Object;
-.source "MinLen.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lorg/checkerframework/common/value/qual/MinLen;
-        value = 0x0
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9daab5e34e128a3fec13c69b9be0200be8eff131bb05a2d947ed5e965ff34e4c
+size 1000

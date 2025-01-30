@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/extractor/amr/AmrExtractor$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/extractor/ExtractorsFactory;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final createExtractors()[Lcom/google/android/exoplayer2/extractor/Extractor;
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/exoplayer2/extractor/amr/AmrExtractor;->lambda$static$0()[Lcom/google/android/exoplayer2/extractor/Extractor;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a305a705462e28068f16c68ab732465de7c7205867ffbeda82a5a803e6d8f6d
+size 760

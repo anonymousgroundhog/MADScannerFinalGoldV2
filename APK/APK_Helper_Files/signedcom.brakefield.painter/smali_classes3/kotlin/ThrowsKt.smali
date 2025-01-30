@@ -1,34 +1,3 @@
-.class public final Lkotlin/ThrowsKt;
-.super Ljava/lang/Object;
-.source "Throws.kt"
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003*\u001a\u0008\u0007\u0010\u0000\"\u00020\u00012\u00020\u0001B\u000c\u0008\u0002\u0012\u0008\u0008\u0003\u0012\u0004\u0008\u0008(\u0004\u00a8\u0006\u0005"
-    }
-    d2 = {
-        "Throws",
-        "Lkotlin/jvm/Throws;",
-        "Lkotlin/SinceKotlin;",
-        "version",
-        "1.4",
-        "kotlin-stdlib"
-    }
-    k = 0x2
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
-
-# direct methods
-.method public static synthetic Throws$annotations()V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5a96fd45c9c6dd6643aa8f5f8da61e19dca00ed8bf8c753b6ed2bd323a898f2
+size 767

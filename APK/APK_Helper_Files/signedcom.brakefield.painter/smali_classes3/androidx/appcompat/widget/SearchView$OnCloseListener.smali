@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/SearchView$OnCloseListener;
-.super Ljava/lang/Object;
-.source "SearchView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/SearchView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnCloseListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onClose()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6f910ab429fb0f9c5d8313c9b526ca8eac8c8c00e86dc2076c007169895b84f5
+size 464

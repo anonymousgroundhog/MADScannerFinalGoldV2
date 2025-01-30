@@ -1,19 +1,3 @@
-.class public abstract Lcom/brakefield/infinitestudio/ui/collections/CollectionViewHolder;
-.super Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-.source "CollectionViewHolder.java"
-
-
-# direct methods
-.method public constructor <init>(Landroid/view/View;)V
-    .locals 0
-
-    .line 9
-    invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract update()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fc27aa267f000f6afd87e3b445aae7d0670bfc44c52a6b41e2889e48b2440468
+size 499

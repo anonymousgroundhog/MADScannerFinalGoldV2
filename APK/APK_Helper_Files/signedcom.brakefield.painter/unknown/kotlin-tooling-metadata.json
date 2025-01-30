@@ -1,24 +1,3 @@
-{
-  "schemaVersion": "1.1.0",
-  "buildSystem": "Gradle",
-  "buildSystemVersion": "8.2",
-  "buildPlugin": "org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper",
-  "buildPluginVersion": "1.8.10",
-  "projectSettings": {
-    "isHmppEnabled": true,
-    "isCompatibilityMetadataVariantEnabled": false,
-    "isKPMEnabled": false
-  },
-  "projectTargets": [
-    {
-      "target": "org.jetbrains.kotlin.gradle.plugin.mpp.KotlinAndroidTarget",
-      "platformType": "androidJvm",
-      "extras": {
-        "android": {
-          "sourceCompatibility": "1.8",
-          "targetCompatibility": "1.8"
-        }
-      }
-    }
-  ]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2c139b0f865e98b01116aeac10504f1e7883d4f40e381cdd2077c868025b7b20
+size 626

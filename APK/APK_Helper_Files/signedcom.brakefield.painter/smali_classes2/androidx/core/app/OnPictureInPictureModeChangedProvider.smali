@@ -1,27 +1,3 @@
-.class public interface abstract Landroidx/core/app/OnPictureInPictureModeChangedProvider;
-.super Ljava/lang/Object;
-.source "OnPictureInPictureModeChangedProvider.java"
-
-
-# virtual methods
-.method public abstract addOnPictureInPictureModeChangedListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroidx/core/app/PictureInPictureModeChangedInfo;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract removeOnPictureInPictureModeChangedListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroidx/core/app/PictureInPictureModeChangedInfo;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3b7ee6b8528011c3b9a1bfe0bb6b7e89e286aa169a87142c1edef67b38cea8b
+size 910

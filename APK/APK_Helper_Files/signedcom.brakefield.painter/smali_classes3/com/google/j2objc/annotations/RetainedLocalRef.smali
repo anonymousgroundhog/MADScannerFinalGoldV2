@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/j2objc/annotations/RetainedLocalRef;
-.super Ljava/lang/Object;
-.source "RetainedLocalRef.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->LOCAL_VARIABLE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d095522b3f44eff9ddb6e21664cf857288d4146a10a3d41dd787ee7c57a11adc
+size 587

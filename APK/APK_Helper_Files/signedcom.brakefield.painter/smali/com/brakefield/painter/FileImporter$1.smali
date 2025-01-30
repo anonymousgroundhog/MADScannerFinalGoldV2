@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/painter/FileImporter$1;
-.super Ljava/lang/Object;
-.source "FileImporter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/FileImporter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7af9f5ea9cefac6d42db7c46fe99782d70eccba7844946a02141b2bf16571348
+size 355

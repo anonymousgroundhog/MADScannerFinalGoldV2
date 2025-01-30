@@ -1,27 +1,3 @@
-.class public final Landroidx/vectordrawable/R$integer;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/vectordrawable/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "integer"
-.end annotation
-
-
-# static fields
-.field public static final status_bar_notification_info_maxnum:I = 0x7f0b003f
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6f598bfd9041178140e54a4bbebcc8392083cf88f2d506714c37ef39b92fe14c
+size 570

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/StandardRowSortedTable$1;
-.super Ljava/lang/Object;
-.source "StandardRowSortedTable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/StandardRowSortedTable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d208d9912d534e33d473f7fc18f5da028b081d6728c19b6c9789e04e2bee2eae
+size 391

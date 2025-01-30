@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/util/Consumer;
-.super Ljava/lang/Object;
-.source "Consumer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract accept(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5b6a6d7a4bc57732eab495e39e8c6cfaf5ba494156d46a8c4e6da0a084589183
+size 583

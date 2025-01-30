@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/auth/api/accounttransfer/AuthenticatorTransferCompletionStatus;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth-base@@18.0.4"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final COMPLETED_FAILURE:I = 0x2
-
-.field public static final COMPLETED_SUCCESS:I = 0x1
+version https://git-lfs.github.com/spec/v1
+oid sha256:5b06e199a03177fadcaf0f0273b65026f5eed2b74b3efbec058cf4512933ccde
+size 597

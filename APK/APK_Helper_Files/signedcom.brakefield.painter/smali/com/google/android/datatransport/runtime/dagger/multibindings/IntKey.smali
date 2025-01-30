@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/multibindings/IntKey;
-.super Ljava/lang/Object;
-.source "IntKey.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Lcom/google/android/datatransport/runtime/dagger/MapKey;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:969560ea9ed2c98b0604c1290b1bb9678cdae9dec17ff950bd112581cd8bdd21
+size 822

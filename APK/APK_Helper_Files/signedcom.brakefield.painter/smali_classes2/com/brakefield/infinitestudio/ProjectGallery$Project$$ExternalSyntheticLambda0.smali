@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ProjectGallery$Project$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/ProjectGallery$Project;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/ProjectGallery$Project;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ProjectGallery$Project$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery$Project;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ProjectGallery$Project$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery$Project;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/infinitestudio/ProjectGallery$Project;->lambda$deletePrompt$7$com-brakefield-infinitestudio-ProjectGallery$Project(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e56b1ada74c8665cd3774087b20b8afba4a9249717eba0e8de75da48ca9a8185
+size 1232

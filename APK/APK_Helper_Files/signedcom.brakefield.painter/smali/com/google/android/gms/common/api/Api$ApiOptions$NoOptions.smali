@@ -1,35 +1,3 @@
-.class public final Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions$NotRequiredOptions;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/Api$ApiOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "NoOptions"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/google/android/gms/common/api/zaa;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:912cc456adce72f0a87bb51ba9ae4ee45b1f469d02f7cbb089c9d6e18b74e98c
+size 858

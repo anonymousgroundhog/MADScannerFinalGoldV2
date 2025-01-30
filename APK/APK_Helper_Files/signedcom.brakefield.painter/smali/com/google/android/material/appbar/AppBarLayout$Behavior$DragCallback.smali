@@ -1,33 +1,3 @@
-.class public abstract Lcom/google/android/material/appbar/AppBarLayout$Behavior$DragCallback;
-.super Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback;
-.source "AppBarLayout.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/appbar/AppBarLayout$Behavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "DragCallback"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback<",
-        "Lcom/google/android/material/appbar/AppBarLayout;",
-        ">;"
-    }
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 1430
-    invoke-direct {p0}, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:938e228c7edbe5c0871f91a13e5faf0e2b1702b644e3bd6465a1b430d3a49e84
+size 965

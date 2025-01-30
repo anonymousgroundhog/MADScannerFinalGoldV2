@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/apis/google/drive/GoogleDrive$SignIn$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/gms/tasks/OnFailureListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onFailure(Ljava/lang/Exception;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/infinitestudio/apis/google/drive/GoogleDrive$SignIn;->lambda$parseResult$1(Ljava/lang/Exception;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ac112d9a5af4cb397e85dd42de1a6fe9df883f0703db2b9141f337eaeb3e3d30
+size 677

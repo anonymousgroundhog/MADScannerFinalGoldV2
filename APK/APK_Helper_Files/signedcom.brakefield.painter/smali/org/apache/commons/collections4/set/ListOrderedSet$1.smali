@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/set/ListOrderedSet$1;
-.super Ljava/lang/Object;
-.source "ListOrderedSet.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/set/ListOrderedSet;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f6407a982280c7dee2b2414a693ba83756be0a155d09ef7e66f0f049cfe2bbb8
+size 387

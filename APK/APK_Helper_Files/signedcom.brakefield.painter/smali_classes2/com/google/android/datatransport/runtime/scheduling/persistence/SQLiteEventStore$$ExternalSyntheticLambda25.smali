@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$$ExternalSyntheticLambda25;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore$Function;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Landroid/database/Cursor;
-
-    invoke-static {p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/SQLiteEventStore;->lambda$recordLogEventDropped$17(Landroid/database/Cursor;)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:11eb9eb681614a662e8cf8d9987ce7560081029359dd7ea299d17a7eef084954
+size 870

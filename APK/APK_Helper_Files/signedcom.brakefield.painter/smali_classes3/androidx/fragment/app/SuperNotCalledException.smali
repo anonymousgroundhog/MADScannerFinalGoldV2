@@ -1,14 +1,3 @@
-.class final Landroidx/fragment/app/SuperNotCalledException;
-.super Landroid/util/AndroidRuntimeException;
-.source "SuperNotCalledException.java"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 23
-    invoke-direct {p0, p1}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c7243153db2520025e9249f722b54e93af0222edcbed6d707fb33baea450222d
+size 373

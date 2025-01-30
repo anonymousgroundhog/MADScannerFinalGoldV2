@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/guieffect/qual/PolyUIType;
-.super Ljava/lang/Object;
-.source "PolyUIType.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4c95fecf6265b10aac5211caa727c716fc82627ce5621a73ba858411d229525
+size 651

@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/Encoder;
-.super Ljava/lang/Object;
-.source "Encoder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract encode(Ljava/lang/Object;Ljava/io/File;Lcom/bumptech/glide/load/Options;)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;",
-            "Ljava/io/File;",
-            "Lcom/bumptech/glide/load/Options;",
-            ")Z"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:892e7e06b130c8bf1c3f5fc442271632754343c142f99095a87dbf652b071a87
+size 652

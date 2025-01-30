@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/source/smoothstreaming/manifest/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:11e5a46c91f4f9277aac47eb006b49b64f89b331985f056d9255b368ce572cc1
+size 167

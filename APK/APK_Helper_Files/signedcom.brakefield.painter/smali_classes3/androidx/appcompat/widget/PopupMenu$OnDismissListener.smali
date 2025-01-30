@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/PopupMenu$OnDismissListener;
-.super Ljava/lang/Object;
-.source "PopupMenu.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/PopupMenu;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnDismissListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDismiss(Landroidx/appcompat/widget/PopupMenu;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:24ff134076f7cc0bdb9b763fb289a80f987a2fef5f890bd2d377256f73e0dd59
+size 504

@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/appcompat/app/AppCompatDelegateImpl$Api33Impl$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/window/OnBackInvokedCallback;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$Api33Impl$$ExternalSyntheticLambda0;->f$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onBackInvoked()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$Api33Impl$$ExternalSyntheticLambda0;->f$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
-
-    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDelegateImpl;->onBackPressed()Z
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:96446831d8c9147f443cd66d7a6f4b226306518ff57bdb3870790572164b103d
+size 1056

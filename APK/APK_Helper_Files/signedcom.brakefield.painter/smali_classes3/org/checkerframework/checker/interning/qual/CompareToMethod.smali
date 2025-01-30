@@ -1,24 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/interning/qual/CompareToMethod;
-.super Ljava/lang/Object;
-.source "CompareToMethod.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e6305784c8cb19ed99c6e6058ed586e1d7f030cb8534a0e123931c02c297fc57
+size 758

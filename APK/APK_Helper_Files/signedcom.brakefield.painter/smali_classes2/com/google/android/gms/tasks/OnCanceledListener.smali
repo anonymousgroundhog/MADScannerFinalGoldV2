@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/tasks/OnCanceledListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-
-# virtual methods
-.method public abstract onCanceled()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4abb0d39211edf32502f7d3c3f486b294337acfb4a2e8a15e2bdd5c2949afb1
+size 240

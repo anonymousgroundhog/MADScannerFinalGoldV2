@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<gradient android:angle="0.0" android:type="linear" android:startX="0.0" android:startY="0.0" android:endX="0.0" android:endY="108.0"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-    <item android:color="#fff84e4f" android:offset="0.0" />
-    <item android:color="#fff84e4f" android:offset="0.16666667" />
-    <item android:color="#fff84273" android:offset="0.8333333" />
-    <item android:color="#fff84273" android:offset="1.0" />
-</gradient>
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c75066f787fe5d51b0b7e0dd060d9b2d0347acf3ab970d5ae39c4860f08fd3d
+size 544

@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/fragment/app/FragmentResultOwner;
-.super Ljava/lang/Object;
-.source "FragmentResultOwner.java"
-
-
-# virtual methods
-.method public abstract clearFragmentResult(Ljava/lang/String;)V
-.end method
-
-.method public abstract clearFragmentResultListener(Ljava/lang/String;)V
-.end method
-
-.method public abstract setFragmentResult(Ljava/lang/String;Landroid/os/Bundle;)V
-.end method
-
-.method public abstract setFragmentResultListener(Ljava/lang/String;Landroidx/lifecycle/LifecycleOwner;Landroidx/fragment/app/FragmentResultListener;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7fc6d482a6a2a079750aa3c1b97c92971c13ca5cb6952c67cf287c66e8d0cce
+size 581

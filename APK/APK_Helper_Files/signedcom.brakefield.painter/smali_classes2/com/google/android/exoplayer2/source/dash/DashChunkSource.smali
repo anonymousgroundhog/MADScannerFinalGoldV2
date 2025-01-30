@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/dash/DashChunkSource;
-.super Ljava/lang/Object;
-.source "DashChunkSource.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/source/chunk/ChunkSource;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/source/dash/DashChunkSource$Factory;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract updateManifest(Lcom/google/android/exoplayer2/source/dash/manifest/DashManifest;I)V
-.end method
-
-.method public abstract updateTrackSelection(Lcom/google/android/exoplayer2/trackselection/ExoTrackSelection;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0af43e271ecd5fd1f03f4c7d7ecd07736727d0e19f92d987d2032d7744906288
+size 739

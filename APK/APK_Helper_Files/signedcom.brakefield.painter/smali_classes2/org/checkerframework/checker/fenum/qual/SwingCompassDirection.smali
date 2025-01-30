@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/fenum/qual/SwingCompassDirection;
-.super Ljava/lang/Object;
-.source "SwingCompassDirection.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/fenum/qual/FenumTop;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b6690929d4c714ea224c65092c6e7bc92f0dca6789261c771923bdc249b021bc
+size 938

@@ -1,35 +1,3 @@
-.class public final synthetic Lcom/google/android/gms/measurement/internal/zzg;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement@@21.2.2"
-
-
-# direct methods
-.method public static synthetic zza(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
-
-    const/4 v0, 0x1
-
-    if-eq p0, p1, :cond_2
-
-    const/4 v1, 0x0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    return v1
-
-    :cond_1
-    move v0, v1
-
-    :cond_2
-    :goto_0
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b78ff7120ab9443ed86935e172de6fb289cb2595191acae79f088ebbedd91268
+size 621

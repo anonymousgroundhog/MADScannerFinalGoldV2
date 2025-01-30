@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/fenum/qual/SwingTitlePosition;
-.super Ljava/lang/Object;
-.source "SwingTitlePosition.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/fenum/qual/FenumTop;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c1b9aef13def1e795170d107f94f80289aec0159c6d21fe963cce98f0acfa668
+size 932

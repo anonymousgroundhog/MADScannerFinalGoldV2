@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/offline/DownloadIndex;
-.super Ljava/lang/Object;
-.source "DownloadIndex.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getDownload(Ljava/lang/String;)Lcom/google/android/exoplayer2/offline/Download;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public varargs abstract getDownloads([I)Lcom/google/android/exoplayer2/offline/DownloadCursor;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b3daac2213c6ce2a51662750657a19e44d4794949bf8b9fb6a8f5399870a468d
+size 733

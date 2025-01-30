@@ -1,29 +1,3 @@
-.class public final Lcom/bumptech/glide/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/bumptech/glide/R$attr;,
-        Lcom/bumptech/glide/R$color;,
-        Lcom/bumptech/glide/R$dimen;,
-        Lcom/bumptech/glide/R$drawable;,
-        Lcom/bumptech/glide/R$id;,
-        Lcom/bumptech/glide/R$integer;,
-        Lcom/bumptech/glide/R$layout;,
-        Lcom/bumptech/glide/R$string;,
-        Lcom/bumptech/glide/R$style;,
-        Lcom/bumptech/glide/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:04aea8f8f3338485ffd6143b18d4c6d7cdf28ddeda70334063e1074221056431
+size 715

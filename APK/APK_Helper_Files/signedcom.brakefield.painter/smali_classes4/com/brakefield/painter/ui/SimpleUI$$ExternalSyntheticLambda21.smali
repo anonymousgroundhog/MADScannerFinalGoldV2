@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/SimpleUI$$ExternalSyntheticLambda21;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/painter/ui/SimpleUI;->lambda$popup$19(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c8d0fe05eedae84e0e0681b603712570b6f26763f1e242a99187f74aea9281b
+size 664

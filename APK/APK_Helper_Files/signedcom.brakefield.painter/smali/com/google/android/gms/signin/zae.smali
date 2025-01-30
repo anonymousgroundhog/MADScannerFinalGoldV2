@@ -1,20 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/signin/zae;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$Client;
-
-
-# virtual methods
-.method public abstract zaa()V
-.end method
-
-.method public abstract zab()V
-.end method
-
-.method public abstract zac(Lcom/google/android/gms/common/internal/IAccountAccessor;Z)V
-.end method
-
-.method public abstract zad(Lcom/google/android/gms/signin/internal/zae;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:69b66dd63d4d41d7ddcc8ce384fff9a3381218fe8b336356915fa20255095d92
+size 525

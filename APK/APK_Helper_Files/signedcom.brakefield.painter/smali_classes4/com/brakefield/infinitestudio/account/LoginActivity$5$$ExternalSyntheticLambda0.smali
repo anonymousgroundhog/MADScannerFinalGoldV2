@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/account/LoginActivity$5$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$5;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/account/LoginActivity$5;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/account/LoginActivity$5$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$5;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/account/LoginActivity$5$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$5;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/infinitestudio/account/LoginActivity$5;->lambda$handle$0$com-brakefield-infinitestudio-account-LoginActivity$5(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:17576a52b50103a3307d3bc3d596ff7010c33da9db0c7af16661a867fdc62cfd
+size 1235

@@ -1,27 +1,3 @@
-.class public final Lcom/google/android/gms/internal/stats/zzi;
-.super Ljava/lang/RuntimeException;
-.source "com.google.android.gms:play-services-stats@@17.0.1"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-    .param p1    # Ljava/lang/String;
-        .annotation runtime Ljavax/annotation/CheckForNull;
-        .end annotation
-    .end param
-
-    .line 2
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bcbc7f3dfd1cc5609044f3910fe4aab5ab6b8b20ba7a6ef674f0607365e14103
+size 672

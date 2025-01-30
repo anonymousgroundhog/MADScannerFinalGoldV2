@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lcom/google/j2objc/annotations/ObjectiveCName;
-.super Ljava/lang/Object;
-.source "ObjectiveCName.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:23703773c2bbbd1de89bc5977bd3a9b0b2ff2ac47b4864deaa6f34f54393c8e5
+size 939

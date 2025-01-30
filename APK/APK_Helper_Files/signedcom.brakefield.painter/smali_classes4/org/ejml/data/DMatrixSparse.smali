@@ -1,34 +1,3 @@
-.class public interface abstract Lorg/ejml/data/DMatrixSparse;
-.super Ljava/lang/Object;
-.source "DMatrixSparse.java"
-
-# interfaces
-.implements Lorg/ejml/data/DMatrix;
-.implements Lorg/ejml/data/MatrixSparse;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lorg/ejml/data/DMatrixSparse$CoordinateRealValue;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract createCoordinateIterator()Ljava/util/Iterator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Iterator<",
-            "Lorg/ejml/data/DMatrixSparse$CoordinateRealValue;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract get(IID)D
-.end method
-
-.method public abstract unsafe_get(IID)D
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:297ed8e84e5e0917096c6bda92f736da540a54b591b7f1de8318feebc8ac3072
+size 813

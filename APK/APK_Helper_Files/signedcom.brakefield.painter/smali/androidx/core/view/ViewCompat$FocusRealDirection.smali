@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/view/ViewCompat$FocusRealDirection;
-.super Ljava/lang/Object;
-.source "ViewCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FocusRealDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:21ef5d3aed43b14eea37c41349a96314e47eb1278efa41685b55fbfe1d01c91f
+size 635

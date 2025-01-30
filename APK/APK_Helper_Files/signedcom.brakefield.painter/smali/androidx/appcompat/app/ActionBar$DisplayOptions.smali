@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/appcompat/app/ActionBar$DisplayOptions;
-.super Ljava/lang/Object;
-.source "ActionBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/ActionBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "DisplayOptions"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b6e71d656f3e79f1dd0a8491516a582b945a9754c5545c88ba90fafc542ad1a5
+size 632

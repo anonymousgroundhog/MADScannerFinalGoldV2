@@ -1,36 +1,3 @@
-.class Landroidx/core/view/ViewCompat$Api15Impl;
-.super Ljava/lang/Object;
-.source "ViewCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api15Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 5657
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static hasOnClickListeners(Landroid/view/View;)Z
-    .locals 0
-
-    .line 5663
-    invoke-virtual {p0}, Landroid/view/View;->hasOnClickListeners()Z
-
-    move-result p0
-
-    return p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:219ad2cf19470b181c9f21992b67fbd0b2a63be086a4149d87f683dffa67593a
+size 717

@@ -1,24 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/ParametersAreNonnullByDefault;
-.super Ljava/lang/Object;
-.source "ParametersAreNonnullByDefault.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nonnull;
-.end annotation
-
-.annotation runtime Ljavax/annotation/meta/TypeQualifierDefault;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f45a23f548339f89c7fd03d9e146dfbfe408fb7875166cc21c2f3d983160ddce
+size 746

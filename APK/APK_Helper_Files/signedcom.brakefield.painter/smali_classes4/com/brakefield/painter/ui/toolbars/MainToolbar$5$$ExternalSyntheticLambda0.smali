@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/MainToolbar$5$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 0
-
-    invoke-static {}, Lcom/brakefield/painter/ui/toolbars/MainToolbar$5;->lambda$onStopTrackingTouch$1()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec876a9f5856be6b4463ecce31451c12f5dcf3f599460c3c77de0c64f03bc002
+size 571

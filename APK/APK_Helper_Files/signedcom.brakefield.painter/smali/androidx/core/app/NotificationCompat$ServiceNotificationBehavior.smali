@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/NotificationCompat$ServiceNotificationBehavior;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ServiceNotificationBehavior"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4863476403a8692a91046d3957bedae99137c7089d87a6e9ec337abbf05d233
+size 675

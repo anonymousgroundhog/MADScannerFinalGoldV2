@@ -1,25 +1,3 @@
-.class final Lcom/google/common/primitives/Platform;
-.super Ljava/lang/Object;
-.source "Platform.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 25
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static checkGwtRpcEnabled()V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:275043eb093850a0d0b22a76033e61ec880275b7624416954e5404e1cdf83b0f
+size 467

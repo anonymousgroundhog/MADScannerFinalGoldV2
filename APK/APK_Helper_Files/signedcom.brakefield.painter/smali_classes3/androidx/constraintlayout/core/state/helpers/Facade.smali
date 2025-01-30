@@ -1,11 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/state/helpers/Facade;
-.super Ljava/lang/Object;
-.source "Facade.java"
-
-
-# virtual methods
-.method public abstract apply()V
-.end method
-
-.method public abstract getConstraintWidget()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb75967cd4c0c0aaa62cfd4a15f53b35466c13e4b30abbc910eaa32ea2b47bc6
+size 316

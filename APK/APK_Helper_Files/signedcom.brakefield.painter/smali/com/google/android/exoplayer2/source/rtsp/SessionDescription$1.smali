@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/rtsp/SessionDescription$1;
-.super Ljava/lang/Object;
-.source "SessionDescription.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/SessionDescription;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f3004b59e3e9f72c361e985ab825fba7d97aa7711d504a867f32792b953827af
+size 411

@@ -1,28 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/auth/api/signin/GoogleSignInOptionsExtension;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# static fields
-.field public static final FITNESS:I = 0x3
-
-.field public static final GAMES:I = 0x1
-
-
-# virtual methods
-.method public abstract getExtensionType()I
-.end method
-
-.method public abstract getImpliedScopes()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/google/android/gms/common/api/Scope;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract toBundle()Landroid/os/Bundle;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:60b4c2c4358c8d7b459b9e42ffd63063f813009531076bc364dcbec014f5cf0c
+size 732

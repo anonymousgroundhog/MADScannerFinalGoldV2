@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/UI$OnDisplayProgressValue;
-.super Ljava/lang/Object;
-.source "UI.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/UI;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnDisplayProgressValue"
-.end annotation
-
-
-# virtual methods
-.method public abstract getDisplayValue(F)Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5fa8a58769a1e9146ebbe031b9eab8e45c107e2581d0198eedc9a98234e40867
+size 494

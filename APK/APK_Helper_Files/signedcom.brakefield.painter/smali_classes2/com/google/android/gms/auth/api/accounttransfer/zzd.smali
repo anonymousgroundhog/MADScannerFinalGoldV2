@@ -1,35 +1,3 @@
-.class final Lcom/google/android/gms/auth/api/accounttransfer/zzd;
-.super Lcom/google/android/gms/auth/api/accounttransfer/zzj;
-.source "com.google.android.gms:play-services-auth-base@@18.0.4"
-
-
-# instance fields
-.field final synthetic zza:Lcom/google/android/gms/auth/api/accounttransfer/zze;
-
-
-# direct methods
-.method constructor <init>(Lcom/google/android/gms/auth/api/accounttransfer/zze;Lcom/google/android/gms/auth/api/accounttransfer/zzl;)V
-    .locals 0
-
-    .line 1
-    iput-object p1, p0, Lcom/google/android/gms/auth/api/accounttransfer/zzd;->zza:Lcom/google/android/gms/auth/api/accounttransfer/zze;
-
-    invoke-direct {p0, p2}, Lcom/google/android/gms/auth/api/accounttransfer/zzj;-><init>(Lcom/google/android/gms/auth/api/accounttransfer/zzl;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final zzb([B)V
-    .locals 1
-
-    .line 1
-    iget-object v0, p0, Lcom/google/android/gms/auth/api/accounttransfer/zzd;->zza:Lcom/google/android/gms/auth/api/accounttransfer/zze;
-
-    iget-object v0, v0, Lcom/google/android/gms/auth/api/accounttransfer/zzl;->zzb:Lcom/google/android/gms/tasks/TaskCompletionSource;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/tasks/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb78e74dbb9a6b0e034e501cc6520562b375764aa715d661e0ca95c4defcad3f
+size 1282

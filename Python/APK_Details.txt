@@ -1,2 +1,3 @@
-Main_Activity: jp.ne.ibis.ibispaintx.app.market.MarketAuthenticationActivity
-Main_Class: jp.ne.ibis.ibispaintx.app
+version https://git-lfs.github.com/spec/v1
+oid sha256:d3ca73ba87f63eec360ffc9751943d3563ebe158885fda7b2470f2b211adef09
+size 115

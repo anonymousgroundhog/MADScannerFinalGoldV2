@@ -1,20 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/motion/utils/StopEngine;
-.super Ljava/lang/Object;
-.source "StopEngine.java"
-
-
-# virtual methods
-.method public abstract debug(Ljava/lang/String;F)Ljava/lang/String;
-.end method
-
-.method public abstract getInterpolation(F)F
-.end method
-
-.method public abstract getVelocity()F
-.end method
-
-.method public abstract getVelocity(F)F
-.end method
-
-.method public abstract isStopped()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:71b9976569388b27d170e1003b95fe66f6d0c47b8ee7760ee19bad7d25eaa1a1
+size 456

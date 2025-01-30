@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$InternalVisibilityChangedListener;
-.super Ljava/lang/Object;
-.source "FloatingActionButtonImpl.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "InternalVisibilityChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onHidden()V
-.end method
-
-.method public abstract onShown()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:acb00b6621e6450651de5e67f8c4b8fdc266d0840e3eccba623a2cebd409477c
+size 630

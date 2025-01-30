@@ -1,18 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$TransitionSet;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TransitionSet"
-.end annotation
-
-
-# static fields
-.field public static final TRANSITION_ORDERING:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:93b30b243e9534ffd94e850f2ab6af9d311a01554c0dece18c997b4c6522a3f7
+size 438

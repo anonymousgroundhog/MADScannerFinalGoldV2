@@ -1,22 +1,3 @@
-.class interface abstract Lcom/brakefield/painter/activities/ActivitySettings$SettingsSection;
-.super Ljava/lang/Object;
-.source "ActivitySettings.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/activities/ActivitySettings;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "SettingsSection"
-.end annotation
-
-
-# virtual methods
-.method public abstract refresh()V
-.end method
-
-.method public abstract setup()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f4d0b74156900bb4d08e92bf015dcae461100f8f644ae1e31472de99c588599
+size 537

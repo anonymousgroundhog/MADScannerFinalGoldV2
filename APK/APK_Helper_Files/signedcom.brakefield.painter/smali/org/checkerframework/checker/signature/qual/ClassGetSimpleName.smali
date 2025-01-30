@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/ClassGetSimpleName;
-.super Ljava/lang/Object;
-.source "ClassGetSimpleName.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/SignatureUnknown;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5412e5f2b83fcfab9e7b61ff3c87da19bbcfc887498f5b148bb2f08ec966e41e
+size 948

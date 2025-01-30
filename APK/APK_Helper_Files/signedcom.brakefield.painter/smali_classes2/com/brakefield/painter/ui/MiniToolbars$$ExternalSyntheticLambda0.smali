@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/MiniToolbars$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/view/View$OnClickListener;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/view/View$OnClickListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/MiniToolbars$$ExternalSyntheticLambda0;->f$0:Landroid/view/View$OnClickListener;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/MiniToolbars$$ExternalSyntheticLambda0;->f$0:Landroid/view/View$OnClickListener;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/MiniToolbars;->lambda$setHintListener$0(Landroid/view/View$OnClickListener;Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c5d773989686c1b0ac5248ef6950b94b3b4dc66a3f92c240f4ee8ce24683e57b
+size 1110

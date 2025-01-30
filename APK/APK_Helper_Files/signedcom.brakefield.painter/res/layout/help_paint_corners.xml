@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/margin_large">
-        <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/help_corners" android:scaleType="fitCenter" android:layout_weight="1.0" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:textColor="@color/dark" android:layout_gravity="center" android:paddingBottom="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/help_move_toolbar" android:lines="1" />
-    </LinearLayout>
-</RelativeLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c0dabdb9d4883972cbfbd0ed6dae8f09a87e8c5a22fb08ff65d5bc67302fa9e
+size 981

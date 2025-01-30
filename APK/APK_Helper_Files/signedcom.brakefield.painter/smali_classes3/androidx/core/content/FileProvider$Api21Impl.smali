@@ -1,36 +1,3 @@
-.class Landroidx/core/content/FileProvider$Api21Impl;
-.super Ljava/lang/Object;
-.source "FileProvider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/FileProvider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api21Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 947
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static getExternalMediaDirs(Landroid/content/Context;)[Ljava/io/File;
-    .locals 0
-
-    .line 954
-    invoke-virtual {p0}, Landroid/content/Context;->getExternalMediaDirs()[Ljava/io/File;
-
-    move-result-object p0
-
-    return-object p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a8765f5a6f6b727f572cb988e8466371e783d4492956f19ffa738223eb2bbaba
+size 783

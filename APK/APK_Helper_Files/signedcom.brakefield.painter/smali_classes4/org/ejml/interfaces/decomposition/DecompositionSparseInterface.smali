@@ -1,27 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/DecompositionSparseInterface;
-.super Ljava/lang/Object;
-.source "DecompositionSparseInterface.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/DecompositionInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/DecompositionInterface<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract isStructureLocked()Z
-.end method
-
-.method public abstract setStructureLocked(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:be50b6af7e5fd7a61e0e418966c76c59b3c3dccc0fc700fa6094af23006d0605
+size 670

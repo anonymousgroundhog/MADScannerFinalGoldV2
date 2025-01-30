@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/CreateProjectViewController$ProjectTypesSection;->lambda$setup$3$com-brakefield-painter-ui-viewcontrollers-CreateProjectViewController$ProjectTypesSection(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fc2055bfe037258cf742a45ab2fa7ad8bec642e2654924705429389cabf2b0e8
+size 1510

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/util/TypedValueCompat$ComplexDimensionUnit;
-.super Ljava/lang/Object;
-.source "TypedValueCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/util/TypedValueCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ComplexDimensionUnit"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fda65dbbe98f7301640d5edbcdbcf9b752d699526d7a62e0331f6eba1d4bd324
+size 657

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/progressindicator/BaseProgressIndicator$ShowAnimationBehavior;
-.super Ljava/lang/Object;
-.source "BaseProgressIndicator.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/progressindicator/BaseProgressIndicator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ShowAnimationBehavior"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:931c57e064614c841712bef48213be9911be67c76d98901abe64f2230196eff6
+size 728

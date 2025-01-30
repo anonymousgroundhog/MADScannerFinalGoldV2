@@ -1,27 +1,3 @@
-.class public final Landroidx/viewpager/R$string;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/viewpager/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "string"
-.end annotation
-
-
-# static fields
-.field public static final status_bar_notification_info_overflow:I = 0x7f120ac0
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fcafac644b2fc22103c5540f4b493a26e5990c56d8690b60d1d49eff8279cf55
+size 560

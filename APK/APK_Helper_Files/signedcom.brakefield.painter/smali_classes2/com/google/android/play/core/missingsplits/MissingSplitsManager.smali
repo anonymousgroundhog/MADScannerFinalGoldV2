@@ -1,20 +1,3 @@
-.class public interface abstract Lcom/google/android/play/core/missingsplits/MissingSplitsManager;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract disableAppIfMissingRequiredSplits()Z
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end method
-
-.method public abstract isMissingRequiredSplits()Z
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dc67dd1d5acf12b62f8cec9a74c62c4212b575f32f0e4577991812da183dde52
+size 538

@@ -1,34 +1,3 @@
-.class public final Lcom/google/android/gms/internal/measurement/zzfi;
-.super Lcom/google/android/gms/internal/measurement/zzkx;
-.source "com.google.android.gms:play-services-measurement@@21.2.2"
-
-# interfaces
-.implements Lcom/google/android/gms/internal/measurement/zzmj;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 1
-
-    .line 1
-    invoke-static {}, Lcom/google/android/gms/internal/measurement/zzfj;->zza()Lcom/google/android/gms/internal/measurement/zzfj;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/measurement/zzkx;-><init>(Lcom/google/android/gms/internal/measurement/zzlb;)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/google/android/gms/internal/measurement/zzez;)V
-    .locals 0
-
-    .line 2
-    invoke-static {}, Lcom/google/android/gms/internal/measurement/zzfj;->zza()Lcom/google/android/gms/internal/measurement/zzfj;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/measurement/zzkx;-><init>(Lcom/google/android/gms/internal/measurement/zzlb;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1df8841f82e6fc77c2b8fb22f1acde04d3c3b1585e328b01ce4b4c3a27147256
+size 1129

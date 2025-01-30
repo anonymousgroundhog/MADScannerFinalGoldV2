@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/MessageHandler$HandleData;
-.super Ljava/lang/Object;
-.source "MessageHandler.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/MessageHandler;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "HandleData"
-.end annotation
-
-
-# virtual methods
-.method public abstract handle(Ljava/lang/Object;II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ad711395e2943d15fc94b803ee02ac99d7d3008162a89f2f97da3efd6303a448
+size 493

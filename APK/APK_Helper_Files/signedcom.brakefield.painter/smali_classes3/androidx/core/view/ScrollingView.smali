@@ -1,23 +1,3 @@
-.class public interface abstract Landroidx/core/view/ScrollingView;
-.super Ljava/lang/Object;
-.source "ScrollingView.java"
-
-
-# virtual methods
-.method public abstract computeHorizontalScrollExtent()I
-.end method
-
-.method public abstract computeHorizontalScrollOffset()I
-.end method
-
-.method public abstract computeHorizontalScrollRange()I
-.end method
-
-.method public abstract computeVerticalScrollExtent()I
-.end method
-
-.method public abstract computeVerticalScrollOffset()I
-.end method
-
-.method public abstract computeVerticalScrollRange()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e6d1e81927874b6e2c8537e6e0dd671007948231523f30d9b85782da7eea9215
+size 554

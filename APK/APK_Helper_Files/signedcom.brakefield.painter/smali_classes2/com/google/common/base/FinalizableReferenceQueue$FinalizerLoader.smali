@@ -1,29 +1,3 @@
-.class interface abstract Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
-.super Ljava/lang/Object;
-.source "FinalizableReferenceQueue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/base/FinalizableReferenceQueue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "FinalizerLoader"
-.end annotation
-
-
-# virtual methods
-.method public abstract loadFinalizer()Ljava/lang/Class;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "*>;"
-        }
-    .end annotation
-
-    .annotation runtime Ljavax/annotation/CheckForNull;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:125f5621a11e558f3554d535fa7d8895077908e401921efc719c104ac87e3906
+size 765

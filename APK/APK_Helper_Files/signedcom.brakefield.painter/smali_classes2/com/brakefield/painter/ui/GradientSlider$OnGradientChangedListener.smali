@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/ui/GradientSlider$OnGradientChangedListener;
-.super Ljava/lang/Object;
-.source "GradientSlider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/GradientSlider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnGradientChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onColorStopTapped(Lcom/brakefield/painter/nativeobjs/color/GradientNative;I)V
-.end method
-
-.method public abstract onColorStopUpdated()V
-.end method
-
-.method public abstract onNumberOfColorStopsChanged()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdfd46de3f4f630a1687ba2fd2be9ffcae4c7f40a77a9afb8d238984ac0576ff
+size 690

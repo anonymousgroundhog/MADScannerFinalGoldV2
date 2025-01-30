@@ -1,29 +1,3 @@
-.class interface abstract annotation Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
-.super Ljava/lang/Object;
-.source "ElementTypesAreNonnullByDefault.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Ljavax/annotation/Nonnull;
-.end annotation
-
-.annotation runtime Ljavax/annotation/meta/TypeQualifierDefault;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6abdadb17b6159fa051b351fff10c31a1c22bb20637186abf669f77347fd3044
+size 1046

@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/MediaItem$LocalConfiguration$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/Bundleable$Creator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final fromBundle(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Bundleable;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/MediaItem$LocalConfiguration;->$r8$lambda$dSFy7cSvPraRCfVdhEZWsFISXos(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/MediaItem$LocalConfiguration;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7649eacfcf545271d427980faf03f36b435357b1cfa67db28f635ffad39d3a6
+size 810

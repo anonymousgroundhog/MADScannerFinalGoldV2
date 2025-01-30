@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/InvisibleQualifier;
-.super Ljava/lang/Object;
-.source "InvisibleQualifier.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d69486885bbeb15ce2ea634762dd23a3e28bd05ce7acce0b1d7d5226e8e1cec3
+size 670

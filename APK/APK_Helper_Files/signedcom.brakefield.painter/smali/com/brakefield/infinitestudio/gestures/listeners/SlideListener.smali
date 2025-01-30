@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/SlideListener;
-.super Ljava/lang/Object;
-.source "SlideListener.java"
-
-
-# virtual methods
-.method public abstract onSlide(FFF)V
-.end method
-
-.method public abstract onSlideFinish()V
-.end method
-
-.method public abstract onSlideStart()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:827e11f879d57d2445830ba8f1b4c098ed4c62df1b181d36537ea384fb4570b9
+size 330

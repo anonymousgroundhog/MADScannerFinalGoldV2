@@ -1,30 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/ExoPlayer$Builder$$ExternalSyntheticLambda20;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/common/base/Supplier;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
-
-    new-instance v0, Lcom/google/android/exoplayer2/DefaultLoadControl;
-
-    invoke-direct {v0}, Lcom/google/android/exoplayer2/DefaultLoadControl;-><init>()V
-
-    check-cast v0, Lcom/google/android/exoplayer2/LoadControl;
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:eff4fa33578e75b3cec8a865c317ff4756b13035a02f03bf6701f8656ce5f769
+size 723

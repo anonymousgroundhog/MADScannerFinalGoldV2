@@ -1,19 +1,3 @@
-.class interface abstract Landroidx/constraintlayout/core/motion/parse/KeyParser$DataType;
-.super Ljava/lang/Object;
-.source "KeyParser.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/constraintlayout/core/motion/parse/KeyParser;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "DataType"
-.end annotation
-
-
-# virtual methods
-.method public abstract get(I)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a61420de5e9610e890014e5a405c8cfb92f0da55ad69dd775320b87428beac47
+size 473

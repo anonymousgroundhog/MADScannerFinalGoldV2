@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/auth-api/zbaf;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth@@20.4.1"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# virtual methods
-.method public abstract zbb(Lcom/google/android/gms/common/api/Status;Lcom/google/android/gms/auth/api/identity/SaveAccountLinkingTokenResult;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1322b2b1a39fbff6081ac556c4fdadfda77f4eed9a91431cd4d20412c3a84379
+size 533

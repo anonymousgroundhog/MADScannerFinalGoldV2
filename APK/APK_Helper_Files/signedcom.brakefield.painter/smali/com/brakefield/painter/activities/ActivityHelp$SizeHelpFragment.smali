@@ -1,35 +1,3 @@
-.class public Lcom/brakefield/painter/activities/ActivityHelp$SizeHelpFragment;
-.super Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;
-.source "ActivityHelp.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/activities/ActivityHelp;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "SizeHelpFragment"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 129
-    invoke-direct {p0}, Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public getLayout()I
-    .locals 1
-
-    const v0, 0x7f0d009c
-
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:51952a75bf5329f9e63e43102b612181fbe85a9b7ae8257349a94383b57567be
+size 769

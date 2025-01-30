@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/activity/result/ActivityResultCallback;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onActivityResult(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;
-
-    check-cast p1, Ljava/lang/String;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/infinitestudio/account/LoginActivity$Launcher;->lambda$onCreate$0$com-brakefield-infinitestudio-account-LoginActivity$Launcher(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd6e14d692ad19cbe43e20cddff9742b1d494678c1497e2bf012d063f7712db9
+size 1312

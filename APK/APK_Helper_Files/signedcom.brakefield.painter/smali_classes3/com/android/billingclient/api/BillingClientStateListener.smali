@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/BillingClientStateListener;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# virtual methods
-.method public abstract onBillingServiceDisconnected()V
-.end method
-
-.method public abstract onBillingSetupFinished(Lcom/android/billingclient/api/BillingResult;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4902f96bf1048715ce7ad788a2ea0724b8d279e31899df07919ffd1e396f229
+size 365

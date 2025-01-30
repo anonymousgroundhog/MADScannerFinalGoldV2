@@ -1,27 +1,3 @@
-.class public final Lcom/brakefield/infinitestudio/R$plurals;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "plurals"
-.end annotation
-
-
-# static fields
-.field public static final mtrl_badge_content_description:I = 0x7f100002
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8fece5b57a919aaa08539bc9a9b11fe65d5d0775b3dabc42767955374d0ba237
+size 577

@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/calledmethods/qual/CalledMethodsPredicate;
-.super Ljava/lang/Object;
-.source "CalledMethodsPredicate.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/calledmethods/qual/CalledMethods;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8fa37a2d853b6d8c34526365c143d8fe3f1b0261cf84973389203512b511cb2c
+size 972

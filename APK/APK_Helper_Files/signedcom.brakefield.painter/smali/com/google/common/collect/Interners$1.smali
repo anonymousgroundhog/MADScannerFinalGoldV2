@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/Interners$1;
-.super Ljava/lang/Object;
-.source "Interners.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/Interners;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:09df24769d07e61ea8ebacc9012416a16c3496d8b17d41878b3508a71ed83a53
+size 352

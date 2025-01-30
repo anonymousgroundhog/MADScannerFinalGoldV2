@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/dynamic/IObjectWrapper;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/dynamic/IObjectWrapper$Stub;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a154cdaa17fec88f1458eaa646d7128d274555552f693057dc8f562ed2a2d3f4
+size 387

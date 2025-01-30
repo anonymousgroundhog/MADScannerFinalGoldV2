@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/LUDecomposition_F64;
-.super Ljava/lang/Object;
-.source "LUDecomposition_F64.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/LUDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/LUDecomposition<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract computeDeterminant()Lorg/ejml/data/Complex_F64;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e5407f70040c63d47540e77d98d5b3213b7c2df839e6fcdb886366ac72afd2e
+size 605

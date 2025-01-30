@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/android/billingclient/api/zzad;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic zza:Lcom/android/billingclient/api/zzaf;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/android/billingclient/api/zzaf;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/billingclient/api/zzad;->zza:Lcom/android/billingclient/api/zzaf;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/billingclient/api/zzad;->zza:Lcom/android/billingclient/api/zzaf;
-
-    invoke-virtual {v0}, Lcom/android/billingclient/api/zzaf;->zzb()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:79311cd72930bc6a0f7efda29e535cd78e52e40a27a2f8141a8f0514a5a37cd8
+size 852

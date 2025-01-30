@@ -1,32 +1,3 @@
-.class public final synthetic Landroidx/core/text/util/LinkifyCompat$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/Comparator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Landroidx/core/text/util/LinkifyCompat$LinkSpec;
-
-    check-cast p2, Landroidx/core/text/util/LinkifyCompat$LinkSpec;
-
-    invoke-static {p1, p2}, Landroidx/core/text/util/LinkifyCompat;->lambda$static$0(Landroidx/core/text/util/LinkifyCompat$LinkSpec;Landroidx/core/text/util/LinkifyCompat$LinkSpec;)I
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5084a3f56e5456ece950b6f3f183c63d979477bc7a81537f5a5b797bf6e6e886
+size 836

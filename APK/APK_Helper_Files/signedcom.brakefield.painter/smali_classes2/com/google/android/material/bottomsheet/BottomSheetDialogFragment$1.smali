@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$1;
-.super Ljava/lang/Object;
-.source "BottomSheetDialogFragment.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:858fa94e517483a99b02a770a7b6e4c9d1c40eb7820aceda66ba1377e9f51d50
+size 428

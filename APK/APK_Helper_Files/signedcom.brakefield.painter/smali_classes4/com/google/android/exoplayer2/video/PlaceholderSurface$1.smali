@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/video/PlaceholderSurface$1;
-.super Ljava/lang/Object;
-.source "PlaceholderSurface.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/video/PlaceholderSurface;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8078f511686a354b255a48360c89ddaff876029532f910eeb8aae1947d1cee1a
+size 399

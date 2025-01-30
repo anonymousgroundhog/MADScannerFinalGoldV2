@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lorg/codehaus/jackson/annotate/JacksonAnnotation;
-.super Ljava/lang/Object;
-.source "JacksonAnnotation.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9cfc2c116f373b2414d176206b53d56f86db2ac25d51c46115f7d28be23f1f2d
+size 591

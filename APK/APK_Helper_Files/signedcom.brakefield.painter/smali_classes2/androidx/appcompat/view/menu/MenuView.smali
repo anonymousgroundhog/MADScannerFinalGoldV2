@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/view/menu/MenuView;
-.super Ljava/lang/Object;
-.source "MenuView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/view/menu/MenuView$ItemView;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getWindowAnimations()I
-.end method
-
-.method public abstract initialize(Landroidx/appcompat/view/menu/MenuBuilder;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bdb4fa3cbf057ab43d500bf5e07b677b12d577c87f26b91d1b62dc6b45943cc0
+size 457

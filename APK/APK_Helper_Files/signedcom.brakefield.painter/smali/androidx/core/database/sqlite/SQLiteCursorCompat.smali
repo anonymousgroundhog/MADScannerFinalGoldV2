@@ -1,31 +1,3 @@
-.class public final Landroidx/core/database/sqlite/SQLiteCursorCompat;
-.super Ljava/lang/Object;
-.source "SQLiteCursorCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/core/database/sqlite/SQLiteCursorCompat$Api28Impl;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
-    .locals 0
-
-    .line 49
-    invoke-static {p0, p1}, Landroidx/core/database/sqlite/SQLiteCursorCompat$Api28Impl;->setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8edfe69a0de40613484ceb055d911751e28b24ef384a9980c0c374fc6e27cb0
+size 777

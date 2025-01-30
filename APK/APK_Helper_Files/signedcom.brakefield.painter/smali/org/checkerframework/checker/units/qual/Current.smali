@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/Current;
-.super Ljava/lang/Object;
-.source "Current.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/UnknownUnits;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a72cfdc2944b1aee2a50d885cd722ab0402bca143e1b7ce3ba4cedb3a4a5948e
+size 914

@@ -1,19 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/database/ExoDatabaseProvider;
-.super Lcom/google/android/exoplayer2/database/StandaloneDatabaseProvider;
-.source "ExoDatabaseProvider.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0, p1}, Lcom/google/android/exoplayer2/database/StandaloneDatabaseProvider;-><init>(Landroid/content/Context;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bfb80ec15481c21b5d46a41833b6fc62c385a13df9d089aa46439a01b22eff09
+size 536

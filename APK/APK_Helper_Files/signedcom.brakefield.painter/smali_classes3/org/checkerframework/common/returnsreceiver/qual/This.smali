@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/returnsreceiver/qual/This;
-.super Ljava/lang/Object;
-.source "This.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/PolymorphicQualifier;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/TargetLocations;
-    value = {
-        .enum Lorg/checkerframework/framework/qual/TypeUseLocation;->RECEIVER:Lorg/checkerframework/framework/qual/TypeUseLocation;,
-        .enum Lorg/checkerframework/framework/qual/TypeUseLocation;->RETURN:Lorg/checkerframework/framework/qual/TypeUseLocation;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:99fa40d1b6a4b30ca861cd1085c4e6ebf35bd679884c01f4b288282687ba3da1
+size 1148

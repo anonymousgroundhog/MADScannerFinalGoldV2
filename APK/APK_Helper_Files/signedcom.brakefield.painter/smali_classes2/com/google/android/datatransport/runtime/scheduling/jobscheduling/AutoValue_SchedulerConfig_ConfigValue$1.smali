@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/AutoValue_SchedulerConfig_ConfigValue$1;
-.super Ljava/lang/Object;
-.source "AutoValue_SchedulerConfig_ConfigValue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/AutoValue_SchedulerConfig_ConfigValue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:eafc22b00dfff6f0dec2835528039061b702b87eda59102fb7fa56ee45810fb2
+size 516

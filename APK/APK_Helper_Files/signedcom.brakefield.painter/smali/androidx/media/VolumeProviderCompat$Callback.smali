@@ -1,30 +1,3 @@
-.class public abstract Landroidx/media/VolumeProviderCompat$Callback;
-.super Ljava/lang/Object;
-.source "VolumeProviderCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/VolumeProviderCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x409
-    name = "Callback"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 237
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract onVolumeChanged(Landroidx/media/VolumeProviderCompat;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5161681212f3ee286554d0bbed9a34f4746263003e1cc096249f13686e7e87ee
+size 661
