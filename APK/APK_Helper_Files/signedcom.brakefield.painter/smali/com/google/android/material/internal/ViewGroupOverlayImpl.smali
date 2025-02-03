@@ -1,14 +1,3 @@
-.class interface abstract Lcom/google/android/material/internal/ViewGroupOverlayImpl;
-.super Ljava/lang/Object;
-.source "ViewGroupOverlayImpl.java"
-
-# interfaces
-.implements Lcom/google/android/material/internal/ViewOverlayImpl;
-
-
-# virtual methods
-.method public abstract add(Landroid/view/View;)V
-.end method
-
-.method public abstract remove(Landroid/view/View;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5636d5a028aa290a13832593823ade5d5f7d7159c40763e133176099f9a26b4
+size 377

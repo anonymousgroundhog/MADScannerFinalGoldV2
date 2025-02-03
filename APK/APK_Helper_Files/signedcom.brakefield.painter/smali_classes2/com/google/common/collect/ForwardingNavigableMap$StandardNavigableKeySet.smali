@@ -1,32 +1,3 @@
-.class public Lcom/google/common/collect/ForwardingNavigableMap$StandardNavigableKeySet;
-.super Lcom/google/common/collect/Maps$NavigableKeySet;
-.source "ForwardingNavigableMap.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/ForwardingNavigableMap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
-    name = "StandardNavigableKeySet"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/google/common/collect/Maps$NavigableKeySet<",
-        "TK;TV;>;"
-    }
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Lcom/google/common/collect/ForwardingNavigableMap;)V
-    .locals 0
-
-    .line 366
-    invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$NavigableKeySet;-><init>(Ljava/util/NavigableMap;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:98516d5c2354cd49656283263a0efd324ec41c3899c180a70553b8cf7b263091
+size 899

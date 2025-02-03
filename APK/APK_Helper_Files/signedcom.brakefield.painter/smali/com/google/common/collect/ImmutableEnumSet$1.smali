@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/ImmutableEnumSet$1;
-.super Ljava/lang/Object;
-.source "ImmutableEnumSet.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/ImmutableEnumSet;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:40f106aafebce6add2453311b179ef9f208e143bec54f1da2bd6ab2214b238f6
+size 373

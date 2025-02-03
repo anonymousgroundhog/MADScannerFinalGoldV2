@@ -1,23 +1,3 @@
-.class public Lcom/google/android/gms/auth/UserRecoverableNotifiedException;
-.super Lcom/google/android/gms/auth/GoogleAuthException;
-.source "com.google.android.gms:play-services-auth-base@@18.0.4"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0, p1}, Lcom/google/android/gms/auth/GoogleAuthException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
-
-    .line 2
-    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/auth/GoogleAuthException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b014ee4f2ca6207dd51aa43ed4a57c4a9f300ef44d347cebf74839a37188806b
+size 701

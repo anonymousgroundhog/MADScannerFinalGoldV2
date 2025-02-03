@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/extractor/DefaultExtractorsFactory$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/extractor/DefaultExtractorsFactory$ExtensionLoader$ConstructorSupplier;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getConstructor()Ljava/lang/reflect/Constructor;
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/exoplayer2/extractor/DefaultExtractorsFactory;->$r8$lambda$KA91uXS3do9mxsnM-plEBujl2vs()Ljava/lang/reflect/Constructor;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ccc016904de348cef32338f2f2422375e872ea3e30cd5675f4864a0867d295ad
+size 798

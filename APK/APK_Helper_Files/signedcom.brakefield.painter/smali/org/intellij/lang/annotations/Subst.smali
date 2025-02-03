@@ -1,11 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/Subst;
-.super Ljava/lang/Object;
-.source "Subst.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b363e252556aabb0f2aacdb12e929e6fbf6f523d1de4dd517b53b8d3e08e4ecd
+size 271

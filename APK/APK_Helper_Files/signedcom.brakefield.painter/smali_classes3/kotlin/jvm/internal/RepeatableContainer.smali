@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lkotlin/jvm/internal/RepeatableContainer;
-.super Ljava/lang/Object;
-.source "RepeatableContainer.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:58bb04c45bb41001f6339075a45329f4c8951a474d606650ec072b8adb025fd6
+size 585

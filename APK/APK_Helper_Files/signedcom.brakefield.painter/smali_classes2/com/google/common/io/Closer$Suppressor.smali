@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/common/io/Closer$Suppressor;
-.super Ljava/lang/Object;
-.source "Closer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/io/Closer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Suppressor"
-.end annotation
-
-
-# virtual methods
-.method public abstract suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5dd7551e4a6ac3a3244e4a854406f53b85a35b79cdfb1811dc0b1b0a47296546
+size 487

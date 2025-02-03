@@ -1,16 +1,3 @@
-.class final Lcom/google/android/gms/internal/ads_identifier/zzg;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-ads-identifier@@17.1.0"
-
-# interfaces
-.implements Lcom/google/android/gms/internal/ads_identifier/zzh;
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f573d48bff5b5154e0542a4a16542b0c893d6bb6e1fd346954159f8f5e7c47b2
+size 395

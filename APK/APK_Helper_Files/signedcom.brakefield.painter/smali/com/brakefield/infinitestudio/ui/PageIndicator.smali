@@ -1,23 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/PageIndicator;
-.super Ljava/lang/Object;
-.source "PageIndicator.java"
-
-# interfaces
-.implements Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
-
-
-# virtual methods
-.method public abstract notifyDataSetChanged()V
-.end method
-
-.method public abstract setCurrentItem(I)V
-.end method
-
-.method public abstract setOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
-.end method
-
-.method public abstract setViewPager(Landroidx/viewpager/widget/ViewPager;)V
-.end method
-
-.method public abstract setViewPager(Landroidx/viewpager/widget/ViewPager;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9064d7a8c3893b1b32bed4067c3147321b73fc6e357ede4688cb8fe16dd52a57
+size 661

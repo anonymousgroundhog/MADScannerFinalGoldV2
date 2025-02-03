@@ -1,26 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/Transformer;
-.super Ljava/lang/Object;
-.source "Transformer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<I:",
-        "Ljava/lang/Object;",
-        "O:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TI;)TO;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8122653c636b8ad78b2009f3cbc51381ce0321d2cf42258d394a211b852fbb9e
+size 592

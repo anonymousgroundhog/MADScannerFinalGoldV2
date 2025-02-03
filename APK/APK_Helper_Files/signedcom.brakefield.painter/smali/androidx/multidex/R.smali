@@ -1,12 +1,3 @@
-.class public final Landroidx/multidex/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bfe57a8a893eea5d13aff93a0f262a707da38e54c4366c0de3335a7ba8b91994
+size 223

@@ -1,19 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/initializedfields/qual/PolyInitializedFields;
-.super Ljava/lang/Object;
-.source "PolyInitializedFields.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/PolymorphicQualifier;
-    value = Lorg/checkerframework/common/initializedfields/qual/InitializedFields;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:517bbc07aab473c7553a3234ac416a497adae492c41ad293f1777259f96b994b
+size 718

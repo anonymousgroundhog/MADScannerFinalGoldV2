@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/drm/ExoMediaDrm$OnExpirationUpdateListener;
-.super Ljava/lang/Object;
-.source "ExoMediaDrm.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/drm/ExoMediaDrm;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnExpirationUpdateListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onExpirationUpdate(Lcom/google/android/exoplayer2/drm/ExoMediaDrm;[BJ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:36fa0e04f6da3e44776f3a302676fea972ef6652d4afa05bf725f379f0772646
+size 566

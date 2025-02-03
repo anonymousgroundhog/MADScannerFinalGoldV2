@@ -1,36 +1,3 @@
-.class Landroidx/core/app/NotificationCompat$Api31Impl;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api31Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 9888
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static isAuthenticationRequired(Landroid/app/Notification$Action;)Z
-    .locals 0
-
-    .line 9892
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->isAuthenticationRequired()Z
-
-    move-result p0
-
-    return p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0641e6739162c29dc463af8db2a4cbd5ba4b67f2d818655d5f3b4257c28e9d98
+size 777

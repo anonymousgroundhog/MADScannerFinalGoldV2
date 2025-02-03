@@ -1,29 +1,3 @@
-.class public final Lkotlin/sequences/USequencesKt;
-.super Lkotlin/sequences/USequencesKt___USequencesKt;
-.source "_USequences.kt"
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/sequences/USequencesKt___USequencesKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/sequences/USequencesKt___USequencesKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f4e2b182b8e51b24c1d5a4633a14dd315b1243e17d12ca3bfd05403ae6e3bec
+size 549

@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/InAppMessageParams$InAppMessageCategoryId;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/billingclient/api/InAppMessageParams;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "InAppMessageCategoryId"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final TRANSACTIONAL:I = 0x2
-
-.field public static final UNKNOWN_IN_APP_MESSAGE_CATEGORY_ID:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:69110087f598b725fa58b76fa3668caf1b0620513c46f1131a43ce5744e40715
+size 827

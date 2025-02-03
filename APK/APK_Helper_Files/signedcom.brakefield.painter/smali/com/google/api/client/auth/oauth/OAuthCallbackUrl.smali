@@ -1,28 +1,3 @@
-.class public Lcom/google/api/client/auth/oauth/OAuthCallbackUrl;
-.super Lcom/google/api/client/http/GenericUrl;
-.source "OAuthCallbackUrl.java"
-
-
-# instance fields
-.field public token:Ljava/lang/String;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_token"
-    .end annotation
-.end field
-
-.field public verifier:Ljava/lang/String;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_verifier"
-    .end annotation
-.end field
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 44
-    invoke-direct {p0, p1}, Lcom/google/api/client/http/GenericUrl;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:06d7d6176ee67e30e06c6545b5bf5d979eab312303360afdb481db4c446b27c6
+size 714

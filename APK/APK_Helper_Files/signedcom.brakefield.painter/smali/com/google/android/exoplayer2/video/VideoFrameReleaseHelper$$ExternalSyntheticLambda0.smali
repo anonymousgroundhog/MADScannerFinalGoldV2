@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$DisplayHelper$Listener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onDefaultDisplayChanged(Landroid/view/Display;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;
-
-    invoke-static {v0, p1}, Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;->$r8$lambda$A5Zm0DOJniOJatrcB4x11ZTkanw(Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper;Landroid/view/Display;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:af9e2b4df7347b7f4f71c2b687f7b63b5ffb45177d5fd7e37d887304dd9c895a
+size 1335

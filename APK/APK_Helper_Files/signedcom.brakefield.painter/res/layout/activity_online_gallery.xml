@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.viewpager2.widget.ViewPager2 android:id="@id/viewPager" android:saveEnabled="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-</merge>
+version https://git-lfs.github.com/spec/v1
+oid sha256:53d60c2ab13c74f2e06729c8af1a5ca243a664020bcd134984d288352f47726f
+size 359

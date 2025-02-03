@@ -1,19 +1,3 @@
-.class interface abstract Lcom/brakefield/painter/billing/ByteBot$ByteBotCallback;
-.super Ljava/lang/Object;
-.source "ByteBot.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/billing/ByteBot;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "ByteBotCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onResults(ZLjava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:37050cec12edb9b52230c207968c0ef77345fd9c1c3d11d481ce7bda14b731a6
+size 479

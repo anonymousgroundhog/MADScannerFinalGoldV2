@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/padding_medium" android:paddingBottom="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.brakefield.infinitestudio.ui.AutosizeTextView android:gravity="center|left" android:id="@id/text" android:paddingLeft="@dimen/padding_very_large" android:paddingRight="@dimen/padding_very_large" android:layout_width="wrap_content" android:layout_height="@dimen/button_size" android:layout_marginLeft="@dimen/margin_large" android:layout_marginRight="@dimen/margin_large" android:lines="1" />
-    <Space android:layout_width="0.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
-    <ImageView android:id="@id/lock" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/pro_tag" />
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:2674dca2e8c28c21b730e6d527162ebee719383c5f25b134974d52d7fa5a6c0c
+size 998

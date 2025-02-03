@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/hls/HlsSampleStreamWrapper$1;
-.super Ljava/lang/Object;
-.source "HlsSampleStreamWrapper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/hls/HlsSampleStreamWrapper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:80c0a9af8377d81c9c386010a68928deea23294307b88e05f1d0b927be2c7ff9
+size 421

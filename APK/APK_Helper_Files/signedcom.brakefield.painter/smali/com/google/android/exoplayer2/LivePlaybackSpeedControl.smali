@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/LivePlaybackSpeedControl;
-.super Ljava/lang/Object;
-.source "LivePlaybackSpeedControl.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getAdjustedPlaybackSpeed(JJ)F
-.end method
-
-.method public abstract getTargetLiveOffsetUs()J
-.end method
-
-.method public abstract notifyRebuffer()V
-.end method
-
-.method public abstract setLiveConfiguration(Lcom/google/android/exoplayer2/MediaItem$LiveConfiguration;)V
-.end method
-
-.method public abstract setTargetLiveOffsetOverrideUs(J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:81b287ec050d262726e428ab22d85fc2d68a95f410f0b60a4e0b306f77e40e39
+size 625

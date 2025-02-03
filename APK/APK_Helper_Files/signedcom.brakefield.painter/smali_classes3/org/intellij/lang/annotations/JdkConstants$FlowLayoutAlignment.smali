@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$FlowLayoutAlignment;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FlowLayoutAlignment"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa0cc6a14966556b43bf903afbddba596072434cba1738bbf1a47dc128517448
+size 491

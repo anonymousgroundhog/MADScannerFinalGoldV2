@@ -1,28 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/BackOffPolicy;
-.super Ljava/lang/Object;
-.source "BackOffPolicy.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# static fields
-.field public static final STOP:J = -0x1L
-
-
-# virtual methods
-.method public abstract getNextBackOffMillis()J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isBackOffRequired(I)Z
-.end method
-
-.method public abstract reset()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c592a5ed327888f7bb5d9701e24f5df824f28987952618894c0168964c85bc2
+size 583

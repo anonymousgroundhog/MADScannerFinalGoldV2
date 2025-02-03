@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/brushes/settings/HeadSettings$$ExternalSyntheticLambda6;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/OnSeekBarProgressChangedListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/brushes/settings/HeadSettings;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/brushes/settings/HeadSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/brushes/settings/HeadSettings$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/brushes/settings/HeadSettings;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/brushes/settings/HeadSettings$$ExternalSyntheticLambda6;->f$0:Lcom/brakefield/painter/brushes/settings/HeadSettings;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/brakefield/painter/brushes/settings/HeadSettings;->lambda$bindSettings$23$com-brakefield-painter-brushes-settings-HeadSettings(Landroid/widget/SeekBar;IZ)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:27a6604d45f6b4e0fa53d9f64860d848b988d72e37aa14d58e9c67f2e61856fe
+size 1249

@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/app/TaskStackBuilder$SupportParentable;
-.super Ljava/lang/Object;
-.source "TaskStackBuilder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/TaskStackBuilder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "SupportParentable"
-.end annotation
-
-
-# virtual methods
-.method public abstract getSupportParentActivityIntent()Landroid/content/Intent;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d41e347c0489e7c54294a7ef464b902aca1abdefc3049bc87e2a8aa6601dc906
+size 516

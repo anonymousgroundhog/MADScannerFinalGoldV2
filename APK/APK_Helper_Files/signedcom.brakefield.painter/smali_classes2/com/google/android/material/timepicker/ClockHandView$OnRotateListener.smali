@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/timepicker/ClockHandView$OnRotateListener;
-.super Ljava/lang/Object;
-.source "ClockHandView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/timepicker/ClockHandView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnRotateListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onRotate(FZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8561f337e07dbd13753449d19b9bd81cc35f6b32ed62f2f687fb5b40b456812b
+size 504

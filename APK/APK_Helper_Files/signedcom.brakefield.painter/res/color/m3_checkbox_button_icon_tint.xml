@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:state_enabled="false" android:color="?colorSurface" />
-    <item android:color="?colorOnError" app:state_error="true" />
-    <item android:color="?colorOnPrimary" app:state_indeterminate="true" />
-    <item android:state_checked="true" android:color="?colorOnPrimary" />
-    <item android:state_checked="false" android:color="?colorOnPrimary" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:af0607a84afb0c3f38036c7bdec54625bb1cc1bfcbf3c18af16026384405600f
+size 538

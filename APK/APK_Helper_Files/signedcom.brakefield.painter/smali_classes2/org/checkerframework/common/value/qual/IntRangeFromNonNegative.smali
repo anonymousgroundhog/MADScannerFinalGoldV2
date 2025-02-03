@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/value/qual/IntRangeFromNonNegative;
-.super Ljava/lang/Object;
-.source "IntRangeFromNonNegative.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/common/value/qual/UnknownVal;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9191e99d456ab05bc93b24d435eaf16c70933d23fbd552c4bd5b0fab74b611c2
+size 741

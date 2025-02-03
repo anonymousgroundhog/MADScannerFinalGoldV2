@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/Loader$ReleaseCallback;
-.super Ljava/lang/Object;
-.source "Loader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/Loader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ReleaseCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onLoaderReleased()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6cf851524ef81b6f87c98397ec2fc58e5caa0f04b53b7983d34b72ab326d86b7
+size 487

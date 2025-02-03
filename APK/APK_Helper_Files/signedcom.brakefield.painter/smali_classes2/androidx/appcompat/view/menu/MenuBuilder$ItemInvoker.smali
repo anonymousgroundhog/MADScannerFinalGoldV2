@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;
-.super Ljava/lang/Object;
-.source "MenuBuilder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/view/menu/MenuBuilder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ItemInvoker"
-.end annotation
-
-
-# virtual methods
-.method public abstract invokeItem(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f097473eb6b74c58de0e8791202650c4ca4a2ec78245d422b7151a7e00399d58
+size 511

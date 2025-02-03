@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/ActivityChooserModel$OnChooseActivityListener;
-.super Ljava/lang/Object;
-.source "ActivityChooserModel.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/ActivityChooserModel;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnChooseActivityListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onChooseActivity(Landroidx/appcompat/widget/ActivityChooserModel;Landroid/content/Intent;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e6b27d7eddb433b51b2acca5feab4556b8b16ac1b1a94b7e0ed53f9b0337711
+size 593

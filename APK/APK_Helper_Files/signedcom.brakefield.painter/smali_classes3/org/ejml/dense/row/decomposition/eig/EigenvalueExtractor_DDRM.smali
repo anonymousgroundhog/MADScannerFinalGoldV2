@@ -1,14 +1,3 @@
-.class public interface abstract Lorg/ejml/dense/row/decomposition/eig/EigenvalueExtractor_DDRM;
-.super Ljava/lang/Object;
-.source "EigenvalueExtractor_DDRM.java"
-
-
-# virtual methods
-.method public abstract getEigenvalues()[Lorg/ejml/data/Complex_F64;
-.end method
-
-.method public abstract getNumberOfEigenvalues()I
-.end method
-
-.method public abstract process(Lorg/ejml/data/DMatrixRMaj;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b70adc96a13d74f12dedb82c62b07a8da4ff933a23ec10ed1dd268f241de03d6
+size 402

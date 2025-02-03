@@ -1,34 +1,3 @@
-.class public final Lcom/google/api/client/auth/oauth/OAuthCredentialsResponse;
-.super Ljava/lang/Object;
-.source "OAuthCredentialsResponse.java"
-
-
-# instance fields
-.field public callbackConfirmed:Ljava/lang/Boolean;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_callback_confirmed"
-    .end annotation
-.end field
-
-.field public token:Ljava/lang/String;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_token"
-    .end annotation
-.end field
-
-.field public tokenSecret:Ljava/lang/String;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_token_secret"
-    .end annotation
-.end field
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 28
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c9b9e4b011d13d6015850353ae728126e92129ad6d51df476828bfd30b0860b2
+size 845

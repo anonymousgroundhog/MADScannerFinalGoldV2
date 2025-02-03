@@ -1,33 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/text/span/TextAnnotation;
-.super Ljava/lang/Object;
-.source "TextAnnotation.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/text/span/TextAnnotation$Position;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# static fields
-.field public static final POSITION_AFTER:I = 0x2
-
-.field public static final POSITION_BEFORE:I = 0x1
-
-.field public static final POSITION_UNKNOWN:I = -0x1
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 72
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ed6589801f1df9415c4f388537ea991f6285b4765049140a3609d1ef8e844048
+size 714

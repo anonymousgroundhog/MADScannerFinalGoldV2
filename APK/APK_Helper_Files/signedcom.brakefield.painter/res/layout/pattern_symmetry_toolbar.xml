@@ -1,24 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_symmetry_settings_planes" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/planes_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/planes" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_symmetry_settings_fan" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/fan_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/fan" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/rotate_tile" style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_symmetry_settings_rotate" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/rotate_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/rotate" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/reflect" style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_symmetry_settings_reflect" android:id="@id/ui_binding_key" />
-        <ImageView android:id="@id/reflect_image" android:src="@drawable/reflect" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/reflect" style="@style/TileLabel" />
-    </FrameLayout>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b105490f290e8ce407c1027b4720adad89eab925b1a4f4eb24e57e05c1e3548
+size 1900

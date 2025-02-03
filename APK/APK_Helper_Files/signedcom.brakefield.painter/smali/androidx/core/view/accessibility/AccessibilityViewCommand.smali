@@ -1,23 +1,3 @@
-.class public interface abstract Landroidx/core/view/accessibility/AccessibilityViewCommand;
-.super Ljava/lang/Object;
-.source "AccessibilityViewCommand.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveWindowArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$SetProgressArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$ScrollToPositionArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$SetTextArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$SetSelectionArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveHtmlArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$MoveAtGranularityArguments;,
-        Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c969db46542a4b974fbd475e2a12e2ee27f9199c96e880a817b229227e971431
+size 1145

@@ -1,20 +1,3 @@
-.class public final Landroidx/savedstate/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/savedstate/R$id;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:22e5171ea32386cd88b2479b473d71e6868ecb3ddf75c6cc29e987871d8883d9
+size 365

@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/navigation/fragment/DialogFragmentNavigator$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/fragment/app/FragmentOnAttachListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/navigation/fragment/DialogFragmentNavigator;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/navigation/fragment/DialogFragmentNavigator;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$$ExternalSyntheticLambda0;->f$0:Landroidx/navigation/fragment/DialogFragmentNavigator;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onAttachFragment(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/navigation/fragment/DialogFragmentNavigator$$ExternalSyntheticLambda0;->f$0:Landroidx/navigation/fragment/DialogFragmentNavigator;
-
-    invoke-static {v0, p1, p2}, Landroidx/navigation/fragment/DialogFragmentNavigator;->$r8$lambda$OuKZrEwFknYNYkG7DbIDx8rmInw(Landroidx/navigation/fragment/DialogFragmentNavigator;Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2bd9635931124e6ac443410ee469e5aa2bda18b28855b6b66110493945df721
+size 1331

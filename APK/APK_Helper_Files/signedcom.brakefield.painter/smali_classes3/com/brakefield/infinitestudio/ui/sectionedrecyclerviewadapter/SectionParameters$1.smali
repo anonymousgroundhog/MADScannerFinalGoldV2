@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/infinitestudio/ui/sectionedrecyclerviewadapter/SectionParameters$1;
-.super Ljava/lang/Object;
-.source "SectionParameters.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/sectionedrecyclerviewadapter/SectionParameters;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb2ca39342deb327f89a6bc67782692bffd1ff441eba332e252f7377b11c53a7
+size 448

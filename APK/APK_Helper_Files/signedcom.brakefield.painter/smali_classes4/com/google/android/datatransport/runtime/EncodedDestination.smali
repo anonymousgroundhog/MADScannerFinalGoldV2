@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/EncodedDestination;
-.super Ljava/lang/Object;
-.source "EncodedDestination.java"
-
-# interfaces
-.implements Lcom/google/android/datatransport/runtime/Destination;
-
-
-# virtual methods
-.method public abstract getSupportedEncodings()Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "Lcom/google/android/datatransport/Encoding;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf1c0ded7586294437b47c3cbe6af3e01438dd650ef4e38b539bc486830e0623
+size 557

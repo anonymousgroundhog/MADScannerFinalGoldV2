@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/guieffect/qual/UIPackage;
-.super Ljava/lang/Object;
-.source "UIPackage.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e93a1c4bb71971500b44f449c98a82b477957bffbed46e87fd9371c14cdf6b8f
+size 652

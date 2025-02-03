@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/util/Clock;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# virtual methods
-.method public abstract currentThreadTimeMillis()J
-.end method
-
-.method public abstract currentTimeMillis()J
-.end method
-
-.method public abstract elapsedRealtime()J
-.end method
-
-.method public abstract nanoTime()J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bdcd50e03d80cf015f1089242f4d632fce87a6c0d4c404bd17a159ceaf3e5f5b
+size 412

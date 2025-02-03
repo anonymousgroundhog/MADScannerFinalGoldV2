@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/shape/MaterialShapeDrawable$CompatibilityShadowMode;
-.super Ljava/lang/Object;
-.source "MaterialShapeDrawable.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/shape/MaterialShapeDrawable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "CompatibilityShadowMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a2e16cfde1ad049926a8d7808aa2c34b3b24ab286b76e05fa632eee19b345ba1
+size 708

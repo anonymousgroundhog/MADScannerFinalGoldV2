@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/ResourceEncoder;
-.super Ljava/lang/Object;
-.source "ResourceEncoder.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/Encoder;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/Encoder<",
-        "Lcom/bumptech/glide/load/engine/Resource<",
-        "TT;>;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getEncodeStrategy(Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/EncodeStrategy;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b2e8f76d305e10282f6cecd1438e6851228fdbcf917807b5cc3c25e2b3dad09d
+size 646

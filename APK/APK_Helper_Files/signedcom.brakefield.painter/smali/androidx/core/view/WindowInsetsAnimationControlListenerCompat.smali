@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/core/view/WindowInsetsAnimationControlListenerCompat;
-.super Ljava/lang/Object;
-.source "WindowInsetsAnimationControlListenerCompat.java"
-
-
-# virtual methods
-.method public abstract onCancelled(Landroidx/core/view/WindowInsetsAnimationControllerCompat;)V
-.end method
-
-.method public abstract onFinished(Landroidx/core/view/WindowInsetsAnimationControllerCompat;)V
-.end method
-
-.method public abstract onReady(Landroidx/core/view/WindowInsetsAnimationControllerCompat;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:92f00c440d883596201ec6db06617b439f5cdbde5ab13513679bff4876d61697
+size 526

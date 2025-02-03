@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/ActionMenuView$OnMenuItemClickListener;
-.super Ljava/lang/Object;
-.source "ActionMenuView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/ActionMenuView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnMenuItemClickListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onMenuItemClick(Landroid/view/MenuItem;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:aa7a6dd284204bdb7ac28dbdc6564cd56fc7b58394d0e27112469bc5c917a478
+size 523

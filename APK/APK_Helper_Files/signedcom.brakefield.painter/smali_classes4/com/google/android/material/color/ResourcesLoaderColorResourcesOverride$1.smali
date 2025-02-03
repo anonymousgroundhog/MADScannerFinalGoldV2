@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride$1;
-.super Ljava/lang/Object;
-.source "ResourcesLoaderColorResourcesOverride.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0ca1e3b42d2039977874c22f16b4407bddc2e696c1b1b126df4010ec9055f40e
+size 452

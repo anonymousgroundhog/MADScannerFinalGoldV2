@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/Transformer;
-.super Ljava/lang/Object;
-.source "Transformer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        "U:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)TU;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bd1293f6867b8d2f99b28d5e40a346838d9569fc832e4dcfc3b2a43f527829a5
+size 589

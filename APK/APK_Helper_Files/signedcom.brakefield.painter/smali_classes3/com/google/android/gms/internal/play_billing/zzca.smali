@@ -1,30 +1,3 @@
-.class public final Lcom/google/android/gms/internal/play_billing/zzca;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# direct methods
-.method public static zza()[I
-    .locals 1
-
-    const/4 v0, 0x7
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_0
-
-    return-object v0
-
-    nop
-
-    :array_0
-    .array-data 4
-        0x1
-        0x2
-        0x3
-        0x4
-        0x5
-        0x6
-        0x7
-    .end array-data
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7314b74550045790d470238f628ba89d26bbc661f3e3c97fbbffa51a1236da1
+size 472

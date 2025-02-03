@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/RecyclerView$ChildDrawingOrderCallback;
-.super Ljava/lang/Object;
-.source "RecyclerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/RecyclerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ChildDrawingOrderCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onGetChildDrawingOrder(II)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:075f3c575174b35847541354a02e9cc6461000734aa94c283ebf54171194923f
+size 513

@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/firebase/annotations/DeferredApi;
-.super Ljava/lang/Object;
-.source "DeferredApi.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Inherited;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d9dfb8bb9cbd88eb85c5e7373ca09906551da22647f016ab143d1a11913a6431
+size 565

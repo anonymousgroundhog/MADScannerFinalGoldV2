@@ -1,29 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/ProductDetails$RecurrenceMode;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/billingclient/api/ProductDetails;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "RecurrenceMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final FINITE_RECURRING:I = 0x2
-
-.field public static final INFINITE_RECURRING:I = 0x1
-
-.field public static final NON_RECURRING:I = 0x3
+version https://git-lfs.github.com/spec/v1
+oid sha256:c980dfcf30e60235aa9140175412576d0ad9312f4f47cc4cf73c096aec97618e
+size 846

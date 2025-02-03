@@ -1,29 +1,3 @@
-.class public interface abstract Lcom/android/billingclient/api/Purchase$PurchaseState;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/billingclient/api/Purchase;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "PurchaseState"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final PENDING:I = 0x2
-
-.field public static final PURCHASED:I = 0x1
-
-.field public static final UNSPECIFIED_STATE:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a8384ba26a68d9dc4c4a2f505fe43cb8b942b3f630de7cacf3a55a20170c82c
+size 812

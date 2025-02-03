@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.recyclerview.widget.RecyclerView android:id="@id/collectionView" android:paddingTop="@dimen/title_cover_size_small" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-</merge>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3be3082fe8bca8d151358790f86f059d9cc20fe71504f78820334e2e4586c533
+size 421

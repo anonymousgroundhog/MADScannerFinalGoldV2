@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/recyclerview/widget/OpReorderer$Callback;
-.super Ljava/lang/Object;
-.source "OpReorderer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/OpReorderer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Callback"
-.end annotation
-
-
-# virtual methods
-.method public abstract obtainUpdateOp(IIILjava/lang/Object;)Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
-.end method
-
-.method public abstract recycleUpdateOp(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:443c86e413b2381b9fce338c34397e2da8adafaa99d5547b5143be113f80ee6f
+size 641

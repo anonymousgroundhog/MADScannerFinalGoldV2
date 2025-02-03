@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/FilterToolbar$UpdateHandler$$ExternalSyntheticLambda3;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Ljava/lang/Boolean;
-
-    invoke-static {p1}, Lcom/brakefield/painter/ui/toolbars/FilterToolbar$UpdateHandler;->lambda$new$3(Ljava/lang/Boolean;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bd4f6d03755441393aa6d9a295944bb1fa424f1ece8f715a3e5681d7b2b4e44
+size 699

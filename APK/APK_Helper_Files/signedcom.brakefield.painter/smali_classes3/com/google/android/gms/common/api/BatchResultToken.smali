@@ -1,30 +1,3 @@
-.class public final Lcom/google/android/gms/common/api/BatchResultToken;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<R::",
-        "Lcom/google/android/gms/common/api/Result;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# instance fields
-.field protected final mId:I
-
-
-# direct methods
-.method constructor <init>(I)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/google/android/gms/common/api/BatchResultToken;->mId:I
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2d8661690f58ea44a3da473aee2acc3942aac246b69d52952ec87d1d1fe20b56
+size 647

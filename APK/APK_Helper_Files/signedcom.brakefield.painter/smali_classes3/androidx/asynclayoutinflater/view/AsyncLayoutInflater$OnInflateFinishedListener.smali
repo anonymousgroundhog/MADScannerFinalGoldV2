@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/asynclayoutinflater/view/AsyncLayoutInflater$OnInflateFinishedListener;
-.super Ljava/lang/Object;
-.source "AsyncLayoutInflater.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/asynclayoutinflater/view/AsyncLayoutInflater;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnInflateFinishedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onInflateFinished(Landroid/view/View;ILandroid/view/ViewGroup;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd792c172515459ca56df5cd2596d2328f6bce54b9c7359d78c9102497efd716
+size 581

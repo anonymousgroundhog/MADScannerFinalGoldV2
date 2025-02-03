@@ -1,17 +1,3 @@
-.class interface abstract annotation Lcom/google/firebase/components/Qualified$Unqualified;
-.super Ljava/lang/Object;
-.source "Qualified.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/components/Qualified;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x260a
-    name = "Unqualified"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:57fb0cf9e910cd8fc9b37d8fb695aff0e7c6ba340797a815a6776ab55501234f
+size 461

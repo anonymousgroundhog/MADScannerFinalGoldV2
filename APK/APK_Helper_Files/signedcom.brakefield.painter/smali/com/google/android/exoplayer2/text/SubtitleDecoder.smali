@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/text/SubtitleDecoder;
-.super Ljava/lang/Object;
-.source "SubtitleDecoder.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/decoder/Decoder;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/google/android/exoplayer2/decoder/Decoder<",
-        "Lcom/google/android/exoplayer2/text/SubtitleInputBuffer;",
-        "Lcom/google/android/exoplayer2/text/SubtitleOutputBuffer;",
-        "Lcom/google/android/exoplayer2/text/SubtitleDecoderException;",
-        ">;"
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract setPositionUs(J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4f1558ba0f50f5dd095ed25392bc02e387d19534e969dc007937d9fc49b2b446
+size 764

@@ -1,29 +1,3 @@
-.class public final Lcom/google/firebase/crashlytics/R$integer;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "integer"
-.end annotation
-
-
-# static fields
-.field public static final google_play_services_version:I = 0x7f0b000b
-
-.field public static final status_bar_notification_info_maxnum:I = 0x7f0b003f
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc1c373d7d64aee1c778871941318f6831a37f51d39df1e33ea778a182a7c99b
+size 658

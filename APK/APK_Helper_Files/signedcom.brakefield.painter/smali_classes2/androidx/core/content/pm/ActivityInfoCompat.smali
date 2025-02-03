@@ -1,26 +1,3 @@
-.class public final Landroidx/core/content/pm/ActivityInfoCompat;
-.super Ljava/lang/Object;
-.source "ActivityInfoCompat.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# static fields
-.field public static final CONFIG_UI_MODE:I = 0x200
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:69d660e761ea34b5efe80a916d3b1813e02fb58a741bb4de720df992b4c513f0
+size 517

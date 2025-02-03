@@ -1,30 +1,3 @@
-.class public final Lcom/google/firebase/crashlytics/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/firebase/crashlytics/R$attr;,
-        Lcom/google/firebase/crashlytics/R$color;,
-        Lcom/google/firebase/crashlytics/R$dimen;,
-        Lcom/google/firebase/crashlytics/R$drawable;,
-        Lcom/google/firebase/crashlytics/R$id;,
-        Lcom/google/firebase/crashlytics/R$integer;,
-        Lcom/google/firebase/crashlytics/R$layout;,
-        Lcom/google/firebase/crashlytics/R$raw;,
-        Lcom/google/firebase/crashlytics/R$string;,
-        Lcom/google/firebase/crashlytics/R$style;,
-        Lcom/google/firebase/crashlytics/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:54e370ccd24de27e3b106e08570dfe07efc13cf558a27cd99764a2d0fc0bd9ec
+size 907

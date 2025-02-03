@@ -1,24 +1,3 @@
-.class public final Landroidx/appcompat/resources/Compatibility;
-.super Ljava/lang/Object;
-.source "Compatibility.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/resources/Compatibility$Api15Impl;,
-        Landroidx/appcompat/resources/Compatibility$Api18Impl;,
-        Landroidx/appcompat/resources/Compatibility$Api21Impl;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 44
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e499b1305e4ba271ef55650297216769075f88589cdf1c1f715cfb72e1597c4
+size 584

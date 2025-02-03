@@ -1,19 +1,3 @@
-.class public interface abstract Landroid/support/v4/media/session/MediaSessionCompat$OnActiveChangeListener;
-.super Ljava/lang/Object;
-.source "MediaSessionCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/session/MediaSessionCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnActiveChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onActiveChanged()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:68d67ac70efdb85be8bc45335cc8c21751f4b006e30a05647d47e40e5e8c5239
+size 524

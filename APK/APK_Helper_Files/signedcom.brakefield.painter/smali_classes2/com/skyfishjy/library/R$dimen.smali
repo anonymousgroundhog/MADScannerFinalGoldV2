@@ -1,29 +1,3 @@
-.class public final Lcom/skyfishjy/library/R$dimen;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/skyfishjy/library/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "dimen"
-.end annotation
-
-
-# static fields
-.field public static final rippleRadius:I = 0x7f070326
-
-.field public static final rippleStrokeWidth:I = 0x7f070327
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:485fcf3ff87199e76bb3be6ba39bed8fc9ecc0ad876f6536d76eefc970e8ed0e
+size 600

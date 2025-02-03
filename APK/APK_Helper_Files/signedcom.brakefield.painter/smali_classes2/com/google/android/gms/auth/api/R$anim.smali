@@ -1,27 +1,3 @@
-.class public final Lcom/google/android/gms/auth/api/R$anim;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/auth/api/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "anim"
-.end annotation
-
-
-# static fields
-.field public static final fragment_fast_out_extra_slow_in:I = 0x7f010022
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:296888a48ce416bb3d1930e043b16c161c0bdcb74f8f3aad86e62f399c6e6a20
+size 576

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/RendererCapabilities$Listener;
-.super Ljava/lang/Object;
-.source "RendererCapabilities.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/RendererCapabilities;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onRendererCapabilitiesChanged(Lcom/google/android/exoplayer2/Renderer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2a35adfdb4d7a450576a4b184172ed61837a98e0fcc3bd5fbe0c6ae635f435fa
+size 550

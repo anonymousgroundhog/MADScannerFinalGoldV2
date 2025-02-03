@@ -1,31 +1,3 @@
-.class public final Lcom/brakefield/painter/R$plurals;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "plurals"
-.end annotation
-
-
-# static fields
-.field public static final exo_controls_fastforward_by_amount_description:I = 0x7f100000
-
-.field public static final exo_controls_rewind_by_amount_description:I = 0x7f100001
-
-.field public static final mtrl_badge_content_description:I = 0x7f100002
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b1428ab19746a43f7647e2692ae12a6874e8ab060f9f8f20a03c92c7f5b6f9d
+size 738

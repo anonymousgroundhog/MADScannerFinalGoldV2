@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/api/client/repackaged/com/google/common/base/Supplier;
-.super Ljava/lang/Object;
-.source "Supplier.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract get()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a38ca1175689ceaaa3b64683dad39e77df2d6a2c98357743b8b798430c365535
+size 539

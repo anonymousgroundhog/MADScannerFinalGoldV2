@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/GrammaticalInflectionManagerCompat$GrammaticalGender;
-.super Ljava/lang/Object;
-.source "GrammaticalInflectionManagerCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/GrammaticalInflectionManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "GrammaticalGender"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7742ef41c81f1430327bd775df36290f70e22204bc8cbc2d7211f1eaf9d3a80
+size 703

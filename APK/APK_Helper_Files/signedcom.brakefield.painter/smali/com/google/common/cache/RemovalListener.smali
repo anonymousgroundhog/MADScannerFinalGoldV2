@@ -1,31 +1,3 @@
-.class public interface abstract Lcom/google/common/cache/RemovalListener;
-.super Ljava/lang/Object;
-.source "RemovalListener.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/cache/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onRemoval(Lcom/google/common/cache/RemovalNotification;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/common/cache/RemovalNotification<",
-            "TK;TV;>;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b1caf1772b7207f70cc9a071c4bbadbe0f0f5b40089ac5aa16ed2f634afe99a
+size 777

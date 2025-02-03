@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/BrushSettingsViewController$$ExternalSyntheticLambda5;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnGenericMotionListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onGenericMotion(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/BrushSettingsViewController;->lambda$getView$6(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5ac27461280f3a73b79ea1c616c303e4f45a427f0a687531fd310f71d7914e86
+size 750

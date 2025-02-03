@@ -1,27 +1,3 @@
-.class public final Landroidx/asynclayoutinflater/R$string;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/asynclayoutinflater/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "string"
-.end annotation
-
-
-# static fields
-.field public static final status_bar_notification_info_overflow:I = 0x7f120ac0
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb485b223beaa06b0c4ce8fab8cb36d6f36e5726ba5070700936e872a1c14e4f
+size 580

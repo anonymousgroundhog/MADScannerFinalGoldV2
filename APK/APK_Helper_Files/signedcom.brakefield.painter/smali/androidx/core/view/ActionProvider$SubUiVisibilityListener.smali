@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/view/ActionProvider$SubUiVisibilityListener;
-.super Ljava/lang/Object;
-.source "ActionProvider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ActionProvider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "SubUiVisibilityListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSubUiVisibilityChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5615b48466f013d205c3eba246f564f080adc71f4f04bf2d6e676be1d6801bc0
+size 496

@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/tainting/qual/PolyTainted;
-.super Ljava/lang/Object;
-.source "PolyTainted.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/PolymorphicQualifier;
-    value = Lorg/checkerframework/checker/tainting/qual/Tainted;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:82ec549e356159e2d6c7724963af9eb82c5e6df48e3f8064a77df9b8bf64234e
+size 918

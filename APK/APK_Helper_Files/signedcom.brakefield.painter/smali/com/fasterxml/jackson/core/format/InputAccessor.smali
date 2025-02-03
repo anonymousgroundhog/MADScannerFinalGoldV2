@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/fasterxml/jackson/core/format/InputAccessor;
-.super Ljava/lang/Object;
-.source "InputAccessor.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/fasterxml/jackson/core/format/InputAccessor$Std;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract hasMoreBytes()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract nextByte()B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract reset()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b1f0f952ee6217a674d5e63067d0c638c1e571c154633c8c6b8f5b525762d6b
+size 736

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigSettings$1;
-.super Ljava/lang/Object;
-.source "FirebaseRemoteConfigSettings.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigSettings;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fde0b22f98cc453875f8d03546d059c265757c9d043b6c268653dedaa282a390
+size 423

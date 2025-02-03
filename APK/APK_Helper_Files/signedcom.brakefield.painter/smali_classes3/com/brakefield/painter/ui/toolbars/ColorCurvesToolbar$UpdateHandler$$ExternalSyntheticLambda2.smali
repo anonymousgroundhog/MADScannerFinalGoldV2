@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/ColorCurvesToolbar$UpdateHandler$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/ColorCurvesToolbarBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/ColorCurvesToolbarBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/ColorCurvesToolbar$UpdateHandler$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/painter/databinding/ColorCurvesToolbarBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/ColorCurvesToolbar$UpdateHandler$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/painter/databinding/ColorCurvesToolbarBinding;
-
-    check-cast p1, Ljava/lang/Boolean;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/toolbars/ColorCurvesToolbar$UpdateHandler;->lambda$new$2(Lcom/brakefield/painter/databinding/ColorCurvesToolbarBinding;Ljava/lang/Boolean;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ab88b595db78958ec619e33157989eb96781302b0039cc3835111c0e9763a4b
+size 1332

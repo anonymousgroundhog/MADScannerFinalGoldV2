@@ -1,35 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory;
-.super Ljava/lang/Object;
-.source "MetadataDecoderFactory.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# static fields
-.field public static final DEFAULT:Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory;
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .line 68
-    new-instance v0, Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory$1;
-
-    invoke-direct {v0}, Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory$1;-><init>()V
-
-    sput-object v0, Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory;->DEFAULT:Lcom/google/android/exoplayer2/metadata/MetadataDecoderFactory;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract createDecoder(Lcom/google/android/exoplayer2/Format;)Lcom/google/android/exoplayer2/metadata/MetadataDecoder;
-.end method
-
-.method public abstract supportsFormat(Lcom/google/android/exoplayer2/Format;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbd70279b848d32c80896c008477968f2d277d228dd20469c006f42aa88883a7
+size 1074

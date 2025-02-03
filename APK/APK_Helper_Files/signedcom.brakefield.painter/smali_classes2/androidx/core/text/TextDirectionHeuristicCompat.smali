@@ -1,11 +1,3 @@
-.class public interface abstract Landroidx/core/text/TextDirectionHeuristicCompat;
-.super Ljava/lang/Object;
-.source "TextDirectionHeuristicCompat.java"
-
-
-# virtual methods
-.method public abstract isRtl(Ljava/lang/CharSequence;II)Z
-.end method
-
-.method public abstract isRtl([CII)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:93784530a53c8cd2a4cd3d785a31fa832ba8861692f4a6939644f46506d232e9
+size 294

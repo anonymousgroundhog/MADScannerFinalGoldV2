@@ -1,22 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/QRSparseDecomposition;
-.super Ljava/lang/Object;
-.source "QRSparseDecomposition.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/QRDecomposition;
-.implements Lorg/ejml/interfaces/decomposition/DecompositionSparseInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/QRDecomposition<",
-        "TT;>;",
-        "Lorg/ejml/interfaces/decomposition/DecompositionSparseInterface<",
-        "TT;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a19df2fe3dcfb68169632632c6c91c6d56ef17ce7bda7d37494af4752fa4a77
+size 675

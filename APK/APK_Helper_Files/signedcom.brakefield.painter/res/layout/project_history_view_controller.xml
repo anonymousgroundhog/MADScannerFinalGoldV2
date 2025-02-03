@@ -1,17 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.brakefield.infinitestudio.ui.blurview.BlurView android:id="@id/blur_view" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout android:padding="16.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <com.brakefield.infinitestudio.ui.carousel.widget.CarouselView android:orientation="vertical" android:id="@id/carousel_view" android:layout_width="0.0dip" android:layout_height="0.0dip" android:overScrollMode="never" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHeight_max="540.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_max="480.0dip" />
-            <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_title" android:id="@id/title_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/history" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/carousel_view" />
-            <Button android:gravity="center" android:layout_gravity="center" android:id="@id/delete_button" android:layout_width="160.0dip" android:layout_height="wrap_content" android:text="@string/delete" android:layout_marginEnd="8.0dip" app:backgroundTint="@color/holo_red" app:layout_constraintBottom_toBottomOf="@id/carousel_view" app:layout_constraintEnd_toStartOf="@id/restore_button" app:layout_constraintHorizontal_chainStyle="packed" app:layout_constraintStart_toStartOf="@id/carousel_view">
-                <tag android:value="@string/mappings_project_version_history_delete" android:id="@id/ui_binding_key" />
-            </Button>
-            <Button android:gravity="center" android:layout_gravity="center" android:id="@id/restore_button" android:layout_width="160.0dip" android:layout_height="wrap_content" android:text="@string/restore" app:layout_constraintBottom_toBottomOf="@id/carousel_view" app:layout_constraintEnd_toEndOf="@id/carousel_view" app:layout_constraintStart_toEndOf="@id/delete_button">
-                <tag android:value="@string/mappings_project_version_history_restore" android:id="@id/ui_binding_key" />
-            </Button>
-            <Button android:gravity="center" android:layout_gravity="center" android:id="@id/cancel_button" android:visibility="invisible" android:layout_width="240.0dip" android:layout_height="wrap_content" android:text="@string/cancel" app:layout_constraintBottom_toBottomOf="@id/carousel_view" app:layout_constraintEnd_toEndOf="@id/carousel_view" app:layout_constraintStart_toStartOf="@id/carousel_view" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.brakefield.infinitestudio.ui.blurview.BlurView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:305ea987e6a665d753b5c6107731de83db8f0ccbdd9cfdc1a0dd2c98b2ff4576
+size 3437

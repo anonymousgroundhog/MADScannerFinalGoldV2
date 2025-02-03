@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser;
-
-    invoke-virtual {v0}, Lcom/brakefield/painter/ui/MainView$MutableRenderBufferConfigChooser;->lambda$chooseConfig$1$com-brakefield-painter-ui-MainView$MutableRenderBufferConfigChooser()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1cf531494f7f19e5b6928e9beb5f6e4dc4d537ef0ea003c1d0aa940121371892
+size 1258

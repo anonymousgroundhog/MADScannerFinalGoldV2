@@ -1,31 +1,3 @@
-.class public final Landroidx/navigation/fragment/R$id;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/navigation/fragment/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
-# static fields
-.field public static final nav_host_fragment_container:I = 0x7f0a03ce
-
-.field public static final sliding_pane_detail_container:I = 0x7f0a0578
-
-.field public static final sliding_pane_layout:I = 0x7f0a0579
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b44ccc7e395d31741841a380554e3cb6137a1827d304a4883b33465c306310d5
+size 698

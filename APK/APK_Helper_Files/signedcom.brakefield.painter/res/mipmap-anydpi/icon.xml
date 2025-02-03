@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<adaptive-icon
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@drawable/icon_background" />
-    <foreground android:drawable="@drawable/icon_foreground" />
-    <monochrome android:drawable="@drawable/icon_monochrome" />
-</adaptive-icon>
+version https://git-lfs.github.com/spec/v1
+oid sha256:f9b80edfc069d504d3ff017fb2ecf090d988f7672565c0f6a219b40a29d143b2
+size 324

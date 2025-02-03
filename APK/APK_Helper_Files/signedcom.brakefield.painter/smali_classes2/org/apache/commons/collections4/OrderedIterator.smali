@@ -1,32 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/OrderedIterator;
-.super Ljava/lang/Object;
-.source "OrderedIterator.java"
-
-# interfaces
-.implements Ljava/util/Iterator;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<E:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
-        "TE;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract hasPrevious()Z
-.end method
-
-.method public abstract previous()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TE;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8fd0851a5d270875d2406b284ba1b210e9844beb9c7fc6b2c5ddc0e1d9beff37
+size 682

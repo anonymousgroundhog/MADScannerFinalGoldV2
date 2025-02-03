@@ -1,29 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/Untainted;
-.super Ljava/lang/Object;
-.source "Untainted.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Ljavax/annotation/Untainted;
-        when = .enum Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/annotation/meta/TypeQualifier;
-.end annotation
-
-
-# virtual methods
-.method public abstract when()Ljavax/annotation/meta/When;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3cb7784919c4f4d4d2526038ac5dcdae397e6fa99a7cb92f32d4135296626090
+size 851

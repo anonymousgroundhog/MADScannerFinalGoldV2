@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/view/DragStartHelper$OnDragStartListener;
-.super Ljava/lang/Object;
-.source "DragStartHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/DragStartHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnDragStartListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDragStart(Landroid/view/View;Landroidx/core/view/DragStartHelper;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8aaccaac917f61ed71121aa9ac6059f25892289368b992cfd3539499f455b9ff
+size 532

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/SilenceMediaSource$1;
-.super Ljava/lang/Object;
-.source "SilenceMediaSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/SilenceMediaSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b50dd74009f900b0cce96fd44ba5916226d97b52ceaf09c185c9ef9887fe936
+size 401

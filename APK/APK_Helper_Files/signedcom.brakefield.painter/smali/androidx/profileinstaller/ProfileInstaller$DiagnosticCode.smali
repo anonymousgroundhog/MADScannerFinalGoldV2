@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/profileinstaller/ProfileInstaller$DiagnosticCode;
-.super Ljava/lang/Object;
-.source "ProfileInstaller.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/profileinstaller/ProfileInstaller;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "DiagnosticCode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d6b06e139ac5c5cef55ebfeb33098a5842d3c3a2fac4064e96fb015d0a9573f
+size 659

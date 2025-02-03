@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomsheet/BottomSheetBehavior$State;
-.super Ljava/lang/Object;
-.source "BottomSheetBehavior.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "State"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9c421665909726fbb35f73417c2ee75f8fb1490fa9ddd95df2b16946a7ee1f84
+size 678

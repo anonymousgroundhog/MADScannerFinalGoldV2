@@ -1,8 +1,3 @@
-.class interface abstract Landroidx/fragment/app/SpecialEffectsControllerFactory;
-.super Ljava/lang/Object;
-.source "SpecialEffectsControllerFactory.java"
-
-
-# virtual methods
-.method public abstract createController(Landroid/view/ViewGroup;)Landroidx/fragment/app/SpecialEffectsController;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:491b2674c8a86f5bbff07075c3aa2c1a8dfc56ac1e6ca6579a1a035f977ca2f7
+size 302

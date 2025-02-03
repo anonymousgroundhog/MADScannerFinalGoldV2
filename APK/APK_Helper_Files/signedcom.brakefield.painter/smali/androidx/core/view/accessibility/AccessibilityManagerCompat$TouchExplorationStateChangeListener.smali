@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
-.super Ljava/lang/Object;
-.source "AccessibilityManagerCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/accessibility/AccessibilityManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "TouchExplorationStateChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onTouchExplorationStateChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb6564f21e25fea45b71bc0d4596b9acbba1ada129f0c81e06562224b0b035b0
+size 590

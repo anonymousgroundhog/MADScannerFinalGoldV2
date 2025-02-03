@@ -1,23 +1,3 @@
-.class public final Landroidx/fragment/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/fragment/R$anim;,
-        Landroidx/fragment/R$animator;,
-        Landroidx/fragment/R$id;,
-        Landroidx/fragment/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7e8a6349166a296df3e8c7c49b71f203ddd39cca01eb96b8c6cb28d95e4c23be
+size 478

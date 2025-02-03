@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/MixedUnits;
-.super Ljava/lang/Object;
-.source "MixedUnits.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/UnknownUnits;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b128d6540c4f9d68ff5ab74a1938dc9060223e29ebc878c23b14116b5dba6c42
+size 720

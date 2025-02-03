@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/painter/activities/ActivitySettings$1;
-.super Ljava/lang/Object;
-.source "ActivitySettings.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/activities/ActivitySettings;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6072aa3a7a20c3b57d913490ab70f8783a8927dde7c25e3282420371490563bd
+size 389

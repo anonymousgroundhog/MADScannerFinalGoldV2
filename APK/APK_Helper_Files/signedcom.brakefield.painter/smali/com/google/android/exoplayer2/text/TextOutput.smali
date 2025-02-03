@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/text/TextOutput;
-.super Ljava/lang/Object;
-.source "TextOutput.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onCues(Lcom/google/android/exoplayer2/text/CueGroup;)V
-.end method
-
-.method public onCues(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/google/android/exoplayer2/text/Cue;",
-            ">;)V"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1c91dfbb377e2cde5aca09418584df6dd0c0fb5ee0f6239083e7c0158286c43
+size 697

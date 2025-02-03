@@ -1,19 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/request/transition/ViewTransition$ViewTransitionAnimationFactory;
-.super Ljava/lang/Object;
-.source "ViewTransition.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/request/transition/ViewTransition;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "ViewTransitionAnimationFactory"
-.end annotation
-
-
-# virtual methods
-.method public abstract build(Landroid/content/Context;)Landroid/view/animation/Animation;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5d0e7290bf3b5cf6815c6a75efb20637cbf31619d66d62affcfd5beddd270b5c
+size 579

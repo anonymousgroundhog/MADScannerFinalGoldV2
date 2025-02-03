@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/tasks/OnCompleteListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<TResult:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onComplete(Lcom/google/android/gms/tasks/Task;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/tasks/Task<",
-            "TTResult;>;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:30c08c2cdce867575b27bbd667523e08e6589fe40acd9159cc44ad0abddeddc2
+size 666

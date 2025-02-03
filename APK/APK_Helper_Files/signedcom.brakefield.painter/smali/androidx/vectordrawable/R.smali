@@ -1,29 +1,3 @@
-.class public final Landroidx/vectordrawable/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/vectordrawable/R$attr;,
-        Landroidx/vectordrawable/R$color;,
-        Landroidx/vectordrawable/R$dimen;,
-        Landroidx/vectordrawable/R$drawable;,
-        Landroidx/vectordrawable/R$id;,
-        Landroidx/vectordrawable/R$integer;,
-        Landroidx/vectordrawable/R$layout;,
-        Landroidx/vectordrawable/R$string;,
-        Landroidx/vectordrawable/R$style;,
-        Landroidx/vectordrawable/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:669ac0e9bd2e281e31ffd4bfd7c366ad20324d5c40e91f1387976978f5197d88
+size 770

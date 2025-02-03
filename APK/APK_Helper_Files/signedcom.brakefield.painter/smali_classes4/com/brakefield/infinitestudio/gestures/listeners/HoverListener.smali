@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/HoverListener;
-.super Ljava/lang/Object;
-.source "HoverListener.java"
-
-
-# virtual methods
-.method public abstract onEnter(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
-
-.method public abstract onExit()V
-.end method
-
-.method public abstract onMove(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab581fb2a633ff30e2bee248b8ca14158656ca94e431ccda73af0c33007bdaad
+size 414

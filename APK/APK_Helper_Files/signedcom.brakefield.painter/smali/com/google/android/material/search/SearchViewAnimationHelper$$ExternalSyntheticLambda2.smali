@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/material/search/SearchViewAnimationHelper$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/material/search/SearchViewAnimationHelper;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchViewAnimationHelper;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/material/search/SearchViewAnimationHelper;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/search/SearchViewAnimationHelper$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/material/search/SearchViewAnimationHelper;
-
-    invoke-virtual {v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->lambda$startShowAnimationExpand$0$com-google-android-material-search-SearchViewAnimationHelper()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7867292676c1c038d8ba4739f7d7e489ed54affaf4c28cb3caa983e56eeb6683
+size 1207

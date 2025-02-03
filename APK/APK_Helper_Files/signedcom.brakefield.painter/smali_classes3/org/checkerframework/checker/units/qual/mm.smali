@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/mm;
-.super Ljava/lang/Object;
-.source "mm.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/checker/units/qual/UnitsMultiple;
-    prefix = .enum Lorg/checkerframework/checker/units/qual/Prefix;->milli:Lorg/checkerframework/checker/units/qual/Prefix;
-    quantity = Lorg/checkerframework/checker/units/qual/m;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/units/qual/Length;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe103646aca181688fc3a68ecc75783b79b1133ac6bc53a77f6c98350152f6d4
+size 1174

@@ -1,27 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/units/qual/UnitsRelations;
-.super Ljava/lang/Object;
-.source "UnitsRelations.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/Class;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "*>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca94aae66c8b0de2fac92dd8bffcf1754c7d4a0df4923aa89ad0c1cf69f420a8
+size 729

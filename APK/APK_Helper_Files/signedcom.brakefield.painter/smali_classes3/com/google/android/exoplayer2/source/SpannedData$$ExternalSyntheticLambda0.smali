@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/source/SpannedData$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/util/Consumer;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/source/SpannedData;->lambda$new$0(Ljava/lang/Object;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea2d23aff99fc674c72dd51c2fc5325037d827041092cfe6ec56b2b443c1d116
+size 621

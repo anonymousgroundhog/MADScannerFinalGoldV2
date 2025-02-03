@@ -1,22 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$TransitionManager;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TransitionManager"
-.end annotation
-
-
-# static fields
-.field public static final FROM_SCENE:I = 0x0
-
-.field public static final TO_SCENE:I = 0x1
-
-.field public static final TRANSITION:I = 0x2
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c27a0c9b3002a3940e98dc3e79a0acc1849277642cd1f6456bdce0c240eafbc
+size 535

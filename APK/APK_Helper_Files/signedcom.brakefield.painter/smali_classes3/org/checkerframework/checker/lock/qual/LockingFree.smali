@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/lock/qual/LockingFree;
-.super Ljava/lang/Object;
-.source "LockingFree.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0e920382d22ccd5b639e9db2276620b1f045322ba4bb6bd89e4f456f340ea0b
+size 843

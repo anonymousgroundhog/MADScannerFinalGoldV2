@@ -1,14 +1,3 @@
-.class public final Lkotlin/jvm/internal/DefaultConstructorMarker;
-.super Ljava/lang/Object;
-.source "DefaultConstructorMarker.java"
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 9
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8cabab2931c51ce54804ae066b5f4f2a480d100adac6a8bc13ec38f494d8ebc3
+size 300

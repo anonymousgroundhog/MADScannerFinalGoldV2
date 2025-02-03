@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/internal/IStatusCallback;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/api/internal/IStatusCallback$Stub;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onResult(Lcom/google/android/gms/common/api/Status;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:404d5c6b4d8a7fc1fd7491b5ae1f405b21ebb5b26cd9e6ce7706e852a0f0144d
+size 658

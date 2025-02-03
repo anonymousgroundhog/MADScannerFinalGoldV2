@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/timepicker/TimeFormat;
-.super Ljava/lang/Object;
-.source "TimeFormat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final CLOCK_12H:I = 0x0
-
-.field public static final CLOCK_24H:I = 0x1
+version https://git-lfs.github.com/spec/v1
+oid sha256:6aa3f44ca48f05ff1c410acc8bd5fc18e7c2aed75c7c2f0d042021e4181af18c
+size 506

@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/material/slider/BaseOnChangeListener;
-.super Ljava/lang/Object;
-.source "BaseOnChangeListener.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<S:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onValueChange(Ljava/lang/Object;FZ)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TS;FZ)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6563f8150e89e64340d2d39e3c3c30cdef8580148c29294dd7477d651a56feab
+size 558

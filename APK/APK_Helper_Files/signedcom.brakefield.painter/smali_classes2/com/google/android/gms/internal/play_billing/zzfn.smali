@@ -1,16 +1,3 @@
-.class final Lcom/google/android/gms/internal/play_billing/zzfn;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/internal/play_billing/zzcd;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:353788edcd5302cd1a7f68527af5effd99173da6f002fef8279b920ace1acdb2
+size 367

@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/Renderer$WakeupListener;
-.super Ljava/lang/Object;
-.source "Renderer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/Renderer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "WakeupListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSleep()V
-.end method
-
-.method public abstract onWakeup()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:34e692ec0a55d6b75a3803a307f79b82cb31552827b9f936b8f7b26fef081045
+size 513

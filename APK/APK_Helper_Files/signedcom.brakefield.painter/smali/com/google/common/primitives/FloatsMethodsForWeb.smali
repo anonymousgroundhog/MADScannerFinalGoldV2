@@ -1,19 +1,3 @@
-.class abstract Lcom/google/common/primitives/FloatsMethodsForWeb;
-.super Ljava/lang/Object;
-.source "FloatsMethodsForWeb.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 25
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8eac24c1d14b795219af09bb362ee12fd470c1421b3bbd361610fc08a720ceaa
+size 403

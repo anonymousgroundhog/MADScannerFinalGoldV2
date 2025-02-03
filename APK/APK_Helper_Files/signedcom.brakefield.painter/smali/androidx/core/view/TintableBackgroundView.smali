@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/core/view/TintableBackgroundView;
-.super Ljava/lang/Object;
-.source "TintableBackgroundView.java"
-
-
-# virtual methods
-.method public abstract getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-.end method
-
-.method public abstract getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-.end method
-
-.method public abstract setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-.end method
-
-.method public abstract setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:86db8c6755a922f8813dce7a771feb2b1fcb4a9449dd96249529b224d7b1f1ea
+size 574

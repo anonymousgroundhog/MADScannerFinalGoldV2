@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/JavaExpression;
-.super Ljava/lang/Object;
-.source "JavaExpression.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:73a146ac98c15761e9e815820bb0a11dcaa60bcbc89cc7a76ec0b36d45f9d26c
+size 653

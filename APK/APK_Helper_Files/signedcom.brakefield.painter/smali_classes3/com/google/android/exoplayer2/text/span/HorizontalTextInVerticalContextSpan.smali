@@ -1,22 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/text/span/HorizontalTextInVerticalContextSpan;
-.super Ljava/lang/Object;
-.source "HorizontalTextInVerticalContextSpan.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/text/span/LanguageFeatureSpan;
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 38
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:426972806cfca23d38903f2305e183b93df5d59f093d64dcbd6c4bb3d863419f
+size 505

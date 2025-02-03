@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/BindsOptionalOf;
-.super Ljava/lang/Object;
-.source "BindsOptionalOf.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:9a3332679754346e921839246eb088dd0d956a605cba838cd337fc71c3b01492
+size 667

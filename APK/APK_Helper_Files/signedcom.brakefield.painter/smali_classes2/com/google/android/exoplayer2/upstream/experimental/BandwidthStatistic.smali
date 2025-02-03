@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/experimental/BandwidthStatistic;
-.super Ljava/lang/Object;
-.source "BandwidthStatistic.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract addSample(JJ)V
-.end method
-
-.method public abstract getBandwidthEstimate()J
-.end method
-
-.method public abstract reset()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0a409cb2d7ece4da13c13a0fff485817c97a71fe193031b9ed0e779ec1d68f3e
+size 419

@@ -1,35 +1,3 @@
-.class public Lcom/brakefield/painter/activities/ActivityHelp$EyedropperHelpFragment;
-.super Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;
-.source "ActivityHelp.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/activities/ActivityHelp;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "EyedropperHelpFragment"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 135
-    invoke-direct {p0}, Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public getLayout()I
-    .locals 1
-
-    const v0, 0x7f0d009a
-
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:24c364e285d1418b3c332d3383ab4ed9035342f35944053bcfe35e8e61274a22
+size 781

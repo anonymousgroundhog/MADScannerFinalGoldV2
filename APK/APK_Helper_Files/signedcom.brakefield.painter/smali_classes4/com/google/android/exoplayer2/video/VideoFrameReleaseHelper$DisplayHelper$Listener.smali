@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$DisplayHelper$Listener;
-.super Ljava/lang/Object;
-.source "VideoFrameReleaseHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/video/VideoFrameReleaseHelper$DisplayHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDefaultDisplayChanged(Landroid/view/Display;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e45ef8a1a195125c8b18a70e472f93882805141ac264213c5f91492f7d6ebbe8
+size 575

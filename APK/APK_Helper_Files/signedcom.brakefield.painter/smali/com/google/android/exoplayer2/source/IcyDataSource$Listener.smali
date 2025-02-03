@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/IcyDataSource$Listener;
-.super Ljava/lang/Object;
-.source "IcyDataSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/IcyDataSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onIcyMetadata(Lcom/google/android/exoplayer2/util/ParsableByteArray;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e71b6dc2b5123518896a0465d81fab954323b1cb0295ee8d6eed45ae70b97730
+size 541

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/installations/remote/AutoValue_InstallationResponse$1;
-.super Ljava/lang/Object;
-.source "AutoValue_InstallationResponse.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/installations/remote/AutoValue_InstallationResponse;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:80192f8c12686f6c4b4bfde26154bff5dd5ca9b529cd37661c03341032c7d587
+size 445

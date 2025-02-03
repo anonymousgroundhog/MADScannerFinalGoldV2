@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/audio/AudioCapabilitiesReceiver$Listener;
-.super Ljava/lang/Object;
-.source "AudioCapabilitiesReceiver.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/audio/AudioCapabilitiesReceiver;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAudioCapabilitiesChanged(Lcom/google/android/exoplayer2/audio/AudioCapabilities;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6af46368307307997aaae37b670e296a2cf09fa89c783c376f7766f32cc052f0
+size 589

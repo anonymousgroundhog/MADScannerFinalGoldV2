@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/EraserListener;
-.super Ljava/lang/Object;
-.source "EraserListener.java"
-
-
-# virtual methods
-.method public abstract onCancel()V
-.end method
-
-.method public abstract onDown(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
-
-.method public abstract onMove(Lcom/brakefield/infinitestudio/sketchbook/Pointer;II)V
-.end method
-
-.method public abstract onUp(Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:301fb6591aba077cccfce3525f3f051446261b76ca50d9b729f346f08e1fc411
+size 514

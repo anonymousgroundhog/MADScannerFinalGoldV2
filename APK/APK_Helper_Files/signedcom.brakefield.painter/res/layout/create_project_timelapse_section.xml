@@ -1,11 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@drawable/section" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" android:paddingStart="16.0dip" android:paddingEnd="16.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <tag android:value="@string/mappings_create_project_timelapse" android:id="@id/ui_binding_key" />
-    <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/timelapse_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/timelapse" app:ui_binding_key="@string/mappings_project_timelapse_toggle" />
-    <LinearLayout android:orientation="vertical" android:id="@id/timelapse_settings" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.brakefield.infinitestudio.ui.LabeledDropdownLayout android:id="@id/video_quality_dropdown" android:layout_width="fill_parent" android:layout_height="@dimen/ui_dropdown_height" app:title="@string/video_quality" app:ui_binding_key="@string/mappings_timelapse_quality" />
-        <com.brakefield.infinitestudio.ui.LabeledInfoLayout android:id="@id/resolution_info" android:layout_width="fill_parent" android:layout_height="@dimen/ui_info_height" app:title="@string/resolution" app:ui_binding_key="@string/mappings_timelapse_resolution" />
-        <com.brakefield.infinitestudio.ui.LabeledToggleLayout android:id="@id/show_navigation_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/ui_toggle_height" app:title="@string/show_navigation" app:ui_binding_key="@string/mappings_timelapse_show_navigation" />
-    </LinearLayout>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:83f517ff049b72de840778c84d8d7fbf1678cf6355f20509b15965d1c5c50f80
+size 1868

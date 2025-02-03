@@ -1,25 +1,3 @@
-.class Lcom/google/android/material/internal/NavigationMenuPresenter$HeaderViewHolder;
-.super Lcom/google/android/material/internal/NavigationMenuPresenter$ViewHolder;
-.source "NavigationMenuPresenter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/internal/NavigationMenuPresenter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "HeaderViewHolder"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/view/View;)V
-    .locals 0
-
-    .line 479
-    invoke-direct {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter$ViewHolder;-><init>(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3945d70cbb529bccff1adaffbfe7d0c230801af2e56360c9f91eb1f5006d4fd3
+size 752

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/SlideGesture$Listener;
-.super Ljava/lang/Object;
-.source "SlideGesture.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/gestures/SlideGesture;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSlide(Lcom/brakefield/infinitestudio/gestures/SlideGesture;Landroid/graphics/PointF;F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd0a5fff6df3ababf4cc2b9845db332588d3ad20d37dd1da039266345ccf62a7
+size 561

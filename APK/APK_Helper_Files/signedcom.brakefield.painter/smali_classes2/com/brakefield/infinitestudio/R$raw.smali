@@ -1,27 +1,3 @@
-.class public final Lcom/brakefield/infinitestudio/R$raw;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "raw"
-.end annotation
-
-
-# static fields
-.field public static final deviant_map:I = 0x7f110000
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:051cba26098cdb9641a453b7a1504c01df3f4f6edb93f8dc3f3e92c085683415
+size 550

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/hash/Hashing$1;
-.super Ljava/lang/Object;
-.source "Hashing.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/hash/Hashing;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f7c05245627c7a5efa85f80fb9a07ed371bdc6299101eca8672e5346fdd873ce
+size 340

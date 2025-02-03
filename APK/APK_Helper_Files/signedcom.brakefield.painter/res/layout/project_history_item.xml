@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <View android:id="@id/preview_container" android:layout_width="320.0dip" android:layout_height="320.0dip" app:layout_constraintDimensionRatio="H,1:1" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
-    <com.makeramen.roundedimageview.RoundedImageView android:id="@id/preview_image" android:padding="@dimen/padding_large" android:layout_width="0.0dip" android:layout_height="0.0dip" app:layout_constrainedHeight="true" app:layout_constrainedWidth="true" app:layout_constraintBottom_toBottomOf="@id/preview_container" app:layout_constraintLeft_toLeftOf="@id/preview_container" app:layout_constraintRight_toRightOf="@id/preview_container" app:layout_constraintTop_toTopOf="@id/preview_container" style="@style/RoundedImageView" />
-    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_large" android:gravity="center" android:id="@id/name_label" android:layout_width="0.0dip" android:layout_height="wrap_content" android:lines="1" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/preview_container" />
-    <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_normal" android:gravity="center" android:id="@id/size_label" android:layout_width="0.0dip" android:layout_height="wrap_content" android:lines="1" android:alpha="0.6" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/name_label" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bbe7cec4b2b9e7748065d2714d1f87fe3950487caf088047a02569377c3eb9d
+size 1937

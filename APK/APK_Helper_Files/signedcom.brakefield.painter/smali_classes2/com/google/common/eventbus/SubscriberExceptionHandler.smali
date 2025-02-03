@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/common/eventbus/SubscriberExceptionHandler;
-.super Ljava/lang/Object;
-.source "SubscriberExceptionHandler.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/eventbus/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# virtual methods
-.method public abstract handleException(Ljava/lang/Throwable;Lcom/google/common/eventbus/SubscriberExceptionContext;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c4b14e0ce6e5c998da5e840f28412065b5629cacc107ad6ffdb90452cf8bcee3
+size 421

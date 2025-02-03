@@ -1,25 +1,3 @@
-.class public Landroidx/fragment/app/Fragment$InstantiationException;
-.super Ljava/lang/RuntimeException;
-.source "Fragment.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/fragment/app/Fragment;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "InstantiationException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 0
-
-    .line 572
-    invoke-direct {p0, p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:917c28e618663659631964996383548f4d1cadc7749bb3380e0c39980b6589de
+size 650

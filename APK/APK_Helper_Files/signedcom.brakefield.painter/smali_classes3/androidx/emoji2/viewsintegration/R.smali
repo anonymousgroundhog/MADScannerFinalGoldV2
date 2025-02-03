@@ -1,12 +1,3 @@
-.class public final Landroidx/emoji2/viewsintegration/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f12d7c3ef9004cc205b5547247ea5075b3ae23b9cf7914a412fd56031182bf65
+size 238

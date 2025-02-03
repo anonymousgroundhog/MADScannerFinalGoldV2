@@ -1,22 +1,3 @@
-.class interface abstract Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$TextChild;
-.super Ljava/lang/Object;
-.source "SVG.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TextChild"
-.end annotation
-
-
-# virtual methods
-.method public abstract getTextRoot()Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$TextRoot;
-.end method
-
-.method public abstract setTextRoot(Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVG$TextRoot;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1943c513aa25a17812b0e6376061a41b4af000557878a4821568654aadc67fa
+size 659

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/DeviceInfo$1;
-.super Ljava/lang/Object;
-.source "DeviceInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/DeviceInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d1829400966d42b58e7f6ce67f3d100f52a5cd2204644afebbc3f5aed702a5b0
+size 363

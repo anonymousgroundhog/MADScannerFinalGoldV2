@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/offline/DownloadManager$1;
-.super Ljava/lang/Object;
-.source "DownloadManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/offline/DownloadManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c34a6599f04a4ebe0b09e838fa11f3a63f638a2de7eadbcd2170466146f83a87
+size 394

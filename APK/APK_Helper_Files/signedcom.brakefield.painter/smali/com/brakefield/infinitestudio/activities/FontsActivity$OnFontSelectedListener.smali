@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/activities/FontsActivity$OnFontSelectedListener;
-.super Ljava/lang/Object;
-.source "FontsActivity.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/activities/FontsActivity;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnFontSelectedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract fontSelected(Ljava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:462b32b63a354a7e22ebce8c1c67d8aa9073ab13992c1e1ad01bbed035b0ef7c
+size 540

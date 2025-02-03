@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/google/android/material/search/SearchBarAnimationHelper$1$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final invoke(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)V
-    .locals 0
-
-    invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;->onAnimationEnd()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:70abf53086e85c0d1470b9909a44fb8767cb25cddb1918654cea1a2c3e6d0101
+size 733

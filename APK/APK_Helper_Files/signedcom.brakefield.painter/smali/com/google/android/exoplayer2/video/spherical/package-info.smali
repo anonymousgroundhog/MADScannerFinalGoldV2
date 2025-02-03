@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/android/exoplayer2/video/spherical/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0cf1078c6c92fd308467ce56ca15b883054eb688ae2ee3f85e9c8c1cc2e51ca
+size 151

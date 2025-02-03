@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ui/AspectRatioFrameLayout$AspectRatioListener;
-.super Ljava/lang/Object;
-.source "AspectRatioFrameLayout.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ui/AspectRatioFrameLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AspectRatioListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAspectRatioUpdated(FFZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f92cdae35b385956795b0f7a64d87358a0ca69e92e100a6929fba6b19ef64e05
+size 538

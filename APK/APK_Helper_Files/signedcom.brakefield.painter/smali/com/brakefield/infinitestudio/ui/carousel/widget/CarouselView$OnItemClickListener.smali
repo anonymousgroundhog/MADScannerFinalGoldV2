@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/carousel/widget/CarouselView$OnItemClickListener;
-.super Ljava/lang/Object;
-.source "CarouselView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/carousel/widget/CarouselView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnItemClickListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onItemClick(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroid/view/View;II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c1550fac50c65612ecab4a2c2c0592a6d59acd9b3c5353d4839c2a6c61dc3611
+size 600

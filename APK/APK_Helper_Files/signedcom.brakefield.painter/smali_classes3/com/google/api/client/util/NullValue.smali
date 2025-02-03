@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/api/client/util/NullValue;
-.super Ljava/lang/Object;
-.source "NullValue.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d55c428f7ad2356321a15f9b106f557125adae2714918941f60a97847eca8fbe
+size 562

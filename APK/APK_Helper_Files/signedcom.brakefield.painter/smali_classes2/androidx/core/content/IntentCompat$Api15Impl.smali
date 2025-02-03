@@ -1,36 +1,3 @@
-.class Landroidx/core/content/IntentCompat$Api15Impl;
-.super Ljava/lang/Object;
-.source "IntentCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/content/IntentCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api15Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 303
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 0
-
-    .line 309
-    invoke-static {p0, p1}, Landroid/content/Intent;->makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object p0
-
-    return-object p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:12b7baa83b63a04001479431d9fb59491b72b532ef3bf9a53aac2c05933a9062
+size 858

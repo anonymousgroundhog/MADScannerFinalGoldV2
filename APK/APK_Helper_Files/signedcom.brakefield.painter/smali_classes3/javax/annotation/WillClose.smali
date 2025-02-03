@@ -1,15 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/WillClose;
-.super Ljava/lang/Object;
-.source "WillClose.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d79fbdad5b1a6560412eebccce1ac326f06e871cb4e94fe34b3901ae71968c36
+size 445

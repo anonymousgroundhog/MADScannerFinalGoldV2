@@ -1,15 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/WillCloseWhenClosed;
-.super Ljava/lang/Object;
-.source "WillCloseWhenClosed.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2d695a8019c295b5ad1208a81e451d6d08e612b8cd4a608e8d1594713550056d
+size 465

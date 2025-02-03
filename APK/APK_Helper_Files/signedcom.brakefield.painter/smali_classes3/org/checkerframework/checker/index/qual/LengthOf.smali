@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/index/qual/LengthOf;
-.super Ljava/lang/Object;
-.source "LengthOf.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c7bee79000ad0f054c0a5b21f1fd73dfed2d937c77665efc547c34a8e2ef29b4
+size 924

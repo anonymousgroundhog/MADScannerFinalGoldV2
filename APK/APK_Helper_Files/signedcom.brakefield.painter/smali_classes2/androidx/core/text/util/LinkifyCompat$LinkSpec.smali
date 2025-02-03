@@ -1,35 +1,3 @@
-.class Landroidx/core/text/util/LinkifyCompat$LinkSpec;
-.super Ljava/lang/Object;
-.source "LinkifyCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/text/util/LinkifyCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "LinkSpec"
-.end annotation
-
-
-# instance fields
-.field end:I
-
-.field frameworkAddedSpan:Landroid/text/style/URLSpan;
-
-.field start:I
-
-.field url:Ljava/lang/String;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 538
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e87dd572e39f1c12db61403ba3a8e4d0afb78be698d07898ee10d5a5cca4f7b3
+size 657

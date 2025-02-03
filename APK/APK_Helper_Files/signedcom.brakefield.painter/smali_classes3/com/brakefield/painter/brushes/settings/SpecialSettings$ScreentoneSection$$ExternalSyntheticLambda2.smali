@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/OnSeekBarProgressChangedListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/brakefield/painter/brushes/settings/SpecialSettings$ScreentoneSection;->lambda$setup$2$com-brakefield-painter-brushes-settings-SpecialSettings$ScreentoneSection(Landroid/widget/SeekBar;IZ)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2988ab1cee72de9aa6346827c887569ddf393b3736b754409a8d5ce6b43384bd
+size 1430

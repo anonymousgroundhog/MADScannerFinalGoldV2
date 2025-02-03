@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomnavigation/LabelVisibilityMode;
-.super Ljava/lang/Object;
-.source "LabelVisibilityMode.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final LABEL_VISIBILITY_AUTO:I = -0x1
-
-.field public static final LABEL_VISIBILITY_LABELED:I = 0x1
-
-.field public static final LABEL_VISIBILITY_SELECTED:I = 0x0
-
-.field public static final LABEL_VISIBILITY_UNLABELED:I = 0x2
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8ec09742baf11b5e8e9cc345b9df6e999257d7aa84ab58c3a6639a86669da45
+size 743

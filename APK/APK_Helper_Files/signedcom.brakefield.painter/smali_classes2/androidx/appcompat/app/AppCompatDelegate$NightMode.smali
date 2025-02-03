@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/appcompat/app/AppCompatDelegate$NightMode;
-.super Ljava/lang/Object;
-.source "AppCompatDelegate.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/AppCompatDelegate;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "NightMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:45e53c10fb1da6300d2d6119d73e1075fd8ee3e782c25a8460750ec212ea7267
+size 646

@@ -1,27 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/R$font;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "font"
-.end annotation
-
-
-# static fields
-.field public static final roboto_medium_numbers:I = 0x7f090000
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b6bf7878e40dc5f7c16e8e7d15641db169baa0508821578dfa1eb8cb9b47f200
+size 562

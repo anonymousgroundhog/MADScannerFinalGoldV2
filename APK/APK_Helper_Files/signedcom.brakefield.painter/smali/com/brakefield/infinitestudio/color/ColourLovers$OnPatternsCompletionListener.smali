@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/color/ColourLovers$OnPatternsCompletionListener;
-.super Ljava/lang/Object;
-.source "ColourLovers.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/color/ColourLovers;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnPatternsCompletionListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCompletion(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/brakefield/infinitestudio/color/ColourLovers$Pattern;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:47d9c57538789802f44a5386a7f267d7d7f7584f15a1f0ca9f073b721b8583b9
+size 780

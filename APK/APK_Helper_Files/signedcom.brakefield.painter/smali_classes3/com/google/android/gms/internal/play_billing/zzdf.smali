@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/play_billing/zzdf;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/internal/play_billing/zzdg;
-
-
-# virtual methods
-.method public abstract zzb()Lcom/google/android/gms/internal/play_billing/zzba;
-.end method
-
-.method public abstract zze()I
-.end method
-
-.method public abstract zzk()Lcom/google/android/gms/internal/play_billing/zzde;
-.end method
-
-.method public abstract zzr(Lcom/google/android/gms/internal/play_billing/zzbi;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:56dcb507a1a856afa17f8fa16c26e35a70314768b887e23b6f8432117647a14d
+size 718

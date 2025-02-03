@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/StreamVolumeManager$Listener;
-.super Ljava/lang/Object;
-.source "StreamVolumeManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/StreamVolumeManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onStreamTypeChanged(I)V
-.end method
-
-.method public abstract onStreamVolumeChanged(IZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:909bcf53a8c5705782f3d7f24c01e501302104b7ff8e8ecdbe7c9c07072ed8e5
+size 562

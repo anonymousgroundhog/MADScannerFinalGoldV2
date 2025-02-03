@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/common/util/concurrent/AbstractScheduledService$Cancellable;
-.super Ljava/lang/Object;
-.source "AbstractScheduledService.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/util/concurrent/AbstractScheduledService;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Cancellable"
-.end annotation
-
-
-# virtual methods
-.method public abstract cancel(Z)V
-.end method
-
-.method public abstract isCancelled()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:33cd5f1a4116ce2cda6a75baf6a20182e7f141e18c48a77e2f88fc8e62b3c835
+size 559

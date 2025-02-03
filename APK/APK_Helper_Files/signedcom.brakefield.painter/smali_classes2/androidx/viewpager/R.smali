@@ -1,29 +1,3 @@
-.class public final Landroidx/viewpager/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/viewpager/R$attr;,
-        Landroidx/viewpager/R$color;,
-        Landroidx/viewpager/R$dimen;,
-        Landroidx/viewpager/R$drawable;,
-        Landroidx/viewpager/R$id;,
-        Landroidx/viewpager/R$integer;,
-        Landroidx/viewpager/R$layout;,
-        Landroidx/viewpager/R$string;,
-        Landroidx/viewpager/R$style;,
-        Landroidx/viewpager/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b84d6a7ee9a7f17db3c8d44fd27796711bd0d896a6be8c6f3aa729a92d4c0307
+size 715

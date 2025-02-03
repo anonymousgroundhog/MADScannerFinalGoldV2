@@ -1,25 +1,3 @@
-.class public interface abstract Lorg/ejml/dense/row/linsol/AdjustableLinearSolver_DDRM;
-.super Ljava/lang/Object;
-.source "AdjustableLinearSolver_DDRM.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/linsol/LinearSolverDense;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/linsol/LinearSolverDense<",
-        "Lorg/ejml/data/DMatrixRMaj;",
-        ">;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract addRowToA([DI)Z
-.end method
-
-.method public abstract removeRowFromA(I)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:877a4abaf4116a8bc78c90d31e58bcc3d3cbe7ae53f42b8b4c4cc42f242b562f
+size 600

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/appcompat/app/ActionBar$NavigationMode;
-.super Ljava/lang/Object;
-.source "ActionBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/ActionBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "NavigationMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6517166c168828127b8c9cfa1485e523af58b0f7174d0bcc20a19f98a77a5184
+size 632

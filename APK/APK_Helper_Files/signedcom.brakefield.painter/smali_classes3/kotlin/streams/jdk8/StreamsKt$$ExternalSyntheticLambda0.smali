@@ -1,36 +1,3 @@
-.class public final synthetic Lkotlin/streams/jdk8/StreamsKt$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/function/Supplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lkotlin/sequences/Sequence;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lkotlin/sequences/Sequence;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lkotlin/streams/jdk8/StreamsKt$$ExternalSyntheticLambda0;->f$0:Lkotlin/sequences/Sequence;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lkotlin/streams/jdk8/StreamsKt$$ExternalSyntheticLambda0;->f$0:Lkotlin/sequences/Sequence;
-
-    invoke-static {v0}, Lkotlin/streams/jdk8/StreamsKt;->$r8$lambda$D6rJ2g9z2pCQAEMFkqgtKPOz0JA(Lkotlin/sequences/Sequence;)Ljava/util/Spliterator;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8bde713f46885ff77db3a7a2d3b61399380bcfb8c0231f5ea4c8917cad6292d
+size 993

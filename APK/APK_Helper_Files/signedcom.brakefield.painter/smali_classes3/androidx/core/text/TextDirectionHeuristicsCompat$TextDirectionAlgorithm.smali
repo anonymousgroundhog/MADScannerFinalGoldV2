@@ -1,19 +1,3 @@
-.class interface abstract Landroidx/core/text/TextDirectionHeuristicsCompat$TextDirectionAlgorithm;
-.super Ljava/lang/Object;
-.source "TextDirectionHeuristicsCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/text/TextDirectionHeuristicsCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "TextDirectionAlgorithm"
-.end annotation
-
-
-# virtual methods
-.method public abstract checkRtl(Ljava/lang/CharSequence;II)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9cb1bec417fab8eefd55102292adb618eef0c34ce9ee324056d8fe42d9b731b9
+size 541

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/location/GnssStatusCompat$ConstellationType;
-.super Ljava/lang/Object;
-.source "GnssStatusCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/location/GnssStatusCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ConstellationType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2518363389cad5a674a56359e4a1cf20de99824e80e34055c092c51be2e980c
+size 659

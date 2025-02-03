@@ -1,27 +1,3 @@
-.class public final Lcom/skyfishjy/library/R$color;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/skyfishjy/library/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "color"
-.end annotation
-
-
-# static fields
-.field public static final rippelColor:I = 0x7f060298
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:081b9ce6b808ec0779169058b5826cdde6aa8026c16da7deb981ca68d2ec1bb4
+size 538

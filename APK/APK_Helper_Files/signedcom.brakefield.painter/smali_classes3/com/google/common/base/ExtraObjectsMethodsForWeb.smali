@@ -1,19 +1,3 @@
-.class abstract Lcom/google/common/base/ExtraObjectsMethodsForWeb;
-.super Ljava/lang/Object;
-.source "ExtraObjectsMethodsForWeb.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 25
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a633fb7492c94002c501ac6bb177e5e4c5b0c927a54e7be2b0aee0fe9d0b1768
+size 403

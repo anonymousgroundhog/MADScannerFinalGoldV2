@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ui/UIManager$4$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/view/View;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ui/UIManager$4$$ExternalSyntheticLambda0;->f$0:Landroid/view/View;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ui/UIManager$4$$ExternalSyntheticLambda0;->f$0:Landroid/view/View;
-
-    invoke-static {v0, p1}, Lcom/brakefield/infinitestudio/ui/UIManager$4;->lambda$onStopTrackingTouch$0(Landroid/view/View;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d3f0d919af44c1a32cba60397901bf81afd4bbd3efba204b511f660718f66457
+size 1043

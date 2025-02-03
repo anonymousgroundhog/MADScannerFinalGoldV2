@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/snackbar/BaseTransientBottomBar$Duration;
-.super Ljava/lang/Object;
-.source "BaseTransientBottomBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/snackbar/BaseTransientBottomBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Duration"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a38c9101398b50d0f6be2c4aea638c96d14f3ee61471313463a0bf1a8921bf52
+size 687

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/text/util/LinkifyCompat$LinkifyMask;
-.super Ljava/lang/Object;
-.source "LinkifyCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/text/util/LinkifyCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "LinkifyMask"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:773ebd887444866bcd736f497a282fe0b089bb2af5619288e8c63f5e9e04cec9
+size 640

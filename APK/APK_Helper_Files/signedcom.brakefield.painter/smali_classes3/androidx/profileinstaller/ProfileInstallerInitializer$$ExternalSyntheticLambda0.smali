@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/profileinstaller/ProfileInstallerInitializer$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/content/Context;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/content/Context;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/profileinstaller/ProfileInstallerInitializer$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/profileinstaller/ProfileInstallerInitializer$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
-
-    invoke-static {v0}, Landroidx/profileinstaller/ProfileInstallerInitializer;->lambda$installAfterDelay$1(Landroid/content/Context;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1701bb5531686789e8f79346ad097d58859b2e833a5ae408a0fdfa23c56d5767
+size 987

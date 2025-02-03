@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/billing/Sku;
-.super Ljava/lang/Object;
-.source "Sku.java"
-
-
-# virtual methods
-.method public abstract toString()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b68b49aebca8853bc3cdb7f068102f392c1e86aaf504240a1be5425c5ec30bb
+size 207

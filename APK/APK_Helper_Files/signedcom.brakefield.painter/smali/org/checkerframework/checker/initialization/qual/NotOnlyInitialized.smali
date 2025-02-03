@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/initialization/qual/NotOnlyInitialized;
-.super Ljava/lang/Object;
-.source "NotOnlyInitialized.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1943254266948a0ec1a489394dfbe7830cd645cd9e9a7a85bf241fb2d288c615
+size 673

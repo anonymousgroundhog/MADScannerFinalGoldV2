@@ -1,31 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/source/hls/HlsManifest;
-.super Ljava/lang/Object;
-.source "HlsManifest.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# instance fields
-.field public final mediaPlaylist:Lcom/google/android/exoplayer2/source/hls/playlist/HlsMediaPlaylist;
-
-.field public final multivariantPlaylist:Lcom/google/android/exoplayer2/source/hls/playlist/HlsMultivariantPlaylist;
-
-
-# direct methods
-.method constructor <init>(Lcom/google/android/exoplayer2/source/hls/playlist/HlsMultivariantPlaylist;Lcom/google/android/exoplayer2/source/hls/playlist/HlsMediaPlaylist;)V
-    .locals 0
-
-    .line 42
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 43
-    iput-object p1, p0, Lcom/google/android/exoplayer2/source/hls/HlsManifest;->multivariantPlaylist:Lcom/google/android/exoplayer2/source/hls/playlist/HlsMultivariantPlaylist;
-
-    .line 44
-    iput-object p2, p0, Lcom/google/android/exoplayer2/source/hls/HlsManifest;->mediaPlaylist:Lcom/google/android/exoplayer2/source/hls/playlist/HlsMediaPlaylist;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:138b12fc6a5014156825005dd27f9a619ae411e04c6e76f60f7d71667314d0ce
+size 1115

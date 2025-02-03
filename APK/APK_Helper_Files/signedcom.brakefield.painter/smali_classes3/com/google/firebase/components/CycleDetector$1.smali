@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/components/CycleDetector$1;
-.super Ljava/lang/Object;
-.source "CycleDetector.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/components/CycleDetector;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:714dd260340cbd940b17779fdb83940fc22fdf3c9c969b68dcc58c0d32cf4699
+size 374

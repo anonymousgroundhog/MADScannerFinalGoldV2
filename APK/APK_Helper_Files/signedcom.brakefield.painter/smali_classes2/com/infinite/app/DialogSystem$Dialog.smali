@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/infinite/app/DialogSystem$Dialog;
-.super Ljava/lang/Object;
-.source "DialogSystem.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/infinite/app/DialogSystem;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Dialog"
-.end annotation
-
-
-# virtual methods
-.method public abstract show(Landroid/content/Context;J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:190312dfb25993e8d92dd18625adbe9d99042b1df8fe353b452fb3677a95de6e
+size 457

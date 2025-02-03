@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/metadata/MetadataDecoder;
-.super Ljava/lang/Object;
-.source "MetadataDecoder.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract decode(Lcom/google/android/exoplayer2/metadata/MetadataInputBuffer;)Lcom/google/android/exoplayer2/metadata/Metadata;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f73bc3231c9a13616a48a9db90fe7255638da7c18f283a3fccf4c1977f9be54
+size 396

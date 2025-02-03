@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animated-vector android:drawable="@drawable/mtrl_ic_checkbox_checked"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-    <target android:name="@string/mtrl_checkbox_button_path_group_name" android:animation="@drawable/$mtrl_checkbox_button_checked_unchecked__0" />
-    <target android:name="@string/mtrl_checkbox_button_path_group_name" android:animation="@drawable/$mtrl_checkbox_button_checked_unchecked__1" />
-    <target android:name="@string/mtrl_checkbox_button_path_name" android:animation="@drawable/$mtrl_checkbox_button_checked_unchecked__2" />
-</animated-vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:5ed8f25471e795de8b66f7529a94cb12b5d70383e82f041e4314bc10e2b2dda4
+size 673

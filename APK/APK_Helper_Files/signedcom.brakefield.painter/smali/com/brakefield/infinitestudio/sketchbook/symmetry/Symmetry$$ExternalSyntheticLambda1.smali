@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/sketchbook/symmetry/Symmetry$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/infinitestudio/sketchbook/symmetry/Symmetry;->lambda$bindSettings$1(Landroid/widget/CompoundButton;Z)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2996dabffc02cdb93436b62d08981351742f93442433001057074541dd337eb5
+size 702

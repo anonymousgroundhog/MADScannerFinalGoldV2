@@ -1,23 +1,3 @@
-.class public interface abstract Lorg/ejml/data/DMatrix;
-.super Ljava/lang/Object;
-.source "DMatrix.java"
-
-# interfaces
-.implements Lorg/ejml/data/Matrix;
-
-
-# virtual methods
-.method public abstract get(II)D
-.end method
-
-.method public abstract getNumElements()I
-.end method
-
-.method public abstract set(IID)V
-.end method
-
-.method public abstract unsafe_get(II)D
-.end method
-
-.method public abstract unsafe_set(IID)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5b7925586e608015820123db417aed97e04151e09d027138a96e29f3a43f679d
+size 429

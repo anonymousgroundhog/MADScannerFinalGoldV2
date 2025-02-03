@@ -1,23 +1,3 @@
-.class public Lorg/ejml/MatrixDimensionException;
-.super Ljava/lang/RuntimeException;
-.source "MatrixDimensionException.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 31
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 34
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3132cabae820b4c2451254d15024db9f3673ebd3afcfa9a5a592761c05e7f7b3
+size 502

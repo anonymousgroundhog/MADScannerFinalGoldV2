@@ -1,25 +1,3 @@
-.class public abstract Lcom/bumptech/glide/module/LibraryGlideModule;
-.super Ljava/lang/Object;
-.source "LibraryGlideModule.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/module/RegistersComponents;
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 20
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a20c195ff5af395a0f3260143f92a993e5b048023bb014e2b6c4bb198065c980
+size 551

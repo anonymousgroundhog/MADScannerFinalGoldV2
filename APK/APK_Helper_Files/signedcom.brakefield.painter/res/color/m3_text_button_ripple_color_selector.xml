@@ -1,16 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checkable="false" android:state_pressed="true" android:color="?colorOnContainer" android:alpha="@dimen/m3_comp_text_button_pressed_state_layer_opacity" />
-    <item android:state_focused="true" android:state_checkable="false" android:color="?colorOnContainer" android:alpha="@dimen/m3_comp_text_button_focus_state_layer_opacity" />
-    <item android:state_checkable="false" android:color="?colorOnContainer" android:alpha="@dimen/m3_comp_text_button_hover_state_layer_opacity" android:state_hovered="true" />
-    <item android:state_checkable="false" android:color="?colorOnContainer" android:alpha="@dimen/m3_ripple_default_alpha" />
-    <item android:state_checked="true" android:state_pressed="true" android:color="?colorOnSurface" android:alpha="@dimen/m3_comp_text_button_pressed_state_layer_opacity" />
-    <item android:state_focused="true" android:state_checked="true" android:color="?colorOnSecondaryContainer" android:alpha="@dimen/m3_comp_text_button_focus_state_layer_opacity" />
-    <item android:state_checked="true" android:color="?colorOnSecondaryContainer" android:alpha="@dimen/m3_comp_text_button_hover_state_layer_opacity" android:state_hovered="true" />
-    <item android:state_checked="true" android:color="?colorOnSecondaryContainer" android:alpha="@dimen/m3_ripple_default_alpha" />
-    <item android:state_pressed="true" android:color="?colorOnSecondaryContainer" android:alpha="@dimen/m3_comp_text_button_pressed_state_layer_opacity" />
-    <item android:state_focused="true" android:color="?colorOnSurface" android:alpha="@dimen/m3_comp_text_button_focus_state_layer_opacity" />
-    <item android:color="?colorOnSurface" android:alpha="@dimen/m3_comp_text_button_hover_state_layer_opacity" android:state_hovered="true" />
-    <item android:color="?colorOnSurface" android:alpha="@dimen/m3_ripple_default_alpha" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:abc1971481db8e2b2464f5b3c0c5e37fcd88b516445075b83edefe17146fb25f
+size 1987

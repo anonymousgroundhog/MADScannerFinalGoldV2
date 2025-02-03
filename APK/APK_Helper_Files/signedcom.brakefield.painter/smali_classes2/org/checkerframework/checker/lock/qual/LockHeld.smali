@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/lock/qual/LockHeld;
-.super Ljava/lang/Object;
-.source "LockHeld.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InvisibleQualifier;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/lock/qual/LockPossiblyHeld;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1cc5a05491414d5fa29548886652c008e7a605c68f36650f6797fd4986b4ab91
+size 812

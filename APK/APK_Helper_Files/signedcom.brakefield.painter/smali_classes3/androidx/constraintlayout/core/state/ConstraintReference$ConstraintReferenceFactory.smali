@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/state/ConstraintReference$ConstraintReferenceFactory;
-.super Ljava/lang/Object;
-.source "ConstraintReference.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/constraintlayout/core/state/ConstraintReference;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ConstraintReferenceFactory"
-.end annotation
-
-
-# virtual methods
-.method public abstract create(Landroidx/constraintlayout/core/state/State;)Landroidx/constraintlayout/core/state/ConstraintReference;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:98d98c4b3f292cdff34fcc6ef34c8aa444fda57dda7ab03f4741a2d242db7752
+size 635

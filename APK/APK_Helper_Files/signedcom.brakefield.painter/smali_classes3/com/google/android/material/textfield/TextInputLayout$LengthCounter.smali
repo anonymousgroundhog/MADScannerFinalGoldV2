@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/textfield/TextInputLayout$LengthCounter;
-.super Ljava/lang/Object;
-.source "TextInputLayout.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/textfield/TextInputLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "LengthCounter"
-.end annotation
-
-
-# virtual methods
-.method public abstract countLength(Landroid/text/Editable;)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e56a347d53c202df1ffb2cbb6a384f033ede1eef01ec09e385172723e8bd9f1e
+size 526

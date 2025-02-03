@@ -1,9 +1,3 @@
-class,text,index,page,clicked
-android.widget.TextView,Create Account,1,0,True
-android.widget.TextView,Log In,2,0,False
-android.widget.TextView,Enter organization code,3,0,False
-android.widget.ImageView,,0,1,False
-android.widget.EditText,Email,1,1,False
-android.widget.EditText,Password,2,1,False
-android.widget.TextView,"By continuing, you agree to our Terms and Privacy Policy.",3,1,False
-android.widget.TextView,Create Account,4,1,False
+version https://git-lfs.github.com/spec/v1
+oid sha256:6d50e45aadae5e2c224898849e8d43b0c27b72595a1d4adbb81f21521d612ace
+size 439

@@ -1,23 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-.super Ljava/lang/Object;
-.source "LruPoolStrategy.java"
-
-
-# virtual methods
-.method public abstract get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract getSize(Landroid/graphics/Bitmap;)I
-.end method
-
-.method public abstract logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
-.end method
-
-.method public abstract logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
-.end method
-
-.method public abstract put(Landroid/graphics/Bitmap;)V
-.end method
-
-.method public abstract removeLast()Landroid/graphics/Bitmap;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:548d3d93bffaa32d2538ac56abcf5efcaa2c247c10dccab5e8869719ef778ac7
+size 678

@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/MainToolbar$UpdateHandler$$ExternalSyntheticLambda8;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/MainToolbarBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/MainToolbarBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/MainToolbar$UpdateHandler$$ExternalSyntheticLambda8;->f$0:Lcom/brakefield/painter/databinding/MainToolbarBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/MainToolbar$UpdateHandler$$ExternalSyntheticLambda8;->f$0:Lcom/brakefield/painter/databinding/MainToolbarBinding;
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/toolbars/MainToolbar$UpdateHandler;->lambda$new$9(Lcom/brakefield/painter/databinding/MainToolbarBinding;Ljava/lang/Integer;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f85589ff2007127179c0c82b4c0b72797be6c4e72728a82816d8228dc200b77
+size 1269

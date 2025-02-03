@@ -1,26 +1,3 @@
-.class public final synthetic Landroidx/arch/core/executor/ArchTaskExecutor$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/concurrent/Executor;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final execute(Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-static {p1}, Landroidx/arch/core/executor/ArchTaskExecutor;->lambda$static$0(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3fe3c5d0750c4ce99050d91404cc6efcdd8b6e010d0ddea40abe7ec0654999a4
+size 607

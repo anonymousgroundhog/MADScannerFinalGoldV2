@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/LiquifyToolbar$UpdateHandler$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/LiquifyToolbar2Binding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/LiquifyToolbar2Binding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/LiquifyToolbar$UpdateHandler$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/databinding/LiquifyToolbar2Binding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/LiquifyToolbar$UpdateHandler$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/databinding/LiquifyToolbar2Binding;
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/toolbars/LiquifyToolbar$UpdateHandler;->lambda$new$0(Lcom/brakefield/painter/databinding/LiquifyToolbar2Binding;Ljava/lang/Float;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:18f438a197d3f3565be35b83dabb8e80fc3e952387e742b970d665756d0925e8
+size 1297

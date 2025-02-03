@@ -1,27 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/DecompositionInterface;
-.super Ljava/lang/Object;
-.source "DecompositionInterface.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract decompose(Lorg/ejml/data/Matrix;)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
-.end method
-
-.method public abstract inputModified()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:aba0c2b2aeae738287bd3558d2c739e548927bf944432807fffe826769f6c6f7
+size 616

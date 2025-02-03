@@ -1,14 +1,3 @@
-.class public Lorg/ejml/equation/ParseError;
-.super Ljava/lang/RuntimeException;
-.source "ParseError.java"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 28
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:765eb6994273052f91467a913010d2d66387ec1f827570879877c44706464cf7
+size 324

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/FirebaseOptions$1;
-.super Ljava/lang/Object;
-.source "FirebaseOptions.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/FirebaseOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c208321e380254c95d678a2e3429036d0b15dc18b384b9dbd2d1e2ec10ea6933
+size 358

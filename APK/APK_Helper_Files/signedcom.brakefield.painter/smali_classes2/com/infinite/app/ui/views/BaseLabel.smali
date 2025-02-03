@@ -1,32 +1,3 @@
-.class public Lcom/infinite/app/ui/views/BaseLabel;
-.super Lcom/google/android/material/textview/MaterialTextView;
-.source "BaseLabel.java"
-
-
-# direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
-
-    .line 10
-    invoke-direct {p0, p1}, Lcom/google/android/material/textview/MaterialTextView;-><init>(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
-
-    .line 13
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/textview/MaterialTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
-
-    .line 16
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/textview/MaterialTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2fb9cdd3c9b072cdb54b7de014a77ebe731c3e7bab9b332573b85fa188c21a93
+size 1000

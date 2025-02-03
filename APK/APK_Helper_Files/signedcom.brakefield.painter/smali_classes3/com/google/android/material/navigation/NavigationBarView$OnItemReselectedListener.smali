@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/navigation/NavigationBarView$OnItemReselectedListener;
-.super Ljava/lang/Object;
-.source "NavigationBarView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/navigation/NavigationBarView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnItemReselectedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onNavigationItemReselected(Landroid/view/MenuItem;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e7f8759c05a3bb80a425d6cddb86a9207084c43caa83a517d79bc9fc2fa3bf5b
+size 571

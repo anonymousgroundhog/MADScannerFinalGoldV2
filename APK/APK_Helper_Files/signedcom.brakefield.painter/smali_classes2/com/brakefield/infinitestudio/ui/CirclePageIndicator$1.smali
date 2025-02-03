@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/infinitestudio/ui/CirclePageIndicator$1;
-.super Ljava/lang/Object;
-.source "CirclePageIndicator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/CirclePageIndicator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc858220670259aadf9d30dedf63bc73576bb9403e3103287ed371a2e1ded9ee
+size 396

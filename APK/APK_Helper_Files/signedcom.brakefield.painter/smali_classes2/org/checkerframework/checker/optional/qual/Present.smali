@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/optional/qual/Present;
-.super Ljava/lang/Object;
-.source "Present.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/optional/qual/MaybePresent;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:38018a43dd26d2b7f0a47abddacf1aa2a89d21f7af4d9ff44600049648e1b2ea
+size 920

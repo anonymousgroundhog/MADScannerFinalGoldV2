@@ -1,15 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/meta/Exclusive;
-.super Ljava/lang/Object;
-.source "Exclusive.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb73b54bf3f4c280a646cd3066877f2abb38b880716f55a41f0964ddc49d3a63
+size 450

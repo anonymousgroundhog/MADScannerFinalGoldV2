@@ -1,33 +1,3 @@
-.class Lcom/google/common/reflect/Types$ClassOwnership$3;
-.super Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass;
-.source "Types.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/common/reflect/Types$ClassOwnership;->detectJvmBehavior()Lcom/google/common/reflect/Types$ClassOwnership;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass<",
-        "Ljava/lang/String;",
-        ">;"
-    }
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 127
-    invoke-direct {p0}, Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d4adf622c5ba0ad980394a0561d1f6f38c778eb6054a5026194e33ba034c80c2
+size 873

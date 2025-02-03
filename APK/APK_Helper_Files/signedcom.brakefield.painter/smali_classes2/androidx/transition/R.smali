@@ -1,31 +1,3 @@
-.class public final Landroidx/transition/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/transition/R$anim;,
-        Landroidx/transition/R$attr;,
-        Landroidx/transition/R$bool;,
-        Landroidx/transition/R$color;,
-        Landroidx/transition/R$dimen;,
-        Landroidx/transition/R$drawable;,
-        Landroidx/transition/R$id;,
-        Landroidx/transition/R$integer;,
-        Landroidx/transition/R$layout;,
-        Landroidx/transition/R$string;,
-        Landroidx/transition/R$style;,
-        Landroidx/transition/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d88c8f86e8732ce488cfac4fb0302e94f10665959f3cc7b35dd174a6dc47553
+size 802

@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/fasterxml/jackson/core/async/ByteBufferFeeder;
-.super Ljava/lang/Object;
-.source "ByteBufferFeeder.java"
-
-# interfaces
-.implements Lcom/fasterxml/jackson/core/async/NonBlockingInputFeeder;
-
-
-# virtual methods
-.method public abstract feedInput(Ljava/nio/ByteBuffer;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5cb2967b401adf96f517e74221c70effa1114f2ee7f1ac65543e9e70a03b25e1
+size 449

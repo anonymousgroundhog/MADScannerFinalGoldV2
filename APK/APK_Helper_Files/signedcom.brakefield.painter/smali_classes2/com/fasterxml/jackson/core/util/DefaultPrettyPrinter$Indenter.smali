@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/fasterxml/jackson/core/util/DefaultPrettyPrinter$Indenter;
-.super Ljava/lang/Object;
-.source "DefaultPrettyPrinter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/fasterxml/jackson/core/util/DefaultPrettyPrinter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Indenter"
-.end annotation
-
-
-# virtual methods
-.method public abstract isInline()Z
-.end method
-
-.method public abstract writeIndentation(Lcom/fasterxml/jackson/core/JsonGenerator;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9f65ef4c5069c0a18a27377b398a32d912c263165f27ce951c640e7068ca11ae
+size 725

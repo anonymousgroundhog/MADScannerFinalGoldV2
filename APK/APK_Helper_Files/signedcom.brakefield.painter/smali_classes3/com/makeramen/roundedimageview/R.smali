@@ -1,23 +1,3 @@
-.class public final Lcom/makeramen/roundedimageview/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/makeramen/roundedimageview/R$attr;,
-        Lcom/makeramen/roundedimageview/R$id;,
-        Lcom/makeramen/roundedimageview/R$string;,
-        Lcom/makeramen/roundedimageview/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:facafcfc2074d18edb1fac67bac529c12f1f2a1f9909f07b5323a4cb21ca1db8
+size 541

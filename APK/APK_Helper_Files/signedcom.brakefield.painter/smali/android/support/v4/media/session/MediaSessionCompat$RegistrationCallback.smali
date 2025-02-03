@@ -1,22 +1,3 @@
-.class public interface abstract Landroid/support/v4/media/session/MediaSessionCompat$RegistrationCallback;
-.super Ljava/lang/Object;
-.source "MediaSessionCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/session/MediaSessionCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RegistrationCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCallbackRegistered(II)V
-.end method
-
-.method public abstract onCallbackUnregistered(II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8918bdef957cdb146ca296a01d0c4361fba9843c359b27bd45ef8c676a12bff
+size 592

@@ -1,29 +1,3 @@
-.class public final Lcom/skyfishjy/library/R$id;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/skyfishjy/library/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
-# static fields
-.field public static final fillRipple:I = 0x7f0a022d
-
-.field public static final strokeRipple:I = 0x7f0a05b2
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:537e95f9d451fae872002c817ddaaf9416de4daca13f02c240a50d8e6410c5a4
+size 587

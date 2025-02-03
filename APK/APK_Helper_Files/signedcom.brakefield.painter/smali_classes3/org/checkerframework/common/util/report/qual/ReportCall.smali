@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/util/report/qual/ReportCall;
-.super Ljava/lang/Object;
-.source "ReportCall.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:82b7f9caaa9170d8642d9aa0c89bb0363018fbaad1979486f3b6b1bf5b45a725
+size 654

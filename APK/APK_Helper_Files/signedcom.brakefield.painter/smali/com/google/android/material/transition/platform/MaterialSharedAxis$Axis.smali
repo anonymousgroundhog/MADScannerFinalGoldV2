@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/transition/platform/MaterialSharedAxis$Axis;
-.super Ljava/lang/Object;
-.source "MaterialSharedAxis.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/MaterialSharedAxis;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Axis"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3ed4f46c30b100c10d097c859110eb8b9f7ffcc34abdbab779979d8bb8d7a7da
+size 689

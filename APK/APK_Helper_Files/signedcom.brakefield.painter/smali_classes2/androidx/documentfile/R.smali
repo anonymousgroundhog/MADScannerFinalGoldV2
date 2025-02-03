@@ -1,12 +1,3 @@
-.class public final Landroidx/documentfile/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d94e368cdcf12fb0f69630e1ca493e2e732fdc32887a3bf45b23cd5ad759e214
+size 227

@@ -1,28 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/sequence/ReplacementsHandler;
-.super Ljava/lang/Object;
-.source "ReplacementsHandler.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract handleReplacement(ILjava/util/List;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/List<",
-            "TT;>;",
-            "Ljava/util/List<",
-            "TT;>;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f454cc7531b309b4f4436e5f2aa52775c9943307b44acb6e887a4a83b376f8fe
+size 681

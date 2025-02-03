@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/internal/SignInConnectionListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-
-# virtual methods
-.method public abstract onComplete()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e69b6ac6e1a15c4447b3d9e680ecf75812d07457f5bbbbf83b525cc31a6a653d
+size 259

@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/firebase/remoteconfig/internal/ConfigFetchHandler$FetchResponse$Status;
-.super Ljava/lang/Object;
-.source "ConfigFetchHandler.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/remoteconfig/internal/ConfigFetchHandler$FetchResponse;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Status"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# static fields
-.field public static final BACKEND_HAS_NO_UPDATES:I = 0x1
-
-.field public static final BACKEND_UPDATES_FETCHED:I = 0x0
-
-.field public static final LOCAL_STORAGE_USED:I = 0x2
+version https://git-lfs.github.com/spec/v1
+oid sha256:a7cd3def55813831098561c579be466923ec6986015ffe77e36878a7271cd953
+size 900

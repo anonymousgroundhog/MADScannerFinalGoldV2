@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/input/motionprediction/kalman/KalmanPredictor;
-.super Ljava/lang/Object;
-.source "KalmanPredictor.java"
-
-
-# virtual methods
-.method public abstract onTouchEvent(Landroid/view/MotionEvent;)Z
-.end method
-
-.method public abstract predict(I)Landroid/view/MotionEvent;
-.end method
-
-.method public abstract setReportRate(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8f7e9ac209869e823fd1d050467fb2668d7885fb5f570852aa2f796626f1bca
+size 374

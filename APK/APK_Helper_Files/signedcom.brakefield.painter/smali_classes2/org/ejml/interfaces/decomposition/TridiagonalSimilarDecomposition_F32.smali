@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/TridiagonalSimilarDecomposition_F32;
-.super Ljava/lang/Object;
-.source "TridiagonalSimilarDecomposition_F32.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/TridiagonalSimilarDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<MatrixType::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/TridiagonalSimilarDecomposition<",
-        "TMatrixType;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getDiagonal([F[F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c8285e0e6593bb0907f30dae91cd5538745b4cf246b46e86b3ae6aeaead216c
+size 658

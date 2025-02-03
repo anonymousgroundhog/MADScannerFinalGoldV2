@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/tabs/TabLayout$Mode;
-.super Ljava/lang/Object;
-.source "TabLayout.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/tabs/TabLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Mode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ce1528cb6a886c17e56258f99dc20bb8c88b1c7e3a41ded1f1dd9203c67ddf03
+size 632

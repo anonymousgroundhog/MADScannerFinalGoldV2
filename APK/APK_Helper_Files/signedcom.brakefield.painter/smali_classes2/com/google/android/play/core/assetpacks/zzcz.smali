@@ -1,19 +1,3 @@
-.class final Lcom/google/android/play/core/assetpacks/zzcz;
-.super Ljava/lang/Object;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# instance fields
-.field zza:Z
-
-
-# direct methods
-.method constructor <init>(Z)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-boolean p1, p0, Lcom/google/android/play/core/assetpacks/zzcz;->zza:Z
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f9c85be412d490363208e571d192f1a7ba3a5c29f49f9b661cb02ed93ca4a6f5
+size 394

@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/activities/ActivityMain$2$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/activities/ActivityMain$2;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/activities/ActivityMain$2;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/activities/ActivityMain$2$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/activities/ActivityMain$2;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/activities/ActivityMain$2$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/activities/ActivityMain$2;
-
-    invoke-virtual {v0}, Lcom/brakefield/painter/activities/ActivityMain$2;->lambda$onPreDraw$0$com-brakefield-painter-activities-ActivityMain$2()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a79ee0a8db4bbcbc8826b7d286cffb6d5a9b95756a10e1fa5dc0b18adb92003b
+size 1084

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/transition/platform/MaterialContainerTransform$FadeMode;
-.super Ljava/lang/Object;
-.source "MaterialContainerTransform.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/MaterialContainerTransform;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FadeMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c131c6b3aa250276299b5172b816465df6d68627e16ea6f2cc5967b78bc82069
+size 721

@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/ListUtils$1;
-.super Ljava/lang/Object;
-.source "ListUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/ListUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a7679468bd6661f629137c0ccbdade2ba51275b3904aafa0985879ca71f1c493
+size 364

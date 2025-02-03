@@ -1,27 +1,3 @@
-.class public final Landroidx/vectordrawable/animated/R$string;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/vectordrawable/animated/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "string"
-.end annotation
-
-
-# static fields
-.field public static final status_bar_notification_info_overflow:I = 0x7f120ac0
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:43ff1b18ae350f2bd888c0db7f8591675db23c89f9dc9cc3558ec93b9ebd9fcd
+size 588

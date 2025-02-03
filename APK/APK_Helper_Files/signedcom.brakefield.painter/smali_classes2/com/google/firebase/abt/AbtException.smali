@@ -1,23 +1,3 @@
-.class public Lcom/google/firebase/abt/AbtException;
-.super Ljava/lang/Exception;
-.source "AbtException.java"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 0
-
-    .line 32
-    invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:af2441c3df3a14b75fa2c9233888df9bf8f8fd9e68ee4b2d76afeccb6828e978
+size 558

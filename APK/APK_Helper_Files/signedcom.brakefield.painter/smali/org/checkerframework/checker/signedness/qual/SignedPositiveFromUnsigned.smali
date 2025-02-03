@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signedness/qual/SignedPositiveFromUnsigned;
-.super Ljava/lang/Object;
-.source "SignedPositiveFromUnsigned.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signedness/qual/SignednessGlb;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:df774940d994b7ab32c5252c3840cee37f310a45560f831cdf32bdc6f591dd10
+size 963

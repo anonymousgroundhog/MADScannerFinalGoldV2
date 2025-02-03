@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/RegularImmutableMultiset$1;
-.super Ljava/lang/Object;
-.source "RegularImmutableMultiset.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/RegularImmutableMultiset;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a64aeb450dfeb5b9d5cfa3f5ba3848af5ee6e06113610458cb2274c6212c0bd1
+size 397

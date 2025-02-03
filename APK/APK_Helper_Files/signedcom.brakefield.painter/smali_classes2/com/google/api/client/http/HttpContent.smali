@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/HttpContent;
-.super Ljava/lang/Object;
-.source "HttpContent.java"
-
-# interfaces
-.implements Lcom/google/api/client/util/StreamingContent;
-
-
-# virtual methods
-.method public abstract getLength()J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getType()Ljava/lang/String;
-.end method
-
-.method public abstract retrySupported()Z
-.end method
-
-.method public abstract writeTo(Ljava/io/OutputStream;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c14a6f56c98628ff0cded8cb3fe99e90041062a1b2e59e08c411162f6134fc22
+size 722

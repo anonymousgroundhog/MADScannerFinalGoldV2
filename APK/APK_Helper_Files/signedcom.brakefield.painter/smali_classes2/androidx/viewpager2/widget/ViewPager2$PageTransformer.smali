@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
-.super Ljava/lang/Object;
-.source "ViewPager2.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/viewpager2/widget/ViewPager2;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "PageTransformer"
-.end annotation
-
-
-# virtual methods
-.method public abstract transformPage(Landroid/view/View;F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1171ee139e861ba58476b47de887e10c306286defcdde1e838486df17637f22f
+size 492

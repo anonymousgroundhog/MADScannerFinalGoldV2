@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/Synchronized$1;
-.super Ljava/lang/Object;
-.source "Synchronized.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/Synchronized;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:53bad9337973d7df954875acd943dc55c2f4544754dd9add5c46182419f495d2
+size 361

@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/metadata/MetadataOutput;
-.super Ljava/lang/Object;
-.source "MetadataOutput.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onMetadata(Lcom/google/android/exoplayer2/metadata/Metadata;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5f8b2edc960ae2fe4d9489a06c709c07ffe0101181992c627d4af6068f819cb6
+size 339

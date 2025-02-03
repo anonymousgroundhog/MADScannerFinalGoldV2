@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$CacheDirectoryGetter;
-.super Ljava/lang/Object;
-.source "DiskLruCacheFactory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "CacheDirectoryGetter"
-.end annotation
-
-
-# virtual methods
-.method public abstract getCacheDirectory()Ljava/io/File;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3bf21b84f63e01d4717dd78a2c135c4a590b9b4f5540b30643270bbc877d09f1
+size 546

@@ -1,35 +1,3 @@
-.class public final Lkotlin/math/MathKt;
-.super Lkotlin/math/MathKt__MathJVMKt;
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/math/MathKt__MathHKt",
-        "kotlin/math/MathKt__MathJVMKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# static fields
-.field public static final E:D = 2.718281828459045
-
-.field public static final PI:D = 3.141592653589793
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/math/MathKt__MathJVMKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:21048e16045fd785e453a0a8eae189632c4b8c5976e32ba924004905d32c43d3
+size 629

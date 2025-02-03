@@ -1,13 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/module/AppliesOptions;
-.super Ljava/lang/Object;
-.source "AppliesOptions.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract applyOptions(Landroid/content/Context;Lcom/bumptech/glide/GlideBuilder;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d01dc6ec911c939d39fba36d3de89638de70ac8a1df81100df9796e4151b3991
+size 330

@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/engine/Initializable;
-.super Ljava/lang/Object;
-.source "Initializable.java"
-
-
-# virtual methods
-.method public abstract initialize()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1cdfaa71f6178a6ec9b2d1530358d6433d3c79a8d977062d8930f34dbd238482
+size 205

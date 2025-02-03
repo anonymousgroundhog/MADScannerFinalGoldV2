@@ -1,35 +1,3 @@
-.class Lcom/google/common/cache/CacheBuilder$3;
-.super Lcom/google/common/base/Ticker;
-.source "CacheBuilder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/cache/CacheBuilder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 259
-    invoke-direct {p0}, Lcom/google/common/base/Ticker;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public read()J
-    .locals 2
-
-    const-wide/16 v0, 0x0
-
-    return-wide v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:08f825bde84c3af63e4b7f8299dbe8921d2a58a1e1ede141efb0cb5c45742e77
+size 647

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/multibindings/ElementsIntoSet;
-.super Ljava/lang/Object;
-.source "ElementsIntoSet.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd0a845fbe9a0df9efeb2c82d14adb8d3fbe107d33fe67e4fa68136370ab8d04
+size 681

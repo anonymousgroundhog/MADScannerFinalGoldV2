@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/manager/RequestManagerTreeNode;
-.super Ljava/lang/Object;
-.source "RequestManagerTreeNode.java"
-
-
-# virtual methods
-.method public abstract getDescendants()Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "Lcom/bumptech/glide/RequestManager;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ebe2145360179df40eff3322d88c843466fe2a51364f61e82c1e835fc93aed81
+size 455

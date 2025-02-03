@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/rtsp/RtpDataLoadable$EventListener;
-.super Ljava/lang/Object;
-.source "RtpDataLoadable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/RtpDataLoadable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "EventListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onTransportReady(Ljava/lang/String;Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f759e2effb811414f2afc103d9dd716f0c3c2cb07e16fac70d82fd378b2ed57a
+size 592

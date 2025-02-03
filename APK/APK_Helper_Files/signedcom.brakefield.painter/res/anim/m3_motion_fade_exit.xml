@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set android:interpolator="@interpolator/m3_sys_motion_easing_emphasized_accelerate" android:duration="@integer/m3_sys_motion_duration_short3" android:shareInterpolator="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <alpha android:fromAlpha="1.0" android:toAlpha="0.0" />
-</set>
+version https://git-lfs.github.com/spec/v1
+oid sha256:55fe4f67bf1a7a442df25348c75ff74ccee36f830c11ebcd4019acdfcc05a0e3
+size 343

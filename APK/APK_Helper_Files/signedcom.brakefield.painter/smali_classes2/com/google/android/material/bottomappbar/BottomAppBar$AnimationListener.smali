@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/android/material/bottomappbar/BottomAppBar$AnimationListener;
-.super Ljava/lang/Object;
-.source "BottomAppBar.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomappbar/BottomAppBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "AnimationListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAnimationEnd(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
-.end method
-
-.method public abstract onAnimationStart(Lcom/google/android/material/bottomappbar/BottomAppBar;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7445f0f6743f1aa1ede2ef7966ab45f4e2109b2c4123a606808553ed42ade2ca
+size 671

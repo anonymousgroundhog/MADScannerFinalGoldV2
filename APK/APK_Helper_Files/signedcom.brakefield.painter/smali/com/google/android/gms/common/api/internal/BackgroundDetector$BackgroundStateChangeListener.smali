@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/internal/BackgroundDetector$BackgroundStateChangeListener;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/internal/BackgroundDetector;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "BackgroundStateChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onBackgroundStateChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:926529d38abafaa71cd63953fc8b1dab18bf26def486e8a11a8cf6dea5631103
+size 598

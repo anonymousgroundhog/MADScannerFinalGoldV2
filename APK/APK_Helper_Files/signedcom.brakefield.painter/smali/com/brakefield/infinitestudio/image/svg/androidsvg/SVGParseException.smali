@@ -1,23 +1,3 @@
-.class public Lcom/brakefield/infinitestudio/image/svg/androidsvg/SVGParseException;
-.super Lorg/xml/sax/SAXException;
-.source "SVGParseException.java"
-
-
-# direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 30
-    invoke-direct {p0, p1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
-    .locals 0
-
-    .line 35
-    invoke-direct {p0, p1, p2}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:299f279ce2d6768657e7bdf10b7a839344a653a7cc27391d8971b2f1ed9c2427
+size 596

@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/PrimitiveType;
-.super Ljava/lang/Object;
-.source "PrimitiveType.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/IdentifierOrPrimitiveType;,
-        Lorg/checkerframework/checker/signature/qual/CanonicalName;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:4520fb3a2b875f6b3d9c78d1d71dd31e90681963a2a435d60e2c615a9eace2e3
+size 1016

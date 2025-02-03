@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/api/client/json/JsonPolymorphicTypeMap;
-.super Ljava/lang/Object;
-.source "JsonPolymorphicTypeMap.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/api/client/json/JsonPolymorphicTypeMap$TypeDef;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract typeDefinitions()[Lcom/google/api/client/json/JsonPolymorphicTypeMap$TypeDef;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d9ba79db9a1a7b0b0064987787c8b1e576fd4026319bb9e752afe4b3dda839f
+size 880

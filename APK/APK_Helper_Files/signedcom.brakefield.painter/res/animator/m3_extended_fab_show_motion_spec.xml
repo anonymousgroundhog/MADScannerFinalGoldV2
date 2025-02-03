@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <objectAnimator android:interpolator="?motionEasingEmphasizedInterpolator" android:duration="?motionDurationLong2" android:startOffset="0" android:valueFrom="0.0" android:valueTo="1.0" android:valueType="floatType" android:propertyName="opacity" />
-    <objectAnimator android:interpolator="?motionEasingEmphasizedInterpolator" android:duration="?motionDurationLong2" android:startOffset="0" android:valueFrom="0.4" android:valueTo="1.0" android:valueType="floatType" android:propertyName="scale" />
-</set>
+version https://git-lfs.github.com/spec/v1
+oid sha256:4273e66f1ef762f187ba67057f5a993aeac2bde351c9e04a37283298c4fd5e21
+size 616

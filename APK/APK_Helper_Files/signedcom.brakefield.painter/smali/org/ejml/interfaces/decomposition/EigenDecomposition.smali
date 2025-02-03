@@ -1,32 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/EigenDecomposition;
-.super Ljava/lang/Object;
-.source "EigenDecomposition.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/DecompositionInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/DecompositionInterface<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getEigenVector(I)Lorg/ejml/data/Matrix;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)TT;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getNumberOfEigenvalues()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d65c96b02f87479af442772466412a9f5947d8f1b024059e05c68b5379a5edf8
+size 794

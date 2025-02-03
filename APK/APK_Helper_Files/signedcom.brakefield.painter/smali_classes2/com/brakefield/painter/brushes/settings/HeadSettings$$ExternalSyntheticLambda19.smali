@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/brushes/settings/HeadSettings$$ExternalSyntheticLambda19;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/UI$OnDisplayProgressValue;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getDisplayValue(F)Ljava/lang/String;
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/painter/brushes/settings/HeadSettings;->lambda$bindSettings$14(F)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:06dac518f1d94e008b63fec1fa2ae209ce8bd549604fae9c79343067ccaef823
+size 696

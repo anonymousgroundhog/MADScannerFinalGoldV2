@@ -1,34 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/tasks/SuccessContinuation;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<TResult:",
-        "Ljava/lang/Object;",
-        "TContinuationResult:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract then(Ljava/lang/Object;)Lcom/google/android/gms/tasks/Task;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TTResult;)",
-            "Lcom/google/android/gms/tasks/Task<",
-            "TTContinuationResult;>;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:012369fb6a28e7909534d40054f767d8f1c8999f3eb283c47f13b9c27105d1cb
+size 893

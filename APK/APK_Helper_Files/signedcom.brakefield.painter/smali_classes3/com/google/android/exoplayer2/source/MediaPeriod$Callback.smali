@@ -1,31 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/MediaPeriod$Callback;
-.super Ljava/lang/Object;
-.source "MediaPeriod.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/source/SequenceableLoader$Callback;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/MediaPeriod;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Callback"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/google/android/exoplayer2/source/SequenceableLoader$Callback<",
-        "Lcom/google/android/exoplayer2/source/MediaPeriod;",
-        ">;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract onPrepared(Lcom/google/android/exoplayer2/source/MediaPeriod;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7f0376115fc76b5598a1e134b2c7c9e155266dc2daeba12c5144038545b7ca9b
+size 890

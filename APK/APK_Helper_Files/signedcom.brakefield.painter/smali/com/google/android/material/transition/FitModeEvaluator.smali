@@ -1,14 +1,3 @@
-.class interface abstract Lcom/google/android/material/transition/FitModeEvaluator;
-.super Ljava/lang/Object;
-.source "FitModeEvaluator.java"
-
-
-# virtual methods
-.method public abstract applyMask(Landroid/graphics/RectF;FLcom/google/android/material/transition/FitModeResult;)V
-.end method
-
-.method public abstract evaluate(FFFFFFF)Lcom/google/android/material/transition/FitModeResult;
-.end method
-
-.method public abstract shouldMaskStartBounds(Lcom/google/android/material/transition/FitModeResult;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8b08b362edcd47fd3ed9d060a72c315ff1c71bbc1a43fdc9d38f2b1bea7d393
+size 515

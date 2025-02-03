@@ -1,14 +1,3 @@
-.class synthetic Lcom/bumptech/glide/util/pool/StateVerifier$1;
-.super Ljava/lang/Object;
-.source "StateVerifier.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/util/pool/StateVerifier;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e21586707c0b1f55c7c208e7e4c4702527f02b44f09e65a5bfd90a06c206b2e
+size 370

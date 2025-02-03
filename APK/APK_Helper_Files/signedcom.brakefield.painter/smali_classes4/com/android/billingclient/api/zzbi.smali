@@ -1,28 +1,3 @@
-.class public final Lcom/android/billingclient/api/zzbi;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# direct methods
-.method public constructor <init>(Lorg/json/JSONObject;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lorg/json/JSONException;
-        }
-    .end annotation
-
-    .line 1
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-string/jumbo v0, "startTimeMillis"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
-
-    const-string v0, "endTimeMillis"
-
-    .line 2
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:151adb8b15567fb899419e01848ff2c6a61777e84cd860439f6b68cc439ab688
+size 716

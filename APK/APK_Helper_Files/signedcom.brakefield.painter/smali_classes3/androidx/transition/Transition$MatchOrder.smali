@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/transition/Transition$MatchOrder;
-.super Ljava/lang/Object;
-.source "Transition.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Transition;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "MatchOrder"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e76c45a61ab335c92d333f88f0c7024011344716f27d532946374c6e135bfc05
+size 621

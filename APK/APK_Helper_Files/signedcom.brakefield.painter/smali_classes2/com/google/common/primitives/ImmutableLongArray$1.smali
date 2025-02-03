@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/primitives/ImmutableLongArray$1;
-.super Ljava/lang/Object;
-.source "ImmutableLongArray.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/primitives/ImmutableLongArray;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:331958fa2fe9d75c398d04d2e315fb94a0b2d610d3841e475f5b1f7f9453178a
+size 385

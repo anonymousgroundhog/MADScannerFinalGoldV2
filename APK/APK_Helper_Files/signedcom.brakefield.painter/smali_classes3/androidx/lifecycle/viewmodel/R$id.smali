@@ -1,27 +1,3 @@
-.class public final Landroidx/lifecycle/viewmodel/R$id;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/lifecycle/viewmodel/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
-# static fields
-.field public static final view_tree_view_model_store_owner:I = 0x7f0a069a
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d42c6ea479738c066565ab96851e5675c822d6581aab8646fa4ec4fd8c24fee5
+size 567

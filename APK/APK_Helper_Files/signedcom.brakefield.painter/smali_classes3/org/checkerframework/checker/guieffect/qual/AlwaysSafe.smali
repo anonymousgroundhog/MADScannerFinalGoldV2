@@ -1,31 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/guieffect/qual/AlwaysSafe;
-.super Ljava/lang/Object;
-.source "AlwaysSafe.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultQualifierInHierarchy;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/guieffect/qual/UI;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8aab8321f96998cf6741020d6b84d1d2c5bb65cb00221452c2d88a95d7648c91
+size 1021

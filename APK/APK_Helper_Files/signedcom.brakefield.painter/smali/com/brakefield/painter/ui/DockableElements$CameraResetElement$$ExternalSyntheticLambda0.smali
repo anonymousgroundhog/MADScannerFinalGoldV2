@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/DockableElements$CameraResetElement$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/SimpleUI;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/DockableElements$CameraResetElement$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/DockableElements$CameraResetElement$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/DockableElements$CameraResetElement;->lambda$handleClick$0(Lcom/brakefield/painter/ui/SimpleUI;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb4140b875287167e80c9da0e0ffd434c52391bdf8345f3722e5fc5d5d8a6c69
+size 1188

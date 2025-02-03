@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/emoji2/text/EmojiCompat$LoadStrategy;
-.super Ljava/lang/Object;
-.source "EmojiCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/emoji2/text/EmojiCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "LoadStrategy"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:816d0c2d2d760e521087f5cb7e47c4f512a18650767ee0fce1c33d3c064d58e9
+size 630

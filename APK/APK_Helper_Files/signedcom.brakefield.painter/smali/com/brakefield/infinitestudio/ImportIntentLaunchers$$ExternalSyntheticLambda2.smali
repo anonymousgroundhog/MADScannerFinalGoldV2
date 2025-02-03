@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ImportIntentLaunchers$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/activity/result/ActivityResultCallback;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/ImportIntentLaunchers;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ImportIntentLaunchers$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onActivityResult(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ImportIntentLaunchers$$ExternalSyntheticLambda2;->f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-    check-cast p1, Landroid/net/Uri;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/infinitestudio/ImportIntentLaunchers;->lambda$onCreate$2$com-brakefield-infinitestudio-ImportIntentLaunchers(Landroid/net/Uri;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f24017e1d9d6dacc7ba9c650fd0ca37c4ff733df1ec69e7025f7b16af7220adb
+size 1229

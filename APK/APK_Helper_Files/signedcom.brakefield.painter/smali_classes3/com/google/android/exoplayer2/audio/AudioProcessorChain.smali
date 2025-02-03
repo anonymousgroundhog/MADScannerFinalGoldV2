@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/audio/AudioProcessorChain;
-.super Ljava/lang/Object;
-.source "AudioProcessorChain.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract applyPlaybackParameters(Lcom/google/android/exoplayer2/PlaybackParameters;)Lcom/google/android/exoplayer2/PlaybackParameters;
-.end method
-
-.method public abstract applySkipSilenceEnabled(Z)Z
-.end method
-
-.method public abstract getAudioProcessors()[Lcom/google/android/exoplayer2/audio/AudioProcessor;
-.end method
-
-.method public abstract getMediaDuration(J)J
-.end method
-
-.method public abstract getSkippedOutputFrameCount()J
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:96172161537fbae2128ea9392b1deb0d8af1bd9fe1c49436221903a93d533e50
+size 710

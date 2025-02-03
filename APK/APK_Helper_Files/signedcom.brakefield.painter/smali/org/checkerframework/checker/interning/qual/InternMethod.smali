@@ -1,24 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/interning/qual/InternMethod;
-.super Ljava/lang/Object;
-.source "InternMethod.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:46d903c8e7a13eac8455d2815ed93af2d17893c6145ffbf275cd0c763c924c50
+size 752

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/engine/cache/DiskCache$Writer;
-.super Ljava/lang/Object;
-.source "DiskCache.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/engine/cache/DiskCache;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Writer"
-.end annotation
-
-
-# virtual methods
-.method public abstract write(Ljava/io/File;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7bd769c1495d7de62a9cc997daa2160a8edeb2371641ab684c6d3fd85cca0782
+size 477

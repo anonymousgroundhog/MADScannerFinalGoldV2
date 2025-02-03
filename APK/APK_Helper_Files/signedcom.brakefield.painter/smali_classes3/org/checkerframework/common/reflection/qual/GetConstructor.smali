@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/reflection/qual/GetConstructor;
-.super Ljava/lang/Object;
-.source "GetConstructor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bcfe0cf515e5ce35bb054becd6e8ac882d25a9535fc4adc4f9ace57b05751901
+size 661

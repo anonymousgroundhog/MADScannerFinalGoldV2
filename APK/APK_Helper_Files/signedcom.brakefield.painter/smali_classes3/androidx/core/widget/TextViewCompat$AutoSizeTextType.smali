@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/widget/TextViewCompat$AutoSizeTextType;
-.super Ljava/lang/Object;
-.source "TextViewCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/widget/TextViewCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "AutoSizeTextType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c98e5c483be53232eeb62f5b3c9c019367d500c975d2daa6f45035e6883ad5c4
+size 647

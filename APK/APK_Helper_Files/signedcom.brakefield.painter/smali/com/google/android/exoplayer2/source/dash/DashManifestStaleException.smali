@@ -1,19 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/source/dash/DashManifestStaleException;
-.super Ljava/io/IOException;
-.source "DashManifestStaleException.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 29
-    invoke-direct {p0}, Ljava/io/IOException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd5184989b4a3eb0dced696d22bdafae79978f465a4c37edd5f7fff8e2f169b0
+size 407

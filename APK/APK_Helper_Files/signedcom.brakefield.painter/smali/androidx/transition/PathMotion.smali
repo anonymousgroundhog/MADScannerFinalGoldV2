@@ -1,28 +1,3 @@
-.class public abstract Landroidx/transition/PathMotion;
-.super Ljava/lang/Object;
-.source "PathMotion.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 45
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
-
-    .line 48
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract getPath(FFFF)Landroid/graphics/Path;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7adc08c29cb2d9ebe20fc1056ecb4f7fedcc5708799ea7449515b24e66991e04
+size 569

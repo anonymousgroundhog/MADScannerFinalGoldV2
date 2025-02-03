@@ -1,24 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_panels_width" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/width_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/width" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_panels_height" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/height_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/height" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_panels_gutter" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/gutter_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/gutter" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_panels_color" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.ColorFillButton android:id="@id/panels_color" android:contentDescription="@string/color" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/color" style="@style/TileLabel" />
-    </FrameLayout>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e92f33b21406d54add71fe93820c5620ad7b5488ce9c0f9a95cc46c409ba8b3
+size 1821

@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/AppRater$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/play/core/tasks/OnCompleteListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onComplete(Lcom/google/android/play/core/tasks/Task;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/brakefield/infinitestudio/AppRater;->lambda$promptReview$1(Lcom/google/android/play/core/tasks/Task;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f7c256e6c0624e9ec4ebf97d9eb1ea9778f709a2c3507467ca9f701738aabaf
+size 670

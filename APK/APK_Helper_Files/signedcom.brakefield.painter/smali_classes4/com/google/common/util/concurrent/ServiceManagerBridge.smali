@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/common/util/concurrent/ServiceManagerBridge;
-.super Ljava/lang/Object;
-.source "ServiceManagerBridge.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
-# virtual methods
-.method public abstract servicesByState()Lcom/google/common/collect/ImmutableMultimap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/collect/ImmutableMultimap<",
-            "Lcom/google/common/util/concurrent/Service$State;",
-            "Lcom/google/common/util/concurrent/Service;",
-            ">;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:98b5575f6c7317d65206093a269dc4134897c3e4b435d18f4c1d9d6e57faa815
+size 705

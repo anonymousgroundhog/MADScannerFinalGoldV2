@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/emoji2/text/EmojiCompat$GlyphChecker;
-.super Ljava/lang/Object;
-.source "EmojiCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/emoji2/text/EmojiCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "GlyphChecker"
-.end annotation
-
-
-# virtual methods
-.method public abstract hasGlyph(Ljava/lang/CharSequence;III)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:19558434d400c02220c0782babf6b6049d30a14e2da3d898e6ceea277c561b15
+size 479

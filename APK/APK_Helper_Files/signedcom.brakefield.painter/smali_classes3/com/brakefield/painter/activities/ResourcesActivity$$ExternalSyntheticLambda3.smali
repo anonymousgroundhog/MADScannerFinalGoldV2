@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/activities/ResourcesActivity$$ExternalSyntheticLambda3;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/painter/FileImporter$MessageHandler;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/view/View;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/activities/ResourcesActivity$$ExternalSyntheticLambda3;->f$0:Landroid/view/View;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final show(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/activities/ResourcesActivity$$ExternalSyntheticLambda3;->f$0:Landroid/view/View;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/activities/ResourcesActivity;->lambda$bindMainContent$1(Landroid/view/View;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:aca82cae8e4b658d753965247c0d2a6260a9b120411bc5a61c1200b7ddd64863
+size 986

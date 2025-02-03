@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/PagerSlidingTabStrip$IconTabProvider;
-.super Ljava/lang/Object;
-.source "PagerSlidingTabStrip.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/PagerSlidingTabStrip;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "IconTabProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract getPageIconResId(I)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e66a0c308969fa59d6445f252a5acf1169a8efd3c28889de4750013a4a59032e
+size 518

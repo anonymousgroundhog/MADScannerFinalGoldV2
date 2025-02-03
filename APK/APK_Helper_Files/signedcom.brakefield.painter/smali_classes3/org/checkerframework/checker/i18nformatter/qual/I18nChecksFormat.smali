@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/i18nformatter/qual/I18nChecksFormat;
-.super Ljava/lang/Object;
-.source "I18nChecksFormat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d44e7f0595725b8ee6edcfe04bb06d207cbdfbd9b8735af5790d25d45bdf3f7
+size 669

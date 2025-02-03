@@ -1,23 +1,3 @@
-.class public interface abstract Lcom/homesoft/encoder/MuxingResult;
-.super Ljava/lang/Object;
-.source "MuxerConfiguration.kt"
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\n\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\u0008f\u0018\u00002\u00020\u0001\u00a8\u0006\u0002"
-    }
-    d2 = {
-        "Lcom/homesoft/encoder/MuxingResult;",
-        "",
-        "painter_release"
-    }
-    k = 0x1
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4b71ca6c5537dcdeda9286753108add57cbfdd896865460f4bdd70027077b2a
+size 515

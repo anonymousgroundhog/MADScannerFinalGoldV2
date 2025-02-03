@@ -1,32 +1,3 @@
-.class final Lcom/google/android/exoplayer2/audio/DefaultAudioSink$AudioDeviceInfoApi23;
-.super Ljava/lang/Object;
-.source "DefaultAudioSink.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/audio/DefaultAudioSink;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
-    name = "AudioDeviceInfoApi23"
-.end annotation
-
-
-# instance fields
-.field public final audioDeviceInfo:Landroid/media/AudioDeviceInfo;
-
-
-# direct methods
-.method public constructor <init>(Landroid/media/AudioDeviceInfo;)V
-    .locals 0
-
-    .line 2251
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 2252
-    iput-object p1, p0, Lcom/google/android/exoplayer2/audio/DefaultAudioSink$AudioDeviceInfoApi23;->audioDeviceInfo:Landroid/media/AudioDeviceInfo;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7126cf0aa949f6fa4e1c8714734872ffe1dcdd5a0783440d0652d672bfa76aaa
+size 877

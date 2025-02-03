@@ -1,31 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/offline/Downloader;
-.super Ljava/lang/Object;
-.source "Downloader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/offline/Downloader$ProgressListener;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract cancel()V
-.end method
-
-.method public abstract download(Lcom/google/android/exoplayer2/offline/Downloader$ProgressListener;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;,
-            Ljava/lang/InterruptedException;
-        }
-    .end annotation
-.end method
-
-.method public abstract remove()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3fad971328d9f076eb774449d29c3b58e7707b55e135b6f8ad4505239e03fb6f
+size 784

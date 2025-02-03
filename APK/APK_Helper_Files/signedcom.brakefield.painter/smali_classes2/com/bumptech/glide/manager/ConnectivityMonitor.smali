@@ -1,14 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/manager/ConnectivityMonitor;
-.super Ljava/lang/Object;
-.source "ConnectivityMonitor.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/manager/LifecycleListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d537303f758731f053e18c4529d3a517520c82e6df99cea13465f320c4b46ff6
+size 399

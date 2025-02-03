@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/smoothstreaming/SsChunkSource;
-.super Ljava/lang/Object;
-.source "SsChunkSource.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/source/chunk/ChunkSource;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/source/smoothstreaming/SsChunkSource$Factory;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract updateManifest(Lcom/google/android/exoplayer2/source/smoothstreaming/manifest/SsManifest;)V
-.end method
-
-.method public abstract updateTrackSelection(Lcom/google/android/exoplayer2/trackselection/ExoTrackSelection;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2999e8bd96fe2e6b0106d0e268d396422471ca83d876fd22df852ab98fab9dc
+size 763

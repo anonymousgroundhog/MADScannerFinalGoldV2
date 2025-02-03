@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/api/client/googleapis/notifications/UnparsedNotificationCallback;
-.super Ljava/lang/Object;
-.source "UnparsedNotificationCallback.java"
-
-# interfaces
-.implements Ljava/io/Serializable;
-
-
-# virtual methods
-.method public abstract onNotification(Lcom/google/api/client/googleapis/notifications/StoredChannel;Lcom/google/api/client/googleapis/notifications/UnparsedNotification;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ae50e80d552efc5383a2621a3afe640b280fbdaddf5cc34d5b50faf69f0675b5
+size 567

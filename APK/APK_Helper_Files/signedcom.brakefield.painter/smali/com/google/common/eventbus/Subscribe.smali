@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/common/eventbus/Subscribe;
-.super Ljava/lang/Object;
-.source "Subscribe.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Lcom/google/common/eventbus/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:147696dae1f892951ee6c94c863e35160c7a4135ec15b17df0bc5c83b0ecea3e
+size 661

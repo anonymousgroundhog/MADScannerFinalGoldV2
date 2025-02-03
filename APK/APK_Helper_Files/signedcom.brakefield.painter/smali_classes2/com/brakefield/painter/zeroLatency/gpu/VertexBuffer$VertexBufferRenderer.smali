@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/zeroLatency/gpu/VertexBuffer$VertexBufferRenderer;
-.super Ljava/lang/Object;
-.source "VertexBuffer.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/zeroLatency/gpu/VertexBuffer;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "VertexBufferRenderer"
-.end annotation
-
-
-# virtual methods
-.method public abstract draw(Ljava/nio/FloatBuffer;I[F)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3ff15557e2be2ff42d2b7334adfe4c376487d7f9c64aebd8881ac33d9def9927
+size 528

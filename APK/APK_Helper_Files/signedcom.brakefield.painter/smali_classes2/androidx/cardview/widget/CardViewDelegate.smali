@@ -1,26 +1,3 @@
-.class interface abstract Landroidx/cardview/widget/CardViewDelegate;
-.super Ljava/lang/Object;
-.source "CardViewDelegate.java"
-
-
-# virtual methods
-.method public abstract getCardBackground()Landroid/graphics/drawable/Drawable;
-.end method
-
-.method public abstract getCardView()Landroid/view/View;
-.end method
-
-.method public abstract getPreventCornerOverlap()Z
-.end method
-
-.method public abstract getUseCompatPadding()Z
-.end method
-
-.method public abstract setCardBackground(Landroid/graphics/drawable/Drawable;)V
-.end method
-
-.method public abstract setMinWidthHeightInternal(II)V
-.end method
-
-.method public abstract setShadowPadding(IIII)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3551b606e33fab2e37df9a389f9ceb42a9c1cff114afc3011d01378455fa4c78
+size 657

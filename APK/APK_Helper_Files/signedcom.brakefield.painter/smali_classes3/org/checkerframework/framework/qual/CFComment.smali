@@ -1,20 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/CFComment;
-.super Ljava/lang/Object;
-.source "CFComment.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a22a5322862a60523518fb04a88c0e0181b824704f98e463e347c4ceca6ddd30
+size 546

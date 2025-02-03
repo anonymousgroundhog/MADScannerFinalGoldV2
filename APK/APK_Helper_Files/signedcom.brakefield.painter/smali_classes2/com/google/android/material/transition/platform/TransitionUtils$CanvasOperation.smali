@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/transition/platform/TransitionUtils$CanvasOperation;
-.super Ljava/lang/Object;
-.source "TransitionUtils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/transition/platform/TransitionUtils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "CanvasOperation"
-.end annotation
-
-
-# virtual methods
-.method public abstract run(Landroid/graphics/Canvas;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7db970d7759c2ecd30e96b14d759c3d661e8c5e80a3f85902aded1a485840a41
+size 537

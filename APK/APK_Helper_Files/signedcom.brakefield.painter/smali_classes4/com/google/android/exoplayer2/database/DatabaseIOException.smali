@@ -1,28 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/database/DatabaseIOException;
-.super Ljava/io/IOException;
-.source "DatabaseIOException.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/database/SQLException;)V
-    .locals 0
-
-    .line 33
-    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/database/SQLException;Ljava/lang/String;)V
-    .locals 0
-
-    .line 37
-    invoke-direct {p0, p2, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5f25361b0e809c0689066b519f6378a1643e597f7e91e2e42f4b82bcd463fff
+size 694

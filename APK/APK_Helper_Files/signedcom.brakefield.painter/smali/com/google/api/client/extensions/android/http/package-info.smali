@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/api/client/extensions/android/http/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:244bec2ac354798ead79846d3f60fd4ae875624deeaa522bdc5ee112f3cfc5ff
+size 151

@@ -1,12 +1,3 @@
-.class public final Lcom/google/firebase/components/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:90cfe2c5fdcaccda1e8140fddb52484166ea011985dbe66128c65840aea77f7c
+size 236

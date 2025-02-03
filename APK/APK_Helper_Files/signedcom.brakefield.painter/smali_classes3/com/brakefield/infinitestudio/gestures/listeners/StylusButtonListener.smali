@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/listeners/StylusButtonListener;
-.super Ljava/lang/Object;
-.source "StylusButtonListener.java"
-
-
-# virtual methods
-.method public abstract onPrimaryButtonClicked()V
-.end method
-
-.method public abstract onSecondaryButtonClicked()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7be5e09eefd5be69ed9001fb303263f28d5ab891476d0bac5f9d9d2591cd2985
+size 314

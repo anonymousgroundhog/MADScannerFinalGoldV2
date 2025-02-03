@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/multibindings/StringKey;
-.super Ljava/lang/Object;
-.source "StringKey.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Lcom/google/android/datatransport/runtime/dagger/MapKey;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5338476b8a2e325a8c975c9dde537713fb146a74fb043a381f3334aa8393686d
+size 845

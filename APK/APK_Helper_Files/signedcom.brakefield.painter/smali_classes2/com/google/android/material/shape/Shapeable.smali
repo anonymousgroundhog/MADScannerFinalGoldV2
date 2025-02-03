@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/material/shape/Shapeable;
-.super Ljava/lang/Object;
-.source "Shapeable.java"
-
-
-# virtual methods
-.method public abstract getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
-.end method
-
-.method public abstract setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5c39f1db4bae8a84071ae6384f334cd372ef06005a464cda78b9d20e0f26392b
+size 388

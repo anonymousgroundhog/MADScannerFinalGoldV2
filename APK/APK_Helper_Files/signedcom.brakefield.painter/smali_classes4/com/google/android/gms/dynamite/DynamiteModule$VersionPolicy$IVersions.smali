@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/dynamite/DynamiteModule$VersionPolicy$IVersions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/dynamite/DynamiteModule$VersionPolicy;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "IVersions"
-.end annotation
-
-
-# virtual methods
-.method public abstract zza(Landroid/content/Context;Ljava/lang/String;)I
-.end method
-
-.method public abstract zzb(Landroid/content/Context;Ljava/lang/String;Z)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/gms/dynamite/DynamiteModule$LoadingException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7cb0e8515d794abe5dfca2e5b05121a8d1375b7e65da9b36e8f032f349b04837
+size 841

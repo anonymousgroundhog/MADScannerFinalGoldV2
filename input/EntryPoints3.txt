@@ -1,24 +1,3 @@
-com.google.android.gms.ads.AdListener
-: void onAdClicked() 
-: void onAdClosed() 
-: void onAdLoaded() 
-: void onAdImpression() 
-: void onAdOpened()
-com.google.android.gms.ads.admanager.AdManagerAdView
-: void loadAd(com.google.android.gms.ads.admanager.AdManagerAdRequest)
-com.google.android.gms.example.interstitialexample.MyActivity
-: void loadAd() 
-com.google.android.gms.ads.MobileAds
-: void initialize()
-androidx.appcompat.app.AppCompatActivity
-: void onCreate(android.os.Bundle)
-com.google.android.gms.ads.FullScreenContentCallback
-: void onAdImpression()
-: void onAdClicked()
-: void onAdImpression()
-: void onAdClicked()
-: void setFullScreenContentCallback(com.google.android.gms.ads.FullScreenContentCallback)
-androidx.appcompat.app.AppCompatActivity
-: void onCreate(android.os.Bundle)
-android.util.Log:
-: int i(java.lang.String,java.lang.String)
+version https://git-lfs.github.com/spec/v1
+oid sha256:1932eff64f0af02b3d66e3cbf7cb9323cbb22e898043f100485eb17320d5ef94
+size 853

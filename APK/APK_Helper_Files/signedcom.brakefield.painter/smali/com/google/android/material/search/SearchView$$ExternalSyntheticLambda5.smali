@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda5;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/material/search/SearchView;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchView;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda5;->f$0:Lcom/google/android/material/search/SearchView;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/search/SearchView$$ExternalSyntheticLambda5;->f$0:Lcom/google/android/material/search/SearchView;
-
-    invoke-virtual {v0}, Lcom/google/android/material/search/SearchView;->lambda$requestFocusAndShowKeyboard$8$com-google-android-material-search-SearchView()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:99b7350b77eebd0487f87d330d3666f6508fc2a5a0de4d4c525e313140b9f75c
+size 1075

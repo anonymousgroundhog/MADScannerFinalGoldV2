@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:height="32.0dip" android:width="32.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#ffffffff" android:pathData="M6,6h2v12L6,18zM9.5,12l8.5,6L18,6z" />
-</vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:21fcd64928e7642ad513781e869b7c8d7c696d3dc45dcb2c652622a3f0143130
+size 323
