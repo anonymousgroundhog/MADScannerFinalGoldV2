@@ -1,14 +1,3 @@
-.class public Lcom/brakefield/infinitestudio/ui/sectionedrecyclerviewadapter/utils/EmptyViewHolder;
-.super Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-.source "EmptyViewHolder.java"
-
-
-# direct methods
-.method public constructor <init>(Landroid/view/View;)V
-    .locals 0
-
-    .line 14
-    invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:911f7da9ed9f91c42a6015d99690ef03d22401ffff762e4c66668b34a2728590
+size 438

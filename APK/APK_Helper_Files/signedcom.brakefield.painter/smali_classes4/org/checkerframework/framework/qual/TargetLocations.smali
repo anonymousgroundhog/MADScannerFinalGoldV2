@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/framework/qual/TargetLocations;
-.super Ljava/lang/Object;
-.source "TargetLocations.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[Lorg/checkerframework/framework/qual/TypeUseLocation;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bbcc12d2d180fe451fc76bfc560317bab8764de3f3e2c5b193131d6340dedc55
+size 782

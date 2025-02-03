@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/activities/FontsActivity$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/apis/API$ItemHandler;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/activities/FontsActivity;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/activities/FontsActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/activities/FontsActivity$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/activities/FontsActivity;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final handle(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/activities/FontsActivity$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/activities/FontsActivity;
-
-    check-cast p1, Lcom/brakefield/infinitestudio/apis/google/fonts/GoogleFont;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/infinitestudio/activities/FontsActivity;->lambda$loadGoogleFonts$1$com-brakefield-infinitestudio-activities-FontsActivity(Lcom/brakefield/infinitestudio/apis/google/fonts/GoogleFont;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7cbc9c0f0d10517d786f061757650fc9841eb6966d398dd37b16a9b712746753
+size 1342

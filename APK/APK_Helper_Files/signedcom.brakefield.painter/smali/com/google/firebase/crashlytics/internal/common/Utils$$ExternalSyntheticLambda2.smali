@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/crashlytics/internal/common/Utils$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/gms/tasks/Continuation;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/CountDownLatch;
-
-
-# direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/CountDownLatch;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/crashlytics/internal/common/Utils$$ExternalSyntheticLambda2;->f$0:Ljava/util/concurrent/CountDownLatch;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final then(Lcom/google/android/gms/tasks/Task;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/internal/common/Utils$$ExternalSyntheticLambda2;->f$0:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-static {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/Utils;->lambda$awaitEvenIfOnMainThread$4(Ljava/util/concurrent/CountDownLatch;Lcom/google/android/gms/tasks/Task;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b26f314ad994cf956495c76e7581b43df0e57ecf43be60bf561eb4f3d73fdf71
+size 1217

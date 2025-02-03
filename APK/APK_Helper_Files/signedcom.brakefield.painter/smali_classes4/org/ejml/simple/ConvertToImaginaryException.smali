@@ -1,14 +1,3 @@
-.class public Lorg/ejml/simple/ConvertToImaginaryException;
-.super Ljava/lang/RuntimeException;
-.source "ConvertToImaginaryException.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 26
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b1437f0fc0796713ead88258f4ce899ee367316f8efe7aa37d7ceb60ff72103
+size 316

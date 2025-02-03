@@ -1,19 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_path_settings_copies" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/copies_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/copies" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_path_settings_size" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/jitter_size_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/size" style="@style/TileLabel" />
-    </FrameLayout>
-    <FrameLayout style="@style/Tile">
-        <tag android:value="@string/mappings_pattern_path_settings_angle" android:id="@id/ui_binding_key" />
-        <com.brakefield.infinitestudio.ui.PullButton android:id="@id/jitter_angle_slider" style="@style/TileIcon" />
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:text="@string/angle" style="@style/TileLabel" />
-    </FrameLayout>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:85d10e1726fe29a8e7a25e6ee28fb5432d9d4af7b83113fb91cadb011dda06ec
+size 1449

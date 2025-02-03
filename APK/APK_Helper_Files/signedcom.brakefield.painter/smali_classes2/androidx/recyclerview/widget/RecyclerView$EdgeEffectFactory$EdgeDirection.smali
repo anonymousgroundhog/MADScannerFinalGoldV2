@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/recyclerview/widget/RecyclerView$EdgeEffectFactory$EdgeDirection;
-.super Ljava/lang/Object;
-.source "RecyclerView.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/RecyclerView$EdgeEffectFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "EdgeDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee24cb6c910363c7047213f87eba65106b213bf7c869d4bc97ddff3a821e6b84
+size 687

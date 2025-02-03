@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/fenum/qual/SwingHorizontalOrientation;
-.super Ljava/lang/Object;
-.source "SwingHorizontalOrientation.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/fenum/qual/SwingBoxOrientation;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e29b85bca27271e62603fc2d849198c7de185850bd529249acfd1705e800d2f
+size 959

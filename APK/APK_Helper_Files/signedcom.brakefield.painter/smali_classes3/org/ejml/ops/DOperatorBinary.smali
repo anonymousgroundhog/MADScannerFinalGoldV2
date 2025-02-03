@@ -1,13 +1,3 @@
-.class public interface abstract Lorg/ejml/ops/DOperatorBinary;
-.super Ljava/lang/Object;
-.source "DOperatorBinary.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/FunctionalInterface;
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(DD)D
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7872fd40bea79197f506d186d2dd22f7b3ab0cefd65f605a580bb1bbed489d00
+size 272

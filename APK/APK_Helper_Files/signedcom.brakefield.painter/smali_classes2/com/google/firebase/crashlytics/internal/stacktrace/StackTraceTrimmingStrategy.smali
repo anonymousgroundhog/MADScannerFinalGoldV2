@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/firebase/crashlytics/internal/stacktrace/StackTraceTrimmingStrategy;
-.super Ljava/lang/Object;
-.source "StackTraceTrimmingStrategy.java"
-
-
-# virtual methods
-.method public abstract getTrimmedStackTrace([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:183e20eacb48ba006f0f0bc2793e7cefc6ac0945e2001a84931ae6f89467dacc
+size 321

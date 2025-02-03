@@ -1,25 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/color/SwatchSlider$ColorProvider;
-.super Ljava/lang/Object;
-.source "SwatchSlider.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/color/SwatchSlider;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ColorProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract colorAt(I)I
-.end method
-
-.method public abstract colorCount()I
-.end method
-
-.method public abstract getDisplayColor(I)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:190f961f8addbe053b6e0d21a4d198fe5d87542949f0118407ca1361b2e2a0df
+size 595

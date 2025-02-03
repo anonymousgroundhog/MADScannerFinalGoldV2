@@ -1,31 +1,3 @@
-.class public Landroidx/appcompat/widget/TooltipCompat;
-.super Ljava/lang/Object;
-.source "TooltipCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/widget/TooltipCompat$Api26Impl;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 53
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
-
-    .line 47
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/TooltipCompat$Api26Impl;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c997c3d38717d64f528eb0f284b4ea30a16e53a9ec08c9837173e72dd64e21ec
+size 727

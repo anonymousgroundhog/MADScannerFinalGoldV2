@@ -1,19 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/engine/DataFetcherGenerator;
-.super Ljava/lang/Object;
-.source "DataFetcherGenerator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/bumptech/glide/load/engine/DataFetcherGenerator$FetcherReadyCallback;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract cancel()V
-.end method
-
-.method public abstract startNext()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b2cfa8759d8131c5cbfe39dbf7584049cd34d3e9d50264b8a43e51b806ff1df3
+size 446

@@ -1,22 +1,3 @@
-.class public final Lcom/infinite/geom/BuildConfig;
-.super Ljava/lang/Object;
-.source "BuildConfig.java"
-
-
-# static fields
-.field public static final BUILD_TYPE:Ljava/lang/String; = "release"
-
-.field public static final DEBUG:Z = false
-
-.field public static final LIBRARY_PACKAGE_NAME:Ljava/lang/String; = "com.infinite.geom"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 6
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:20762dc0c08d341c98160139801d04747c972e5b5781cd4ece009bdc19d58124
+size 492

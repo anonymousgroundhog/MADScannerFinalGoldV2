@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$ListSelectionMode;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ListSelectionMode"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:010f21541ba1f65de66c3e1ecff2728e2eadc7827a89a4afefc8ebb8b5e8fe48
+size 487

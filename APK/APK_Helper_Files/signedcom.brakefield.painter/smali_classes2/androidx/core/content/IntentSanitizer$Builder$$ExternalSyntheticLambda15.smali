@@ -1,30 +1,3 @@
-.class public final synthetic Landroidx/core/content/IntentSanitizer$Builder$$ExternalSyntheticLambda15;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroidx/core/util/Predicate;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
-
-    check-cast p1, Ljava/lang/String;
-
-    invoke-static {p1}, Landroidx/core/content/IntentSanitizer$Builder;->lambda$new$4(Ljava/lang/String;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:97bae00f262ce9166f663c8d5a31fdbc41eacbe454248b38ef21a8eb2bc19c78
+size 656

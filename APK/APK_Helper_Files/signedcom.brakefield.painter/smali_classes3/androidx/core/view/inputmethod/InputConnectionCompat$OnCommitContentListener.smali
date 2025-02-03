@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/view/inputmethod/InputConnectionCompat$OnCommitContentListener;
-.super Ljava/lang/Object;
-.source "InputConnectionCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/inputmethod/InputConnectionCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnCommitContentListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onCommitContent(Landroidx/core/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3277b259bcb654fe871d94c4e4ba270cd58ed91d385ff61becbc1b00182db0f
+size 606

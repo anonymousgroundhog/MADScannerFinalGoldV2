@@ -1,29 +1,3 @@
-.class public final Lkotlin/collections/GroupingKt;
-.super Lkotlin/collections/GroupingKt__GroupingKt;
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/collections/GroupingKt__GroupingJVMKt",
-        "kotlin/collections/GroupingKt__GroupingKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/collections/GroupingKt__GroupingKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d6816819d0be85a5c604daa1f009cf5926c7343c84a896988dcadcb01c9af924
+size 571

@@ -1,29 +1,3 @@
-.class public final Lcom/google/firebase/installations/interop/R$integer;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/installations/interop/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "integer"
-.end annotation
-
-
-# static fields
-.field public static final google_play_services_version:I = 0x7f0b000b
-
-.field public static final status_bar_notification_info_maxnum:I = 0x7f0b003f
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1e68bb08251bf1ca8b6c7b9e00118d95b014f2a0e1d6a70730816ea5a6884f89
+size 678

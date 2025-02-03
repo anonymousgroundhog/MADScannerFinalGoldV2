@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/SimpleUI$$ExternalSyntheticLambda28;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/painter/FileImporter$MessageHandler;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/app/Activity;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroid/app/Activity;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/SimpleUI$$ExternalSyntheticLambda28;->f$0:Landroid/app/Activity;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final show(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/SimpleUI$$ExternalSyntheticLambda28;->f$0:Landroid/app/Activity;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/SimpleUI;->lambda$handleShareIn$31(Landroid/app/Activity;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:10aaf7876d25e7565813b2c8225d510f6cfea05bf47d46e4e67d06157cc769fd
+size 935

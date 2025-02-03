@@ -1,35 +1,3 @@
-.class public interface abstract Landroidx/savedstate/SavedStateRegistryOwner;
-.super Ljava/lang/Object;
-.source "SavedStateRegistryOwner.kt"
-
-# interfaces
-.implements Landroidx/lifecycle/LifecycleOwner;
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0008f\u0018\u00002\u00020\u0001R\u0012\u0010\u0002\u001a\u00020\u0003X\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u0004\u0010\u0005\u00f8\u0001\u0000\u0082\u0002\u0006\n\u0004\u0008!0\u0001\u00a8\u0006\u0006\u00c0\u0006\u0001"
-    }
-    d2 = {
-        "Landroidx/savedstate/SavedStateRegistryOwner;",
-        "Landroidx/lifecycle/LifecycleOwner;",
-        "savedStateRegistry",
-        "Landroidx/savedstate/SavedStateRegistry;",
-        "getSavedStateRegistry",
-        "()Landroidx/savedstate/SavedStateRegistry;",
-        "savedstate_release"
-    }
-    k = 0x1
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
-
-# virtual methods
-.method public abstract getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1fbf65c72250a7bedf58f6b2f5977fa8fd2439863c2d901a892ced6d68d45440
+size 1154

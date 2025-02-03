@@ -1,28 +1,3 @@
-.class interface abstract Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImpl;
-.super Ljava/lang/Object;
-.source "GestureDetectorCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/GestureDetectorCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "GestureDetectorCompatImpl"
-.end annotation
-
-
-# virtual methods
-.method public abstract isLongpressEnabled()Z
-.end method
-
-.method public abstract onTouchEvent(Landroid/view/MotionEvent;)Z
-.end method
-
-.method public abstract setIsLongpressEnabled(Z)V
-.end method
-
-.method public abstract setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4bbd1c84dab733be6f3803f4f9e70e1b6a72b57073cb4583af8a6cf7b6c38dd3
+size 762

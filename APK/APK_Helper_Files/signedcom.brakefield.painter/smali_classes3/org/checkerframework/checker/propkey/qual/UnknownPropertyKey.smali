@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/propkey/qual/UnknownPropertyKey;
-.super Ljava/lang/Object;
-.source "UnknownPropertyKey.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/DefaultQualifierInHierarchy;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {}
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea1d4262717e31ca4832e4a563f628a085387253c7e70c0cd3cca44afd6602f8
+size 973

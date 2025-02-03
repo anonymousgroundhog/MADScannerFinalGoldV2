@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/activities/ActivityOnlineGallery$$ExternalSyntheticLambda3;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-
-    invoke-static {p1, p2}, Lcom/brakefield/infinitestudio/activities/ActivityOnlineGallery;->lambda$showImage$5(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb97e601bba834c78ae2bf92e8aa01eaed10390fba3fa9fc788b33f3c31b21c8
+size 696

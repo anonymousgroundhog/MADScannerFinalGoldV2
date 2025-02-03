@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/map/StaticBucketMap$1;
-.super Ljava/lang/Object;
-.source "StaticBucketMap.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/map/StaticBucketMap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2eca01a66736e66a7f72b4835cfd78681894d62d0bce142b00c91e84922e9bf6
+size 390

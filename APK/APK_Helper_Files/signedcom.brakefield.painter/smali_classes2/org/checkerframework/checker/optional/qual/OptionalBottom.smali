@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/optional/qual/OptionalBottom;
-.super Ljava/lang/Object;
-.source "OptionalBottom.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/optional/qual/Present;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:934e7e99bb4346cdf6688a6e5f2adff842c78fd611a64ccc8c07e605e76e563f
+size 929

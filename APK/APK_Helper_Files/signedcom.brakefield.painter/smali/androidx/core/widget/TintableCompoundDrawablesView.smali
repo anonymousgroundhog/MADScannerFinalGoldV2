@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/core/widget/TintableCompoundDrawablesView;
-.super Ljava/lang/Object;
-.source "TintableCompoundDrawablesView.java"
-
-
-# virtual methods
-.method public abstract getSupportCompoundDrawablesTintList()Landroid/content/res/ColorStateList;
-.end method
-
-.method public abstract getSupportCompoundDrawablesTintMode()Landroid/graphics/PorterDuff$Mode;
-.end method
-
-.method public abstract setSupportCompoundDrawablesTintList(Landroid/content/res/ColorStateList;)V
-.end method
-
-.method public abstract setSupportCompoundDrawablesTintMode(Landroid/graphics/PorterDuff$Mode;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0460b90711122b8e633b2e19ea83e2ad3c32e64d66dbcff512a3efa71cfb135a
+size 618

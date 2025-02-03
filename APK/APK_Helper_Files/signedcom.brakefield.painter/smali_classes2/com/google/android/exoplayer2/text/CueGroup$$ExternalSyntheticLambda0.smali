@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/text/CueGroup$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/Bundleable$Creator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final fromBundle(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Bundleable;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/text/CueGroup;->$r8$lambda$QmrY7VSakfIANItYKyEXt6trkis(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/text/CueGroup;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a62904df71bef5c79d9a44ef77315c63f48e912aa32ebd4faa2864e149fe582a
+size 765

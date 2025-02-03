@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/app/AlertController$AlertParams$OnPrepareListViewListener;
-.super Ljava/lang/Object;
-.source "AlertController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/AlertController$AlertParams;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnPrepareListViewListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPrepareListView(Landroid/widget/ListView;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6490614daf92297b9170ca9138b834150cb7f6b7927a37fdcd2d1c42991eb71d
+size 552

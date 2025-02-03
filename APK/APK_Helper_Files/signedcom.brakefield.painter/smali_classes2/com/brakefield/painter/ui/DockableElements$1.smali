@@ -1,14 +1,3 @@
-.class synthetic Lcom/brakefield/painter/ui/DockableElements$1;
-.super Ljava/lang/Object;
-.source "DockableElements.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/DockableElements;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:98e32f80a135a275c15fae7e66607e2e7b9f2e4ba8d87095673d40681130172d
+size 373

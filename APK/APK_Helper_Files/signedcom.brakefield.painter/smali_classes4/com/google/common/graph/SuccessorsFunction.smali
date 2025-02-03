@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/google/common/graph/SuccessorsFunction;
-.super Ljava/lang/Object;
-.source "SuccessorsFunction.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/graph/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Implement with a lambda, or use GraphBuilder to build a Graph with the desired edges"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<N:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract successors(Ljava/lang/Object;)Ljava/lang/Iterable;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TN;)",
-            "Ljava/lang/Iterable<",
-            "+TN;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa44ad851e170037cc8029b4b6ce88d4f797c877a226eca64b0e0c2e9f93e587
+size 889

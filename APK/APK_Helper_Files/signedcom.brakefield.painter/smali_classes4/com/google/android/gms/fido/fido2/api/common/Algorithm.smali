@@ -1,8 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/fido/fido2/api/common/Algorithm;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-
-# virtual methods
-.method public abstract getAlgoValue()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4af863d1497e400e810a6de0439c28ed9b4053b73d5a735c992e798d145f07fc
+size 248

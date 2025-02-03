@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/api/client/googleapis/media/MediaHttpUploaderProgressListener;
-.super Ljava/lang/Object;
-.source "MediaHttpUploaderProgressListener.java"
-
-
-# virtual methods
-.method public abstract progressChanged(Lcom/google/api/client/googleapis/media/MediaHttpUploader;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0f5431b61f2583b60d9b3fd2cddb8c46836abf093aaea1c1596bfeca62b63dc
+size 448

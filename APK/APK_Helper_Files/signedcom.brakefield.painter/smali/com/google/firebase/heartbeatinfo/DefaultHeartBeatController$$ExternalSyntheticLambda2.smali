@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/heartbeatinfo/DefaultHeartBeatController$$ExternalSyntheticLambda2;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/firebase/components/ComponentFactory;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/firebase/components/Qualified;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/firebase/components/Qualified;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/heartbeatinfo/DefaultHeartBeatController$$ExternalSyntheticLambda2;->f$0:Lcom/google/firebase/components/Qualified;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/heartbeatinfo/DefaultHeartBeatController$$ExternalSyntheticLambda2;->f$0:Lcom/google/firebase/components/Qualified;
-
-    invoke-static {v0, p1}, Lcom/google/firebase/heartbeatinfo/DefaultHeartBeatController;->lambda$component$3(Lcom/google/firebase/components/Qualified;Lcom/google/firebase/components/ComponentContainer;)Lcom/google/firebase/heartbeatinfo/DefaultHeartBeatController;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d77592165008567cb6d208b9f5262144cb127449d7308cc06ea0aef90934708f
+size 1340

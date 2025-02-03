@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/app/NotificationCompat$Extender;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Extender"
-.end annotation
-
-
-# virtual methods
-.method public abstract extend(Landroidx/core/app/NotificationCompat$Builder;)Landroidx/core/app/NotificationCompat$Builder;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:03d95d0a99b9b21c1ae6880ecc8cd11c41e8c3772cc426dcd4b20201f85058c8
+size 548

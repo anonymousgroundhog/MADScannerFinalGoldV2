@@ -1,36 +1,3 @@
-.class Landroidx/core/app/LocaleManagerCompat$Api21Impl;
-.super Ljava/lang/Object;
-.source "LocaleManagerCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/LocaleManagerCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Api21Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 117
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static toLanguageTag(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 0
-
-    .line 121
-    invoke-virtual {p0}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d3fb4ce7e585b192dcac13bcb179d4eba386eafcfc5a308a9e7b07e9e092cfe
+size 774

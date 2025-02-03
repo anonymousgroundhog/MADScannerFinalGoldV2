@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/navigation/Navigation$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/navigation/NavDirections;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/navigation/NavDirections;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/navigation/Navigation$$ExternalSyntheticLambda0;->f$0:Landroidx/navigation/NavDirections;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/navigation/Navigation$$ExternalSyntheticLambda0;->f$0:Landroidx/navigation/NavDirections;
-
-    invoke-static {v0, p1}, Landroidx/navigation/Navigation;->$r8$lambda$qqcnLEyLmsS2djZPHg_Oce8NotM(Landroidx/navigation/NavDirections;Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8dc64a2380eedef337a132a6e69891b13f4e523736425e3713c114846e0f88a
+size 1018

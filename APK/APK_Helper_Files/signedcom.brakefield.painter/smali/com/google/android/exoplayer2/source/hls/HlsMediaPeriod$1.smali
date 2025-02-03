@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/hls/HlsMediaPeriod$1;
-.super Ljava/lang/Object;
-.source "HlsMediaPeriod.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/hls/HlsMediaPeriod;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ad36cdcd60669b8b35b31bfa944ca7cba3050df47dbb3d06d9c30a9037825eb
+size 397

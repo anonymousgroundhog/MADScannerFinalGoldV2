@@ -1,25 +1,3 @@
-.class public Lcom/google/android/exoplayer2/offline/DownloadHelper$LiveContentUnsupportedException;
-.super Ljava/io/IOException;
-.source "DownloadHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/offline/DownloadHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "LiveContentUnsupportedException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 146
-    invoke-direct {p0}, Ljava/io/IOException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c95e92988ca06ea142c65013e4b0968764839b2ba252bc8f1ef325fb3491f5c1
+size 618

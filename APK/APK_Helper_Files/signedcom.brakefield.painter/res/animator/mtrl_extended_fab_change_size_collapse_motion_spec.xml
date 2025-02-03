@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="200" android:startOffset="0" android:propertyName="width" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="200" android:startOffset="0" android:propertyName="height" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="200" android:startOffset="0" android:propertyName="paddingStart" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="200" android:startOffset="0" android:propertyName="paddingEnd" />
-    <objectAnimator android:interpolator="@interpolator/mtrl_fast_out_slow_in" android:duration="33" android:startOffset="16" android:propertyName="labelOpacity" />
-</set>
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc3bb04b36004bd97347ec0cadb41f0fc7602cfa62d05fbe0cb0f9163d496639
+size 922

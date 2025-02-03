@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/transition/Slide$GravityFlag;
-.super Ljava/lang/Object;
-.source "Slide.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Slide;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "GravityFlag"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:38ef6646a1efc3f57c09d8d27b89c077ab508ea0804a1a1249ebca35d768a255
+size 608

@@ -1,31 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/functors/PredicateDecorator;
-.super Ljava/lang/Object;
-.source "PredicateDecorator.java"
-
-# interfaces
-.implements Lorg/apache/commons/collections4/Predicate;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/apache/commons/collections4/Predicate<",
-        "TT;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getPredicates()[Lorg/apache/commons/collections4/Predicate;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()[",
-            "Lorg/apache/commons/collections4/Predicate<",
-            "-TT;>;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:85a7e7ae0417bee30f435ecb2b4ff74a5fba2fe9efd90dee1767d56f2e3c9c08
+size 801

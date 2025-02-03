@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/DefaultMediaClock$PlaybackParametersListener;
-.super Ljava/lang/Object;
-.source "DefaultMediaClock.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/DefaultMediaClock;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "PlaybackParametersListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPlaybackParametersChanged(Lcom/google/android/exoplayer2/PlaybackParameters;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a038157267726549f65d9fb346242c4c814381569c31434faecc628c8f220b23
+size 585

@@ -1,19 +1,3 @@
-.class public final synthetic Lcom/google/android/gms/measurement/internal/zzgc;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement-impl@@21.2.2"
-
-
-# instance fields
-.field public final synthetic zza:Lcom/google/android/gms/measurement/internal/zzge;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/gms/measurement/internal/zzge;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/measurement/internal/zzgc;->zza:Lcom/google/android/gms/measurement/internal/zzge;
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ed302d3102a66b7085de371c6338d9d1f69b23bbd7b5562d39fa92de660d219
+size 630

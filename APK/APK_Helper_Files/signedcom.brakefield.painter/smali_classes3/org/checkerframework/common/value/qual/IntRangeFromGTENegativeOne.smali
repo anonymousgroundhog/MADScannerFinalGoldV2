@@ -1,25 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/value/qual/IntRangeFromGTENegativeOne;
-.super Ljava/lang/Object;
-.source "IntRangeFromGTENegativeOne.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/common/value/qual/UnknownVal;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d193e0875d9624ca3ab81223ba375b809273d704f3d2bbf470bd6fff0f1a92c
+size 747

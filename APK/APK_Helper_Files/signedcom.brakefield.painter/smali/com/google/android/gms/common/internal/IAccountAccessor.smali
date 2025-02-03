@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/IAccountAccessor;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/gms/common/internal/IAccountAccessor$Stub;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract zzb()Landroid/accounts/Account;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a0c49592b8f80fae6679e588dc4cc63fd0b0cf4395a33ef9446d19b66a8d9e78
+size 634

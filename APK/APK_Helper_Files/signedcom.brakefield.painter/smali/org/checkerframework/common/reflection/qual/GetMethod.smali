@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/reflection/qual/GetMethod;
-.super Ljava/lang/Object;
-.source "GetMethod.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:105bfef42d3b3b62e7925b82f9450732b727661f9528cdfe420c592bdda2f9c9
+size 651

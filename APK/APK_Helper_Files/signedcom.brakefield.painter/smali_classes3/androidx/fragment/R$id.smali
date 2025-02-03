@@ -1,31 +1,3 @@
-.class public final Landroidx/fragment/R$id;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/fragment/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
-# static fields
-.field public static final fragment_container_view_tag:I = 0x7f0a025f
-
-.field public static final special_effects_controller_view_tag:I = 0x7f0a058b
-
-.field public static final visible_removing_fragment_view_tag:I = 0x7f0a06aa
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4ee14fb0db7cf26e8249d7cae33306204cc1fcdb12dd821fa667d29afa5539ff
+size 697

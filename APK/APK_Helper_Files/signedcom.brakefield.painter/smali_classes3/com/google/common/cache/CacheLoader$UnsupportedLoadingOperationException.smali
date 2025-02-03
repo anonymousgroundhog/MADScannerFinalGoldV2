@@ -1,25 +1,3 @@
-.class public final Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;
-.super Ljava/lang/UnsupportedOperationException;
-.source "CacheLoader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/cache/CacheLoader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "UnsupportedLoadingOperationException"
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 244
-    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:10172429cff6fd21c6b09c7280980decb196aac2da3ddfd32d1642e8651e8eee
+size 631

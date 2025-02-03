@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/hash/LittleEndianByteArray$1;
-.super Ljava/lang/Object;
-.source "LittleEndianByteArray.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/hash/LittleEndianByteArray;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8942c8eda3e18e6ce68add153378c7fa4e19f9d1f2985b32b1b23714ba9ffb32
+size 382

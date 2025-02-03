@@ -1,29 +1,3 @@
-.class public final Lcom/google/android/gms/common/util/zzb;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# direct methods
-.method public static zza()Z
-    .locals 2
-
-    .line 1
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a6e22edd5dfcb41acb8ff24e3c4b9d68c6678c8c1dff2d983e297db1afbf7f1
+size 555

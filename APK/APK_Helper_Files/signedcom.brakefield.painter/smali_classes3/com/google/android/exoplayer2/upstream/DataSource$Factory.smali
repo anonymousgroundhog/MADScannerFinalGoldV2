@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/DataSource$Factory;
-.super Ljava/lang/Object;
-.source "DataSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/DataSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Factory"
-.end annotation
-
-
-# virtual methods
-.method public abstract createDataSource()Lcom/google/android/exoplayer2/upstream/DataSource;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1c14a81511ca114d10ecfbf4d6392c8c4d700f86d2b50776d30a061b9ea58d3d
+size 533

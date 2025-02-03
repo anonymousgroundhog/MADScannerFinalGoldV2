@@ -1,34 +1,3 @@
-.class public final synthetic Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$$ExternalSyntheticLambda0;->f$0:Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer$$ExternalSyntheticLambda0;->f$0:Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;
-
-    invoke-static {v0}, Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;->$r8$lambda$_1m_IWISdhbUIN-_DVaWUpHqNkw(Landroidx/graphics/lowlatency/GLFrontBufferedRenderer;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5346bf942c2252d23ac9190001a4806f61224c0268be63627a340ce6b862deb9
+size 1140

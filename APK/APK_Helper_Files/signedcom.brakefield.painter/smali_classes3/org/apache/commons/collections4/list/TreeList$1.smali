@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/list/TreeList$1;
-.super Ljava/lang/Object;
-.source "TreeList.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/list/TreeList;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c066175381825b3d375d483908880704dc977bc8179553205a4bfe4ba211dc39
+size 371

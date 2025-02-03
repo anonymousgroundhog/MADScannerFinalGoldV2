@@ -1,23 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/state/Reference;
-.super Ljava/lang/Object;
-.source "Reference.java"
-
-
-# virtual methods
-.method public abstract apply()V
-.end method
-
-.method public abstract getConstraintWidget()Landroidx/constraintlayout/core/widgets/ConstraintWidget;
-.end method
-
-.method public abstract getFacade()Landroidx/constraintlayout/core/state/helpers/Facade;
-.end method
-
-.method public abstract getKey()Ljava/lang/Object;
-.end method
-
-.method public abstract setConstraintWidget(Landroidx/constraintlayout/core/widgets/ConstraintWidget;)V
-.end method
-
-.method public abstract setKey(Ljava/lang/Object;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b573e2be09562225865c4300455e89528fa4392d2a56cec65e4d4b3158519e7
+size 662

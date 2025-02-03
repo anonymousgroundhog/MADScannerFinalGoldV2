@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/Glide$RequestOptionsFactory;
-.super Ljava/lang/Object;
-.source "Glide.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/Glide;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "RequestOptionsFactory"
-.end annotation
-
-
-# virtual methods
-.method public abstract build()Lcom/bumptech/glide/request/RequestOptions;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b60043d5406d28ff32f3281130d49b451269ab2cc5922825f4194b9b6c71122e
+size 487

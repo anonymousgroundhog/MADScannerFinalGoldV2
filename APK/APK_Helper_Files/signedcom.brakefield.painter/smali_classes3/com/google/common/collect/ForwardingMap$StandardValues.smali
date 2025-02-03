@@ -1,32 +1,3 @@
-.class public Lcom/google/common/collect/ForwardingMap$StandardValues;
-.super Lcom/google/common/collect/Maps$Values;
-.source "ForwardingMap.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/ForwardingMap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
-    name = "StandardValues"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/google/common/collect/Maps$Values<",
-        "TK;TV;>;"
-    }
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Lcom/google/common/collect/ForwardingMap;)V
-    .locals 0
-
-    .line 234
-    invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$Values;-><init>(Ljava/util/Map;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cc9b5c0653572ffc6979ead25940344c1ff7c090af96e1a08c5e5f8c47bfe766
+size 809

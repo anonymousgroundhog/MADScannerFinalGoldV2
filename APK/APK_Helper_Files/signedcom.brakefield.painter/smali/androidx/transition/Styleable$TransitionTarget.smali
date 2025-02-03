@@ -1,28 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$TransitionTarget;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "TransitionTarget"
-.end annotation
-
-
-# static fields
-.field public static final EXCLUDE_CLASS:I = 0x3
-
-.field public static final EXCLUDE_ID:I = 0x2
-
-.field public static final EXCLUDE_NAME:I = 0x5
-
-.field public static final TARGET_CLASS:I = 0x0
-
-.field public static final TARGET_ID:I = 0x1
-
-.field public static final TARGET_NAME:I = 0x4
+version https://git-lfs.github.com/spec/v1
+oid sha256:c5f22394fab342af4aedfa53a656793355c1ee71f3bf9d8e4cf64b05e1214484
+size 683

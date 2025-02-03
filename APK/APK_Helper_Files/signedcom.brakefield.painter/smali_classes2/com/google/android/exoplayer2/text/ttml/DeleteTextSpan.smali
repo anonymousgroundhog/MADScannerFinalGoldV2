@@ -1,19 +1,3 @@
-.class final Lcom/google/android/exoplayer2/text/ttml/DeleteTextSpan;
-.super Ljava/lang/Object;
-.source "DeleteTextSpan.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 36
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4b4d0c90f18dc9f1f3a26471b09594d991dfdbff9667ba45174bfc64faf9a91
+size 361

@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/api/client/googleapis/testing/services/json/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:08cf3588d9a82f18e6e322829835d88ac020214ebf03f7f36dd8eac8a283bfd5
+size 160

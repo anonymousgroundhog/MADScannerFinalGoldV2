@@ -1,27 +1,3 @@
-.class final Lcom/google/android/gms/tasks/zzt;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-# interfaces
-.implements Ljava/util/concurrent/Executor;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final execute(Ljava/lang/Runnable;)V
-    .locals 0
-
-    .line 1
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2a472a77e78181c8a0a2dbd047df69c44330d72921ef590c10631a446e445532
+size 524

@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ImportOptions$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/MenuOption$OnSelectedListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/ImportIntentLaunchers;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ImportOptions$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onSelected()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ImportOptions$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-
-    invoke-virtual {v0}, Lcom/brakefield/infinitestudio/ImportIntentLaunchers;->getImageFromCamera()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:919d9432778b57974408088ab0a6e62a387fa90b40c24b28f53e275772ba14d6
+size 1083

@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
-.super Ljava/lang/Object;
-.source "FitWindowsViewGroup.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/FitWindowsViewGroup;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnFitSystemWindowsListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onFitSystemWindows(Landroid/graphics/Rect;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9ae97b249e7664c70d26ebecf3cd56f27094282a102e625760dbac7658eaa1d4
+size 547

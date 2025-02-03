@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animated-vector android:drawable="@drawable/mtrl_switch_thumb_pressed"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-    <target android:name="@string/mtrl_switch_thumb_path_name" android:animation="@drawable/$mtrl_switch_thumb_pressed_unchecked__0" />
-</animated-vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:2638cacc3914a6730353ef024693ffda48b40f6cc7f9966717c061543a3385c8
+size 372

@@ -1,19 +1,3 @@
-.class interface abstract Landroidx/recyclerview/widget/StableIdStorage;
-.super Ljava/lang/Object;
-.source "StableIdStorage.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/recyclerview/widget/StableIdStorage$IsolatedStableIdStorage;,
-        Landroidx/recyclerview/widget/StableIdStorage$SharedPoolStableIdStorage;,
-        Landroidx/recyclerview/widget/StableIdStorage$NoStableIdStorage;,
-        Landroidx/recyclerview/widget/StableIdStorage$StableIdLookup;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract createStableIdLookup()Landroidx/recyclerview/widget/StableIdStorage$StableIdLookup;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:63c9145931f5258a3bddd1986f8b5aa7103876bd9f28cca3174bacc6addc39b1
+size 681

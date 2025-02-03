@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/common/base/FinalizableReference;
-.super Ljava/lang/Object;
-.source "FinalizableReference.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use an instance of one of the Finalizable*Reference classes"
-.end annotation
-
-
-# virtual methods
-.method public abstract finalizeReferent()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:61b7e51ff1576807a6f9e4b4b86054ada5357b8cba4128bfe8a7bd8f4f7dc181
+size 483

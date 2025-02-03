@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/android/gms/tasks/zzq;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<TResult:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract zzc()V
-.end method
-
-.method public abstract zzd(Lcom/google/android/gms/tasks/Task;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0cfa221b8e23b73b75b297431f5900606685dde100aeccbc9e57d77bc3a6683f
+size 484

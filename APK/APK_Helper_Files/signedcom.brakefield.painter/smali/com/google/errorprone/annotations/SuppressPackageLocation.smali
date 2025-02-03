@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/SuppressPackageLocation;
-.super Ljava/lang/Object;
-.source "SuppressPackageLocation.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1eb7eb87eab450fababc1a7e2437acdbea2565218a1d0e11a737ef26fc04e6c
+size 597

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomappbar/BottomAppBar$MenuAlignmentMode;
-.super Ljava/lang/Object;
-.source "BottomAppBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomappbar/BottomAppBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "MenuAlignmentMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e81f0d7d04a9f11cb434deaed3c0d3470a57653e24a3107b45e5065eb91e95cf
+size 683

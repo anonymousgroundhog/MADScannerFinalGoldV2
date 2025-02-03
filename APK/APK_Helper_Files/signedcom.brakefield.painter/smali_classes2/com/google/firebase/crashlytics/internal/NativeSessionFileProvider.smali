@@ -1,29 +1,3 @@
-.class public interface abstract Lcom/google/firebase/crashlytics/internal/NativeSessionFileProvider;
-.super Ljava/lang/Object;
-.source "NativeSessionFileProvider.java"
-
-
-# virtual methods
-.method public abstract getAppFile()Ljava/io/File;
-.end method
-
-.method public abstract getApplicationExitInto()Lcom/google/firebase/crashlytics/internal/model/CrashlyticsReport$ApplicationExitInfo;
-.end method
-
-.method public abstract getBinaryImagesFile()Ljava/io/File;
-.end method
-
-.method public abstract getDeviceFile()Ljava/io/File;
-.end method
-
-.method public abstract getMetadataFile()Ljava/io/File;
-.end method
-
-.method public abstract getMinidumpFile()Ljava/io/File;
-.end method
-
-.method public abstract getOsFile()Ljava/io/File;
-.end method
-
-.method public abstract getSessionFile()Ljava/io/File;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8b79ac46ea1208823f71a02fcede4d6fac71c225d3eb2fc23001552d3ccbfdc
+size 809

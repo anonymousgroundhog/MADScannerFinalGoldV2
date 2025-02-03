@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/Allocator$AllocationNode;
-.super Ljava/lang/Object;
-.source "Allocator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/Allocator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AllocationNode"
-.end annotation
-
-
-# virtual methods
-.method public abstract getAllocation()Lcom/google/android/exoplayer2/upstream/Allocation;
-.end method
-
-.method public abstract next()Lcom/google/android/exoplayer2/upstream/Allocator$AllocationNode;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7e5fe35b769f607905345b21f8bd9287de842816e470e50280eccc12507785fb
+size 650

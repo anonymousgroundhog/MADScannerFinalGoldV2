@@ -1,34 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/gifdecoder/GifDecoder$BitmapProvider;
-.super Ljava/lang/Object;
-.source "GifDecoder.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/gifdecoder/GifDecoder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "BitmapProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract obtain(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract obtainByteArray(I)[B
-.end method
-
-.method public abstract obtainIntArray(I)[I
-.end method
-
-.method public abstract release(Landroid/graphics/Bitmap;)V
-.end method
-
-.method public abstract release([B)V
-.end method
-
-.method public abstract release([I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6d03777e9a36dbdb02c278c15c3110181b9f2f88fd4fc2732848ea8e673367b2
+size 815

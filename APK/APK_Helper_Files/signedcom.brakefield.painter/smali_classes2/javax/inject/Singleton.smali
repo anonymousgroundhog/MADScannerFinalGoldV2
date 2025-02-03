@@ -1,18 +1,3 @@
-.class public interface abstract annotation Ljavax/inject/Singleton;
-.super Ljava/lang/Object;
-.source "Singleton.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljavax/inject/Scope;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b42944fb96d7423848a00b80e052d960624bae39d54be6139f2ec7e6ea6b018
+size 499

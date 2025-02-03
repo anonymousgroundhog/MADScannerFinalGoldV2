@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/core/motion/utils/Utils$DebugHandle;
-.super Ljava/lang/Object;
-.source "Utils.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/constraintlayout/core/motion/utils/Utils;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "DebugHandle"
-.end annotation
-
-
-# virtual methods
-.method public abstract message(Ljava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3493abe48dad5a40aeb12ab4cccdf608e0ae0ba6ebfe966200bb6a6b62e7fca
+size 495

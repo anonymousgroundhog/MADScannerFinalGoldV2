@@ -1,23 +1,3 @@
-.class public final Landroidx/recyclerview/R;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/recyclerview/R$attr;,
-        Landroidx/recyclerview/R$dimen;,
-        Landroidx/recyclerview/R$id;,
-        Landroidx/recyclerview/R$styleable;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0a0e6c6d14269735976ea86faeaeb0411221f41cedd18a8a3725f6a864c7a2b1
+size 495

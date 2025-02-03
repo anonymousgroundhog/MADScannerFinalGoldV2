@@ -1,36 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/BandwidthMeter;
-.super Ljava/lang/Object;
-.source "BandwidthMeter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/upstream/BandwidthMeter$EventListener;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract addEventListener(Landroid/os/Handler;Lcom/google/android/exoplayer2/upstream/BandwidthMeter$EventListener;)V
-.end method
-
-.method public abstract getBitrateEstimate()J
-.end method
-
-.method public getTimeToFirstByteEstimateUs()J
-    .locals 2
-
-    const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
-
-    return-wide v0
-.end method
-
-.method public abstract getTransferListener()Lcom/google/android/exoplayer2/upstream/TransferListener;
-.end method
-
-.method public abstract removeEventListener(Lcom/google/android/exoplayer2/upstream/BandwidthMeter$EventListener;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f47ca1fada0e0b7d638c82c0e12c7ab59b305cb7f7ed358f8e4ad9e4d84c94df
+size 1007

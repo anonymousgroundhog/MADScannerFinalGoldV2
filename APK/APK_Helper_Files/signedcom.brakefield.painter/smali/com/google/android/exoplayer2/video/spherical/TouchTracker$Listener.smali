@@ -1,27 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/video/spherical/TouchTracker$Listener;
-.super Ljava/lang/Object;
-.source "TouchTracker.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/video/spherical/TouchTracker;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onScrollChange(Landroid/graphics/PointF;)V
-.end method
-
-.method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    const/4 p1, 0x0
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ac2c3e10d862622d29bf8abdc92369f1d1b689cf9c6809d2832975900be2e30
+size 649

@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/MainToolbar$$ExternalSyntheticLambda16;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/toolbars/MainToolbar;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/toolbars/MainToolbar;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/toolbars/MainToolbar$$ExternalSyntheticLambda16;->f$0:Lcom/brakefield/painter/ui/toolbars/MainToolbar;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/toolbars/MainToolbar$$ExternalSyntheticLambda16;->f$0:Lcom/brakefield/painter/ui/toolbars/MainToolbar;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/painter/ui/toolbars/MainToolbar;->lambda$setupToolbar$10$com-brakefield-painter-ui-toolbars-MainToolbar(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9fada15ba7e9a51d3f6d81358a297f07d896803ecca1f5650447d1572962ed3
+size 1134

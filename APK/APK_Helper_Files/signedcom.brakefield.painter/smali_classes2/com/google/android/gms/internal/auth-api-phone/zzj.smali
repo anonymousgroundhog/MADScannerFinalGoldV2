@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/auth-api-phone/zzj;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth-api-phone@@17.5.1"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# virtual methods
-.method public abstract zzb(Lcom/google/android/gms/common/api/Status;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:522dfdb327a45f9a9467431cff699b6001f7b9c48bc5de2990064180a92bf00f
+size 476

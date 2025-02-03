@@ -1,13 +1,3 @@
-.class public interface abstract Lorg/ejml/ops/DOperatorUnary;
-.super Ljava/lang/Object;
-.source "DOperatorUnary.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/FunctionalInterface;
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(D)D
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1dcafebf1f455dfa8cf3c5bb695c6859adf5674ac7ed875209238dfd402c6bd4
+size 269

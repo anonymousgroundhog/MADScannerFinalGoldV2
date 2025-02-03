@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/brushes/BrushSettingsDialog$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Landroidx/viewpager2/widget/ViewPager2;
-
-
-# direct methods
-.method public synthetic constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/brushes/BrushSettingsDialog$$ExternalSyntheticLambda0;->f$0:Landroidx/viewpager2/widget/ViewPager2;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/brushes/BrushSettingsDialog$$ExternalSyntheticLambda0;->f$0:Landroidx/viewpager2/widget/ViewPager2;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/brushes/BrushSettingsDialog;->lambda$refresh$0(Landroidx/viewpager2/widget/ViewPager2;Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:386425d10711f87d6e772763159fcc9656d5866638d7fb43ea33fe2e34ab0373
+size 1096

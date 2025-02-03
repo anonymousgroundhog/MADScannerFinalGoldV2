@@ -1,32 +1,3 @@
-.class public final Lkotlin/collections/MapsKt;
-.super Lkotlin/collections/MapsKt___MapsKt;
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/collections/MapsKt__MapWithDefaultKt",
-        "kotlin/collections/MapsKt__MapsJVMKt",
-        "kotlin/collections/MapsKt__MapsKt",
-        "kotlin/collections/MapsKt___MapsJvmKt",
-        "kotlin/collections/MapsKt___MapsKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/collections/MapsKt___MapsKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dada4b17d6a0af6ce4ea4cc15172168a01c095631ee62636a2450dd347b2969f
+size 687

@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/google/firebase/analytics/connector/AnalyticsConnector$AnalyticsConnectorHandle;
-.super Ljava/lang/Object;
-.source "com.google.firebase:firebase-measurement-connector@@19.0.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/analytics/connector/AnalyticsConnector;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AnalyticsConnectorHandle"
-.end annotation
-
-
-# virtual methods
-.method public abstract registerEventNames(Ljava/util/Set;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract unregister()V
-.end method
-
-.method public abstract unregisterEventNames()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8eb4919ebbc30b1069731871f4fb42b34879e5279961b4e6bd05267f8bb6211a
+size 909

@@ -1,20 +1,3 @@
-.class interface abstract Lcom/google/firebase/crashlytics/internal/metadata/FileLogStore;
-.super Ljava/lang/Object;
-.source "FileLogStore.java"
-
-
-# virtual methods
-.method public abstract closeLogFile()V
-.end method
-
-.method public abstract deleteLogFile()V
-.end method
-
-.method public abstract getLogAsBytes()[B
-.end method
-
-.method public abstract getLogAsString()Ljava/lang/String;
-.end method
-
-.method public abstract writeToLog(JLjava/lang/String;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5dd1f226415d293d54ba921ec8eb7a110e76cdb5c47b830edbfe35318a9614fe
+size 468

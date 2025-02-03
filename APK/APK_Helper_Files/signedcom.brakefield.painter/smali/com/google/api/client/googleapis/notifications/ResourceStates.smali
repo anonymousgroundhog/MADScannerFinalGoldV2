@@ -1,22 +1,3 @@
-.class public final Lcom/google/api/client/googleapis/notifications/ResourceStates;
-.super Ljava/lang/Object;
-.source "ResourceStates.java"
-
-
-# static fields
-.field public static final EXISTS:Ljava/lang/String; = "EXISTS"
-
-.field public static final NOT_EXISTS:Ljava/lang/String; = "NOT_EXISTS"
-
-.field public static final SYNC:Ljava/lang/String; = "SYNC"
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 38
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e6059b86e9026777b0aef76bb4535e730ca6455187d4af2b85915f613269474
+size 524

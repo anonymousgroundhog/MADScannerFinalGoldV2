@@ -1,14 +1,3 @@
-.class synthetic Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$1;
-.super Ljava/lang/Object;
-.source "VectorDrawableCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:59757b15f1ed0744f9b4d6507da56f5194866adbda078b019ed2277f33c33bb1
+size 417

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
-.super Ljava/lang/Object;
-.source "ConnectivityMonitor.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/manager/ConnectivityMonitor;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ConnectivityListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onConnectivityChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0dc4469dfc2d1fef0c2e15f2fb44404ec86644caa69bd25762b9d1907a047f79
+size 518

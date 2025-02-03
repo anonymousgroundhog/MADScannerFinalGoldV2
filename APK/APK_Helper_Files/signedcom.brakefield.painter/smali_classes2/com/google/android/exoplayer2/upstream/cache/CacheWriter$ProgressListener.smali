@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/cache/CacheWriter$ProgressListener;
-.super Ljava/lang/Object;
-.source "CacheWriter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/cache/CacheWriter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ProgressListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onProgress(JJJ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:092cfde766e55c1afc40a23975fd05f2df5168dad2e59dfc80a089f7d914713f
+size 513

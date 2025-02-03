@@ -1,22 +1,3 @@
-.class interface abstract Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$InternalTransformationCallback;
-.super Ljava/lang/Object;
-.source "FloatingActionButtonImpl.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "InternalTransformationCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onScaleChanged()V
-.end method
-
-.method public abstract onTranslationChanged()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:52f3f11fa103a407132d7fce597c645fe4d8a377b4634a5971b81276e90f06e2
+size 643

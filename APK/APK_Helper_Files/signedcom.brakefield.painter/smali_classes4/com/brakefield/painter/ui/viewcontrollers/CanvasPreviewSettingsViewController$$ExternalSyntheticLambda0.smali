@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/CanvasPreviewSettingsViewController$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/SimpleUI;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/CanvasPreviewSettingsViewController$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/CanvasPreviewSettingsViewController$$ExternalSyntheticLambda0;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    invoke-static {v0, p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/CanvasPreviewSettingsViewController;->lambda$getView$0(Lcom/brakefield/painter/ui/SimpleUI;Landroid/widget/CompoundButton;Z)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b6cf83edc2171031e868733e2b11ee75b9d0705bf0cd2a559ca16ce7831945e
+size 1248

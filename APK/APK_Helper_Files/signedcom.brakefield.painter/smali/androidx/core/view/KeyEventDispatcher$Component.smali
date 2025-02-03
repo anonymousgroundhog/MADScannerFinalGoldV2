@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/core/view/KeyEventDispatcher$Component;
-.super Ljava/lang/Object;
-.source "KeyEventDispatcher.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/KeyEventDispatcher;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Component"
-.end annotation
-
-
-# virtual methods
-.method public abstract superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7225cc3732ccdb8c4ed814c19c102fea4cde59d285ffdbffaa8baf76247ef66f
+size 499

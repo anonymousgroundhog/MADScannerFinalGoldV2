@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/material/floatingactionbutton/BorderDrawable$1;
-.super Ljava/lang/Object;
-.source "BorderDrawable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/floatingactionbutton/BorderDrawable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:43826ae94bca4985073bf946c6fecd51069134a70afb4ca3490dc596d7eea4aa
+size 413

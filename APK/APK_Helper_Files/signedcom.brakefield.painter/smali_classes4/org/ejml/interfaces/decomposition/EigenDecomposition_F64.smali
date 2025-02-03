@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/decomposition/EigenDecomposition_F64;
-.super Ljava/lang/Object;
-.source "EigenDecomposition_F64.java"
-
-# interfaces
-.implements Lorg/ejml/interfaces/decomposition/EigenDecomposition;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<MatrixType::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/ejml/interfaces/decomposition/EigenDecomposition<",
-        "TMatrixType;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getEigenvalue(I)Lorg/ejml/data/Complex_F64;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:863a5b33873a17ea75a49939040eea4f121b49015e6b460f88ce345fd458d969
+size 631

@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;
-.super Ljava/lang/Object;
-.source "FactoryPools.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/util/pool/FactoryPools;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Resetter"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract reset(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:259eb3a36aa29f3340327512e5dac59a2243e3cfd282a7a6126720abc93feedf
+size 773

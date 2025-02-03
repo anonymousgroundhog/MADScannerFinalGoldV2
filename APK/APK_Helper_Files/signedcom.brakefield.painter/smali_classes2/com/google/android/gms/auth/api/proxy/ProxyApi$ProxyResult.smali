@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/auth/api/proxy/ProxyApi$ProxyResult;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth-base@@18.0.4"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Result;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/auth/api/proxy/ProxyApi;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ProxyResult"
-.end annotation
-
-
-# virtual methods
-.method public abstract getResponse()Lcom/google/android/gms/auth/api/proxy/ProxyResponse;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5fc996e09dbd9cad3367d267c8839f84bf6904918735ec0545c223352891e78
+size 640

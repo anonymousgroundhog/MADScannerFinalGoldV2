@@ -1,33 +1,3 @@
-.class Landroidx/recyclerview/widget/ConcatAdapterController$WrapperAndLocalPosition;
-.super Ljava/lang/Object;
-.source "ConcatAdapterController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/ConcatAdapterController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "WrapperAndLocalPosition"
-.end annotation
-
-
-# instance fields
-.field mInUse:Z
-
-.field mLocalPosition:I
-
-.field mWrapper:Landroidx/recyclerview/widget/NestedAdapterWrapper;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 523
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:761b9f2ba34ca987cc67ff1d73924215f2a5c871cb706223d0ba9f46dc0b1ac4
+size 721

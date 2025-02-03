@@ -1,14 +1,3 @@
-APK/APKPure/*
-APK/Backup*/*.apk
-APK/Valid_APK_Files_To_Test/*.apk
-*.class
-Java/Classes/sootOutput/*.apk
-Java/sootOutput/*
-*.swp
-*.jimple
-.Rproj.user
-APK/APK_Testing/*.apk
-APK/Testing/*.apk
-APK/Google_Play_Apps/*.apk
-APK/Google_Play_Apps/*/*.apk
-Java/APK_Files_Signed_And_Injected_Logs/*/*.apk
+version https://git-lfs.github.com/spec/v1
+oid sha256:bab8b0a676184a5c22d64158411d7a13150f6d4ff7f225f97d04ef42875db6e7
+size 489

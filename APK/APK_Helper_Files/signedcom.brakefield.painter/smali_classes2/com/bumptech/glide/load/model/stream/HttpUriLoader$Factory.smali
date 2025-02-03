@@ -1,28 +1,3 @@
-.class public Lcom/bumptech/glide/load/model/stream/HttpUriLoader$Factory;
-.super Lcom/bumptech/glide/load/model/UrlUriLoader$StreamFactory;
-.source "HttpUriLoader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/model/stream/HttpUriLoader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "Factory"
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 29
-    invoke-direct {p0}, Lcom/bumptech/glide/load/model/UrlUriLoader$StreamFactory;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:44e1dd52b8b5f5af84d768409c90aadcd7b2fa50aa6d51258d1e1a6a936a6909
+size 698

@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/color/DynamicColors$DeviceSupportCondition;
-.super Ljava/lang/Object;
-.source "DynamicColors.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/color/DynamicColors;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "DeviceSupportCondition"
-.end annotation
-
-
-# virtual methods
-.method public abstract isSupported()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1e881851c3791a2ba9f8eb1114796e39d65379a1411dd119a1d4a6884ba263fa
+size 500

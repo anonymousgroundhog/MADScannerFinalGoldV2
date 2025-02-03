@@ -1,13 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.skyfishjy.library.RippleBackground android:id="@id/upload_ripple" android:layout_width="fill_parent" android:layout_height="240.0dip" app:rb_color="@color/holo_blue" app:rb_duration="3000" app:rb_radius="32.0dip" app:rb_rippleAmount="2" app:rb_scale="8.0">
-        <ImageView android:id="@id/upload_image" android:layout_width="fill_parent" android:layout_height="64.0dip" android:src="@drawable/upload_infinite" android:layout_centerInParent="true" />
-    </com.skyfishjy.library.RippleBackground>
-    <com.brakefield.infinitestudio.ui.RevealFrameLayout android:layout_width="fill_parent" android:layout_height="240.0dip">
-        <RelativeLayout android:id="@id/upload_success" android:background="@color/holo_green" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <ImageView android:layout_width="fill_parent" android:layout_height="64.0dip" android:src="@drawable/pen_accept" android:layout_centerInParent="true" />
-        </RelativeLayout>
-    </com.brakefield.infinitestudio.ui.RevealFrameLayout>
-    <com.brakefield.infinitestudio.ui.AutosizeTextView android:layout_gravity="bottom|center" android:id="@id/upload_text" android:padding="@dimen/padding_very_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/uploading" android:lines="1" />
-</FrameLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:d53f121a50f0b27130e1e8760a0b0808b38e26c008892870873e039e4df7b3c8
+size 1625

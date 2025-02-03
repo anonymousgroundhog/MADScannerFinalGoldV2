@@ -1,22 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Reserved;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Reserved"
-.end annotation
-
-
-# virtual methods
-.method public abstract value()[I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb56d490e6432fd1bccb80bc669dfb1c04d7fb6ff5c9230dec1064ee89762245
+size 615

@@ -1,18 +1,3 @@
-.class public interface abstract Lcom/google/android/material/slider/LabelFormatter;
-.super Ljava/lang/Object;
-.source "LabelFormatter.java"
-
-
-# static fields
-.field public static final LABEL_FLOATING:I = 0x0
-
-.field public static final LABEL_GONE:I = 0x2
-
-.field public static final LABEL_VISIBLE:I = 0x3
-
-.field public static final LABEL_WITHIN_BOUNDS:I = 0x1
-
-
-# virtual methods
-.method public abstract getFormattedValue(F)Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f62637d3729000a73d55a2524b3a374295795212048a15cfdf4595811d74609
+size 457

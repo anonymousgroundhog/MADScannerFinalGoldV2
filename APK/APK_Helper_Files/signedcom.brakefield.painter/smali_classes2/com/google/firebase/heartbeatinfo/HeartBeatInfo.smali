@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/firebase/heartbeatinfo/HeartBeatInfo;
-.super Ljava/lang/Object;
-.source "HeartBeatInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/firebase/heartbeatinfo/HeartBeatInfo$HeartBeat;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getHeartBeatCode(Ljava/lang/String;)Lcom/google/firebase/heartbeatinfo/HeartBeatInfo$HeartBeat;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:63fafa3766e7ba54950c2824282c91b79af8587ae35d530af46dc57ac4fcbb1d
+size 463

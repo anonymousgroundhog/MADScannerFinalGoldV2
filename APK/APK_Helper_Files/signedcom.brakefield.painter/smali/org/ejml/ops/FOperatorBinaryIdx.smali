@@ -1,13 +1,3 @@
-.class public interface abstract Lorg/ejml/ops/FOperatorBinaryIdx;
-.super Ljava/lang/Object;
-.source "FOperatorBinaryIdx.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/FunctionalInterface;
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(IF)F
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:64c3398c4ef747989c0474e6eaea38406d2663b17127b871b096339deb5d79ce
+size 278

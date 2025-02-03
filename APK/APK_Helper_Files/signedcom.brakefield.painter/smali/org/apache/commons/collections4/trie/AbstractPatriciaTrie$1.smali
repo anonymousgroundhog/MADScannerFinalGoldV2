@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
-.super Ljava/lang/Object;
-.source "AbstractPatriciaTrie.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:91b93511abdfb32d7f9c7cc040fd2991493f9994b443c41a812640081d6d8f30
+size 407

@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;
-.super Ljava/lang/Object;
-.source "RecyclerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "LayoutPrefetchRegistry"
-.end annotation
-
-
-# virtual methods
-.method public abstract addPosition(II)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:545175bc778f7f4552f7de6f300c5f393bfdb9cb3b0bc574d9bcaa0504b3ab49
+size 524

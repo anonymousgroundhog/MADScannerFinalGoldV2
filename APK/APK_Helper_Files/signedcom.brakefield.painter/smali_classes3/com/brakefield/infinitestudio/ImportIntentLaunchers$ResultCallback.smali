@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ImportIntentLaunchers$ResultCallback;
-.super Ljava/lang/Object;
-.source "ImportIntentLaunchers.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ImportIntentLaunchers;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ResultCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract processUri(Landroid/content/Context;Landroid/net/Uri;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:257083438c2b5f474429bce3d4aacddaddbf5a0b5c796966c83414348e294e2a
+size 548

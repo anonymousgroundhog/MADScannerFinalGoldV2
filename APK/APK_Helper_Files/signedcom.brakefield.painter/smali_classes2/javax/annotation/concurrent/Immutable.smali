@@ -1,21 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/concurrent/Immutable;
-.super Ljava/lang/Object;
-.source "Immutable.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:35ed1b3b01ddcf0ba5864c8724dba80001f145f2119fe9b43bd7af3ee338dfa4
+size 631

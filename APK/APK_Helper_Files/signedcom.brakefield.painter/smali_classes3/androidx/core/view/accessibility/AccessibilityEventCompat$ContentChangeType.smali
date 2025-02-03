@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/view/accessibility/AccessibilityEventCompat$ContentChangeType;
-.super Ljava/lang/Object;
-.source "AccessibilityEventCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/accessibility/AccessibilityEventCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ContentChangeType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2c0a454e6a35c034256cfa738f4e3519c568df63b46ab0cf9f50fdec5fccd7e2
+size 703

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/scheduling/persistence/AutoValue_EventStoreConfig$1;
-.super Ljava/lang/Object;
-.source "AutoValue_EventStoreConfig.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/scheduling/persistence/AutoValue_EventStoreConfig;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c2590a9a3ab974118ff10061071cb27bd8979982e0d5a475c3084b997317696
+size 479

@@ -1,15 +1,3 @@
-.class public interface abstract Lcom/google/firebase/remoteconfig/ConfigUpdateListener;
-.super Ljava/lang/Object;
-.source "ConfigUpdateListener.java"
-
-
-# virtual methods
-.method public abstract onError(Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigException;)V
-    .param p1    # Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigException;
-        .annotation runtime Ljavax/annotation/Nonnull;
-        .end annotation
-    .end param
-.end method
-
-.method public abstract onUpdate(Lcom/google/firebase/remoteconfig/ConfigUpdate;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5a510e7b51f6e5cfd30ee32110c51947048ea6c3cb1e8ea03b97c6d7dc6591c
+size 556

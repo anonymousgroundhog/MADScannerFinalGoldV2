@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lorg/intellij/lang/annotations/JdkConstants$BoxLayoutAxis;
-.super Ljava/lang/Object;
-.source "JdkConstants.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/intellij/lang/annotations/JdkConstants;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "BoxLayoutAxis"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bbd2911b4d2b3157618f46961ede5a9fad0af01f5ee9c2bca500f1ff21a1648a
+size 479

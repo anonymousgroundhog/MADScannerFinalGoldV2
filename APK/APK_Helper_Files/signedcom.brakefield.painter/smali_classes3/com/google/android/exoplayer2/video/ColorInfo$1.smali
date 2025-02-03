@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/video/ColorInfo$1;
-.super Ljava/lang/Object;
-.source "ColorInfo.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/video/ColorInfo;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:20919145a45ecf696ed3f2ac1f8984ec8154e7c2ea60c9525361d0845881257a
+size 372

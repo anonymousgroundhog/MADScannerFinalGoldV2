@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:padding="@dimen/padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.brakefield.infinitestudio.ui.AutosizeTextView android:textSize="@dimen/text_size_large" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brush" android:lines="1" />
-        <ImageView android:layout_gravity="right" android:id="@id/advanced_toggle" android:layout_width="@dimen/button_size" android:layout_height="@dimen/button_size" android:src="@drawable/expand_more" />
-    </FrameLayout>
-    <LinearLayout android:orientation="vertical" android:id="@id/brush_settings_container" android:padding="@dimen/padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:a618e278dac1af3cceaa71ff0d1603ffaaa0940e667fefae88d5e4c3c871980c
+size 1055

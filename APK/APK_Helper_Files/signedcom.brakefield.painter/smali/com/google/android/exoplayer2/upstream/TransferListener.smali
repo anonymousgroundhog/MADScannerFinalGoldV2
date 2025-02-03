@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/upstream/TransferListener;
-.super Ljava/lang/Object;
-.source "TransferListener.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onBytesTransferred(Lcom/google/android/exoplayer2/upstream/DataSource;Lcom/google/android/exoplayer2/upstream/DataSpec;ZI)V
-.end method
-
-.method public abstract onTransferEnd(Lcom/google/android/exoplayer2/upstream/DataSource;Lcom/google/android/exoplayer2/upstream/DataSpec;Z)V
-.end method
-
-.method public abstract onTransferInitializing(Lcom/google/android/exoplayer2/upstream/DataSource;Lcom/google/android/exoplayer2/upstream/DataSpec;Z)V
-.end method
-
-.method public abstract onTransferStart(Lcom/google/android/exoplayer2/upstream/DataSource;Lcom/google/android/exoplayer2/upstream/DataSpec;Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5706fd6403db2460b0c4dc4b7f42ad861a4ddc79c202482f037551917b6eeb0c
+size 880

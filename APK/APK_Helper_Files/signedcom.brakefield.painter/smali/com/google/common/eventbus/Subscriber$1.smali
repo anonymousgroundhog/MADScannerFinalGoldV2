@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/eventbus/Subscriber$1;
-.super Ljava/lang/Object;
-.source "Subscriber.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/eventbus/Subscriber;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:91e4a5ea77d378ab94272ecb18dc661d271b3c5d1b090933aef5ab5b25ffbeee
+size 357

@@ -1,19 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;
-.super Ljava/lang/Object;
-.source "DecodeJob.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/engine/DecodeJob;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "DiskCacheProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract getDiskCache()Lcom/bumptech/glide/load/engine/cache/DiskCache;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8105be4364ce41c9609ae6838e235431edb18cd16d14a5d56e663bd3876c304
+size 520

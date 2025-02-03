@@ -1,22 +1,3 @@
-.class public abstract Lcom/brakefield/painter/ui/viewcontrollers/ViewController;
-.super Ljava/lang/Object;
-.source "ViewController.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 3
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public update()V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8bb9995e24de468264c4b7d198d261c59d09fb53c95a81edef8ed23e48105eb6
+size 392

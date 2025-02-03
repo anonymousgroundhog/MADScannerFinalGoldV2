@@ -1,20 +1,3 @@
-.class interface abstract Lcom/brakefield/infinitestudio/ui/sectionedrecyclerviewadapter/SectionPositionIdentifier;
-.super Ljava/lang/Object;
-.source "SectionPositionIdentifier.java"
-
-
-# virtual methods
-.method public abstract getFooterPosition()I
-.end method
-
-.method public abstract getHeaderPosition()I
-.end method
-
-.method public abstract getPositionInAdapter(I)I
-.end method
-
-.method public abstract getPositionInSection(I)I
-.end method
-
-.method public abstract getSectionPosition()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c3dfbccb17806bfc94488285947f0ac9d4a29c74bb6c97a0da0eb544880b2650
+size 501

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/text/webvtt/WebvttCueParser$1;
-.super Ljava/lang/Object;
-.source "WebvttCueParser.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/text/webvtt/WebvttCueParser;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5e21ceb8fb3349c66631e035e3d7930be31e57497e18ff933f8b4c6d4edc98d
+size 402

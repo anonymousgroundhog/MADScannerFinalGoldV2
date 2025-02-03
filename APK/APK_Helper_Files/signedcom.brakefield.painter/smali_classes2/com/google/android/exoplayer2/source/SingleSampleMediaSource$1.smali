@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/SingleSampleMediaSource$1;
-.super Ljava/lang/Object;
-.source "SingleSampleMediaSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/SingleSampleMediaSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a97361943fe62d1f4abaa2ba9b57dcc7e823b3c9d1dabb993eb2f7d94a59c3b
+size 416

@@ -1,25 +1,3 @@
-.class interface abstract Landroidx/media/MediaSessionManager$RemoteUserInfoImpl;
-.super Ljava/lang/Object;
-.source "MediaSessionManager.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/MediaSessionManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "RemoteUserInfoImpl"
-.end annotation
-
-
-# virtual methods
-.method public abstract getPackageName()Ljava/lang/String;
-.end method
-
-.method public abstract getPid()I
-.end method
-
-.method public abstract getUid()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:844fa549fef663a3862dc27a9c3cdbf82fdb6f334160d9f93c5b233ac6bfc307
+size 586

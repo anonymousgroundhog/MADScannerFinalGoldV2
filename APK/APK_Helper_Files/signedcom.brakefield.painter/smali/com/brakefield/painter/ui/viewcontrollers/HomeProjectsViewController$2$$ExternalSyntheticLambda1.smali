@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/widget/PopupWindow$OnDismissListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onDismiss()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2;
-
-    invoke-virtual {v0}, Lcom/brakefield/painter/ui/viewcontrollers/HomeProjectsViewController$2;->lambda$onItemLongClick$3$com-brakefield-painter-ui-viewcontrollers-HomeProjectsViewController$2()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:eafcbe11660cd28ebe8a1e30e1fd8284276ab2f3e8c4ae2da2ab93371dd7c998
+size 1320

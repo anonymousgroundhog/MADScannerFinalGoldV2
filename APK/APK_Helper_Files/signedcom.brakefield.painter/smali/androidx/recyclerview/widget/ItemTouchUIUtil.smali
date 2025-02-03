@@ -1,17 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/ItemTouchUIUtil;
-.super Ljava/lang/Object;
-.source "ItemTouchUIUtil.java"
-
-
-# virtual methods
-.method public abstract clearView(Landroid/view/View;)V
-.end method
-
-.method public abstract onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
-.end method
-
-.method public abstract onDrawOver(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
-.end method
-
-.method public abstract onSelected(Landroid/view/View;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6a41d9f68d5ab214dc716c920a85b5d49ba60a192fc61917d53eef22816942c6
+size 575

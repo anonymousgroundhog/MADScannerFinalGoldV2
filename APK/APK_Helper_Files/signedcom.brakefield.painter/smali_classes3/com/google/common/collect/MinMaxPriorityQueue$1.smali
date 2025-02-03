@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/MinMaxPriorityQueue$1;
-.super Ljava/lang/Object;
-.source "MinMaxPriorityQueue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/MinMaxPriorityQueue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1ad41d169c4f4b21d973b503ea9b1f38588ec8375347e316777051c812332f0e
+size 382

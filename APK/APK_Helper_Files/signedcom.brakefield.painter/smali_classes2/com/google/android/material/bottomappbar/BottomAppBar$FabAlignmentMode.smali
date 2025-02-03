@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomappbar/BottomAppBar$FabAlignmentMode;
-.super Ljava/lang/Object;
-.source "BottomAppBar.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomappbar/BottomAppBar;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "FabAlignmentMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:83323a7a9225241cc3a965196ef216e8a46361ffa6dd212340a96ed3adcd1401
+size 681

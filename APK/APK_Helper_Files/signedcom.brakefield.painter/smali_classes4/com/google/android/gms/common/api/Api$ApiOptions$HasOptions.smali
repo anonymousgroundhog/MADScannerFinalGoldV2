@@ -1,17 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/Api$ApiOptions$HasOptions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/Api$ApiOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "HasOptions"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:17e47c8b25bc6a5f41529d9dd40d051b8649e4acaa4054784b31a6e990c3d301
+size 522

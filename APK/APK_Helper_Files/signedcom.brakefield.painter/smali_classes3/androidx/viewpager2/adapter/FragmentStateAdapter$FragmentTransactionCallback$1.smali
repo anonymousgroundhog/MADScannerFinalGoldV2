@@ -1,36 +1,3 @@
-.class Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentTransactionCallback$1;
-.super Ljava/lang/Object;
-.source "FragmentStateAdapter.java"
-
-# interfaces
-.implements Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentTransactionCallback$OnPostEventListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/viewpager2/adapter/FragmentStateAdapter$FragmentTransactionCallback;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 853
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public onPost()V
-    .locals 0
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2dcf7cbae4f4eabacd36d605392d9318d1ecea35b85a72f1866110e219a2b687
+size 806

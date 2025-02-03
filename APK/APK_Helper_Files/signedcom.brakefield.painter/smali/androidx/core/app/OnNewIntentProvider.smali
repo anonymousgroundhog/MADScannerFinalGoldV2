@@ -1,27 +1,3 @@
-.class public interface abstract Landroidx/core/app/OnNewIntentProvider;
-.super Ljava/lang/Object;
-.source "OnNewIntentProvider.java"
-
-
-# virtual methods
-.method public abstract addOnNewIntentListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroid/content/Intent;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract removeOnNewIntentListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroid/content/Intent;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5714acda702af9163b456d8a98785e385e30d550d23520eab324667d12024e60
+size 784

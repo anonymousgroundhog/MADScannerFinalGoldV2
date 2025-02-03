@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/formatter/qual/InvalidFormat;
-.super Ljava/lang/Object;
-.source "InvalidFormat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/formatter/qual/UnknownFormat;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3d97671db1f6b155d8fb23334b64da8acec1be2940dc5b166e9a54c1d1298212
+size 1017

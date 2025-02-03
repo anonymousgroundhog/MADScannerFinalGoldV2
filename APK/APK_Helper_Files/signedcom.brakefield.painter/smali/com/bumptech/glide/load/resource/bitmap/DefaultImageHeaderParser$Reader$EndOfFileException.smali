@@ -1,31 +1,3 @@
-.class public final Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$Reader$EndOfFileException;
-.super Ljava/io/IOException;
-.source "DefaultImageHeaderParser.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$Reader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "EndOfFileException"
-.end annotation
-
-
-# static fields
-.field private static final serialVersionUID:J = 0x1L
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 1
-
-    const-string v0, "Unexpectedly reached end of a file"
-
-    .line 451
-    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a5b23b1da8f11fd914d7553e41ca1511a6988790ed22a21ab6414bbd81155479
+size 793

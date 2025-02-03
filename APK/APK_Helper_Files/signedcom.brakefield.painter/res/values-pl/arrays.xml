@@ -1,12 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="exo_controls_playback_speeds">
-        <item>0,25x</item>
-        <item>0,5x</item>
-        <item>0,75x</item>
-        <item>Normalna</item>
-        <item>1,25x</item>
-        <item>1,5x</item>
-        <item>2x</item>
-    </string-array>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4f0cb1eca8ac32127dcbb9adfde66efafd5e6e6d7b8acd01e361dfa9a22c869
+size 326

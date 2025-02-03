@@ -1,22 +1,3 @@
-.class public abstract Lcom/google/android/material/resources/TextAppearanceFontCallback;
-.super Ljava/lang/Object;
-.source "TextAppearanceFontCallback.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 30
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract onFontRetrievalFailed(I)V
-.end method
-
-.method public abstract onFontRetrieved(Landroid/graphics/Typeface;Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7cd38916fc8297d22f62ad14cafd9261a0420a694605d6383fc6a179f48ad56e
+size 491

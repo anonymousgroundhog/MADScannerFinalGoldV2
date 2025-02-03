@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/util/Predicate;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract apply(Ljava/lang/Object;)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:effec54ea67ec62d3be3c44fdb8cf0f04a20a33eb4cefbab97f959f379934769
+size 563

@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/api/client/json/rpc2/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:2314f8e4e19af32099ba4ad0f33edd48416e792379b81a9d702de7de4817b80c
+size 137

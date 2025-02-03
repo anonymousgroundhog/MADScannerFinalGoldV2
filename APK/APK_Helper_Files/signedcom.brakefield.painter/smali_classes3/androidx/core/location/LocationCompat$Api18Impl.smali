@@ -1,36 +1,3 @@
-.class Landroidx/core/location/LocationCompat$Api18Impl;
-.super Ljava/lang/Object;
-.source "LocationCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/location/LocationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "Api18Impl"
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 966
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static isMock(Landroid/location/Location;)Z
-    .locals 0
-
-    .line 971
-    invoke-virtual {p0}, Landroid/location/Location;->isFromMockProvider()Z
-
-    move-result p0
-
-    return p0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5fb0b47c6607cee3c4da10c43b6db0ef1c8d044c6260e2928912930338dc5f6f
+size 737

@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/internal/play_billing/zzav;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Ljava/util/Iterator;
-
-
-# virtual methods
-.method public abstract zza()B
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d97944f511226ba35b548bb41fab814dd4efb3cdbdfa032aaf3b9a34bc471f02
+size 272

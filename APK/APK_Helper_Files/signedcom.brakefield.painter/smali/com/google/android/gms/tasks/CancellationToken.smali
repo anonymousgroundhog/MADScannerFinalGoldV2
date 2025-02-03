@@ -1,21 +1,3 @@
-.class public abstract Lcom/google/android/gms/tasks/CancellationToken;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-tasks@@18.0.2"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract isCancellationRequested()Z
-.end method
-
-.method public abstract onCanceledRequested(Lcom/google/android/gms/tasks/OnTokenCanceledListener;)Lcom/google/android/gms/tasks/CancellationToken;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:07de93f912498d827fc10a2c59a6fd4432fdfa820efcc21e4f5d9b0fe73b2259
+size 557

@@ -1,23 +1,3 @@
-.class public final Lcom/google/android/play/core/common/LocalTestingException;
-.super Ljava/lang/Exception;
-.source "com.google.android.play:core@@1.10.3"
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 0
-
-    .line 2
-    invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:601cb0658f9357a27006a9556da33fb96611e4a1892d9a5d4920ff207d03ce22
+size 602

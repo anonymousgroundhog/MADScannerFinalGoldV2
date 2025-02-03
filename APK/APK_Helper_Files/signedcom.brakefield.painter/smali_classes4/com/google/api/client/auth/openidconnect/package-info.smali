@@ -1,3 +1,3 @@
-.class interface abstract synthetic Lcom/google/api/client/auth/openidconnect/package-info;
-.super Ljava/lang/Object;
-.source "package-info.java"
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c034fc9090b07caa564d5733d48293012366da1c61be102c4b22147acac6745
+size 146

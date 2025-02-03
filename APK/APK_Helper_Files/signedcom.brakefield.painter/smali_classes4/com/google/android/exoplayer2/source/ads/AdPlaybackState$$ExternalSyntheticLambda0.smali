@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/source/ads/AdPlaybackState$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/Bundleable$Creator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final fromBundle(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Bundleable;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/source/ads/AdPlaybackState;->$r8$lambda$v7MSQh9nkbSNgVVbdfE7aSUxQOQ(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/source/ads/AdPlaybackState;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:09d1bdbf52399bb47696ad83f7d2090c11fddd26751e8b93d0456759f231e8ed
+size 804

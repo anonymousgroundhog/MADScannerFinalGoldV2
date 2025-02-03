@@ -1,29 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/BoundedMap;
-.super Ljava/lang/Object;
-.source "BoundedMap.java"
-
-# interfaces
-.implements Lorg/apache/commons/collections4/IterableMap;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lorg/apache/commons/collections4/IterableMap<",
-        "TK;TV;>;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract isFull()Z
-.end method
-
-.method public abstract maxSize()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ab7fe3174ee1a7500e6c0ac52d9ac0d498d76606d21ecca828f2e30e6f9f692
+size 625

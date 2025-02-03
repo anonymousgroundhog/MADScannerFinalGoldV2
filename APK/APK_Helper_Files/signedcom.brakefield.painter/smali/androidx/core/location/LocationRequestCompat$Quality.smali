@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/location/LocationRequestCompat$Quality;
-.super Ljava/lang/Object;
-.source "LocationRequestCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/location/LocationRequestCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Quality"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:91b1562cc0ccbd5fc38af7ee12f72e8de53691ce0717fb74f8037345f7baa9a1
+size 654

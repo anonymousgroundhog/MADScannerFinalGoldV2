@@ -1,26 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/common/subtyping/qual/Unqualified;
-.super Ljava/lang/Object;
-.source "Unqualified.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {}
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InvisibleQualifier;
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {}
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e317b3d5376f02a281230f7b1e032a4c41692fb4fcb347c77b407dea0beb98b1
+size 750

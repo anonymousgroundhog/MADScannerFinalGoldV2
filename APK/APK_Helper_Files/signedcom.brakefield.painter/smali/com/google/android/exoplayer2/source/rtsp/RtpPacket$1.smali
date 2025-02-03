@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/rtsp/RtpPacket$1;
-.super Ljava/lang/Object;
-.source "RtpPacket.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/RtpPacket;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:d78d6877b26efef4d8c6fd3a3383cd9826d5ddecf0656d28f1e2395cf0817764
+size 384

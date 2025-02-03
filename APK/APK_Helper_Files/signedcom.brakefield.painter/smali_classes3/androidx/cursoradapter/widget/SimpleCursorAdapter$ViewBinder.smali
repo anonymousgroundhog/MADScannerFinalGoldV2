@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/cursoradapter/widget/SimpleCursorAdapter$ViewBinder;
-.super Ljava/lang/Object;
-.source "SimpleCursorAdapter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/cursoradapter/widget/SimpleCursorAdapter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ViewBinder"
-.end annotation
-
-
-# virtual methods
-.method public abstract setViewValue(Landroid/view/View;Landroid/database/Cursor;I)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c10e00687c09f43a00762c35860313ab87b4d60464f85304f452672cb9fcee8b
+size 539

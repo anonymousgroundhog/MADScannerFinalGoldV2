@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/infinite/app/ViewSystem$View;
-.super Ljava/lang/Object;
-.source "ViewSystem.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/infinite/app/ViewSystem;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "View"
-.end annotation
-
-
-# virtual methods
-.method public abstract show(Landroid/content/Context;JI[I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:67568c39dc1e303a1c772e2432e51c3a13f40b353a01ccb64f77e16c2006d6cf
+size 450

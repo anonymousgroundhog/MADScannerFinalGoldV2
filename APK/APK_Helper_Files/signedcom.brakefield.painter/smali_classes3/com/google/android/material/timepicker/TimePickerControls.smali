@@ -1,26 +1,3 @@
-.class interface abstract Lcom/google/android/material/timepicker/TimePickerControls;
-.super Ljava/lang/Object;
-.source "TimePickerControls.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/material/timepicker/TimePickerControls$ActiveSelection;,
-        Lcom/google/android/material/timepicker/TimePickerControls$ClockPeriod;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract setActiveSelection(I)V
-.end method
-
-.method public abstract setHandRotation(F)V
-.end method
-
-.method public abstract setValues([Ljava/lang/String;I)V
-.end method
-
-.method public abstract updateTime(III)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7bfd2a74fdb3c46ac5fc8af972ae5c5a67ef251572f3f13c978f75143ed21087
+size 676

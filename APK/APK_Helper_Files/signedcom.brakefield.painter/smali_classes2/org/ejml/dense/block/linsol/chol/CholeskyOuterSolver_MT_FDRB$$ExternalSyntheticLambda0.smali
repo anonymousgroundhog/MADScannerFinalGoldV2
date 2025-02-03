@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/dense/block/linsol/chol/CholeskyOuterSolver_MT_FDRB$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lpabeles/concurrency/ConcurrencyOps$NewInstance;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final newInstance()Ljava/lang/Object;
-    .locals 1
-
-    invoke-static {}, Lorg/ejml/dense/block/linsol/chol/CholeskyOuterSolver_MT_FDRB;->$r8$lambda$pq654f7UQ7aW8eY1DSwJEDd0k2c()Lorg/ejml/data/FGrowArray;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b04adea4450b749651dbf8d9cdbf8d36691072d3633b4169669b30976ff6f9c
+size 715

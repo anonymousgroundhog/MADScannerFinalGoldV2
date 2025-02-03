@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/media/VolumeProviderCompat$ControlType;
-.super Ljava/lang/Object;
-.source "VolumeProviderCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/VolumeProviderCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ControlType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b17af19dd4f3545871286fd5591b3671de63258a9c95e46e79f5768c3551344
+size 643

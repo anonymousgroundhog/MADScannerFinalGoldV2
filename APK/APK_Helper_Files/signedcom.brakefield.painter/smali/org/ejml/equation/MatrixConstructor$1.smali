@@ -1,14 +1,3 @@
-.class synthetic Lorg/ejml/equation/MatrixConstructor$1;
-.super Ljava/lang/Object;
-.source "MatrixConstructor.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/ejml/equation/MatrixConstructor;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:c869236d3e309dbcbb968bada4588df4b13f06ef7198ae69758b01342e068def
+size 360

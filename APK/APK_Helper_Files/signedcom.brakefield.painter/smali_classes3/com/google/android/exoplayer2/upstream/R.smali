@@ -1,12 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/upstream/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:608e33a99281fdd7a6ff35673fd1554b8b7037f27395d81499a779570db10a2f
+size 244

@@ -1,24 +1,3 @@
-.class interface abstract annotation Lcom/google/common/collect/GwtTransient;
-.super Ljava/lang/Object;
-.source "GwtTransient.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:5de109e2444213cec4d2b4e488378dc60cb10deb06486b1b7bae52b0e104f973
+size 728

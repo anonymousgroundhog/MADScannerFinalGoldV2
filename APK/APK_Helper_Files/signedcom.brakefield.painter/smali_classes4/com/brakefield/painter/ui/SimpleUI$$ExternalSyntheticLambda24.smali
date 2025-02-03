@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/SimpleUI$$ExternalSyntheticLambda24;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 0
-
-    invoke-static {}, Lcom/brakefield/painter/ui/SimpleUI;->lambda$returnHomeFromEditor$24()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c9c4303199e32daec4d750a63629c14a0938d89118438ad113439bf619330a4b
+size 546

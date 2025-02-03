@@ -1,29 +1,3 @@
-.class abstract Lcom/google/common/util/concurrent/GwtFluentFutureCatchingSpecialization;
-.super Lcom/google/common/util/concurrent/AbstractFuture;
-.source "GwtFluentFutureCatchingSpecialization.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/google/common/util/concurrent/AbstractFuture<",
-        "TV;>;"
-    }
-.end annotation
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a27bc45c8a6ee5585c810d5455b9ca10b5b89c7d1ad1e7f090958b6467aae3e7
+size 735

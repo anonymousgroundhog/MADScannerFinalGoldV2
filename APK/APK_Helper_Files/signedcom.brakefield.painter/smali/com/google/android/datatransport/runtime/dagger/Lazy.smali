@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/dagger/Lazy;
-.super Ljava/lang/Object;
-.source "Lazy.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract get()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:77f5ba64c834106e4e325aa26c96907a865de409bc062afbb9afbc50718c03cc
+size 523

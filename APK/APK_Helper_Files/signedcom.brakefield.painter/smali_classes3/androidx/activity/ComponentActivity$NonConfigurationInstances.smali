@@ -1,31 +1,3 @@
-.class final Landroidx/activity/ComponentActivity$NonConfigurationInstances;
-.super Ljava/lang/Object;
-.source "ComponentActivity.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/activity/ComponentActivity;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "NonConfigurationInstances"
-.end annotation
-
-
-# instance fields
-.field custom:Ljava/lang/Object;
-
-.field viewModelStore:Landroidx/lifecycle/ViewModelStore;
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .line 138
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a84d4685fcac8bff25a537e23d1236cc83cd78037c55f84d55e947e687faab2b
+size 674

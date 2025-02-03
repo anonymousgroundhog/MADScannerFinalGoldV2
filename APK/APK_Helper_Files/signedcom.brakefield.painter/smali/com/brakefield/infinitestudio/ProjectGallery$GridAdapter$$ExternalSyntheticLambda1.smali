@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter$$ExternalSyntheticLambda1;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/infinitestudio/ProjectGallery$GridAdapter;->lambda$onBindViewHolder$1$com-brakefield-infinitestudio-ProjectGallery$GridAdapter(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:97d6938e20d6d9a57bc3a9947f943f6004f5881826abd2018f73411b93bf3732
+size 1298

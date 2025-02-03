@@ -1,27 +1,3 @@
-.class public final Lcom/bumptech/glide/R$string;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "string"
-.end annotation
-
-
-# static fields
-.field public static final status_bar_notification_info_overflow:I = 0x7f120ac0
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0b81ecd4081a9c8c4c11f6810e65235606cdcf8806036eb82bf5f5426d723e49
+size 560

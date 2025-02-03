@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/tabs/TabLayout$TabIndicatorGravity;
-.super Ljava/lang/Object;
-.source "TabLayout.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/tabs/TabLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TabIndicatorGravity"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:41d32e08dfa34612714f705914f924efa048c85ca9e529aa722f5a3e3423709b
+size 662

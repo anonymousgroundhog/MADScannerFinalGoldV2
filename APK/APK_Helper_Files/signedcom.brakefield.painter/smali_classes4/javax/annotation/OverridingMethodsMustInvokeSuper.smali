@@ -1,21 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/OverridingMethodsMustInvokeSuper;
-.super Ljava/lang/Object;
-.source "OverridingMethodsMustInvokeSuper.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f57fe0bef1a416bf3cacf655f022ec10ae0756a51a5623dd3a89e7d0a5d8f241
+size 670

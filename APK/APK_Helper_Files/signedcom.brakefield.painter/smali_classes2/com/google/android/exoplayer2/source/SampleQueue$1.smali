@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/SampleQueue$1;
-.super Ljava/lang/Object;
-.source "SampleQueue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/SampleQueue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:068a131009a64e4dacaf28d222ea5c232deff9784f783ef8d89eecc4f1416b2e
+size 380

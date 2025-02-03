@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/firebase/concurrent/PausableExecutorServiceImpl$$ExternalSyntheticLambda1;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/util/concurrent/Callable;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/lang/Runnable;
-
-
-# direct methods
-.method public synthetic constructor <init>(Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/firebase/concurrent/PausableExecutorServiceImpl$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Runnable;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final call()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/firebase/concurrent/PausableExecutorServiceImpl$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Runnable;
-
-    invoke-static {v0}, Lcom/google/firebase/concurrent/PausableExecutorServiceImpl;->lambda$submit$1(Ljava/lang/Runnable;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f65e7133138dd9c1debf77cdce9080b4ff01a11216ef2c68f11976c0ad90d66
+size 1049

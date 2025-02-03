@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/tabs/TabLayout$TabIndicatorAnimationMode;
-.super Ljava/lang/Object;
-.source "TabLayout.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/tabs/TabLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "TabIndicatorAnimationMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7999617d6d7fd2f165bffafd0d165c87e13df46e99cb1d125e99c26923948f1
+size 674

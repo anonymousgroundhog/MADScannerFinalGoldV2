@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_focused="true" android:drawable="@drawable/edit_text_focused" />
-    <item android:drawable="@drawable/edit_text" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:05e2fc62dd077b90eb5fea3e16854af9bbac41d99d633c269205dea263ef8dc6
+size 263

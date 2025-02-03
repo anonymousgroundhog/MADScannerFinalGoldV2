@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/bottomsheet/BottomSheetBehavior$StableState;
-.super Ljava/lang/Object;
-.source "BottomSheetBehavior.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StableState"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:a5a6c03866859e57d6a5867feaefad28940cfeafb92a5e0aa1a0aa7a12a7ce06
+size 690

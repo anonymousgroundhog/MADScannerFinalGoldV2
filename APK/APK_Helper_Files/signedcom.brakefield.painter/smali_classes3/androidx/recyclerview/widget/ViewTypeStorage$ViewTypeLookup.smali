@@ -1,25 +1,3 @@
-.class public interface abstract Landroidx/recyclerview/widget/ViewTypeStorage$ViewTypeLookup;
-.super Ljava/lang/Object;
-.source "ViewTypeStorage.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/recyclerview/widget/ViewTypeStorage;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ViewTypeLookup"
-.end annotation
-
-
-# virtual methods
-.method public abstract dispose()V
-.end method
-
-.method public abstract globalToLocal(I)I
-.end method
-
-.method public abstract localToGlobal(I)I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:418cda360f4b2c141b73990ae833097c231ffe2e3de35a503b4a56dbffd40fff
+size 593

@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/video/VideoDecoderOutputBufferRenderer;
-.super Ljava/lang/Object;
-.source "VideoDecoderOutputBufferRenderer.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract setOutputBuffer(Lcom/google/android/exoplayer2/decoder/VideoDecoderOutputBuffer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:13e83c5687a3c92597a84aff00ca8f43d56a8c28817e01d2498336cf29a11a1e
+size 392

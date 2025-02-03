@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/common/collect/RegularImmutableTable$1;
-.super Ljava/lang/Object;
-.source "RegularImmutableTable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/RegularImmutableTable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:501f7c7e401e5de14a8fa9d290b801b50de73edbeeea0e250d0d0ad22dd5faef
+size 388

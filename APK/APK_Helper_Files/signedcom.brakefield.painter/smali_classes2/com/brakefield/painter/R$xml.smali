@@ -1,27 +1,3 @@
-.class public final Lcom/brakefield/painter/R$xml;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "xml"
-.end annotation
-
-
-# static fields
-.field public static final provider_paths:I = 0x7f150000
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:56e669d12a66dc6bbff1014993566c01a950e44df217f620ff6655a3fdf3ca52
+size 539

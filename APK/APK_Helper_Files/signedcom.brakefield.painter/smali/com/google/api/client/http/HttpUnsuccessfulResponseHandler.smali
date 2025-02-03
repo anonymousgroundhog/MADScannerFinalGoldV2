@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/HttpUnsuccessfulResponseHandler;
-.super Ljava/lang/Object;
-.source "HttpUnsuccessfulResponseHandler.java"
-
-
-# virtual methods
-.method public abstract handleResponse(Lcom/google/api/client/http/HttpRequest;Lcom/google/api/client/http/HttpResponse;Z)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d4d32ed852ac31ee4773b6c03e56ef5137a8bcc321bb3fe8105ecf1e22f36c6
+size 455

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:id="@id/swatch_library" android:padding="@dimen/padding_medium" android:layout_width="@dimen/color_wheel_size" android:layout_height="wrap_content" android:columnWidth="@dimen/card_width_large" android:dividerHeight="0.0dip" />
-</FrameLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:295be7a5f5d3f3ef098c97129ffdd233e558bc96aa03c041d4620715cdd0624d
+size 483

@@ -1,18 +1,3 @@
-.class synthetic Lkotlinx/coroutines/debug/internal/DebugProbesImpl$SequenceNumberRefVolatile;
-.super Ljava/lang/Object;
-
-
-# instance fields
-.field volatile sequenceNumber:J
-
-
-# direct methods
-.method public constructor <init>(J)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-wide p1, p0, Lkotlinx/coroutines/debug/internal/DebugProbesImpl$SequenceNumberRefVolatile;->sequenceNumber:J
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:6db65854469e8e9ef43987f5717332b38b4452e8ab1da1f227ccb03d5e1c044b
+size 448

@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/ops/DSemiRings$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lorg/ejml/ops/DOperatorBinary;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final apply(DD)D
-    .locals 0
-
-    invoke-static {p1, p2, p3, p4}, Lorg/ejml/ops/DSemiRings;->lambda$static$0(DD)D
-
-    move-result-wide p1
-
-    return-wide p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b792eb3fa2d349d5d003ad4ff2c14d484165fde5eaaeaca8e65e1d98ab8692f1
+size 566

@@ -1,22 +1,3 @@
-.class public interface abstract Landroidx/appcompat/widget/ActionMenuView$ActionMenuChildView;
-.super Ljava/lang/Object;
-.source "ActionMenuView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/widget/ActionMenuView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "ActionMenuChildView"
-.end annotation
-
-
-# virtual methods
-.method public abstract needsDividerAfter()Z
-.end method
-
-.method public abstract needsDividerBefore()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:530794e084d2a9c43985369693f9403da0d084731dd2025c180357cdb4d78b7a
+size 553

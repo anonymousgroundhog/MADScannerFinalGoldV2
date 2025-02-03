@@ -1,17 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/tabs/TabLayout$LabelVisibility;
-.super Ljava/lang/Object;
-.source "TabLayout.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/tabs/TabLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "LabelVisibility"
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1f03d3a66f8bef452533c6fe6afdb0c1bb1d071500c6e3e78341aa4b1d4b1e3
+size 480

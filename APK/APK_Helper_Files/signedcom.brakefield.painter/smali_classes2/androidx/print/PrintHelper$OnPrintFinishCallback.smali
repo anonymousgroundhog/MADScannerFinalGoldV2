@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/print/PrintHelper$OnPrintFinishCallback;
-.super Ljava/lang/Object;
-.source "PrintHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/print/PrintHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnPrintFinishCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract onFinish()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9e89457e6787657c4c70216c0a8cc5f0ba126f860fb7db38ab6dda685b11ef0c
+size 458

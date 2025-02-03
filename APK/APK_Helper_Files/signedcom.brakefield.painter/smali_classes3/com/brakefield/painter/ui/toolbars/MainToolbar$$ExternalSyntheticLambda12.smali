@@ -1,26 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/toolbars/MainToolbar$$ExternalSyntheticLambda12;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 0
-
-    invoke-static {}, Lcom/brakefield/painter/ui/toolbars/MainToolbar;->lambda$setupToolbar$9()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:819646a8248db028d290fa3337567f3aa74811394017721eac9558cdead7153e
+size 561

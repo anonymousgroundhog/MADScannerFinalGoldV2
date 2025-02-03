@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/activities/ActivityMain$$ExternalSyntheticLambda5;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/MessageHandler$HandleData;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/activities/ActivityMain;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/activities/ActivityMain;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/activities/ActivityMain$$ExternalSyntheticLambda5;->f$0:Lcom/brakefield/painter/activities/ActivityMain;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final handle(Ljava/lang/Object;II)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/activities/ActivityMain$$ExternalSyntheticLambda5;->f$0:Lcom/brakefield/painter/activities/ActivityMain;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/brakefield/painter/activities/ActivityMain;->lambda$new$48$com-brakefield-painter-activities-ActivityMain(Ljava/lang/Object;II)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:be83cd005f141c31a98fd0861ad659e0aad9e93503bb13d90fb2f2512c1b439a
+size 1153

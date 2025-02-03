@@ -1,22 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;
-.super Ljava/lang/Object;
-.source "LruBitmapPool.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "BitmapTracker"
-.end annotation
-
-
-# virtual methods
-.method public abstract add(Landroid/graphics/Bitmap;)V
-.end method
-
-.method public abstract remove(Landroid/graphics/Bitmap;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ab86d79ff69c87e809d731bde47efd3762989642c44ff5142169470a65e3b84
+size 595

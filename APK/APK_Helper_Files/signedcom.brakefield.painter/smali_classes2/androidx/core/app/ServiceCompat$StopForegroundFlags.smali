@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/ServiceCompat$StopForegroundFlags;
-.super Ljava/lang/Object;
-.source "ServiceCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/ServiceCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StopForegroundFlags"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6832877a6dcdfbc4c4c62d74d58d6f646d191f5d22ec6439c62343a99d0786dc
+size 644

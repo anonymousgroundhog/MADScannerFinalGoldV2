@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/KeyCommand$Action;
-.super Ljava/lang/Object;
-.source "KeyCommand.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/KeyCommand;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Action"
-.end annotation
-
-
-# virtual methods
-.method public abstract fire()V
-.end method
-
-.method public abstract id()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ef38d0249b4df59b140de49a05f57c44008e91813960fd1f130bf9f4f9f4711f
+size 500

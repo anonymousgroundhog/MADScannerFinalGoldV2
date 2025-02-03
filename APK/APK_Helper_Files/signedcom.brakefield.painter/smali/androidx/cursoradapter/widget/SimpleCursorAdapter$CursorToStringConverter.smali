@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/cursoradapter/widget/SimpleCursorAdapter$CursorToStringConverter;
-.super Ljava/lang/Object;
-.source "SimpleCursorAdapter.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/cursoradapter/widget/SimpleCursorAdapter;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "CursorToStringConverter"
-.end annotation
-
-
-# virtual methods
-.method public abstract convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0df6c4dd192ef0ba46124a5a37ea80d32d87426b805bcfa29297e48ddd12c21a
+size 571

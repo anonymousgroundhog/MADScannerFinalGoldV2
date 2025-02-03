@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroid/support/v4/media/session/PlaybackStateCompat$MediaKeyAction;
-.super Ljava/lang/Object;
-.source "PlaybackStateCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/session/PlaybackStateCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "MediaKeyAction"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bea554ad1dd8a5e281fdfa33a69357c0c42ce15782ce13635011f5ac6e3e5d9
+size 682

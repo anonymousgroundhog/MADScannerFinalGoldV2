@@ -1,34 +1,3 @@
-.class public final Lcom/google/android/gms/internal/play_billing/zzfr;
-.super Lcom/google/android/gms/internal/play_billing/zzbx;
-.source "com.android.billingclient:billing@@6.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/internal/play_billing/zzdg;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 1
-
-    .line 1
-    invoke-static {}, Lcom/google/android/gms/internal/play_billing/zzfs;->zzv()Lcom/google/android/gms/internal/play_billing/zzfs;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/play_billing/zzbx;-><init>(Lcom/google/android/gms/internal/play_billing/zzcb;)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/google/android/gms/internal/play_billing/zzfq;)V
-    .locals 0
-
-    .line 2
-    invoke-static {}, Lcom/google/android/gms/internal/play_billing/zzfs;->zzv()Lcom/google/android/gms/internal/play_billing/zzfs;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/play_billing/zzbx;-><init>(Lcom/google/android/gms/internal/play_billing/zzcb;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fad6c8d37fda751de5f72ba022b7ff565ec6722b3325b724583cd5fe52ae5135
+size 1125

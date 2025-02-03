@@ -1,21 +1,3 @@
-.class interface abstract Landroidx/recyclerview/widget/ViewTypeStorage;
-.super Ljava/lang/Object;
-.source "ViewTypeStorage.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/recyclerview/widget/ViewTypeStorage$IsolatedViewTypeStorage;,
-        Landroidx/recyclerview/widget/ViewTypeStorage$SharedIdRangeViewTypeStorage;,
-        Landroidx/recyclerview/widget/ViewTypeStorage$ViewTypeLookup;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract createViewTypeWrapper(Landroidx/recyclerview/widget/NestedAdapterWrapper;)Landroidx/recyclerview/widget/ViewTypeStorage$ViewTypeLookup;
-.end method
-
-.method public abstract getWrapperForGlobalType(I)Landroidx/recyclerview/widget/NestedAdapterWrapper;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e910c749a565e2681d2e1b1ffc2c70707c35a50572dd186919ac91019e4f26c
+size 777

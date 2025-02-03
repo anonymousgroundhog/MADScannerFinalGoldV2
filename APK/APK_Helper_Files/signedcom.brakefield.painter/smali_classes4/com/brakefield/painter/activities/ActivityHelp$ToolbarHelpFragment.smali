@@ -1,35 +1,3 @@
-.class public Lcom/brakefield/painter/activities/ActivityHelp$ToolbarHelpFragment;
-.super Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;
-.source "ActivityHelp.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/activities/ActivityHelp;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "ToolbarHelpFragment"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 105
-    invoke-direct {p0}, Lcom/brakefield/painter/activities/ActivityHelp$HelpFragment;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public getLayout()I
-    .locals 1
-
-    const v0, 0x7f0d009d
-
-    return v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:887ad27ae7b4718b1caf01ea1bc8f798c72bcacb2376a082a297d80929c716d8
+size 775

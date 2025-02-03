@@ -1,30 +1,3 @@
-.class public Lcom/google/android/material/transformation/TransformationChildCard;
-.super Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;
-.source "TransformationChildCard.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    .line 39
-    invoke-direct {p0, p1, v0}, Lcom/google/android/material/transformation/TransformationChildCard;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
-
-    .line 43
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e3ee85df7b1e3f91af416349edd26e14109c117a3d02323903f0f496d58b99b0
+size 923

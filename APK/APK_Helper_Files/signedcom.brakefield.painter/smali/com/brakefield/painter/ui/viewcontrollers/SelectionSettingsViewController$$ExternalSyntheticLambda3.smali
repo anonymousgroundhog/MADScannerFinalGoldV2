@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/SelectionSettingsViewController$$ExternalSyntheticLambda3;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/SimpleUI;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/SelectionSettingsViewController$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/SelectionSettingsViewController$$ExternalSyntheticLambda3;->f$0:Lcom/brakefield/painter/ui/SimpleUI;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/SelectionSettingsViewController;->lambda$bindUI$12(Lcom/brakefield/painter/ui/SimpleUI;Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bdd6e6b75577cd43562822a90765699f79b7e76ea3cec80e320b44023f160022
+size 1173

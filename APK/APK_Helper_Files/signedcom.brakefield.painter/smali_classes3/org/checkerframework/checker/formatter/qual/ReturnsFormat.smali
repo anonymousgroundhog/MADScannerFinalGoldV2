@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/formatter/qual/ReturnsFormat;
-.super Ljava/lang/Object;
-.source "ReturnsFormat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:816149bf3bcabf9782837668eb48887f144647ff5d2a3f4ccd159fd9345fb013
+size 659

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/RemoteInput$Source;
-.super Ljava/lang/Object;
-.source "RemoteInput.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/RemoteInput;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Source"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:390d2e018c8e8cda3fe257da577a7c301c82f8aa631d4a701cfbf251be908b90
+size 612

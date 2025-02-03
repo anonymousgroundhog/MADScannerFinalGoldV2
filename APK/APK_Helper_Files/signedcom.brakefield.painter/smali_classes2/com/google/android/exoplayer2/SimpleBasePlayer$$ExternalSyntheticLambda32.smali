@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda32;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/common/base/Supplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/google/android/exoplayer2/SimpleBasePlayer$State;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda32;->f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/exoplayer2/SimpleBasePlayer$$ExternalSyntheticLambda32;->f$0:Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-    invoke-static {v0}, Lcom/google/android/exoplayer2/SimpleBasePlayer;->lambda$clearVideoOutput$21(Lcom/google/android/exoplayer2/SimpleBasePlayer$State;)Lcom/google/android/exoplayer2/SimpleBasePlayer$State;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:968cffd65e352c23329cdef9c78893df3a0f4b1b2df79dd083e81c171ab8b7d7
+size 1222

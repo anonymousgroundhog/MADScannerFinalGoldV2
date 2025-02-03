@@ -1,28 +1,3 @@
-.class public final synthetic Lcom/google/android/exoplayer2/Timeline$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/Bundleable$Creator;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final fromBundle(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Bundleable;
-    .locals 0
-
-    invoke-static {p1}, Lcom/google/android/exoplayer2/Timeline;->$r8$lambda$4eWR_EQUMv6FYlKol3461jBhxV8(Landroid/os/Bundle;)Lcom/google/android/exoplayer2/Timeline;
-
-    move-result-object p1
-
-    return-object p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ff8c51e426ae9d082a98da45a004d69c93127e6cfa585cff4e4cb17e8fc85ec
+size 750

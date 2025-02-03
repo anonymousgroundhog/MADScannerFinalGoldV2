@@ -1,19 +1,3 @@
-.class public final Lcom/android/billingclient/BuildConfig;
-.super Ljava/lang/Object;
-.source "com.android.billingclient:billing@@6.0.1"
-
-
-# static fields
-.field public static final APPLICATION_ID:Ljava/lang/String; = "com.android.billingclient"
-
-.field public static final VERSION_NAME:Ljava/lang/String; = "6.0.1"
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:51ab31c010977cf5972d733d3583088bb2c73bc5eb224bd99f020850f2e5e858
+size 470

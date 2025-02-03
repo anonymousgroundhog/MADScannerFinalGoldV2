@@ -1,16 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/MediaSourceInfoHolder;
-.super Ljava/lang/Object;
-.source "MediaSourceInfoHolder.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getTimeline()Lcom/google/android/exoplayer2/Timeline;
-.end method
-
-.method public abstract getUid()Ljava/lang/Object;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e66d8cfc17cad7187ce93a8e1b056edc728101a877115bd483ad6d05206f3955
+size 392

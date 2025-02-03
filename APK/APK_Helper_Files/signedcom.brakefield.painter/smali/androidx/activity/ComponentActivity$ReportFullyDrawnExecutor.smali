@@ -1,25 +1,3 @@
-.class interface abstract Landroidx/activity/ComponentActivity$ReportFullyDrawnExecutor;
-.super Ljava/lang/Object;
-.source "ComponentActivity.java"
-
-# interfaces
-.implements Ljava/util/concurrent/Executor;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/activity/ComponentActivity;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "ReportFullyDrawnExecutor"
-.end annotation
-
-
-# virtual methods
-.method public abstract activityDestroyed()V
-.end method
-
-.method public abstract viewCreated(Landroid/view/View;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f26fbeee9f67f617a59503f8b0482bc24b042e4e3a32006b823afb551c362ab
+size 619

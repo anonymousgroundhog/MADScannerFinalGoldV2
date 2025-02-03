@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/firebase/crashlytics/internal/send/ReportQueue$1;
-.super Ljava/lang/Object;
-.source "ReportQueue.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/send/ReportQueue;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:bd93925382c24e6d67b13a5e6852a990f15c73d3791c9259c01802e7869a7786
+size 398

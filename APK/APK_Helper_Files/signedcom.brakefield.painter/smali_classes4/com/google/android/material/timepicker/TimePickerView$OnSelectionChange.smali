@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/timepicker/TimePickerView$OnSelectionChange;
-.super Ljava/lang/Object;
-.source "TimePickerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/timepicker/TimePickerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "OnSelectionChange"
-.end annotation
-
-
-# virtual methods
-.method public abstract onSelectionChanged(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:94233b9669243e56d0a821b1592c0a4a06e7fd7cd202288795f81146360fd5ce
+size 511

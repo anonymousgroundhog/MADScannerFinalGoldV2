@@ -1,24 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/interning/qual/EqualsMethod;
-.super Ljava/lang/Object;
-.source "EqualsMethod.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/InheritedAnnotation;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:8935a2d65cd2e1ac5476ad6bd6fb0e413a53aece2a2431440c432c24ee93720c
+size 752

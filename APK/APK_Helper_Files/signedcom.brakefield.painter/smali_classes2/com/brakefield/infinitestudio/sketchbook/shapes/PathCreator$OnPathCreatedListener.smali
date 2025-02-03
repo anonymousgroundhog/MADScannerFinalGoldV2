@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/sketchbook/shapes/PathCreator$OnPathCreatedListener;
-.super Ljava/lang/Object;
-.source "PathCreator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/sketchbook/shapes/PathCreator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnPathCreatedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract pathCreated(Landroid/graphics/Path;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e7c9a01c7b4e68e410a4a243545ec8f9a0de5adeed6c5234dae7997c91b89c9
+size 550

@@ -1,14 +1,3 @@
-.class interface abstract Lcom/google/android/gms/internal/measurement/zzmf;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-measurement-base@@21.2.2"
-
-
-# virtual methods
-.method public abstract zza()Lcom/google/android/gms/internal/measurement/zzmi;
-.end method
-
-.method public abstract zzb()Z
-.end method
-
-.method public abstract zzc()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7690e60a825558264c6a619918834604737e754a6a1466b56d6c06841bddbb91
+size 375

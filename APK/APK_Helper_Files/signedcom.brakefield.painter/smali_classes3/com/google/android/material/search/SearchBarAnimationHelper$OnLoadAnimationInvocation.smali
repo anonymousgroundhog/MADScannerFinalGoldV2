@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
-.super Ljava/lang/Object;
-.source "SearchBarAnimationHelper.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/search/SearchBarAnimationHelper;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
-    name = "OnLoadAnimationInvocation"
-.end annotation
-
-
-# virtual methods
-.method public abstract invoke(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf64721b287c1540a0321e75848bea4c8049298687e8da26ce08e05965db5cf0
+size 606

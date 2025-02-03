@@ -1,27 +1,3 @@
-.class public interface abstract Landroidx/core/content/OnConfigurationChangedProvider;
-.super Ljava/lang/Object;
-.source "OnConfigurationChangedProvider.java"
-
-
-# virtual methods
-.method public abstract addOnConfigurationChangedListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroid/content/res/Configuration;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract removeOnConfigurationChangedListener(Landroidx/core/util/Consumer;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/core/util/Consumer<",
-            "Landroid/content/res/Configuration;",
-            ">;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5d90140023f4e04f8429894b501b7888568649c2528fd18883aecb573dfc860
+size 854

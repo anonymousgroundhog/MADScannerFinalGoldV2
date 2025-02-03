@@ -1,21 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/fido/u2f/U2fPendingIntent;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract hasPendingIntent()Z
-.end method
-
-.method public abstract launchPendingIntent(Landroid/app/Activity;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/IntentSender$SendIntentException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2883543da5508ed5a086dd55041e7f6a0b30bc7591cef1a4fe2ca1be067c4373
+size 565

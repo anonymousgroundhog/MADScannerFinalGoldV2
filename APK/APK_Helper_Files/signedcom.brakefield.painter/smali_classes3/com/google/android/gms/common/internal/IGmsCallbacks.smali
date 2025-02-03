@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/internal/IGmsCallbacks;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Landroid/os/IInterface;
-
-
-# virtual methods
-.method public abstract onPostInitComplete(ILandroid/os/IBinder;Landroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract zzb(ILandroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract zzc(ILandroid/os/IBinder;Lcom/google/android/gms/common/internal/zzj;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d4030acc218a5adc5aaf69f747d5b00c2ed4872134deeb59652708060962eed
+size 936

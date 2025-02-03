@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView$VideoSurfaceListener;
-.super Ljava/lang/Object;
-.source "SphericalGLSurfaceView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/video/spherical/SphericalGLSurfaceView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "VideoSurfaceListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onVideoSurfaceCreated(Landroid/view/Surface;)V
-.end method
-
-.method public abstract onVideoSurfaceDestroyed(Landroid/view/Surface;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:61330258da41707ccb9455562e13483a600a24aa63cfd6f1dc294862f84b3bc6
+size 672

@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/progressindicator/CircularProgressIndicator$IndicatorDirection;
-.super Ljava/lang/Object;
-.source "CircularProgressIndicator.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/progressindicator/CircularProgressIndicator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "IndicatorDirection"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:14a3d4d9a2b21794249406d04cdf16199e2b895096682ae1549fbc58654eecb1
+size 734

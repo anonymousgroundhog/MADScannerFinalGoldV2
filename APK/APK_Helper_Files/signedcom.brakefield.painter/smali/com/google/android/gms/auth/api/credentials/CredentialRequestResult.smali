@@ -1,16 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/auth/api/credentials/CredentialRequestResult;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-auth@@20.4.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Result;
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getCredential()Lcom/google/android/gms/auth/api/credentials/Credential;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1c02259230dcc054513a0a41d3adcb28a5347102061fe0515d1d22a0d0b962a4
+size 461

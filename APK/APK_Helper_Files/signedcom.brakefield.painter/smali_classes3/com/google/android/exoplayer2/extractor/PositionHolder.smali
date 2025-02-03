@@ -1,23 +1,3 @@
-.class public final Lcom/google/android/exoplayer2/extractor/PositionHolder;
-.super Ljava/lang/Object;
-.source "PositionHolder.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# instance fields
-.field public position:J
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 27
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5344f3423ebf9e103ec2293d324a0a56e521807e3b631f197cacdc7fc3b841a8
+size 420

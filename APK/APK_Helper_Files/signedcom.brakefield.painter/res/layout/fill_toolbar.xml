@@ -1,30 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner android:id="@id/fill_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="120.0dip">
-        <tag android:value="@string/mappings_fills_mode_selector" android:id="@id/ui_binding_key" />
-    </com.brakefield.infinitestudio.ui.spinners.ImmersiveSpinner>
-    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
-    <com.brakefield.infinitestudio.ui.PullButton android:id="@id/sweep_cycles" android:paddingTop="@dimen/padding_medium" android:contentDescription="@string/planes" style="@style/Icon">
-        <tag android:value="@string/mappings_gradient_sweep_settings_copies" android:id="@id/ui_binding_key" />
-    </com.brakefield.infinitestudio.ui.PullButton>
-    <ImageView android:id="@id/repeat" android:paddingTop="@dimen/padding_medium" android:src="@drawable/repeat" android:contentDescription="@string/repeat" style="@style/Icon">
-        <tag android:value="@string/mappings_gradient_settings_repeat" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/mirror" android:paddingTop="@dimen/padding_medium" android:src="@drawable/reflect" android:contentDescription="@string/reflect" style="@style/Icon">
-        <tag android:value="@string/mappings_gradient_settings_reflect" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/reverse" android:layout_margin="@dimen/margin_small" android:src="@drawable/reverse" android:contentDescription="@string/reverse" style="@style/Icon">
-        <tag android:value="@string/mappings_gradient_settings_reverse" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/settings" android:layout_margin="@dimen/margin_small" android:src="@drawable/settings" android:contentDescription="@string/settings" style="@style/Icon">
-        <tag android:value="@string/mappings_pattern_adjustments_button" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <com.brakefield.infinitestudio.ui.RoundButton android:id="@id/pattern_source" android:padding="8.0dip" android:layout_margin="@dimen/margin_small" android:contentDescription="@string/pattern" style="@style/Icon">
-        <tag android:value="@string/mappings_pattern_select" android:id="@id/ui_binding_key" />
-    </com.brakefield.infinitestudio.ui.RoundButton>> <com.brakefield.infinitestudio.ui.ColorFillButton android:id="@id/color" android:padding="8.0dip" android:layout_margin="@dimen/margin_small" android:contentDescription="@string/color" style="@style/Icon">
-        <tag android:value="@string/mappings_solid_settings_color" android:id="@id/ui_binding_key" />
-    </com.brakefield.infinitestudio.ui.ColorFillButton>> <ImageView android:id="@id/sample_from" android:layout_margin="@dimen/margin_small" android:src="@drawable/sample_current_layer" style="@style/Icon">
-        <tag android:value="@string/mappings_fill_target" android:id="@id/ui_binding_key" />
-    </ImageView>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e6678e2874528761b999d70dc7b1434bed272d5fbfd6cef4b7205194cb75339
+size 3301

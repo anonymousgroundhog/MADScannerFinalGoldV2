@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/transition/Visibility$Mode;
-.super Ljava/lang/Object;
-.source "Visibility.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Visibility;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Mode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:378d02b95bb343ecc81a77ad22ba61dd2d3e081ba8e7a1cb4060ad8b733a7315
+size 609

@@ -1,18 +1,3 @@
-.class public Landroidx/emoji2/text/EmojiDefaults;
-.super Ljava/lang/Object;
-.source "EmojiDefaults.java"
-
-
-# static fields
-.field public static final MAX_EMOJI_COUNT:I = 0x7fffffff
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 29
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb06f6042edb5a90307ad5dda11e3f1822c53675f6f94d1861e92a4b14a21ddb
+size 350

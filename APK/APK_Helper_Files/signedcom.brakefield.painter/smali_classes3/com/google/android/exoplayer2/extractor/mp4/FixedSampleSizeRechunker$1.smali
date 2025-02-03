@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/extractor/mp4/FixedSampleSizeRechunker$1;
-.super Ljava/lang/Object;
-.source "FixedSampleSizeRechunker.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/extractor/mp4/FixedSampleSizeRechunker;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:621d057c87da9eae6aac12d48dbb63d19ccc12634b56677ea3367ccacb1fc5f4
+size 433

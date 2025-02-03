@@ -1,32 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel$Factory;
-.super Ljava/lang/Object;
-.source "RtpDataChannel.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Factory"
-.end annotation
-
-
-# virtual methods
-.method public abstract createAndOpenDataChannel(I)Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public createFallbackDataChannelFactory()Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel$Factory;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:919d6f8be7dab407b29441278b347802e3363ac431997b966310408c46c5316f
+size 885

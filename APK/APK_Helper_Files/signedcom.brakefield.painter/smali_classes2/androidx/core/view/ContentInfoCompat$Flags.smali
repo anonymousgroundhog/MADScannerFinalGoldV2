@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/view/ContentInfoCompat$Flags;
-.super Ljava/lang/Object;
-.source "ContentInfoCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/view/ContentInfoCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Flags"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:79b16b8a291a894822e32e0a5608490798f1a309138e7b02d6cf9ab5657e9276
+size 630

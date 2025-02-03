@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/extractor/ts/TsPayloadReader$Factory;
-.super Ljava/lang/Object;
-.source "TsPayloadReader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/extractor/ts/TsPayloadReader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Factory"
-.end annotation
-
-
-# virtual methods
-.method public abstract createInitialPayloadReaders()Landroid/util/SparseArray;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/SparseArray<",
-            "Lcom/google/android/exoplayer2/extractor/ts/TsPayloadReader;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract createPayloadReader(ILcom/google/android/exoplayer2/extractor/ts/TsPayloadReader$EsInfo;)Lcom/google/android/exoplayer2/extractor/ts/TsPayloadReader;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:5171f65021803bd5a2f267c4e45b39a0c263352c3c0ead2717d900cc68322185
+size 983

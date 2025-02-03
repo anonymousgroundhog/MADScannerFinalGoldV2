@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/apache/commons/collections4/Factory;
-.super Ljava/lang/Object;
-.source "Factory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract create()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d27677f5ca6877e00246313ce743a35354fd8bc66bdba6d16b209d1f85f71421
+size 516

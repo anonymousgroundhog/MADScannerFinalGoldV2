@@ -1,14 +1,3 @@
-.class public interface abstract Landroidx/customview/widget/Openable;
-.super Ljava/lang/Object;
-.source "Openable.java"
-
-
-# virtual methods
-.method public abstract close()V
-.end method
-
-.method public abstract isOpen()Z
-.end method
-
-.method public abstract open()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2a9a6a0a486075b699930a54c034769b438e2374390b43d40cc99c42add5b537
+size 278

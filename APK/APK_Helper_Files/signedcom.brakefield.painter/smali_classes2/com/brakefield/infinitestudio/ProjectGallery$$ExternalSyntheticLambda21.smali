@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/infinitestudio/ProjectGallery$$ExternalSyntheticLambda21;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/infinitestudio/ProjectGallery;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/infinitestudio/ProjectGallery;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/infinitestudio/ProjectGallery$$ExternalSyntheticLambda21;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/infinitestudio/ProjectGallery$$ExternalSyntheticLambda21;->f$0:Lcom/brakefield/infinitestudio/ProjectGallery;
-
-    invoke-virtual {v0, p1}, Lcom/brakefield/infinitestudio/ProjectGallery;->lambda$show$4$com-brakefield-infinitestudio-ProjectGallery(Landroid/view/View;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:471d7cd9027029148fe31dfd8faa7a84d33a54e8ea08723545389878c62de166
+size 1107

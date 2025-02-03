@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/api/client/repackaged/com/google/common/base/MoreObjects$1;
-.super Ljava/lang/Object;
-.source "MoreObjects.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/api/client/repackaged/com/google/common/base/MoreObjects;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8261bdfb5760dc63af9775bd480aa18352a3da45cf8e14f1ec7529cacba3913
+size 418

@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/fasterxml/jackson/core/util/Instantiatable;
-.super Ljava/lang/Object;
-.source "Instantiatable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract createInstance()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:0b0f7860754c06d7575908733c313a5456e6f01670638bd705086ea031711678
+size 538

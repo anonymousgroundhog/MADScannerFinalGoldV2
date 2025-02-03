@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/util/pool/FactoryPools$Poolable;
-.super Ljava/lang/Object;
-.source "FactoryPools.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/util/pool/FactoryPools;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Poolable"
-.end annotation
-
-
-# virtual methods
-.method public abstract getVerifier()Lcom/bumptech/glide/util/pool/StateVerifier;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea6c47e75508eedeedf6dd49a8009a2abeab54f38909db5085b3bc9088c2d4c4
+size 509

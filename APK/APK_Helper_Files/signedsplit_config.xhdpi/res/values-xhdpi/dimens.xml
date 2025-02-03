@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="nend_full_board_ad_close_button_margin">4.0dip</dimen>
-    <dimen name="nend_full_board_ad_promotion_text_size">24.0dip</dimen>
-    <dimen name="nend_full_board_ad_text_size">18.0dip</dimen>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9a95b1b624977df1bd27edcb97aa38caf32e0dcdd88e759882d4b4299fc9812
+size 272

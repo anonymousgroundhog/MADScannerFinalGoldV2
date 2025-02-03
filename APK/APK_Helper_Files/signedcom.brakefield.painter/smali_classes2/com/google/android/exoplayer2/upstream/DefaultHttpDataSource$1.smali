@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/upstream/DefaultHttpDataSource$1;
-.super Ljava/lang/Object;
-.source "DefaultHttpDataSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/upstream/DefaultHttpDataSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:337baa09fdce797c2e0151e41e228a52bab831bf0b397d37952151395086b947
+size 414

@@ -1,13 +1,3 @@
-.class interface abstract Lcom/bumptech/glide/module/RegistersComponents;
-.super Ljava/lang/Object;
-.source "RegistersComponents.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb011f5736399f873652f945689c23672d50ce770a73460c85c16e8a3a2eaccf
+size 368

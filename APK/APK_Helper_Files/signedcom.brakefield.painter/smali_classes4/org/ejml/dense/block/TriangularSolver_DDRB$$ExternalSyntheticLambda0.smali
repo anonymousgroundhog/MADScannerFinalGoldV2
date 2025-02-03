@@ -1,28 +1,3 @@
-.class public final synthetic Lorg/ejml/dense/block/TriangularSolver_DDRB$$ExternalSyntheticLambda0;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lpabeles/concurrency/ConcurrencyOps$NewInstance;
-
-
-# direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final newInstance()Ljava/lang/Object;
-    .locals 1
-
-    invoke-static {}, Lorg/ejml/dense/block/TriangularSolver_DDRB;->$r8$lambda$EUv0wajhkQEpjMTqSP4N1q46jtI()Lorg/ejml/data/DGrowArray;
-
-    move-result-object v0
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:a8f9b5b762861aeb289475f6f587ffe6cfe7f6a33f6f8e604621bf152e4cac55
+size 679

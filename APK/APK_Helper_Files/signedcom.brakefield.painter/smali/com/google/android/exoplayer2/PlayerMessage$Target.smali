@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/PlayerMessage$Target;
-.super Ljava/lang/Object;
-.source "PlayerMessage.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/PlayerMessage;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Target"
-.end annotation
-
-
-# virtual methods
-.method public abstract handleMessage(ILjava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/exoplayer2/ExoPlaybackException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb6a43b40077660ce03dd79eea075b66e315abcab3549bed48dea0ef5f77270e
+size 651

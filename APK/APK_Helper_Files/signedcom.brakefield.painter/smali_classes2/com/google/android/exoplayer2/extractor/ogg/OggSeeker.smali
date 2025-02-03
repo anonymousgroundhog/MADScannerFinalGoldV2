@@ -1,24 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/extractor/ogg/OggSeeker;
-.super Ljava/lang/Object;
-.source "OggSeeker.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract createSeekMap()Lcom/google/android/exoplayer2/extractor/SeekMap;
-.end method
-
-.method public abstract read(Lcom/google/android/exoplayer2/extractor/ExtractorInput;)J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
-.method public abstract startSeek(J)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f0d1cc5f357e9e39abdb94752aa7d8704abce6238653ab8219f8a8bb70c9b211
+size 613

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/source/rtsp/MediaDescription$1;
-.super Ljava/lang/Object;
-.source "MediaDescription.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/rtsp/MediaDescription;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e95fbe0608e30444fe0ebcabc2fad473aeea2d8e933b8ba096259a14c7454682
+size 405

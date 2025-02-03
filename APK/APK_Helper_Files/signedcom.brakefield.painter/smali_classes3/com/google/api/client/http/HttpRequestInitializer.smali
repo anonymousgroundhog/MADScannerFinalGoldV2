@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/HttpRequestInitializer;
-.super Ljava/lang/Object;
-.source "HttpRequestInitializer.java"
-
-
-# virtual methods
-.method public abstract initialize(Lcom/google/api/client/http/HttpRequest;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:684c3d6463b88217f1fc688d5b41488442eed289203a5e8287cbdd1aad98cb2a
+size 391

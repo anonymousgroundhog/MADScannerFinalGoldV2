@@ -1,13 +1,3 @@
-.class public interface abstract Landroidx/core/view/LayoutInflaterFactory;
-.super Ljava/lang/Object;
-.source "LayoutInflaterFactory.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:dad6d6e1c87d7815f6beb238e901e758ee40b092292a42c606dd7bd5154c5971
+size 393

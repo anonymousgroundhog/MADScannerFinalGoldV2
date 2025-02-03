@@ -1,25 +1,3 @@
-.class public Lcom/google/android/gms/fido/fido2/api/common/PublicKeyCredentialType$UnsupportedPublicKeyCredTypeException;
-.super Ljava/lang/Exception;
-.source "com.google.android.gms:play-services-fido@@19.0.1"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/fido/fido2/api/common/PublicKeyCredentialType;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "UnsupportedPublicKeyCredTypeException"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:95a7fd35518a62f4081aec9db94774648e7f09a3da6450ef6c2d683414650cd6
+size 730

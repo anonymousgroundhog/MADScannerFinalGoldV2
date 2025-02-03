@@ -1,22 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-basement@@18.1.0"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "Param"
-.end annotation
-
-
-# virtual methods
-.method public abstract id()I
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec3cb272d729c62fcecfa0158bd53e2f31ae076071454e49217c12bc65a6f7df
+size 605

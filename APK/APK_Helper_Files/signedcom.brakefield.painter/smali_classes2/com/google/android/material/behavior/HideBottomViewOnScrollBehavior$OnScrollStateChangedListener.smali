@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior$OnScrollStateChangedListener;
-.super Ljava/lang/Object;
-.source "HideBottomViewOnScrollBehavior.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "OnScrollStateChangedListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onStateChanged(Landroid/view/View;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d0bcb3938bed02ba487942ccf3cf29d4139c78950e3ce92ea06ebfedd4bd0e28
+size 599

@@ -1,26 +1,3 @@
-.class public Landroidx/media/app/NotificationCompat;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/app/NotificationCompat$Api24Impl;,
-        Landroidx/media/app/NotificationCompat$Api21Impl;,
-        Landroidx/media/app/NotificationCompat$Api15Impl;,
-        Landroidx/media/app/NotificationCompat$DecoratedMediaCustomViewStyle;,
-        Landroidx/media/app/NotificationCompat$MediaStyle;
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 46
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c22cd9fa50d493da4547e7b3c48a70c8b08ead2baa65ad952a1c885a10fe01b1
+size 702

@@ -1,32 +1,3 @@
-.class public final Lcom/google/firebase/tracing/FirebaseTrace;
-.super Ljava/lang/Object;
-.source "FirebaseTrace.java"
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 23
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static popTrace()V
-    .locals 0
-
-    .line 33
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
-    return-void
-.end method
-
-.method public static pushTrace(Ljava/lang/String;)V
-    .locals 0
-
-    .line 27
-    invoke-static {p0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f18e98c2bdc33a538eb638ea111adb6e86fd4e39858aaef8daca5a700fcada0
+size 624

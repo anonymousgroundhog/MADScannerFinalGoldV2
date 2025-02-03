@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/AutoValue_EventInternal$1;
-.super Ljava/lang/Object;
-.source "AutoValue_EventInternal.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/AutoValue_EventInternal;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:e23f8432705fd0c2ae8a55c309cdff9ab7b1c1d3bacce341c6405e98a6c11fa7
+size 424

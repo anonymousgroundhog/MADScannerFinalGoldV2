@@ -1,36 +1,3 @@
-.class public Lcom/google/api/client/auth/oauth/OAuthGetTemporaryToken;
-.super Lcom/google/api/client/auth/oauth/AbstractOAuthGetToken;
-.source "OAuthGetTemporaryToken.java"
-
-
-# instance fields
-.field public callback:Ljava/lang/String;
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 45
-    invoke-direct {p0, p1}, Lcom/google/api/client/auth/oauth/AbstractOAuthGetToken;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public createParameters()Lcom/google/api/client/auth/oauth/OAuthParameters;
-    .locals 2
-
-    .line 50
-    invoke-super {p0}, Lcom/google/api/client/auth/oauth/AbstractOAuthGetToken;->createParameters()Lcom/google/api/client/auth/oauth/OAuthParameters;
-
-    move-result-object v0
-
-    .line 51
-    iget-object v1, p0, Lcom/google/api/client/auth/oauth/OAuthGetTemporaryToken;->callback:Ljava/lang/String;
-
-    iput-object v1, v0, Lcom/google/api/client/auth/oauth/OAuthParameters;->callback:Ljava/lang/String;
-
-    return-object v0
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8418265905be355780c458b2f0e5704355755f4cded124fef0bdb090a4705348
+size 1054

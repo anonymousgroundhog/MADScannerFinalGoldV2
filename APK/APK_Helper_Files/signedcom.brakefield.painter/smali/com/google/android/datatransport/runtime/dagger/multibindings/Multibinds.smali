@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/datatransport/runtime/dagger/multibindings/Multibinds;
-.super Ljava/lang/Object;
-.source "Multibinds.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:1edf7d8cc3b20c620f8d06f3bfd43403561e1ec7a47d9822653bba73125dd371
+size 671

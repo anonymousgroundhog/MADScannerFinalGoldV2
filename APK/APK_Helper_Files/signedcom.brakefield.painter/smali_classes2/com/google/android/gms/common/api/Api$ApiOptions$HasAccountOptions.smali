@@ -1,23 +1,3 @@
-.class public interface abstract Lcom/google/android/gms/common/api/Api$ApiOptions$HasAccountOptions;
-.super Ljava/lang/Object;
-.source "com.google.android.gms:play-services-base@@18.0.1"
-
-# interfaces
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions$HasOptions;
-.implements Lcom/google/android/gms/common/api/Api$ApiOptions$NotRequiredOptions;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/gms/common/api/Api$ApiOptions;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "HasAccountOptions"
-.end annotation
-
-
-# virtual methods
-.method public abstract getAccount()Landroid/accounts/Account;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ace2b5a4d8883986d583e27f8dc8cd8fbe938eb482f6e020b89f7cfbe80f816a
+size 724

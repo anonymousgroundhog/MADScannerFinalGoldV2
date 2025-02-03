@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController$$ExternalSyntheticLambda39;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Landroid/view/View$OnTouchListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController$$ExternalSyntheticLambda39;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController$$ExternalSyntheticLambda39;->f$0:Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;
-
-    invoke-virtual {v0, p1, p2}, Lcom/brakefield/painter/ui/viewcontrollers/ColorWheelViewController;->lambda$setupView$18$com-brakefield-painter-ui-viewcontrollers-ColorWheelViewController(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    return p1
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:07a1c0c34033b3748f5640f09c38f52d58342709438ca35e861fdda3d721787c
+size 1385

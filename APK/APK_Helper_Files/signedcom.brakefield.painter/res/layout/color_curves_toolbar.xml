@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/edit_curves_gamma" android:src="@drawable/color_channel_gamma" android:contentDescription="@string/gamma" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_all" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/edit_curves_red" android:src="@drawable/color_channel_red" android:contentDescription="@string/red" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_red" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/edit_curves_green" android:src="@drawable/color_channel_green" android:contentDescription="@string/green" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_green" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/edit_curves_blue" android:src="@drawable/color_channel_blue" android:contentDescription="@string/blue" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_blue" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <ImageView android:id="@id/edit_curves_alpha" android:src="@drawable/color_channel_alpha" android:contentDescription="@string/opacity" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_alpha" android:id="@id/ui_binding_key" />
-    </ImageView>
-    <Space android:layout_width="4.0dip" android:layout_height="@dimen/button_size" android:layout_weight="1.0" />
-    <ImageView android:id="@id/edit_curves_compare" android:src="@drawable/visibility_on" style="@style/Icon">
-        <tag android:value="@string/mappings_color_curves_compare" android:id="@id/ui_binding_key" />
-    </ImageView>
-</LinearLayout>
+version https://git-lfs.github.com/spec/v1
+oid sha256:4ab68d8827e607c9d1704d1eda89c42824648c6d2e4a5b7866b9a3d6923feb7f
+size 1967

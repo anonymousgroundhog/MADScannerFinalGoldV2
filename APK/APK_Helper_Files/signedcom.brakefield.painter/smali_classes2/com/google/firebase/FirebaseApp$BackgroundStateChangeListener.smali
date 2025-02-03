@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/firebase/FirebaseApp$BackgroundStateChangeListener;
-.super Ljava/lang/Object;
-.source "FirebaseApp.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/FirebaseApp;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "BackgroundStateChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onBackgroundStateChanged(Z)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8177c43e6e28be5bae5384aaa05d1b69797f6a29309cf19ffc0398c555269faf
+size 501

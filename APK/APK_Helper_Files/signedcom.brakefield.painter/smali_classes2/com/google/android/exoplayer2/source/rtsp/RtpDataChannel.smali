@@ -1,31 +1,3 @@
-.class interface abstract Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel;
-.super Ljava/lang/Object;
-.source "RtpDataChannel.java"
-
-# interfaces
-.implements Lcom/google/android/exoplayer2/upstream/DataSource;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/source/rtsp/RtpDataChannel$Factory;
-    }
-.end annotation
-
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract getInterleavedBinaryDataListener()Lcom/google/android/exoplayer2/source/rtsp/RtspMessageChannel$InterleavedBinaryDataListener;
-.end method
-
-.method public abstract getLocalPort()I
-.end method
-
-.method public abstract getTransport()Ljava/lang/String;
-.end method
-
-.method public abstract needsClosingOnLoadCompletion()Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8f542ee7944988235e182359a6671d6696481dd1b9a57c2693561c8e6b4798a
+size 834

@@ -1,19 +1,3 @@
-.class interface abstract Landroidx/dynamicanimation/animation/AnimationHandler$AnimationFrameCallback;
-.super Ljava/lang/Object;
-.source "AnimationHandler.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/dynamicanimation/animation/AnimationHandler;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "AnimationFrameCallback"
-.end annotation
-
-
-# virtual methods
-.method public abstract doAnimationFrame(J)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:92e2697e661a7bc82b5ce5a429084ad3c74ac611a76faa9a04d9771736b39158
+size 519

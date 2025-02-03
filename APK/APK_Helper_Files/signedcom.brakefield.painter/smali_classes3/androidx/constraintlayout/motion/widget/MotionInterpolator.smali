@@ -1,33 +1,3 @@
-.class public abstract Landroidx/constraintlayout/motion/widget/MotionInterpolator;
-.super Ljava/lang/Object;
-.source "MotionInterpolator.java"
-
-# interfaces
-.implements Landroid/view/animation/Interpolator;
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 21
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract getInterpolation(F)F
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
-.end method
-
-.method public abstract getVelocity()F
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:75c3d9be5d99991bf0a1e1a86862f6216a497d9110a95ca7e303ac2856297e85
+size 678

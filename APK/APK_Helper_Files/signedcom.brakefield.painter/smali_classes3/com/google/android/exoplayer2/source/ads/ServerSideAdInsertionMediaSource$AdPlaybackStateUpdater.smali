@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/ads/ServerSideAdInsertionMediaSource$AdPlaybackStateUpdater;
-.super Ljava/lang/Object;
-.source "ServerSideAdInsertionMediaSource.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/ads/ServerSideAdInsertionMediaSource;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AdPlaybackStateUpdater"
-.end annotation
-
-
-# virtual methods
-.method public abstract onAdPlaybackStateUpdateRequested(Lcom/google/android/exoplayer2/Timeline;)Z
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:56688f32a8f00c88209a58a28cff850483f8aded271a621d1b46158efd8ff270
+size 639

@@ -1,33 +1,3 @@
-.class public interface abstract annotation Lorg/codehaus/jackson/annotate/JsonManagedReference;
-.super Ljava/lang/Object;
-.source "JsonManagedReference.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lorg/codehaus/jackson/annotate/JsonManagedReference;
-        value = "defaultReference"
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/codehaus/jackson/annotate/JacksonAnnotation;
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f6e8983c1c886ce2c919c9c5ce35ed384eb131fdddb212b6471703ffd61d2032
+size 1061

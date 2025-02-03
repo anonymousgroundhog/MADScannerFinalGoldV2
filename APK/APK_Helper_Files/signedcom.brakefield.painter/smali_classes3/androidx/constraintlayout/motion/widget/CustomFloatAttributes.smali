@@ -1,32 +1,3 @@
-.class public interface abstract Landroidx/constraintlayout/motion/widget/CustomFloatAttributes;
-.super Ljava/lang/Object;
-.source "CustomFloatAttributes.java"
-
-
-# virtual methods
-.method public abstract get(Ljava/lang/String;)F
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "attribute"
-        }
-    .end annotation
-.end method
-
-.method public abstract getListOfAttributes()[Ljava/lang/String;
-.end method
-
-.method public abstract set(Ljava/lang/String;F)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "attribute",
-            "value"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:404b2d4da63c00dcd0b2b19f42a3b6f4d36a6de4b3719807de56ab602790c7d1
+size 784

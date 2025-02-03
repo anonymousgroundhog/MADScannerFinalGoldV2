@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/textfield/TextInputLayout$EndIconMode;
-.super Ljava/lang/Object;
-.source "TextInputLayout.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/textfield/TextInputLayout;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "EndIconMode"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f2c4f31450b988fa199ee7e3647a0181e3acf78b291dcc28ce82074b04a05ef
+size 674

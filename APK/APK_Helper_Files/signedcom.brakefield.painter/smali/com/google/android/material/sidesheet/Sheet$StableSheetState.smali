@@ -1,21 +1,3 @@
-.class public interface abstract annotation Lcom/google/android/material/sidesheet/Sheet$StableSheetState;
-.super Ljava/lang/Object;
-.source "Sheet.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/sidesheet/Sheet;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StableSheetState"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbe4cfb334e716d4502f53941fd174e10d0c53b5ff52f06b38538f5b65e1ef99
+size 654

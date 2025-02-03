@@ -1,28 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/FieldDescriptor;
-.super Ljava/lang/Object;
-.source "FieldDescriptor.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/SignatureUnknown;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:f39eca734830c5cb32cb0a5db49bfe7d98bfb9a57092d3ce5cc5c9d6c65a587b
+size 942

@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/datatransport/runtime/AutoValue_SendRequest$1;
-.super Ljava/lang/Object;
-.source "AutoValue_SendRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/AutoValue_SendRequest;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:88e3423a3cec1ac11af52278dbb7f3fa4b15cc4955f2ff095a913ae6e7f4720d
+size 418

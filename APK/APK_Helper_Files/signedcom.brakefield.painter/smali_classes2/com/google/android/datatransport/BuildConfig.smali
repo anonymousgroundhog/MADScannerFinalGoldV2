@@ -1,28 +1,3 @@
-.class public final Lcom/google/android/datatransport/BuildConfig;
-.super Ljava/lang/Object;
-.source "BuildConfig.java"
-
-
-# static fields
-.field public static final APPLICATION_ID:Ljava/lang/String; = "com.google.android.datatransport"
-
-.field public static final BUILD_TYPE:Ljava/lang/String; = "release"
-
-.field public static final DEBUG:Z = false
-
-.field public static final FLAVOR:Ljava/lang/String; = ""
-
-.field public static final VERSION_CODE:I = -0x1
-
-.field public static final VERSION_NAME:Ljava/lang/String; = ""
-
-
-# direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    .line 6
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:774ba01fa6e09d73cea0144e26ca6dfe17ed6b9ecafc5b1f6228985fa750fc2e
+size 690

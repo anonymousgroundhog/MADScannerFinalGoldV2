@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroid/support/v4/media/RatingCompat$StarStyle;
-.super Ljava/lang/Object;
-.source "RatingCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/support/v4/media/RatingCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StarStyle"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:077d86b41787776ff9fd3457078151375866e5b9b4012f71a98316e2369dadae
+size 635

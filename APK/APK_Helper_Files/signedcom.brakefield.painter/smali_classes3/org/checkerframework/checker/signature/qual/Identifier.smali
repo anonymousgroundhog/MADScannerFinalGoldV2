@@ -1,30 +1,3 @@
-.class public interface abstract annotation Lorg/checkerframework/checker/signature/qual/Identifier;
-.super Ljava/lang/Object;
-.source "Identifier.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-.annotation runtime Lorg/checkerframework/framework/qual/SubtypeOf;
-    value = {
-        Lorg/checkerframework/checker/signature/qual/DotSeparatedIdentifiers;,
-        Lorg/checkerframework/checker/signature/qual/BinaryNameWithoutPackage;,
-        Lorg/checkerframework/checker/signature/qual/IdentifierOrPrimitiveType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:17fd0329a26cafbb2d92519ee9be4fb268fb9efdea7a635ac7d18a3d399e2a57
+size 1100

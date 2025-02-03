@@ -1,29 +1,3 @@
-.class public final Landroidx/activity/R$id;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/activity/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
-# static fields
-.field public static final report_drawn:I = 0x7f0a04a9
-
-.field public static final view_tree_on_back_pressed_dispatcher_owner:I = 0x7f0a0698
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:be3a1849deafe79b6db2eebdcf4b77f17d4134a3e4b940f7fc825cd0b5a886b1
+size 611

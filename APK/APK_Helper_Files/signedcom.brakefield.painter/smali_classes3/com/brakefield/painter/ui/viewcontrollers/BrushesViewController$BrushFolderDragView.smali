@@ -1,25 +1,3 @@
-.class Lcom/brakefield/painter/ui/viewcontrollers/BrushesViewController$BrushFolderDragView;
-.super Lcom/brakefield/infinitestudio/ui/collections/CollectionItemDragListener$DragView;
-.source "BrushesViewController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/painter/ui/viewcontrollers/BrushesViewController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "BrushFolderDragView"
-.end annotation
-
-
-# direct methods
-.method public constructor <init>(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 0
-
-    .line 299
-    invoke-direct {p0, p1, p2}, Lcom/brakefield/infinitestudio/ui/collections/CollectionItemDragListener$DragView;-><init>(Landroid/view/View;Ljava/lang/Object;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:32916e95efea9e91b5ad7839c9d8f274983c8bcf218681fa4f77a0f206a1bae3
+size 820

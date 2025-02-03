@@ -1,34 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/zeroLatency/gpu/InkGLView$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/zeroLatency/gpu/InkGLView;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/zeroLatency/gpu/InkGLView;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/zeroLatency/gpu/InkGLView$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/zeroLatency/gpu/InkGLView;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/zeroLatency/gpu/InkGLView$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/zeroLatency/gpu/InkGLView;
-
-    invoke-virtual {v0}, Lcom/brakefield/painter/zeroLatency/gpu/InkGLView;->lambda$onKeyDown$8$com-brakefield-painter-zeroLatency-gpu-InkGLView()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:2477b5deb88d27a9469c2fbf34801cd89463237bcf562c2f115ba96d024ec6f6
+size 1084

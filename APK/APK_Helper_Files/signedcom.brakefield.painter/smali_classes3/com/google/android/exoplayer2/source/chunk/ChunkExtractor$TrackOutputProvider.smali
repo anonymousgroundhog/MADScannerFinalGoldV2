@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/chunk/ChunkExtractor$TrackOutputProvider;
-.super Ljava/lang/Object;
-.source "ChunkExtractor.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/chunk/ChunkExtractor;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "TrackOutputProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract track(II)Lcom/google/android/exoplayer2/extractor/TrackOutput;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee86956778e687c8cf9556f7579b731b36c1aa824443282e715affa8419d0cfc
+size 570

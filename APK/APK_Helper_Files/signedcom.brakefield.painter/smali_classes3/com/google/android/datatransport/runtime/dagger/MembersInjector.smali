@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/dagger/MembersInjector;
-.super Ljava/lang/Object;
-.source "MembersInjector.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract injectMembers(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7f4e7656173bcc7a00bf5c2a8c89acae0e11f616c829a560c0d105b1fa01f66e
+size 557

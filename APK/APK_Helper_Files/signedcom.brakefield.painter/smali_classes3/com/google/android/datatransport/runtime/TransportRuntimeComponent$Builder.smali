@@ -1,27 +1,3 @@
-.class interface abstract Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;
-.super Ljava/lang/Object;
-.source "TransportRuntimeComponent.java"
-
-
-# annotations
-.annotation runtime Lcom/google/android/datatransport/runtime/dagger/Component$Builder;
-.end annotation
-
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "Builder"
-.end annotation
-
-
-# virtual methods
-.method public abstract build()Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
-.end method
-
-.method public abstract setApplicationContext(Landroid/content/Context;)Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;
-    .annotation runtime Lcom/google/android/datatransport/runtime/dagger/BindsInstance;
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc4cccbf5e9a575a08a4b9f3b28feb369a4c2f1f95831cfca3e304e3861d525d
+size 956

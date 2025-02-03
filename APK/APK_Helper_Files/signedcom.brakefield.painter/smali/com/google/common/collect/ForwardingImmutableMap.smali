@@ -1,30 +1,3 @@
-.class abstract Lcom/google/common/collect/ForwardingImmutableMap;
-.super Ljava/lang/Object;
-.source "ForwardingImmutableMap.java"
-
-
-# annotations
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 29
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:20ba4677422901b4b6adfce349b017d9287419a77eb0e66481fd6ed06966c9cd
+size 628

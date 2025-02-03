@@ -1,20 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/InlineMeValidationDisabled;
-.super Ljava/lang/Object;
-.source "InlineMeValidationDisabled.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
-        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:722ae3e44ef3741730429d2c6b6050ac8e55a5d5da1cc1ee381a3d4f23ecfc84
+size 609

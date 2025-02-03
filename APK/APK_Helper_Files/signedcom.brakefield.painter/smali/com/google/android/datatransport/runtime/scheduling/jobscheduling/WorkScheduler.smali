@@ -1,11 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;
-.super Ljava/lang/Object;
-.source "WorkScheduler.java"
-
-
-# virtual methods
-.method public abstract schedule(Lcom/google/android/datatransport/runtime/TransportContext;I)V
-.end method
-
-.method public abstract schedule(Lcom/google/android/datatransport/runtime/TransportContext;IZ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8629fb2160124cb6aada69c8fb8ebf6a72353076092bee4b438da369cca45ddf
+size 408

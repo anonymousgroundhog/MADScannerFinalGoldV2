@@ -1,30 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/rtsp/reader/RtpPayloadReader;
-.super Ljava/lang/Object;
-.source "RtpPayloadReader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/exoplayer2/source/rtsp/reader/RtpPayloadReader$Factory;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract consume(Lcom/google/android/exoplayer2/util/ParsableByteArray;JIZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/exoplayer2/ParserException;
-        }
-    .end annotation
-.end method
-
-.method public abstract createTracks(Lcom/google/android/exoplayer2/extractor/ExtractorOutput;I)V
-.end method
-
-.method public abstract onReceivingFirstPacket(JI)V
-.end method
-
-.method public abstract seek(JJ)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7fa8b3aee626c6276556076be616ee6a7e3c827d8401d1caa44e3d5a4bb5db9e
+size 853

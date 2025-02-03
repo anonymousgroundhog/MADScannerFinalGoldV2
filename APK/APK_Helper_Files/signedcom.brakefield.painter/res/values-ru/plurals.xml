@@ -1,21 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
-        <item quantity="other">Перемотать на %d секунды вперед</item>
-        <item quantity="one">Перемотать на %d секунду вперед</item>
-        <item quantity="few">Перемотать на %d секунды вперед</item>
-        <item quantity="many">Перемотать на %d секунд вперед</item>
-    </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
-        <item quantity="other">Перемотать на %d секунды назад</item>
-        <item quantity="one">Перемотать на %d секунду назад</item>
-        <item quantity="few">Перемотать на %d секунды назад</item>
-        <item quantity="many">Перемотать на %d секунд назад</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
-        <item quantity="other">%d нового уведомления</item>
-        <item quantity="one">%d новое уведомление</item>
-        <item quantity="few">%d новых уведомления</item>
-        <item quantity="many">%d новых уведомлений</item>
-    </plurals>
-</resources>
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4bbf783e6ae82af18b7935075dabdac8acc502453c4148c1dfdaea7aa867a1b
+size 1327

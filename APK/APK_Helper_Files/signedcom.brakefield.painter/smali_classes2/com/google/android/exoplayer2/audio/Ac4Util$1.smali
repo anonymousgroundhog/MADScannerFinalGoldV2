@@ -1,14 +1,3 @@
-.class synthetic Lcom/google/android/exoplayer2/audio/Ac4Util$1;
-.super Ljava/lang/Object;
-.source "Ac4Util.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/audio/Ac4Util;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:98ddae01a6a7dec0658a755de08758c34d473f551fc98474ce0456c3f724c50c
+size 366

@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-.super Ljava/lang/Object;
-.source "BitmapPool.java"
-
-
-# virtual methods
-.method public abstract clearMemory()V
-.end method
-
-.method public abstract get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract getDirty(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract getMaxSize()J
-.end method
-
-.method public abstract put(Landroid/graphics/Bitmap;)V
-.end method
-
-.method public abstract setSizeMultiplier(F)V
-.end method
-
-.method public abstract trimMemory(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f5a16f1e95452a419dc18bec461bf9063171d1877290901853727136183db66
+size 655

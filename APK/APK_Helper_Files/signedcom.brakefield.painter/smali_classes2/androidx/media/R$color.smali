@@ -1,31 +1,3 @@
-.class public final Landroidx/media/R$color;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/media/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "color"
-.end annotation
-
-
-# static fields
-.field public static final notification_material_background_media_default_color:I = 0x7f06028f
-
-.field public static final primary_text_default_material_dark:I = 0x7f060294
-
-.field public static final secondary_text_default_material_dark:I = 0x7f06029b
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:407cca01172b213acc11b62e7570c67c966f3725a93edd4b8b409688f7891e06
+size 723

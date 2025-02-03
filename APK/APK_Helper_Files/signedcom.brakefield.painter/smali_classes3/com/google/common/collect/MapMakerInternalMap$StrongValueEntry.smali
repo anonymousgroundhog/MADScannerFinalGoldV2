@@ -1,32 +1,3 @@
-.class interface abstract Lcom/google/common/collect/MapMakerInternalMap$StrongValueEntry;
-.super Ljava/lang/Object;
-.source "MapMakerInternalMap.java"
-
-# interfaces
-.implements Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/common/collect/MapMakerInternalMap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "StrongValueEntry"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        "E::",
-        "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
-        "TK;TV;TE;>;>",
-        "Ljava/lang/Object;",
-        "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
-        "TK;TV;TE;>;"
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:40fc4946cf9a242c4ea795c23d4f958e3e127850acc95e9dea905f77f4664f74
+size 919

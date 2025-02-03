@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/timepicker/TimePickerView$OnPeriodChangeListener;
-.super Ljava/lang/Object;
-.source "TimePickerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/timepicker/TimePickerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "OnPeriodChangeListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPeriodChange(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:32194011cf56da388bc82731c522dac1caed08cac9585d292406b31a65e2281b
+size 517

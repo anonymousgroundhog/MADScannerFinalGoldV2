@@ -1,18 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/concurrent/LazyInit;
-.super Ljava/lang/Object;
-.source "LazyInit.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:afc724dc16f7964a0809ba83b4f008517ae3db309d7c462c389e5ec7b5403b09
+size 578

@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/datatransport/runtime/retries/RetryStrategy;
-.super Ljava/lang/Object;
-.source "RetryStrategy.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<TInput:",
-        "Ljava/lang/Object;",
-        "TResult:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract shouldRetry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TTInput;TTResult;)TTInput;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1af5bcd999929f260a608bc351a85951e15082f85e8ee46fda3cd37e57423778
+size 663

@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
-.super Ljava/lang/Object;
-.source "TimePickerView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/timepicker/TimePickerView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "OnDoubleTapListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onDoubleTap()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e9b857ebd361b7d3976ea229bd563f08a8595ef55da81884669bfe4a6ed3025e
+size 507

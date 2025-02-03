@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/MediaSourceList$MediaSourceListInfoRefreshListener;
-.super Ljava/lang/Object;
-.source "MediaSourceList.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/MediaSourceList;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "MediaSourceListInfoRefreshListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onPlaylistUpdateRequested()V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:43546676a5e3814f25765cb8c085c9387c1febfee8f004ea73190a144ae7c362
+size 543

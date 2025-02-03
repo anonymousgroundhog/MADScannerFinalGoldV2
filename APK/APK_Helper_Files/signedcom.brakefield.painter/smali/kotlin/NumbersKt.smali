@@ -1,32 +1,3 @@
-.class public final Lkotlin/NumbersKt;
-.super Lkotlin/NumbersKt__NumbersKt;
-
-
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "kotlin/NumbersKt__BigDecimalsKt",
-        "kotlin/NumbersKt__BigIntegersKt",
-        "kotlin/NumbersKt__FloorDivModKt",
-        "kotlin/NumbersKt__NumbersJVMKt",
-        "kotlin/NumbersKt__NumbersKt"
-    }
-    k = 0x4
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x31
-.end annotation
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    .line 1
-    invoke-direct {p0}, Lkotlin/NumbersKt__NumbersKt;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:22a4db2e696a107590261b663426a330d99d40cc045ded85a1c0ba87d13496a0
+size 631

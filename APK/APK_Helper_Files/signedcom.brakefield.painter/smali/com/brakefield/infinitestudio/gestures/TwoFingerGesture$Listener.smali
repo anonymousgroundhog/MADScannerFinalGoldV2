@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/gestures/TwoFingerGesture$Listener;
-.super Ljava/lang/Object;
-.source "TwoFingerGesture.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/gestures/TwoFingerGesture;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Listener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onUpdate(Lcom/brakefield/infinitestudio/gestures/TwoFingerGesture;[Lcom/brakefield/infinitestudio/sketchbook/Pointer;[Lcom/brakefield/infinitestudio/sketchbook/Pointer;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:bdbf7f72619d76ac29bb3c10b77433a54138c2ead8363575a1cd924229cb569a
+size 654

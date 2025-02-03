@@ -1,27 +1,3 @@
-.class public final Landroidx/navigation/ui/R$integer;
-.super Ljava/lang/Object;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/navigation/ui/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "integer"
-.end annotation
-
-
-# static fields
-.field public static final config_navAnimTime:I = 0x7f0b0005
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:33eff3e560888b4dc6cb9ad65fda145af8f92e40c9cd5362ccbb50b33c5ac4bf
+size 551

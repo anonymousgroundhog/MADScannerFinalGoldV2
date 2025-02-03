@@ -1,19 +1,3 @@
-.class public interface abstract Landroidx/appcompat/app/ActionBarDrawerToggle$DelegateProvider;
-.super Ljava/lang/Object;
-.source "ActionBarDrawerToggle.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/appcompat/app/ActionBarDrawerToggle;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "DelegateProvider"
-.end annotation
-
-
-# virtual methods
-.method public abstract getDrawerToggleDelegate()Landroidx/appcompat/app/ActionBarDrawerToggle$Delegate;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f962d1ea52e5f31e4b184858da42829a2a11d91aa0531ae0f7a7f9111246c2c4
+size 563

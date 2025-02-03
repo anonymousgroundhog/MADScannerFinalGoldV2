@@ -1,24 +1,3 @@
-.class public interface abstract Lorg/ejml/interfaces/linsol/ReducedRowEchelonForm;
-.super Ljava/lang/Object;
-.source "ReducedRowEchelonForm.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T::",
-        "Lorg/ejml/data/Matrix;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract reduce(Lorg/ejml/data/Matrix;I)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;I)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c6040b264388dbb0a1277447eb94ff8c76de567e5a58e9b45f3c7584501f8e7c
+size 552

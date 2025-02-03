@@ -1,35 +1,3 @@
-.class final Lcom/bumptech/glide/GlideBuilder$ManualOverrideHardwareBitmapMaxFdCount;
-.super Ljava/lang/Object;
-.source "GlideBuilder.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/GlideExperiments$Experiment;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/GlideBuilder;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "ManualOverrideHardwareBitmapMaxFdCount"
-.end annotation
-
-
-# instance fields
-.field final fdCount:I
-
-
-# direct methods
-.method constructor <init>(I)V
-    .locals 0
-
-    .line 582
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 583
-    iput p1, p0, Lcom/bumptech/glide/GlideBuilder$ManualOverrideHardwareBitmapMaxFdCount;->fdCount:I
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:b343bda0a582a365d27cfc3217fd60e033baad3efb14dbb2d395933c3276abd4
+size 810

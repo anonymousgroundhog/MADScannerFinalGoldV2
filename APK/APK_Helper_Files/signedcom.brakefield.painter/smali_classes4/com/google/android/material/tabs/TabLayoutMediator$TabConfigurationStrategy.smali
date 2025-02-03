@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;
-.super Ljava/lang/Object;
-.source "TabLayoutMediator.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/tabs/TabLayoutMediator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "TabConfigurationStrategy"
-.end annotation
-
-
-# virtual methods
-.method public abstract onConfigureTab(Lcom/google/android/material/tabs/TabLayout$Tab;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:96efbdccdf6d8805a9fbe4ab8c0436327e3c9ad5a2930a29b76163b3cbe6b83d
+size 573

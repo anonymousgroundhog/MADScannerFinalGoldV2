@@ -1,8 +1,3 @@
-.class public interface abstract Landroidx/core/view/OnApplyWindowInsetsListener;
-.super Ljava/lang/Object;
-.source "OnApplyWindowInsetsListener.java"
-
-
-# virtual methods
-.method public abstract onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbe1c4a491e854843a048601f1c949b1408086fb2c37df21b0723ae28f132235
+size 326

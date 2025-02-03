@@ -1,21 +1,3 @@
-.class public interface abstract annotation Ljavax/annotation/concurrent/NotThreadSafe;
-.super Ljava/lang/Object;
-.source "NotThreadSafe.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation runtime Ljava/lang/annotation/Documented;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e6d9d0d2c001f48f607699b93b8d6af00ddc3756cea56d31055640d64f942f6
+size 639

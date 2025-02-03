@@ -1,22 +1,3 @@
-.class public Lcom/google/api/client/auth/oauth/OAuthAuthorizeTemporaryTokenUrl;
-.super Lcom/google/api/client/http/GenericUrl;
-.source "OAuthAuthorizeTemporaryTokenUrl.java"
-
-
-# instance fields
-.field public temporaryToken:Ljava/lang/String;
-    .annotation runtime Lcom/google/api/client/util/Key;
-        value = "oauth_token"
-    .end annotation
-.end field
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-
-    .line 50
-    invoke-direct {p0, p1}, Lcom/google/api/client/http/GenericUrl;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:7524d82f825dd46d722fd45b482934546603871acce025066a47a8ff05f721b7
+size 589

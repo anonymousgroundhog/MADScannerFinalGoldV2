@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/NotificationCompat$StreamType;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "StreamType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:39abfed7cf3bb8a96b32ba576c481523160651a9dc7166893648a3ebc4abf81e
+size 641

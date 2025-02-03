@@ -1,26 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/drm/MediaDrmCallback;
-.super Ljava/lang/Object;
-.source "MediaDrmCallback.java"
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
-# virtual methods
-.method public abstract executeKeyRequest(Ljava/util/UUID;Lcom/google/android/exoplayer2/drm/ExoMediaDrm$KeyRequest;)[B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/exoplayer2/drm/MediaDrmCallbackException;
-        }
-    .end annotation
-.end method
-
-.method public abstract executeProvisionRequest(Ljava/util/UUID;Lcom/google/android/exoplayer2/drm/ExoMediaDrm$ProvisionRequest;)[B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/google/android/exoplayer2/drm/MediaDrmCallbackException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:111bfab58294391db5fdec938a55ed7f1bc08d67b75ced053c50bcf806eeef2f
+size 860

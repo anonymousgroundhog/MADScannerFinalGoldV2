@@ -1,29 +1,3 @@
-.class public interface abstract annotation Lcom/google/errorprone/annotations/DoNotCall;
-.super Ljava/lang/Object;
-.source "DoNotCall.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/AnnotationDefault;
-    value = .subannotation Lcom/google/errorprone/annotations/DoNotCall;
-        value = ""
-    .end subannotation
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Target;
-    value = {
-        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract value()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:28cd8f137de5bcd1c6d978c16f9f29da6e084e85aa7f6eda4170d02e951749da
+size 839

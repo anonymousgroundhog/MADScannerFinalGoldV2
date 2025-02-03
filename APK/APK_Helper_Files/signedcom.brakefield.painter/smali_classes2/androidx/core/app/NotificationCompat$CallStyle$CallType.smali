@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/core/app/NotificationCompat$CallStyle$CallType;
-.super Ljava/lang/Object;
-.source "NotificationCompat.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat$CallStyle;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "CallType"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:decd835f2fbb675c48d8446ecd02222b4c7122213817fc82dd4bf6b8b57019a0
+size 657

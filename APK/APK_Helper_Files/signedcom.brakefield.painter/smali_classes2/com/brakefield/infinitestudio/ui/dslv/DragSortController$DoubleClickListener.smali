@@ -1,22 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/dslv/DragSortController$DoubleClickListener;
-.super Ljava/lang/Object;
-.source "DragSortController.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/dslv/DragSortController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "DoubleClickListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract confirmTap(I)Z
-.end method
-
-.method public abstract onClick(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:442bb816c60ab1a22b4d067165d9a971b7ff0f30f988e84021b5514b13e70430
+size 573

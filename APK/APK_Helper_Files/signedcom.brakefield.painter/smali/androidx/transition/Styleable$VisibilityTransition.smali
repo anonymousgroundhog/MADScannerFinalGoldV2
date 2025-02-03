@@ -1,18 +1,3 @@
-.class interface abstract Landroidx/transition/Styleable$VisibilityTransition;
-.super Ljava/lang/Object;
-.source "Styleable.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/transition/Styleable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "VisibilityTransition"
-.end annotation
-
-
-# static fields
-.field public static final TRANSITION_VISIBILITY_MODE:I
+version https://git-lfs.github.com/spec/v1
+oid sha256:e79a17035a6dd9f9132530d63360f767c54ba117d4c1811ea6cd9d4f768a1c93
+size 459

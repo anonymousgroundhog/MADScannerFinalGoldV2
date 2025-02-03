@@ -1,12 +1,3 @@
-.class public final Landroidx/tracing/R;
-.super Ljava/lang/Object;
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:859f819ba32a55c2f4e71c8cfdd3890787f6e76ad617f8a5bc0eccaabb750b5b
+size 222

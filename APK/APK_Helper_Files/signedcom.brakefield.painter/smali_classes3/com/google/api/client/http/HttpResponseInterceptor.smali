@@ -1,13 +1,3 @@
-.class public interface abstract Lcom/google/api/client/http/HttpResponseInterceptor;
-.super Ljava/lang/Object;
-.source "HttpResponseInterceptor.java"
-
-
-# virtual methods
-.method public abstract interceptResponse(Lcom/google/api/client/http/HttpResponse;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8ad384a5538a56445399aa4a56ea8d9442d1f0924342bb3b72a108f7f89782d
+size 401

@@ -1,24 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/components/OnChange;
-.super Ljava/lang/Object;
-.source "OnChange.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract change(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f9081505ec89350fca2e7daa9c3186c8822dd70a5edd52e5f63d764b97ea123
+size 532

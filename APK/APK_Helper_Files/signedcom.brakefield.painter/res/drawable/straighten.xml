@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:name="vector" android:height="96.0dip" android:width="96.0dip" android:viewportWidth="96.0" android:viewportHeight="96.0"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:name="path" android:fillColor="#ff000000" android:pathData="M 29.482 35.833 C 28.415 36.119 27.782 37.215 28.068 38.282 L 29.6 44 L 33.741 44 L 32.45 39.179 L 57.564 32.45 L 60.658 44 L 64.8 44 L 60.91 29.482 C 60.624 28.415 59.527 27.782 58.46 28.068 L 29.482 35.833 Z M 66.943 52 L 62.802 52 L 64.293 57.563 L 39.179 64.293 L 35.885 52 L 31.744 52 L 35.833 67.26 C 36.119 68.327 37.215 68.96 38.282 68.674 L 67.26 60.91 C 68.327 60.624 68.96 59.527 68.674 58.46 L 66.943 52 Z M 30 49 L 39 49 L 39 47 L 30 47 L 30 49 Z M 43.5 49 L 52.5 49 L 52.5 47 L 43.5 47 L 43.5 49 Z M 57 49 L 66 49 L 66 47 L 57 47 L 57 49 Z" android:strokeWidth="1.0" android:fillType="evenOdd" />
-</vector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:008d200732d11c5ac045aed6b5ca3d15339d353048ee56fa26626f97447ea5a3
+size 937

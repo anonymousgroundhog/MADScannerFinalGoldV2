@@ -1,32 +1,3 @@
-.class public Lcom/infinite/core/NativeObject$OverrideMethodException;
-.super Ljava/lang/Exception;
-.source "NativeObject.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/infinite/core/NativeObject;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
-    name = "OverrideMethodException"
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Lcom/infinite/core/NativeObject;
-
-
-# direct methods
-.method public constructor <init>(Lcom/infinite/core/NativeObject;Ljava/lang/String;)V
-    .locals 0
-
-    .line 66
-    iput-object p1, p0, Lcom/infinite/core/NativeObject$OverrideMethodException;->this$0:Lcom/infinite/core/NativeObject;
-
-    .line 67
-    invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:33660b723f0e27d04c5389b5156836795da3c4d513b667bfbd7134171a5385a1
+size 846

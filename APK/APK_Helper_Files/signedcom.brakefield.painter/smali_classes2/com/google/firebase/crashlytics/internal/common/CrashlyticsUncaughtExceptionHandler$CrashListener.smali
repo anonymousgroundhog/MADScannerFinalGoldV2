@@ -1,19 +1,3 @@
-.class interface abstract Lcom/google/firebase/crashlytics/internal/common/CrashlyticsUncaughtExceptionHandler$CrashListener;
-.super Ljava/lang/Object;
-.source "CrashlyticsUncaughtExceptionHandler.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/firebase/crashlytics/internal/common/CrashlyticsUncaughtExceptionHandler;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
-    name = "CrashListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onUncaughtException(Lcom/google/firebase/crashlytics/internal/settings/SettingsProvider;Ljava/lang/Thread;Ljava/lang/Throwable;)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2d4a1e3fa3f845af93598d4d0086fe423fda3fa06d25bf3c47a6f967b573734
+size 691

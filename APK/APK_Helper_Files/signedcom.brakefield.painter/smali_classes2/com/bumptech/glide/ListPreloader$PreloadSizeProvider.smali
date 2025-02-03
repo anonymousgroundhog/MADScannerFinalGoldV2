@@ -1,33 +1,3 @@
-.class public interface abstract Lcom/bumptech/glide/ListPreloader$PreloadSizeProvider;
-.super Ljava/lang/Object;
-.source "ListPreloader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/bumptech/glide/ListPreloader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "PreloadSizeProvider"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
-
-
-# virtual methods
-.method public abstract getPreloadSize(Ljava/lang/Object;II)[I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;II)[I"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:10a156319ce1d6aaf0f68652ed91bd6e02872b14f99f765d37d55e1a945dd0fb
+size 793

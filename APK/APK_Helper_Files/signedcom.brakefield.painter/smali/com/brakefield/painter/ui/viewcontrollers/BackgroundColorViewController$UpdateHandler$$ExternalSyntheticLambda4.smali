@@ -1,36 +1,3 @@
-.class public final synthetic Lcom/brakefield/painter/ui/viewcontrollers/BackgroundColorViewController$UpdateHandler$$ExternalSyntheticLambda4;
-.super Ljava/lang/Object;
-.source "D8$$SyntheticClass"
-
-# interfaces
-.implements Lcom/brakefield/infinitestudio/ui/components/OnChange;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/brakefield/painter/databinding/BackgroundColorViewControllerBinding;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lcom/brakefield/painter/databinding/BackgroundColorViewControllerBinding;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/brakefield/painter/ui/viewcontrollers/BackgroundColorViewController$UpdateHandler$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/databinding/BackgroundColorViewControllerBinding;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final change(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/brakefield/painter/ui/viewcontrollers/BackgroundColorViewController$UpdateHandler$$ExternalSyntheticLambda4;->f$0:Lcom/brakefield/painter/databinding/BackgroundColorViewControllerBinding;
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-static {v0, p1}, Lcom/brakefield/painter/ui/viewcontrollers/BackgroundColorViewController$UpdateHandler;->lambda$new$4(Lcom/brakefield/painter/databinding/BackgroundColorViewControllerBinding;Ljava/lang/Float;)V
-
-    return-void
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:1adfbcdc66a44a29c0a44aea20d32c082f86c007da5589fd1aa11e6de581c8b4
+size 1455

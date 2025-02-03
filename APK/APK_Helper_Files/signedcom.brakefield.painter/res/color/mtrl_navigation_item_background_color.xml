@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="?colorPrimary" android:state_activated="true" android:alpha="0.12" />
-    <item android:state_checked="true" android:color="?colorPrimary" android:alpha="0.12" />
-    <item android:color="@android:color/transparent" />
-</selector>
+version https://git-lfs.github.com/spec/v1
+oid sha256:729ae7c2ba5b7f282a3dba1568affb62a669418c068ae206659df13c59094ac0
+size 366

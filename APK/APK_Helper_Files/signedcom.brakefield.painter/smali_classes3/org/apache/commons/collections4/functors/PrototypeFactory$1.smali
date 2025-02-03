@@ -1,14 +1,3 @@
-.class synthetic Lorg/apache/commons/collections4/functors/PrototypeFactory$1;
-.super Ljava/lang/Object;
-.source "PrototypeFactory.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/apache/commons/collections4/functors/PrototypeFactory;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ea334ccc1b89097102be6528f737e897810c3b90ed58cc44cceccfb1cc21bf7
+size 403

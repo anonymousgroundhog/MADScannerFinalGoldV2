@@ -1,21 +1,3 @@
-.class public interface abstract annotation Landroidx/viewpager2/widget/ViewPager2$ScrollState;
-.super Ljava/lang/Object;
-.source "ViewPager2.java"
-
-# interfaces
-.implements Ljava/lang/annotation/Annotation;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/viewpager2/widget/ViewPager2;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2609
-    name = "ScrollState"
-.end annotation
-
-.annotation runtime Ljava/lang/annotation/Retention;
-    value = .enum Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
-.end annotation
+version https://git-lfs.github.com/spec/v1
+oid sha256:25fd43256cff6e6374e18462be2888dfbaa40ccd5da6baf6b71a4eec1bb6a5da
+size 637

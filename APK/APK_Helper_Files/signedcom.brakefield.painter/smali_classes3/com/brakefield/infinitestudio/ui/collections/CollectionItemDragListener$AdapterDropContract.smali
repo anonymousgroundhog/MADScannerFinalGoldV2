@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/infinitestudio/ui/collections/CollectionItemDragListener$AdapterDropContract;
-.super Ljava/lang/Object;
-.source "CollectionItemDragListener.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/brakefield/infinitestudio/ui/collections/CollectionItemDragListener;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "AdapterDropContract"
-.end annotation
-
-
-# virtual methods
-.method public abstract onItemDropped(Ljava/lang/Object;I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4daf3a4ae495413a12c7494f99d7f997842afc137b9eb549572dba0dd2f4cbf
+size 583

@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/ui/PlayerControlView$VisibilityListener;
-.super Ljava/lang/Object;
-.source "PlayerControlView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/ui/PlayerControlView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "VisibilityListener"
-.end annotation
-
-
-# virtual methods
-.method public abstract onVisibilityChange(I)V
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:82c8a711f8963ec899de13ebbfc4872e8af0d3aab8cfd01d453a78886f49e4fd
+size 517

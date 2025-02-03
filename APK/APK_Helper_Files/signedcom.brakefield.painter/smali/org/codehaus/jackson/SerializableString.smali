@@ -1,20 +1,3 @@
-.class public interface abstract Lorg/codehaus/jackson/SerializableString;
-.super Ljava/lang/Object;
-.source "SerializableString.java"
-
-
-# virtual methods
-.method public abstract asQuotedChars()[C
-.end method
-
-.method public abstract asQuotedUTF8()[B
-.end method
-
-.method public abstract asUnquotedUTF8()[B
-.end method
-
-.method public abstract charLength()I
-.end method
-
-.method public abstract getValue()Ljava/lang/String;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:91e5b5027bdffe67d3382cebe7420928094885d501abe55da040ad5bb077ad5a
+size 436

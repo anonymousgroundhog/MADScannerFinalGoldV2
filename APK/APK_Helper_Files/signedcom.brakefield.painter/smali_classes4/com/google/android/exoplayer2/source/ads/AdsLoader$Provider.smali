@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/google/android/exoplayer2/source/ads/AdsLoader$Provider;
-.super Ljava/lang/Object;
-.source "AdsLoader.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/exoplayer2/source/ads/AdsLoader;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
-    name = "Provider"
-.end annotation
-
-
-# virtual methods
-.method public abstract getAdsLoader(Lcom/google/android/exoplayer2/MediaItem$AdsConfiguration;)Lcom/google/android/exoplayer2/source/ads/AdsLoader;
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:72f618d5d1e5680b32447949d1b0f1ce4fa2e102e154a3e06536d00138a1de69
+size 591

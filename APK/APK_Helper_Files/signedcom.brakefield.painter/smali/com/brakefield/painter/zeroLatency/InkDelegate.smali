@@ -1,19 +1,3 @@
-.class public interface abstract Lcom/brakefield/painter/zeroLatency/InkDelegate;
-.super Ljava/lang/Object;
-.source "InkDelegate.java"
-
-
-# virtual methods
-.method public abstract drawInk(Landroid/graphics/Canvas;Lcom/brakefield/painter/zeroLatency/InkPoint;Ljava/util/List;Z)Landroid/graphics/Rect;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/graphics/Canvas;",
-            "Lcom/brakefield/painter/zeroLatency/InkPoint;",
-            "Ljava/util/List<",
-            "Lcom/brakefield/painter/zeroLatency/InkPoint;",
-            ">;Z)",
-            "Landroid/graphics/Rect;"
-        }
-    .end annotation
-.end method
+version https://git-lfs.github.com/spec/v1
+oid sha256:8a32a2f31135fb92c65589bbfdc0a617c735aa479cb19cb3bed294842d43ddf0
+size 682
