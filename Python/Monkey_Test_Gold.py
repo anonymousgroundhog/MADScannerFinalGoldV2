@@ -69,4 +69,21 @@ for file in os.listdir():
 		os.chdir(file)
 		main_activity = Get_Main_Activity(file)
 		main_class = Get_Main_Class(file)
+		# MAKE SURE SIGNED FILE EXISTS
+		signed_file = ''.join(['signed',file])
+		if os.path.isfile(signed_file):
+			phone_name=Get_Phone_Name()
+			processname = 'appium'
+			appium_process = os.popen("ps -Af").read()
+			proccount = appium_process.count(processname)
+			if phone_name != "" and proccount != 0:
+				cprint(' '.join(['File:',signed_file]),'yellow')
+				cprint(phone_name,'yellow')
+				cprint(' '.join(['Main activity:', main_activity]), 'yellow')
+				cprint(' '.join(['Main class:', main_class]), 'yellow')
+				cprint('RUNNING Monkey TEST', 'green')
+			else:
+				cprint("Error!!!", 'yellow')
+				cprint('Make sure appium server is running, emulator android device is running, and retry again!!!', 'yellow')
+
 		os.chdir("../")
