@@ -1,0 +1,72 @@
+# THIS FILE IS SPECIFICALLY FOR MONKEY TESTING EACH APP AND LOGGING THE DETAILS
+import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob, numpy as np
+from termcolor import colored, cprint
+from subprocess import run
+# Android environment
+from appium import webdriver
+from appium.webdriver.common.touch_action import TouchAction
+from xml.etree import ElementTree as ET
+from appium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+from ppadb.client import Client as AdbClient
+
+
+def Stop_Logcat():
+	os.system('pkill adb')
+
+def Set_Capabilities(phone_name, package_name, main_activity, this_file_path):
+		cprint('\n\tSetting Capabilities!!!', 'cyan')
+		# cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
+		cprint(os.getcwd(),'green')
+		desired_caps = {}
+		desired_caps['platformName'] = 'Android'
+		# desired_caps['platformVersion'] = '33'
+		# desired_caps['automationName'] = 'uiautomator2'
+		desired_caps['deviceName'] =  phone_name #'7040018020065015'
+		desired_caps['appPackage'] = package_name
+		desired_caps['appActivity'] = main_activity
+		desired_caps['appium:wdaStartupRetries'] = '6'
+
+		desired_caps['adbExecTimeout'] = '120000'
+		# desired_caps['app'] = this_file_path
+		appium_server_url = 'http://localhost:4723/wd/hub'
+		driver = webdriver.Remote(appium_server_url, desired_caps)
+		return driver
+
+def Get_Phone_Name():
+	try:
+		phone_name=subprocess.run(['adb', 'devices'], stdout=subprocess.PIPE)
+		phone_name=str(phone_name.stdout.decode('utf-8')).replace("\n","").replace("List of devices attached","").replace("device","").replace('\t','')
+		# if phone_name.__contains__('offline'):
+		# 	print('emulator offline!!!', 'red')
+		# 	phone_name=''
+	except:
+		# print('No Phone Found!!!', 'red')
+		phone_name=''
+	return phone_name
+
+def Get_Main_Activity(this_file):
+	# print(os.getcwd())
+	str_cmd = ' '.join(['aapt dump badging', this_file, '| grep launchable'])
+	cmd=os.popen(str_cmd).read().replace('launchable-activity: name=', '').split(' ')[0].replace("'",'')
+	# cprint(cmd, 'cyan')
+	return cmd
+
+def Get_Main_Class(this_file):
+	# print(os.getcwd())
+	str_cmd = ' '.join(['aapt dump badging', this_file, '| grep package'])
+	cmd=os.popen(str_cmd).read().replace('package:', '').split(' ')[1].replace('name=','').replace("'",'')
+	# cprint(cmd, 'cyan')
+	return cmd
+
+os.system('clear')
+# os.chdir('../')
+cwd=os.getcwd()
+os.chdir('../Java/Classes')
+for file in os.listdir():
+	if not os.path.isfile(file):
+		os.chdir(file)
+		main_activity = Get_Main_Activity(file)
+		main_class = Get_Main_Class(file)
+		os.chdir("../")
