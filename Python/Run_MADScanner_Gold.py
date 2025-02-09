@@ -1,5 +1,5 @@
 # THIS FILE IS FOR RUNNING THE FRAMEWORK ON EACH APK FILE, ZIPPING, AND FINALLY ALIGNING THE FILE IN THE Java/Classes directory
-import os, subprocess, traceback, hashlib, shutil
+import os, subprocess, traceback, hashlib, shutil, pandas as pd
 import Helper, MADScanner
 from termcolor import colored, cprint
 from subprocess import run

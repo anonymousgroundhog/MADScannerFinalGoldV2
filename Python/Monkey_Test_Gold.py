@@ -1,24 +1,27 @@
 # THIS FILE IS SPECIFICALLY FOR MONKEY TESTING EACH APP AND LOGGING THE DETAILS
 import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob, numpy as np
+import unittest
 from termcolor import colored, cprint
 from subprocess import run
 # Android environment
+# from appium import webdriver
+# from appium.webdriver.common.touch_action import TouchAction
+# from xml.etree import ElementTree as ET
+# from appium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.common.exceptions import NoSuchElementException
+# from ppadb.client import Client as AdbClient
+# from appium.options.android import UiAutomator2Options
 from appium import webdriver
-from appium.webdriver.common.touch_action import TouchAction
-from xml.etree import ElementTree as ET
-from appium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
-from ppadb.client import Client as AdbClient
+from appium.webdriver.common.appiumby import AppiumBy
 
-
+# Import Appium UiAutomator2 driver for Android platforms (AppiumOptions)
+from appium.options.android import UiAutomator2Options
+from path import Path
 def Stop_Logcat():
 	os.system('pkill adb')
 
 def Set_Capabilities(phone_name, package_name, main_activity, this_file_path):
-		cprint('\n\tSetting Capabilities!!!', 'cyan')
-		# cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
-		cprint(os.getcwd(),'green')
 		desired_caps = {}
 		desired_caps['platformName'] = 'Android'
 		# desired_caps['platformVersion'] = '33'
@@ -31,7 +34,12 @@ def Set_Capabilities(phone_name, package_name, main_activity, this_file_path):
 		desired_caps['adbExecTimeout'] = '120000'
 		# desired_caps['app'] = this_file_path
 		appium_server_url = 'http://localhost:4723/wd/hub'
-		driver = webdriver.Remote(appium_server_url, desired_caps)
+		
+
+		options = UiAutomator2Options()
+		options.load_capabilities(desired_caps)
+		driver = webdriver.Remote(appium_server_url, options=options)
+
 		return driver
 
 def Get_Phone_Name():
@@ -82,6 +90,19 @@ for file in os.listdir():
 				cprint(' '.join(['Main activity:', main_activity]), 'yellow')
 				cprint(' '.join(['Main class:', main_class]), 'yellow')
 				cprint('RUNNING Monkey TEST', 'green')
+				# try:
+				cmd= ' '.join(['adb install-multiple', signed_file])
+				os.system(cmd)
+				print('\n\tSetting Capabilities!!!', 'cyan')
+				# cprint(''.join(['\nSetting capabilities for dir:', os.getcwd()]), 'cyan')
+				cprint(os.getcwd(),'green')
+				Set_Capabilities(phone_name,main_class,main_activity,signed_file)
+				time.sleep(5)
+				# except:
+				# 	cprint('Unable to install'+signed_file, 'yellow')
+				cmd = ' '.join(['adb uninstall', main_class])
+				os.system(cmd)
+
 			else:
 				cprint("Error!!!", 'yellow')
 				cprint('Make sure appium server is running, emulator android device is running, and retry again!!!', 'yellow')
