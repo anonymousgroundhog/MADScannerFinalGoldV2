@@ -44,14 +44,20 @@ def Get_Phone_Name():
 def Get_Main_Activity(this_file):
 	# print(os.getcwd())
 	str_cmd = ' '.join(['aapt dump badging', this_file, '| grep launchable'])
-	cmd=os.popen(str_cmd).read().replace('launchable-activity: name=', '').split(' ')[0].replace("'",'')
+	try:
+		cmd=os.popen(str_cmd).read().replace('launchable-activity: name=', '').split(' ')[0].replace("'",'')
+	except:
+		cmd=''
 	# cprint(cmd, 'cyan')
 	return cmd
 
 def Get_Main_Class(this_file):
 	# print(os.getcwd())
 	str_cmd = ' '.join(['aapt dump badging', this_file, '| grep package'])
-	cmd=os.popen(str_cmd).read().replace('package:', '').split(' ')[1].replace('name=','').replace("'",'')
+	try:
+		cmd=os.popen(str_cmd).read().replace('package:', '').split(' ')[1].replace('name=','').replace("'",'')
+	except:
+		cmd=''
 	# cprint(cmd, 'cyan')
 	return cmd
 
@@ -110,15 +116,18 @@ os.system('clear')
 cwd=os.getcwd()
 Start_Logcat('../Data/Logs')
 os.chdir('../Java/Classes')
-
+app_counter=0
 for file in os.listdir():
+	app_counter+=1
+	number_of_apps=len(os.listdir())
+	cprint(' '.join(['Running app:',str(app_counter),'/',str(number_of_apps)]),'yellow')
 	if not os.path.isfile(file):
 		os.chdir(file)
 		main_activity = Get_Main_Activity(file)
 		main_class = Get_Main_Class(file)
 		# MAKE SURE SIGNED FILE EXISTS
 		signed_file = ''.join(['signed',file])
-		if os.path.isfile(signed_file):
+		if os.path.isfile(signed_file) and main_class != '' and main_activity != '':
 			phone_name=Get_Phone_Name()
 			processname = 'appium'
 			appium_process = os.popen("ps -Af").read()
@@ -154,7 +163,6 @@ for file in os.listdir():
 			else:
 				cprint("Error!!!", 'yellow')
 				cprint('Make sure appium server is running, emulator android device is running, and retry again!!!', 'yellow')
-
 		os.chdir("../")
 
 os.chdir(cwd)

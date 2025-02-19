@@ -69,6 +69,6 @@ os.system('clear')
 cwd=os.getcwd()
 # ## MAKE SURE YOU ARE IN THE DIRECTORY PYTHON
 os.chdir(cwd)
-Run_MADScanner_On_Apps_Gold('Google_Play','Google_Play', 'dex')
+Run_MADScanner_On_Apps_Gold('Testing_Google_Ads_Logs','Testing_Google_Ads_Logs', 'dex')
 Remove_Emtpy_Folders_From_sootOutputFolder()
 Zip_And_Sign_APK_In_SootOutput_Folder()
