@@ -83,33 +83,26 @@ def Get_API_Level_For_APK(df):
 	os.chdir(cwd)
 	return(df)
 
-def Scrape_Google_Play(main_class):
-	try:
-		result = app( main_class, lang='en', # defaults to 'en'
+def Check_If_App_Has_Ads(df):
+	#SCRAPE BASED ON MAIN_CLASS
+	df['Has_Ads']=None
+	print(df)
+	for index,row in df.iterrows():
+		result = app(
+		    row['Main_Class'],
+		    lang='en', # defaults to 'en'
 		    country='us' # defaults to 'us'
 		)
-		return result
-	except:
-		return None
+		print(row)
+		try:
+			has_ads=result['containsAds']
+			print(has_ads)
+		except:
+			has_ads=False
 
 df = pd.DataFrame(columns=['File','Folder','Status']) 
 os.system('clear')
 #Copy_Files_To_Monkey_Testing_Folder('APK_Files_To_Monkey_Test')
 df=Check_Files_In_Folder_Have_Main_Activity('APK_Files_To_Monkey_Test', df)
 df = Get_API_Level_For_APK(df)
-
-df['Has_Ads']=None
-df['App_Category']=None
-for index,row in df.iterrows():
-	main_class=row['Main_Class']
-	print(main_class)
-	result=Scrape_Google_Play(main_class)
-	if result != None:
-		has_ads=result['containsAds']
-		app_category=str(result['categories'])
-		df.loc[index, 'Has_Ads']=has_ads
-		df.loc[index, 'App_Category']=app_category
-
-#df = Check_If_App_Has_Ads(df)
-#df = Get_App_Category(df)
-print(df)
+df = Check_If_App_Has_Ads(df)
