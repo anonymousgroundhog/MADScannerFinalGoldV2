@@ -1,4 +1,4 @@
-import os, subprocess, traceback, hashlib, shutil, time, pandas as pd, glob, numpy as np
+import os, shutil, time, pandas as pd 
 
 from termcolor import colored, cprint
 
@@ -41,10 +41,11 @@ def Copy_Files_To_Monkey_Testing_Folder(this_folder):
 						shutil.copyfile(this_file,dst, follow_symlinks=True)
 					except:
 						continue
+					shutil.rmtree('../'+file)
 			os.chdir('../')
 	os.chdir(cwd)
 
-def Check_Files_In_Folder(this_folder):
+def Check_Files_In_Folder_Have_Main_Activity(this_folder, df):
 	cwd=os.getcwd()
 	this_path='/'.join(['../Java/Classes',this_folder])
 	try:
@@ -55,12 +56,20 @@ def Check_Files_In_Folder(this_folder):
 			if main_activity != '' and main_class != '':
 				cprint(' '.join([this_file,'pass']), 'green')
 				print(main_activity, main_class)
+				new_row = pd.DataFrame([{'File': this_file, 'Folder': this_folder, 'Status': 'passed'}])
+				df = pd.concat([df, new_row], ignore_index=True)
 			else:
+				new_row = pd.DataFrame([{'File': this_file, 'Folder': this_folder, 'Status': 'failed'}])
+				df = pd.concat([df, new_row], ignore_index=True)
 				cprint(' '.join([this_file,'fail']), 'red')
 		os.chdir(cwd)
 	except:
 		cprint(''.join(['no directory for:',this_path]), 'yellow')
+	return df
 
+
+df = pd.DataFrame(columns=['File','Folder','Status']) 
 os.system('clear')
-#Copy_Files_To_Monkey_Testing_Folder('APK_Files_To_Monkey_Test')
-Check_Files_In_Folder('APK_Files_To_Monkey_Test')
+Copy_Files_To_Monkey_Testing_Folder('APK_Files_To_Monkey_Test')
+#df=Check_Files_In_Folder_Have_Main_Activity('APK_Files_To_Monkey_Test', df)
+print(df)
