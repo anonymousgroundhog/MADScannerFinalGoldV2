@@ -74,7 +74,7 @@ signedreceipt_maker.apk,APK_Files_To_Monkey_Test,passed,com.svgapps.android.rece
 signedsimple_voice_recorder.apk,APK_Files_To_Monkey_Test,failed,,,34,,
 signedword_riddles.apk,APK_Files_To_Monkey_Test,passed,com.unity3d.player.UnityPlayerActivity,word.riddles.guess.brain.test.tricky.puzzle.quiz.game.free,33,True,"['Trivia', 'Multiple-choice', 'Casual', 'Single player', 'Offline']"
 signedbrave_web_browser.apk,APK_Files_To_Monkey_Test,failed,,,35,,
-signedpubg_mobile.apk,APK_Files_To_Monkey_Test,passed,com.epicgames.ue4.SplashActivity,com.tencent.ig,34,True,"['Action', 'Shooter', 'Tactical shooter', 'Multiplayer', 'Competitive multiplayer', 'Realistic', 'Weapons', 'Gun', 'Battling']"
+signedpubg_mobile.apk,APK_Files_To_Monkey_Test,passed,com.epicgames.ue4.SplashActivity,com.tencent.ig,34,True,"['Action', 'Shooter', 'Tactical shooter', 'Multiplayer', 'Competitive multiplayer', 'Realistic', 'Battling', 'Weapons', 'Gun']"
 signedvideo_player_for_android.apk,APK_Files_To_Monkey_Test,passed,video.player.audio.player.music.activity.MainActivityEventBusPermissionAds,video.player.audio.player.music,34,True,['Video Players & Editors']
 signedinvitation_maker.apk,APK_Files_To_Monkey_Test,passed,com.ca.invitation.FirstActivity,com.invitation.maker.birthday.card,34,True,['Art & Design']
 signedgps_run_tracker.apk,APK_Files_To_Monkey_Test,passed,running.tracker.gps.map.activity.StartActivity,running.tracker.gps.map,34,True,['Health & Fitness']
