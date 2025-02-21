@@ -264,3 +264,4 @@ Blockchain_Smart_Contracts/MultiAppLogTracker.sol filter=lfs diff=lfs merge=lfs 
 Blockchain_Smart_Contracts/MultiAppLogTrackerV2.sol filter=lfs diff=lfs merge=lfs -text
 Androzoo/latest.csv filter=lfs diff=lfs merge=lfs -text
 Data/Androzoo/results.csv filter=lfs diff=lfs merge=lfs -text
+Java/Classses/APK_Files_To_Monkey_Test/* filter=lfs diff=lfs merge=lfs -text
