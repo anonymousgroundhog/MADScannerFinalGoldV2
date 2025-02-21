@@ -103,13 +103,19 @@ df['App_Category']=None
 for index,row in df.iterrows():
 	main_class=row['Main_Class']
 	print(main_class)
-	result=Scrape_Google_Play(main_class)
-	if result != None:
-		has_ads=result['containsAds']
-		app_category=str(result['categories'])
-		df.loc[index, 'Has_Ads']=has_ads
-		df.loc[index, 'App_Category']=app_category
+	if row['Status'] != 'failed':
+		result=Scrape_Google_Play(main_class)
+		if result != None:
+			has_ads=result['containsAds']
+			app_category = str([category["name"] for category in result["categories"]])
+			df.loc[index, 'Has_Ads']=has_ads
+			df.loc[index, 'App_Category']=app_category
+		else:
+			df.loc[index, 'Has_Ads']='unknown'
+	else:
+		cprint('skipping','yellow')
 
 #df = Check_If_App_Has_Ads(df)
 #df = Get_App_Category(df)
 print(df)
+df.to_csv("testing.csv", index=False)
