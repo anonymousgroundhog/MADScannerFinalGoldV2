@@ -22,3 +22,4 @@ Java/APK_Files_Signed_And_Injected_Logs/*/*.apk
 Java/Classes/sootOutput/*
 Java/Classes/*.apk
 Java/Classes/APK_Files_To_Monkey_Test/*.apk
+Java/Classes/APK_Files_To_Monkey_Test/APK_Files_To_Monkey_Test/*.apk
