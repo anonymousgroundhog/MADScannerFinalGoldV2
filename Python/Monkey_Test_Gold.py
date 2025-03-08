@@ -97,13 +97,13 @@ def User_Interact_With_App(driver):
 	source_xml = driver.page_source
 
 
-os.system('cls')
+os.system('clear')
 # os.chdir('../')
 cwd=os.getcwd()
 df = pd.read_csv('Monkey_Testing_CSV_Files/testing.csv')
 filtered_df = df[df['Status'] == 'passed']
 phone_name=Get_Phone_Name()
-#appium_process = os.popen("ps -Af").read()
+appium_process = os.popen("ps -Af").read()
 
 #Start_Logcat('../Data/Logs')
 for index, row in filtered_df.iterrows():
