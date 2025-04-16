@@ -105,7 +105,7 @@ filtered_df = df[df['Status'] == 'passed']
 phone_name=Get_Phone_Name()
 appium_process = os.popen("ps -Af").read()
 
-#Start_Logcat('../Data/Logs')
+Start_Logcat('../Data/Logs')
 for index, row in filtered_df.iterrows():
 	file_path='/'.join(['../Java/Classes',row['Folder'], row['File']])
 	cprint(row['File'],'green')
@@ -132,7 +132,7 @@ for index, row in filtered_df.iterrows():
 
 		cmd = ' '.join(['adb uninstall', row['Main_Class']])
 		os.system(cmd)
-	if index > 3:
-		break
+	# if index > 3:
+	# 	break
 
-#Stop_Logcat()		
+Stop_Logcat()		
