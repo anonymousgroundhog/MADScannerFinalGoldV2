@@ -794,9 +794,9 @@ public class SootInstrumentationHelper
     public static void Inject_Into_Google_Libs_Log_Message(List<SootClass> classes, String app_name_only, String hash){
         for(SootClass this_class : classes){
             for (SootMethod this_method : this_class.getMethods()){
-            String this_method_name = this_method.getName();
-            String this_class_name = this_class.getName();
-            Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
+                String this_method_name = this_method.getName();
+                String this_class_name = this_class.getName();
+                Inject_Log_Generic(app_name_only, hash, this_class_name, this_method_name, this_method);
             }
         }
     }

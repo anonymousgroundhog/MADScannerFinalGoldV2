@@ -90,7 +90,7 @@ def Start_Logcat(logcat_path):
 		
 def Stop_Logcat():
 	os.system('pkill adb')
-
+	
 def User_Interact_With_App(driver):
 	time.sleep(5)
 	click_on_button_by_class_permission(driver,"android.widget.Button")
